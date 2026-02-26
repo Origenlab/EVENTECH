@@ -6,6 +6,9 @@ export default defineConfig({
   // ─── Site URL ───
   site: "https://eventech.mx",
 
+  // ─── Output Mode ───
+  output: "static",
+
   // ─── Integrations ───
   integrations: [
     mdx(),

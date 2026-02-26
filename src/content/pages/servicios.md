@@ -3,13 +3,13 @@ title: "Servicios"
 description: "Desarrollo web profesional con Astro, optimización SEO, y diseño de experiencias digitales de alto rendimiento."
 hero:
   title: "Servicios de desarrollo web profesional"
-  description: "Desde el diseño hasta la implementación, construimos sitios rápidos que convierten visitantes en clientes."
+  subtitle: "Desde el diseño hasta la implementación, construimos sitios rápidos que convierten visitantes en clientes."
   primaryCTA:
     label: "Solicitar cotización"
-    href: "/contacto"
+    href: "/contacto/"
   secondaryCTA:
     label: "Ver blog"
-    href: "/blog"
+    href: "/blog/"
 ---
 
 ## Desarrollo web con Astro

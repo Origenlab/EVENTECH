@@ -3,10 +3,10 @@ title: "Nosotros"
 description: "Conoce quiénes somos, nuestra misión y los valores que nos impulsan a crear experiencias digitales excepcionales."
 hero:
   title: "Creamos experiencias digitales que importan"
-  description: "Somos un equipo apasionado por la tecnología y el diseño, dedicados a construir soluciones web de alto rendimiento."
+  subtitle: "Somos un equipo apasionado por la tecnología y el diseño, dedicados a construir soluciones web de alto rendimiento."
   primaryCTA:
     label: "Conoce nuestros servicios"
-    href: "/servicios"
+    href: "/servicios/"
 ---
 
 ## Nuestra historia
