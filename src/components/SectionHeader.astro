@@ -1,0 +1,145 @@
+---
+/**
+ * ─── SectionHeader Component ───
+ * Encabezado de sección en dos columnas:
+ * - Izquierda: Título + subtítulo
+ * - Derecha: Dos párrafos de marketing/SEO
+ */
+
+type Props = {
+  id?: string;
+  title: string;
+  subtitle: string;
+  description: string[];
+  variant?: "light" | "dark";
+};
+
+const {
+  id,
+  title,
+  subtitle,
+  description,
+  variant = "light",
+} = Astro.props;
+---
+
+<header class:list={["section-header", `section-header--${variant}`]}>
+  <div class="section-header__left">
+    <h2 id={id} class="section-header__title">{title}</h2>
+    <p class="section-header__subtitle">{subtitle}</p>
+  </div>
+
+  <div class="section-header__right">
+    {description.map((paragraph) => (
+      <p class="section-header__paragraph">{paragraph}</p>
+    ))}
+  </div>
+</header>
+
+<style>
+  .section-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: center;
+    margin-block-end: var(--space-3xl);
+  }
+
+  /* ── Left Column ── */
+  .section-header__left {
+    position: relative;
+  }
+
+  .section-header__title {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1.2;
+    margin-block-end: var(--space-md);
+  }
+
+  .section-header__subtitle {
+    font-size: var(--text-xl);
+    color: var(--color-text-light);
+    line-height: 1.4;
+    position: relative;
+    padding-inline-start: var(--space-lg);
+  }
+
+  .section-header__subtitle::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--gradient-accent);
+    border-radius: var(--radius-full);
+  }
+
+  /* ── Right Column ── */
+  .section-header__right {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .section-header__paragraph {
+    font-size: var(--text-base);
+    color: var(--color-text);
+    line-height: 1.7;
+  }
+
+  .section-header__paragraph:first-child {
+    font-size: var(--text-lg);
+    color: var(--color-text);
+  }
+
+  /* ── Dark Variant ── */
+  .section-header--dark .section-header__title {
+    color: white;
+  }
+
+  .section-header--dark .section-header__subtitle {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .section-header--dark .section-header__paragraph {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .section-header--dark .section-header__paragraph:first-child {
+    color: white;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .section-header {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+
+    .section-header__title {
+      font-size: var(--text-2xl);
+    }
+
+    .section-header__subtitle {
+      font-size: var(--text-lg);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .section-header__title {
+      font-size: var(--text-xl);
+    }
+
+    .section-header__subtitle {
+      font-size: var(--text-base);
+      padding-inline-start: var(--space-md);
+    }
+
+    .section-header__subtitle::before {
+      width: 3px;
+    }
+  }
+</style>

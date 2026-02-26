@@ -1,0 +1,223 @@
+---
+/**
+ * ─── CTABanner Component ───
+ * Banner de llamada a acción llamativo.
+ * Diseñado para captar atención y dirigir a páginas internas.
+ */
+
+type Props = {
+  headline?: string;
+  subheadline?: string;
+  primaryCTA?: { label: string; href: string };
+  secondaryCTA?: { label: string; href: string };
+  variant?: "default" | "dark" | "accent";
+};
+
+const {
+  headline = "¿Listo para hacer tu evento inolvidable?",
+  subheadline = "Cotiza sin compromiso y recibe una propuesta personalizada en menos de 24 horas",
+  primaryCTA = { label: "Ver nuestros servicios", href: "/servicios/" },
+  secondaryCTA = { label: "Contactar ahora", href: "/contacto/" },
+  variant = "default",
+} = Astro.props;
+---
+
+<section class:list={["cta-banner", `cta-banner--${variant}`]}>
+  <div class="container">
+    <div class="cta-banner__inner">
+      <div class="cta-banner__content">
+        <h2 class="cta-banner__headline">{headline}</h2>
+        <p class="cta-banner__subheadline">{subheadline}</p>
+      </div>
+
+      <div class="cta-banner__actions">
+        <a href={primaryCTA.href} class="cta-banner__btn cta-banner__btn--primary">
+          {primaryCTA.label}
+        </a>
+        <a href={secondaryCTA.href} class="cta-banner__btn cta-banner__btn--secondary">
+          {secondaryCTA.label}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative elements -->
+  <div class="cta-banner__decoration cta-banner__decoration--1" aria-hidden="true"></div>
+  <div class="cta-banner__decoration cta-banner__decoration--2" aria-hidden="true"></div>
+</section>
+
+<style>
+  .cta-banner {
+    position: relative;
+    padding-block: var(--space-2xl);
+    background: var(--gradient-primary);
+    overflow: hidden;
+  }
+
+  .cta-banner__inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-xl);
+  }
+
+  .cta-banner__content {
+    flex: 1;
+    max-width: 600px;
+  }
+
+  .cta-banner__headline {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: white;
+    margin-bottom: var(--space-sm);
+    line-height: 1.2;
+  }
+
+  .cta-banner__subheadline {
+    font-size: var(--text-base);
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+  }
+
+  .cta-banner__actions {
+    display: flex;
+    gap: var(--space-md);
+    flex-shrink: 0;
+  }
+
+  .cta-banner__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    font-size: var(--text-base);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+  }
+
+  .cta-banner__btn--primary {
+    background: var(--gradient-accent);
+    color: white;
+    box-shadow: var(--shadow-accent);
+  }
+
+  .cta-banner__btn--primary:hover {
+    background: var(--color-accent-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-accent-hover);
+  }
+
+  .cta-banner__btn--secondary {
+    background: var(--gradient-cta);
+    color: white;
+    box-shadow: var(--shadow-cta);
+  }
+
+  .cta-banner__btn--secondary:hover {
+    background: var(--color-cta-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-cta-hover);
+  }
+
+  /* Decorative elements */
+  .cta-banner__decoration {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .cta-banner__decoration--1 {
+    width: 300px;
+    height: 300px;
+    top: -150px;
+    right: -50px;
+    background: radial-gradient(circle, rgba(0, 184, 148, 0.2) 0%, transparent 70%);
+  }
+
+  .cta-banner__decoration--2 {
+    width: 250px;
+    height: 250px;
+    bottom: -120px;
+    left: 5%;
+    background: radial-gradient(circle, rgba(255, 107, 107, 0.15) 0%, transparent 70%);
+  }
+
+  /* ── Variant: Accent (Fondo Teal) ── */
+  .cta-banner--accent {
+    background: var(--gradient-accent);
+  }
+
+  .cta-banner--accent .cta-banner__btn--primary {
+    background: white;
+    color: var(--color-accent);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  }
+
+  .cta-banner--accent .cta-banner__btn--primary:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .cta-banner--accent .cta-banner__btn--secondary {
+    background: var(--color-primary);
+    color: white;
+    box-shadow: 0 4px 14px rgba(26, 26, 46, 0.4);
+  }
+
+  .cta-banner--accent .cta-banner__btn--secondary:hover {
+    background: var(--color-primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26, 26, 46, 0.5);
+  }
+
+  .cta-banner--accent .cta-banner__decoration--1 {
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  }
+
+  .cta-banner--accent .cta-banner__decoration--2 {
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .cta-banner__inner {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .cta-banner__content {
+      max-width: 100%;
+    }
+
+    .cta-banner__actions {
+      width: 100%;
+      flex-direction: column;
+    }
+
+    .cta-banner__btn {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cta-banner {
+      padding-block: var(--space-xl);
+    }
+
+    .cta-banner__headline {
+      font-size: var(--text-xl);
+    }
+
+    .cta-banner__btn {
+      padding: 0.875rem 1.5rem;
+      font-size: var(--text-sm);
+    }
+  }
+</style>

@@ -175,65 +175,81 @@ declare module 'astro:content' {
 	type DataEntryMap = {
 		"blog": Record<string, {
   id: string;
-  body?: string;
+  render(): Render[".md"];
+  slug: string;
+  body: string;
   collection: "blog";
-  data: any;
+  data: InferEntrySchema<"blog">;
   rendered?: RenderedContent;
   filePath?: string;
 }>;
 "eventos": Record<string, {
   id: string;
-  body?: string;
+  render(): Render[".md"];
+  slug: string;
+  body: string;
   collection: "eventos";
-  data: any;
+  data: InferEntrySchema<"eventos">;
   rendered?: RenderedContent;
   filePath?: string;
 }>;
 "faq": Record<string, {
   id: string;
-  body?: string;
+  render(): Render[".md"];
+  slug: string;
+  body: string;
   collection: "faq";
-  data: any;
+  data: InferEntrySchema<"faq">;
   rendered?: RenderedContent;
   filePath?: string;
 }>;
 "pages": Record<string, {
   id: string;
-  body?: string;
+  render(): Render[".md"];
+  slug: string;
+  body: string;
   collection: "pages";
-  data: any;
+  data: InferEntrySchema<"pages">;
   rendered?: RenderedContent;
   filePath?: string;
 }>;
 "paquetes": Record<string, {
   id: string;
-  body?: string;
+  render(): Render[".md"];
+  slug: string;
+  body: string;
   collection: "paquetes";
-  data: any;
+  data: InferEntrySchema<"paquetes">;
   rendered?: RenderedContent;
   filePath?: string;
 }>;
 "servicios": Record<string, {
   id: string;
-  body?: string;
+  render(): Render[".md"];
+  slug: string;
+  body: string;
   collection: "servicios";
-  data: any;
+  data: InferEntrySchema<"servicios">;
   rendered?: RenderedContent;
   filePath?: string;
 }>;
 "testimonios": Record<string, {
   id: string;
-  body?: string;
+  render(): Render[".md"];
+  slug: string;
+  body: string;
   collection: "testimonios";
-  data: any;
+  data: InferEntrySchema<"testimonios">;
   rendered?: RenderedContent;
   filePath?: string;
 }>;
 "zonas": Record<string, {
   id: string;
-  body?: string;
+  render(): Render[".md"];
+  slug: string;
+  body: string;
   collection: "zonas";
-  data: any;
+  data: InferEntrySchema<"zonas">;
   rendered?: RenderedContent;
   filePath?: string;
 }>;

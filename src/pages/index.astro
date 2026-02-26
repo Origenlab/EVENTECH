@@ -8,8 +8,11 @@
  */
 import PageLayout from "@layouts/PageLayout.astro";
 import HeroHome from "@components/HeroHome.astro";
-import CTA from "@components/CTA.astro";
-import { SITE, SERVICE_CATEGORIES, EVENT_TYPES, TRUST_STATS } from "@data/site";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import Card from "@components/Card.astro";
+import ReviewCard from "@components/ReviewCard.astro";
+import { SITE, SERVICE_CATEGORIES, EVENT_TYPES, TRUST_STATS, FEATURES, REVIEWS } from "@data/site";
 
 // JSON-LD para LocalBusiness (SEO Local)
 const localBusinessSchema = {
@@ -66,74 +69,40 @@ const localBusinessSchema = {
   <HeroHome />
 
   <!-- ═══════════════════════════════════════════════════════════════════════
+       CTA BANNER - Llamada a acción principal
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Listo para hacer tu evento inolvidable?"
+    subheadline="Cotiza sin compromiso y recibe una propuesta personalizada en menos de 24 horas"
+    primaryCTA={{ label: "Ver nuestros servicios", href: "/servicios/" }}
+    secondaryCTA={{ label: "Contactar ahora", href: "/contacto/" }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
        SERVICIOS SECTION
        ═══════════════════════════════════════════════════════════════════════ -->
   <section class="section" aria-labelledby="servicios-heading">
     <div class="container">
-      <header class="section__header">
-        <h2 id="servicios-heading" class="section__title">Nuestros Servicios</h2>
-        <p class="section__subtitle">
-          Todo el equipamiento que necesitas para tu evento, en un solo lugar
-        </p>
-      </header>
+      <SectionHeader
+        id="servicios-heading"
+        title="Nuestros Servicios"
+        subtitle="Todo el equipamiento que necesitas para tu evento, en un solo lugar"
+        description={[
+          "En EVENTECH contamos con el catálogo más completo de renta de equipo para eventos en la Ciudad de México. Desde mobiliario elegante hasta sistemas de audio profesional, cada pieza está cuidadosamente seleccionada para garantizar la calidad que tu evento merece.",
+          "Nuestro equipo de especialistas te asesora en cada paso para que elijas exactamente lo que necesitas. Ya sea una boda íntima en Polanco o un congreso corporativo en Santa Fe, tenemos la solución perfecta para ti."
+        ]}
+      />
 
       <div class="grid grid--3">
         {SERVICE_CATEGORIES.map((service) => (
-          <a href={service.href} class="service-card">
-            <div class="service-card__icon" aria-hidden="true">
-              {service.icon === "chair" && (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/>
-                  <path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/>
-                  <path d="M5 21v-2"/>
-                  <path d="M19 21v-2"/>
-                </svg>
-              )}
-              {service.icon === "speaker" && (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/>
-                  <circle cx="12" cy="14" r="4"/>
-                  <line x1="12" y1="6" x2="12.01" y2="6"/>
-                </svg>
-              )}
-              {service.icon === "tent" && (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 2L2 22h20L12 2z"/>
-                  <path d="M12 22V12"/>
-                </svg>
-              )}
-              {service.icon === "lightbulb" && (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M9 18h6"/>
-                  <path d="M10 22h4"/>
-                  <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0018 8 6 6 0 006 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 018.91 14"/>
-                </svg>
-              )}
-              {service.icon === "music" && (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="5.5" cy="17.5" r="2.5"/>
-                  <circle cx="17.5" cy="15.5" r="2.5"/>
-                  <path d="M8 17V5l12-2v12"/>
-                </svg>
-              )}
-              {service.icon === "package" && (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M16.5 9.4l-9-5.19"/>
-                  <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
-                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-                  <line x1="12" y1="22.08" x2="12" y2="12"/>
-                </svg>
-              )}
-            </div>
-            <h3 class="service-card__title">{service.name}</h3>
-            <p class="service-card__description">{service.description}</p>
-            <span class="service-card__link">Ver más →</span>
-          </a>
+          <Card
+            name={service.name}
+            excerpt={service.excerpt}
+            cta={service.cta}
+            href={service.href}
+            icon={service.icon}
+          />
         ))}
-      </div>
-
-      <div class="section__footer">
-        <a href="/servicios/" class="btn btn--outline">Ver todos los servicios</a>
       </div>
     </div>
   </section>
@@ -143,46 +112,25 @@ const localBusinessSchema = {
        ═══════════════════════════════════════════════════════════════════════ -->
   <section class="section section--alt" aria-labelledby="eventos-heading">
     <div class="container">
-      <header class="section__header">
-        <h2 id="eventos-heading" class="section__title">Equipamiento para Todo Tipo de Eventos</h2>
-        <p class="section__subtitle">
-          Soluciones especializadas según el tipo de celebración
-        </p>
-      </header>
+      <SectionHeader
+        id="eventos-heading"
+        title="Equipamiento para Todo Tipo de Eventos"
+        subtitle="Soluciones especializadas según el tipo de celebración"
+        description={[
+          "Cada evento tiene su propia personalidad y necesidades únicas. Por eso, hemos desarrollado paquetes especializados para bodas, XV años, eventos corporativos y fiestas sociales, asegurándonos de que cada detalle esté perfectamente cubierto.",
+          "Con más de 500 eventos exitosos en CDMX, conocemos las tendencias, los mejores venues y lo que funciona para cada tipo de celebración. Deja que nuestra experiencia trabaje para ti."
+        ]}
+      />
 
       <div class="grid grid--4">
         {EVENT_TYPES.map((event) => (
-          <a href={event.href} class="event-card">
-            <div class="event-card__icon" aria-hidden="true">
-              {event.icon === "heart" && (
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
-                </svg>
-              )}
-              {event.icon === "crown" && (
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/>
-                  <path d="M3 20h18"/>
-                </svg>
-              )}
-              {event.icon === "briefcase" && (
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-                  <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
-                </svg>
-              )}
-              {event.icon === "users" && (
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-                  <circle cx="9" cy="7" r="4"/>
-                  <path d="M23 21v-2a4 4 0 00-3-3.87"/>
-                  <path d="M16 3.13a4 4 0 010 7.75"/>
-                </svg>
-              )}
-            </div>
-            <h3 class="event-card__title">{event.name}</h3>
-            <p class="event-card__description">{event.description}</p>
-          </a>
+          <Card
+            name={event.name}
+            excerpt={event.excerpt}
+            cta={event.cta}
+            href={event.href}
+            icon={event.icon}
+          />
         ))}
       </div>
     </div>
@@ -193,82 +141,57 @@ const localBusinessSchema = {
        ═══════════════════════════════════════════════════════════════════════ -->
   <section class="section" aria-labelledby="porque-heading">
     <div class="container">
-      <header class="section__header">
-        <h2 id="porque-heading" class="section__title">¿Por Qué Elegir EVENTECH?</h2>
-        <p class="section__subtitle">
-          La diferencia está en los detalles
-        </p>
-      </header>
+      <SectionHeader
+        id="porque-heading"
+        title="¿Por Qué Elegir EVENTECH?"
+        subtitle="La diferencia está en los detalles"
+        description={[
+          "Sabemos que organizar un evento puede ser estresante. Por eso, en EVENTECH nos enfocamos en hacer tu vida más fácil: cotizaciones rápidas, precios transparentes, entrega puntual y equipo siempre en perfectas condiciones. Tu tranquilidad es nuestra prioridad.",
+          "No somos solo proveedores, somos socios de tu evento. Nuestro equipo te acompaña desde la primera llamada hasta el desmontaje, asegurándonos de que todo salga exactamente como lo planeaste."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        {FEATURES.map((feature) => (
+          <Card
+            name={feature.name}
+            excerpt={feature.excerpt}
+            cta={feature.cta}
+            href={feature.href}
+            icon={feature.icon}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       RESEÑAS EMPRESARIALES
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="resenas-heading">
+    <div class="container">
+      <SectionHeader
+        id="resenas-heading"
+        title="Empresas que Confían en Nosotros"
+        subtitle="Más de 500 eventos exitosos nos respaldan"
+        description={[
+          "No lo decimos nosotros, lo dicen nuestros clientes. Desde corporativos Fortune 500 hasta los venues más exclusivos de la Ciudad de México, hemos construido relaciones de confianza basadas en resultados.",
+          "Cada reseña representa un evento donde cumplimos nuestra promesa: calidad impecable, puntualidad garantizada y servicio profesional de principio a fin."
+        ]}
+      />
 
       <div class="grid grid--3">
-        <div class="feature-card">
-          <div class="feature-card__icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-              <polyline points="12 6 12 12 16 14"/>
-            </svg>
-          </div>
-          <h3>Respuesta en 24h</h3>
-          <p>Cotización garantizada en menos de 24 horas. Sabemos que tu tiempo es valioso.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card__icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-              <path d="M2 17l10 5 10-5"/>
-              <path d="M2 12l10 5 10-5"/>
-            </svg>
-          </div>
-          <h3>Inventario Completo</h3>
-          <p>Todo lo que necesitas para tu evento en un solo proveedor. Sin complicaciones.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card__icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              <polyline points="9 12 11 14 15 10"/>
-            </svg>
-          </div>
-          <h3>Garantía de Calidad</h3>
-          <p>Equipo en perfectas condiciones. Si algo no funciona, lo resolvemos al instante.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card__icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
-              <line x1="1" y1="10" x2="23" y2="10"/>
-            </svg>
-          </div>
-          <h3>Precios Transparentes</h3>
-          <p>Sin sorpresas. Te damos el precio real desde el inicio, incluyendo montaje y desmontaje.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card__icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-              <circle cx="12" cy="10" r="3"/>
-            </svg>
-          </div>
-          <h3>Cobertura CDMX Completa</h3>
-          <p>Llegamos a toda la Ciudad de México y Zona Metropolitana sin costos ocultos de envío.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card__icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 00-3-3.87"/>
-              <path d="M16 3.13a4 4 0 010 7.75"/>
-            </svg>
-          </div>
-          <h3>Equipo Profesional</h3>
-          <p>Personal capacitado que se encarga del montaje y te asesora durante todo el proceso.</p>
-        </div>
+        {REVIEWS.map((review) => (
+          <ReviewCard
+            company={review.company}
+            author={review.author}
+            role={review.role}
+            rating={review.rating}
+            text={review.text}
+            event={review.event}
+            website={review.website}
+          />
+        ))}
       </div>
     </div>
   </section>
@@ -278,12 +201,15 @@ const localBusinessSchema = {
        ═══════════════════════════════════════════════════════════════════════ -->
   <section class="section section--alt" aria-labelledby="zonas-heading">
     <div class="container">
-      <header class="section__header">
-        <h2 id="zonas-heading" class="section__title">Cobertura en CDMX y Zona Metropolitana</h2>
-        <p class="section__subtitle">
-          Llevamos el equipo a donde lo necesites
-        </p>
-      </header>
+      <SectionHeader
+        id="zonas-heading"
+        title="Cobertura en CDMX y Zona Metropolitana"
+        subtitle="Llevamos el equipo a donde lo necesites"
+        description={[
+          "Nuestra flota de entrega cubre toda la Ciudad de México y la Zona Metropolitana. Desde Polanco hasta Coyoacán, de Santa Fe a Tlalpan, llegamos a los venues y salones más exclusivos de la capital con puntualidad garantizada.",
+          "Para eventos fuera de CDMX, también atendemos Toluca, Metepec, Cuernavaca y otras ciudades cercanas. Consulta disponibilidad y costos de envío para tu ubicación específica."
+        ]}
+      />
 
       <div class="zones-grid">
         <div class="zone-group">
@@ -328,14 +254,14 @@ const localBusinessSchema = {
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════════════
-       CTA FINAL
+       CTA FINAL - Antes del Footer
        ═══════════════════════════════════════════════════════════════════════ -->
-  <CTA
-    title="¿Listo para tu evento?"
-    description="Cotiza sin compromiso. Te respondemos en menos de 24 horas con opciones personalizadas para tu celebración."
-    buttonLabel="Cotiza tu evento"
-    buttonHref="/cotizar/"
-    variant="dark"
+  <CTABanner
+    headline="Haz realidad el evento que siempre soñaste"
+    subheadline="Más de 500 eventos exitosos en CDMX nos respaldan. Cotiza hoy y recibe asesoría personalizada sin compromiso."
+    primaryCTA={{ label: "Explorar servicios", href: "/servicios/" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: "/contacto/" }}
+    variant="accent"
   />
 </PageLayout>
 
@@ -363,138 +289,6 @@ const localBusinessSchema = {
   .section__footer {
     text-align: center;
     margin-block-start: var(--space-2xl);
-  }
-
-  /* ═══════════════════════════════════════════════════════════════════════
-     SERVICE CARDS
-     ═══════════════════════════════════════════════════════════════════════ */
-  .service-card {
-    display: flex;
-    flex-direction: column;
-    padding: var(--space-xl);
-    background: var(--color-bg);
-    border: 1px solid var(--color-border-light);
-    border-radius: var(--radius-md);
-    text-decoration: none;
-    color: inherit;
-    transition: all var(--transition-fast);
-  }
-
-  .service-card:hover {
-    border-color: var(--color-primary);
-    box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
-  }
-
-  .service-card__icon {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--color-bg-alt);
-    border-radius: var(--radius-sm);
-    margin-block-end: var(--space-md);
-    color: var(--color-primary);
-  }
-
-  .service-card__title {
-    font-size: var(--text-lg);
-    margin-block-end: var(--space-xs);
-  }
-
-  .service-card__description {
-    font-size: var(--text-sm);
-    color: var(--color-text-light);
-    flex-grow: 1;
-  }
-
-  .service-card__link {
-    font-size: var(--text-sm);
-    color: var(--color-primary);
-    margin-block-start: var(--space-md);
-    font-weight: 500;
-  }
-
-  /* ═══════════════════════════════════════════════════════════════════════
-     EVENT CARDS
-     ═══════════════════════════════════════════════════════════════════════ */
-  .event-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: var(--space-xl);
-    background: var(--color-bg);
-    border-radius: var(--radius-md);
-    text-decoration: none;
-    color: inherit;
-    text-align: center;
-    transition: all var(--transition-fast);
-  }
-
-  .event-card:hover {
-    background: var(--color-bg-alt);
-    transform: translateY(-2px);
-  }
-
-  .event-card__icon {
-    width: 72px;
-    height: 72px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--color-primary);
-    color: white;
-    border-radius: 50%;
-    margin-block-end: var(--space-md);
-  }
-
-  .event-card:hover .event-card__icon {
-    transform: scale(1.1);
-    transition: transform var(--transition-fast);
-  }
-
-  .event-card__title {
-    font-size: var(--text-lg);
-    margin-block-end: var(--space-xs);
-  }
-
-  .event-card__description {
-    font-size: var(--text-sm);
-    color: var(--color-text-light);
-  }
-
-  /* ═══════════════════════════════════════════════════════════════════════
-     FEATURE CARDS
-     ═══════════════════════════════════════════════════════════════════════ */
-  .feature-card {
-    padding: var(--space-xl);
-    background: var(--color-bg);
-    border: 1px solid var(--color-border-light);
-    border-radius: var(--radius-md);
-  }
-
-  .feature-card__icon {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--color-bg-alt);
-    border-radius: var(--radius-sm);
-    margin-block-end: var(--space-md);
-    color: var(--color-primary);
-  }
-
-  .feature-card h3 {
-    font-size: var(--text-lg);
-    margin-block-end: var(--space-sm);
-  }
-
-  .feature-card p {
-    font-size: var(--text-sm);
-    color: var(--color-text-light);
-    line-height: 1.6;
   }
 
   /* ═══════════════════════════════════════════════════════════════════════
@@ -573,20 +367,7 @@ const localBusinessSchema = {
     background: var(--color-bg-alt);
   }
 
-  /* ═══════════════════════════════════════════════════════════════════════
-     GRID UTILITIES
-     ═══════════════════════════════════════════════════════════════════════ */
-  .grid--4 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-xl);
-  }
-
   @media (max-width: 1024px) {
-    .grid--4 {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
     .zones-grid {
       grid-template-columns: 1fr 1fr;
     }
@@ -597,32 +378,8 @@ const localBusinessSchema = {
   }
 
   @media (max-width: 768px) {
-    .trust-stats {
-      gap: var(--space-lg);
-    }
-
-    .trust-stat__value {
-      font-size: var(--text-2xl);
-    }
-
-    .grid--4 {
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-md);
-    }
-
     .zones-grid {
       grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .grid--4 {
-      grid-template-columns: 1fr;
-    }
-
-    .trust-stats {
-      flex-direction: column;
-      gap: var(--space-md);
     }
   }
 </style>
