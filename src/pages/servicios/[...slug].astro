@@ -6,6 +6,7 @@
  */
 import { getCollection } from "astro:content";
 import ServiceLayout from "@layouts/ServiceLayout.astro";
+import { serviceJsonLd, breadcrumbJsonLd } from "@utils/seo";
 
 export async function getStaticPaths() {
   const servicios = await getCollection("servicios");
@@ -17,13 +18,32 @@ export async function getStaticPaths() {
 
 const { servicio } = Astro.props;
 const { Content } = await servicio.render();
-const { title, description, seoTitle, seoDescription, hero } = servicio.data;
+const { title, description, seoTitle, seoDescription, hero, pricing } = servicio.data;
+
+const pageTitle = seoTitle || title;
+const pageDescription = seoDescription || description;
+const pageUrl = `/servicios/${servicio.slug}/`;
+
+const jsonLd = [
+  serviceJsonLd({
+    name: pageTitle,
+    description: pageDescription,
+    url: pageUrl,
+    ...(pricing && { priceRange: { min: pricing.min, max: pricing.max } }),
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: title, url: pageUrl },
+  ]),
+];
 ---
 
 <ServiceLayout
-  title={seoTitle || title}
-  description={seoDescription || description}
+  title={pageTitle}
+  description={pageDescription}
   hero={hero}
+  jsonLd={jsonLd}
 >
   <Content />
 </ServiceLayout>

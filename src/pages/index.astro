@@ -13,55 +13,62 @@ import SectionHeader from "@components/SectionHeader.astro";
 import Card from "@components/Card.astro";
 import ReviewCard from "@components/ReviewCard.astro";
 import { SITE, SERVICE_CATEGORIES, EVENT_TYPES, FEATURES, REVIEWS } from "@data/site";
+import { localBusinessJsonLd, faqJsonLd } from "@utils/seo";
 
-// JSON-LD para LocalBusiness (SEO Local)
-const localBusinessSchema = {
+// FAQ data for schema + inline rendering
+const homeFaqs = [
+  {
+    question: "¿Con cuánta anticipación debo reservar el equipo para mi evento?",
+    answer: "Recomendamos reservar con al menos 2 semanas de anticipación para garantizar disponibilidad, especialmente en temporada alta (noviembre a febrero). Para eventos grandes como bodas o congresos, lo ideal es apartar con 1 a 2 meses de anticipación. Sin embargo, también atendemos solicitudes de último momento sujetas a disponibilidad.",
+  },
+  {
+    question: "¿El precio incluye entrega, montaje y recolección?",
+    answer: "Sí. Todos nuestros paquetes incluyen entrega en el venue, montaje profesional por nuestro equipo y recolección al finalizar el evento. El costo de envío puede variar según la ubicación, pero siempre lo detallamos en tu cotización antes de confirmar.",
+  },
+  {
+    question: "¿Qué zonas cubren para la entrega de equipo?",
+    answer: "Cubrimos toda la Ciudad de México y Zona Metropolitana, incluyendo Polanco, Santa Fe, Coyoacán, Roma-Condesa, Del Valle, Naucalpan, Huixquilucan y Tlalnepantla. También atendemos Toluca, Metepec, Cuernavaca y otras ciudades cercanas con costos de envío accesibles.",
+  },
+  {
+    question: "¿Puedo hacer cambios en mi pedido después de reservar?",
+    answer: "Por supuesto. Entendemos que los detalles de un evento pueden cambiar. Puedes modificar cantidades, agregar o quitar equipo hasta 72 horas antes de tu evento sin costo adicional. Cambios con menor anticipación están sujetos a disponibilidad.",
+  },
+  {
+    question: "¿Qué métodos de pago aceptan?",
+    answer: "Aceptamos transferencia bancaria, depósito en efectivo, tarjeta de crédito y débito. Para reservar tu equipo solicitamos un anticipo del 50%, y el resto se liquida antes de la entrega. Emitimos factura fiscal (CFDI) para empresas que lo requieran.",
+  },
+  {
+    question: "¿Qué pasa si algún equipo se daña durante el evento?",
+    answer: "Todo nuestro equipo cuenta con un seguro básico que cubre desgaste normal de uso. En caso de daños mayores o pérdida, se evalúa según las condiciones acordadas en el contrato de renta. Te explicamos todo de forma transparente antes de firmar para que no haya sorpresas.",
+  },
+];
+
+// AggregateRating schema based on REVIEWS data
+const aggregateRatingSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": `${SITE.url}/#localbusiness`,
   name: SITE.organization.name,
-  description: SITE.seo.description,
-  url: SITE.url,
-  telephone: SITE.contact.phone,
-  email: SITE.contact.email,
-  priceRange: SITE.business.priceRange,
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Ciudad de México",
-    addressRegion: "CDMX",
-    addressCountry: "MX",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5.0",
+    reviewCount: String(REVIEWS.length),
+    bestRating: "5",
+    worstRating: "1",
   },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: SITE.business.geo.latitude,
-    longitude: SITE.business.geo.longitude,
-  },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: SITE.business.openingHours.weekdays.opens,
-      closes: SITE.business.openingHours.weekdays.closes,
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: "Saturday",
-      opens: SITE.business.openingHours.saturday.opens,
-      closes: SITE.business.openingHours.saturday.closes,
-    },
-  ],
-  areaServed: SITE.business.areaServed.map((area) => ({
-    "@type": "City",
-    name: area,
-  })),
-  sameAs: SITE.organization.sameAs,
 };
+
+const jsonLd = [
+  localBusinessJsonLd(),
+  faqJsonLd(homeFaqs),
+  aggregateRatingSchema,
+];
 ---
 
 <PageLayout
   title="Renta de Equipo para Eventos en CDMX"
   description="Renta de mobiliario, equipo audiovisual, carpas e iluminación para bodas, XV años, eventos corporativos y sociales en CDMX. Cotiza en línea, respuesta en 24h."
-  jsonLd={[localBusinessSchema]}
+  jsonLd={jsonLd}
 >
   <!-- ═══════════════════════════════════════════════════════════════════════
        HERO SECTION

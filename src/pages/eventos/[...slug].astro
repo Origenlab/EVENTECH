@@ -5,6 +5,7 @@
  */
 import { getCollection } from "astro:content";
 import EventLayout from "@layouts/EventLayout.astro";
+import { eventTypeJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
 
 export async function getStaticPaths() {
   const eventos = await getCollection("eventos");
@@ -16,13 +17,32 @@ export async function getStaticPaths() {
 
 const { evento } = Astro.props;
 const { Content } = await evento.render();
-const { title, description, seoTitle, seoDescription, hero } = evento.data;
+const { title, description, seoTitle, seoDescription, hero, faqs } = evento.data;
+
+const pageTitle = seoTitle || title;
+const pageDescription = seoDescription || description;
+const pageUrl = `/eventos/${evento.slug}/`;
+
+const jsonLd = [
+  eventTypeJsonLd({
+    name: pageTitle,
+    description: pageDescription,
+    url: pageUrl,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Eventos", url: "/eventos/" },
+    { name: title, url: pageUrl },
+  ]),
+  ...(faqs?.length ? [faqJsonLd(faqs)] : []),
+];
 ---
 
 <EventLayout
-  title={seoTitle || title}
-  description={seoDescription || description}
+  title={pageTitle}
+  description={pageDescription}
   hero={hero}
+  jsonLd={jsonLd}
 >
   <Content />
 </EventLayout>

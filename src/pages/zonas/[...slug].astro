@@ -5,6 +5,7 @@
  */
 import { getCollection } from "astro:content";
 import ZoneLayout from "@layouts/ZoneLayout.astro";
+import { localBusinessJsonLd, breadcrumbJsonLd } from "@utils/seo";
 
 export async function getStaticPaths() {
   const zonas = await getCollection("zonas");
@@ -17,12 +18,28 @@ export async function getStaticPaths() {
 const { zona } = Astro.props;
 const { Content } = await zona.render();
 const { title, description, seoTitle, seoDescription, hero } = zona.data;
+
+const pageTitle = seoTitle || title;
+const pageDescription = seoDescription || description;
+const pageUrl = `/zonas/${zona.slug}/`;
+
+const jsonLd = [
+  localBusinessJsonLd({
+    description: pageDescription,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Zonas", url: "/zonas/" },
+    { name: title, url: pageUrl },
+  ]),
+];
 ---
 
 <ZoneLayout
-  title={seoTitle || title}
-  description={seoDescription || description}
+  title={pageTitle}
+  description={pageDescription}
   hero={hero}
+  jsonLd={jsonLd}
 >
   <Content />
 </ZoneLayout>

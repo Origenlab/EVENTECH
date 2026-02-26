@@ -9,6 +9,9 @@ export default defineConfig({
   // ─── Output Mode ───
   output: "static",
 
+  // ─── Trailing Slash (avoids duplicate URLs) ───
+  trailingSlash: "always",
+
   // ─── Integrations ───
   integrations: [
     mdx(),
