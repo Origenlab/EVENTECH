@@ -1,0 +1,46 @@
+---
+/**
+ * ─── SEOHead Component ───
+ * Renders all <head> meta tags: title, description, Open Graph,
+ * Twitter Cards, canonical URL, and robots directives.
+ * Used inside BaseLayout.
+ */
+import { SITE, type SEOProps } from "@data/site";
+import { resolveSEO, canonicalURL } from "@utils/seo";
+
+type Props = SEOProps;
+
+const resolved = resolveSEO(Astro.props);
+const canonical = resolved.canonical ?? canonicalURL(Astro.url.pathname);
+const imageURL = resolved.image?.startsWith("http")
+  ? resolved.image
+  : canonicalURL(resolved.image);
+---
+
+<!-- Primary Meta Tags -->
+<title>{resolved.title}</title>
+<meta name="description" content={resolved.description} />
+{resolved.noindex && <meta name="robots" content="noindex, nofollow" />}
+<link rel="canonical" href={canonical} />
+
+<!-- Open Graph -->
+<meta property="og:type" content={resolved.type} />
+<meta property="og:title" content={resolved.title} />
+<meta property="og:description" content={resolved.description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={imageURL} />
+<meta property="og:locale" content={SITE.locale} />
+<meta property="og:site_name" content={SITE.name} />
+{resolved.publishedTime && (
+  <meta property="article:published_time" content={resolved.publishedTime} />
+)}
+{resolved.modifiedTime && (
+  <meta property="article:modified_time" content={resolved.modifiedTime} />
+)}
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content={SITE.social.twitter} />
+<meta name="twitter:title" content={resolved.title} />
+<meta name="twitter:description" content={resolved.description} />
+<meta name="twitter:image" content={imageURL} />

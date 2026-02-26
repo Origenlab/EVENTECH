@@ -1,0 +1,52 @@
+---
+/**
+ * ─── BaseLayout ───
+ * The root layout. Every page inherits from this.
+ * Handles: <html>, <head>, global styles, skip link, structured data.
+ */
+import SEOHead from "@components/SEOHead.astro";
+import JsonLd from "@components/JsonLd.astro";
+import { SITE, type SEOProps } from "@data/site";
+import { organizationJsonLd, websiteJsonLd } from "@utils/seo";
+import "@styles/global.css";
+
+type Props = SEOProps & {
+  jsonLd?: Record<string, unknown>[];
+};
+
+const { jsonLd = [], ...seoProps } = Astro.props;
+
+// Always include Organization + WebSite structured data
+const allJsonLd = [organizationJsonLd(), websiteJsonLd(), ...jsonLd];
+---
+
+<!doctype html>
+<html lang={SITE.language} dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/images/icon-192.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#1a1a2e" />
+
+    <!-- SEO -->
+    <SEOHead {...seoProps} />
+
+    <!-- JSON-LD Structured Data -->
+    {allJsonLd.map((data) => <JsonLd data={data} />)}
+
+    <!-- Preload critical fonts (add paths when using custom fonts) -->
+    <!-- <link rel="preload" href="/fonts/my-font.woff2" as="font" type="font/woff2" crossorigin /> -->
+  </head>
+
+  <body>
+    <!-- Accessibility: Skip to Content -->
+    <a href="#main-content" class="skip-link">Saltar al contenido</a>
+
+    <slot />
+  </body>
+</html>

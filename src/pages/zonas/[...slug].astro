@@ -1,0 +1,28 @@
+---
+/**
+ * ─── Zone Pages ───
+ * Renderiza páginas de zonas/ubicaciones desde content collections.
+ */
+import { getCollection } from "astro:content";
+import ZoneLayout from "@layouts/ZoneLayout.astro";
+
+export async function getStaticPaths() {
+  const zonas = await getCollection("zonas");
+  return zonas.map((zona) => ({
+    params: { slug: zona.slug },
+    props: { zona },
+  }));
+}
+
+const { zona } = Astro.props;
+const { Content } = await zona.render();
+const { title, description, seoTitle, seoDescription, hero } = zona.data;
+---
+
+<ZoneLayout
+  title={seoTitle || title}
+  description={seoDescription || description}
+  hero={hero}
+>
+  <Content />
+</ZoneLayout>

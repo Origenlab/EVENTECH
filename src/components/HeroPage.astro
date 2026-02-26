@@ -1,0 +1,261 @@
+---
+/**
+ * ─── HeroPage Component ───
+ * Componente Hero reutilizable para todas las páginas.
+ * Diseño de dos columnas: Título + CTA | Contenido SEO/Marketing
+ *
+ * Props:
+ * - badge: Texto del badge superior (opcional)
+ * - title: Título principal (puede incluir <span class="highlight">texto</span> para resaltar)
+ * - subtitle: Subtítulo descriptivo
+ * - primaryCTA: { label, href } - Botón principal
+ * - secondaryCTA: { label, href } - Botón secundario (opcional)
+ * - cards: Array de { title, content } - Contenido columna derecha
+ */
+
+type CardProps = {
+  title: string;
+  content: string;
+};
+
+type Props = {
+  badge?: string;
+  title: string;
+  subtitle: string;
+  primaryCTA: { label: string; href: string };
+  secondaryCTA?: { label: string; href: string };
+  cards?: CardProps[];
+};
+
+const {
+  badge,
+  title,
+  subtitle,
+  primaryCTA,
+  secondaryCTA,
+  cards = [],
+} = Astro.props;
+---
+
+<section class="hero-page">
+  <div class="container">
+    <div class="hero-page__grid">
+      <!-- ══════════════════════════════════════════════════════════════════
+           COLUMNA IZQUIERDA: Título Principal + CTAs
+           ══════════════════════════════════════════════════════════════════ -->
+      <div class="hero-page__main">
+        {badge && (
+          <div class="hero-page__badge">
+            <span class="hero-page__badge-dot"></span>
+            {badge}
+          </div>
+        )}
+
+        <h1 class="hero-page__title" set:html={title} />
+
+        <p class="hero-page__subtitle">{subtitle}</p>
+
+        <div class="hero-page__actions">
+          <a href={primaryCTA.href} class="btn btn--primary btn--lg">
+            {primaryCTA.label}
+          </a>
+          {secondaryCTA && (
+            <a href={secondaryCTA.href} class="btn btn--outline btn--lg">
+              {secondaryCTA.label}
+            </a>
+          )}
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════════════════════
+           COLUMNA DERECHA: Contenido SEO/Marketing
+           ══════════════════════════════════════════════════════════════════ -->
+      {cards.length > 0 && (
+        <div class="hero-page__content">
+          {cards.map((card) => (
+            <div class="hero-page__card">
+              <h2 class="hero-page__card-title">{card.title}</h2>
+              <p class="hero-page__card-text" set:html={card.content} />
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-page {
+    padding-block: var(--space-3xl) var(--space-4xl);
+    background-color: #f8f9fa;
+  }
+
+  .hero-page__grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--space-3xl);
+    align-items: start;
+  }
+
+  /* ══════════════════════════════════════════════════════════════════
+     COLUMNA IZQUIERDA
+     ══════════════════════════════════════════════════════════════════ */
+  .hero-page__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(0, 184, 148, 0.1);
+    border: 1px solid rgba(0, 184, 148, 0.2);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: #00a085;
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero-page__badge-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.2); }
+  }
+
+  .hero-page__title {
+    font-size: clamp(2rem, 4vw + 1rem, 3.25rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--color-primary);
+    margin-bottom: var(--space-lg);
+    letter-spacing: -0.02em;
+  }
+
+  /* Clase para resaltar palabras clave en el título */
+  .hero-page__title :global(.highlight) {
+    color: var(--color-accent);
+    position: relative;
+  }
+
+  .hero-page__title :global(.highlight)::after {
+    content: '';
+    position: absolute;
+    bottom: 0.1em;
+    left: 0;
+    width: 100%;
+    height: 0.15em;
+    background: rgba(0, 184, 148, 0.3);
+    border-radius: 2px;
+  }
+
+  .hero-page__subtitle {
+    font-size: var(--text-lg);
+    line-height: 1.7;
+    color: var(--color-text-light);
+    margin-bottom: var(--space-xl);
+    max-width: 50ch;
+  }
+
+  .hero-page__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+
+  .btn--lg {
+    padding: 1rem 2rem;
+    font-size: var(--text-base);
+  }
+
+  .btn--primary {
+    background: linear-gradient(135deg, var(--color-accent) 0%, #00a085 100%);
+    box-shadow: 0 4px 14px rgba(0, 184, 148, 0.4);
+  }
+
+  .btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 184, 148, 0.5);
+  }
+
+  /* ══════════════════════════════════════════════════════════════════
+     COLUMNA DERECHA
+     ══════════════════════════════════════════════════════════════════ */
+  .hero-page__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .hero-page__card {
+    padding: var(--space-lg) 0;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .hero-page__card:last-of-type {
+    border-bottom: none;
+  }
+
+  .hero-page__card-title {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .hero-page__card-text {
+    font-size: var(--text-sm);
+    line-height: 1.7;
+    color: var(--color-text-light);
+  }
+
+  .hero-page__card-text :global(strong) {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  /* ══════════════════════════════════════════════════════════════════
+     RESPONSIVE
+     ══════════════════════════════════════════════════════════════════ */
+  @media (max-width: 1024px) {
+    .hero-page__grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+    }
+
+    .hero-page__content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-page {
+      padding-block: var(--space-2xl) var(--space-3xl);
+    }
+
+    .hero-page__content {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-page__actions {
+      flex-direction: column;
+    }
+
+    .btn--lg {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-page__title {
+      font-size: 1.75rem;
+    }
+  }
+</style>

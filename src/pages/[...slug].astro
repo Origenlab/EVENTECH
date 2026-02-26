@@ -1,0 +1,46 @@
+---
+/**
+ * ─── Dynamic Page Route ───
+ * Generates a page for each entry in the "pages" content collection.
+ * Handles: /nosotros, /servicios, /contacto, etc.
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import Hero from "@components/Hero.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const pages = await getCollection("pages");
+  return pages.map((page) => ({
+    params: { slug: page.slug },
+    props: page,
+  }));
+}
+
+const page = Astro.props;
+const { Content } = await page.render();
+---
+
+<PageLayout
+  title={page.data.title}
+  description={page.data.description}
+  image={page.data.image}
+  noindex={page.data.noindex}
+>
+  <!-- Optional Hero from frontmatter -->
+  {page.data.hero && (
+    <Hero
+      title={page.data.hero.title}
+      description={page.data.hero.description}
+      primaryCTA={page.data.hero.primaryCTA}
+      secondaryCTA={page.data.hero.secondaryCTA}
+      backgroundImage={page.data.hero.backgroundImage}
+    />
+  )}
+
+  <!-- Page Content -->
+  <section class="section">
+    <div class="container container--narrow prose">
+      <Content />
+    </div>
+  </section>
+</PageLayout>

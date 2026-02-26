@@ -1,0 +1,628 @@
+---
+/**
+ * ─── EVENTECH.MX Home Page ───
+ * Landing page optimizada para SEO con todas las secciones estratégicas:
+ * Hero, Trust Stats, Servicios, Eventos, Diferenciadores, Zonas, CTA
+ *
+ * Keyword primaria: "renta de equipo para eventos CDMX"
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroHome from "@components/HeroHome.astro";
+import CTA from "@components/CTA.astro";
+import { SITE, SERVICE_CATEGORIES, EVENT_TYPES, TRUST_STATS } from "@data/site";
+
+// JSON-LD para LocalBusiness (SEO Local)
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": `${SITE.url}/#localbusiness`,
+  name: SITE.organization.name,
+  description: SITE.seo.description,
+  url: SITE.url,
+  telephone: SITE.contact.phone,
+  email: SITE.contact.email,
+  priceRange: SITE.business.priceRange,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Ciudad de México",
+    addressRegion: "CDMX",
+    addressCountry: "MX",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: SITE.business.geo.latitude,
+    longitude: SITE.business.geo.longitude,
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: SITE.business.openingHours.weekdays.opens,
+      closes: SITE.business.openingHours.weekdays.closes,
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Saturday",
+      opens: SITE.business.openingHours.saturday.opens,
+      closes: SITE.business.openingHours.saturday.closes,
+    },
+  ],
+  areaServed: SITE.business.areaServed.map((area) => ({
+    "@type": "City",
+    name: area,
+  })),
+  sameAs: SITE.organization.sameAs,
+};
+---
+
+<PageLayout
+  title="Renta de Equipo para Eventos en CDMX"
+  description="Renta de mobiliario, equipo audiovisual, carpas e iluminación para bodas, XV años, eventos corporativos y sociales en CDMX. Cotiza en línea, respuesta en 24h."
+  jsonLd={[localBusinessSchema]}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       HERO SECTION
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroHome />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SERVICIOS SECTION
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="servicios-heading">
+    <div class="container">
+      <header class="section__header">
+        <h2 id="servicios-heading" class="section__title">Nuestros Servicios</h2>
+        <p class="section__subtitle">
+          Todo el equipamiento que necesitas para tu evento, en un solo lugar
+        </p>
+      </header>
+
+      <div class="grid grid--3">
+        {SERVICE_CATEGORIES.map((service) => (
+          <a href={service.href} class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              {service.icon === "chair" && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/>
+                  <path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/>
+                  <path d="M5 21v-2"/>
+                  <path d="M19 21v-2"/>
+                </svg>
+              )}
+              {service.icon === "speaker" && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/>
+                  <circle cx="12" cy="14" r="4"/>
+                  <line x1="12" y1="6" x2="12.01" y2="6"/>
+                </svg>
+              )}
+              {service.icon === "tent" && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2L2 22h20L12 2z"/>
+                  <path d="M12 22V12"/>
+                </svg>
+              )}
+              {service.icon === "lightbulb" && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 18h6"/>
+                  <path d="M10 22h4"/>
+                  <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0018 8 6 6 0 006 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 018.91 14"/>
+                </svg>
+              )}
+              {service.icon === "music" && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="5.5" cy="17.5" r="2.5"/>
+                  <circle cx="17.5" cy="15.5" r="2.5"/>
+                  <path d="M8 17V5l12-2v12"/>
+                </svg>
+              )}
+              {service.icon === "package" && (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16.5 9.4l-9-5.19"/>
+                  <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                  <line x1="12" y1="22.08" x2="12" y2="12"/>
+                </svg>
+              )}
+            </div>
+            <h3 class="service-card__title">{service.name}</h3>
+            <p class="service-card__description">{service.description}</p>
+            <span class="service-card__link">Ver más →</span>
+          </a>
+        ))}
+      </div>
+
+      <div class="section__footer">
+        <a href="/servicios/" class="btn btn--outline">Ver todos los servicios</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       EVENTOS SECTION
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="eventos-heading">
+    <div class="container">
+      <header class="section__header">
+        <h2 id="eventos-heading" class="section__title">Equipamiento para Todo Tipo de Eventos</h2>
+        <p class="section__subtitle">
+          Soluciones especializadas según el tipo de celebración
+        </p>
+      </header>
+
+      <div class="grid grid--4">
+        {EVENT_TYPES.map((event) => (
+          <a href={event.href} class="event-card">
+            <div class="event-card__icon" aria-hidden="true">
+              {event.icon === "heart" && (
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                </svg>
+              )}
+              {event.icon === "crown" && (
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/>
+                  <path d="M3 20h18"/>
+                </svg>
+              )}
+              {event.icon === "briefcase" && (
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                  <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+                </svg>
+              )}
+              {event.icon === "users" && (
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 010 7.75"/>
+                </svg>
+              )}
+            </div>
+            <h3 class="event-card__title">{event.name}</h3>
+            <p class="event-card__description">{event.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       POR QUÉ ELEGIRNOS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="porque-heading">
+    <div class="container">
+      <header class="section__header">
+        <h2 id="porque-heading" class="section__title">¿Por Qué Elegir EVENTECH?</h2>
+        <p class="section__subtitle">
+          La diferencia está en los detalles
+        </p>
+      </header>
+
+      <div class="grid grid--3">
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3>Respuesta en 24h</h3>
+          <p>Cotización garantizada en menos de 24 horas. Sabemos que tu tiempo es valioso.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>Inventario Completo</h3>
+          <p>Todo lo que necesitas para tu evento en un solo proveedor. Sin complicaciones.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <polyline points="9 12 11 14 15 10"/>
+            </svg>
+          </div>
+          <h3>Garantía de Calidad</h3>
+          <p>Equipo en perfectas condiciones. Si algo no funciona, lo resolvemos al instante.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+              <line x1="1" y1="10" x2="23" y2="10"/>
+            </svg>
+          </div>
+          <h3>Precios Transparentes</h3>
+          <p>Sin sorpresas. Te damos el precio real desde el inicio, incluyendo montaje y desmontaje.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <h3>Cobertura CDMX Completa</h3>
+          <p>Llegamos a toda la Ciudad de México y Zona Metropolitana sin costos ocultos de envío.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+              <path d="M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+          </div>
+          <h3>Equipo Profesional</h3>
+          <p>Personal capacitado que se encarga del montaje y te asesora durante todo el proceso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       ZONAS DE COBERTURA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="zonas-heading">
+    <div class="container">
+      <header class="section__header">
+        <h2 id="zonas-heading" class="section__title">Cobertura en CDMX y Zona Metropolitana</h2>
+        <p class="section__subtitle">
+          Llevamos el equipo a donde lo necesites
+        </p>
+      </header>
+
+      <div class="zones-grid">
+        <div class="zone-group">
+          <h3 class="zone-group__title">CDMX</h3>
+          <ul class="zone-list">
+            <li><a href="/zonas/cdmx/polanco/">Polanco</a></li>
+            <li><a href="/zonas/cdmx/santa-fe/">Santa Fe</a></li>
+            <li><a href="/zonas/cdmx/coyoacan/">Coyoacán</a></li>
+            <li><a href="/zonas/cdmx/roma/">Roma - Condesa</a></li>
+            <li><a href="/zonas/cdmx/del-valle/">Del Valle</a></li>
+            <li><a href="/zonas/cdmx/tlalpan/">Tlalpan</a></li>
+            <li><a href="/zonas/cdmx/xochimilco/">Xochimilco</a></li>
+            <li><a href="/zonas/cdmx/">Ver todas →</a></li>
+          </ul>
+        </div>
+
+        <div class="zone-group">
+          <h3 class="zone-group__title">Estado de México</h3>
+          <ul class="zone-list">
+            <li><a href="/zonas/estado-de-mexico/naucalpan/">Naucalpan</a></li>
+            <li><a href="/zonas/estado-de-mexico/huixquilucan/">Huixquilucan</a></li>
+            <li><a href="/zonas/estado-de-mexico/tlalnepantla/">Tlalnepantla</a></li>
+            <li><a href="/zonas/estado-de-mexico/metepec/">Metepec</a></li>
+            <li><a href="/zonas/estado-de-mexico/toluca/">Toluca</a></li>
+            <li><a href="/zonas/estado-de-mexico/">Ver todas →</a></li>
+          </ul>
+        </div>
+
+        <div class="zone-info">
+          <div class="zone-info__icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3>Entrega el mismo día</h3>
+          <p>En pedidos confirmados antes de las 2pm, entregamos el mismo día en CDMX.</p>
+          <a href="/cotizar/" class="btn btn--primary">Cotiza ahora</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CTA FINAL
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTA
+    title="¿Listo para tu evento?"
+    description="Cotiza sin compromiso. Te respondemos en menos de 24 horas con opciones personalizadas para tu celebración."
+    buttonLabel="Cotiza tu evento"
+    buttonHref="/cotizar/"
+    variant="dark"
+  />
+</PageLayout>
+
+<style>
+  /* ═══════════════════════════════════════════════════════════════════════
+     SECTION STYLES
+     ═══════════════════════════════════════════════════════════════════════ */
+  .section__header {
+    text-align: center;
+    margin-block-end: var(--space-2xl);
+  }
+
+  .section__title {
+    font-size: var(--text-3xl);
+    margin-block-end: var(--space-sm);
+  }
+
+  .section__subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-text-light);
+    max-width: 50ch;
+    margin-inline: auto;
+  }
+
+  .section__footer {
+    text-align: center;
+    margin-block-start: var(--space-2xl);
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     SERVICE CARDS
+     ═══════════════════════════════════════════════════════════════════════ */
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-xl);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--transition-fast);
+  }
+
+  .service-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .service-card__icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-sm);
+    margin-block-end: var(--space-md);
+    color: var(--color-primary);
+  }
+
+  .service-card__title {
+    font-size: var(--text-lg);
+    margin-block-end: var(--space-xs);
+  }
+
+  .service-card__description {
+    font-size: var(--text-sm);
+    color: var(--color-text-light);
+    flex-grow: 1;
+  }
+
+  .service-card__link {
+    font-size: var(--text-sm);
+    color: var(--color-primary);
+    margin-block-start: var(--space-md);
+    font-weight: 500;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     EVENT CARDS
+     ═══════════════════════════════════════════════════════════════════════ */
+  .event-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-xl);
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    transition: all var(--transition-fast);
+  }
+
+  .event-card:hover {
+    background: var(--color-bg-alt);
+    transform: translateY(-2px);
+  }
+
+  .event-card__icon {
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    margin-block-end: var(--space-md);
+  }
+
+  .event-card:hover .event-card__icon {
+    transform: scale(1.1);
+    transition: transform var(--transition-fast);
+  }
+
+  .event-card__title {
+    font-size: var(--text-lg);
+    margin-block-end: var(--space-xs);
+  }
+
+  .event-card__description {
+    font-size: var(--text-sm);
+    color: var(--color-text-light);
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     FEATURE CARDS
+     ═══════════════════════════════════════════════════════════════════════ */
+  .feature-card {
+    padding: var(--space-xl);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-md);
+  }
+
+  .feature-card__icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-sm);
+    margin-block-end: var(--space-md);
+    color: var(--color-primary);
+  }
+
+  .feature-card h3 {
+    font-size: var(--text-lg);
+    margin-block-end: var(--space-sm);
+  }
+
+  .feature-card p {
+    font-size: var(--text-sm);
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     ZONES GRID
+     ═══════════════════════════════════════════════════════════════════════ */
+  .zones-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2xl);
+  }
+
+  .zone-group {
+    background: var(--color-bg);
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
+  }
+
+  .zone-group__title {
+    font-size: var(--text-lg);
+    margin-block-end: var(--space-md);
+    padding-block-end: var(--space-sm);
+    border-block-end: 2px solid var(--color-primary);
+  }
+
+  .zone-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .zone-list a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    transition: color var(--transition-fast);
+  }
+
+  .zone-list a:hover {
+    color: var(--color-primary);
+  }
+
+  .zone-info {
+    background: var(--color-primary);
+    color: white;
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .zone-info__icon {
+    margin-block-end: var(--space-md);
+    opacity: 0.9;
+  }
+
+  .zone-info h3 {
+    font-size: var(--text-xl);
+    margin-block-end: var(--space-sm);
+  }
+
+  .zone-info p {
+    font-size: var(--text-sm);
+    opacity: 0.9;
+    margin-block-end: var(--space-lg);
+  }
+
+  .zone-info .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .zone-info .btn:hover {
+    background: var(--color-bg-alt);
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     GRID UTILITIES
+     ═══════════════════════════════════════════════════════════════════════ */
+  .grid--4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xl);
+  }
+
+  @media (max-width: 1024px) {
+    .grid--4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .zones-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .zone-info {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .trust-stats {
+      gap: var(--space-lg);
+    }
+
+    .trust-stat__value {
+      font-size: var(--text-2xl);
+    }
+
+    .grid--4 {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-md);
+    }
+
+    .zones-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .grid--4 {
+      grid-template-columns: 1fr;
+    }
+
+    .trust-stats {
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+  }
+</style>

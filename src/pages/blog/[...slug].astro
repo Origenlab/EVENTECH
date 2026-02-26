@@ -1,0 +1,32 @@
+---
+/**
+ * ─── Blog Post Dynamic Route ───
+ * Generates a page for each blog post in the content collection.
+ */
+import BlogLayout from "@layouts/BlogLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<BlogLayout
+  title={post.data.seoTitle ?? post.data.title}
+  description={post.data.seoDescription ?? post.data.description}
+  date={post.data.date}
+  updatedDate={post.data.updatedDate}
+  image={post.data.image}
+  author={post.data.author}
+  body={post.body}
+  slug={post.slug}
+>
+  <Content />
+</BlogLayout>

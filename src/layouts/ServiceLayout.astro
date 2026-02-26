@@ -1,0 +1,106 @@
+---
+/**
+ * ─── ServiceLayout ───
+ * Layout para páginas de servicios con Hero dinámico desde frontmatter.
+ * Incluye Topbar + Header + HeroPage + contenido + Footer.
+ */
+import BaseLayout from "./BaseLayout.astro";
+import Topbar from "@components/Topbar.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import HeroPage from "@components/HeroPage.astro";
+import type { SEOProps } from "@data/site";
+
+type HeroCard = {
+  title: string;
+  content: string;
+};
+
+type HeroProps = {
+  badge?: string;
+  title: string;
+  subtitle: string;
+  primaryCTA: { label: string; href: string };
+  secondaryCTA?: { label: string; href: string };
+  cards?: HeroCard[];
+};
+
+type Props = SEOProps & {
+  hero?: HeroProps;
+  jsonLd?: Record<string, unknown>[];
+};
+
+const { hero, jsonLd, ...seoProps } = Astro.props;
+---
+
+<BaseLayout {...seoProps} jsonLd={jsonLd}>
+  <Topbar />
+  <Header />
+  <main id="main-content">
+    {hero && (
+      <HeroPage
+        badge={hero.badge}
+        title={hero.title}
+        subtitle={hero.subtitle}
+        primaryCTA={hero.primaryCTA}
+        secondaryCTA={hero.secondaryCTA}
+        cards={hero.cards}
+      />
+    )}
+    <div class="container section">
+      <div class="content-wrapper">
+        <slot />
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .content-wrapper {
+    max-width: 75ch;
+  }
+
+  .content-wrapper :global(h2) {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-block: var(--space-2xl) var(--space-md);
+  }
+
+  .content-wrapper :global(h3) {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-block: var(--space-xl) var(--space-sm);
+  }
+
+  .content-wrapper :global(h4) {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-block: var(--space-lg) var(--space-sm);
+  }
+
+  .content-wrapper :global(p) {
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: var(--space-md);
+  }
+
+  .content-wrapper :global(ul),
+  .content-wrapper :global(ol) {
+    padding-left: var(--space-lg);
+    margin-bottom: var(--space-md);
+  }
+
+  .content-wrapper :global(li) {
+    line-height: 1.7;
+    margin-bottom: var(--space-xs);
+  }
+
+  .content-wrapper :global(strong) {
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+</style>

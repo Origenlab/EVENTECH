@@ -1,0 +1,28 @@
+---
+/**
+ * ─── Event Pages ───
+ * Renderiza páginas de tipos de eventos desde content collections.
+ */
+import { getCollection } from "astro:content";
+import EventLayout from "@layouts/EventLayout.astro";
+
+export async function getStaticPaths() {
+  const eventos = await getCollection("eventos");
+  return eventos.map((evento) => ({
+    params: { slug: evento.slug },
+    props: { evento },
+  }));
+}
+
+const { evento } = Astro.props;
+const { Content } = await evento.render();
+const { title, description, seoTitle, seoDescription, hero } = evento.data;
+---
+
+<EventLayout
+  title={seoTitle || title}
+  description={seoDescription || description}
+  hero={hero}
+>
+  <Content />
+</EventLayout>

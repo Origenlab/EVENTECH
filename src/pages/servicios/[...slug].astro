@@ -1,0 +1,29 @@
+---
+/**
+ * ─── Service Pages ───
+ * Renderiza páginas de servicios desde content collections.
+ * Usa ServiceLayout con hero dinámico desde frontmatter.
+ */
+import { getCollection } from "astro:content";
+import ServiceLayout from "@layouts/ServiceLayout.astro";
+
+export async function getStaticPaths() {
+  const servicios = await getCollection("servicios");
+  return servicios.map((servicio) => ({
+    params: { slug: servicio.slug },
+    props: { servicio },
+  }));
+}
+
+const { servicio } = Astro.props;
+const { Content } = await servicio.render();
+const { title, description, seoTitle, seoDescription, hero } = servicio.data;
+---
+
+<ServiceLayout
+  title={seoTitle || title}
+  description={seoDescription || description}
+  hero={hero}
+>
+  <Content />
+</ServiceLayout>

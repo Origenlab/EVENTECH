@@ -1,0 +1,52 @@
+---
+/**
+ * ─── Blog Index ───
+ * Lists all published blog posts, sorted by date (newest first).
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import BlogCard from "@components/BlogCard.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<PageLayout title="Blog" description="Artículos sobre desarrollo web, SEO, rendimiento y mejores prácticas para tu sitio.">
+  <section class="section">
+    <div class="container">
+      <h1>Blog</h1>
+      <p class="blog-index__subtitle">
+        Artículos, guías y recursos sobre desarrollo web y marketing digital.
+      </p>
+
+      {posts.length > 0 ? (
+        <div class="grid grid--3">
+          {posts.map((post) => (
+            <BlogCard
+              title={post.data.title}
+              description={post.data.description}
+              slug={post.slug}
+              date={post.data.date}
+              image={post.data.image}
+              body={post.body}
+            />
+          ))}
+        </div>
+      ) : (
+        <p>No hay artículos publicados todavía. Vuelve pronto.</p>
+      )}
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  h1 {
+    margin-block-end: var(--space-sm);
+  }
+
+  .blog-index__subtitle {
+    color: var(--color-text-light);
+    font-size: var(--text-lg);
+    margin-block-end: var(--space-2xl);
+  }
+</style>
