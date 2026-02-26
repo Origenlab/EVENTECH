@@ -304,113 +304,6 @@ const blog = defineCollection({
 });
 
 // ============================================
-// TESTIMONIOS Collection
-// ============================================
-const testimonios = defineCollection({
-  type: "content",
-  schema: z.object({
-    // Client info
-    clientName: z.string(),
-    clientRole: z.string().optional(),
-    clientImage: z.string().optional(),
-
-    // Event info
-    eventType: z.string(),
-    eventDate: z.coerce.date(),
-    eventLocation: z.string().optional(),
-
-    // Testimonial
-    quote: z.string(),
-    fullTestimonial: z.string().optional(),
-    rating: z.number().min(1).max(5),
-
-    // Visual
-    eventImages: z.array(z.string()).optional(),
-    videoUrl: z.string().optional(),
-
-    // Relationships
-    servicesUsed: z.array(z.string()),
-    zone: z.string().optional(),
-
-    // Metadata
-    featured: z.boolean().default(false),
-    publishedAt: z.coerce.date(),
-  }),
-});
-
-// ============================================
-// PAQUETES Collection
-// ============================================
-const paquetes = defineCollection({
-  type: "content",
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    slug: z.string(),
-
-    // Visual
-    image: z.string().optional(),
-
-    // Pricing
-    priceRange: z.object({
-      min: z.number(),
-      max: z.number(),
-      note: z.string().optional(),
-    }),
-
-    // Includes
-    includes: z.array(
-      z.object({
-        item: z.string(),
-        quantity: z.string().optional(),
-        description: z.string().optional(),
-      })
-    ),
-
-    // Ideal for
-    idealFor: z.array(z.string()),
-    guestRange: z.object({
-      min: z.number(),
-      max: z.number(),
-    }),
-
-    // Upgrades
-    upgrades: z
-      .array(
-        z.object({
-          name: z.string(),
-          price: z.string(),
-        })
-      )
-      .optional(),
-
-    // Metadata
-    featured: z.boolean().default(false),
-    order: z.number(),
-    publishedAt: z.coerce.date().optional(),
-  }),
-});
-
-// ============================================
-// FAQ Collection
-// ============================================
-const faq = defineCollection({
-  type: "content",
-  schema: z.object({
-    category: z.string(),
-    categorySlug: z.string(),
-    order: z.number(),
-    faqs: z.array(
-      z.object({
-        question: z.string(),
-        answer: z.string(),
-        order: z.number().default(0),
-      })
-    ),
-  }),
-});
-
-// ============================================
 // PAGES Collection (for static pages)
 // ============================================
 const pages = defineCollection({
@@ -434,8 +327,5 @@ export const collections = {
   eventos,
   zonas,
   blog,
-  testimonios,
-  paquetes,
-  faq,
   pages,
 };
