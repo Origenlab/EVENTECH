@@ -2,11 +2,18 @@
 /**
  * ─── Service Pages ───
  * Renderiza páginas de servicios desde content collections.
- * Usa ServiceLayout con hero dinámico desde frontmatter.
+ * Hub pages (isHub: true) usan template rico con componentes.
+ * Sub-pages usan ServiceLayout simple con prose content.
  */
 import { getCollection } from "astro:content";
 import ServiceLayout from "@layouts/ServiceLayout.astro";
-import { serviceJsonLd, breadcrumbJsonLd } from "@utils/seo";
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import Card from "@components/Card.astro";
+import { EVENT_TYPES, SITE } from "@data/site";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
 
 export async function getStaticPaths() {
   const servicios = await getCollection("servicios");
@@ -18,12 +25,26 @@ export async function getStaticPaths() {
 
 const { servicio } = Astro.props;
 const { Content } = await servicio.render();
-const { title, description, seoTitle, seoDescription, hero, pricing } = servicio.data;
+const {
+  title,
+  description,
+  seoTitle,
+  seoDescription,
+  hero,
+  pricing,
+  isHub,
+  subServices,
+  includes,
+  specs,
+  faqs,
+  idealForEvents,
+} = servicio.data;
 
 const pageTitle = seoTitle || title;
 const pageDescription = seoDescription || description;
 const pageUrl = `/servicios/${servicio.slug}/`;
 
+// JSON-LD structured data
 const jsonLd = [
   serviceJsonLd({
     name: pageTitle,
@@ -36,14 +57,470 @@ const jsonLd = [
     { name: "Servicios", url: "/servicios/" },
     { name: title, url: pageUrl },
   ]),
+  ...(faqs?.length ? [faqJsonLd(faqs)] : []),
 ];
+
+// Filter event types for "ideal for" section
+const eventCards = idealForEvents
+  ? EVENT_TYPES.filter((e) => idealForEvents.includes(e.id))
+  : [];
 ---
 
-<ServiceLayout
-  title={pageTitle}
-  description={pageDescription}
-  hero={hero}
-  jsonLd={jsonLd}
->
-  <Content />
-</ServiceLayout>
+{isHub ? (
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       HUB PAGE — Template rico con componentes (como el index)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <PageLayout title={pageTitle} description={pageDescription} jsonLd={jsonLd}>
+
+    <!-- HERO -->
+    {hero && (
+      <HeroPage
+        badge={hero.badge}
+        title={hero.title}
+        subtitle={hero.subtitle}
+        primaryCTA={hero.primaryCTA}
+        secondaryCTA={hero.secondaryCTA}
+        cards={hero.cards}
+      />
+    )}
+
+    <!-- CTA BANNER -->
+    <CTABanner
+      headline="¿Listo para transformar tu evento?"
+      subheadline="Cotiza sin compromiso y recibe una propuesta personalizada con el mobiliario ideal para tu celebración"
+      primaryCTA={{ label: "Cotizar ahora", href: "/contacto/" }}
+      secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+    />
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         CATÁLOGO — Sub-servicios con Cards
+         ═══════════════════════════════════════════════════════════════════ -->
+    {subServices && subServices.length > 0 && (
+      <section class="section" aria-labelledby="catalogo-heading">
+        <div class="container">
+          <SectionHeader
+            id="catalogo-heading"
+            title="Nuestro Catálogo de Mobiliario"
+            subtitle="El mobiliario que tu evento merece"
+            description={[
+              "Contamos con el inventario más completo de mobiliario para eventos en la Ciudad de México. Cada pieza es seleccionada por su calidad, durabilidad y estética para garantizar que tu evento luzca impecable.",
+              "Desde la elegancia clásica de nuestras sillas Tiffany hasta el diseño contemporáneo de nuestras salas lounge, encontrarás el estilo perfecto para cualquier tipo de celebración."
+            ]}
+          />
+          <div class="grid grid--4">
+            {subServices.map((sub) => (
+              <Card
+                name={sub.name}
+                excerpt={sub.excerpt}
+                cta={sub.cta}
+                href={sub.href}
+                icon={sub.icon}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         QUÉ INCLUYE — Beneficios + Specs
+         ═══════════════════════════════════════════════════════════════════ -->
+    {(includes || specs) && (
+      <section class="section section--alt" aria-labelledby="incluye-heading">
+        <div class="container">
+          <SectionHeader
+            id="incluye-heading"
+            title="¿Qué Incluye Tu Renta?"
+            subtitle="Servicio integral, sin sorpresas"
+            description={[
+              "En EVENTECH, el precio que cotizas es el precio que pagas. Nuestro servicio incluye entrega, montaje profesional, recolección y asesoría personalizada. Sin costos ocultos ni cargos de última hora.",
+              "Nuestro equipo de logística se encarga de cada detalle para que tú solo te preocupes por disfrutar tu evento."
+            ]}
+          />
+
+          <div class="benefits-grid">
+            {includes && (
+              <div class="benefits-list">
+                <h3 class="benefits-list__title">Incluido en cada renta</h3>
+                <ul class="benefits-list__items">
+                  {includes.map((item) => (
+                    <li class="benefits-list__item">
+                      <svg class="benefits-list__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {specs && (
+              <div class="specs-list">
+                <h3 class="specs-list__title">Datos clave</h3>
+                <dl class="specs-list__items">
+                  {specs.map((spec) => (
+                    <div class="specs-list__item">
+                      <dt class="specs-list__label">{spec.label}</dt>
+                      <dd class="specs-list__value">{spec.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         CONTENIDO DETALLADO — Markdown prose
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section class="section">
+      <div class="container">
+        <SectionHeader
+          id="detalle-heading"
+          title="Catálogo Detallado"
+          subtitle="Conoce cada pieza de nuestro inventario"
+          description={[
+            "Explora en detalle cada categoría de mobiliario disponible. Modelos, estilos, materiales y opciones de personalización para que tomes la mejor decisión para tu evento.",
+            "¿No encuentras lo que buscas? Contáctanos y te ayudamos a encontrar la pieza perfecta para tu celebración."
+          ]}
+        />
+        <div class="content-wrapper">
+          <Content />
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         IDEAL PARA TU EVENTO — Event type Cards
+         ═══════════════════════════════════════════════════════════════════ -->
+    {eventCards.length > 0 && (
+      <section class="section section--alt" aria-labelledby="eventos-heading">
+        <div class="container">
+          <SectionHeader
+            id="eventos-heading"
+            title="Ideal para Tu Evento"
+            subtitle="Mobiliario especializado por tipo de celebración"
+            description={[
+              "Cada evento tiene necesidades únicas de mobiliario. Ya sea una boda íntima en un jardín de Coyoacán o un congreso corporativo en Santa Fe, tenemos la combinación perfecta de piezas para tu celebración.",
+              "Nuestro equipo te asesora sobre las mejores opciones según el tipo de evento, número de invitados, venue y presupuesto."
+            ]}
+          />
+          <div class="grid grid--4">
+            {eventCards.map((event) => (
+              <Card
+                name={event.name}
+                excerpt={event.excerpt}
+                cta={event.cta}
+                href={event.href}
+                icon={event.icon}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         PREGUNTAS FRECUENTES
+         ═══════════════════════════════════════════════════════════════════ -->
+    {faqs && faqs.length > 0 && (
+      <section class="section" aria-labelledby="faq-heading">
+        <div class="container">
+          <SectionHeader
+            id="faq-heading"
+            title="Preguntas Frecuentes sobre Mobiliario"
+            subtitle="Resolvemos tus dudas"
+            description={[
+              "Antes de reservar tu mobiliario, es natural tener preguntas sobre modelos, precios, disponibilidad y logística. Aquí encontrarás las respuestas a las consultas más comunes de nuestros clientes.",
+              "Si no encuentras la respuesta que buscas, escríbenos por WhatsApp y un asesor te responderá de inmediato."
+            ]}
+          />
+
+          <div class="faq-list">
+            {faqs.map((faq) => (
+              <details class="faq-item">
+                <summary class="faq-item__question">
+                  <span>{faq.question}</span>
+                  <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </summary>
+                <div class="faq-item__answer">
+                  <p>{faq.answer}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- CTA FINAL -->
+    <CTABanner
+      headline="Haz realidad el evento que siempre soñaste"
+      subheadline="Más de 500 eventos exitosos nos respaldan. Cotiza hoy y recibe asesoría personalizada sin compromiso."
+      primaryCTA={{ label: "Cotizar mobiliario", href: "/contacto/" }}
+      secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar mobiliario para mi evento` }}
+      variant="accent"
+    />
+  </PageLayout>
+) : (
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SUB-PAGE — Template simple con prose content
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <ServiceLayout
+    title={pageTitle}
+    description={pageDescription}
+    hero={hero}
+    jsonLd={jsonLd}
+  >
+    <Content />
+  </ServiceLayout>
+)}
+
+<style>
+  /* ═══════════════════════════════════════════════════════════════════════
+     CONTENT WRAPPER — Prose styles (matching ServiceLayout)
+     ═══════════════════════════════════════════════════════════════════════ */
+  .content-wrapper {
+    max-width: 75ch;
+  }
+
+  .content-wrapper :global(h2) {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-block: var(--space-2xl) var(--space-md);
+    padding-block-start: var(--space-lg);
+    border-block-start: 2px solid var(--color-border-light);
+  }
+
+  .content-wrapper :global(h2:first-child) {
+    border-block-start: none;
+    padding-block-start: 0;
+  }
+
+  .content-wrapper :global(h3) {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-block: var(--space-xl) var(--space-sm);
+  }
+
+  .content-wrapper :global(h4) {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-block: var(--space-lg) var(--space-sm);
+  }
+
+  .content-wrapper :global(p) {
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: var(--space-md);
+  }
+
+  .content-wrapper :global(ul),
+  .content-wrapper :global(ol) {
+    padding-left: var(--space-lg);
+    margin-bottom: var(--space-md);
+  }
+
+  .content-wrapper :global(li) {
+    line-height: 1.7;
+    margin-bottom: var(--space-xs);
+  }
+
+  .content-wrapper :global(strong) {
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .content-wrapper :global(hr) {
+    border: none;
+    border-block-start: 1px solid var(--color-border-light);
+    margin-block: var(--space-2xl);
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     BENEFITS + SPECS GRID
+     ═══════════════════════════════════════════════════════════════════════ */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  /* ── Benefits List ── */
+  .benefits-list {
+    background: var(--color-bg);
+    padding: var(--space-2xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border-light);
+  }
+
+  .benefits-list__title {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-block-end: var(--space-lg);
+  }
+
+  .benefits-list__items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .benefits-list__item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+
+  .benefits-list__icon {
+    flex-shrink: 0;
+    color: var(--color-accent);
+    margin-top: 2px;
+  }
+
+  /* ── Specs List ── */
+  .specs-list {
+    background: var(--color-primary);
+    padding: var(--space-2xl);
+    border-radius: var(--radius-lg);
+    color: white;
+  }
+
+  .specs-list__title {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    margin-block-end: var(--space-lg);
+  }
+
+  .specs-list__items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .specs-list__item {
+    padding-block-end: var(--space-lg);
+    border-block-end: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .specs-list__item:last-child {
+    border-block-end: none;
+    padding-block-end: 0;
+  }
+
+  .specs-list__label {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+    margin-block-end: var(--space-xs);
+  }
+
+  .specs-list__value {
+    font-size: var(--text-lg);
+    font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    .benefits-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .benefits-list,
+    .specs-list {
+      padding: var(--space-xl);
+    }
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════
+     FAQ ACCORDION
+     ═══════════════════════════════════════════════════════════════════════ */
+  .faq-list {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .faq-item {
+    background: var(--color-bg);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .faq-item[open] {
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-accent);
+  }
+
+  .faq-item__question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding: var(--space-lg) var(--space-xl);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: var(--text-base);
+    color: var(--color-heading);
+    list-style: none;
+    user-select: none;
+  }
+
+  .faq-item__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item__question::marker {
+    display: none;
+    content: "";
+  }
+
+  .faq-item__chevron {
+    flex-shrink: 0;
+    color: var(--color-text-light);
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[open] .faq-item__chevron {
+    transform: rotate(180deg);
+    color: var(--color-accent);
+  }
+
+  .faq-item__answer {
+    padding: 0 var(--space-xl) var(--space-lg);
+    animation: faqSlideDown 0.3s ease;
+  }
+
+  .faq-item__answer p {
+    font-size: var(--text-sm);
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  @keyframes faqSlideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

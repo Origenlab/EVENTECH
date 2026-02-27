@@ -22,7 +22,7 @@ const heroSchema = z.object({
   }).optional(),
   cards: z.array(
     z.object({
-      title: z.string(),
+      title: z.string().optional(),
       content: z.string(),
     })
   ).optional(),
@@ -87,6 +87,29 @@ const servicios = defineCollection({
     // Relationships
     relatedServices: z.array(z.string()).optional(),
     idealForEvents: z.array(z.string()).optional(),
+
+    // Sub-services (for hub pages)
+    subServices: z
+      .array(
+        z.object({
+          name: z.string(),
+          excerpt: z.string(),
+          cta: z.string(),
+          href: z.string(),
+          icon: z.string().optional(),
+        })
+      )
+      .optional(),
+
+    // FAQs
+    faqs: z
+      .array(
+        z.object({
+          question: z.string(),
+          answer: z.string(),
+        })
+      )
+      .optional(),
 
     // Hero section
     hero: heroSchema.optional(),

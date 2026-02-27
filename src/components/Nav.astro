@@ -1,12 +1,17 @@
 ---
 /**
  * ─── Nav Component ───
- * Accessible navigation with mobile hamburger menu.
- * Zero client-side JS — uses CSS :target for mobile toggle.
+ * Clean top-level navigation. Sub-items accessible via
+ * section pages (/servicios/, /eventos/) and footer.
  */
 import { mainNav } from "@data/navigation";
 
 const currentPath = Astro.url.pathname;
+
+function isActive(href: string): boolean {
+  if (href === "/") return currentPath === "/";
+  return currentPath.startsWith(href);
+}
 ---
 
 <nav class="nav" aria-label="Navegación principal">
@@ -15,8 +20,8 @@ const currentPath = Astro.url.pathname;
       <li class="nav__item">
         <a
           href={item.href}
-          class:list={["nav__link", { "nav__link--active": currentPath === item.href }]}
-          aria-current={currentPath === item.href ? "page" : undefined}
+          class:list={["nav__link", { "nav__link--active": isActive(item.href) }]}
+          aria-current={isActive(item.href) ? "page" : undefined}
         >
           {item.label}
         </a>
@@ -39,7 +44,7 @@ const currentPath = Astro.url.pathname;
     text-decoration: none;
     padding-block: var(--space-xs);
     border-block-end: 2px solid transparent;
-    transition: all var(--transition-fast);
+    transition: color var(--transition-fast), border-color var(--transition-fast);
   }
 
   .nav__link:hover,
