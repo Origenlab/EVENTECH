@@ -239,6 +239,58 @@ export const TRUST_STATS = [
   { value: "CDMX", label: "Cobertura completa" },
 ] as const;
 
+/** What's included in every rental */
+export const INCLUDES = [
+  {
+    id: "asesoria",
+    name: "Asesoría Personalizada",
+    excerpt: "Te ayudamos a elegir el equipo ideal según tu tipo de evento, número de invitados, venue y presupuesto. Sin presiones, sin compromiso.",
+    cta: "Solicitar Asesoría",
+    icon: "phone",
+    href: "/contacto/",
+  },
+  {
+    id: "entrega",
+    name: "Entrega en Tu Venue",
+    excerpt: "Llevamos el equipo directamente a tu salón, jardín o venue en toda la CDMX y Zona Metropolitana. Puntualidad garantizada.",
+    cta: "Ver Zonas de Entrega",
+    icon: "truck",
+    href: "/zonas/",
+  },
+  {
+    id: "montaje",
+    name: "Montaje Profesional",
+    excerpt: "Nuestro equipo de instaladores se encarga del armado completo. Cada pieza queda en su lugar exacto según el layout de tu evento.",
+    cta: "Conocer Equipo",
+    icon: "users",
+    href: "/nosotros/",
+  },
+  {
+    id: "garantia",
+    name: "Equipo Garantizado",
+    excerpt: "Cada pieza sale limpia, sanitizada y en perfectas condiciones. Incluimos seguro básico por uso normal durante tu evento.",
+    cta: "Conocer Más",
+    icon: "shield",
+    href: "/nosotros/",
+  },
+  {
+    id: "recoleccion",
+    name: "Recolección Incluida",
+    excerpt: "Al terminar tu evento, regresamos por todo el equipo. Desmontaje y recolección sin costo adicional dentro de CDMX.",
+    cta: "Cómo Funciona",
+    icon: "checkmark",
+    href: "/contacto/",
+  },
+  {
+    id: "precios",
+    name: "Precios Transparentes",
+    excerpt: "Sin costos ocultos ni cargos de última hora. El precio que cotizas incluye todo: entrega, montaje, desmontaje y recolección.",
+    cta: "Cotizar Ahora",
+    icon: "creditcard",
+    href: "/contacto/",
+  },
+] as const;
+
 /** Why choose us features */
 export const FEATURES = [
   {
