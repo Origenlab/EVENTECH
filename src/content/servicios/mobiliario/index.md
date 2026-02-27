@@ -86,7 +86,7 @@ hero:
   subtitle: "Sillas Tiffany, mesas, salas lounge y barras personalizadas. Transforma tu evento con mobiliario de primera calidad. Entrega, montaje y asesoría incluidos."
   primaryCTA:
     label: "Cotiza tu evento"
-    href: "/contacto/"
+    href: "#reserva-heading"
   secondaryCTA:
     label: "Explorar catálogo"
     href: "#catalogo-heading"

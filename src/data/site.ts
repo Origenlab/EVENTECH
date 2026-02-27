@@ -173,7 +173,7 @@ export const EVENT_TYPES = [
     excerpt: "Pista de baile LED, iluminación espectacular y mobiliario de lujo. Hacemos realidad el sueño de la quinceañera.",
     cta: "XV Años",
     icon: "crown",
-    href: "/eventos/xv-anos/",
+    href: "/servicios/",
   },
   {
     id: "corporativos",
@@ -182,7 +182,7 @@ export const EVENT_TYPES = [
     excerpt: "Audio y video de alta calidad, mobiliario ejecutivo y montaje impecable para eventos empresariales.",
     cta: "Corporativos",
     icon: "briefcase",
-    href: "/eventos/corporativos/",
+    href: "/servicios/",
   },
   {
     id: "sociales",
@@ -191,7 +191,7 @@ export const EVENT_TYPES = [
     excerpt: "Cumpleaños, graduaciones, baby showers y reuniones. Adaptamos nuestros servicios a tu presupuesto.",
     cta: "Eventos Sociales",
     icon: "users",
-    href: "/eventos/sociales/",
+    href: "/servicios/",
   },
   {
     id: "infantiles",
@@ -200,7 +200,7 @@ export const EVENT_TYPES = [
     excerpt: "Inflables, mesas temáticas, juegos y decoración colorida. Diversión garantizada para los más pequeños.",
     cta: "Fiestas Infantiles",
     icon: "cake",
-    href: "/eventos/infantiles/",
+    href: "/servicios/inflables/",
   },
   {
     id: "graduaciones",
@@ -209,7 +209,7 @@ export const EVENT_TYPES = [
     excerpt: "Escenarios, audio profesional y mobiliario elegante para celebrar este logro académico como se merece.",
     cta: "Graduaciones",
     icon: "graduation",
-    href: "/eventos/graduaciones/",
+    href: "/servicios/audiovisual/",
   },
   {
     id: "baby-showers",
@@ -218,7 +218,7 @@ export const EVENT_TYPES = [
     excerpt: "Decoración temática, mesas de dulces y mobiliario encantador para darle la bienvenida al nuevo integrante.",
     cta: "Baby Showers",
     icon: "baby",
-    href: "/eventos/baby-showers/",
+    href: "/servicios/accesorios/",
   },
   {
     id: "religiosos",
@@ -227,17 +227,10 @@ export const EVENT_TYPES = [
     excerpt: "Mobiliario clásico, carpas elegantes y decoración sobria para celebraciones de fe y tradición familiar.",
     cta: "Eventos Religiosos",
     icon: "church",
-    href: "/eventos/religiosos/",
+    href: "/servicios/mobiliario/",
   },
 ] as const;
 
-/** Trust badges/stats for homepage */
-export const TRUST_STATS = [
-  { value: "500+", label: "Eventos realizados" },
-  { value: "98%", label: "Clientes satisfechos" },
-  { value: "24h", label: "Respuesta garantizada" },
-  { value: "CDMX", label: "Cobertura completa" },
-] as const;
 
 /** What's included in every rental */
 export const INCLUDES = [
@@ -247,7 +240,7 @@ export const INCLUDES = [
     excerpt: "Te ayudamos a elegir el equipo ideal según tu tipo de evento, número de invitados, venue y presupuesto. Sin presiones, sin compromiso.",
     cta: "Solicitar Asesoría",
     icon: "phone",
-    href: "/contacto/",
+    href: "#reserva-heading",
   },
   {
     id: "entrega",
@@ -255,7 +248,7 @@ export const INCLUDES = [
     excerpt: "Llevamos el equipo directamente a tu salón, jardín o venue en toda la CDMX y Zona Metropolitana. Puntualidad garantizada.",
     cta: "Ver Zonas de Entrega",
     icon: "truck",
-    href: "/zonas/",
+    href: "/zonas/cdmx/",
   },
   {
     id: "montaje",
@@ -279,7 +272,7 @@ export const INCLUDES = [
     excerpt: "Al terminar tu evento, regresamos por todo el equipo. Desmontaje y recolección sin costo adicional dentro de CDMX.",
     cta: "Cómo Funciona",
     icon: "checkmark",
-    href: "/contacto/",
+    href: "/nosotros/",
   },
   {
     id: "precios",
@@ -287,7 +280,7 @@ export const INCLUDES = [
     excerpt: "Sin costos ocultos ni cargos de última hora. El precio que cotizas incluye todo: entrega, montaje, desmontaje y recolección.",
     cta: "Cotizar Ahora",
     icon: "creditcard",
-    href: "/contacto/",
+    href: "#reserva-heading",
   },
 ] as const;
 
@@ -299,7 +292,7 @@ export const FEATURES = [
     excerpt: "Cotización garantizada en menos de 24 horas. Sabemos que tu tiempo es valioso.",
     cta: "Cotizar Ahora",
     icon: "clock",
-    href: "/contacto/",
+    href: "#reserva-heading",
   },
   {
     id: "inventario-completo",
@@ -323,7 +316,7 @@ export const FEATURES = [
     excerpt: "Sin sorpresas. Te damos el precio real desde el inicio, incluyendo montaje.",
     cta: "Ver Precios",
     icon: "creditcard",
-    href: "/precios/",
+    href: "/servicios/",
   },
   {
     id: "cobertura-cdmx",
@@ -331,7 +324,7 @@ export const FEATURES = [
     excerpt: "Llegamos a toda la Ciudad de México y Zona Metropolitana sin costos ocultos.",
     cta: "Ver Zonas",
     icon: "mappin",
-    href: "/zonas/",
+    href: "/zonas/cdmx/",
   },
   {
     id: "equipo-profesional",
@@ -347,7 +340,7 @@ export const FEATURES = [
     excerpt: "Nos encargamos de instalar y desmontar todo el equipo. Tú solo disfruta tu evento.",
     cta: "Cómo Funciona",
     icon: "truck",
-    href: "/como-funciona/",
+    href: "/nosotros/",
   },
   {
     id: "experiencia",
@@ -355,7 +348,7 @@ export const FEATURES = [
     excerpt: "Experiencia comprobada en bodas, XV años, corporativos y todo tipo de celebraciones.",
     cta: "Ver Portafolio",
     icon: "award",
-    href: "/portafolio/",
+    href: "/nosotros/",
   },
 ] as const;
 
