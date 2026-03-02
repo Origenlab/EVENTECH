@@ -1,0 +1,703 @@
+---
+/**
+ * ─── Wash Lights LED — Página de Producto (Nivel 4) ───
+ * Primera página L4 de EVENTECH. Introduce sidebar de interlinking
+ * y color accent amber #e17055.
+ *
+ * Jerarquía: Servicios > Iluminación > Arquitectónica > Wash Lights
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+
+const faqs = [
+  { question: "¿Cuántos wash lights necesito para mi evento?", answer: "Depende del tamaño del espacio y el efecto deseado. Para un salón de hasta 150 m² recomendamos 6 a 10 wash lights, para espacios de 150 a 400 m² entre 10 y 16 unidades, y para venues grandes de 400+ m² desde 16 luminarias en adelante. Nuestro diseñador de iluminación realiza una visita técnica gratuita para evaluar altura de techos, color de muros y puntos de energía, y entregarte un plano con la cantidad exacta de wash lights para tu evento." },
+  { question: "¿Puedo elegir cualquier color con los wash lights?", answer: "Sí. Nuestros wash lights RGBW y RGBWA+UV ofrecen mezcla de color infinita con millones de tonalidades posibles. Puedes elegir colores específicos por código hex o Pantone para match exacto con la paleta de tu boda, marca corporativa o temática de fiesta. Además, los modelos RGBWA+UV incluyen ámbar cálido y ultravioleta para efectos glow que no se logran con RGB estándar. El técnico programa tus colores exactos antes del evento." },
+  { question: "¿Los wash lights generan calor? ¿Son seguros cerca de telas?", answer: "Los wash lights LED generan un 90% menos de calor que las luminarias halógenas tradicionales. Operan a temperaturas superficiales de 40-60°C, completamente seguros para usar cerca de cortinajes, telas, flores y decoración. No emiten radiación UV dañina (excepto el canal UV controlado de los modelos RGBWA+UV). Están certificados para uso en eventos con materiales inflamables y cumplen normativas de seguridad eléctrica." },
+  { question: "¿Se pueden usar los wash lights al aire libre?", answer: "Sí, contamos con modelos IP65 diseñados específicamente para exterior. Resisten lluvia, polvo, humedad y temperaturas de 0°C a 45°C. Para eventos en jardín, terraza o cualquier espacio abierto, utilizamos exclusivamente wash lights IP65 con conectores waterproof y cables de seguridad. Los modelos de interior (IP20) se usan únicamente en espacios techados. Nuestro técnico selecciona el modelo correcto según tu venue." },
+  { question: "¿Necesito un técnico para operar los wash lights?", answer: "Todos nuestros paquetes de wash lights incluyen técnico operador dedicado durante todo el evento. El técnico programa las escenas de color según tu timeline (ceremonia, cena, brindis, fiesta), opera la consola DMX en tiempo real y realiza ajustes instantáneos si cambias de planes. También se encarga del montaje, cableado, enfoque y desmontaje. No necesitas preocuparte por nada técnico — nosotros nos encargamos de todo." },
+  { question: "¿Cuál es la diferencia entre wash lights y uplighting?", answer: 'Los wash lights son luminarias de mayor potencia (100W-324W) diseñadas para cubrir áreas amplias con baños de color uniformes — ideales para techos, escenarios y espacios grandes. El <a href="/servicios/iluminacion/arquitectonica/uplighting/">uplighting perimetral</a> son barras LED más compactas colocadas a nivel de piso que proyectan luz hacia arriba sobre muros y columnas para transformar el ambiente perimetral. Ambos se complementan perfectamente: los wash lights definen la atmósfera general y el uplighting añade profundidad perimetral. Si necesitas resaltar texturas específicas, nuestros <a href="/servicios/iluminacion/arquitectonica/banadores/">bañadores de muros</a> ofrecen óptica asimétrica diseñada para superficies verticales. Ofrecemos paquetes combinados con descuento.' },
+];
+
+const specs = [
+  { label: "Tecnología LED", value: "RGBW / RGBWA+UV 4-en-1 y 6-en-1" },
+  { label: "Potencia", value: "100W a 324W por luminaria" },
+  { label: "Ángulo de apertura", value: "15° a 60° (zoom motorizado)" },
+  { label: "Control", value: "DMX-512, wireless DMX, App" },
+  { label: "Temperatura de color", value: "2700K – 6500K ajustable" },
+  { label: "CRI", value: "80-95 (según modelo)" },
+  { label: "Vida útil LED", value: "50,000+ horas" },
+  { label: "Clasificación IP", value: "IP20 (interior) / IP65 (exterior)" },
+  { label: "Opciones wireless", value: "Batería Li-Ion 8-12h, W-DMX" },
+  { label: "Peso por unidad", value: "3 – 7 kg" },
+];
+
+const sidebarNav = [
+  { name: "Wash Lights LED", href: null, active: true },
+  { name: "Uplighting Perimetral", href: "/servicios/iluminacion/arquitectonica/uplighting/" },
+  { name: "Bañadores de Muros", href: "/servicios/iluminacion/arquitectonica/banadores/" },
+  { name: "Iluminación de Fachadas", href: "/servicios/iluminacion/arquitectonica/fachadas/" },
+];
+
+const sidebarRelated = [
+  { name: "Carpas Profesionales", href: "/servicios/carpas/" },
+  { name: "Equipo Audiovisual", href: "/servicios/audiovisual/" },
+  { name: "Mobiliario Premium", href: "/servicios/mobiliario/" },
+  { name: "Pistas de Baile", href: "/servicios/pistas-baile/" },
+  { name: "Efectos Especiales", href: "/servicios/iluminacion/efectos-especiales/" },
+];
+
+const reviews = [
+  { author: "Carolina Méndez", text: "Rentamos 16 wash lights RGBW para nuestra boda en un jardín de Coyoacán y el resultado fue espectacular. El diseñador de iluminación nos propuso una paleta de ámbar cálido para la ceremonia y cambio a colores vibrantes en la fiesta. Todo impecable, el técnico estuvo atento toda la noche.", rating: 5, date: "2025-11-15" },
+  { author: "Ricardo Fuentes", text: "Contratamos wash lights RGBWA+UV para un lanzamiento de producto corporativo. El efecto UV en las piezas fluorescentes de la marca fue un hit total. Equipo puntual, profesional y el montaje quedó limpio sin cables visibles. Altamente recomendable.", rating: 5, date: "2025-10-22" },
+  { author: "Mariana Torres", text: "Los wash lights wireless fueron perfectos para nuestro evento en una terraza sin tomas de corriente. Las baterías duraron toda la noche y el control por app nos permitió cambiar colores desde la mesa principal. Excelente servicio y asesoría previa.", rating: 5, date: "2025-09-08" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Wash Lights LED para Eventos en CDMX",
+    description: "Wash lights LED RGBW y RGBWA+UV de alta potencia para bodas, galas y eventos corporativos. Control DMX profesional, técnico dedicado y montaje incluido. Desde $350 por luminaria.",
+    url: "/servicios/iluminacion/arquitectonica/wash-lights/",
+    priceRange: { min: 350, max: 3000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 47,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Iluminación", url: "/servicios/iluminacion/" },
+    { name: "Arquitectónica", url: "/servicios/iluminacion/arquitectonica/" },
+    { name: "Wash Lights LED", url: "/servicios/iluminacion/arquitectonica/wash-lights/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Wash Lights LED para Eventos en CDMX"
+  description="Renta de wash lights LED RGBW y RGBWA+UV para eventos en CDMX: 100W a 324W, control DMX, técnico incluido. Modelos wireless e IP65 exterior. Desde $350. Cotiza hoy."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Luminaria más versátil para eventos"
+    title='Renta de <span class="highlight">Wash Lights LED</span> para Eventos en CDMX'
+    subtitle="Wash lights RGBW y RGBWA+UV de alta potencia con control DMX profesional. Baños de color uniformes para bodas, galas, corporativos y celebraciones. Técnico dedicado incluido."
+    primaryCTA={{ label: "Cotiza tus wash lights", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar wash lights LED para mi evento` }}
+    cards={[
+      {
+        title: "Wash lights LED de grado profesional para cada espacio",
+        content: "<strong>Renta de wash lights LED para eventos</strong> con tecnología RGBW y RGBWA+UV de última generación en la Ciudad de México. Luminarias de 100W a 324W con mezcla de color infinita, temperatura ajustable de 2700K a 6500K y zoom motorizado de 15° a 60°. Ideales para baños de color en techos, escenarios, columnas y espacios abiertos — desde bodas íntimas hasta galas corporativas de 1,000+ invitados.",
+      },
+      {
+        title: "Control DMX profesional y técnico dedicado incluido",
+        content: "<strong>Servicio técnico completo</strong> en cada renta de wash lights LED. Consola DMX-512 profesional con programación de escenas personalizadas según el timeline de tu evento: ceremonia en ámbar cálido, cena en blanco suave, brindis con spotlight y fiesta con cambios dinámicos. Wireless DMX disponible para instalaciones sin cableado visible. Montaje, enfoque y desmontaje incluidos.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas wash lights para tu próximo evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con plano de iluminación personalizado"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Iluminación Arquitectónica</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas wash lights para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar wash lights LED para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Wash Lights LED</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: RGBW Standard -->
+          <section class="section section--alt" aria-labelledby="rgbw-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">El workhorse de eventos</span>
+                <h2 class="showcase__title" id="rgbw-heading">Wash Lights RGBW Standard</h2>
+                <p class="showcase__subtitle">Luminarias 4-en-1 de 18x12W: la base confiable para cualquier diseño de iluminación profesional.</p>
+                <p class="showcase__text">Los <strong>wash lights RGBW Standard</strong> son las luminarias más solicitadas para bodas, XV años y eventos corporativos. Con tecnología <strong>LED 4-en-1 (rojo, verde, azul, blanco)</strong> de 18 LEDs x 12W cada uno, ofrecen 216W de potencia con mezcla de color precisa y temperatura ajustable de 2700K a 6500K. Zoom motorizado de 15° a 60° para cubrir desde columnas puntuales hasta techos completos.</p>
+                <p class="showcase__text">Incluyen <strong>control DMX-512 de 8 canales</strong>, modo master/slave para sincronización sin consola y función de auto-run con programas preinstalados. Peso de solo 4.5 kg por unidad, lo que permite montajes rápidos en truss, piso o clamps de pared. La combinación perfecta con nuestras <a href="/servicios/carpas/">carpas profesionales</a> para crear ambientes mágicos bajo techo temporal. Para completar el diseño perimetral, añade <a href="/servicios/iluminacion/arquitectonica/uplighting/">uplighting perimetral</a> en la base de los muros.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">RGBW 4-en-1</span>
+                  <span class="showcase__tag">18x12W (216W)</span>
+                  <span class="showcase__tag">DMX 8ch</span>
+                  <span class="showcase__tag">Zoom 15°-60°</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Wash RGBW
+                </a>
+              </div>
+              <div class="showcase__image">
+                <img src="/images/iluminacion-arquitectonica/wash-lights-rgbw-haces-colores-evento.avif" alt="Wash lights RGBW Standard montados en truss proyectando haces de color en escenario de evento" width="800" height="436" loading="lazy" class="showcase__img" />
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: RGBWA+UV Premium -->
+          <section class="section section--alt" aria-labelledby="rgbwauv-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">El estándar profesional</span>
+                <h2 class="showcase__title" id="rgbwauv-heading">Wash Lights RGBWA+UV Premium</h2>
+                <p class="showcase__subtitle">Luminarias 6-en-1 de 18x18W: el máximo rango de color con ámbar cálido y ultravioleta incluido.</p>
+                <p class="showcase__text">Los <strong>wash lights RGBWA+UV Premium</strong> representan lo mejor de nuestra flota. Con <strong>6 colores en cada LED (rojo, verde, azul, blanco, ámbar y ultravioleta)</strong> de 18 LEDs x 18W, alcanzan 324W de potencia con un CRI de 95 — el más alto disponible en wash lights para eventos. El canal ámbar produce blancos cálidos naturales imposibles de lograr con RGB estándar, mientras que el <strong>canal UV genera efectos glow</strong> espectaculares en ropa blanca, flores y decoraciones fluorescentes.</p>
+                <p class="showcase__text">Zoom motorizado de 15° a 60° con transiciones silenciosas de grado teatral, <strong>DMX-512 de 12 canales</strong> para control granular de cada color, y función de dimmer de 16-bit para fades ultra-suaves sin parpadeo visible. Ideales para galas de alto perfil, escenarios de concierto y eventos donde cada detalle de luz importa. Combínalos con nuestros <a href="/servicios/iluminacion/efectos-especiales/">efectos especiales</a> de humo bajo y láser para una experiencia sensorial completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">RGBWA+UV 6-en-1</span>
+                  <span class="showcase__tag">18x18W (324W)</span>
+                  <span class="showcase__tag">CRI 95</span>
+                  <span class="showcase__tag">UV Glow</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Wash RGBWA+UV
+                </a>
+              </div>
+              <div class="showcase__image">
+                <img src="/images/iluminacion-arquitectonica/wash-light-rgbwa-uv-alta-potencia.avif" alt="Wash light RGBWA+UV de alta potencia equipo profesional para iluminación de eventos" width="800" height="436" loading="lazy" class="showcase__img" />
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Battery-Powered Wireless -->
+          <section class="section section--alt" aria-labelledby="wireless-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Sin cables, sin límites</span>
+                <h2 class="showcase__title" id="wireless-heading">Wash Lights Wireless (Batería)</h2>
+                <p class="showcase__subtitle">Luminarias con batería Li-Ion de 8-12 horas y control por app: instalación libre en cualquier ubicación.</p>
+                <p class="showcase__text">Los <strong>wash lights wireless con batería</strong> eliminan la dependencia de cables de energía y DMX, permitiendo ubicarlos en cualquier punto del venue sin restricciones. Batería de litio-ion recargable con <strong>autonomía de 8 a 12 horas</strong> a máxima potencia — más que suficiente para cualquier evento. Control vía <strong>wireless DMX (W-DMX)</strong> o app para smartphone/tablet que permite cambiar colores, escenas y brillo desde cualquier lugar del venue.</p>
+                <p class="showcase__text">Ideales para <strong>centros de mesa iluminados, jardines sin tomas eléctricas, columnas aisladas y puntos de luz en pasillos</strong>. Con RGBWA de 12x15W por unidad, ofrecen potencia suficiente para uplighting y wash ligero. Cada unidad incluye indicador de batería LED y se recarga completamente en 5 horas. La solución perfecta cuando necesitas <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a> flexible sin el compromiso de cableado visible.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Batería Li-Ion</span>
+                  <span class="showcase__tag">8-12h autonomía</span>
+                  <span class="showcase__tag">W-DMX / App</span>
+                  <span class="showcase__tag">Sin cables</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Wash Wireless
+                </a>
+              </div>
+              <div class="showcase__image">
+                <img src="/images/iluminacion-arquitectonica/wash-light-bateria-wireless-rgbwa.avif" alt="Wash light LED inalámbrico con batería RGBWA+UV recargable para eventos sin cables" width="800" height="436" loading="lazy" class="showcase__img" />
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: IP65 Outdoor -->
+          <section class="section section--alt" aria-labelledby="ip65-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Para exteriores e intemperie</span>
+                <h2 class="showcase__title" id="ip65-heading">Wash Lights IP65 Outdoor</h2>
+                <p class="showcase__subtitle">Luminarias selladas contra lluvia y polvo: iluminación profesional para jardines, terrazas y fachadas.</p>
+                <p class="showcase__text">Los <strong>wash lights IP65 Outdoor</strong> están diseñados para funcionar en condiciones de exterior sin comprometer rendimiento ni seguridad. Certificación <strong>IP65 que garantiza protección total contra polvo y chorros de agua</strong> desde cualquier dirección. Carcasa de aluminio fundido con disipación térmica activa, conectores waterproof y cable de seguridad incluido. Operan en temperaturas de 0°C a 45°C y soportan humedad relativa de hasta 95%.</p>
+                <p class="showcase__text">Con <strong>RGBW de 18x15W (270W)</strong> y ópticas de grado exterior con tratamiento anti-reflejo, ofrecen un brillo superior al de modelos indoor equivalentes para compensar la luz ambiental natural. Zoom motorizado y DMX wireless incluido para instalaciones donde el cableado no es viable. La elección número uno para eventos en jardín, fiestas al aire libre e <a href="/servicios/iluminacion/arquitectonica/fachadas/">iluminación de fachadas</a> donde la intemperie es un factor. Combinan también con <a href="/servicios/carpas/">carpas para exteriores</a> para producción integral.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">IP65 Sealed</span>
+                  <span class="showcase__tag">18x15W (270W)</span>
+                  <span class="showcase__tag">Aluminio fundido</span>
+                  <span class="showcase__tag">0°C a 45°C</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Wash IP65
+                </a>
+              </div>
+              <div class="showcase__image">
+                <img src="/images/iluminacion-arquitectonica/wash-lights-ip65-exterior-carpa-evento.avif" alt="Wash lights LED IP65 para exterior iluminando carpa transparente en evento nocturno rooftop" width="800" height="436" loading="lazy" class="showcase__img" />
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Wash Lights LED"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar wash lights para tu evento, es natural tener preguntas sobre tipos de luminaria, colores, seguridad y operación. Aquí encontrarás las respuestas más comunes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un especialista en iluminación te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p>{faq.answer}</p>
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en wash lights resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre wash lights LED para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Iluminación Arquitectónica -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Iluminación Arquitectónica</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/arquitectonica/" class="sidebar-nav__back">&uarr; Volver a Arquitectónica</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/" class="sidebar-nav__back">&uarr; Volver a Iluminación</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de wash lights:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas wash lights para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar wash lights LED para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tus Wash Lights LED"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros especialistas en iluminación te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un set de wash lights RGBW para tu boda o un paquete completo RGBWA+UV para tu gala corporativa, estamos aquí para diseñar la luz perfecta."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoWash">
+                Tipo de wash light
+              </label>
+              <select id="tipoWash" name="tipoWash" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de wash light</option>
+                <option value="Wash Lights RGBW Standard">Wash Lights RGBW Standard</option>
+                <option value="Wash Lights RGBWA+UV Premium">Wash Lights RGBWA+UV Premium</option>
+                <option value="Wash Lights Wireless (Batería)">Wash Lights Wireless (Batería)</option>
+                <option value="Wash Lights IP65 Exterior">Wash Lights IP65 Exterior</option>
+                <option value="Paquete Boda (Wash + Uplighting)">Paquete Boda (Wash + Uplighting)</option>
+                <option value="Paquete Corporativo">Paquete Corporativo</option>
+                <option value="Paquete Completo">Paquete Completo</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de invitados, tipo de venue (salón/jardín/terraza), colores deseados, dimensiones del espacio..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para diseñar un plano de iluminación con la cantidad exacta de wash lights.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada de iluminación para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoWash = document.getElementById('tipoWash').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Wash Lights LED para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoWash) texto += `*Tipo de wash light:* ${tipoWash}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Iluminación"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de iluminación profesional para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">REDEIL</h3>
+            <p class="partner-card__tagline">Renta de Iluminación Profesional</p>
+            <p class="partner-card__text">Líder en renta de iluminación para eventos sociales en CDMX y Estado de México. Especialistas en guirnaldas LED, cabezas móviles, iluminación arquitectónica, gobos personalizados y efectos especiales.</p>
+          </div>
+          <a href="https://rentadeiluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Iluminación + Audio</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">REDEIL Sonido</h3>
+            <p class="partner-card__tagline">Iluminación LED y Audio Profesional</p>
+            <p class="partner-card__text">Especialistas en audio JBL y QSC, iluminación LED profesional, DJ y pantallas LED para bodas, XV años y eventos corporativos. Servicio integral con instalación y operación técnica incluida.</p>
+          </div>
+          <a href="https://redeil.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">+15 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">RESOIL</h3>
+            <p class="partner-card__tagline">Renta de Sonido e Iluminación</p>
+            <p class="partner-card__text">Más de 15 años proporcionando equipo profesional de sonido e iluminación para eventos corporativos en CDMX. Guirnaldas LED, sky trackers, luces arquitectónicas, cascadas LED y gobos.</p>
+          </div>
+          <a href="https://rentadesonidoeiluminacion.com.mx/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">L</span>
+            <div class="partner-card__badge">+20 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">LUMINAPRO</h3>
+            <p class="partner-card__tagline">Expertos en Iluminación Profesional</p>
+            <p class="partner-card__text">Líder en renta de iluminación profesional para eventos con más de 20 años transformando espacios en CDMX. Servicio integral: diseño, instalación, operación y desmontaje de cabezas móviles, láser y más.</p>
+          </div>
+          <a href="https://renta-de-iluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Wash lights LED que transforman tu evento en una experiencia de luz"
+    subheadline="Más de 500 eventos iluminados con wash lights profesionales nos respaldan. Cotiza hoy y recibe un plano de iluminación personalizado."
+    primaryCTA={{ label: "Cotizar wash lights LED", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar wash lights LED para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

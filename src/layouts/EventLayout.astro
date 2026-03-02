@@ -8,7 +8,13 @@ import Topbar from "@components/Topbar.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import HeroPage from "@components/HeroPage.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
 import type { SEOProps } from "@data/site";
+
+type BreadcrumbItem = {
+  label: string;
+  href?: string;
+};
 
 type HeroCard = {
   title: string;
@@ -27,15 +33,21 @@ type HeroProps = {
 type Props = SEOProps & {
   hero?: HeroProps;
   jsonLd?: Record<string, unknown>[];
+  breadcrumbItems?: BreadcrumbItem[];
 };
 
-const { hero, jsonLd, ...seoProps } = Astro.props;
+const { hero, jsonLd, breadcrumbItems, ...seoProps } = Astro.props;
 ---
 
 <BaseLayout {...seoProps} jsonLd={jsonLd}>
   <Topbar />
   <Header />
   <main id="main-content">
+    {breadcrumbItems && (
+      <div class="container">
+        <Breadcrumbs items={breadcrumbItems} />
+      </div>
+    )}
     {hero && (
       <HeroPage
         badge={hero.badge}

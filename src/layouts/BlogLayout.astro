@@ -1,14 +1,18 @@
 ---
 /**
  * ─── BlogLayout ───
- * Layout for individual blog post pages.
- * Adds article-specific structured data and prose styling.
+ * Layout profesional para artículos del blog.
+ * Incluye: HeroPage, Breadcrumbs, two-column layout con sidebar.
  */
-import BaseLayout from "./BaseLayout.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
-import { formatDate, readingTime } from "@utils/helpers";
+import PageLayout from "./PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+import CTABanner from "@components/CTABanner.astro";
+import { readingTime } from "@utils/helpers";
 import { articleJsonLd, breadcrumbJsonLd, canonicalURL } from "@utils/seo";
+import { getCollection } from "astro:content";
+import { SITE } from "@data/site";
+import "@styles/blog.css";
 
 type Props = {
   title: string;
@@ -16,19 +20,77 @@ type Props = {
   date: Date;
   updatedDate?: Date;
   image?: string;
+  imageAlt?: string;
   author?: string;
   body: string;
   slug: string;
+  category?: string;
+  tags?: string[];
+  relatedPosts?: string[];
 };
 
-const { title, description, date, updatedDate, image, author, body, slug } = Astro.props;
+const {
+  title,
+  description,
+  date,
+  updatedDate,
+  image,
+  imageAlt,
+  author = "Equipo EVENTECH",
+  body,
+  slug,
+  category,
+  tags,
+  relatedPosts,
+} = Astro.props;
+
 const minutes = readingTime(body);
 
+// Fetch related posts
+let relatedPostsData: Awaited<ReturnType<typeof getCollection<"blog">>> = [];
+if (relatedPosts && relatedPosts.length > 0) {
+  const allPosts = await getCollection("blog", ({ data }) => !data.draft);
+  relatedPostsData = allPosts.filter(p => relatedPosts.includes(p.slug)).slice(0, 3);
+}
+
+// Extract headings for TOC (## level headings)
+const headingMatches = body.matchAll(/^##\s+(.+)$/gm);
+const headings = Array.from(headingMatches).map(match => {
+  const text = match[1].trim();
+  const headingSlug = text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+  return { text, slug: headingSlug };
+});
+
+const CATEGORY_LABELS: Record<string, string> = {
+  "bodas": "Bodas",
+  "xv-anos": "XV Años",
+  "corporativos": "Corporativos",
+  "tendencias": "Tendencias",
+  "guias": "Guías",
+  "tips": "Tips",
+  "casos-exito": "Casos de Éxito",
+};
+
+const categoryLabel = category ? (CATEGORY_LABELS[category] || category) : "Blog";
+
+// Breadcrumbs
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Blog", href: "/blog/" },
+  { label: title },
+];
+
+// JSON-LD
 const jsonLd = [
   articleJsonLd({
     title,
     description,
-    url: canonicalURL(`/blog/${slug}`),
+    url: canonicalURL(`/blog/${slug}/`),
     image,
     datePublished: date.toISOString(),
     dateModified: updatedDate?.toISOString(),
@@ -36,97 +98,387 @@ const jsonLd = [
   }),
   breadcrumbJsonLd([
     { name: "Inicio", url: "/" },
-    { name: "Blog", url: "/blog" },
-    { name: title, url: `/blog/${slug}` },
+    { name: "Blog", url: "/blog/" },
+    { name: title, url: `/blog/${slug}/` },
   ]),
 ];
+
+// Generar excerpt para las cards del hero (primeros 2 párrafos del body)
+const paragraphs = body.split('\n\n').filter(p => p.trim() && !p.startsWith('#') && !p.startsWith('-') && !p.startsWith('*'));
+const firstParagraph = paragraphs[0]?.replace(/\*\*/g, '').substring(0, 300) || description;
 ---
 
-<BaseLayout
+<PageLayout
   title={title}
   description={description}
   image={image}
-  type="article"
-  publishedTime={date.toISOString()}
-  modifiedTime={updatedDate?.toISOString()}
-  author={author}
   jsonLd={jsonLd}
 >
-  <Header />
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
 
-  <main id="main-content">
-    <article class="blog-post section">
-      <div class="container container--narrow">
-        <!-- Post Header -->
-        <header class="blog-post__header stack">
-          <h1 class="blog-post__title">{title}</h1>
-          <div class="blog-post__meta cluster">
-            <time datetime={date.toISOString()}>{formatDate(date)}</time>
-            <span aria-hidden="true">&middot;</span>
-            <span>{minutes} min de lectura</span>
-            {author && (
-              <>
-                <span aria-hidden="true">&middot;</span>
-                <span>Por {author}</span>
-              </>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge={`${categoryLabel} · ${minutes} min de lectura`}
+    title={title}
+    subtitle={description}
+    primaryCTA={{ label: "Cotizar equipo", href: "/cotizar/" }}
+    secondaryCTA={{ label: "Ver servicios", href: "/servicios/" }}
+    cards={[
+      {
+        title: "Sobre este artículo",
+        content: `<strong>${firstParagraph}...</strong> Continúa leyendo para descubrir toda la información que necesitas para tu próximo evento.`,
+      },
+      {
+        title: "¿Necesitas ayuda?",
+        content: `En <strong>EVENTECH</strong> somos expertos en renta de equipo para eventos. Si después de leer este artículo tienes dudas o necesitas cotizar, <strong>contáctanos por WhatsApp</strong> para asesoría personalizada.`,
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CTA BANNER
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Te interesa lo que estás leyendo?"
+    subheadline="Cotiza el equipo que necesitas para tu evento sin compromiso"
+    primaryCTA={{ label: "Cotizar ahora", href: "/cotizar/" }}
+    secondaryCTA={{ label: "Hablar por WhatsApp", href: `https://wa.me/${SITE.contact.whatsapp}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CONTENT
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <!-- Two-column layout: Content + Sidebar -->
+      <div class="blog-post-layout">
+        <!-- Main Content -->
+        <article class="blog-post__main">
+          <!-- Article Header -->
+          <header class="blog-article__header">
+            {category && (
+              <a href="/blog/" class="blog-post__category-link">
+                {categoryLabel}
+              </a>
             )}
-          </div>
-          {updatedDate && (
-            <p class="blog-post__updated">
-              Actualizado el <time datetime={updatedDate.toISOString()}>{formatDate(updatedDate)}</time>
-            </p>
+            <div class="blog-article__meta">
+              <span class="blog-article__reading">{minutes} min de lectura</span>
+              {author && <span class="blog-article__author">Por {author}</span>}
+            </div>
+            {tags && tags.length > 0 && (
+              <div class="blog-article__tags">
+                {tags.map(tag => (
+                  <span class="blog-article__tag">{tag}</span>
+                ))}
+              </div>
+            )}
+          </header>
+
+          <!-- Hero Image -->
+          {image ? (
+            <figure class="blog-article__figure">
+              <img
+                src={image}
+                alt={imageAlt || title}
+                class="blog-article__image"
+                width="800"
+                height="450"
+                loading="eager"
+              />
+            </figure>
+          ) : (
+            <div class="blog-article__placeholder">
+              <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <polyline points="21 15 16 10 5 21"/>
+              </svg>
+            </div>
           )}
-        </header>
 
-        <!-- Post Image -->
-        {image && (
-          <img
-            src={image}
-            alt={title}
-            class="blog-post__hero-image"
-            width="768"
-            height="432"
-            loading="eager"
-          />
-        )}
+          <!-- Article Content -->
+          <div class="prose">
+            <slot />
+          </div>
 
-        <!-- Post Content (Markdown/MDX renders here) -->
-        <div class="prose">
-          <slot />
-        </div>
+          <!-- Article Footer -->
+          <footer class="blog-article__footer">
+            <div class="blog-article__share">
+              <span class="blog-article__share-label">Comparte este artículo:</span>
+              <div class="blog-article__share-buttons">
+                <a href={`https://wa.me/?text=${encodeURIComponent(title + ' - ' + canonicalURL(`/blog/${slug}/`))}`} class="blog-article__share-btn blog-article__share-btn--whatsapp" target="_blank" rel="noopener" aria-label="Compartir en WhatsApp">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                </a>
+                <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(canonicalURL(`/blog/${slug}/`))}`} class="blog-article__share-btn blog-article__share-btn--facebook" target="_blank" rel="noopener" aria-label="Compartir en Facebook">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(canonicalURL(`/blog/${slug}/`))}`} class="blog-article__share-btn blog-article__share-btn--twitter" target="_blank" rel="noopener" aria-label="Compartir en Twitter">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+              </div>
+            </div>
+          </footer>
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="blog-sidebar">
+          <!-- Author Card -->
+          <div class="blog-sidebar-card">
+            <h3 class="blog-sidebar-card__title">Autor</h3>
+            <div class="author-card">
+              <div class="author-card__avatar" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+              </div>
+              <div class="author-card__info">
+                <p class="author-card__name">{author}</p>
+                <p class="author-card__role">Especialistas en eventos</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Table of Contents -->
+          {headings.length > 2 && (
+            <div class="blog-sidebar-card">
+              <h3 class="blog-sidebar-card__title">En este artículo</h3>
+              <nav aria-label="Tabla de contenidos">
+                <ul class="toc-list">
+                  {headings.slice(0, 8).map(h => (
+                    <li class="toc-list__item">
+                      <a href={`#${h.slug}`} class="toc-list__link">{h.text}</a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+          )}
+
+          <!-- Services Links -->
+          <div class="blog-sidebar-card">
+            <h3 class="blog-sidebar-card__title">Servicios Relacionados</h3>
+            <div class="blog-sidebar__services">
+              <a href="/servicios/iluminacion/" class="blog-sidebar__service-link">Iluminación</a>
+              <a href="/servicios/audiovisual/" class="blog-sidebar__service-link">Audiovisual</a>
+              <a href="/servicios/mobiliario/" class="blog-sidebar__service-link">Mobiliario</a>
+              <a href="/servicios/carpas/" class="blog-sidebar__service-link">Carpas</a>
+            </div>
+          </div>
+
+          <!-- Related Posts -->
+          {relatedPostsData.length > 0 && (
+            <div class="blog-sidebar-card">
+              <h3 class="blog-sidebar-card__title">Artículos relacionados</h3>
+              <div class="related-posts-list">
+                {relatedPostsData.map(post => (
+                  <a href={`/blog/${post.slug}/`} class="related-post-card">
+                    {post.data.image ? (
+                      <img
+                        src={post.data.image}
+                        alt=""
+                        class="related-post-card__image"
+                        width="70"
+                        height="52"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div class="related-post-card__image related-post-card__image--placeholder"></div>
+                    )}
+                    <span class="related-post-card__title">{post.data.title}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <!-- CTA Card -->
+          <div class="blog-sidebar-card blog-sidebar-card--accent">
+            <h3 class="blog-sidebar-card__title">¿Necesitas equipo?</h3>
+            <p class="blog-sidebar-card__text">
+              Cotiza sin compromiso y recibe asesoría personalizada para tu evento.
+            </p>
+            <a href="/cotizar/" class="blog-sidebar-card__btn">
+              Cotizar ahora
+            </a>
+          </div>
+        </aside>
       </div>
-    </article>
-  </main>
+    </div>
+  </section>
 
-  <Footer />
-</BaseLayout>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CTA FINAL
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Listo para tu evento?"
+    subheadline="Cotiza sin compromiso y convierte tu celebración en algo inolvidable"
+    primaryCTA={{ label: "Ver todos los servicios", href: "/servicios/" }}
+    secondaryCTA={{ label: "Cotizar ahora", href: "/cotizar/" }}
+    variant="accent"
+  />
+</PageLayout>
 
 <style>
-  .blog-post__header {
-    margin-block-end: var(--space-2xl);
+  /* Article Header */
+  .blog-article__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-block-end: var(--space-xl);
   }
 
-  .blog-post__title {
-    font-size: var(--text-4xl);
-    line-height: 1.15;
+  .blog-post__category-link {
+    display: inline-block;
+    width: fit-content;
+    padding: 0.25rem 0.75rem;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--color-accent);
+    background: rgba(0, 184, 148, 0.1);
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: all var(--transition-fast);
   }
 
-  .blog-post__meta {
+  .blog-post__category-link:hover {
+    background: var(--color-accent);
+    color: white;
+  }
+
+  .blog-article__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
     font-size: var(--text-sm);
     color: var(--color-text-light);
   }
 
-  .blog-post__updated {
-    font-size: var(--text-xs);
-    color: var(--color-text-light);
-    font-style: italic;
+  .blog-article__reading::before,
+  .blog-article__author::before {
+    content: none;
   }
 
-  .blog-post__hero-image {
+  .blog-article__author::before {
+    content: "·";
+    margin-inline-end: var(--space-md);
+  }
+
+  .blog-article__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .blog-article__tag {
+    padding: 0.125rem 0.5rem;
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-sm);
+  }
+
+  /* Article Image */
+  .blog-article__figure {
+    margin: 0 0 var(--space-2xl);
+  }
+
+  .blog-article__image {
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
+  }
+
+  .blog-article__placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+    border-radius: var(--radius-lg);
     margin-block-end: var(--space-2xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted);
+    opacity: 0.5;
+  }
+
+  /* Article Footer */
+  .blog-article__footer {
+    margin-block-start: var(--space-3xl);
+    padding-block-start: var(--space-xl);
+    border-top: 1px solid var(--color-border-light);
+  }
+
+  .blog-article__share {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .blog-article__share-label {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text-light);
+  }
+
+  .blog-article__share-buttons {
+    display: flex;
+    gap: var(--space-sm);
+  }
+
+  .blog-article__share-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    color: white;
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+  }
+
+  .blog-article__share-btn:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+  }
+
+  .blog-article__share-btn--whatsapp {
+    background: #25D366;
+  }
+
+  .blog-article__share-btn--facebook {
+    background: #1877F2;
+  }
+
+  .blog-article__share-btn--twitter {
+    background: #000;
+  }
+
+  /* Author card avatar placeholder */
+  .author-card__avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--color-bg-alt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted);
+  }
+
+  /* Related post placeholder */
+  .related-post-card__image--placeholder {
+    background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
   }
 </style>

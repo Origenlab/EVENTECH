@@ -1,52 +1,278 @@
 ---
 /**
  * ─── Blog Index ───
- * Lists all published blog posts, sorted by date (newest first).
+ * Redesigned: HeroPage intro, category filters, featured posts, grid layout.
  */
 import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import CTABanner from "@components/CTABanner.astro";
 import BlogCard from "@components/BlogCard.astro";
 import { getCollection } from "astro:content";
+import { breadcrumbJsonLd } from "@utils/seo";
+import "@styles/blog.css";
 
-const posts = (await getCollection("blog", ({ data }) => !data.draft))
+const allPosts = (await getCollection("blog", ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const featuredPosts = allPosts.filter(p => p.data.featured);
+const regularPosts = allPosts.filter(p => !p.data.featured);
+
+// Category definitions with counts
+const categoryDefs = [
+  { slug: "all", label: "Todos" },
+  { slug: "bodas", label: "Bodas" },
+  { slug: "xv-anos", label: "XV Años" },
+  { slug: "corporativos", label: "Corporativos" },
+  { slug: "tendencias", label: "Tendencias" },
+  { slug: "guias", label: "Guías" },
+  { slug: "tips", label: "Tips" },
+  { slug: "casos-exito", label: "Casos de Éxito" },
+];
+
+// Count posts per category
+const categories = categoryDefs.map(cat => ({
+  ...cat,
+  count: cat.slug === "all"
+    ? allPosts.length
+    : allPosts.filter(p => p.data.category === cat.slug).length
+})).filter(cat => cat.count > 0 || cat.slug === "all");
+
+const jsonLd = [
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Blog", url: "/blog/" },
+  ]),
+];
 ---
 
-<PageLayout title="Blog" description="Artículos, guías y tendencias sobre eventos, montaje, decoración y todo lo que necesitas para tu celebración perfecta.">
-  <section class="section">
-    <div class="container">
-      <h1>Blog</h1>
-      <p class="blog-index__subtitle">
-        Artículos, guías y recursos sobre eventos, montaje y tendencias.
-      </p>
+<PageLayout
+  title="Blog - Artículos y Guías sobre Eventos | EVENTECH"
+  description="Artículos, guías y tendencias sobre eventos, bodas, XV años y corporativos. Tips para organizar tu celebración perfecta en CDMX."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Recursos para tu evento"
+    title='El Blog de <span class="highlight">EVENTECH</span>'
+    subtitle="Guías prácticas, tendencias y consejos de expertos para organizar eventos memorables. Todo lo que necesitas saber sobre mobiliario, decoración, carpas, iluminación y más."
+    primaryCTA={{ label: "Explorar artículos", href: "#articulos" }}
+    secondaryCTA={{ label: "Cotizar equipo", href: "/cotizar/" }}
+    cards={[
+      {
+        title: "Aprende de los expertos",
+        content: "Más de <strong>10 años organizando eventos</strong> en CDMX nos han dado el conocimiento que compartimos contigo. Desde guías paso a paso para bodas hasta tips de montaje profesional."
+      },
+      {
+        title: "Contenido actualizado",
+        content: "Publicamos regularmente sobre <strong>tendencias 2025</strong>, nuevos productos disponibles para renta y casos de éxito de eventos reales que hemos equipado."
+      }
+    ]}
+  />
 
-      {posts.length > 0 ? (
-        <div class="grid grid--3">
-          {posts.map((post) => (
-            <BlogCard
-              title={post.data.title}
-              description={post.data.description}
-              slug={post.slug}
-              date={post.data.date}
-              image={post.data.image}
-              body={post.body}
-            />
-          ))}
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       ARTICLES SECTION
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" id="articulos">
+    <div class="container">
+      <SectionHeader
+        title="Artículos y Guías"
+        subtitle="Conocimiento para tu evento"
+        description={[
+          "Encuentra el contenido que necesitas organizado por tipo de evento o tema. Desde preparativos para bodas hasta consejos para eventos corporativos.",
+          "Todos nuestros artículos incluyen información práctica basada en nuestra experiencia real equipando cientos de eventos cada año."
+        ]}
+      />
+
+      <!-- Two-column layout: Posts + Sidebar -->
+      <div class="blog-index-layout">
+        <!-- Main Content -->
+        <div class="blog-index__main">
+          <!-- Category Filter Tabs -->
+          <div class="blog-filters" role="tablist" aria-label="Filtrar por categoría">
+            {categories.map((cat, i) => (
+              <button
+                type="button"
+                role="tab"
+                class:list={["blog-filter-tab", { "blog-filter-tab--active": i === 0 }]}
+                data-category={cat.slug}
+                aria-selected={i === 0 ? "true" : "false"}
+              >
+                {cat.label} ({cat.count})
+              </button>
+            ))}
+          </div>
+
+          <!-- Featured Posts -->
+          {featuredPosts.length > 0 && (
+            <div class="blog-featured">
+              {featuredPosts.slice(0, 3).map((post, i) => (
+                <BlogCard
+                  title={post.data.title}
+                  description={post.data.description}
+                  slug={post.slug}
+                  date={post.data.date}
+                  image={post.data.image}
+                  body={post.body}
+                  category={post.data.category}
+                  tags={post.data.tags}
+                  author={post.data.author}
+                  featured={i === 0}
+                />
+              ))}
+            </div>
+          )}
+
+          <!-- Regular Posts Grid -->
+          {regularPosts.length > 0 && (
+            <div class="grid grid--2">
+              {regularPosts.map((post) => (
+                <BlogCard
+                  title={post.data.title}
+                  description={post.data.description}
+                  slug={post.slug}
+                  date={post.data.date}
+                  image={post.data.image}
+                  body={post.body}
+                  category={post.data.category}
+                  tags={post.data.tags}
+                  author={post.data.author}
+                />
+              ))}
+            </div>
+          )}
+
+          {allPosts.length === 0 && (
+            <p class="blog-empty">No hay artículos publicados todavía. Vuelve pronto.</p>
+          )}
         </div>
-      ) : (
-        <p>No hay artículos publicados todavía. Vuelve pronto.</p>
-      )}
+
+        <!-- Sidebar -->
+        <aside class="blog-index__sidebar">
+          <!-- Categories -->
+          <div class="blog-sidebar-card">
+            <h3 class="blog-sidebar__section-title">Categorías</h3>
+            <nav class="blog-sidebar__nav" aria-label="Categorías del blog">
+              <a href="/blog/" class="blog-sidebar__link blog-sidebar__link--active">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                Todos los artículos
+              </a>
+              <a href="/blog/?cat=bodas" class="blog-sidebar__link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                Bodas
+              </a>
+              <a href="/blog/?cat=xv-anos" class="blog-sidebar__link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                XV Años
+              </a>
+              <a href="/blog/?cat=corporativos" class="blog-sidebar__link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                Corporativos
+              </a>
+              <a href="/blog/?cat=guias" class="blog-sidebar__link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                Guías
+              </a>
+              <a href="/blog/?cat=tips" class="blog-sidebar__link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                Tips
+              </a>
+            </nav>
+          </div>
+
+          <!-- Services Quick Links -->
+          <div class="blog-sidebar-card">
+            <h3 class="blog-sidebar__section-title">Nuestros Servicios</h3>
+            <div class="blog-sidebar__services">
+              <a href="/servicios/mobiliario/" class="blog-sidebar__service-link">Mobiliario</a>
+              <a href="/servicios/carpas/" class="blog-sidebar__service-link">Carpas</a>
+              <a href="/servicios/audiovisual/" class="blog-sidebar__service-link">Audiovisual</a>
+              <a href="/servicios/iluminacion/" class="blog-sidebar__service-link">Iluminación</a>
+              <a href="/servicios/pistas-baile/" class="blog-sidebar__service-link">Pistas</a>
+              <a href="/servicios/inflables/" class="blog-sidebar__service-link">Inflables</a>
+              <a href="/servicios/catering/" class="blog-sidebar__service-link">Catering</a>
+              <a href="/servicios/accesorios/" class="blog-sidebar__service-link">Accesorios</a>
+            </div>
+          </div>
+
+          <!-- Events Quick Links -->
+          <div class="blog-sidebar-card">
+            <h3 class="blog-sidebar__section-title">Tipos de Eventos</h3>
+            <nav class="blog-sidebar__nav">
+              <a href="/eventos/bodas/" class="blog-sidebar__link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                Bodas
+              </a>
+              <a href="/eventos/xv-anos/" class="blog-sidebar__link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                XV Años
+              </a>
+              <a href="/eventos/corporativos/" class="blog-sidebar__link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                Corporativos
+              </a>
+              <a href="/eventos/fiestas-infantiles/" class="blog-sidebar__link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                Fiestas Infantiles
+              </a>
+            </nav>
+          </div>
+
+          <!-- CTA Card -->
+          <div class="blog-sidebar-card blog-sidebar-card--accent">
+            <h3 class="blog-sidebar-card__title">¿Necesitas equipo?</h3>
+            <p class="blog-sidebar-card__text">
+              Cotiza sin compromiso y recibe asesoría personalizada para tu evento.
+            </p>
+            <a href="/cotizar/" class="blog-sidebar-card__btn">
+              Cotizar ahora
+            </a>
+          </div>
+        </aside>
+      </div>
     </div>
   </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CTA BANNER
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Listo para organizar tu evento?"
+    subheadline="Cotiza sin compromiso y recibe asesoría personalizada de nuestro equipo de expertos"
+    primaryCTA={{ label: "Ver servicios", href: "/servicios/" }}
+    secondaryCTA={{ label: "Cotizar ahora", href: "/cotizar/" }}
+    variant="accent"
+  />
 </PageLayout>
 
-<style>
-  h1 {
-    margin-block-end: var(--space-sm);
-  }
+<script>
+  // Client-side category filtering
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.blog-filter-tab');
+  const cards = document.querySelectorAll<HTMLElement>('.blog-card');
 
-  .blog-index__subtitle {
-    color: var(--color-text-light);
-    font-size: var(--text-lg);
-    margin-block-end: var(--space-2xl);
-  }
-</style>
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const category = tab.dataset.category;
+
+      // Update active tab
+      tabs.forEach(t => {
+        t.classList.remove('blog-filter-tab--active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('blog-filter-tab--active');
+      tab.setAttribute('aria-selected', 'true');
+
+      // Filter cards
+      cards.forEach(card => {
+        const cardCategory = card.dataset.category;
+        if (category === 'all' || cardCategory === category) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

@@ -213,6 +213,16 @@ declare module 'astro:content' {
   rendered?: RenderedContent;
   filePath?: string;
 }>;
+"venues": Record<string, {
+  id: string;
+  render(): Render[".md"];
+  slug: string;
+  body: string;
+  collection: "venues";
+  data: InferEntrySchema<"venues">;
+  rendered?: RenderedContent;
+  filePath?: string;
+}>;
 "zonas": Record<string, {
   id: string;
   render(): Render[".md"];

@@ -164,6 +164,60 @@ export function serviceJsonLd(service: {
   };
 }
 
+/** Generate Service JSON-LD with AggregateRating + Reviews (for L4 product pages) */
+export function serviceWithReviewJsonLd(service: {
+  name: string;
+  description: string;
+  url: string;
+  image?: string;
+  priceRange?: {
+    min: number;
+    max: number;
+    currency?: string;
+  };
+  reviews: {
+    author: string;
+    text: string;
+    rating: number;
+    date: string;
+  }[];
+  ratingValue: number;
+  reviewCount: number;
+}) {
+  const base = serviceJsonLd({
+    name: service.name,
+    description: service.description,
+    url: service.url,
+    image: service.image,
+    priceRange: service.priceRange,
+  });
+
+  return {
+    ...base,
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: service.ratingValue,
+      bestRating: 5,
+      worstRating: 1,
+      reviewCount: service.reviewCount,
+    },
+    review: service.reviews.map((r) => ({
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: r.rating,
+        bestRating: 5,
+      },
+      author: {
+        "@type": "Person",
+        name: r.author,
+      },
+      reviewBody: r.text,
+      datePublished: r.date,
+    })),
+  };
+}
+
 /** Generate Article JSON-LD for blog posts */
 export function articleJsonLd(article: {
   title: string;

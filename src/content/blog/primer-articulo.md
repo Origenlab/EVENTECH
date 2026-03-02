@@ -3,7 +3,7 @@ title: "Guía Completa de Mobiliario para Bodas 2025"
 description: "Todo lo que necesitas saber sobre sillas, mesas y decoración para tu boda. Tendencias, consejos y precios actualizados."
 date: 2025-01-15
 category: "bodas"
-image: "/images/blog/mobiliario-bodas.jpg"
+image: "/images/iluminacion-arquitectonica/uplighting-rgbwa-boda-salon-dorado.avif"
 author: "Equipo EVENTECH"
 tags: ["bodas", "mobiliario", "tendencias", "guía"]
 keywords:

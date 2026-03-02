@@ -1,0 +1,668 @@
+---
+/**
+ * ─── Uplighting Perimetral — Página de Producto (Nivel 4) ───
+ * Barras LED perimetrales RGBWA para transformar salones, jardines y terrazas.
+ * Color accent: Amber #e17055 (nivel 4). Layout con sidebar de interlinking.
+ *
+ * Jerarquía: Servicios > Iluminación > Arquitectónica > Uplighting
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+
+const faqs = [
+  { question: "¿Cuántas barras de uplighting necesito para mi evento?", answer: "La cantidad depende del perímetro del espacio y la intensidad de color deseada. Como regla general: para salones de hasta 150 m² recomendamos 10 a 14 barras (una cada 1.5-2 metros de perímetro), para espacios de 150 a 400 m² entre 14 y 24 unidades, y para venues grandes de 400+ m² desde 24 barras. Nuestro diseñador de iluminación realiza una visita técnica gratuita donde mide el perímetro exacto, evalúa el color de muros y la altura del techo, y te entrega un plano de iluminación con la cantidad precisa." },
+  { question: "¿Puedo personalizar los colores del uplighting con los de mi boda o marca?", answer: "Absolutamente. Nuestras barras LED RGBWA permiten reproducir cualquier color del espectro visible con precisión profesional. Puedes proporcionarnos tu paleta de boda (colores Pantone, muestras de tela o simplemente una foto de referencia), los colores de tu marca corporativa por código hex, o cualquier tonalidad que imagines. El técnico programa cada barra individualmente, lo que permite crear zonas de colores diferenciados: pista de baile en un tono, área de mesas en otro, recibidor en un tercero." },
+  { question: "¿Las barras de uplighting son inalámbricas?", answer: "Sí, contamos con modelos 100% wireless con batería recargable Li-Ion de hasta 12 horas de autonomía y wireless DMX (W-DMX) integrado, eliminando completamente la necesidad de cables de corriente y datos. También disponemos de modelos con cable para instalaciones con acceso a corriente donde se prefiere máxima potencia continua. Nuestro técnico recomienda la mejor opción según tu venue: wireless para jardines, terrazas y columnas aisladas; con cable para salones con acceso a corriente perimetral." },
+  { question: "¿El uplighting funciona en exteriores? ¿Resiste la lluvia?", answer: "Sí. Contamos con barras de uplighting con certificación IP65 diseñadas específicamente para exteriores. Resisten lluvia, rocío, humedad y temperaturas de 0°C a 45°C. Para eventos en jardín, terraza o patio, utilizamos exclusivamente modelos IP65 con conectores waterproof. Además, cada barra exterior incluye base lastrada antivuelco y cable de seguridad. En caso de tormenta eléctrica severa, el técnico desconecta el equipo preventivamente." },
+  { question: "¿Se puede programar cambio de colores durante el evento?", answer: 'Sí, es una de las grandes ventajas del uplighting profesional. Nuestro técnico programa hasta 20 escenas de color diferentes con transiciones suaves que se ejecutan según el timeline de tu evento: recepción en dorado cálido, ceremonia en blanco suave, cena en la paleta de tu boda, brindis con spotlight y fiesta con colores dinámicos. Las transiciones pueden ser graduales (fade de 5-30 segundos) o instantáneas, y se sincronizan con la música si lo deseas. Todo se controla desde la consola DMX en tiempo real. Para aún más impacto, combina con <a href="/servicios/iluminacion/arquitectonica/wash-lights/">wash lights</a> en el techo que cambien de color simultáneamente.' },
+  { question: "¿Cuánto tiempo toma instalar el uplighting?", answer: "El tiempo de montaje varía según la cantidad de barras y la complejidad del venue. Para un paquete estándar de 12-16 barras, el montaje toma aproximadamente 2 a 3 horas, incluyendo posicionamiento, cableado (si aplica), enfoque de cada barra, calibración de color y programación de escenas. Para instalaciones grandes de 24+ barras, planificamos 3 a 4 horas. Nuestro equipo llega al venue con suficiente anticipación para que todo esté listo y probado antes de que lleguen los primeros invitados." },
+];
+
+const specs = [
+  { label: "Tecnología LED", value: "RGBWA 5-en-1 / RGBWA+UV 6-en-1" },
+  { label: "Potencia por barra", value: "72W a 180W (12-18 LEDs)" },
+  { label: "Longitud de barra", value: "0.5m, 1m y 1.5m disponibles" },
+  { label: "Ángulo de proyección", value: "25° concentrado / 45° amplio" },
+  { label: "Control", value: "DMX-512, W-DMX wireless, App móvil" },
+  { label: "Temperatura de color", value: "2700K – 6500K (canal blanco + ámbar)" },
+  { label: "Autonomía wireless", value: "8-12 horas (batería Li-Ion recargable)" },
+  { label: "Clasificación IP", value: "IP20 (interior) / IP65 (exterior)" },
+  { label: "Escenas programables", value: "Hasta 20 escenas con transiciones" },
+  { label: "Peso por barra", value: "2 – 5 kg según modelo" },
+];
+
+const sidebarNav = [
+  { name: "Wash Lights LED", href: "/servicios/iluminacion/arquitectonica/wash-lights/" },
+  { name: "Uplighting Perimetral", href: null, active: true },
+  { name: "Bañadores de Muros", href: "/servicios/iluminacion/arquitectonica/banadores/" },
+  { name: "Iluminación de Fachadas", href: "/servicios/iluminacion/arquitectonica/fachadas/" },
+];
+
+const sidebarRelated = [
+  { name: "Carpas Profesionales", href: "/servicios/carpas/" },
+  { name: "Mobiliario Premium", href: "/servicios/mobiliario/" },
+  { name: "Pistas de Baile", href: "/servicios/pistas-baile/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+  { name: "Efectos Especiales", href: "/servicios/iluminacion/efectos-especiales/" },
+];
+
+const reviews = [
+  { author: "Fernanda Castillo", text: "Contratamos 20 barras de uplighting para nuestra boda en Hacienda de los Morales y fue la mejor decisión. El salón se transformó completamente con nuestra paleta de dorado y rosa empolvado. El técnico cambió los colores en cada etapa del evento — la transición de ceremonia a fiesta fue mágica. Servicio impecable.", rating: 5, date: "2025-11-28" },
+  { author: "Andrés Villanueva", text: "Usamos uplighting perimetral en un lanzamiento corporativo para 300 personas. Las barras wireless nos permitieron iluminar columnas sin cables visibles, lo cual fue clave para la estética del evento. El equipo llegó 4 horas antes, todo quedó perfecto a la primera. Muy profesionales.", rating: 5, date: "2025-10-05" },
+  { author: "Daniela Ruiz", text: "Para los XV años de mi hija rentamos uplighting en rosa y púrpura. El efecto en el salón fue increíble, parecía otro lugar. Lo que más me gustó fue que el técnico programó un cambio a azul y verde para la hora loca. Excelente relación calidad-precio, lo recomiendo ampliamente.", rating: 5, date: "2025-08-17" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Uplighting Perimetral LED para Eventos en CDMX",
+    description: "Barras LED RGBWA perimetrales para bodas, XV años y eventos corporativos en CDMX. Modelos wireless con 12h de batería, IP65 exterior, técnico DMX incluido. Desde $250 por barra.",
+    url: "/servicios/iluminacion/arquitectonica/uplighting/",
+    priceRange: { min: 250, max: 5000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 63,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Iluminación", url: "/servicios/iluminacion/" },
+    { name: "Arquitectónica", url: "/servicios/iluminacion/arquitectonica/" },
+    { name: "Uplighting Perimetral", url: "/servicios/iluminacion/arquitectonica/uplighting/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Uplighting Perimetral LED para Eventos en CDMX"
+  description="Renta de uplighting perimetral LED RGBWA para eventos en CDMX: barras wireless 12h, IP65 exterior, paletas personalizadas, 20 escenas DMX. Técnico incluido. Desde $250. Cotiza hoy."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Transformación instantánea de cualquier espacio"
+    title='Renta de <span class="highlight">Uplighting Perimetral</span> LED para Eventos en CDMX'
+    subtitle="Barras LED RGBWA perimetrales que transforman salones, jardines y terrazas con paletas de color personalizadas. Modelos wireless, IP65 exterior y control DMX profesional con técnico dedicado."
+    primaryCTA={{ label: "Cotiza tu uplighting", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar uplighting perimetral para mi evento` }}
+    cards={[
+      {
+        title: "Uplighting perimetral profesional que redefine cada espacio",
+        content: "<strong>Renta de uplighting perimetral LED para eventos</strong> con tecnología RGBWA de última generación en la Ciudad de México. Barras LED de 0.5 a 1.5 metros con mezcla de color infinita y canal ámbar dedicado para blancos cálidos naturales. Colocadas a nivel de piso alrededor del perímetro de tu venue, proyectan luz hacia arriba sobre muros, columnas y cortinajes — convirtiendo cualquier salón blanco en un espacio vibrante con la paleta exacta de tu evento en minutos.",
+      },
+      {
+        title: "Modelos wireless con 12 horas de batería y control por app",
+        content: "<strong>Barras de uplighting 100% inalámbricas</strong> con batería Li-Ion recargable de 8-12 horas y wireless DMX integrado. Sin cables de corriente ni datos visibles — instalación libre en cualquier punto del venue incluyendo jardines, terrazas, columnas aisladas y pasillos sin tomas eléctricas. Control por app móvil para cambio de colores instantáneo y hasta 20 escenas programadas con transiciones suaves sincronizadas al timeline de tu evento.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Quieres transformar tu venue con color perimetral?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con plano de iluminación y paleta de color personalizada"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Iluminación Arquitectónica</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas uplighting para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar uplighting perimetral para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Uplighting Perimetral LED</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: RGBWA Standard Indoor -->
+          <section class="section section--alt" aria-labelledby="rgbwa-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">El clásico que transforma salones</span>
+                <h2 class="showcase__title" id="rgbwa-heading">Uplighting RGBWA Interior</h2>
+                <p class="showcase__subtitle">Barras LED 5-en-1 de 12x12W con cable: máxima potencia continua para salones y venues techados.</p>
+                <p class="showcase__text">Las <strong>barras de uplighting RGBWA Interior</strong> son nuestra opción más solicitada para salones de eventos, hoteles y haciendas. Con tecnología <strong>LED 5-en-1 (rojo, verde, azul, blanco y ámbar)</strong> de 12 LEDs x 12W, ofrecen 144W de potencia con mezcla de color infinita y un canal ámbar dedicado que produce blancos cálidos de 2700K imposibles de lograr con RGB estándar — perfectos para ceremonias y cenas íntimas.</p>
+                <p class="showcase__text">Ángulo de proyección de <strong>25° concentrado para columnas y detalles puntuales</strong> o 45° amplio para cubrir tramos largos de muro. Control DMX-512 individual de cada barra para crear <strong>zonas de color diferenciadas, degradados perimetrales y cambios de escena programados</strong>. Combínalas con nuestro <a href="/servicios/mobiliario/">mobiliario premium</a> y <a href="/servicios/iluminacion/arquitectonica/wash-lights/">wash lights LED</a> en el techo para un diseño de iluminación integral donde cada elemento armoniza con la paleta de color de tu evento.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">RGBWA 5-en-1</span>
+                  <span class="showcase__tag">12x12W (144W)</span>
+                  <span class="showcase__tag">DMX individual</span>
+                  <span class="showcase__tag">Ámbar cálido 2700K</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Uplighting Interior
+                </a>
+              </div>
+              <div class="showcase__image">
+                <img src="/images/iluminacion-arquitectonica/uplighting-rgbwa-boda-salon-dorado.avif" alt="Uplighting RGBWA interior iluminando salón de bodas con tonos rosa y dorado chandeliers de cristal" width="800" height="436" loading="lazy" class="showcase__img" />
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Wireless Battery -->
+          <section class="section section--alt" aria-labelledby="wireless-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Sin cables, sin límites</span>
+                <h2 class="showcase__title" id="wireless-heading">Uplighting Wireless con Batería</h2>
+                <p class="showcase__subtitle">Barras 100% inalámbricas con Li-Ion 12h y W-DMX: ubicación libre sin dependencia de corriente.</p>
+                <p class="showcase__text">Las <strong>barras de uplighting wireless</strong> eliminan por completo la necesidad de cables de corriente y datos. Cada barra incorpora una <strong>batería de litio-ion recargable con autonomía de 8 a 12 horas</strong> a máxima potencia — más que suficiente para cubrir cualquier evento desde montaje hasta desmontaje. El control es vía <strong>wireless DMX (W-DMX)</strong> con alcance de hasta 300 metros en línea de vista, o mediante app para smartphone y tablet.</p>
+                <p class="showcase__text">Ideales para <strong>columnas aisladas, centros de mesa iluminados, pasillos sin tomas eléctricas, jardines y terrazas</strong> donde el cableado no es viable o estéticamente aceptable. Con RGBWA de 12x15W (180W) por barra, ofrecen potencia comparable a modelos con cable. Indicador LED de carga en cada unidad y recarga completa en 5 horas. La solución perfecta cuando necesitas flexibilidad total junto con nuestras <a href="/servicios/pistas-baile/">pistas de baile iluminadas</a> para una producción sin cables visibles.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Batería Li-Ion 12h</span>
+                  <span class="showcase__tag">W-DMX 300m</span>
+                  <span class="showcase__tag">App control</span>
+                  <span class="showcase__tag">Zero cables</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Uplighting Wireless
+                </a>
+              </div>
+              <div class="showcase__image">
+                <img src="/images/iluminacion-arquitectonica/uplighting-bateria-led-wireless.avif" alt="Uplight LED inalámbrico con batería RGBWA+UV compacto portátil para eventos sin cables" width="800" height="436" loading="lazy" class="showcase__img" />
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: IP65 Outdoor -->
+          <section class="section section--alt" aria-labelledby="outdoor-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Diseñado para exteriores</span>
+                <h2 class="showcase__title" id="outdoor-heading">Uplighting IP65 Exterior</h2>
+                <p class="showcase__subtitle">Barras selladas contra lluvia y polvo: color perimetral profesional para jardines, terrazas y patios.</p>
+                <p class="showcase__text">Las <strong>barras de uplighting IP65 Exterior</strong> están diseñadas para operar en condiciones de intemperie sin comprometer rendimiento ni seguridad. Certificación <strong>IP65 que garantiza protección total contra polvo y chorros de agua</strong> desde cualquier dirección. Carcasa de aluminio anodizado con disipación térmica pasiva, conectores waterproof tipo Seetronic y cable de seguridad anticaída incluido en cada unidad.</p>
+                <p class="showcase__text">Con <strong>RGBWA de 18x12W (216W)</strong> y ópticas tratadas para compensar la luz ambiental de exterior, ofrecen un brillo superior al de modelos indoor. Operan en temperaturas de 0°C a 45°C con humedad relativa de hasta 95%. Cada barra incluye base lastrada antivuelco de acero inoxidable y estaca para césped. La primera opción para eventos en jardín y <a href="/servicios/carpas/">carpas profesionales</a> donde el color perimetral debe desafiar las condiciones de intemperie. Para completar el exterior, añade <a href="/servicios/iluminacion/arquitectonica/fachadas/">iluminación de fachada</a> en la entrada del venue.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">IP65 Sealed</span>
+                  <span class="showcase__tag">18x12W (216W)</span>
+                  <span class="showcase__tag">Aluminio anodizado</span>
+                  <span class="showcase__tag">Base antivuelco</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Uplighting Exterior
+                </a>
+              </div>
+              <div class="showcase__image">
+                <img src="/images/iluminacion-arquitectonica/uplighting-ip65-nave-industrial-calido.avif" alt="Uplighting IP65 exterior en nave industrial con paredes de ladrillo iluminadas en tono cálido ámbar" width="800" height="436" loading="lazy" class="showcase__img" />
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Pixel & Gradient -->
+          <section class="section section--alt" aria-labelledby="pixel-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Efectos avanzados de color</span>
+                <h2 class="showcase__title" id="pixel-heading">Uplighting Pixel & Gradient</h2>
+                <p class="showcase__subtitle">Barras con control pixel-a-pixel para degradados, olas de color y efectos dinámicos sincronizados con música.</p>
+                <p class="showcase__text">Las <strong>barras de uplighting Pixel & Gradient</strong> llevan la iluminación perimetral al siguiente nivel con <strong>control individual de cada LED dentro de la barra</strong>. Esto permite crear degradados de color a lo largo de un solo muro (de dorado a rosa, de azul a púrpura), olas de color que recorren el perímetro, efectos de persecución, patrones de pulso rítmico y diseños cromáticos imposibles con uplighting convencional.</p>
+                <p class="showcase__text">Cada barra de 1 metro contiene <strong>18 LEDs RGBWA controlables individualmente vía DMX</strong>, lo que se traduce en 18 píxeles de color independientes por metro lineal. Compatibles con software de pixel mapping para crear secuencias complejas sincronizadas con música y visuales. Ideales para <strong>after parties, lanzamientos de producto, desfiles de moda y eventos donde el diseño de luz es protagonista</strong>. Potencia tu producción combinándolas con nuestro <a href="/servicios/audiovisual/">equipo audiovisual</a> y nuestros <a href="/servicios/iluminacion/arquitectonica/banadores/">bañadores de muros</a> con pixel mapping para una experiencia multisensorial.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Pixel mapping</span>
+                  <span class="showcase__tag">18 píxeles/metro</span>
+                  <span class="showcase__tag">Gradient effects</span>
+                  <span class="showcase__tag">Sync musical</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Uplighting Pixel
+                </a>
+              </div>
+              <div class="showcase__image">
+                <img src="/images/iluminacion-arquitectonica/uplighting-pixel-corporativo-azul.avif" alt="Uplighting pixel LED azul en gala corporativa con montaje de escenario y mesas elegantes" width="800" height="436" loading="lazy" class="showcase__img" />
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Uplighting Perimetral"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar uplighting para tu evento, es natural tener preguntas sobre cantidad de barras, personalización de color, opciones wireless y operación. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un especialista en iluminación perimetral te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p>{faq.answer}</p>
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en uplighting resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre uplighting perimetral para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Iluminación Arquitectónica</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/arquitectonica/" class="sidebar-nav__back">&uarr; Volver a Arquitectónica</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/" class="sidebar-nav__back">&uarr; Volver a Iluminación</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de uplighting:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas uplighting para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar uplighting perimetral para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Uplighting Perimetral"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros especialistas en iluminación te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un set de uplighting para tu boda íntima o un perímetro completo para tu gala corporativa, estamos aquí para diseñar el color perfecto para tu espacio."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoUplighting">
+                Tipo de uplighting
+              </label>
+              <select id="tipoUplighting" name="tipoUplighting" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de uplighting</option>
+                <option value="Uplighting RGBWA Interior">Uplighting RGBWA Interior</option>
+                <option value="Uplighting Wireless (Batería)">Uplighting Wireless (Batería)</option>
+                <option value="Uplighting IP65 Exterior">Uplighting IP65 Exterior</option>
+                <option value="Uplighting Pixel & Gradient">Uplighting Pixel & Gradient</option>
+                <option value="Paquete Boda (Uplighting + Wash)">Paquete Boda (Uplighting + Wash)</option>
+                <option value="Paquete Corporativo">Paquete Corporativo</option>
+                <option value="Paquete Completo Perimetral">Paquete Completo Perimetral</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Cuéntanos los detalles: número de invitados, tipo de venue (salón/jardín/terraza), colores deseados, perímetro aproximado del espacio..." rows="4" required></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Medimos el perímetro de tu venue sin costo para calcular la cantidad exacta de barras de uplighting.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría de color personalizada para tu evento y presupuesto.</p>
+          </div>
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoUplighting = document.getElementById('tipoUplighting').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Uplighting Perimetral LED para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoUplighting) texto += `*Tipo de uplighting:* ${tipoUplighting}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Iluminación"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de iluminación profesional para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">REDEIL</h3>
+            <p class="partner-card__tagline">Renta de Iluminación Profesional</p>
+            <p class="partner-card__text">Líder en renta de iluminación para eventos sociales en CDMX y Estado de México. Especialistas en guirnaldas LED, cabezas móviles, iluminación arquitectónica, gobos personalizados y efectos especiales.</p>
+          </div>
+          <a href="https://rentadeiluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Iluminación + Audio</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">REDEIL Sonido</h3>
+            <p class="partner-card__tagline">Iluminación LED y Audio Profesional</p>
+            <p class="partner-card__text">Especialistas en audio JBL y QSC, iluminación LED profesional, DJ y pantallas LED para bodas, XV años y eventos corporativos. Servicio integral con instalación y operación técnica incluida.</p>
+          </div>
+          <a href="https://redeil.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">+15 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">RESOIL</h3>
+            <p class="partner-card__tagline">Renta de Sonido e Iluminación</p>
+            <p class="partner-card__text">Más de 15 años proporcionando equipo profesional de sonido e iluminación para eventos corporativos en CDMX. Guirnaldas LED, sky trackers, luces arquitectónicas, cascadas LED y gobos.</p>
+          </div>
+          <a href="https://rentadesonidoeiluminacion.com.mx/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">L</span>
+            <div class="partner-card__badge">+20 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">LUMINAPRO</h3>
+            <p class="partner-card__tagline">Expertos en Iluminación Profesional</p>
+            <p class="partner-card__text">Líder en renta de iluminación profesional para eventos con más de 20 años transformando espacios en CDMX. Servicio integral: diseño, instalación, operación y desmontaje de cabezas móviles, láser y más.</p>
+          </div>
+          <a href="https://renta-de-iluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Uplighting que transforma tu espacio en una experiencia de color inolvidable"
+    subheadline="Más de 500 eventos iluminados con uplighting profesional nos respaldan. Cotiza hoy y recibe un plano de iluminación con paleta de color personalizada."
+    primaryCTA={{ label: "Cotizar uplighting perimetral", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar uplighting perimetral para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

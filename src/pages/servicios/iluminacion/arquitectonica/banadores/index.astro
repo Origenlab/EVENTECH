@@ -1,0 +1,669 @@
+---
+/**
+ * ─── Bañadores de Muros — Página de Producto (Nivel 4) ───
+ * Wall washers lineales y puntuales para resaltar texturas, columnas
+ * y superficies arquitectónicas con degradados y pixel mapping.
+ * Color accent: Amber #e17055 (nivel 4). Layout con sidebar de interlinking.
+ *
+ * Jerarquía: Servicios > Iluminación > Arquitectónica > Bañadores de Muros
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+
+const faqs = [
+  { question: "¿Cuántos bañadores de muros necesito para mi evento?", answer: "La cantidad depende de la longitud total de muro a iluminar y el efecto deseado. Como regla general: cada barra lineal de 1 metro cubre entre 1 y 1.5 metros de muro a una distancia de proyección de 0.5 a 1 metro. Para un salón con 20 metros lineales de muro, recomendamos 16 a 20 barras para cobertura uniforme. Para efectos de acento en columnas o secciones específicas, se requieren menos unidades. Nuestro diseñador de iluminación realiza una visita técnica gratuita para medir superficies, evaluar texturas y entregarte un plano con la cantidad exacta." },
+  { question: "¿Qué diferencia hay entre un bañador de muros y un uplighting?", answer: 'Aunque ambos proyectan luz sobre superficies verticales, tienen diferencias clave. El <a href="/servicios/iluminacion/arquitectonica/uplighting/">uplighting perimetral</a> es una técnica de ambiente general: barras LED a nivel de piso que proyectan color hacia arriba para cambiar la atmósfera del espacio. Los bañadores de muros (wall washers) son luminarias especializadas con ópticas asimétricas (10°×60°) diseñadas para distribuir luz de forma uniforme sobre una superficie vertical completa, resaltando texturas, relieves y acabados arquitectónicos con precisión profesional. Además, los bañadores ofrecen pixel mapping individual para crear degradados y efectos dinámicos imposibles con uplighting convencional. Para cubrir áreas amplias de techo y escenario, nuestros <a href="/servicios/iluminacion/arquitectonica/wash-lights/">wash lights LED</a> complementan el esquema.' },
+  { question: "¿Los bañadores de muros funcionan en superficies de cualquier material?", answer: "Sí, los wall washers se adaptan a cualquier superficie: piedra natural, ladrillo, cantera, madera, concreto aparente, mármol, tela tensada, cristal esmerilado y superficies pintadas. El resultado visual varía según la textura: en piedra y ladrillo el efecto es más dramático porque la luz resalta cada relieve y grieta, mientras que en superficies lisas el baño es más uniforme y suave. Nuestro diseñador ajusta el ángulo, la distancia y la intensidad de cada barra según el material de tus muros para maximizar el impacto visual." },
+  { question: "¿Se pueden crear efectos de degradado de color en un mismo muro?", answer: "Sí, es una de las capacidades más impresionantes de nuestros bañadores con pixel mapping. Cada barra contiene entre 12 y 24 LEDs controlables individualmente, lo que permite mostrar diferentes colores a lo largo de un mismo tramo de muro: por ejemplo, un degradado de dorado a rosa en 3 metros de pared, o una transición de azul oscuro a blanco frío. También es posible crear olas de color que recorren el muro, efectos de persecución, patrones de pulso rítmico y secuencias sincronizadas con música mediante software de pixel mapping profesional." },
+  { question: "¿Necesito técnico para operar los bañadores de muros?", answer: "Todos nuestros paquetes de bañadores incluyen técnico operador dedicado durante todo el evento. El técnico se encarga del diseño de posicionamiento, montaje sobre bases o clamps, enfoque y calibración de cada barra, programación de escenas y operación en tiempo real. Para bañadores con pixel mapping, la programación es más compleja y requiere software especializado — todo incluido en el servicio. El técnico monitorea la instalación durante el evento y realiza ajustes instantáneos si es necesario." },
+  { question: "¿Los bañadores de muros se pueden usar en exteriores?", answer: "Sí, contamos con modelos IP65 diseñados específicamente para exteriores. Resisten lluvia, polvo, humedad de hasta 95% y temperaturas de 0°C a 45°C. Son ideales para iluminar muros de jardín, bardas perimetrales, fachadas de haciendas y superficies exteriores de salones de eventos. Cada barra exterior incluye conectores waterproof, cable de seguridad anticaída y base de montaje en acero inoxidable. Para eventos bajo techo temporal, combinan perfectamente con nuestras carpas profesionales." },
+];
+
+const specs = [
+  { label: "Tecnología LED", value: "RGBW 4-en-1 / RGBWA 5-en-1 / Pixel RGB" },
+  { label: "Potencia por barra", value: "72W a 240W (12-24 LEDs por metro)" },
+  { label: "Longitud de barra", value: "0.5m, 1m y 1.5m disponibles" },
+  { label: "Óptica", value: "Asimétrica 10°×60° (optimizada para superficies verticales)" },
+  { label: "Control", value: "DMX-512, W-DMX wireless, Art-Net, sACN" },
+  { label: "Pixel mapping", value: "12-24 píxeles por metro (control individual)" },
+  { label: "CRI", value: "85-95 (reproducción de color profesional)" },
+  { label: "Clasificación IP", value: "IP20 (interior) / IP65 (exterior)" },
+  { label: "Distancia de proyección", value: "0.3m a 2m (cobertura óptima a 0.5-1m)" },
+  { label: "Peso por barra", value: "2.5 – 6 kg según modelo y longitud" },
+];
+
+const sidebarNav = [
+  { name: "Wash Lights LED", href: "/servicios/iluminacion/arquitectonica/wash-lights/" },
+  { name: "Uplighting Perimetral", href: "/servicios/iluminacion/arquitectonica/uplighting/" },
+  { name: "Bañadores de Muros", href: null, active: true },
+  { name: "Iluminación de Fachadas", href: "/servicios/iluminacion/arquitectonica/fachadas/" },
+];
+
+const sidebarRelated = [
+  { name: "Carpas Profesionales", href: "/servicios/carpas/" },
+  { name: "Equipo Audiovisual", href: "/servicios/audiovisual/" },
+  { name: "Mobiliario Premium", href: "/servicios/mobiliario/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+  { name: "Efectos Especiales", href: "/servicios/iluminacion/efectos-especiales/" },
+];
+
+const reviews = [
+  { author: "Alejandra Domínguez", text: "Rentamos bañadores de muros para nuestra boda en una hacienda con muros de piedra y el resultado fue espectacular. La textura de la cantera se veía increíble con el degradado de dorado a rosa. El diseñador de iluminación hizo una visita previa y el plano que nos entregó se ejecutó perfecto. Superó todas nuestras expectativas.", rating: 5, date: "2025-12-10" },
+  { author: "Sergio Gutiérrez", text: "Contratamos wall washers con pixel mapping para el lanzamiento de un producto automotriz. Los degradados de color en los muros del venue sincronizados con la música fueron el highlight de la noche. El técnico programó transiciones que seguían nuestra paleta de marca con precisión perfecta. Servicio de primer nivel.", rating: 5, date: "2025-11-03" },
+  { author: "Paulina Herrera", text: "Los bañadores de muros transformaron el salón de los XV años de mi hija. Los muros blancos del salón pasaron de aburridos a impresionantes con los colores que elegimos. Me encantó que el técnico cambió los tonos durante la fiesta — dorado en la cena, rosa en el vals y colores vibrantes en la hora loca. Totalmente recomendable.", rating: 5, date: "2025-09-21" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Bañadores de Muros LED para Eventos en CDMX",
+    description: "Wall washers lineales LED RGBW con pixel mapping para eventos en CDMX. Ópticas asimétricas, degradados de color, control DMX/Art-Net y técnico incluido. Desde $300 por barra.",
+    url: "/servicios/iluminacion/arquitectonica/banadores/",
+    priceRange: { min: 300, max: 4500 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 52,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Iluminación", url: "/servicios/iluminacion/" },
+    { name: "Arquitectónica", url: "/servicios/iluminacion/arquitectonica/" },
+    { name: "Bañadores de Muros", url: "/servicios/iluminacion/arquitectonica/banadores/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Bañadores de Muros LED para Eventos en CDMX"
+  description="Renta de bañadores de muros (wall washers) LED para eventos en CDMX: óptica asimétrica, pixel mapping, degradados de color, IP65 exterior. Técnico DMX incluido. Desde $300. Cotiza hoy."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Textura y profundidad con luz profesional"
+    title='Renta de <span class="highlight">Bañadores de Muros</span> LED para Eventos en CDMX'
+    subtitle="Wall washers lineales con óptica asimétrica, pixel mapping y degradados de color para resaltar texturas, columnas y superficies arquitectónicas. Control DMX/Art-Net con técnico dedicado."
+    primaryCTA={{ label: "Cotiza tus bañadores", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar bañadores de muros LED para mi evento` }}
+    cards={[
+      {
+        title: "Wall washers lineales que transforman cada superficie en protagonista",
+        content: "<strong>Renta de bañadores de muros LED para eventos</strong> con ópticas asimétricas de grado profesional en la Ciudad de México. Barras lineales de 0.5 a 1.5 metros con distribución luminosa 10°×60° optimizada para cubrir superficies verticales de forma uniforme — resaltando texturas de piedra, ladrillo, cantera, madera y concreto con una profundidad visual imposible de lograr con iluminación convencional. Mezcla de color RGBW y RGBWA con temperatura ajustable de 2700K a 6500K.",
+      },
+      {
+        title: "Pixel mapping individual para degradados y efectos dinámicos",
+        content: "<strong>Bañadores de muros con control pixel-a-pixel</strong> que permiten crear degradados de color a lo largo de un mismo muro, olas cromáticas que recorren superficies completas y efectos dinámicos sincronizados con música. De 12 a 24 LEDs controlables individualmente por metro lineal. Compatible con DMX-512, Art-Net y sACN para integración con cualquier sistema de control de iluminación profesional. Técnico operador y programación de escenas incluidos.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Quieres resaltar la arquitectura de tu venue con luz?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con plano de iluminación y posicionamiento de cada barra"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Iluminación Arquitectónica</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas bañadores de muros para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar bañadores de muros LED para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Bañadores de Muros LED</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Lineal RGBW Standard -->
+          <section class="section section--alt" aria-labelledby="lineal-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Baño uniforme de grado profesional</span>
+                <h2 class="showcase__title" id="lineal-heading">Bañador Lineal RGBW Standard</h2>
+                <p class="showcase__subtitle">Barras de 1 metro con óptica asimétrica 10°×60° para cobertura uniforme de superficies verticales completas.</p>
+                <p class="showcase__text">Los <strong>bañadores lineales RGBW Standard</strong> son la base de cualquier diseño de iluminación arquitectónica sobre muros. Con óptica <strong>asimétrica 10°×60°</strong> diseñada específicamente para superficies verticales, distribuyen la luz de forma uniforme desde la base hasta el techo sin puntos calientes ni zonas oscuras. Tecnología <strong>LED RGBW 4-en-1 de 18x10W (180W)</strong> por barra de 1 metro con mezcla de color infinita y temperatura de color ajustable de 2700K a 6500K.</p>
+                <p class="showcase__text">Ideales para <strong>salones con muros de piedra, cantera, ladrillo o concreto aparente</strong> donde la textura es protagonista. Cada barra se posiciona a 0.5-1 metro de la base del muro, proyectando un baño de luz que resalta cada relieve, grieta y acabado natural. Control DMX-512 de 6 canales por barra, modo master/slave y dimmer de 16-bit para transiciones suaves sin parpadeo. Combínalos con <a href="/servicios/iluminacion/arquitectonica/uplighting/">uplighting perimetral</a> para una doble capa de iluminación: baño de textura en los muros más color ambiental en la base. Ideales también dentro de <a href="/servicios/carpas/">carpas estructurales</a> para crear ambientes con textura bajo techo temporal.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">RGBW 4-en-1</span>
+                  <span class="showcase__tag">18x10W (180W)</span>
+                  <span class="showcase__tag">Asimétrica 10°×60°</span>
+                  <span class="showcase__tag">Baño uniforme</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Bañador Lineal
+                </a>
+              </div>
+              <div class="showcase__image">
+                <img src="/images/iluminacion-arquitectonica/banador-lineal-rgbw-muro-textura.avif" alt="Bañador LED lineal RGBW iluminando muro de travertino resaltando textura arquitectónica" width="800" height="436" loading="lazy" class="showcase__img" />
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Pixel Mapping -->
+          <section class="section section--alt" aria-labelledby="pixel-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Degradados y efectos dinámicos</span>
+                <h2 class="showcase__title" id="pixel-heading">Bañador Pixel Mapping RGB</h2>
+                <p class="showcase__subtitle">Barras con 24 LEDs controlables individualmente para degradados de color, olas cromáticas y efectos sincronizados con música.</p>
+                <p class="showcase__text">Los <strong>bañadores con pixel mapping</strong> elevan la iluminación de muros al nivel de arte visual. Cada barra de 1 metro contiene <strong>24 LEDs RGB controlables individualmente</strong>, lo que permite crear degradados de color a lo largo de un mismo tramo de muro — de dorado a rosa, de azul marino a blanco frío, o cualquier transición cromática que imagines. Compatibles con <strong>software de pixel mapping profesional</strong> como Madrix, ArKaos y Resolume para secuencias complejas.</p>
+                <p class="showcase__text">Más allá de los degradados estáticos, ofrecen <strong>efectos dinámicos de olas de color</strong> que recorren el muro, patrones de persecución lumínica, pulsos rítmicos sincronizados con la música del DJ y diseños cromáticos personalizados frame-a-frame. Control vía <strong>DMX-512 y Art-Net</strong> para integración con cualquier sistema profesional. Ideales para after parties, lanzamientos de producto, desfiles de moda y eventos donde el diseño de luz es protagonista. Potencia tu producción con nuestro <a href="/servicios/audiovisual/">equipo audiovisual</a> y pantallas LED.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">24 píxeles/metro</span>
+                  <span class="showcase__tag">Madrix / Art-Net</span>
+                  <span class="showcase__tag">Gradient effects</span>
+                  <span class="showcase__tag">Sync musical</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Bañador Pixel
+                </a>
+              </div>
+              <div class="showcase__image">
+                <img src="/images/iluminacion-arquitectonica/banador-pixel-mapping-rgb-columnas.avif" alt="Bañadores LED con pixel mapping RGB iluminando columnas con efectos de degradado multicolor" width="800" height="436" loading="lazy" class="showcase__img" />
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: IP65 Outdoor -->
+          <section class="section section--alt" aria-labelledby="outdoor-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Diseñado para exteriores e intemperie</span>
+                <h2 class="showcase__title" id="outdoor-heading">Bañador IP65 Exterior</h2>
+                <p class="showcase__subtitle">Wall washers sellados contra lluvia y polvo para muros de jardín, bardas perimetrales y fachadas de haciendas.</p>
+                <p class="showcase__text">Los <strong>bañadores IP65 Exterior</strong> están diseñados para iluminar superficies verticales en condiciones de intemperie sin comprometer rendimiento ni seguridad. Certificación <strong>IP65 que garantiza protección total contra polvo y chorros de agua</strong> desde cualquier dirección. Carcasa de aluminio extruido con acabado anodizado, disipación térmica pasiva, conectores Seetronic waterproof y cable de seguridad anticaída incluido en cada barra.</p>
+                <p class="showcase__text">Con <strong>RGBW de 24x10W (240W)</strong> y óptica asimétrica anti-reflejo para compensar luz ambiental, ofrecen un brillo superior al de modelos indoor para mantener impacto visual incluso al atardecer. Operan en temperaturas de 0°C a 45°C y humedad de hasta 95%. Cada barra incluye <strong>base de montaje ajustable en acero inoxidable</strong> con ángulo regulable de 0° a 90° para adaptarse a cualquier inclinación de muro. Ideales para eventos en jardín y <a href="/servicios/carpas/">carpas para exteriores</a> con muros de piedra o bardas decorativas. Combínalos con nuestra <a href="/servicios/iluminacion/arquitectonica/fachadas/">iluminación de fachada</a> para cubrir tanto las superficies rasantes como la fachada completa del venue.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">IP65 Sealed</span>
+                  <span class="showcase__tag">24x10W (240W)</span>
+                  <span class="showcase__tag">Aluminio extruido</span>
+                  <span class="showcase__tag">Base ajustable 0°-90°</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Bañador Exterior
+                </a>
+              </div>
+              <div class="showcase__image">
+                <img src="/images/iluminacion-arquitectonica/banador-ip65-nave-industrial-ladrillo.avif" alt="Bañadores LED IP65 iluminando nave industrial con paredes de ladrillo y luces colgantes cálidas" width="800" height="436" loading="lazy" class="showcase__img" />
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Puntual Narrow Beam -->
+          <section class="section section--alt" aria-labelledby="puntual-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Acento preciso en detalles arquitectónicos</span>
+                <h2 class="showcase__title" id="puntual-heading">Bañador Puntual Narrow Beam</h2>
+                <p class="showcase__subtitle">Luminarias compactas de haz concentrado 8°-15° para columnas, nichos, esculturas y elementos arquitectónicos individuales.</p>
+                <p class="showcase__text">Los <strong>bañadores puntuales narrow beam</strong> complementan los wall washers lineales con un enfoque de precisión quirúrgica. Con ángulos de apertura de <strong>8° a 15° concentrados</strong>, proyectan un haz de luz definido sobre elementos arquitectónicos específicos: columnas, pilares, nichos, esculturas, arreglos florales, centros de mesa destacados y cualquier detalle que merezca protagonismo visual. Potencia de <strong>36W a 72W RGBW</strong> en formato compacto de solo 1.2 kg.</p>
+                <p class="showcase__text">Utilizados como complemento de los bañadores lineales, crean un esquema de iluminación <strong>multi-capa: baño uniforme en muros más acentos puntuales en elementos clave</strong>. El resultado es una profundidad visual profesional que distingue eventos de gama alta. Montaje sobre bases discretas, miniclamps o piso sin estructura adicional. Control DMX integrado para sincronización con el resto de la instalación. Combinados con <a href="/servicios/iluminacion/arquitectonica/wash-lights/">wash lights LED</a> en el techo y <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a>, transforman cualquier venue en un escenario de diseño profesional.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Narrow Beam 8°-15°</span>
+                  <span class="showcase__tag">36-72W RGBW</span>
+                  <span class="showcase__tag">1.2 kg compacto</span>
+                  <span class="showcase__tag">Acento preciso</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Bañador Puntual
+                </a>
+              </div>
+              <div class="showcase__image">
+                <img src="/images/iluminacion-arquitectonica/banador-puntual-gobo-monograma-boda.avif" alt="Bañador puntual LED proyectando gobo monograma personalizado en pared de ladrillo para boda" width="800" height="436" loading="lazy" class="showcase__img" />
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Bañadores de Muros"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar bañadores de muros para tu evento, es natural tener preguntas sobre tipos de wall washer, cobertura de superficies, pixel mapping y operación. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un especialista en iluminación arquitectónica te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p>{faq.answer}</p>
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en bañadores de muros resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre bañadores de muros LED para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Iluminación Arquitectónica</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/arquitectonica/" class="sidebar-nav__back">&uarr; Volver a Arquitectónica</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/" class="sidebar-nav__back">&uarr; Volver a Iluminación</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de bañadores:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas bañadores de muros para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar bañadores de muros LED para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tus Bañadores de Muros"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros especialistas en iluminación arquitectónica te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un set de bañadores lineales para resaltar los muros de tu venue o una instalación con pixel mapping para tu lanzamiento corporativo, estamos aquí para diseñar la luz perfecta."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoBanador">
+                Tipo de bañador
+              </label>
+              <select id="tipoBanador" name="tipoBanador" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de bañador</option>
+                <option value="Bañador Lineal RGBW Standard">Bañador Lineal RGBW Standard</option>
+                <option value="Bañador Pixel Mapping RGB">Bañador Pixel Mapping RGB</option>
+                <option value="Bañador IP65 Exterior">Bañador IP65 Exterior</option>
+                <option value="Bañador Puntual Narrow Beam">Bañador Puntual Narrow Beam</option>
+                <option value="Paquete Boda (Bañadores + Uplighting)">Paquete Boda (Bañadores + Uplighting)</option>
+                <option value="Paquete Corporativo">Paquete Corporativo</option>
+                <option value="Paquete Completo Arquitectónico">Paquete Completo Arquitectónico</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Cuéntanos los detalles: metros lineales de muro a iluminar, material de muros (piedra/ladrillo/concreto), tipo de venue, colores deseados..." rows="4" required></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Medimos los muros de tu venue sin costo para calcular la cantidad exacta de barras y el ángulo de proyección óptimo.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría de diseño de iluminación arquitectónica personalizada.</p>
+          </div>
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoBanador = document.getElementById('tipoBanador').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Bañadores de Muros LED para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoBanador) texto += `*Tipo de bañador:* ${tipoBanador}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Iluminación"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de iluminación profesional para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">REDEIL</h3>
+            <p class="partner-card__tagline">Renta de Iluminación Profesional</p>
+            <p class="partner-card__text">Líder en renta de iluminación para eventos sociales en CDMX y Estado de México. Especialistas en guirnaldas LED, cabezas móviles, iluminación arquitectónica, gobos personalizados y efectos especiales.</p>
+          </div>
+          <a href="https://rentadeiluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Iluminación + Audio</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">REDEIL Sonido</h3>
+            <p class="partner-card__tagline">Iluminación LED y Audio Profesional</p>
+            <p class="partner-card__text">Especialistas en audio JBL y QSC, iluminación LED profesional, DJ y pantallas LED para bodas, XV años y eventos corporativos. Servicio integral con instalación y operación técnica incluida.</p>
+          </div>
+          <a href="https://redeil.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">+15 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">RESOIL</h3>
+            <p class="partner-card__tagline">Renta de Sonido e Iluminación</p>
+            <p class="partner-card__text">Más de 15 años proporcionando equipo profesional de sonido e iluminación para eventos corporativos en CDMX. Guirnaldas LED, sky trackers, luces arquitectónicas, cascadas LED y gobos.</p>
+          </div>
+          <a href="https://rentadesonidoeiluminacion.com.mx/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">L</span>
+            <div class="partner-card__badge">+20 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">LUMINAPRO</h3>
+            <p class="partner-card__tagline">Expertos en Iluminación Profesional</p>
+            <p class="partner-card__text">Líder en renta de iluminación profesional para eventos con más de 20 años transformando espacios en CDMX. Servicio integral: diseño, instalación, operación y desmontaje de cabezas móviles, láser y más.</p>
+          </div>
+          <a href="https://renta-de-iluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Bañadores de muros que revelan la belleza arquitectónica de tu venue"
+    subheadline="Más de 500 eventos iluminados con diseño arquitectónico profesional nos respaldan. Cotiza hoy y recibe un plano de iluminación personalizado."
+    primaryCTA={{ label: "Cotizar bañadores de muros", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar bañadores de muros LED para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

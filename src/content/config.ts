@@ -327,6 +327,190 @@ const blog = defineCollection({
 });
 
 // ============================================
+// VENUES Collection (Directorio de Salones)
+// ============================================
+const venues = defineCollection({
+  type: "content",
+  schema: z.object({
+    // Basic info
+    name: z.string(),
+    slug: z.string(),
+    description: z.string(),
+    shortDescription: z.string().max(160),
+
+    // Location
+    region: z.enum(["cdmx", "estado-mexico"]),
+    zone: z.string(), // Alcaldía o Municipio
+    zoneSlug: z.string(), // URL-friendly zone name
+    address: z.string(),
+    neighborhood: z.string().optional(), // Colonia
+    postalCode: z.string().optional(),
+    coordinates: z.object({
+      lat: z.number(),
+      lng: z.number(),
+    }).optional(),
+    googleMapsUrl: z.string().optional(),
+
+    // Venue type
+    type: z.enum([
+      "salon",
+      "jardin",
+      "hacienda",
+      "terraza",
+      "hotel",
+      "restaurante",
+      "foro",
+      "quinta",
+      "mansion",
+      "centro-convenciones",
+      "rooftop",
+      "playa",
+    ]),
+    subtype: z.string().optional(), // e.g. "boutique", "colonial", "moderno"
+
+    // Capacity
+    capacity: z.object({
+      min: z.number(),
+      max: z.number(),
+      cocktail: z.number().optional(), // Standing/cocktail capacity
+      ceremony: z.number().optional(), // Ceremony-specific capacity
+    }),
+
+    // Pricing
+    priceRange: z.enum(["$", "$$", "$$$", "$$$$"]),
+    pricePerPerson: z.object({
+      min: z.number(),
+      max: z.number(),
+    }).optional(),
+    rentalPrice: z.object({
+      min: z.number(),
+      max: z.number(),
+      unit: z.enum(["evento", "hora", "día"]),
+    }).optional(),
+
+    // Amenities
+    amenities: z.array(z.enum([
+      "estacionamiento",
+      "valet-parking",
+      "pista-baile",
+      "capilla",
+      "cocina-industrial",
+      "terraza",
+      "jardin",
+      "alberca",
+      "spa",
+      "habitaciones",
+      "suite-nupcial",
+      "area-infantil",
+      "acceso-discapacitados",
+      "aire-acondicionado",
+      "calefaccion",
+      "generador-emergencia",
+      "wifi",
+      "vestidores",
+      "area-fotos",
+      "fuente",
+      "lago",
+      "vista-panoramica",
+    ])).default([]),
+
+    // Services included
+    servicesIncluded: z.array(z.enum([
+      "banquete",
+      "open-bar",
+      "meseros",
+      "coordinador",
+      "mobiliario-basico",
+      "manteleria",
+      "vajilla",
+      "iluminacion-basica",
+      "sonido-basico",
+      "seguridad",
+      "limpieza",
+      "montaje",
+      "desmontaje",
+    ])).default([]),
+
+    // Services available (extra cost)
+    servicesAvailable: z.array(z.string()).default([]),
+
+    // Event types they specialize in
+    eventTypes: z.array(z.enum([
+      "bodas",
+      "xv-anos",
+      "bautizos",
+      "comuniones",
+      "graduaciones",
+      "corporativos",
+      "convenciones",
+      "lanzamientos",
+      "fiestas-infantiles",
+      "cumpleanos",
+      "aniversarios",
+      "despedidas",
+      "baby-showers",
+      "cenas-gala",
+    ])).default([]),
+
+    // Schedule
+    schedule: z.object({
+      weekdays: z.string().optional(), // e.g. "10:00 - 23:00"
+      weekends: z.string().optional(),
+      minHours: z.number().optional(),
+      curfew: z.string().optional(), // e.g. "02:00"
+    }).optional(),
+
+    // Restrictions
+    restrictions: z.array(z.string()).default([]),
+
+    // Contact
+    contact: z.object({
+      phone: z.string().optional(),
+      whatsapp: z.string().optional(),
+      email: z.string().optional(),
+      website: z.string().optional(),
+      instagram: z.string().optional(),
+      facebook: z.string().optional(),
+    }),
+
+    // Visual
+    image: z.string(),
+    gallery: z.array(z.string()).default([]),
+    virtualTour: z.string().optional(), // 360° tour URL
+    video: z.string().optional(),
+
+    // EVENTECH relationship
+    eventechServices: z.array(z.string()).default([]), // Services we've provided
+    eventechPartner: z.boolean().default(false), // Is a partner venue
+    eventechDiscount: z.string().optional(), // Special discount for EVENTECH clients
+
+    // Reviews
+    rating: z.number().min(1).max(5).optional(),
+    reviewCount: z.number().default(0),
+    reviews: z.array(z.object({
+      author: z.string(),
+      date: z.string(),
+      rating: z.number().min(1).max(5),
+      text: z.string(),
+      eventType: z.string().optional(),
+    })).default([]),
+
+    // SEO
+    seoTitle: z.string().max(70).optional(),
+    seoDescription: z.string().max(160).optional(),
+    keywords: z.array(z.string()).default([]),
+
+    // Metadata
+    featured: z.boolean().default(false),
+    premium: z.boolean().default(false), // Premium listing
+    verified: z.boolean().default(false), // Verified by EVENTECH
+    order: z.number().default(0),
+    publishedAt: z.coerce.date().optional(),
+    updatedAt: z.coerce.date().optional(),
+  }),
+});
+
+// ============================================
 // PAGES Collection (for static pages)
 // ============================================
 const pages = defineCollection({
@@ -351,4 +535,5 @@ export const collections = {
   zonas,
   blog,
   pages,
+  venues,
 };
