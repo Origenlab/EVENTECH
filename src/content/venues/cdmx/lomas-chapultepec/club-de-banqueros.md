@@ -95,21 +95,89 @@ order: 20
 publishedAt: 2025-03-01
 ---
 
-## Elegancia Histórica
+## Exclusividad Absoluta en la Mejor Dirección de México
 
-El Club de Banqueros ocupa una majestuosa mansión construida en 1940, que ha sido cuidadosamente preservada y renovada. Sus salones principales presentan pisos de mármol, molduras ornamentales y obras de arte que crean un ambiente de distinción incomparable.
+El Club de Banqueros de México representa el **pináculo de la exclusividad social en la capital**. Fundado en 1963 por los principales financieros del país, este club privado ocupa una mansión de estilo francés de 1940 en una de las direcciones más prestigiosas de México: Paseo de la Reforma en Lomas de Chapultepec. Durante seis décadas, sus salones han sido escenario de las bodas más selectas, las cenas de negocios más importantes, y los eventos sociales que aparecen en las páginas de sociedad.
 
-## Espacios
+Lo que distingue al Club de Banqueros no es solo su arquitectura impecable o su servicio impecable: es la **sensación de pertenecer a un círculo selecto**. Aquí, el acceso es por membresía o patrocinio de socio, garantizando que cada evento tenga un nivel de distinción que los venues comerciales simplemente no pueden ofrecer.
 
-### Salón Virreinal
-El salón más grande, con capacidad para 350 personas en formato banquete y techos de doble altura con candelabros de cristal.
+## Espacios Disponibles para Eventos
 
-### Terraza de los Laureles
-Espacio al aire libre rodeado de jardines centenarios, ideal para ceremonias y cócteles.
+### Gran Salón (Capacidad: 250-350 banquete / 500 cóctel)
 
-### Salón Ejecutivo
-Ambiente más íntimo para reuniones de hasta 80 personas con servicio personalizado.
+El salón principal del Club es una **obra maestra de elegancia atemporal**. Techos de más de seis metros de altura con molduras ornamentales doradas, tres candelabros de cristal de Baccarat que datan de la inauguración del club, pisos de mármol de Carrara, y ventanales con vista a los jardines privados. El espacio puede dividirse con paneles móviles forrados de seda para crear ambientes más íntimos.
 
-## Gastronomía
+Un escenario elevado permite presentaciones en vivo, mientras que el sistema de audio —discretamente integrado en la arquitectura— es operado por técnicos propios del club.
 
-El club cuenta con su propia cocina dirigida por chefs de renombre, ofreciendo menús que van desde la alta cocina mexicana hasta opciones internacionales.
+**Ideal para:** Bodas de alta sociedad, cenas de gala, graduaciones de escuelas de elite, aniversarios de empresas, premiaciones corporativas.
+
+### Terraza de los Laureles (Capacidad: 150-200 cóctel)
+
+Los jardines del Club de Banqueros son un **oasis privado** en medio de Reforma. Laureles centenarios, fuentes de cantera, y césped inglés impecable crean el escenario perfecto para cócteles de bienvenida bajo las estrellas. Durante el día, la terraza cubierta con pérgola ofrece sombra elegante; por la noche, la iluminación arquitectónica transforma el espacio.
+
+**Ideal para:** Cócteles de recepción, ceremonias civiles, brunchs de boda, reuniones al aire libre.
+
+### Salón Ejecutivo "Sala de Consejo" (Capacidad: 60-80 personas)
+
+Diseñado originalmente para juntas de directivos bancarios, este espacio combina la **solemnidad de una sala de consejo con la comodidad de un club privado**. Mesa central ovalada de caoba para 24 personas, sillones de cuero capitonado, chimenea funcional, y obras de arte que incluyen piezas de Diego Rivera y Rufino Tamayo.
+
+**Ideal para:** Cenas de compromiso ultra-exclusivas, juntas de consejo, firmas de contratos importantes, celebraciones familiares selectas.
+
+### Comedor Principal (Capacidad: 100-120 personas)
+
+El comedor histórico del club, donde **socios han almorzado durante seis décadas**, está disponible para eventos privados. Servicio de guante blanco, cubertería de plata Sterling, y la sensación de ser parte de la tradición del club.
+
+**Ideal para:** Comidas de negocios formales, almuerzos de celebración, eventos de networking exclusivo.
+
+### Biblioteca (Capacidad: 30-40 personas)
+
+Un espacio íntimo con **estanterías de caoba llenas de primeras ediciones**, sillones Chester, chimenea, y la atmósfera de un club londinense del siglo XIX. Perfecto para eventos ultra-privados o como espacio de recepción VIP.
+
+**Ideal para:** Reuniones de accionistas, brindis íntimos, sesiones fotográficas, despedidas ejecutivas.
+
+## Gastronomía de Club Privado
+
+La cocina del Club de Banqueros opera bajo estándares que reflejan **décadas de servir a los paladares más exigentes de México**:
+
+- **Chefs ejecutivos** con formación en Francia y experiencia en restaurantes con estrella Michelin
+- **Menús clásicos** de alta cocina francesa y mexicana ejecutados con precisión
+- **Servicio de cava** con etiquetas premium seleccionadas por sommelier certificado
+- **Servicio de guante blanco** para eventos que lo requieran
+- **Presentaciones impecables** que honran la tradición del club
+
+## ¿Por Qué Elegir Club de Banqueros?
+
+### Acceso Exclusivo
+No cualquiera puede celebrar aquí. **El patrocinio de un socio es requisito**, lo que garantiza que cada evento tiene un nivel de distinción inalcanzable en venues comerciales.
+
+### Servicio de Generaciones
+El personal del club incluye meseros y mayordomos que han servido en el espacio durante **más de 30 años**. Conocen cada preferencia de los socios, cada rincón del espacio, cada detalle que marca la diferencia.
+
+### Ubicación Icónica
+Sobre Paseo de la Reforma en Lomas de Chapultepec, una de las direcciones más prestigiosas de América Latina.
+
+### Privacidad Total
+A diferencia de hoteles y venues comerciales, el Club garantiza **privacidad absoluta**. Sin turistas curiosos, sin eventos simultáneos en salones contiguos, sin personal temporal.
+
+## Servicios Incluidos
+
+- **Banquete completo** con cocina del club
+- **Servicio de meseros** profesionales del club
+- **Coordinador de eventos** con conocimiento íntimo del espacio
+- **Valet parking** exclusivo
+- **Cristalería, vajilla y cubertería** del club
+- **Mantelería de lino** bordada con el escudo del club
+- **Seguridad** discreta perimetral
+
+## Consideraciones de Acceso
+
+El Club de Banqueros **no es un venue de acceso abierto**:
+
+- Requiere membresía activa o patrocinio de un socio del club
+- Dress code formal obligatorio (traje y corbata para caballeros, vestido de coctel para damas)
+- Aprobación previa del comité social para eventos de gran formato
+- Respeto estricto a las tradiciones y normas del club
+
+## La Experiencia de Pertenecer
+
+Celebrar en el Club de Banqueros no es solo rentar un espacio: es **ser parte, aunque sea por unas horas, de un legado de exclusividad que ha definido la vida social de la élite mexicana durante seis décadas**. Cuando tus invitados crucen el portón de Reforma y entren a los jardines privados, sabrán que están en un lugar diferente. Un lugar donde la distinción no se compra: se gana.

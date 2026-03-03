@@ -121,24 +121,86 @@ order: 1
 publishedAt: 2025-01-15
 ---
 
-## Un Legado de Elegancia y Tradición
+## El Venue Más Icónico de México
 
-Hacienda de los Morales representa más de cuatro siglos de historia mexicana. Originalmente una próspera hacienda pulquera, hoy es uno de los recintos más prestigiosos de la Ciudad de México para celebrar eventos inolvidables.
+Hacienda de los Morales no es simplemente un lugar para eventos: es un **símbolo de la elegancia mexicana** que ha sido testigo de más de cuatro siglos de historia. Fundada en 1525 como una hacienda pulquera —apenas cuatro años después de la caída de Tenochtitlan—, este recinto ha evolucionado hasta convertirse en el venue más prestigioso del país, donde se han celebrado bodas de familias prominentes, cenas de estado y los eventos corporativos más exclusivos de México.
 
-## Espacios Disponibles
+Cuando entras por su portal de cantera, el bullicio de la ciudad desaparece. Te encuentras en un **oasis de 8,000 metros cuadrados** de jardines centenarios, fuentes coloniales y arquitectura virreinal impecablemente preservada, todo a minutos de Polanco y las principales zonas financieras de la capital.
 
-### Jardín Principal
-El corazón de la hacienda, con capacidad para 800 invitados bajo las estrellas. Rodeado de árboles centenarios y una arquitectura colonial impecable.
+## Espacios Disponibles para Eventos
 
-### Salón Virreinal
-Elegancia clásica con techos de vigas de madera, candelabros de cristal y pisos de barro. Capacidad para 300 personas en formato banquete.
+### Jardín Principal "Los Morales" (Capacidad: 400-800 banquete / 1,200 cóctel)
 
-### Terraza de los Naranjos
-Espacio íntimo para cócteles y ceremonias civiles con vista al jardín histórico.
+El corazón de la hacienda es su **jardín monumental**, dominado por ahuehuetes centenarios cuyas copas forman un dosel natural que filtra la luz de manera mágica. La fuente central de cantera del siglo XVII crea un punto focal para ceremonias, mientras que las arquerías coloniales que rodean el espacio proporcionan el marco arquitectónico perfecto para cualquier celebración.
 
-### Capilla
-Capilla consagrada del siglo XVIII para ceremonias religiosas con capacidad para 120 personas.
+Por las noches, un sistema de **iluminación arquitectónica de primer nivel** transforma el jardín en un escenario de cuento, donde cientos de velas complementan la luz dorada que baña los muros de la hacienda.
 
-## Gastronomía
+**Ideal para:** Bodas monumentales, galas de caridad, cenas de gala corporativas, presentaciones de productos de lujo, festivales privados.
 
-La cocina de Hacienda de los Morales es reconocida internacionalmente. Menús personalizados que van desde la alta cocina mexicana hasta opciones internacionales contemporáneas.
+### Salón Virreinal (Capacidad: 200-300 banquete / 400 cóctel)
+
+El salón principal interior de la hacienda es una **joya del barroco mexicano**. Techos con vigas de madera oscura de más de 400 años, candelabros de cristal de Murano, chimeneas de cantera labrada y pisos de barro artesanal crean una atmósfera de elegancia atemporal. El espacio es completamente climatizado y cuenta con sistema de audio y video discretamente integrado.
+
+**Ideal para:** Recepciones de boda, cenas de negocios de alto nivel, graduaciones, aniversarios empresariales, premiaciones.
+
+### Terraza de los Naranjos (Capacidad: 80-150 cóctel)
+
+Un espacio semi-cubierto entre el jardín y los salones interiores, rodeado de **naranjos centenarios** que perfuman el aire durante la primavera. Su ubicación estratégica lo convierte en el lugar perfecto para cócteles de bienvenida mientras los invitados descubren la magia de la hacienda.
+
+**Ideal para:** Cócteles de recepción, ceremonias civiles íntimas, brunchs de boda, reuniones ejecutivas al aire libre.
+
+### Capilla de la Inmaculada Concepción (Capacidad: 80-120 personas)
+
+Una **capilla consagrada del siglo XVIII** con retablo barroco original, vitrales coloniales y bancas de madera tallada. El espacio más íntimo y espiritual de la hacienda, donde la luz natural crea una atmósfera de recogimiento perfecta para ceremonias religiosas.
+
+**Ideal para:** Ceremonias de boda católicas, bautizos, confirmaciones, renovación de votos.
+
+### Jardín de las Buganvilias (Capacidad: 150-250 banquete)
+
+Un espacio más íntimo que el jardín principal, rodeado de **muros cubiertos de buganvilias** que explotan en color durante gran parte del año. Perfecto para bodas que buscan la magia de la hacienda en un formato más acogedor.
+
+**Ideal para:** Bodas medianas, aniversarios, cenas de compromiso, despedidas ejecutivas.
+
+### Salones Privados (Capacidad: 20-80 personas)
+
+Varios **comedores privados** con nombres que evocan la historia de México: Salón Hidalgo, Salón Morelos, Salón Juárez. Espacios elegantes para eventos más íntimos o como áreas complementarias para grandes celebraciones.
+
+## Gastronomía de Clase Mundial
+
+La cocina de Hacienda de los Morales no es solo un servicio de banquetes: es un **restaurante galardonado** que ha sido reconocido durante décadas como uno de los mejores de México. El equipo culinario, liderado por chefs con formación internacional, ofrece:
+
+- **Alta cocina mexicana** con ingredientes de temporada y técnicas ancestrales refinadas
+- **Menús internacionales** que van desde cocina mediterránea hasta asiática contemporánea
+- **Estaciones de chef en vivo** para experiencias gastronómicas interactivas
+- **Maridajes diseñados** con la cava de vinos más completa de cualquier venue en México
+- **Opciones kosher, vegetarianas y para restricciones alimentarias** sin sacrificar calidad
+
+## ¿Por Qué Elegir Hacienda de los Morales?
+
+### Prestigio Inigualable
+Aquí se han casado hijas de presidentes, se han cerrado negocios de millones de dólares, y se han celebrado los eventos sociales que aparecen en las revistas de sociedad. **El nombre Hacienda de los Morales comunica excelencia**.
+
+### Servicio de Leyenda
+Un equipo de más de 200 profesionales —desde coordinadores de eventos hasta sommelliers certificados— garantiza que cada detalle sea impecable. La experiencia de décadas se nota en la anticipación de necesidades y la resolución invisible de cualquier imprevisto.
+
+### Exclusividad Real
+A diferencia de hoteles que manejan múltiples eventos simultáneos, **cada celebración en la hacienda recibe atención exclusiva**. Tu evento es el único que importa ese día.
+
+### Ubicación Estratégica
+En el corazón de la zona más exclusiva de la ciudad, con acceso directo desde Polanco, Lomas y Santa Fe. Valet parking para 300 vehículos incluido.
+
+## Servicios Incluidos
+
+- **Coordinador de eventos dedicado** desde la planeación hasta el último invitado
+- **Banquete completo** con menú personalizado y servicio de meseros profesionales
+- **Montaje de salones** con mobiliario, mantelería de lino y vajilla de porcelana
+- **Suite nupcial** equipada para preparación de novios
+- **Valet parking** ilimitado para tus invitados
+- **Seguridad privada** discreta pero profesional
+- **Limpieza completa** pre y post evento
+
+## La Experiencia Hacienda de los Morales
+
+Imagina a tus invitados cruzando el mismo portal que han atravesado generaciones de familias distinguidas. Brindando bajo los ahuehuetes que fueron plantados cuando México aún era Nueva España. Cenando platillos preparados por chefs que representan lo mejor de la gastronomía mexicana. Y bailando bajo las estrellas en un jardín que ha sido escenario de celebraciones inolvidables durante **500 años**.
+
+**Hacienda de los Morales no es solo un venue: es la definición de lo que significa celebrar con grandeza en México**.

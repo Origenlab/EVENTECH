@@ -103,19 +103,82 @@ order: 3
 publishedAt: 2025-03-01
 ---
 
-## Espacios Versátiles
+## Lujo Contemporáneo en el Corazón de Polanco
 
-El W Mexico City cuenta con múltiples salones que se adaptan a cualquier tipo de evento:
+El W Mexico City no es solo un hotel: es una **declaración de estilo y sofisticación** que ha redefinido el concepto de hospitalidad de lujo en México. Ubicado sobre Campos Elíseos en el epicentro de Polanco, este ícono de diseño contemporáneo combina la estética vanguardista característica de la marca W con elementos que celebran la cultura mexicana, creando espacios que son tanto visualmente impresionantes como funcionalmente perfectos para eventos de primer nivel.
 
-### Great Room
-Salón principal con capacidad para 600 personas en formato banquete. Techos altos, iluminación personalizable y tecnología audiovisual integrada.
+Desde el momento en que entras al lobby —una explosión de colores vibrantes, texturas inesperadas y obras de artistas mexicanos contemporáneos— sabes que estás en un lugar donde **lo ordinario no tiene cabida**. Esta misma filosofía impregna cada evento: aquí, el lujo viene con personalidad.
 
-### Sunset Terrace
-Terraza panorámica en el piso 25 con vistas espectaculares de la ciudad. Perfecta para cócteles y ceremonias al atardecer.
+## Espacios Disponibles para Eventos
 
-### Studio W
-Espacio íntimo para reuniones ejecutivas y cenas privadas de hasta 60 personas.
+### Great Room (Capacidad: 400-800 banquete / 1,200 cóctel)
 
-## Experiencia W
+El salón principal del W Mexico City es un **espacio transformable de 800 metros cuadrados** con techos de seis metros de altura, iluminación LED RGB completamente programable, sistema de sonido Bose profesional integrado, y capacidad para dividirse en hasta tres espacios independientes para eventos simultáneos.
 
-El servicio Whatever/Whenever garantiza que cada detalle de tu evento sea perfecto. Desde menús personalizados hasta experiencias únicas diseñadas para sorprender a tus invitados.
+Las paredes móviles permiten crear configuraciones personalizadas, mientras que el equipo técnico del hotel puede ejecutar transformaciones visuales completas —desde iluminación dramática de gala hasta ambientes de fiesta con visuales proyectadas en tiempo real.
+
+**Ideal para:** Bodas de lujo, lanzamientos de productos de marcas premium, galas corporativas, convenciones, cenas de gala, shows de moda.
+
+### Sunset Terrace - Piso 25 (Capacidad: 150-250 cóctel)
+
+La terraza del piso 25 es posiblemente el **espacio exterior más espectacular de Polanco**. Con vistas de 270° que abarcan desde el Castillo de Chapultepec hasta los rascacielos de Reforma, este rooftop se transforma cada atardecer en un escenario de película. Equipada con calentadores de exterior, sistema de sonido independiente y barra completa, puede operarse para eventos privados de cóctel o como extensión de eventos más grandes en el Great Room.
+
+**Ideal para:** Cócteles de bienvenida, ceremonias de boda al atardecer, lanzamientos exclusivos, cenas VIP, sesiones fotográficas con skyline.
+
+### Studio W (Capacidad: 40-80 personas)
+
+Un **espacio versátil de diseño contemporáneo** perfecto para eventos que requieren intimidad sin sacrificar la sofisticación del W. Equipado con tecnología de videoconferencia de última generación, pantallas LED modulares y mobiliario configurable, Studio W es el espacio predilecto de corporativos para reuniones de alto nivel y firmas de acuerdos importantes.
+
+**Ideal para:** Juntas de consejo, conferencias de prensa, cenas privadas, showrooms de marca, presentaciones ejecutivas.
+
+### Living Room (Lobby Privado)
+
+El lobby del W puede **privatizarse completamente para eventos** después de cierta hora, creando una experiencia inmersiva donde tus invitados tienen acceso exclusivo a los espacios más icónicos del hotel: el bar, las áreas lounge, y los rincones de diseño que definen la estética W.
+
+**Ideal para:** After parties, lanzamientos de moda, eventos de influencers, experiencias de marca inmersivas.
+
+### Marvelous Suite y Suites de Preparación
+
+Para bodas, la **Marvelous Suite** del piso 24 se convierte en el espacio de preparación perfecto: 120 metros cuadrados de lujo con vista panorámica, bañera de hidromasaje, y espacio suficiente para maquillaje, peinado y el cortejo completo. Suites adicionales están disponibles para padrinos y familia.
+
+## El Servicio Whatever/Whenever®
+
+La filosofía W se resume en una promesa: **"Whatever you want, whenever you want it"**. El equipo de eventos del W Mexico City no conoce la palabra "no". ¿Quieres una pista de patinaje sobre hielo en el Great Room? ¿Una banda de mariachis fusión a medianoche? ¿Un menú diseñado por un chef con estrella Michelin? El equipo encuentra la manera de hacerlo realidad.
+
+## Gastronomía de Autor
+
+La cocina del W es dirigida por un equipo culinario que combina **técnicas internacionales con ingredientes mexicanos de temporada**:
+
+- **Menús personalizados** diseñados específicamente para cada evento
+- **Estaciones de chef en vivo** para experiencias gastronómicas interactivas
+- **Coctelería de autor** desarrollada por mixólogos certificados
+- **Opciones de wine pairing** con sommeliers certificados
+- **Menús para restricciones alimentarias** ejecutados al mismo nivel de los menús principales
+
+## ¿Por Qué Elegir W Mexico City?
+
+### Diseño que Impresiona
+Cada centímetro del W ha sido diseñado para **crear momentos instagrameables**. Tus invitados compartirán fotos del espacio tanto como del evento.
+
+### Tecnología Integrada
+Sistema audiovisual profesional, iluminación programable, WiFi de alta velocidad, streaming capabilities. **Todo está listo para producción de eventos modernos**.
+
+### Ubicación Premium
+En el corazón de Polanco, con acceso directo desde Campos Elíseos y a pasos de las mejores boutiques y restaurantes de la ciudad.
+
+### Hospedaje para Invitados
+Para eventos que incluyen invitados de fuera de la ciudad, el W ofrece **tarifas preferenciales de habitación** y la comodidad de que nadie necesita tomar un taxi después de la fiesta.
+
+## Servicios Incluidos
+
+- **Coordinador de eventos W** dedicado
+- **Montaje completo** con mobiliario de diseño
+- **Sistema audiovisual** profesional
+- **WiFi de alta velocidad** para todos los invitados
+- **Valet parking** ilimitado
+- **Seguridad** discreta pero profesional
+- **Spa W** disponible para tratamientos previos al evento
+
+## La Experiencia W
+
+Celebrar en el W Mexico City es elegir un venue que entiende que **los eventos modernos son experiencias multisensoriales**. Aquí, cada elemento —desde la iluminación hasta el último detalle del menú— está diseñado para crear una atmósfera que tus invitados no olvidarán. Es lujo, pero con actitud. Es sofisticación, pero con alma. Es el W.

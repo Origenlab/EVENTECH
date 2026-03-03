@@ -89,24 +89,82 @@ order: 12
 publishedAt: 2025-03-01
 ---
 
-## Tradición y Elegancia
+## Herencia Española en el Corazón de México
 
-El Casino Español ha sido sede de los eventos sociales más distinguidos de México por más de 160 años, manteniendo viva la tradición de la hospitalidad española.
+El Casino Español de México representa **160 años de tradición, elegancia y hospitalidad ibérica** en el corazón del Centro Histórico. Fundado en 1863 por empresarios españoles que buscaban un espacio digno para reuniones sociales y de negocios, el Casino ha evolucionado hasta convertirse en uno de los venues más prestigiosos y exclusivos de la ciudad, donde la grandeza arquitectónica se combina con un servicio que mantiene viva la tradición de la hospitalidad española.
 
-## Espacios
+Su edificio de estilo ecléctico europeo —con elementos neoclásicos, barrocos y art nouveau— es un **monumento arquitectónico** que ha sido escenario de bodas de familias prominentes, cenas de embajadores, y los eventos sociales más distinguidos de México durante más de un siglo.
 
-### Salón de Baile
-El salón principal del Casino, con piso de duela, escenario, candiles de cristal de Bohemia y capacidad para grandes celebraciones.
+## Espacios Disponibles para Eventos
 
-### Salón Goya
-Espacio íntimo decorado con reproducciones de obras del maestro español, ideal para cenas privadas.
+### Gran Salón de Baile (Capacidad: 300-500 banquete / 700 cóctel)
 
-### Comedor Principal
-Elegante comedor con servicio de banquete tradicional y vistas a la calle peatonal Isabel la Católica.
+La joya del Casino Español es su **salón de baile monumental**, un espacio que evoca los grandes salones de los palacios europeos. Seis candiles de cristal de Bohemia de principios del siglo XX cuelgan de un techo artesonado de más de ocho metros de altura. El piso de duela de encino, pulido por décadas de valses y celebraciones, refleja la luz de manera mágica. Un escenario elevado al fondo permite presentaciones en vivo, mientras que balcones laterales ofrecen perspectivas únicas del espacio.
 
-### Terraza
-Espacio al aire libre en el último piso con vista al Centro Histórico.
+La acústica del salón ha sido afinada durante décadas para conversación y música, y el sistema de sonido profesional se integra discretamente con la arquitectura histórica.
 
-## Gastronomía Española
+**Ideal para:** Bodas monumentales, galas de caridad, cenas de gala corporativas, graduaciones universitarias, quinceaños de gran formato, bailes de debutantes.
 
-El Casino ofrece un menú que combina lo mejor de la cocina española tradicional con toques mexicanos, preparado por chefs con décadas de experiencia.
+### Salón Goya (Capacidad: 80-120 banquete)
+
+Un espacio de **intimidad refinada** decorado con reproducciones de obras maestras de Francisco de Goya, incluyendo La Maja Vestida y La Maja Desnuda. Paneles de madera oscura, iluminación con sconces de bronce y una chimenea decorativa crean una atmósfera de club privado londinense con acento español.
+
+**Ideal para:** Cenas de compromiso, reuniones de consejo directivo, celebraciones de aniversario, cenas de negocios de alto nivel.
+
+### Comedor Principal (Capacidad: 150-200 personas)
+
+El comedor histórico del Casino, donde durante más de un siglo los socios han disfrutado de la gastronomía española. Ventanales con vista a la calle peatonal de Isabel la Católica, **manteles de damasco**, cubertería de plata y servicio de guante blanco definen la experiencia.
+
+**Ideal para:** Comidas de negocios, brunchs de boda, reuniones corporativas, celebraciones familiares.
+
+### Terraza Panorámica (Capacidad: 100-150 cóctel)
+
+En el último piso del edificio, una **terraza con vistas de 270°** del Centro Histórico: la Torre Latinoamericana, el Palacio de Bellas Artes, la Catedral Metropolitana. Un espacio al aire libre para cócteles con una perspectiva única de la ciudad.
+
+**Ideal para:** Cócteles de bienvenida, after parties, sesiones fotográficas, lanzamientos de productos.
+
+### Salones Privados (Capacidad: 20-60 personas)
+
+Varios comedores privados nombrados en honor a regiones de España: Salón Galicia, Salón Asturias, Salón Andalucía. Cada uno con decoración que evoca su región y servicio exclusivo.
+
+**Ideal para:** Juntas directivas, cenas íntimas, firmas de contratos, celebraciones familiares selectas.
+
+## Gastronomía con Herencia Ibérica
+
+La cocina del Casino Español mantiene vivas **recetas traídas de España hace más de un siglo**, ejecutadas por un equipo culinario que combina técnica tradicional con ingredientes mexicanos de primera calidad:
+
+- **Paella valenciana** preparada en paelleras gigantes, disponible como estación en vivo
+- **Cochinillo asado** al estilo Segovia, con piel crujiente perfecta
+- **Fabada asturiana** y otros guisos tradicionales de la cocina regional española
+- **Jamón ibérico de bellota** rebanado al momento por cortadores certificados
+- **Postres tradicionales**: crema catalana, tarta de Santiago, torrijas
+- **Cava española y vinos de Rioja** de una bodega con etiquetas exclusivas
+
+## ¿Por Qué Elegir el Casino Español?
+
+### Exclusividad de Club Privado
+El Casino Español es un **club social con membresía selecta**, lo que significa que cada evento tiene un nivel de privacidad y distinción difícil de igualar en venues comerciales.
+
+### Arquitectura Histórica Impecable
+El edificio ha sido meticulosamente preservado durante 160 años. Cada detalle —desde los picaportes de bronce hasta los vitrales— es original o restaurado con técnicas de conservación de patrimonio.
+
+### Ubicación Privilegiada
+Sobre la calle peatonal de Isabel la Católica, a pasos del Zócalo y del Palacio de Bellas Artes. Acceso por Metro Zócalo y múltiples opciones de estacionamiento cercano.
+
+### Servicio de Tradición
+El personal del Casino incluye meseros que han servido en el espacio durante décadas. Conocen cada rincón, cada necesidad, cada detalle que hace la diferencia.
+
+## Servicios Incluidos
+
+- **Banquete completo** con cocina española tradicional y mexicana
+- **Cristalería y vajilla** de porcelana con escudo del Casino
+- **Mantelería de damasco** blanca o en colores selectos
+- **Coordinador de eventos** del Casino
+- **Valet parking** en convenio con estacionamiento cercano
+- **Seguridad privada** discreta
+
+## Un Siglo y Medio de Celebraciones
+
+Desde 1863, el Casino Español ha sido el escenario de **momentos que definen la historia social de México**. Bodas que unieron familias distinguidas, cenas donde se cerraron negocios que transformaron industrias, graduaciones que marcaron el inicio de carreras brillantes. Cuando celebras aquí, te unes a una tradición de elegancia que trasciende generaciones.
+
+**El Casino Español no es solo un venue: es un pasaje directo a la grandeza del pasado, ejecutada con la perfección del presente.**

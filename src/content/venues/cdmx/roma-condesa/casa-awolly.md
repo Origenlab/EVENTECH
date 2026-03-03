@@ -1,8 +1,8 @@
 ---
 name: "Casa Awolly"
 slug: "casa-awolly"
-description: "Casa Awolly es un espacio de eventos boutique en el corazón de la Roma Norte, ubicado en una casa art déco restaurada de los años 30. Su diseño combina elementos vintage con toques contemporáneos, creando un ambiente único para eventos íntimos, lanzamientos de marca y celebraciones que buscan autenticidad y estilo. El rooftop con vista a la ciudad y el patio interior con vegetación lo hacen versátil para cualquier ocasión."
-shortDescription: "Casa art déco restaurada con rooftop y patio interior en la Roma Norte."
+description: "Casa Awolly es un venue boutique de diseño ubicado en una residencia art déco de 1932 meticulosamente restaurada en el corazón de la Roma Norte. Este espacio de tres niveles combina pisos de pasta hidráulica originales, herrería forjada a mano y muros de ladrillo aparente con mobiliario contemporáneo de diseñadores mexicanos, creando una atmósfera única donde lo vintage y lo moderno coexisten en armonía. Su rooftop privado ofrece vistas panorámicas del skyline capitalino, mientras que el patio interior con vegetación tropical proporciona un oasis urbano perfecto para eventos de marca, celebraciones íntimas, sesiones fotográficas editoriales y experiencias gastronómicas que buscan autenticidad y carácter en una de las colonias más cotizadas de la Ciudad de México."
+shortDescription: "Residencia art déco de 1932 restaurada con rooftop panorámico y patio tropical en Roma Norte."
 
 region: "cdmx"
 zone: "Roma-Condesa"
@@ -69,11 +69,14 @@ rating: 4.7
 reviewCount: 94
 
 seoTitle: "Casa Awolly - Eventos Boutique en Roma Norte | CDMX"
-seoDescription: "Casa art déco para eventos íntimos en Roma Norte. Rooftop panorámico y patio interior para hasta 120 personas."
+seoDescription: "Venue boutique art déco en Roma Norte. Casa restaurada de 1932 con rooftop panorámico, patio tropical y diseño contemporáneo para eventos de hasta 180 personas."
 keywords:
   - casa eventos roma norte
   - venue boutique condesa
   - lanzamientos roma cdmx
+  - eventos privados roma norte
+  - rooftop roma cdmx
+  - espacio eventos diseño
 
 featured: false
 verified: true
@@ -81,21 +84,60 @@ order: 28
 publishedAt: 2025-03-01
 ---
 
-## Estilo Art Déco Contemporáneo
+## Arquitectura Art Déco con Alma Contemporánea
 
-Casa Awolly preserva la arquitectura original de los años 30 mientras incorpora un diseño interior moderno que la convierte en el lienzo perfecto para eventos con personalidad.
+Casa Awolly ocupa una **residencia de 1932** que representa lo mejor del movimiento art déco que transformó la Roma Norte en los años dorados de la colonia. Los propietarios actuales invirtieron dos años en una restauración respetuosa que recuperó los **pisos de pasta hidráulica originales**, la herrería artesanal de las ventanas y los detalles geométricos característicos de la época, mientras integraron una curaduría de mobiliario contemporáneo de diseñadores mexicanos emergentes.
 
-## Espacios
+El resultado es un espacio que **no se parece a ningún otro venue en la ciudad**: cada rincón cuenta una historia, cada objeto fue elegido con intención, y la luz natural que entra por los ventanales originales crea atmósferas que cambian con las horas del día.
 
-### Rooftop
-Terraza en el último piso con vista 360° de la Roma y el centro de la ciudad, perfecta para cócteles al atardecer.
+## Espacios Disponibles
 
-### Patio Interior
-Espacio verde con plantas tropicales y muebles de diseño, ideal para eventos durante el día.
+### Rooftop Panorámico (Capacidad: 60-80 cóctel)
 
-### Salón Principal
-Área climatizada con paredes de ladrillo aparente y pisos de pasta originales, para cenas y presentaciones.
+El tercer nivel de Casa Awolly es una **terraza privada con vistas de 270°** que abarcan desde el Ángel de la Independencia hasta los volcanes en días despejados. Equipada con iluminación ambiental, área de bar y mobiliario modular, se transforma al atardecer en el escenario perfecto para cócteles de bienvenida, brindis al anochecer o after parties íntimos.
 
-## Eventos con Estilo
+**Ideal para:** Cócteles de networking, sesiones fotográficas con golden hour, cenas privadas bajo las estrellas, lanzamientos de productos premium.
 
-Casa Awolly atrae a marcas, creativos y personas que buscan un espacio con carácter propio, alejado de los venues convencionales.
+### Patio Interior Tropical (Capacidad: 40-60 sentados)
+
+Un **oasis verde** en medio de la ciudad. Rodeado de muros de ladrillo y protegido del bullicio urbano, el patio interior alberga una colección de plantas tropicales —desde monsteras hasta palmeras areca— que crean un microclima fresco incluso en los días más calurosos. El tragaluz cenital inunda el espacio de luz natural, mientras que por las noches, las guirnaldas de luces cálidas transforman el ambiente.
+
+**Ideal para:** Brunch de despedida de soltera, baby showers con estética botanical, comidas de negocios con ambiente relajado, pop-ups gastronómicos.
+
+### Salón Principal con Chimenea (Capacidad: 80-120 cóctel / 60 sentados)
+
+El corazón de Casa Awolly es un **salón de doble altura** con chimenea de cantera, paredes de ladrillo aparente y pisos de pasta geométrica que datan de 1932. El espacio es completamente climatizado y cuenta con sistema de audio integrado, proyector HD y pantalla retráctil para presentaciones. El mobiliario modular permite configuraciones desde cena formal hasta fiesta de pie.
+
+**Ideal para:** Lanzamientos de marca, cenas privadas, talleres creativos, sesiones de fotos editoriales, showcases de diseño.
+
+### Sala Íntima (Capacidad: 20-30 personas)
+
+Un espacio secundario perfecto para **reuniones ejecutivas**, sesiones de trabajo previas al evento principal, o como área VIP durante celebraciones más grandes. Cuenta con mesa de juntas para 12 personas, conexiones para videoconferencia y servicio de café.
+
+## ¿Por Qué Elegir Casa Awolly?
+
+### Personalidad Única
+En una ciudad saturada de salones genéricos, Casa Awolly ofrece **un lienzo con carácter propio**. Cada foto de tu evento será instantáneamente reconocible; cada invitado recordará el espacio tanto como el momento.
+
+### Ubicación Premium
+En el corazón de la **Roma Norte**, a pasos de Álvaro Obregón y los mejores restaurantes de la zona. Fácil acceso en transporte público (Metro Insurgentes a 10 minutos caminando) y múltiples opciones de estacionamiento en la zona.
+
+### Flexibilidad Total
+A diferencia de venues más rígidos, Casa Awolly permite **personalización completa**: puedes traer tu propio catering, montar instalaciones artísticas temporales, o transformar los espacios según tu visión creativa.
+
+### Tamaño Perfecto
+Con capacidad máxima de 180 personas en cóctel, Casa Awolly es ideal para eventos que buscan **intimidad sin sacrificar impacto**. Lo suficientemente grande para impresionar, lo suficientemente pequeño para que cada invitado se sienta especial.
+
+## Servicios Incluidos
+
+- **Coordinador de espacio** para logística y accesos
+- **Mobiliario base** (mesas, sillas, lounge básico)
+- **Sistema de audio** ambiente en todos los niveles
+- **WiFi de alta velocidad** para streaming y trabajo
+- **Limpieza pre y post evento**
+
+## El Venue de los Creativos
+
+Casa Awolly se ha convertido en el **espacio favorito de marcas de diseño, agencias creativas y emprendedores** que entienden que el contexto importa tanto como el contenido. Aquí han sucedido lanzamientos de colecciones de moda, pop-ups gastronómicos de chefs reconocidos, sesiones editoriales para revistas internacionales y celebraciones privadas de quienes buscan algo diferente.
+
+No es el venue más grande de la Roma. No es el más económico. Pero para quienes valoran **la autenticidad, el diseño y la atmósfera**, no hay otro lugar igual.
