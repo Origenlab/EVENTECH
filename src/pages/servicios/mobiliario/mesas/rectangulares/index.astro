@@ -1,0 +1,713 @@
+---
+/**
+ * ─── Mesas Rectangulares — Página de Producto (Nivel 4) ───
+ * Tableros de 240×120 cm para 8-10 comensales.
+ * Formato imperial para bodas lineales y galas.
+ *
+ * Jerarquía: Servicios > Mobiliario > Mesas > Mesas Rectangulares
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Mesas", href: "/servicios/mobiliario/mesas/" },
+  { label: "Mesas Rectangulares" },
+];
+
+const faqs = [
+  { question: "¿Cuántas mesas rectangulares necesito?", answer: 'Calcula <strong>1 mesa rectangular por cada 8-10 invitados</strong>: 4 personas por lado largo y opcionalmente 1 en cada cabecera. Para formato de línea continua (mesa imperial), divide el total de invitados entre 8-10 para obtener el número de mesas que se unen en secuencia. Nuestro equipo diseña el layout óptimo según tu venue y número de comensales — envíanos los datos y te enviamos un plano personalizado sin costo.' },
+  { question: "¿Se pueden unir para hacer una mesa larga?", answer: 'Sí. Las mesas rectangulares están <strong>diseñadas para unirse en secuencia</strong> y crear una línea continua de cualquier longitud. Utilizamos conectores especiales que garantizan una alineación estable y uniforme entre cada módulo. Puedes crear mesas imperiales de 5, 10, 15 o más metros según tu espacio. Es el formato más fotogénico y popular para bodas íntimas y galas exclusivas.' },
+  { question: "¿Cuál es la diferencia con las redondas?", answer: 'Las mesas <strong>rectangulares</strong> crean líneas visuales dramáticas, son más fotogénicas en formato imperial y son ideales para mesas de honor. Las <strong>redondas</strong> favorecen la conversación entre comensales y son el formato clásico de banquete. Muchos eventos combinan ambas: rectangulares para la mesa principal y redondas para los invitados — una distribución elegante y funcional.' },
+  { question: "¿Incluyen mantelería?", answer: 'La mantelería se cotiza por separado para que elijas exactamente lo que necesitas. Ofrecemos <strong>manteles rectangulares a medida, caminos de mesa (runners) y overlays</strong> en más de 30 colores y texturas: satín, organza, terciopelo, lino y más. La forma rectangular luce espectacularmente con caminos de mesa largos y centros de mesa distribuidos — te asesoramos para lograr el look perfecto.' },
+  { question: "¿Son estables en jardín?", answer: 'Sí. La <strong>base metálica reforzada incluye niveladores ajustables</strong> que compensan superficies irregulares como pasto, adoquín y terraza. Con <strong>150 kg de capacidad de carga distribuida</strong>, soportan vajilla completa, centros de mesa y decoración sin problema. Nuestro equipo verifica la estabilidad de cada mesa durante el montaje y ajusta los niveladores según el terreno.' },
+  { question: "¿Con cuánta anticipación debo reservar?", answer: 'Recomendamos reservar con <strong>2 a 4 semanas de anticipación</strong> para garantizar disponibilidad de la cantidad que necesitas. En temporada alta (noviembre a febrero), la demanda de mesas rectangulares para bodas se incrementa significativamente, por lo que sugerimos apartar con <strong>1 a 2 meses de anticipación</strong>. Un anticipo del 30% confirma tu reserva y asegura tu fecha.' },
+];
+
+const specs = [
+  { label: "Dimensiones", value: "240 × 120 cm" },
+  { label: "Capacidad comensales", value: "8 (4 por lado) a 10 (con cabeceras)" },
+  { label: "Tablero", value: "Alta densidad con acabado melamínico resistente" },
+  { label: "Capacidad de carga", value: "150 kg distribuidos" },
+  { label: "Altura", value: "75 cm (estándar banquete)" },
+  { label: "Base", value: "Estructura metálica reforzada plegable" },
+  { label: "Unibles", value: "Sí, en secuencia para cualquier longitud" },
+  { label: "Configuraciones", value: "Línea, U, T, L" },
+  { label: "Plegable", value: "Sí, patas abatibles para transporte" },
+  { label: "Mantenimiento", value: "Limpieza e inspección incluida pre-evento" },
+];
+
+const sidebarNav = [
+  { name: "Mesas Redondas", href: "/servicios/mobiliario/mesas/redondas/" },
+  { name: "Mesas Rectangulares", href: null, active: true },
+  { name: "Mesas Cocktail", href: "/servicios/mobiliario/mesas/cocktail/" },
+  { name: "Tablones y Buffet", href: "/servicios/mobiliario/mesas/tablones/" },
+];
+
+const sidebarRelated = [
+  { name: "Sillas para Eventos", href: "/servicios/mobiliario/sillas/" },
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+  { name: "Barras para Eventos", href: "/servicios/mobiliario/barras/" },
+  { name: "Carpas Profesionales", href: "/servicios/carpas/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+];
+
+const reviews = [
+  { author: "Camila Estrada", text: "Rentamos 12 mesas rectangulares en línea continua para nuestra boda íntima de 80 invitados en una terraza. La mesa imperial quedó espectacular — una sola línea dramática que impresionó a todos. Las fotos quedaron increíbles con esa perspectiva infinita. Súper recomendados.", rating: 5, date: "2025-11-22" },
+  { author: "Jorge Villarreal", text: "Usamos la distribución en U con mesas rectangulares para una conferencia corporativa de 40 personas. Soportaron todo el equipo de proyección y laptops sin problema — los 150 kg de capacidad son reales. El montaje fue profesional y puntual. Repetiremos para el próximo trimestre.", rating: 5, date: "2025-10-14" },
+  { author: "Lucía Pacheco", text: "Para los XV años de mi hija combinamos mesa de honor en T con mesas redondas para los invitados. La mesa principal en formato T quedó hermosa — la festejada y su corte se veían perfectos elevados al frente. Una combinación que recomiendo totalmente.", rating: 5, date: "2025-09-01" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Mesas Rectangulares para Eventos en CDMX",
+    description: "Renta de mesas rectangulares de 240×120 cm para 8-10 comensales. Formato imperial para bodas lineales y galas. 150 kg de capacidad. Desde $100 por mesa.",
+    url: "/servicios/mobiliario/mesas/rectangulares/",
+    priceRange: { min: 100, max: 300 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 62,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Mesas", url: "/servicios/mobiliario/mesas/" },
+    { name: "Mesas Rectangulares", url: "/servicios/mobiliario/mesas/rectangulares/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Mesas Rectangulares para Eventos en CDMX"
+  description="Renta de mesas rectangulares de 240×120 cm para 8-10 comensales. Formato imperial para bodas lineales y galas. 150 kg de capacidad. Desde $100 por mesa."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Formato imperial para bodas de revista"
+    title='Renta de <span class="highlight">Mesas Rectangulares</span> para Eventos en CDMX'
+    subtitle="Mesas rectangulares de 240×120 cm con capacidad para 8-10 comensales. Tablero de alta densidad con acabado resistente y estructura metálica reforzada. 150 kg de capacidad. Se unen en secuencia para crear mesas de cualquier longitud."
+    primaryCTA={{ label: "Cotiza tus mesas rectangulares", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar mesas rectangulares para mi evento` }}
+    cards={[
+      {
+        title: "Tableros de 240×120 cm con 150 kg de capacidad",
+        content: "<strong>Renta de mesas rectangulares profesionales</strong> de 240×120 cm con capacidad para 8 comensales por lado o 10 incluyendo cabeceras. Tablero de alta densidad con acabado melamínico resistente a rayaduras, manchas y calor. Estructura metálica reforzada con <strong>150 kg de capacidad de carga distribuida</strong> para soportar vajilla completa, centros de mesa y decoración. Se unen en secuencia para crear mesas imperiales de cualquier longitud — líneas visuales dramáticas perfectas para fotografía.",
+      },
+      {
+        title: "Formato imperial y distribuciones en U, T y línea continua",
+        content: "<strong>Configuraciones versátiles para cualquier tipo de evento</strong>: mesa imperial en línea continua para bodas íntimas y galas exclusivas, distribución en U para conferencias corporativas y reuniones ejecutivas, formato T para mesas de honor en bodas y XV años, y configuración en L para espacios irregulares. Nuestro equipo diseña el layout óptimo según tu venue y número de invitados. Entrega, montaje profesional según plano aprobado y recolección incluidos en el servicio.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas mesas rectangulares para tu próximo evento?"
+    subheadline="Cotiza sin compromiso — diseñamos tu distribución imperial personalizada"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Mesas para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas mesas rectangulares para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar mesas rectangulares para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 12h18"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Mesas Rectangulares</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Mesa Imperial — Línea Continua -->
+          <section class="section section--alt" aria-labelledby="imperial-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">El formato más fotogénico</span>
+                <h2 class="showcase__title" id="imperial-heading">Mesa Imperial — Línea Continua</h2>
+                <p class="showcase__subtitle">Mesas unidas en una sola línea continua para banquetes dramáticos y bodas de revista.</p>
+                <p class="showcase__text">La <strong>mesa imperial en línea continua</strong> es el formato más solicitado para bodas íntimas y galas exclusivas. Se crean uniendo nuestras mesas rectangulares en secuencia con conectores especiales que garantizan una alineación perfecta — el resultado es una sola mesa dramática que puede extenderse 5, 10, 15 o más metros. Es el formato predilecto de wedding planners porque <strong>crea perspectivas visuales impresionantes</strong> que elevan cualquier fotografía de evento.</p>
+                <p class="showcase__text">Ideal para <strong>bodas íntimas de 50-100 invitados</strong> donde todos comparten una misma mesa, galas exclusivas, cenas de diseñador y eventos donde la mesa es protagonista. Combina espectacularmente con caminos de mesa largos, <a href="/servicios/iluminacion/decorativa/">guirnaldas y fairy lights</a> colgantes y centros de mesa distribuidos a lo largo de toda la línea. El efecto visual de una mesa imperial iluminada es simplemente inolvidable.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Línea Continua</span>
+                  <span class="showcase__tag">Bodas Íntimas</span>
+                  <span class="showcase__tag">Fotogénica</span>
+                  <span class="showcase__tag">Imperial</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Mesa Imperial
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 12h18"/></svg>
+                  <span>Mesa Imperial — Línea Continua</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Distribución en U — Corporativa -->
+          <section class="section section--alt" aria-labelledby="u-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Ideal para conferencias</span>
+                <h2 class="showcase__title" id="u-heading">Distribución en U — Corporativa</h2>
+                <p class="showcase__subtitle">Formato en U donde todos los participantes se ven entre sí: perfecto para reuniones ejecutivas y conferencias.</p>
+                <p class="showcase__text">La <strong>distribución en U con mesas rectangulares</strong> es el estándar para conferencias corporativas, reuniones de directorio, capacitaciones y presentaciones ejecutivas. Todos los participantes se ubican en el perímetro exterior de la U con <strong>visibilidad directa al centro y entre sí</strong> — ideal para sesiones donde la interacción y el contacto visual son esenciales. El espacio central queda libre para el presentador, proyector o equipo audiovisual.</p>
+                <p class="showcase__text">Cada mesa soporta <strong>150 kg de carga distribuida</strong>, suficiente para laptops, carpetas, botellas de agua y equipo de presentación sin comprometer la estabilidad. Combinamos la distribución en U con nuestro servicio de <a href="/servicios/audiovisual/pantallas-led/">pantallas LED</a> y <a href="/servicios/audiovisual/sonido/">equipo de sonido</a> para crear salas de conferencia completas en cualquier venue de la Ciudad de México.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Forma U</span>
+                  <span class="showcase__tag">Corporativos</span>
+                  <span class="showcase__tag">Conferencias</span>
+                  <span class="showcase__tag">Reuniones</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Distribución en U
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 12h18"/></svg>
+                  <span>Distribución en U — Corporativa</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Mesa de Honor — Formato T -->
+          <section class="section section--alt" aria-labelledby="honor-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">La mesa principal</span>
+                <h2 class="showcase__title" id="honor-heading">Mesa de Honor — Formato T</h2>
+                <p class="showcase__subtitle">La mesa de los novios o anfitriones en formato T: visibilidad total y protagonismo absoluto.</p>
+                <p class="showcase__text">El <strong>formato T para mesa de honor</strong> es la distribución clásica para bodas y galas donde los anfitriones necesitan visibilidad y protagonismo. La barra superior de la T funciona como mesa principal donde se sientan los novios, festejada o anfitriones — ligeramente elevada o diferenciada del resto para que <strong>todos los invitados tengan línea de visión directa</strong>. La barra vertical de la T conecta con las mesas de invitados cercanos.</p>
+                <p class="showcase__text">Este formato es especialmente popular en <strong>bodas, XV años y galas formales</strong> donde se busca que la mesa principal sea el punto focal del salón. Combina espectacularmente con <a href="/servicios/iluminacion/arquitectonica/">iluminación arquitectónica</a> enfocada en la mesa de honor y un backdrop decorativo detrás de los anfitriones. Nuestro equipo diseña la proporción exacta de la T según el número de invitados y las dimensiones del venue.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Mesa de Honor</span>
+                  <span class="showcase__tag">Formato T</span>
+                  <span class="showcase__tag">Bodas</span>
+                  <span class="showcase__tag">Galas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Mesa de Honor
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 12h18"/></svg>
+                  <span>Mesa de Honor — Formato T</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Rectangular con Mantelería Premium -->
+          <section class="section section--alt" aria-labelledby="manteleria-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Acabado de revista</span>
+                <h2 class="showcase__title" id="manteleria-heading">Rectangular con Mantelería Premium</h2>
+                <p class="showcase__subtitle">Paquetes completos de mantelería, caminos de mesa y overlays que transforman cada rectangular en una pieza de diseño.</p>
+                <p class="showcase__text">Ofrecemos <strong>paquetes completos de mantelería premium</strong> diseñados específicamente para nuestras mesas rectangulares de 240×120 cm. Incluimos manteles a medida, caminos de mesa (runners) largos que recorren toda la línea y overlays decorativos en más de 30 colores y texturas: satín, organza, terciopelo, lino y encaje. La forma rectangular es la que mejor <strong>luce con table settings elaborados</strong> — platos base, copas en línea, cubiertos y servilletas esculpidas crean una composición visual espectacular.</p>
+                <p class="showcase__text">Las mesas rectangulares con <a href="/servicios/accesorios/manteleria-textiles/">mantelería premium</a> son las favoritas de wedding planners y diseñadores de eventos porque permiten composiciones fotogénicas de nivel editorial. Los caminos de mesa largos con flores, velas y elementos decorativos distribuidos a lo largo de toda la superficie crean el <strong>efecto de abundancia y lujo</strong> que define los eventos de revista. Te asesoramos para elegir la combinación perfecta de colores y texturas.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Mantelería Premium</span>
+                  <span class="showcase__tag">Caminos de Mesa</span>
+                  <span class="showcase__tag">Overlays</span>
+                  <span class="showcase__tag">Revista</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar con Mantelería
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 12h18"/></svg>
+                  <span>Rectangular con Mantelería Premium</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Mesas Rectangulares"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar mesas rectangulares para tu evento, es natural tener preguntas sobre configuraciones, mantelería, estabilidad y logística. Aquí encontrarás las respuestas más comunes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor especializado en mobiliario te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en mesas rectangulares resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre mesas rectangulares para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Mesas para Eventos -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Mesas para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/mesas/" class="sidebar-nav__back">&uarr; Volver a Mesas</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/" class="sidebar-nav__back">&uarr; Volver a Mobiliario</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de mesas rectangulares:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas mesas rectangulares para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar mesas rectangulares para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tus Mesas Rectangulares"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores de mobiliario te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea que necesites 10 mesas rectangulares en línea imperial para una boda íntima o 50 para una gala corporativa, estamos aquí para diseñar la distribución perfecta."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Gala / Cena Formal">Gala / Cena Formal</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Graduación">Graduación</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoRectangular">
+                Configuración de mesa rectangular
+              </label>
+              <select id="tipoRectangular" name="tipoRectangular" class="form-field__input form-field__select">
+                <option value="">Selecciona la configuración</option>
+                <option value="Mesa Imperial Línea">Mesa Imperial Línea</option>
+                <option value="Distribución en U">Distribución en U</option>
+                <option value="Mesa de Honor (T)">Mesa de Honor (T)</option>
+                <option value="Con Mantelería Premium">Con Mantelería Premium</option>
+                <option value="Paquete Boda Imperial">Paquete Boda Imperial</option>
+                <option value="Combinación Redondas + Rectangulares">Combinación Redondas + Rectangulares</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de mesas, configuración deseada, venue, número de invitados, estilo de tu evento..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Layout personalizado gratis</h3>
+            <p class="reserva-card__text">Diseñamos la distribución óptima de mesas para tu venue y número de invitados sin costo adicional.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada de mobiliario para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoRectangular = document.getElementById('tipoRectangular').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Mesas Rectangulares para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoRectangular) texto += `*Configuración:* ${tipoRectangular}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Mobiliario"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de mobiliario para eventos en la Ciudad de México. Cada aliado cuenta con inventario verificado, logística profesional y trayectoria comprobada.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad de mesas rectangulares en todas las cantidades y configuraciones para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Mobiliario Premium MX</h3>
+            <p class="partner-card__tagline">Especialistas en Mesas de Diseño</p>
+            <p class="partner-card__text">Especialistas en mesas de diseño para bodas y eventos sociales en CDMX. Inventario de más de 2,000 mesas rectangulares, redondas y cocktail con entrega y montaje profesional incluido.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Rent All CDMX</h3>
+            <p class="partner-card__tagline">Mobiliario y Mesas para Corporativos</p>
+            <p class="partner-card__text">Renta integral de mobiliario y mesas para eventos corporativos, congresos y ferias. Capacidad para eventos de 1,000+ personas con logística propia y servicio de montaje express.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventMob</h3>
+            <p class="partner-card__tagline">Mobiliario Contemporáneo y Clásico</p>
+            <p class="partner-card__text">Mobiliario contemporáneo y clásico para todo tipo de celebración. Mesas rectangulares, redondas y cocktail con más de 10 años equipando los eventos más importantes de la Ciudad de México.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MesasyMás</h3>
+            <p class="partner-card__tagline">Mesas, Sillas y Complementos</p>
+            <p class="partner-card__text">Mesas, sillas y complementos de mobiliario con servicio de logística puerta a puerta. Flota propia de camiones para entregas puntuales en CDMX y zona metropolitana.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Mesas rectangulares que crean banquetes de revista"
+    subheadline="Más de 500 eventos con formato imperial nos respaldan. Cotiza hoy."
+    primaryCTA={{ label: "Cotizar mesas rectangulares", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar mesas rectangulares para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

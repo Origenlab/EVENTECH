@@ -1,0 +1,750 @@
+---
+/**
+ * ─── Lounge Vintage — Pagina de Producto (Nivel 4) ───
+ * Sets completos de sala lounge Vintage en terciopelo capitonado:
+ * esmeralda, borgona, azul marino y rosa empolvado.
+ *
+ * Jerarquia: Servicios > Mobiliario > Salas Lounge > Lounge Vintage
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Salas Lounge", href: "/servicios/mobiliario/salas-lounge/" },
+  { label: "Lounge Vintage" },
+];
+
+const faqs = [
+  { question: "¿Qué incluye el set completo de Lounge Vintage?", answer: 'Set incluye <strong>sofá Chesterfield 3 plazas (210 cm), 2 sillones orejeros, mesa centro tipo baúl y mesa auxiliar con espejo</strong>. Además incluye 4 cojines decorativos en tonos complementarios. Opcionalmente puedes agregar alfombra tipo persa, candelabros de mesa y accesorios ornamentales adicionales.' },
+  { question: "¿El terciopelo es resistente para eventos al aire libre?", answer: 'El terciopelo capitonado es ideal para <strong>interiores y espacios bajo techo</strong>. Para exteriores, es necesario contar con protección: carpa, terraza cubierta o jardín techado. Recomendamos evitar exposición directa a lluvia o humedad extrema. Para eventos 100% al aire libre, sugerimos nuestro <a href="/servicios/mobiliario/salas-lounge/boho/">Lounge Boho</a> diseñado para exteriores.' },
+  { question: "¿Se puede cambiar el color de los cojines incluidos?", answer: 'Los cojines decorativos vienen en tonos complementarios al color del set. Sin embargo, <strong>puedes intercambiar cojines entre paletas</strong> o solicitar cojines en colores específicos con 2 semanas de anticipación. También puedes combinar con cojines propios o de proveedores de decoración.' },
+  { question: "¿Cuántos sets necesito para una boda de 150 personas?", answer: 'Para una boda de 150 invitados, recomendamos <strong>3 a 4 sets de lounge Vintage</strong> distribuidos estratégicamente: zona de recepción de cóctel, zona VIP junto a la mesa de honor, y zona de descanso alejada de la pista de baile. Nuestros asesores diseñan la distribución según tu venue.' },
+  { question: "¿Puedo mezclar colores de Lounge Vintage en un mismo evento?", answer: 'Sí, y es una tendencia muy solicitada. La combinación más popular es <strong>esmeralda + borgoña</strong> para bodas otoñales y <strong>azul marino + rosa empolvado</strong> para bodas primaverales. Cada zona mantiene un color y la combinación general crea un efecto visual sofisticado.' },
+  { question: "¿Con cuánta anticipación debo reservar?", answer: 'Recomendamos <strong>3 a 4 semanas de anticipación</strong> para garantizar disponibilidad del color deseado. En temporada de bodas (mayo-junio y noviembre-diciembre), los sets de esmeralda y borgoña se agotan rápido — sugerimos apartar con <strong>6 semanas de anticipación</strong>. Un anticipo del 30% confirma tu reserva.' },
+];
+
+const specs = [
+  { label: "Tapicería", value: "Terciopelo capitonado de alta densidad" },
+  { label: "Estructura", value: "Madera de roble con acabado dorado envejecido" },
+  { label: "Paletas de color", value: "Esmeralda profundo, Borgoña real, Azul marino, Rosa empolvado" },
+  { label: "Set incluye", value: "Sofá Chesterfield 3 plazas + 2 sillones orejeros + mesa baúl + mesa espejo" },
+  { label: "Sofá Chesterfield", value: "210 cm largo × 90 cm profundidad × 80 cm alto" },
+  { label: "Sillones orejeros", value: "80 cm ancho × 85 cm profundidad × 100 cm alto (respaldo alto)" },
+  { label: "Mesa centro", value: "Baúl forrado en cuero con herrajes vintage (90 × 50 cm)" },
+  { label: "Capacidad", value: "Set para 5-7 personas sentadas" },
+  { label: "Resistencia", value: "130 kg por asiento" },
+  { label: "Mantenimiento", value: "Limpieza especializada en terciopelo incluida pre-evento" },
+];
+
+const sidebarNav = [
+  { name: "Lounge Moderno", href: "/servicios/mobiliario/salas-lounge/moderno/" },
+  { name: "Lounge Vintage", href: null, active: true },
+  { name: "Lounge Boho", href: "/servicios/mobiliario/salas-lounge/boho/" },
+  { name: "Lounge Elegante", href: "/servicios/mobiliario/salas-lounge/elegante/" },
+];
+
+const sidebarRelated = [
+  { name: "Mesas para Eventos", href: "/servicios/mobiliario/mesas/" },
+  { name: "Sillas de Diseño", href: "/servicios/mobiliario/sillas/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+  { name: "Carpas Árabes", href: "/servicios/carpas/carpas-arabes/" },
+];
+
+const reviews = [
+  { author: "Valeria Mendoza", text: "Nuestro lounge Vintage esmeralda en Hacienda de los Morales fue el centro de todas las fotografías. Las invitadas no paraban de sentarse para tomarse selfies. El terciopelo se ve y se siente premium. El montaje fue impecable — llegaron puntuales y cada pieza quedó exactamente donde la queríamos.", rating: 5, date: "2025-12-01" },
+  { author: "Patricio Landa", text: "Para la gala anual de nuestra fundación elegimos lounge borgoña y fue una decisión perfecta. Los sillones orejeros le dieron un toque de exclusividad a la zona VIP. La mesa baúl fue un detalle espectacular. Servicio profesional de principio a fin.", rating: 5, date: "2025-10-18" },
+  { author: "Mariana Solís", text: "Usamos lounge rosa empolvado para mi baby shower y fue un sueño hecho realidad. Combinamos con fairy lights y el resultado fue mágico. El equipo de montaje fue super cuidadoso con cada detalle. 100% recomendado para eventos íntimos y especiales.", rating: 5, date: "2025-09-05" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Lounge Vintage para Eventos en CDMX",
+    description: "Renta de salas lounge Vintage con terciopelo capitonado en esmeralda, borgoña, azul marino y rosa empolvado para bodas y galas en CDMX. Sets completos desde $4,000. Montaje incluido.",
+    url: "/servicios/mobiliario/salas-lounge/vintage/",
+    priceRange: { min: 4000, max: 15000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 98,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Salas Lounge", url: "/servicios/mobiliario/salas-lounge/" },
+    { name: "Lounge Vintage", url: "/servicios/mobiliario/salas-lounge/vintage/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Lounge Vintage para Eventos en CDMX"
+  description="Renta de salas lounge Vintage con terciopelo capitonado en esmeralda, borgoña, azul marino y rosa empolvado para bodas y galas en CDMX. Sets completos desde $4,000. Montaje incluido."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Sofisticación atemporal para bodas y galas"
+    title='Renta de <span class="highlight">Lounge Vintage</span> para Eventos en CDMX'
+    subtitle="Sets completos de sala lounge Vintage en terciopelo capitonado de alta densidad: esmeralda profundo, borgoña real, azul marino y rosa empolvado. Sofá Chesterfield de 3 plazas, sillones orejeros, mesa tipo baúl y mesa auxiliar con espejo. Montaje profesional incluido."
+    primaryCTA={{ label: "Cotiza tu lounge Vintage", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar lounge Vintage para mi evento` }}
+    cards={[
+      {
+        title: "Terciopelo capitonado en 4 paletas de color exclusivas",
+        content: "<strong>Renta de lounge Vintage</strong> con la colección más elegante para bodas y galas en CDMX. Tapizado en terciopelo capitonado de alta densidad con botones forrados y patas torneadas en madera con acabado dorado envejecido. 4 paletas exclusivas: <strong>esmeralda profundo</strong> para bodas en jardín, <strong>borgoña real</strong> para galas de premiación, <strong>azul marino</strong> para eventos formales y <strong>rosa empolvado</strong> para celebraciones románticas — cada pieza curada para evocar elegancia atemporal.",
+      },
+      {
+        title: "Sets Chesterfield completos con accesorios decorativos incluidos",
+        content: "<strong>Servicio integral de lounge Vintage</strong> con set premium: sofá Chesterfield de 3 plazas (210 cm), 2 sillones orejeros con respaldo alto, mesa de centro tipo baúl forrada en cuero y mesa auxiliar con espejo antiguo. Cada set incluye cojines decorativos en tonos complementarios. Nuestro equipo profesional diseña la distribución según tu venue para crear zonas fotogénicas que tus invitados recordarán.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Buscas lounge Vintage con terciopelo capitonado para tu evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con paletas de color y distribución para tu venue"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Salas Lounge para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas lounge Vintage para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar lounge Vintage para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/><path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/><path d="M5 21v-2"/><path d="M19 21v-2"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Lounge Vintage</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Lounge Vintage Esmeralda -->
+          <section class="section section--alt" aria-labelledby="esmeralda-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Bodas en jardín y hacienda</span>
+                <h2 class="showcase__title" id="esmeralda-heading">Lounge Vintage Esmeralda</h2>
+                <p class="showcase__subtitle">Terciopelo esmeralda profundo que evoca la naturaleza y la opulencia para bodas en haciendas y jardines botánicos.</p>
+                <p class="showcase__text">El <strong>lounge Vintage esmeralda profundo</strong> es la combinación perfecta para bodas en haciendas, jardines botánicos y espacios con vegetación abundante. El verde profundo del terciopelo capitonado crea un contraste espectacular con arreglos florales en tonos blancos y dorados, convirtiendo cada zona lounge en un rincón fotogénico que tus invitados no dejarán de compartir en redes sociales.</p>
+                <p class="showcase__text">El set completo incluye <strong>sofá Chesterfield de 3 plazas</strong> en esmeralda con patas torneadas en acabado dorado envejecido, 2 sillones orejeros con respaldo alto, mesa centro tipo baúl forrada en cuero y mesa auxiliar con espejo antiguo. Combina magistralmente con <a href="/servicios/iluminacion/decorativa/">iluminación cálida</a> y candelabros para crear una atmósfera de elegancia atemporal que transporta a tus invitados a otra época.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Esmeralda Profundo</span>
+                  <span class="showcase__tag">Bodas</span>
+                  <span class="showcase__tag">Haciendas</span>
+                  <span class="showcase__tag">Jardines</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Lounge Esmeralda
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/>
+                    <path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/>
+                    <path d="M5 21v-2"/><path d="M19 21v-2"/>
+                  </svg>
+                  <span>Lounge Vintage Esmeralda</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Lounge Vintage Borgoña -->
+          <section class="section section--alt" aria-labelledby="borgona-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Galas y premiaciones</span>
+                <h2 class="showcase__title" id="borgona-heading">Lounge Vintage Borgoña</h2>
+                <p class="showcase__subtitle">Terciopelo borgoña real que transmite poder y exclusividad para galas de premiación y eventos de alta sociedad.</p>
+                <p class="showcase__text">El <strong>lounge Vintage borgoña real</strong> es la elección predilecta para galas de premiación, cenas de gala y eventos de alta sociedad en la Ciudad de México. El tono vino oscuro del terciopelo capitonado combina magistralmente con dorados, cobres y tonos tierra para crear ambientes de <strong>lujo sobrio</strong> que impresionan a los invitados más exigentes desde el primer momento.</p>
+                <p class="showcase__text">Los <strong>sillones orejeros con respaldo alto</strong> en borgoña son el centro de atención en zonas VIP, ofreciendo un asiento de distinción que enmarca a quien se sienta con una estética de poder y refinamiento. La mesa centro tipo baúl forrada en cuero complementa el conjunto con sus herrajes vintage, mientras que la mesa auxiliar con espejo antiguo agrega un toque de <strong>opulencia clásica</strong>. Ideal para combinar con <a href="/servicios/accesorios/manteleria-textiles/">mantelería premium</a> en tonos neutros.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Borgoña Real</span>
+                  <span class="showcase__tag">Galas</span>
+                  <span class="showcase__tag">Premiaciones</span>
+                  <span class="showcase__tag">Alta Sociedad</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Lounge Borgoña
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/>
+                    <path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/>
+                    <path d="M5 21v-2"/><path d="M19 21v-2"/>
+                  </svg>
+                  <span>Lounge Vintage Borgoña</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Lounge Vintage Azul Marino -->
+          <section class="section section--alt" aria-labelledby="azul-marino-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Elegancia formal y atemporal</span>
+                <h2 class="showcase__title" id="azul-marino-heading">Lounge Vintage Azul Marino</h2>
+                <p class="showcase__subtitle">Azul marino profundo para eventos formales donde la sobriedad y la elegancia clásica son protagonistas.</p>
+                <p class="showcase__text">El <strong>lounge Vintage azul marino</strong> es la opción perfecta para eventos formales donde la sobriedad es clave. Ideal para recepciones diplomáticas, bodas clásicas y aniversarios corporativos en salones elegantes de la Ciudad de México. El terciopelo capitonado en azul marino profundo transmite <strong>confianza, seriedad y buen gusto</strong> sin sacrificar la calidez que todo evento social requiere.</p>
+                <p class="showcase__text">El azul marino combina naturalmente con acentos en plata, blanco y tonos neutros, creando paletas cromáticas versátiles que se adaptan a prácticamente cualquier venue. El <strong>sofá Chesterfield</strong> en este tono es especialmente solicitado para zones de fotografía formal y áreas de recepción de cóctel. Complementa con <a href="/servicios/mobiliario/mesas/">mesas de diseño</a> en acabado plateado o blanco para un resultado impecable.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Azul Marino</span>
+                  <span class="showcase__tag">Eventos Formales</span>
+                  <span class="showcase__tag">Recepciones</span>
+                  <span class="showcase__tag">Bodas Clásicas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Lounge Azul Marino
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/>
+                    <path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/>
+                    <path d="M5 21v-2"/><path d="M19 21v-2"/>
+                  </svg>
+                  <span>Lounge Vintage Azul Marino</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Lounge Vintage Rosa Empolvado -->
+          <section class="section section--alt" aria-labelledby="rosa-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Romance y delicadeza</span>
+                <h2 class="showcase__title" id="rosa-heading">Lounge Vintage Rosa Empolvado</h2>
+                <p class="showcase__subtitle">Rosa empolvado suave para celebraciones románticas, baby showers, despedidas de soltera y XV años.</p>
+                <p class="showcase__text">El <strong>lounge Vintage rosa empolvado</strong> es la opción soñada para celebraciones románticas y femeninas en la Ciudad de México. Ideal para bodas con paleta pastel, baby showers, despedidas de soltera y XV años. El terciopelo capitonado en rosa empolvado suave crea <strong>atmósferas soñadoras</strong> que evocan delicadeza y ternura en cada rincón del venue.</p>
+                <p class="showcase__text">Este tono se complementa magistralmente con detalles en dorado y cristal, creando conjuntos visuales que parecen sacados de una revista de diseño. Los cojines decorativos en tonos complementarios — marfil, champagne y lila suave — completan la estética romántica. Combina con nuestras <a href="/servicios/iluminacion/decorativa/fairy-lights/">fairy lights</a> para un resultado verdaderamente mágico que tus invitadas no dejarán de fotografiar.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Rosa Empolvado</span>
+                  <span class="showcase__tag">Romántico</span>
+                  <span class="showcase__tag">Baby Shower</span>
+                  <span class="showcase__tag">XV Años</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Lounge Rosa Empolvado
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/>
+                    <path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/>
+                    <path d="M5 21v-2"/><path d="M19 21v-2"/>
+                  </svg>
+                  <span>Lounge Vintage Rosa Empolvado</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Lounge Vintage"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar lounge Vintage para tu evento, es natural tener preguntas sobre materiales, colores y logística. Aquí encontrarás las respuestas más comunes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un especialista en mobiliario lounge te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en lounge Vintage resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre lounge Vintage para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Salas Lounge -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Salas Lounge para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/salas-lounge/" class="sidebar-nav__back">&uarr; Volver a Salas Lounge</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/" class="sidebar-nav__back">&uarr; Volver a Mobiliario</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de lounge Vintage:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas lounge Vintage para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar lounge Vintage para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Lounge Vintage"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros especialistas en mobiliario lounge te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un set de lounge esmeralda para tu boda o una combinación de paletas para tu gala, estamos aquí para crear espacios inolvidables."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoLounge">
+                Paleta de color
+              </label>
+              <select id="tipoLounge" name="tipoLounge" class="form-field__input form-field__select">
+                <option value="">Selecciona la paleta de color</option>
+                <option value="Vintage Esmeralda Profundo">Vintage Esmeralda Profundo</option>
+                <option value="Vintage Borgoña Real">Vintage Borgoña Real</option>
+                <option value="Vintage Azul Marino">Vintage Azul Marino</option>
+                <option value="Vintage Rosa Empolvado">Vintage Rosa Empolvado</option>
+                <option value="Combinación de Paletas">Combinación de Paletas</option>
+                <option value="Paquete Boda Vintage">Paquete Boda Vintage</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de sets, paleta de color, tipo de evento, venue, si es interior o exterior..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para recomendar la distribución ideal de zonas lounge según el espacio.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada de paletas y distribución para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoLounge = document.getElementById('tipoLounge').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Lounge Vintage para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoLounge) texto += `*Paleta de color:* ${tipoLounge}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Mobiliario"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de mobiliario lounge para eventos en la Ciudad de México. Cada aliado cuenta con inventario premium, logística profesional y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de paletas y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Mobiliario Premium MX</h3>
+            <p class="partner-card__tagline">Especialistas en Lounge de Diseño</p>
+            <p class="partner-card__text">Líder en renta de lounge Vintage para bodas y eventos sociales en CDMX. Sets Chesterfield en terciopelo capitonado con la más amplia gama de colores exclusivos. Montaje profesional y asesoría de distribución incluida.</p>
+          </div>
+          <a href="https://rentadeiluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Rent All CDMX</h3>
+            <p class="partner-card__tagline">Lounge para Galas y Recepciones</p>
+            <p class="partner-card__text">Especialistas en mobiliario lounge para galas corporativas, recepciones diplomáticas y eventos de alta sociedad. Inventario premium con sets Vintage en borgoña, esmeralda y azul marino. Servicio integral de entrega, montaje y recolección.</p>
+          </div>
+          <a href="https://redeil.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventMob</h3>
+            <p class="partner-card__tagline">Lounge Clásico y Atemporal</p>
+            <p class="partner-card__text">Más de 10 años proporcionando mobiliario lounge clásico para eventos en CDMX y Estado de México. Sets Vintage con acabados artesanales, terciopelo de importación y piezas exclusivas que no encontrarás en otro proveedor.</p>
+          </div>
+          <a href="https://rentadesonidoeiluminacion.com.mx/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MesasyMás</h3>
+            <p class="partner-card__tagline">Sets Vintage Completos</p>
+            <p class="partner-card__text">Logística impecable para eventos de gran escala. Flota propia de vehículos especializados para transporte seguro de mobiliario lounge. Entrega puntual, montaje cuidadoso y recolección post-evento en toda la Zona Metropolitana.</p>
+          </div>
+          <a href="https://renta-de-iluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Lounge Vintage que transporta tu evento a una era de elegancia"
+    subheadline="Más de 300 bodas y galas equipadas con lounge Vintage nos respaldan. Cotiza hoy y recibe asesoría personalizada de paletas y distribución."
+    primaryCTA={{ label: "Cotizar lounge Vintage", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar lounge Vintage para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

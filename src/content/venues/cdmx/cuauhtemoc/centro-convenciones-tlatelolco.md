@@ -223,3 +223,22 @@ En un mundo donde el tiempo es el recurso más valioso, **hacer que tus asistent
 Cuando tus 1,500 asistentes salgan del Metro y caminen 3 minutos hasta el venue, cuando lleguen relajados en lugar de estresados por el tráfico, cuando puedan concentrarse en el contenido de tu evento en lugar de preocuparse por el estacionamiento, **entenderás por qué la accesibilidad importa más que el mármol en el lobby**.
 
 Un gran evento no se define solo por lo que pasa dentro del salón. Se define también por **cómo llegan y cómo se van los asistentes**. En Tlatelolco, ambas experiencias son excepcionales.
+
+## Servicios de EVENTECH para Centro de Convenciones Tlatelolco
+
+Como partner oficial de EVENTECH, complementamos la infraestructura técnica del centro:
+
+- **[Pantallas LED de gran formato](/servicios/audiovisual/pantallas-led/)** adicionales para configuraciones especiales
+- **[Sistemas de sonido Line Array](/servicios/audiovisual/sonido/)** para audiencias de 2,000+ personas
+- **[Iluminación de escenario](/servicios/iluminacion/escenario/)** para keynotes y premiaciones
+- **[Mobiliario corporativo](/servicios/mobiliario/)** premium para zonas VIP y networking
+- **[Carpas de conexión](/servicios/carpas/estructurales/)** para expandir áreas de registro o catering
+
+## Venues Similares para Convenciones y Eventos Corporativos
+
+Si buscas espacios de gran formato para eventos masivos:
+
+- **[Centro Citibanamex](/directorio/cdmx/santa-fe/centro-citibanamex/)** — El más grande de México, expos internacionales
+- **[Hotel Camino Real Polanco](/directorio/cdmx/polanco/hotel-camino-real-polanco/)** — Arquitectura icónica, hasta 2,000 personas
+- **[Foro Kaluz Santa Fe](/directorio/cdmx/santa-fe/foro-kaluz/)** — Industrial contemporáneo, alta tecnología
+- **[Hotel Marriott Toluca](/directorio/estado-mexico/toluca/hotel-marriott-toluca/)** — Convenciones con hospedaje integrado

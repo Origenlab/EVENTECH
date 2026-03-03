@@ -168,3 +168,21 @@ Las esculturas del jardín y las obras de la galería no son decoración adicion
 En Casa Lamm, un evento no es solo una reunión de personas: es una **experiencia cultural completa**. Tus invitados llegan y descubren esculturas en el jardín. Hojean libros de arte mientras esperan a que comience la cena. Admiran vitrales centenarios mientras brindan. Y cuando vuelven a casa, no solo recuerdan tu boda o tu evento corporativo: **recuerdan haber vivido algo especial**, algo que alimentó tanto el estómago como el espíritu.
 
 Esto es Casa Lamm: donde **el arte de celebrar se encuentra con la celebración del arte**.
+
+## Servicios de EVENTECH para Casa Lamm
+
+Como partner oficial de EVENTECH, ofrecemos soluciones que complementan el ambiente artístico del venue:
+
+- **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** para realzar esculturas del jardín y fachada porfiriana
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** sutil que respeta la museografía existente
+- **[Sonido profesional](/servicios/audiovisual/sonido/)** discreto para espacios con acústica de galería
+- **[Pantallas LED](/servicios/audiovisual/pantallas-led/)** para presentaciones de arte y contenido cultural
+
+## Venues Similares con Carácter Cultural
+
+Si buscas espacios donde el arte y la arquitectura histórica convergen:
+
+- **[Casa del Lago UNAM](/directorio/cdmx/coyoacan/casa-del-lago/)** — Centro cultural con jardín escultórico junto al lago
+- **[Palacio de Minería](/directorio/cdmx/cuauhtemoc/palacio-de-mineria/)** — Neoclásico monumental en el Centro Histórico
+- **[Casino Español](/directorio/cdmx/cuauhtemoc/casino-espanol/)** — Elegancia histórica con salones de época
+- **[Roma House](/directorio/cdmx/roma-condesa/roma-house/)** — Casona porfiriana 1908 en la Roma Norte

@@ -165,3 +165,20 @@ Con un máximo de 150 personas, el espacio garantiza que **tu evento nunca se se
 En un mundo de bodas de 300 invitados y salones idénticos, **Jardín Escondido es un acto de rebeldía romántica**: la decisión de celebrar con las personas que realmente importan, en un lugar que realmente significa algo, de una manera que realmente refleja quiénes son ustedes como pareja.
 
 Cuando cierras la puerta de madera de Jardín Escondido y entras a ese mundo secreto de buganvilias y piedra volcánica, **dejas atrás las expectativas de otros y abrazas la celebración que siempre soñaste**.
+
+## Servicios de EVENTECH para Jardín Escondido
+
+Como partner oficial de EVENTECH, ofrecemos soluciones que complementan el ambiente bohemio del espacio:
+
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** con fairy lights y linternas para los jardines secretos
+- **[Mobiliario vintage](/servicios/mobiliario/)** que armoniza con la estética del espacio
+- **[Carpas transparentes](/servicios/carpas/estructurales/)** discretas para protección contra lluvia sin perder la magia
+
+## Venues Similares para Bodas Íntimas y Románticas
+
+Si buscas espacios con alma para celebraciones pequeñas:
+
+- **[San Ángel Inn](/directorio/cdmx/san-angel/san-angel-inn/)** — Mayor capacidad, gastronomía legendaria, mismo barrio
+- **[Hacienda San Ángel](/directorio/cdmx/coyoacan/hacienda-san-angel/)** — Capilla del siglo XVII, jardines centenarios
+- **[Roma House](/directorio/cdmx/roma-condesa/roma-house/)** — Casona porfiriana 1908, patio andaluz
+- **[Casa Awolly](/directorio/cdmx/roma-condesa/casa-awolly/)** — Art déco boutique en Roma Norte

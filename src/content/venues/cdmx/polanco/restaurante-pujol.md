@@ -173,3 +173,12 @@ Pujol opera bajo estándares que garantizan la experiencia excepcional:
 ## La Experiencia Pujol
 
 Hay restaurantes donde comes bien. Hay restaurantes con ambiente agradable. Y luego está Pujol: un lugar donde cada bocado cuenta una historia de **miles de años de cultura mexicana**, filtrada a través de la visión de uno de los chefs más brillantes de su generación. Un evento aquí no es solo una cena —es un **hito que tus invitados nunca olvidarán**.
+
+## Venues Similares para Eventos Gastronómicos
+
+Si buscas experiencias culinarias exclusivas para grupos íntimos:
+
+- **[Hacienda de los Morales](/directorio/cdmx/polanco/hacienda-de-los-morales/)** — Cocina galardonada en ambiente colonial, mayor capacidad
+- **[San Ángel Inn](/directorio/cdmx/san-angel/san-angel-inn/)** — Hacienda histórica con gastronomía mexicana de autor
+- **[Casa Awolly](/directorio/cdmx/roma-condesa/casa-awolly/)** — Cocina contemporánea en Roma, ambiente íntimo
+- **[Casa del Lago](/directorio/cdmx/coyoacan/casa-del-lago/)** — Gastronomía junto al lago de Chapultepec

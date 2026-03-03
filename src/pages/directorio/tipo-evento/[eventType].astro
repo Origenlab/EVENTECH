@@ -1,0 +1,431 @@
+---
+/**
+ * ─── Directorio por Tipo de Evento ───
+ * Páginas SEO-optimizadas: /directorio/tipo-evento/bodas/, /tipo-evento/xv-anos/, etc.
+ * Captura queries como "salones para bodas CDMX" y "venues para XV años"
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+import CTABanner from "@components/CTABanner.astro";
+import { getCollection } from "astro:content";
+import { breadcrumbJsonLd, canonicalURL } from "@utils/seo";
+import "@styles/directorio.css";
+
+// Event type configurations
+const eventTypeConfig: Record<string, {
+  label: string;
+  plural: string;
+  description: string;
+  heroSubtitle: string;
+  seoTitle: string;
+  seoDescription: string;
+  heroCards: { title: string; content: string }[];
+}> = {
+  "bodas": {
+    label: "Bodas",
+    plural: "bodas",
+    description: "Encuentra el venue perfecto para tu boda. Haciendas, jardines, salones y más en CDMX y Estado de México.",
+    heroSubtitle: "Descubre los mejores venues para tu día especial. Cada espacio ha sido verificado por nuestro equipo y conocemos sus instalaciones de primera mano.",
+    seoTitle: "Salones para Bodas en CDMX y Estado de México | Directorio EVENTECH",
+    seoDescription: "Directorio completo de salones, haciendas y jardines para bodas en CDMX y Zona Metropolitana. Capacidades, precios y amenidades de cada venue.",
+    heroCards: [
+      {
+        title: "Venues verificados para bodas",
+        content: "Cada venue ha sido <strong>visitado por nuestro equipo</strong>. Conocemos los espacios porque hemos llevado equipo a cientos de bodas."
+      },
+      {
+        title: "Desde íntimas hasta monumentales",
+        content: "Venues para <strong>bodas de 50 hasta 1,000+ invitados</strong>. Haciendas coloniales, jardines románticos, terrazas modernas y más."
+      }
+    ]
+  },
+  "xv-anos": {
+    label: "XV Años",
+    plural: "XV años",
+    description: "Los mejores salones y jardines para celebrar los XV años. Espacios elegantes y modernos en CDMX.",
+    heroSubtitle: "Venues perfectos para la celebración de XV años de tu hija. Espacios elegantes, amplios y con todas las amenidades para una fiesta inolvidable.",
+    seoTitle: "Salones para XV Años en CDMX y Estado de México | Directorio EVENTECH",
+    seoDescription: "Directorio de salones, jardines y quintas para fiestas de XV años en CDMX y Zona Metropolitana. Compara capacidades, precios y servicios.",
+    heroCards: [
+      {
+        title: "Venues para XV años perfectos",
+        content: "Espacios <strong>amplios para vals, chambelanes y show</strong>. Jardines para sesión de fotos y salones elegantes para la recepción."
+      },
+      {
+        title: "Todo tipo de presupuestos",
+        content: "Desde <strong>quintas accesibles hasta haciendas premium</strong>. Encuentra el venue que se ajusta a tu visión y presupuesto."
+      }
+    ]
+  },
+  "corporativos": {
+    label: "Eventos Corporativos",
+    plural: "eventos corporativos",
+    description: "Venues profesionales para eventos empresariales. Conferencias, lanzamientos, galas y convenciones.",
+    heroSubtitle: "Espacios profesionales para tu evento empresarial. Desde conferencias ejecutivas hasta convenciones de gran formato.",
+    seoTitle: "Salones para Eventos Corporativos CDMX | Directorio EVENTECH",
+    seoDescription: "Directorio de venues para eventos corporativos en CDMX. Centros de convenciones, hoteles, foros y salones ejecutivos con tecnología AV.",
+    heroCards: [
+      {
+        title: "Venues ejecutivos verificados",
+        content: "Espacios con <strong>tecnología AV profesional</strong>, conectividad de alta velocidad y servicios de catering corporativo."
+      },
+      {
+        title: "Cualquier escala",
+        content: "Desde <strong>reuniones de 20 personas hasta convenciones de 2,000+</strong>. Hoteles, foros, centros de convenciones y espacios únicos."
+      }
+    ]
+  },
+  "graduaciones": {
+    label: "Graduaciones",
+    plural: "graduaciones",
+    description: "Salones y jardines para fiestas de graduación. Celebra tu logro académico con estilo.",
+    heroSubtitle: "Celebra tu graduación en un espacio memorable. Venues con capacidad para grupos grandes y ambiente festivo.",
+    seoTitle: "Salones para Graduaciones CDMX | Directorio EVENTECH",
+    seoDescription: "Encuentra salones y jardines para fiestas de graduación en CDMX y Estado de México. Compara precios y capacidades.",
+    heroCards: [
+      {
+        title: "Venues para graduaciones",
+        content: "Espacios <strong>amplios para ceremonias y fiestas</strong>. Perfectos para celebrar con compañeros de generación."
+      },
+      {
+        title: "Grupos grandes bienvenidos",
+        content: "Venues con <strong>capacidad para 100-500+ personas</strong>. Ideales para generaciones completas."
+      }
+    ]
+  },
+  "bautizos": {
+    label: "Bautizos",
+    plural: "bautizos",
+    description: "Venues con capilla para bautizos. Celebra la ceremonia religiosa y recepción en un solo lugar.",
+    heroSubtitle: "Espacios con capilla consagrada y jardines hermosos para celebrar el bautizo de tu bebé con familia y amigos.",
+    seoTitle: "Salones para Bautizos con Capilla CDMX | Directorio EVENTECH",
+    seoDescription: "Haciendas y jardines con capilla para bautizos en CDMX. Ceremonia y recepción en el mismo lugar. Precios y capacidades.",
+    heroCards: [
+      {
+        title: "Venues con capilla",
+        content: "Haciendas y jardines con <strong>capilla consagrada</strong> para ceremonia religiosa. Todo en un solo lugar."
+      },
+      {
+        title: "Espacios íntimos y familiares",
+        content: "Venues para <strong>celebraciones de 50-200 personas</strong>. Ambiente cálido y acogedor para recibir a la familia."
+      }
+    ]
+  },
+  "aniversarios": {
+    label: "Aniversarios",
+    plural: "aniversarios",
+    description: "Venues románticos para celebrar aniversarios. Cenas íntimas o fiestas grandes.",
+    heroSubtitle: "Celebra tu aniversario en un espacio especial. Desde cenas románticas hasta fiestas con familia y amigos.",
+    seoTitle: "Venues para Aniversarios CDMX | Directorio EVENTECH",
+    seoDescription: "Salones y restaurantes para celebrar aniversarios en CDMX. Espacios románticos, menús especiales y ambiente único.",
+    heroCards: [
+      {
+        title: "Espacios románticos",
+        content: "Venues con <strong>ambiente íntimo y elegante</strong>. Perfectos para celebrar años de amor."
+      },
+      {
+        title: "Cualquier escala",
+        content: "Desde <strong>cenas para dos hasta fiestas de 500 personas</strong>. Adapta la celebración a tu estilo."
+      }
+    ]
+  },
+  "cumpleanos": {
+    label: "Cumpleaños",
+    plural: "cumpleaños",
+    description: "Salones y jardines para fiestas de cumpleaños. Infantiles, adultos y temáticos.",
+    heroSubtitle: "Encuentra el venue perfecto para tu fiesta de cumpleaños. Espacios versátiles para cualquier edad y estilo de celebración.",
+    seoTitle: "Salones para Cumpleaños CDMX | Directorio EVENTECH",
+    seoDescription: "Directorio de salones, jardines y quintas para fiestas de cumpleaños en CDMX. Espacios infantiles, adultos y premium.",
+    heroCards: [
+      {
+        title: "Para todas las edades",
+        content: "Venues con <strong>área infantil, jardines amplios</strong> y salones elegantes. Perfectos para cualquier tipo de cumpleaños."
+      },
+      {
+        title: "Libertad creativa",
+        content: "Muchos venues permiten <strong>catering externo y decoración personalizada</strong>. Tu fiesta, tu estilo."
+      }
+    ]
+  },
+  "cenas-gala": {
+    label: "Cenas de Gala",
+    plural: "cenas de gala",
+    description: "Venues de lujo para cenas de gala. Espacios elegantes con servicio premium.",
+    heroSubtitle: "Espacios exclusivos para cenas de gala y eventos de etiqueta. Arquitectura impresionante y servicio de primer nivel.",
+    seoTitle: "Venues para Cenas de Gala CDMX | Directorio EVENTECH",
+    seoDescription: "Salones de lujo y haciendas para cenas de gala en CDMX. Espacios elegantes con gastronomía gourmet y servicio premium.",
+    heroCards: [
+      {
+        title: "Espacios de lujo",
+        content: "Venues con <strong>arquitectura impresionante</strong>, candelabros y detalles de época. Perfectos para eventos de etiqueta."
+      },
+      {
+        title: "Servicio premium",
+        content: "Catering gourmet, <strong>meseros uniformados</strong> y coordinación profesional incluida en muchos venues."
+      }
+    ]
+  },
+  "lanzamientos": {
+    label: "Lanzamientos de Producto",
+    plural: "lanzamientos",
+    description: "Venues modernos para lanzamientos de marca. Espacios con tecnología AV de punta.",
+    heroSubtitle: "Espacios con arquitectura contemporánea y tecnología AV profesional para lanzamientos de producto impactantes.",
+    seoTitle: "Venues para Lanzamientos de Producto CDMX | Directorio EVENTECH",
+    seoDescription: "Foros, terrazas y espacios modernos para lanzamientos de marca en CDMX. Tecnología AV, iluminación profesional y catering.",
+    heroCards: [
+      {
+        title: "Tecnología de punta",
+        content: "Venues con <strong>pantallas LED, sonido profesional</strong> y conectividad de alta velocidad. Todo listo para impactar."
+      },
+      {
+        title: "Estética contemporánea",
+        content: "Espacios <strong>minimalistas y modernos</strong> que funcionan como lienzo para tu marca."
+      }
+    ]
+  }
+};
+
+// Generate static paths for all event types
+export async function getStaticPaths() {
+  // List event type slugs that have configuration
+  const eventTypes = [
+    "bodas",
+    "xv-anos",
+    "corporativos",
+    "graduaciones",
+    "bautizos",
+    "aniversarios",
+    "cumpleanos",
+    "cenas-gala",
+    "lanzamientos"
+  ];
+
+  return eventTypes.map(eventType => ({
+    params: { eventType },
+    props: { eventType }
+  }));
+}
+
+// Get all venues
+const allVenues = await getCollection("venues");
+
+const { eventType } = Astro.props;
+const config = eventTypeConfig[eventType];
+
+if (!config) {
+  return Astro.redirect("/directorio/");
+}
+
+// Filter venues that support this event type
+const filteredVenues = allVenues.filter(v =>
+  v.data.eventTypes?.includes(eventType)
+).sort((a, b) => {
+  // Sort by: featured first, then premium, then by rating
+  if (a.data.featured !== b.data.featured) return a.data.featured ? -1 : 1;
+  if (a.data.premium !== b.data.premium) return a.data.premium ? -1 : 1;
+  return (b.data.rating || 0) - (a.data.rating || 0);
+});
+
+// Group by region for stats
+const cdmxCount = filteredVenues.filter(v => v.data.region === "cdmx").length;
+const edomexCount = filteredVenues.filter(v => v.data.region === "estado-mexico").length;
+
+// Venue type labels
+const venueTypeLabels: Record<string, string> = {
+  "salon": "Salón",
+  "jardin": "Jardín",
+  "hacienda": "Hacienda",
+  "terraza": "Terraza",
+  "hotel": "Hotel",
+  "restaurante": "Restaurante",
+  "foro": "Foro",
+  "quinta": "Quinta",
+  "mansion": "Mansión",
+  "centro-convenciones": "Centro de Convenciones",
+  "rooftop": "Rooftop",
+};
+
+// Breadcrumbs
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Directorio", href: "/directorio/" },
+  { label: config.label },
+];
+
+// JSON-LD with ItemList schema
+const jsonLd = [
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Directorio", url: "/directorio/" },
+    { name: config.label, url: `/directorio/tipo-evento/${eventType}/` },
+  ]),
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `Venues para ${config.label} en CDMX y Estado de México`,
+    description: config.seoDescription,
+    numberOfItems: filteredVenues.length,
+    itemListElement: filteredVenues.slice(0, 20).map((venue, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "EventVenue",
+        name: venue.data.name,
+        url: canonicalURL(`/directorio/${venue.data.region}/${venue.data.zoneSlug}/${venue.id.split('/').pop()?.replace('.md', '')}/`),
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: venue.data.zone,
+          addressRegion: venue.data.region === "cdmx" ? "Ciudad de México" : "Estado de México",
+        },
+        maximumAttendeeCapacity: venue.data.capacity.max,
+        ...(venue.data.rating && venue.data.reviewCount && {
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: venue.data.rating,
+            reviewCount: venue.data.reviewCount,
+          }
+        }),
+      }
+    })),
+  }
+];
+---
+
+<PageLayout
+  title={config.seoTitle}
+  description={config.seoDescription}
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <HeroPage
+    badge={`Venues para ${config.label}`}
+    title={`Salones para <span class="highlight">${config.label}</span>`}
+    subtitle={config.heroSubtitle}
+    primaryCTA={{ label: "Ver todos los venues", href: "#venues" }}
+    secondaryCTA={{ label: "Cotizar equipo", href: "/cotizar/" }}
+    cards={config.heroCards}
+  />
+
+  <!-- Stats Bar -->
+  <section class="section section--compact">
+    <div class="container">
+      <div class="dir-stats-bar">
+        <div class="dir-stats-bar__item">
+          <span class="dir-stats-bar__number">{filteredVenues.length}</span>
+          <span class="dir-stats-bar__label">Venues para {config.plural}</span>
+        </div>
+        <div class="dir-stats-bar__item">
+          <span class="dir-stats-bar__number">{cdmxCount}</span>
+          <span class="dir-stats-bar__label">En CDMX</span>
+        </div>
+        <div class="dir-stats-bar__item">
+          <span class="dir-stats-bar__number">{edomexCount}</span>
+          <span class="dir-stats-bar__label">En Edo. México</span>
+        </div>
+        <div class="dir-stats-bar__item">
+          <span class="dir-stats-bar__number">{filteredVenues.filter(v => v.data.verified).length}</span>
+          <span class="dir-stats-bar__label">Verificados</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Venues Grid -->
+  <section class="section" id="venues">
+    <div class="container">
+      <SectionHeader
+        title={`Venues para ${config.label}`}
+        subtitle={`${filteredVenues.length} opciones`}
+        description={[
+          `Todos los venues que aceptan ${config.plural} en CDMX y Estado de México.`,
+          `Ordenados por relevancia: primero destacados, premium y mejor calificados.`
+        ]}
+      />
+
+      <div class="dir-grid dir-grid--3">
+        {filteredVenues.map(venue => (
+          <article class="venue-card">
+            <a href={`/directorio/${venue.data.region}/${venue.data.zoneSlug}/${venue.id.split('/').pop()?.replace('.md', '')}/`} class="venue-card__link">
+              <div class="venue-card__image-wrapper">
+                <img
+                  src={venue.data.image || "/images/placeholder-venue.jpg"}
+                  alt={venue.data.name}
+                  class="venue-card__image"
+                  loading="lazy"
+                  width="400"
+                  height="300"
+                />
+                <div class="venue-card__badges">
+                  {venue.data.premium && <span class="venue-card__badge venue-card__badge--premium">Premium</span>}
+                  {venue.data.verified && <span class="venue-card__badge venue-card__badge--verified">Verificado</span>}
+                </div>
+                <span class="venue-card__price-badge">{venue.data.priceRange}</span>
+              </div>
+              <div class="venue-card__content">
+                <span class="venue-card__type">{venueTypeLabels[venue.data.type] || venue.data.type}</span>
+                <h3 class="venue-card__name">{venue.data.name}</h3>
+                <p class="venue-card__location">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  {venue.data.zone}, {venue.data.region === "cdmx" ? "CDMX" : "Edo. Méx."}
+                </p>
+                <p class="venue-card__description">{venue.data.shortDescription}</p>
+                <div class="venue-card__meta">
+                  <span class="venue-card__capacity"><strong>{venue.data.capacity.min}-{venue.data.capacity.max}</strong> personas</span>
+                  {venue.data.rating && (
+                    <span class="venue-card__rating">
+                      <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                      {venue.data.rating}
+                    </span>
+                  )}
+                </div>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+
+      {filteredVenues.length === 0 && (
+        <div class="dir-empty-state">
+          <p>No encontramos venues para {config.plural} en este momento.</p>
+          <a href="/directorio/" class="btn btn--primary">Ver todo el directorio</a>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Related Event Types -->
+  <section class="section section--alt">
+    <div class="container">
+      <SectionHeader
+        title="Explora por Tipo de Evento"
+        subtitle="Más opciones"
+        description={[
+          "Cada tipo de evento tiene requerimientos diferentes.",
+          "Explora otras categorías para encontrar el venue ideal."
+        ]}
+      />
+
+      <div class="dir-event-types-grid">
+        {Object.entries(eventTypeConfig).filter(([key]) => key !== eventType).slice(0, 6).map(([key, cfg]) => (
+          <a href={`/directorio/tipo-evento/${key}/`} class="dir-event-type-card">
+            <span class="dir-event-type-card__name">{cfg.label}</span>
+            <span class="dir-event-type-card__count">
+              {allVenues.filter(v => v.data.eventTypes?.includes(key)).length} venues
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    headline={`¿Tu ${config.plural.toLowerCase()} será en alguno de estos venues?`}
+    subheadline="Cotiza el equipo que necesitas: mobiliario, carpas, iluminación, audio y más. Llevamos todo a donde sea tu evento."
+    primaryCTA={{ label: "Cotizar equipo", href: "/cotizar/" }}
+    secondaryCTA={{ label: "Ver servicios", href: "/servicios/" }}
+    variant="accent"
+  />
+</PageLayout>

@@ -176,3 +176,21 @@ Esto no es un salón disfrazado de casa: es **una casa real** donde una familia 
 Hay algo especial en celebrar en una casa. No es solo cuestión de escala o de estética: es la **sensación de intimidad, de pertenecer, de estar en un lugar donde la gente ha sido feliz antes**. Casa Goldsmith ofrece exactamente eso: un espacio donde tu boda, tu cumpleaños o tu evento corporativo se siente personal, auténtico y completamente tuyo.
 
 Cuando tus invitados recuerden tu celebración, no dirán "fuimos a un salón bonito". Dirán: "**fuimos a una casa increíble, y nos sentimos como parte de la familia**".
+
+## Servicios de EVENTECH para Casa Goldsmith
+
+Como partner oficial de EVENTECH, ofrecemos soluciones que complementan la elegancia mid-century del espacio:
+
+- **[Mobiliario vintage y moderno](/servicios/mobiliario/)** que armoniza con la estética californiana de la casa
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** con fairy lights para el jardín y candiles para interiores
+- **[Salas lounge](/servicios/mobiliario/salas-lounge/)** que combinan con el mobiliario original de la casa
+- **[Sonido profesional](/servicios/audiovisual/sonido/)** discreto para espacios residenciales
+
+## Venues Similares con Ambiente de Casa
+
+Si buscas mansiones históricas con carácter residencial auténtico:
+
+- **[Roma House](/directorio/cdmx/roma-condesa/roma-house/)** — Casona porfiriana 1908 en Roma Norte
+- **[Casa Awolly](/directorio/cdmx/roma-condesa/casa-awolly/)** — Art déco boutique, ambiente íntimo
+- **[Jardín Escondido](/directorio/cdmx/san-angel/jardin-escondido/)** — Casona del siglo XIX con jardines secretos
+- **[Casa Lamm](/directorio/cdmx/miguel-hidalgo/casa-lamm/)** — Art nouveau 1911 con galería de arte

@@ -186,3 +186,21 @@ A 45 minutos de Polanco por la autopista México-Querétaro, Tepotzotlán ofrece
 En la Ex Hacienda de Tepotzotlán, tu evento no sucede en un espacio vacío decorado: sucede en un **monumento vivo donde 450 años de historia observan desde cada piedra**. Los jesuitas que construyeron estos claustros, los artesanos que tallaron la cantera rosa, los pintores que doraron los retablos —todos ellos son invisibles testigos de tu celebración.
 
 Cuando tus invitados levanten la vista hacia la fachada churrigueresca iluminada, cuando brinden bajo los arcos del Claustro de los Naranjos, cuando caminen por los mismos corredores que caminaron novicios hace siglos, entenderán que están en un lugar **donde el presente honra al pasado mientras crea memorias para el futuro**.
+
+## Servicios de EVENTECH para Ex Hacienda de Tepotzotlán
+
+Como partner oficial de EVENTECH, ofrecemos soluciones que respetan y realzan el patrimonio histórico:
+
+- **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** para resaltar la fachada churrigueresca y claustros
+- **[Sonido profesional](/servicios/audiovisual/sonido/)** discreto para espacios patrimoniales
+- **[Mobiliario elegante](/servicios/mobiliario/)** que armoniza con el contexto colonial
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** con velas LED y elementos no invasivos
+
+## Venues Similares con Patrimonio Histórico
+
+Si buscas espacios de valor patrimonial excepcional:
+
+- **[Ex-Hacienda Chapingo](/directorio/estado-mexico/texcoco/ex-hacienda-chapingo/)** — Murales de Diego Rivera, patrimonio universitario
+- **[Hacienda Santa Cecilia](/directorio/estado-mexico/huixquilucan/hacienda-santa-cecilia/)** — Hacienda colonial con lago y capilla histórica
+- **[Palacio de Minería](/directorio/cdmx/cuauhtemoc/palacio-de-mineria/)** — Neoclásico del siglo XVIII en Centro Histórico
+- **[Casino Español](/directorio/cdmx/cuauhtemoc/casino-espanol/)** — Patrimonio arquitectónico ecléctico

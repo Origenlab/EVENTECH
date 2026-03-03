@@ -1,0 +1,746 @@
+---
+/**
+ * ─── Lounge Boho — Pagina de Producto (Nivel 4) ───
+ * Sets completos de sala lounge Boho en ratan natural tejido a mano
+ * con cojines de algodon organico y accesorios de macrame.
+ *
+ * Jerarquia: Servicios > Mobiliario > Salas Lounge > Lounge Boho
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Salas Lounge", href: "/servicios/mobiliario/salas-lounge/" },
+  { label: "Lounge Boho" },
+];
+
+const faqs = [
+  { question: "¿El Lounge Boho resiste la intemperie?", answer: 'Sí. El ratán natural tiene <strong>tratamiento especial resistente a intemperie y protección UV</strong>. Los cojines de algodón orgánico cuentan con forro impermeable interior. Sin embargo, en caso de lluvia intensa recomendamos proteger bajo carpa o techo. Para exteriores permanentes (todo el día), los materiales soportan sol directo sin decoloración.' },
+  { question: "¿Qué son los sillones Peacock?", answer: 'Los sillones Peacock son piezas icónicas de ratán con <strong>respaldo alto en forma de abanico (150 cm de altura)</strong>. Son extremadamente fotogénicos y se han convertido en el asiento favorito para novias en sesiones de fotos. Cada sillón soporta 110 kg y viene con cojín de algodón orgánico incluido.' },
+  { question: "¿Puedo usar el Lounge Boho bajo una carpa?", answer: 'Absolutamente. El Lounge Boho se ve espectacular bajo nuestras <a href="/servicios/carpas/carpas-arabes/">carpas árabes</a> con telas drapeadas. La combinación carpa + lounge Boho + fairy lights es una de las más solicitadas para bodas al atardecer. También funciona bajo carpas estructurales y terrazas cubiertas.' },
+  { question: "¿La alfombra de yute se incluye?", answer: 'Sí. Cada set incluye <strong>alfombra de yute natural de 200 × 300 cm</strong> que delimita visualmente la zona lounge. También incluye 2 puffs de yute como asientos adicionales y macramé decorativo para colgar en estructuras cercanas.' },
+  { question: "¿Cuántos sets necesito para mi boda de 120 invitados?", answer: 'Para 120 invitados recomendamos <strong>2 a 3 sets de lounge Boho</strong>: uno en la zona de cóctel de bienvenida, otro cerca de la pista de baile como zona de descanso, y opcionalmente uno en el jardín como spot fotográfico. La distribución exacta depende del layout de tu venue.' },
+  { question: "¿Con cuánta anticipación debo reservar?", answer: 'Recomendamos <strong>3 a 4 semanas de anticipación</strong>. El Lounge Boho es muy popular en temporada de bodas al aire libre (marzo-mayo y septiembre-noviembre). Los sillones Peacock son piezas limitadas — sugerimos apartar con <strong>6 semanas</strong> en temporada alta. Anticipo del 30% confirma tu fecha.' },
+];
+
+const specs = [
+  { label: "Material principal", value: "Ratán natural tejido a mano" },
+  { label: "Tratamiento", value: "Resistente a intemperie + protección UV" },
+  { label: "Cojines", value: "Algodón orgánico en terracota, crema, mostaza, verde salvia" },
+  { label: "Set incluye", value: "Sofá ratán 3 plazas + 2 sillones Peacock + mesa madera + alfombra yute" },
+  { label: "Sofá ratán", value: "190 cm largo × 80 cm profundidad × 70 cm alto" },
+  { label: "Sillones Peacock", value: "100 cm ancho × 80 cm profundidad × 150 cm alto (respaldo abanico)" },
+  { label: "Mesa centro", value: "Madera reciclada con acabado natural (70 cm diámetro)" },
+  { label: "Alfombra", value: "Yute natural 200 × 300 cm" },
+  { label: "Resistencia", value: "110 kg por asiento" },
+  { label: "Extras incluidos", value: "Macramé decorativo + cojines artesanales + 2 puffs de yute" },
+];
+
+const sidebarNav = [
+  { name: "Lounge Moderno", href: "/servicios/mobiliario/salas-lounge/moderno/" },
+  { name: "Lounge Vintage", href: "/servicios/mobiliario/salas-lounge/vintage/" },
+  { name: "Lounge Boho", href: null, active: true },
+  { name: "Lounge Elegante", href: "/servicios/mobiliario/salas-lounge/elegante/" },
+];
+
+const sidebarRelated = [
+  { name: "Carpas Árabes", href: "/servicios/carpas/carpas-arabes/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+  { name: "Mesas para Eventos", href: "/servicios/mobiliario/mesas/" },
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+  { name: "Pistas de Baile", href: "/servicios/pistas-baile/" },
+];
+
+const reviews = [
+  { author: "Isabella Vargas", text: "El lounge Boho terracota fue el alma de nuestra boda en un jardín de Coyoacán. Los sillones Peacock fueron la sensación — todas las invitadas querían su foto ahí. El macramé y la alfombra de yute completaron un ambiente mágico. El equipo fue súper profesional y cuidadoso.", rating: 5, date: "2025-11-22" },
+  { author: "Camila Reyes", text: "Rentamos 3 sets Boho crema para un brunch de fin de año al aire libre. La calidad del ratán es impresionante y los cojines son super cómodos. Todo resistió perfectamente el sol de mediodía. La montaje fue rápido y el resultado, espectacular.", rating: 5, date: "2025-10-12" },
+  { author: "Sebastián Morales", text: "Para nuestro festival artístico en Valle de Bravo usamos lounge Boho mostaza. La calidez del color combinó perfecto con el paisaje otoñal. Los puffs adicionales fueron geniales para los asistentes más jóvenes. Definitivamente repetiremos.", rating: 5, date: "2025-08-30" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Lounge Boho para Eventos en CDMX",
+    description: "Renta de salas lounge Boho en ratán natural y macramé para bodas en jardín y eventos al aire libre en CDMX. Sets completos desde $3,000. Resistentes a intemperie.",
+    url: "/servicios/mobiliario/salas-lounge/boho/",
+    priceRange: { min: 3000, max: 12000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 76,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Salas Lounge", url: "/servicios/mobiliario/salas-lounge/" },
+    { name: "Lounge Boho", url: "/servicios/mobiliario/salas-lounge/boho/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Lounge Boho para Eventos en CDMX"
+  description="Renta de salas lounge Boho en ratán natural y macramé para bodas en jardín y eventos al aire libre en CDMX. Sets completos desde $3,000. Resistentes a intemperie."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Diseñado para eventos al aire libre"
+    title='Renta de <span class="highlight">Lounge Boho</span> para Eventos en CDMX'
+    subtitle="Sets completos de sala lounge Boho en ratán natural tejido a mano con cojines de algodón orgánico y accesorios de macramé. Materiales resistentes a intemperie y protección UV. Sofá de ratán, sillones Peacock, mesa de madera reciclada y alfombra de yute. Montaje profesional incluido."
+    primaryCTA={{ label: "Cotiza tu lounge Boho", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar lounge Boho para mi evento` }}
+    cards={[
+      {
+        title: "Ratán natural y macramé con protección UV para exteriores",
+        content: "<strong>Renta de lounge Boho</strong> con la colección más auténtica para eventos al aire libre en CDMX. Fabricado en ratán natural tejido a mano con tratamiento resistente a intemperie y protección UV. Cojines de algodón orgánico en tonos <strong>terracota, crema, mostaza y verde salvia</strong>. Accesorios de macramé artesanal incluidos. Diseñado específicamente para jardines, terrazas, viñedos y espacios abiertos donde la conexión con la naturaleza es protagonista.",
+      },
+      {
+        title: "Sets Peacock completos con alfombra de yute y accesorios artesanales",
+        content: "<strong>Servicio integral de lounge Boho</strong> con set completo: sofá de ratán 3 plazas, 2 sillones Peacock con respaldo abanico, mesa de centro de madera reciclada y alfombra de yute natural. Cada set incluye macramé decorativo y cojines artesanales. Nuestro equipo profesional crea ambientes bohemios que enamoran en cada fotografía — perfecto bajo carpas árabes o al aire libre en jardines y haciendas.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Quieres un ambiente bohemio auténtico en tu evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con opciones de lounge Boho para tu venue"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Salas Lounge para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas lounge Boho para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar lounge Boho para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/><path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/><path d="M5 21v-2"/><path d="M19 21v-2"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Lounge Boho</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Lounge Boho Terracota -->
+          <section class="section section--alt" aria-labelledby="terracota-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Bodas en jardín</span>
+                <h2 class="showcase__title" id="terracota-heading">Lounge Boho Terracota</h2>
+                <p class="showcase__subtitle">El tono terracota cálido se integra naturalmente con jardines, huertos y espacios verdes.</p>
+                <p class="showcase__text">La combinación de <strong>cojines terracota con ratán natural</strong> crea una paleta orgánica que evoca la tierra. Este tono cálido y envolvente se ha convertido en el favorito para bodas campestres donde la naturaleza es protagonista. Los sillones Peacock con cojines terracota generan un contraste espectacular contra la vegetación verde, creando rincones fotográficos que los invitados no pueden resistir.</p>
+                <p class="showcase__text">Ideal para <strong>bodas campestres, ceremonias al atardecer y celebraciones en haciendas rústicas</strong>. El terracota complementa perfectamente arreglos florales en tonos tierra, centros de mesa con flores secas y detalles en madera natural. Combina con nuestras <a href="/servicios/iluminacion/decorativa/">luces decorativas</a> en tono cálido para crear un ambiente mágico cuando cae la noche.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Terracota</span>
+                  <span class="showcase__tag">Bodas Jardín</span>
+                  <span class="showcase__tag">Haciendas</span>
+                  <span class="showcase__tag">Campestre</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Lounge Boho Terracota
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/>
+                    <path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/>
+                    <path d="M5 21v-2"/><path d="M19 21v-2"/>
+                  </svg>
+                  <span>Lounge Boho Terracota</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Lounge Boho Crema Natural -->
+          <section class="section section--alt" aria-labelledby="crema-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Minimalismo orgánico</span>
+                <h2 class="showcase__title" id="crema-heading">Lounge Boho Crema Natural</h2>
+                <p class="showcase__subtitle">Cojines crema que aportan luminosidad y frescura al espacio.</p>
+                <p class="showcase__text">El tono neutro del <strong>crema permite que el ratán natural sea protagonista</strong>. La luminosidad de los cojines crema amplifica la luz natural del espacio, creando un ambiente fresco y sofisticado que transmite calma y elegancia sin esfuerzo. Los sillones Peacock en crema se convierten en piezas escultóricas que realzan cualquier jardín o terraza.</p>
+                <p class="showcase__text">Perfecto para <strong>bodas minimalistas, brunchs elegantes y eventos diurnos</strong> donde la luz natural realza cada textura. El crema es la opción más versátil porque combina con cualquier paleta de colores — desde arreglos florales blancos hasta acentos dorados o vegetación tropical. Complementa con nuestras <a href="/servicios/accesorios/manteleria-textiles/">mantelerías en lino natural</a> para un look cohesivo.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Crema Natural</span>
+                  <span class="showcase__tag">Minimalismo</span>
+                  <span class="showcase__tag">Brunchs</span>
+                  <span class="showcase__tag">Diurnos</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Lounge Boho Crema
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/>
+                    <path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/>
+                    <path d="M5 21v-2"/><path d="M19 21v-2"/>
+                  </svg>
+                  <span>Lounge Boho Crema Natural</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Lounge Boho Mostaza -->
+          <section class="section section--alt" aria-labelledby="mostaza-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Calidez y energía</span>
+                <h2 class="showcase__title" id="mostaza-heading">Lounge Boho Mostaza</h2>
+                <p class="showcase__subtitle">El mostaza inyecta calidez y personalidad a cualquier espacio al aire libre.</p>
+                <p class="showcase__text">Una elección audaz para quienes buscan <strong>carácter y personalidad</strong> en su evento. El tono mostaza sobre ratán natural genera un contraste vibrante y acogedor que atrae todas las miradas. Este color cálido y energético transforma cualquier rincón en un punto focal irresistible, especialmente cuando la luz del atardecer baña los cojines con tonos dorados.</p>
+                <p class="showcase__text">La opción ideal para <strong>bodas bohemias, festivales artísticos y eventos de diseño</strong>. Combina espectacularmente con vegetación tropical y arreglos de flores secas. El mostaza es el tono perfecto para eventos otoñales donde la paleta natural del paisaje complementa los cojines. Combina con nuestras <a href="/servicios/carpas/carpas-arabes/">carpas árabes</a> para crear un ambiente festivo y envolvente.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Mostaza</span>
+                  <span class="showcase__tag">Bohemio</span>
+                  <span class="showcase__tag">Festivales</span>
+                  <span class="showcase__tag">Diseño</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Lounge Boho Mostaza
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/>
+                    <path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/>
+                    <path d="M5 21v-2"/><path d="M19 21v-2"/>
+                  </svg>
+                  <span>Lounge Boho Mostaza</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Lounge Boho Verde Salvia -->
+          <section class="section section--alt" aria-labelledby="verde-salvia-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Conexión con la naturaleza</span>
+                <h2 class="showcase__title" id="verde-salvia-heading">Lounge Boho Verde Salvia</h2>
+                <p class="showcase__subtitle">Verde salvia que se mimetiza con la vegetación circundante.</p>
+                <p class="showcase__text">La opción más orgánica para quienes buscan una <strong>conexión genuina con la naturaleza</strong>. El verde salvia es un tono suave y sofisticado que se integra armoniosamente con jardines, viñedos y espacios naturales. Cada pieza parece parte del paisaje, creando una transición fluida entre el mobiliario y el entorno verde que lo rodea.</p>
+                <p class="showcase__text">La elección perfecta para <strong>eventos ecológicos, bodas sustentables y celebraciones en viñedos</strong>. El verde salvia transmite conciencia ambiental y buen gusto — valores cada vez más importantes para las parejas modernas. Combina con arreglos de follaje natural, suculentas y detalles en madera reciclada. Complementa con nuestras <a href="/servicios/pistas-baile/">pistas de baile en madera</a> para mantener la estética natural.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Verde Salvia</span>
+                  <span class="showcase__tag">Ecológico</span>
+                  <span class="showcase__tag">Sustentable</span>
+                  <span class="showcase__tag">Viñedos</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Lounge Boho Verde Salvia
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/>
+                    <path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/>
+                    <path d="M5 21v-2"/><path d="M19 21v-2"/>
+                  </svg>
+                  <span>Lounge Boho Verde Salvia</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Lounge Boho"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar lounge Boho para tu evento, es natural tener preguntas sobre materiales, resistencia y logística. Aquí encontrarás las respuestas más comunes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un especialista en mobiliario te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en lounge Boho resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre lounge Boho para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Salas Lounge -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Salas Lounge para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/salas-lounge/" class="sidebar-nav__back">&uarr; Volver a Salas Lounge</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/" class="sidebar-nav__back">&uarr; Volver a Mobiliario</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de lounge Boho:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas lounge Boho para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar lounge Boho para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Lounge Boho"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros especialistas en mobiliario te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un set individual para una sesión fotográfica o múltiples lounges para una boda en jardín, estamos aquí para crear el ambiente bohemio perfecto."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoLounge">
+                Tono de cojines
+              </label>
+              <select id="tipoLounge" name="tipoLounge" class="form-field__input form-field__select">
+                <option value="">Selecciona el tono</option>
+                <option value="Boho Terracota">Boho Terracota</option>
+                <option value="Boho Crema Natural">Boho Crema Natural</option>
+                <option value="Boho Mostaza">Boho Mostaza</option>
+                <option value="Boho Verde Salvia">Boho Verde Salvia</option>
+                <option value="Combinación de Tonos">Combinación de Tonos</option>
+                <option value="Paquete Boda Boho Completo">Paquete Boda Boho Completo</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de sets, tono preferido, tipo de evento, venue, si es interior o exterior..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para recomendar la distribución ideal de lounges según el espacio.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada de tonos y distribución para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoLounge = document.getElementById('tipoLounge').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Lounge Boho para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoLounge) texto += `*Tono de cojines:* ${tipoLounge}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Mobiliario"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de mobiliario para eventos en la Ciudad de México. Cada aliado cuenta con piezas de alta calidad, logística profesional y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de estilos y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Mobiliario Premium MX</h3>
+            <p class="partner-card__tagline">Especialistas en Lounge Natural</p>
+            <p class="partner-card__text">Líder en renta de mobiliario boho y ratán para eventos sociales en CDMX y Estado de México. Especialistas en sillones Peacock, sofás de ratán, mesas de madera reciclada y accesorios artesanales de macramé.</p>
+          </div>
+          <a href="https://rentadeiluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Rent All CDMX</h3>
+            <p class="partner-card__tagline">Lounge para Exteriores</p>
+            <p class="partner-card__text">Especialistas en mobiliario para eventos al aire libre con tratamiento resistente a intemperie. Salas lounge, mesas, sillas y accesorios para bodas en jardín, terrazas y viñedos en la Ciudad de México.</p>
+          </div>
+          <a href="https://redeil.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventMob</h3>
+            <p class="partner-card__tagline">Lounge Bohemio y Artesanal</p>
+            <p class="partner-card__text">Más de 10 años proporcionando mobiliario artesanal para eventos bohemios en CDMX. Piezas únicas en ratán, mimbre y madera reciclada con cojinería personalizable en múltiples tonos y texturas.</p>
+          </div>
+          <a href="https://rentadesonidoeiluminacion.com.mx/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MesasyMás</h3>
+            <p class="partner-card__tagline">Sets Boho con Accesorios</p>
+            <p class="partner-card__text">Logística profesional de mobiliario para eventos con cobertura en toda la CDMX y área metropolitana. Sets completos de lounge Boho con transporte, montaje, supervisión durante el evento y desmontaje incluido.</p>
+          </div>
+          <a href="https://renta-de-iluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Lounge Boho que transforma tu jardín en un paraíso bohemio"
+    subheadline="Más de 200 bodas al aire libre equipadas con lounge Boho nos respaldan. Cotiza hoy y recibe asesoría personalizada de tonos y distribución."
+    primaryCTA={{ label: "Cotizar lounge Boho", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar lounge Boho para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

@@ -1,0 +1,730 @@
+---
+/**
+ * ─── Humo Bajo y Niebla — Página de Producto (Nivel 4) ───
+ * Máquinas de hielo seco y haze de glicol para primer baile,
+ * pasarelas y entradas dramáticas.
+ *
+ * Jerarquía: Servicios > Iluminación > Efectos Especiales > Humo Bajo
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Iluminación", href: "/servicios/iluminacion/" },
+  { label: "Efectos Especiales", href: "/servicios/iluminacion/efectos-especiales/" },
+  { label: "Humo Bajo y Niebla" },
+];
+
+const faqs = [
+  { question: "¿El humo bajo con hielo seco es seguro para interiores?", answer: 'Sí, completamente seguro. Nuestras máquinas de humo bajo utilizan hielo seco (CO2 sólido) de grado profesional que genera una niebla blanca densa a nivel del suelo sin dejar residuos, olores ni partículas en suspensión. No irrita ojos ni vías respiratorias y es 100% seguro para invitados, niños y mascotas. Nuestro técnico monitorea los niveles de CO2 en todo momento y controla la ventilación para garantizar la seguridad total. Es el efecto más utilizado en bodas y XV años en salones cerrados de la Ciudad de México.' },
+  { question: "¿El humo bajo activa las alarmas contra incendio del salón?", answer: 'No. A diferencia de las máquinas de humo convencionales, el humo bajo con hielo seco genera una niebla fría y pesada que se mantiene a nivel del suelo (máximo 1 metro de altura) y no sube hacia los detectores de humo instalados en el techo. Nuestro equipo de <strong>niebla haze de glicol</strong> tampoco activa alarmas cuando se utiliza en la concentración correcta. Aun así, siempre coordinamos con el staff del venue antes del evento para informarles sobre los efectos y evitar cualquier contingencia.' },
+  { question: "¿Cuánto dura el efecto de humo bajo?", answer: "Cada activación de humo bajo con hielo seco produce un efecto denso y rasante que dura entre 3 y 5 minutos, cubriendo un área de 50 a 150 m² según la potencia de la máquina. Nuestros equipos permiten múltiples activaciones durante el evento para repetir el efecto en diferentes momentos: primer baile, vals, brindis o entrada del pastel. La niebla haze de glicol, en cambio, permanece suspendida en el ambiente durante horas creando una atmósfera envolvente ideal para realzar haces de luz y láser." },
+  { question: "¿Se puede combinar humo bajo con pistas de baile iluminadas?", answer: 'Es la combinación más solicitada para bodas y XV años. El humo bajo crea una capa de niebla rasante sobre la <a href="/servicios/pistas-baile/">pista de baile iluminada</a> que amplifica el brillo de los LEDs y genera un efecto de caminar entre nubes de luz — el resultado visual es verdaderamente cinematográfico. Ofrecemos paquetes combinados de humo bajo + pista LED con descuento especial que incluyen coordinación técnica entre ambos equipos para sincronizar la activación del humo con los cambios de color de la pista.' },
+  { question: "¿Necesito ventilación especial para usar humo bajo?", answer: "No necesitas instalaciones especiales. Nuestro técnico evalúa las condiciones del venue antes del evento y ajusta la potencia y frecuencia de activación según el tamaño del espacio y la ventilación existente. En salones con aire acondicionado central, coordinamos con el staff para reducir el flujo de aire durante los minutos del efecto y maximizar la densidad del humo. En jardines y terrazas, utilizamos equipos de mayor potencia para compensar las corrientes de aire naturales." },
+  { question: "¿Con cuánta anticipación debo reservar humo bajo para mi evento?", answer: "Recomendamos reservar con 2 a 4 semanas de anticipación, especialmente en temporada alta de bodas (noviembre a febrero). Para el paquete de primer baile que incluye humo bajo + iluminación especial, lo ideal es apartar con 1 mes para incluir la visita técnica al venue y la coordinación con tu DJ y wedding planner. También atendemos solicitudes de último momento sujetas a disponibilidad de equipo y operadores." },
+];
+
+const specs = [
+  { label: "Tipo de efecto", value: "Hielo Seco (CO2 sólido) / Glicol Haze" },
+  { label: "Potencia", value: "3,000 – 6,000W (según modelo)" },
+  { label: "Cobertura", value: "50 – 150 m² por máquina" },
+  { label: "Duración por activación", value: "3 – 5 min (hielo seco) / continuo (haze)" },
+  { label: "Fluido", value: "Hielo seco grado profesional / glicol alimenticio" },
+  { label: "Temperatura niebla", value: "-78°C (hielo seco) / ambiente (haze)" },
+  { label: "Control", value: "DMX-512 / Control remoto / Timer" },
+  { label: "Nivel de ruido", value: "< 40 dB en operación" },
+  { label: "Seguridad", value: "Sin residuos, no activa alarmas, apto interiores" },
+  { label: "Montaje", value: "30 – 45 min (incluido en servicio)" },
+];
+
+const sidebarNav = [
+  { name: "Humo Bajo y Niebla", href: null, active: true },
+  { name: "Láser Multicolor", href: "/servicios/iluminacion/efectos-especiales/laser/" },
+  { name: "Papelitos de Mariposas", href: "/servicios/iluminacion/efectos-especiales/mariposas/" },
+  { name: "Confeti y Serpentinas", href: "/servicios/iluminacion/efectos-especiales/confeti/" },
+];
+
+const sidebarRelated = [
+  { name: "Pistas de Baile", href: "/servicios/pistas-baile/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+  { name: "Carpas Profesionales", href: "/servicios/carpas/" },
+  { name: "Equipo Audiovisual", href: "/servicios/audiovisual/" },
+  { name: "Mobiliario Premium", href: "/servicios/mobiliario/" },
+];
+
+const reviews = [
+  { author: "Carolina Martínez", text: "Rentamos humo bajo con hielo seco para el primer baile de nuestra boda en un jardín de Coyoacán. El efecto fue de película — literalmente caminamos entre nubes. El técnico coordinó perfectamente la activación con nuestra canción y el fotógrafo capturó fotos increíbles. Lo más bonito de toda la noche.", rating: 5, date: "2025-11-20" },
+  { author: "Daniela Ríos", text: "Para los XV años de mi hija contratamos humo bajo para el vals y fue el momento más especial. Las fotos quedaron espectaculares con la niebla a nivel del piso y las luces. El equipo llegó puntual, montó todo discretamente y el efecto fue exactamente como lo imaginamos. 100% recomendable.", rating: 5, date: "2025-10-15" },
+  { author: "Fernando López", text: "Usamos niebla haze para un evento corporativo con show de láser. La niebla realzó los haces de luz de manera impresionante — los invitados quedaron fascinados. El técnico ajustó la densidad perfecta para que se vieran los rayos sin perder visibilidad. Servicio impecable de principio a fin.", rating: 5, date: "2025-09-28" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Humo Bajo y Niebla para Eventos en CDMX",
+    description: "Máquinas de humo bajo con hielo seco y niebla haze de glicol para bodas, XV años y eventos en CDMX. Primer baile, pasarelas y entradas dramáticas. Operador incluido. Desde $800.",
+    url: "/servicios/iluminacion/efectos-especiales/humo-bajo/",
+    priceRange: { min: 800, max: 8000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 47,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Iluminación", url: "/servicios/iluminacion/" },
+    { name: "Efectos Especiales", url: "/servicios/iluminacion/efectos-especiales/" },
+    { name: "Humo Bajo y Niebla", url: "/servicios/iluminacion/efectos-especiales/humo-bajo/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Humo Bajo y Niebla para Eventos en CDMX"
+  description="Renta de máquinas de humo bajo con hielo seco y niebla haze para eventos en CDMX: primer baile, pasarelas y entradas dramáticas. Operador incluido. Desde $800. Cotiza hoy."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="El efecto más romántico para eventos"
+    title='Renta de <span class="highlight">Humo Bajo y Niebla</span> para Eventos en CDMX'
+    subtitle="Máquinas de humo bajo con hielo seco y niebla haze de glicol para primer baile, pasarelas y entradas dramáticas. Efecto rasante seguro para cualquier venue. Operador técnico incluido."
+    primaryCTA={{ label: "Cotiza tu humo bajo", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar humo bajo para mi evento` }}
+    cards={[
+      {
+        title: "Humo bajo con hielo seco y niebla haze profesional",
+        content: "<strong>Renta de humo bajo para eventos</strong> con máquinas de hielo seco de 3,000 a 6,000W que generan una niebla blanca densa y rasante a nivel del suelo. Efecto de caminar entre nubes para primer baile de bodas, vals de XV años y pasarelas. Niebla haze de glicol alimenticio para crear atmósferas envolventes que realzan haces de luz y láser. Múltiples activaciones durante el evento con control DMX, remoto o timer.",
+      },
+      {
+        title: "Seguridad total con operador técnico dedicado",
+        content: "<strong>Servicio completo</strong> con técnico operador certificado que se encarga del transporte, instalación, pruebas previas y operación durante todo el evento. No activa alarmas contra incendio, no deja residuos y es 100% seguro para interiores. Coordinación con DJ, wedding planner y staff del venue. Evaluación previa del espacio para garantizar cobertura óptima y seguridad total.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Quieres el efecto de caminar entre nubes en tu evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con opciones de humo bajo para tu venue"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Efectos Especiales</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas humo bajo para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar humo bajo para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Humo Bajo y Niebla</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Humo Bajo Hielo Seco -->
+          <section class="section section--alt" aria-labelledby="hielo-seco-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">El clásico de las bodas</span>
+                <h2 class="showcase__title" id="hielo-seco-heading">Humo Bajo con Hielo Seco</h2>
+                <p class="showcase__subtitle">Niebla blanca densa y rasante que cubre el suelo: el efecto de caminar entre nubes para primer baile y vals.</p>
+                <p class="showcase__text">El <strong>humo bajo con hielo seco</strong> es el efecto más solicitado para bodas y XV años en la Ciudad de México. Nuestras máquinas de <strong>3,000 a 6,000W</strong> transforman bloques de hielo seco (CO2 sólido a -78°C) en una niebla blanca espesa que se mantiene a nivel del suelo durante 3 a 5 minutos por activación. El resultado es un efecto cinematográfico de <strong>caminar entre nubes</strong> que transforma por completo la atmósfera del primer baile, el vals de quinceañera o la entrada de los novios.</p>
+                <p class="showcase__text">La niebla cubre un área de <strong>50 a 150 m²</strong> según la potencia del equipo y las condiciones del venue. No deja residuos, no genera olores y se disipa completamente en minutos. Nuestro técnico controla la densidad y timing de cada activación para sincronizar el efecto con tu canción y el momento exacto indicado por tu DJ o wedding planner. Combinación perfecta con nuestras <a href="/servicios/pistas-baile/">pistas de baile iluminadas</a> para un momento verdaderamente mágico.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Hielo seco CO2</span>
+                  <span class="showcase__tag">3-5 min efecto</span>
+                  <span class="showcase__tag">50-150 m²</span>
+                  <span class="showcase__tag">Seguro interiores</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Humo Bajo Hielo Seco
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
+                  <span>Humo Bajo Hielo Seco</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Niebla Haze Glicol -->
+          <section class="section section--alt" aria-labelledby="haze-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Atmósfera envolvente</span>
+                <h2 class="showcase__title" id="haze-heading">Niebla Haze de Glicol</h2>
+                <p class="showcase__subtitle">Haze suspendido en el ambiente durante horas: realza haces de luz, láser y efectos de iluminación profesional.</p>
+                <p class="showcase__text">La <strong>niebla haze de glicol</strong> genera una bruma fina y uniforme que permanece suspendida en el ambiente durante horas, creando una atmósfera envolvente que <strong>realza espectacularmente los haces de luz y láser</strong>. A diferencia del humo bajo que se queda a nivel del suelo, el haze llena todo el espacio y hace visibles los rayos de las cabezas móviles, par LED y sistemas láser — sin haze, los haces de luz son prácticamente invisibles en muchos venues.</p>
+                <p class="showcase__text">Utilizamos <strong>fluido de glicol de grado alimenticio</strong> que no irrita vías respiratorias, no deja residuos pegajosos y no activa alarmas contra incendio cuando se aplica en la concentración correcta. Control por DMX para regular la densidad en tiempo real según la intensidad de iluminación y el momento del evento. La elección esencial para <strong>fiestas, conciertos, shows de láser y cualquier evento donde la iluminación sea protagonista</strong>. Combínalo con nuestro <a href="/servicios/audiovisual/">equipo audiovisual</a> para producción integral.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Glicol alimenticio</span>
+                  <span class="showcase__tag">Efecto continuo</span>
+                  <span class="showcase__tag">Realza haces luz</span>
+                  <span class="showcase__tag">Control DMX</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Niebla Haze
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
+                  <span>Niebla Haze Glicol</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Humo Bajo Primer Baile -->
+          <section class="section section--alt" aria-labelledby="primer-baile-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Paquete más vendido</span>
+                <h2 class="showcase__title" id="primer-baile-heading">Humo Bajo para Primer Baile</h2>
+                <p class="showcase__subtitle">Paquete especializado para el momento más romántico: hielo seco + iluminación cálida + coordinación con DJ.</p>
+                <p class="showcase__text">Nuestro <strong>paquete de humo bajo para primer baile</strong> es el servicio más solicitado para bodas en CDMX. Incluye máquina de hielo seco de alta potencia, <strong>iluminación cálida ámbar dedicada</strong> que complementa la niebla rasante, y coordinación completa con tu DJ y wedding planner para activar el efecto en el momento exacto de tu canción. El resultado es un primer baile de película donde los novios literalmente caminan entre nubes iluminadas.</p>
+                <p class="showcase__text">El paquete cubre <strong>2 a 3 activaciones</strong> durante la recepción: primer baile, brindis y vals con los padres. Nuestro técnico realiza una prueba previa (durante el montaje) para calibrar la densidad de humo según las dimensiones de tu pista de baile y la temperatura del salón. Incluye <strong>hielo seco suficiente para toda la noche</strong> y permanecemos en el venue hasta completar el último efecto. Complementa con nuestras <a href="/servicios/iluminacion/decorativa/">luces decorativas</a> para un ambiente integral.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Primer baile</span>
+                  <span class="showcase__tag">2-3 activaciones</span>
+                  <span class="showcase__tag">Iluminación incluida</span>
+                  <span class="showcase__tag">Coord. DJ</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Paquete Primer Baile
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
+                  <span>Humo Bajo Primer Baile</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Humo + Iluminación -->
+          <section class="section section--alt" aria-labelledby="kit-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Producción integral</span>
+                <h2 class="showcase__title" id="kit-heading">Kit Humo Bajo + Iluminación</h2>
+                <p class="showcase__subtitle">Paquete completo: hielo seco + haze + par LED + moving heads para una experiencia sensorial total.</p>
+                <p class="showcase__text">Nuestro <strong>kit de humo bajo + iluminación</strong> combina lo mejor de ambos mundos: <strong>hielo seco para momentos puntuales</strong> (primer baile, vals, brindis) y <strong>niebla haze continua</strong> para realzar la iluminación durante toda la fiesta. Incluye par LED RGBWA para ambientación de color, moving heads para efectos dinámicos y programación DMX completa para sincronizar todos los elementos con la música de tu evento.</p>
+                <p class="showcase__text">El kit es operado por <strong>un técnico de iluminación y un operador de efectos</strong> que trabajan coordinados para crear transiciones fluidas entre los diferentes momentos de tu evento: ceremonia con iluminación cálida y suave, primer baile con humo bajo y spotlight, cena con ambientación elegante y fiesta con efectos dinámicos y haze. La solución integral para <strong>bodas de alto perfil, galas corporativas y eventos donde cada detalle importa</strong>. Complementa con nuestras <a href="/servicios/carpas/">carpas profesionales</a> para producción en exteriores.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Hielo seco + Haze</span>
+                  <span class="showcase__tag">Par LED incluido</span>
+                  <span class="showcase__tag">Moving heads</span>
+                  <span class="showcase__tag">2 operadores</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Completo
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
+                  <span>Kit Humo + Iluminación</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Humo Bajo y Niebla"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar humo bajo para tu evento, es natural tener preguntas sobre seguridad, funcionamiento y logística. Aquí encontrarás las respuestas más comunes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un especialista en efectos especiales te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en humo bajo resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre humo bajo para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Efectos Especiales -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Efectos Especiales</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/efectos-especiales/" class="sidebar-nav__back">&uarr; Volver a Efectos Especiales</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/" class="sidebar-nav__back">&uarr; Volver a Iluminación</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de humo bajo:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas humo bajo para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar humo bajo para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Humo Bajo y Niebla"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros especialistas en efectos especiales te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea humo bajo para tu primer baile o un kit completo con haze e iluminación, estamos aquí para crear un momento mágico."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoHumo">
+                Tipo de humo bajo
+              </label>
+              <select id="tipoHumo" name="tipoHumo" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de humo</option>
+                <option value="Humo Bajo Hielo Seco">Humo Bajo Hielo Seco</option>
+                <option value="Niebla Haze Glicol">Niebla Haze Glicol</option>
+                <option value="Kit Primer Baile">Kit Primer Baile</option>
+                <option value="Kit Pasarela">Kit Pasarela</option>
+                <option value="Paquete Humo + Iluminación">Paquete Humo + Iluminación</option>
+                <option value="Paquete Boda Completo">Paquete Boda Completo</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: tipo de venue (salón/jardín/terraza), momento del evento para el humo bajo, dimensiones aproximadas de la pista de baile..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para recomendar el equipo de humo bajo ideal según el espacio.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada de efectos especiales para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoHumo = document.getElementById('tipoHumo').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Humo Bajo y Niebla para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoHumo) texto += `*Tipo de humo:* ${tipoHumo}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Iluminación"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de iluminación profesional para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">REDEIL</h3>
+            <p class="partner-card__tagline">Renta de Iluminación Profesional</p>
+            <p class="partner-card__text">Líder en renta de iluminación para eventos sociales en CDMX y Estado de México. Especialistas en guirnaldas LED, cabezas móviles, iluminación arquitectónica, gobos personalizados y efectos especiales.</p>
+          </div>
+          <a href="https://rentadeiluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Iluminación + Audio</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">REDEIL Sonido</h3>
+            <p class="partner-card__tagline">Iluminación LED y Audio Profesional</p>
+            <p class="partner-card__text">Especialistas en audio JBL y QSC, iluminación LED profesional, DJ y pantallas LED para bodas, XV años y eventos corporativos. Servicio integral con instalación y operación técnica incluida.</p>
+          </div>
+          <a href="https://redeil.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">+15 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">RESOIL</h3>
+            <p class="partner-card__tagline">Renta de Sonido e Iluminación</p>
+            <p class="partner-card__text">Más de 15 años proporcionando equipo profesional de sonido e iluminación para eventos corporativos en CDMX. Guirnaldas LED, sky trackers, luces arquitectónicas, cascadas LED y gobos.</p>
+          </div>
+          <a href="https://rentadesonidoeiluminacion.com.mx/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">L</span>
+            <div class="partner-card__badge">+20 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">LUMINAPRO</h3>
+            <p class="partner-card__tagline">Expertos en Iluminación Profesional</p>
+            <p class="partner-card__text">Líder en renta de iluminación profesional para eventos con más de 20 años transformando espacios en CDMX. Servicio integral: diseño, instalación, operación y desmontaje de cabezas móviles, láser y más.</p>
+          </div>
+          <a href="https://renta-de-iluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Humo bajo que transforma tu primer baile en un momento de película"
+    subheadline="Más de 500 eventos con efectos especiales nos respaldan. Cotiza hoy y recibe una propuesta personalizada."
+    primaryCTA={{ label: "Cotizar humo bajo", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar humo bajo para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

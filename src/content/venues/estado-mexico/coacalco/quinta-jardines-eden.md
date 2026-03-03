@@ -178,3 +178,20 @@ Los paquetes están diseñados para **presupuestos familiares reales**, con opci
 Hay venues que ofrecen mesas y sillas. Y hay Jardines del Edén, que ofrece **la posibilidad de que tu boda o XV años se sienta como un cuento**: con el sonido del agua de fondo, con puentes que cruzar, con un kiosco donde pronunciar votos o recibir la última muñeca.
 
 Cuando tus invitados vean las cascadas iluminadas por primera vez, cuando crucen el puente hacia el jardín, cuando escuchen el agua mientras brindan por tu felicidad, entenderán que **no están en un salón cualquiera: están en un pequeño paraíso creado para celebrar**.
+
+## Servicios de EVENTECH para Jardines del Edén
+
+Como partner oficial de EVENTECH, ofrecemos soluciones que complementan la magia del espacio:
+
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** con fairy lights en puentes y vegetación
+- **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** para realzar cascadas y elementos acuáticos
+- **[Carpas estructurales](/servicios/carpas/estructurales/)** transparentes para ver las cascadas en temporada de lluvias
+
+## Venues Similares con Ambiente Único
+
+Si buscas espacios con elementos especiales en el norte del Estado de México:
+
+- **[Jardines Tlalnepantla](/directorio/estado-mexico/tlalnepantla/jardines-tlalnepantla/)** — Pérgolas de buganvilia, flexibilidad total
+- **[Quinta Real Atizapán](/directorio/estado-mexico/atizapan/quinta-real-atizapan/)** — Fuentes de cantera, capilla con vitrales
+- **[Jardín Los Arcos](/directorio/estado-mexico/atizapan/jardin-los-arcos/)** — Arcos de cantera icónicos, ambiente tradicional
+- **[Hacienda Santa Cecilia](/directorio/estado-mexico/huixquilucan/hacienda-santa-cecilia/)** — Lago con kiosco, escala monumental

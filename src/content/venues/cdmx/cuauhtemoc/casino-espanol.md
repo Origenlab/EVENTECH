@@ -168,3 +168,12 @@ El personal del Casino incluye meseros que han servido en el espacio durante dé
 Desde 1863, el Casino Español ha sido el escenario de **momentos que definen la historia social de México**. Bodas que unieron familias distinguidas, cenas donde se cerraron negocios que transformaron industrias, graduaciones que marcaron el inicio de carreras brillantes. Cuando celebras aquí, te unes a una tradición de elegancia que trasciende generaciones.
 
 **El Casino Español no es solo un venue: es un pasaje directo a la grandeza del pasado, ejecutada con la perfección del presente.**
+
+## Venues Similares con Elegancia Clásica
+
+Si buscas la sofisticación de los grandes salones históricos:
+
+- **[Palacio de Minería](/directorio/cdmx/cuauhtemoc/palacio-de-mineria/)** — Neoclásico monumental, frescos de Ximeno y Planes
+- **[Palacio de la Autonomía](/directorio/cdmx/centro-historico/palacio-autonomia/)** — Siglo XVIII, frescos coloniales, ambiente académico
+- **[Club de Banqueros](/directorio/cdmx/lomas-chapultepec/club-de-banqueros/)** — Elegancia de club privado en Lomas
+- **[Hacienda de los Morales](/directorio/cdmx/polanco/hacienda-de-los-morales/)** — Colonial del siglo XVI, gastronomía galardonada

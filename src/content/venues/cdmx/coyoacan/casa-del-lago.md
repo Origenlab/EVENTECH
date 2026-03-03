@@ -174,3 +174,21 @@ Por tratarse de un espacio cultural universitario, Casa del Lago tiene lineamien
 En Casa del Lago, las juntas de trabajo se interrumpen cuando un pato cruza nadando frente a la terraza. Las presentaciones corporativas tienen como fondo el sonido del viento en los ahuehuetes. Los cócteles de networking fluyen naturalmente porque **el entorno relaja y abre a las personas**.
 
 Este es un venue para organizaciones que entienden que **los mejores eventos no son los más lujosos, sino los más memorables** —y que pocas cosas son más memorables que terminar una conferencia viendo el atardecer reflejado en las aguas del lago que ha visto pasar 700 años de historia de esta ciudad.
+
+## Servicios de EVENTECH para Casa del Lago
+
+Como partner oficial de EVENTECH, ofrecemos soluciones que respetan el entorno natural y cultural:
+
+- **[Sonido profesional](/servicios/audiovisual/sonido/)** calibrado para espacios al aire libre junto al lago
+- **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** sutil para la terraza y jardín escultórico
+- **[Pantallas LED](/servicios/audiovisual/pantallas-led/)** para presentaciones con vista al lago
+- **[Mobiliario corporativo](/servicios/mobiliario/)** elegante para conferencias y cócteles
+
+## Venues Similares con Naturaleza y Cultura
+
+Si buscas espacios donde naturaleza y eventos corporativos convergen:
+
+- **[Jardín Botánico Tlalpan](/directorio/cdmx/tlalpan/jardin-botanico/)** — Naturaleza espectacular, ambiente académico
+- **[Hotel Camino Real Polanco](/directorio/cdmx/polanco/hotel-camino-real-polanco/)** — Jardín escultórico con obras de Tamayo y Calder
+- **[Centro Citibanamex](/directorio/cdmx/santa-fe/centro-citibanamex/)** — Convenciones de gran formato, más capacidad
+- **[Loreto y Peña Pobre](/directorio/cdmx/alvaro-obregon/loreto-pena-pobre/)** — Jardines y arquitectura histórica

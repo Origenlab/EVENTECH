@@ -204,3 +204,12 @@ Hay venues que impresionan por su lujo, otros por su ubicación, algunos por su 
 Cuando tus invitados caminen por los corredores coloniales, cuando vean los jardines que Diego Rivera contempló mientras creaba su obra maestra, cuando crucen el patio donde generaciones de agrónomos han celebrado sus graduaciones, entenderán que **no están en un venue cualquiera: están en un lugar donde la historia y la belleza de México se hacen tangibles**.
 
 Un evento aquí no se olvida. Y más importante aún: **no se olvida por las razones correctas**.
+
+## Venues Similares con Patrimonio Cultural
+
+Si buscas espacios históricos con arte y arquitectura excepcional:
+
+- **[Ex Hacienda de Tepotzotlán](/directorio/estado-mexico/tepotzotlan/ex-hacienda-tepotzotlan/)** — Barroco churrigueresco, Museo del Virreinato
+- **[Hacienda Santa Cecilia](/directorio/estado-mexico/huixquilucan/hacienda-santa-cecilia/)** — Colonial con lago y jardines monumentales
+- **[Palacio de Minería](/directorio/cdmx/cuauhtemoc/palacio-de-mineria/)** — Arquitectura neoclásica del siglo XVIII en CDMX
+- **[Casino Español](/directorio/cdmx/cuauhtemoc/casino-espanol/)** — Patrimonio ecléctico en Centro Histórico

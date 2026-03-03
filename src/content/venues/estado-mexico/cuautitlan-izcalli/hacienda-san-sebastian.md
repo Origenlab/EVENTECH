@@ -178,3 +178,21 @@ Desde bodas íntimas de 100 personas hasta celebraciones de 500, los espacios se
 Hay quienes piensan que para tener una boda en hacienda necesitas gastar una fortuna. Hacienda San Sebastián demuestra que eso es un mito: **puedes caminar por corredores de arcos de cantera, casarte en una capilla con vitrales, bailar bajo vigas de cedro centenario** —todo sin necesidad de hipotecar tu futuro.
 
 Cuando tus invitados vean los arcos iluminados por primera vez, cuando tu novia camine bajo ellos hacia el altar, cuando bailen su primer baile en el salón virreinal, nadie preguntará si la hacienda es del siglo XVIII o del XXI. **Solo verán la belleza, sentirán la magia, y recordarán tu celebración como algo especial**.
+
+## Servicios de EVENTECH para Hacienda San Sebastián
+
+Como partner oficial de EVENTECH, ofrecemos soluciones que realzan la arquitectura colonial del espacio:
+
+- **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** para resaltar los arcos de cantera y elementos coloniales
+- **[Sonido profesional](/servicios/audiovisual/sonido/)** line array para eventos de hasta 500 personas
+- **[Pantallas LED](/servicios/audiovisual/pantallas-led/)** para presentaciones corporativas y ceremonias
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** con fairy lights en corredores y terraza mirador
+
+## Venues Similares con Arquitectura Colonial
+
+Si buscas espacios con estética de hacienda en el norte del Estado de México:
+
+- **[Hacienda Santa Cecilia](/directorio/estado-mexico/huixquilucan/hacienda-santa-cecilia/)** — Lago con kiosco, capilla histórica, hasta 1,200 personas
+- **[Ex Hacienda de Tepotzotlán](/directorio/estado-mexico/tepotzotlan/ex-hacienda-tepotzotlan/)** — Patrimonio barroco en Museo del Virreinato
+- **[Quinta Real Atizapán](/directorio/estado-mexico/atizapan/quinta-real-atizapan/)** — Fuentes de cantera, capilla con vitrales
+- **[Jardín Los Arcos](/directorio/estado-mexico/atizapan/jardin-los-arcos/)** — Arcos de cantera icónicos, ambiente tradicional

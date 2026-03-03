@@ -1,0 +1,584 @@
+---
+/**
+ * ─── Confeti y Serpentinas — Página de Producto (Nivel 4) ───
+ * Cañones CO2 y lanzadores de serpentinas para celebraciones.
+ *
+ * Jerarquía: Servicios > Iluminación > Efectos Especiales > Confeti y Serpentinas
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Iluminación", href: "/servicios/iluminacion/" },
+  { label: "Efectos Especiales", href: "/servicios/iluminacion/efectos-especiales/" },
+  { label: "Confeti y Serpentinas" },
+];
+
+const faqs = [
+  { question: "¿Quién se encarga de la limpieza del confeti después del evento?", answer: "Incluimos servicio de recolección del confeti como parte de nuestro paquete. Después del evento, nuestro equipo recoge el confeti con aspiradoras industriales y escobas profesionales. Si tu venue requiere limpieza inmediata entre activaciones (por ejemplo, antes del brindis y después de la fiesta), ofrecemos servicio de limpieza express entre cada lanzamiento. El tiempo de recolección varía según la cantidad de confeti y el tipo de superficie — en pisos lisos tardamos 15-20 minutos, en alfombra o pasto puede tomar un poco más." },
+  { question: "¿El confeti biodegradable es apto para eventos en jardín?", answer: "Sí, contamos con opciones de confeti 100% biodegradable y soluble en agua especialmente diseñadas para eventos en jardín, terraza y espacios abiertos. El confeti biodegradable se descompone naturalmente en 24-48 horas con la humedad ambiental, sin dejar residuos dañinos para las plantas ni el suelo. También ofrecemos confeti de pétalos de rosa natural para bodas en jardín — un efecto elegante y completamente ecológico. Para venues con restricciones de limpieza, el confeti soluble es la opción ideal." },
+  { question: "¿Puedo personalizar los colores del confeti?", answer: "Por supuesto. Ofrecemos confeti en una gama completa de colores que se pueden mezclar para crear combinaciones personalizadas. Disponible en acabados metálico (oro, plata, cobre, rosa gold), papel de colores (toda la gama), holográfico (iridiscente) y biodegradable. Envíanos tu paleta de colores o los códigos de color de tu marca y preparamos la mezcla exacta. Para bodas, las combinaciones más populares son oro + blanco, plata + rosa y confeti holográfico multicolor." },
+  { question: "¿Se puede sincronizar el confeti con la música?", answer: "Sí, nuestros cañones de confeti profesionales cuentan con control DMX que permite sincronizarlos con la consola de iluminación y la música. El operador puede activar los cañones en el momento exacto del beat, el conteo regresivo o la señal del DJ. Para shows con coreografía precisa, pre-programamos las secuencias de disparo en la consola DMX para activaciones simultáneas de múltiples cañones con timing milimétrico. También disponemos de activación por control remoto manual para momentos espontáneos." },
+  { question: "¿Cuántos cañones de confeti necesito para mi evento?", answer: "La cantidad depende del tamaño del espacio y la cobertura deseada. Para salones de hasta 150 invitados, recomendamos 2 cañones posicionados en los laterales de la pista. Para eventos de 150 a 300 personas, 4 cañones en configuración cuadrada cubren toda la pista de baile. Para eventos grandes de 300+ invitados, festivales o escenarios, utilizamos 6 a 8 cañones distribuidos estratégicamente. Nuestro técnico realiza una evaluación del venue para recomendar la cantidad exacta según las dimensiones y la altura del techo." },
+  { question: "¿Con cuánta anticipación debo reservar los cañones de confeti?", answer: "Recomendamos reservar con 2 a 3 semanas de anticipación para garantizar disponibilidad de cañones y preparar el confeti en los colores personalizados que elijas. En temporada alta (noviembre-diciembre para posadas y fin de año, febrero para bodas de San Valentín) lo ideal es apartar con 1 mes. Para pedidos con confeti estándar (metálico oro/plata), podemos atender solicitudes con 1 semana de anticipación sujetas a disponibilidad de cañones." },
+];
+
+const specs = [
+  { label: "Tipo de lanzador", value: "CO2 (alta presión) / Eléctrico" },
+  { label: "Alcance", value: "8 – 15 metros de altura" },
+  { label: "Material confeti", value: "Metálico / Papel / Biodegradable / Holográfico" },
+  { label: "Colores", value: "Personalizable (paleta completa disponible)" },
+  { label: "Serpentinas", value: "Streamers de hasta 10 metros de largo" },
+  { label: "Control", value: "Manual / Control remoto / DMX-512" },
+  { label: "Cañones disponibles", value: "2 – 8 unidades simultáneas" },
+  { label: "Limpieza incluida", value: "Sí — recolección post-evento con aspiradoras" },
+  { label: "Seguridad", value: "Sin fuego, CO2 certificado, apto interiores" },
+  { label: "Montaje", value: "20 – 40 min (incluido en servicio)" },
+];
+
+const sidebarNav = [
+  { name: "Humo Bajo y Niebla", href: "/servicios/iluminacion/efectos-especiales/humo-bajo/" },
+  { name: "Láser Multicolor", href: "/servicios/iluminacion/efectos-especiales/laser/" },
+  { name: "Papelitos de Mariposas", href: "/servicios/iluminacion/efectos-especiales/mariposas/" },
+  { name: "Confeti y Serpentinas", href: null, active: true },
+];
+
+const sidebarRelated = [
+  { name: "Pistas de Baile", href: "/servicios/pistas-baile/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+  { name: "Carpas Profesionales", href: "/servicios/carpas/" },
+  { name: "Equipo Audiovisual", href: "/servicios/audiovisual/" },
+  { name: "Mobiliario Premium", href: "/servicios/mobiliario/" },
+];
+
+const reviews = [
+  { author: "Andrea Guzmán", text: "Los cañones de confeti dorado para el brindis de nuestra boda fueron el momento más espectacular de la noche. La lluvia de confeti metálico sobre la pista con las luces del salón creó un efecto mágico — todos aplaudieron. El equipo coordinó perfectamente el disparo con el conteo regresivo. Las fotos quedaron increíbles.", rating: 5, date: "2025-11-30" },
+  { author: "Luis Ramírez", text: "Contratamos 8 cañones de confeti y serpentinas para la fiesta de año nuevo corporativa. La cuenta regresiva de medianoche con lluvia de confeti holográfico y serpentinas plateadas fue épica — 500 personas celebrando bajo una lluvia de brillo. El servicio de limpieza fue rápido y eficiente. Definitivamente repetiremos el próximo año.", rating: 5, date: "2025-12-31" },
+  { author: "Valeria Sánchez", text: "Usamos confeti biodegradable para un evento corporativo en un jardín de Coyoacán. Los cañones CO2 dispararon confeti en los colores de nuestra marca (azul y blanco) durante el lanzamiento de producto. El efecto fue espectacular y al día siguiente el confeti ya se había descompuesto sin dejar rastro en el jardín. Servicio profesional impecable.", rating: 5, date: "2025-10-05" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Confeti y Serpentinas para Eventos en CDMX",
+    description: "Cañones de confeti CO2 y lanzadores de serpentinas con colores personalizados para bodas, fiestas y eventos corporativos en CDMX. Limpieza incluida. Operador incluido. Desde $500.",
+    url: "/servicios/iluminacion/efectos-especiales/confeti/",
+    priceRange: { min: 500, max: 6000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 45,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Iluminación", url: "/servicios/iluminacion/" },
+    { name: "Efectos Especiales", url: "/servicios/iluminacion/efectos-especiales/" },
+    { name: "Confeti y Serpentinas", url: "/servicios/iluminacion/efectos-especiales/confeti/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Confeti y Serpentinas para Eventos en CDMX"
+  description="Renta de cañones de confeti CO2 y lanzadores de serpentinas para eventos en CDMX: metálico, biodegradable, holográfico. Limpieza incluida. Desde $500. Cotiza hoy."
+  jsonLd={jsonLd}
+>
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <HeroPage
+    badge="Celebración explosiva para cada momento"
+    title='Renta de <span class="highlight">Confeti y Serpentinas</span> para Eventos en CDMX'
+    subtitle="Cañones de confeti CO2 y lanzadores de serpentinas con papeles metálicos, biodegradables y holográficos. Colores personalizados para bodas, fiestas y eventos corporativos. Limpieza post-evento incluida."
+    primaryCTA={{ label: "Cotiza tu confeti", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar cañones de confeti para mi evento` }}
+    cards={[
+      {
+        title: "Cañones CO2 y serpentinas con colores personalizados",
+        content: "<strong>Renta de cañones de confeti para eventos</strong> con sistemas CO2 de alta presión que disparan ráfagas de confeti a 8-15 metros de altura. Confeti metálico (oro, plata, rosa gold), papel de colores, biodegradable y holográfico iridiscente. Serpentinas de hasta 10 metros de largo en streamers espectaculares. Configuraciones de 2 a 8 cañones simultáneos con control DMX, remoto o manual. Colores 100% personalizables.",
+      },
+      {
+        title: "Limpieza post-evento incluida con operador dedicado",
+        content: "<strong>Servicio completo sin preocupaciones</strong> — incluye operador técnico dedicado, montaje de cañones, coordinación con DJ y staff del venue, activaciones sincronizadas con la música y servicio de limpieza post-evento con aspiradoras industriales. Opciones biodegradables y solubles en agua para eventos en jardín. Seguro para interiores, sin fuego ni pirotecnia. CO2 certificado y equipo profesional.",
+      },
+    ]}
+  />
+
+  <CTABanner
+    headline="¿Quieres una lluvia de confeti espectacular en tu evento?"
+    subheadline="Cotiza sin compromiso — te ayudamos a elegir los colores y la configuración perfecta"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- MOBILE SIDEBAR -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Efectos Especiales</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas confeti para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar cañones de confeti para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT + SIDEBAR -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <div class="l4-main">
+
+          <!-- SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Confeti y Serpentinas</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- SHOWCASE: Cañones de Confeti CO2 -->
+          <section class="section section--alt" aria-labelledby="co2-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Impacto visual máximo</span>
+                <h2 class="showcase__title" id="co2-heading">Cañones de Confeti CO2</h2>
+                <p class="showcase__subtitle">Ráfagas de confeti a 15 metros de altura con cañones CO2 de alta presión para momentos explosivos.</p>
+                <p class="showcase__text">Nuestros <strong>cañones de confeti CO2</strong> utilizan gas CO2 de alta presión para disparar ráfagas de confeti a alturas de <strong>8 a 15 metros</strong>, creando una lluvia espectacular que cubre toda la pista de baile y genera un impacto visual inmediato. Disponibles en confeti <strong>metálico (oro, plata, rosa gold, cobre), papel de colores y holográfico iridiscente</strong> con la posibilidad de mezclar colores para crear combinaciones personalizadas que coincidan con la temática de tu evento.</p>
+                <p class="showcase__text">Los cañones CO2 producen un efecto instantáneo y dramático: en un segundo, la pista se llena de una lluvia brillante que desciende durante 10-15 segundos, generando el momento perfecto para <strong>fotos, conteos regresivos, brindis y celebraciones explosivas</strong>. Control por DMX para sincronización con la música o activación manual por control remoto. Configuraciones de 2 a 8 cañones para cobertura completa del espacio. Combínalos con nuestra <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a> para un efecto visual espectacular.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">CO2 alta presión</span>
+                  <span class="showcase__tag">8-15 m altura</span>
+                  <span class="showcase__tag">Metálico/Holográfico</span>
+                  <span class="showcase__tag">DMX sync</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Cañones CO2
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
+                  <span>Cañones de Confeti CO2</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SHOWCASE: Serpentinas Metálicas -->
+          <section class="section section--alt" aria-labelledby="serpentinas-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Streamers espectaculares</span>
+                <h2 class="showcase__title" id="serpentinas-heading">Serpentinas Metálicas</h2>
+                <p class="showcase__subtitle">Lanzadores de serpentinas de hasta 10 metros que flotan espectacularmente sobre los invitados.</p>
+                <p class="showcase__text">Nuestros <strong>lanzadores de serpentinas metálicas</strong> disparan streamers de <strong>hasta 10 metros de largo</strong> que se despliegan en el aire y flotan espectacularmente sobre los invitados antes de descender suavemente. Las serpentinas metálicas reflejan la luz del salón creando un efecto de <strong>cintas brillantes flotando en el espacio</strong> que es visualmente impactante y genera fotos extraordinarias desde cualquier ángulo.</p>
+                <p class="showcase__text">Disponibles en <strong>oro, plata, rosa gold, cobre y combinaciones metálicas multicolor</strong>. Los lanzadores se posicionan en truss o bases de suelo y se activan por CO2 o sistema eléctrico con control remoto o DMX. Las serpentinas son más grandes y visibles que el confeti, creando un efecto diferente y complementario — muchos clientes combinan una primera salva de serpentinas seguida de confeti para un doble impacto. Ideales para <strong>entradas de artistas, finales de show, año nuevo y momentos climáticos de galas</strong>. Complementa con nuestras <a href="/servicios/carpas/">carpas profesionales</a> para eventos al aire libre.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Streamers 10 m</span>
+                  <span class="showcase__tag">Metálico brillante</span>
+                  <span class="showcase__tag">CO2 / Eléctrico</span>
+                  <span class="showcase__tag">Efecto flotante</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Serpentinas
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
+                  <span>Serpentinas Metálicas</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SHOWCASE: Confeti Biodegradable -->
+          <section class="section section--alt" aria-labelledby="bio-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Ecológico y elegante</span>
+                <h2 class="showcase__title" id="bio-heading">Confeti Biodegradable</h2>
+                <p class="showcase__subtitle">Confeti de papel reciclado y soluble en agua: el efecto espectacular sin impacto ambiental.</p>
+                <p class="showcase__text">Nuestro <strong>confeti biodegradable</strong> está fabricado con papel reciclado certificado que se descompone naturalmente en <strong>24 a 48 horas</strong> con la humedad ambiental. Ideal para eventos en <strong>jardines, terrazas, haciendas y espacios abiertos</strong> donde la limpieza completa del confeti convencional es complicada o donde el venue tiene políticas de sustentabilidad. Disponible en toda la gama de colores con las mismas opciones de personalización que el confeti convencional.</p>
+                <p class="showcase__text">También contamos con <strong>confeti soluble en agua</strong> que se disuelve completamente al contacto con agua — perfecto para venues con riego automático o eventos donde se necesita que el confeti desaparezca rápidamente. Los cañones CO2 disparan el confeti biodegradable con la misma potencia y altura que el convencional, así que <strong>el efecto visual es idéntico</strong> — la única diferencia es que desaparece naturalmente. Ofrecemos también pétalos de rosa natural como alternativa ultra-premium para bodas ecológicas. Complementa con nuestro <a href="/servicios/mobiliario/">mobiliario de evento</a> para un montaje integral.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Biodegradable</span>
+                  <span class="showcase__tag">Soluble en agua</span>
+                  <span class="showcase__tag">24-48h descomposición</span>
+                  <span class="showcase__tag">Apto jardines</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Confeti Biodegradable
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
+                  <span>Confeti Biodegradable</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SHOWCASE: Kit Confeti Show Completo -->
+          <section class="section section--alt" aria-labelledby="kit-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Producción integral</span>
+                <h2 class="showcase__title" id="kit-heading">Kit Confeti Show Completo</h2>
+                <p class="showcase__subtitle">Paquete todo incluido: cañones CO2 + serpentinas + confeti personalizado + limpieza + operador.</p>
+                <p class="showcase__text">Nuestro <strong>kit de confeti show completo</strong> es la opción premium para eventos que quieren múltiples momentos de celebración con lluvia de confeti y serpentinas. Incluye <strong>4 a 8 cañones CO2</strong>, confeti personalizado en los colores de tu evento, serpentinas metálicas complementarias, operador técnico dedicado, coordinación con DJ y staff del venue, y servicio de limpieza completa post-evento.</p>
+                <p class="showcase__text">El kit se programa para <strong>múltiples activaciones durante el evento</strong>: serpentinas para la entrada de los novios o el artista, confeti metálico para el brindis, confeti holográfico para el conteo regresivo y una salva final con todos los cañones disparando simultáneamente para el cierre espectacular. Cada activación se sincroniza por DMX con la música y la iluminación para máximo impacto. La solución integral para <strong>bodas de gala, fiestas de año nuevo, festivales y eventos corporativos de alto perfil</strong>. Combínalo con nuestras <a href="/servicios/pistas-baile/">pistas de baile iluminadas</a> para una experiencia visual total.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">4-8 cañones</span>
+                  <span class="showcase__tag">Confeti + Serpentinas</span>
+                  <span class="showcase__tag">Múltiples activaciones</span>
+                  <span class="showcase__tag">Limpieza incluida</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Completo
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
+                  <span>Kit Confeti Show Completo</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- FAQ -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Confeti y Serpentinas"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar cañones de confeti para tu evento, es natural tener preguntas sobre limpieza, colores y logística. Aquí encontrarás las respuestas más comunes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un especialista te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en confeti resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre cañones de confeti para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">Escribir por WhatsApp</a>
+                </div>
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- DESKTOP SIDEBAR -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Efectos Especiales</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/efectos-especiales/" class="sidebar-nav__back">&uarr; Volver a Efectos Especiales</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/" class="sidebar-nav__back">&uarr; Volver a Iluminación</a>
+              </li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de confeti:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas confeti para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar cañones de confeti para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESERVA FORM -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tus Cañones de Confeti"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros especialistas te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea confeti para un brindis de boda o un show completo con serpentinas para año nuevo, estamos aquí para crear momentos de celebración explosivos."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">Nombre completo <span class="form-field__required">*</span></label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">Teléfono <span class="form-field__required">*</span></label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">Tipo de evento</label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">Fecha del evento</label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoConfeti">Tipo de confeti</label>
+              <select id="tipoConfeti" name="tipoConfeti" class="form-field__input form-field__select">
+                <option value="">Selecciona el paquete</option>
+                <option value="Cañón Confeti x2">Cañón Confeti x2</option>
+                <option value="Cañón Confeti x4">Cañón Confeti x4</option>
+                <option value="Serpentinas CO2">Serpentinas CO2</option>
+                <option value="Confeti Biodegradable">Confeti Biodegradable</option>
+                <option value="Kit Fiesta">Kit Fiesta</option>
+                <option value="Paquete Confeti + Serpentinas">Paquete Confeti + Serpentinas</option>
+              </select>
+            </div>
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">Mensaje <span class="form-field__required">*</span></label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Cuéntanos los detalles: tipo de venue, colores deseados, momentos para el confeti, número de invitados, si es interior o exterior..." rows="4" required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Limpieza incluida</h3>
+            <p class="reserva-card__text">Nos encargamos de recoger todo el confeti después del evento con aspiradoras industriales.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para tu celebración.</p>
+          </div>
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoConfeti = document.getElementById('tipoConfeti').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Confeti y Serpentinas para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoConfeti) texto += `*Paquete:* ${tipoConfeti}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- PROVEEDORES -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader id="proveedores-heading" title="Proveedores de Confianza en Iluminación" subtitle="Red de aliados profesionales" description={["Trabajamos con los proveedores más reconocidos de iluminación profesional para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.", "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."]} />
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header"><span class="partner-card__initial">R</span><div class="partner-card__badge">Aliado estratégico</div></div>
+          <div class="partner-card__content"><h3 class="partner-card__name">REDEIL</h3><p class="partner-card__tagline">Renta de Iluminación Profesional</p><p class="partner-card__text">Líder en renta de iluminación para eventos sociales en CDMX y Estado de México. Especialistas en guirnaldas LED, cabezas móviles, iluminación arquitectónica, gobos personalizados y efectos especiales.</p></div>
+          <a href="https://rentadeiluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">Visitar sitio <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </article>
+        <article class="partner-card">
+          <div class="partner-card__header"><span class="partner-card__initial">R</span><div class="partner-card__badge">Iluminación + Audio</div></div>
+          <div class="partner-card__content"><h3 class="partner-card__name">REDEIL Sonido</h3><p class="partner-card__tagline">Iluminación LED y Audio Profesional</p><p class="partner-card__text">Especialistas en audio JBL y QSC, iluminación LED profesional, DJ y pantallas LED para bodas, XV años y eventos corporativos. Servicio integral con instalación y operación técnica incluida.</p></div>
+          <a href="https://redeil.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">Visitar sitio <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </article>
+        <article class="partner-card">
+          <div class="partner-card__header"><span class="partner-card__initial">R</span><div class="partner-card__badge">+15 años de experiencia</div></div>
+          <div class="partner-card__content"><h3 class="partner-card__name">RESOIL</h3><p class="partner-card__tagline">Renta de Sonido e Iluminación</p><p class="partner-card__text">Más de 15 años proporcionando equipo profesional de sonido e iluminación para eventos corporativos en CDMX. Guirnaldas LED, sky trackers, luces arquitectónicas, cascadas LED y gobos.</p></div>
+          <a href="https://rentadesonidoeiluminacion.com.mx/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">Visitar sitio <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </article>
+        <article class="partner-card">
+          <div class="partner-card__header"><span class="partner-card__initial">L</span><div class="partner-card__badge">+20 años de experiencia</div></div>
+          <div class="partner-card__content"><h3 class="partner-card__name">LUMINAPRO</h3><p class="partner-card__tagline">Expertos en Iluminación Profesional</p><p class="partner-card__text">Líder en renta de iluminación profesional para eventos con más de 20 años transformando espacios en CDMX. Servicio integral: diseño, instalación, operación y desmontaje de cabezas móviles, láser y más.</p></div>
+          <a href="https://renta-de-iluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">Visitar sitio <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    headline="Confeti y serpentinas que transforman cada momento en una celebración explosiva"
+    subheadline="Más de 500 eventos con efectos especiales nos respaldan. Cotiza hoy y recibe una propuesta personalizada."
+    primaryCTA={{ label: "Cotizar confeti", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar cañones de confeti para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

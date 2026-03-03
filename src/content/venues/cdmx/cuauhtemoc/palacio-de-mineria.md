@@ -165,3 +165,12 @@ Por tratarse de un **Monumento Histórico Nacional** bajo resguardo del INAH, to
 Imagina a tus invitados ascendiendo por la escalera que caminó Humboldt, brindando bajo los frescos que presenciaron la independencia de México, y bailando en el mismo patio donde la élite novohispana celebraba sus victorias. **El Palacio de Minería no es solo un venue: es un viaje en el tiempo**.
 
 Cada evento aquí se convierte en parte de una historia de más de dos siglos, donde la arquitectura, el arte y la celebración se fusionan para crear momentos verdaderamente irrepetibles.
+
+## Venues Similares de Patrimonio Histórico
+
+Si buscas espacios monumentales con historia:
+
+- **[Palacio de la Autonomía](/directorio/cdmx/centro-historico/palacio-autonomia/)** — Siglo XVIII, frescos coloniales, más accesible
+- **[Casino Español](/directorio/cdmx/cuauhtemoc/casino-espanol/)** — Club de 1863, candiles de Bohemia, gastronomía española
+- **[Casa de los Azulejos](/directorio/cdmx/centro-historico/casa-de-los-azulejos/)** — Palacio del siglo XVIII, fachada de talavera
+- **[Hacienda Panoaya](/directorio/estado-mexico/amecameca/hacienda-panoaya/)** — Siglo XVII donde vivió Sor Juana, 80 hectáreas

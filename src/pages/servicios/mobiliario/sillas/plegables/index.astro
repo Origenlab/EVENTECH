@@ -1,0 +1,714 @@
+---
+/**
+ * ─── Sillas Plegables — Página de Producto (Nivel 4) ───
+ * Funcionalidad y precio accesible en 3 líneas:
+ * plástico reforzado, madera barnizada y Napoleón.
+ *
+ * Jerarquía: Servicios > Mobiliario > Sillas > Sillas Plegables
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Sillas", href: "/servicios/mobiliario/sillas/" },
+  { label: "Sillas Plegables" },
+];
+
+const faqs = [
+  { question: "¿Cuál es la diferencia entre las 3 líneas de plegables?", answer: 'La línea <strong>plástico reforzado</strong> es la más económica: polipropileno de alta densidad con 150 kg de resistencia, resistente al agua y rayos UV — ideal para eventos masivos al exterior. La línea <strong>madera barnizada</strong> ofrece un look más cálido con asiento acolchado integrado y 120 kg de resistencia — perfecta para ceremonias y conferencias. La línea <strong>Napoleón</strong> tiene acabado metálico en resina con 140 kg de resistencia — combina la practicidad de la plegable con la elegancia de una silla de diseño.' },
+  { question: "¿Qué tan resistentes son las sillas plegables?", answer: "Cada línea está probada y certificada: <strong>plástico reforzado soporta 150 kg</strong>, madera barnizada soporta <strong>120 kg</strong> y Napoleón soporta <strong>140 kg</strong>. Todas las sillas son inspeccionadas antes de cada evento para garantizar que los mecanismos de plegado funcionan correctamente y la estructura está en condiciones óptimas." },
+  { question: "¿Las plegables incluyen cojín?", answer: 'La línea <strong>madera barnizada incluye asiento acolchado integrado</strong> de fábrica — no necesitas agregar nada. Las líneas plástico y Napoleón tienen asiento liso de serie, pero ofrecemos <strong>cojines opcionales</strong> como complemento por un cargo adicional mínimo. Los cojines están disponibles en blanco, negro, marfil y colores bajo pedido.' },
+  { question: "¿Cuál es la cantidad mínima para eventos masivos?", answer: "No hay cantidad mínima — puedes rentar desde 1 silla plegable. Sin embargo, los <strong>precios por volumen comienzan a partir de 200 unidades</strong> con descuentos progresivos. Las mejores tarifas se obtienen en lotes de <strong>500 o más sillas</strong>, donde ofrecemos precio especial por unidad, logística coordinada y montaje express incluido." },
+  { question: "¿Se pueden usar en exteriores?", answer: 'La línea <strong>plástico reforzado es 100% apta para exteriores</strong>: resistente al agua, rayos UV y no se deforma con el calor. La línea madera barnizada requiere protección — recomendamos usarla bajo <a href="/servicios/carpas/">carpas profesionales</a> para evitar humedad directa. La línea Napoleón (resina) funciona bien en exteriores secos pero debe protegerse de la lluvia prolongada.' },
+  { question: "¿Con cuánta anticipación debo reservar para eventos masivos?", answer: "Para eventos de <strong>500+ sillas recomendamos reservar con 3 a 4 semanas de anticipación</strong>. Para eventos de 1,000+ sillas, lo ideal es apartar con <strong>1 a 2 meses</strong> para garantizar disponibilidad de la línea y color deseados. Un anticipo del <strong>30% confirma tu reserva</strong> y asegura tu fecha." },
+];
+
+const specs = [
+  { label: "Línea Plástico", value: "Polipropileno reforzado, 150 kg" },
+  { label: "Línea Madera", value: "Madera barnizada con asiento acolchado, 120 kg" },
+  { label: "Línea Napoleón", value: "Resina acabado metálico, 140 kg" },
+  { label: "Peso promedio", value: "3.5-4.5 kg" },
+  { label: "Plegado", value: "Sí, todas las líneas" },
+  { label: "Apilable", value: "Sí, hasta 15 por pila" },
+  { label: "Colores Plástico", value: "Blanco, Negro, Marrón" },
+  { label: "Colores Madera", value: "Natural, Caoba" },
+  { label: "Colores Napoleón", value: "Dorado, Plateado, Blanco" },
+  { label: "Mantenimiento", value: "Limpieza e inspección pre-evento" },
+];
+
+const sidebarNav = [
+  { name: "Sillas Tiffany", href: "/servicios/mobiliario/sillas/tiffany/" },
+  { name: "Sillas Chiavari", href: "/servicios/mobiliario/sillas/chiavari/" },
+  { name: "Sillas Ghost", href: "/servicios/mobiliario/sillas/ghost/" },
+  { name: "Sillas Crossback", href: "/servicios/mobiliario/sillas/crossback/" },
+  { name: "Sillas Plegables", href: null, active: true },
+];
+
+const sidebarRelated = [
+  { name: "Mesas y Tablones", href: "/servicios/mobiliario/mesas/" },
+  { name: "Carpas Profesionales", href: "/servicios/carpas/" },
+  { name: "Equipo Audiovisual", href: "/servicios/audiovisual/" },
+  { name: "Tarimas y Escenarios", href: "/servicios/pistas-baile/tarimas-escenarios/" },
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+];
+
+const reviews = [
+  { author: "Roberto Jiménez", text: "Rentamos 800 plegables plástico blancas para una conferencia empresarial en Centro Banamex. El equipo montó todo en menos de una hora — logística impecable. Las sillas llegaron limpias, en perfecto estado y el precio por unidad fue imbatible. Para eventos de gran formato no hay mejor opción.", rating: 5, date: "2025-11-15" },
+  { author: "Ana María Cortés", text: "Usamos 500 plegables de madera para una feria expo en Reforma. El look cálido de la madera barnizada le dio un toque mucho más elegante de lo que esperábamos. Los asientos acolchados fueron cómodos para todo el día — los expositores y visitantes lo agradecieron mucho.", rating: 5, date: "2025-09-28" },
+  { author: "Padre José Luis Moreno", text: "Para la ceremonia religiosa de nuestra parroquia rentamos 600 plegables Napoleón dorada. La congregación quedó impresionada con lo elegantes que se veían — parecían sillas de diseño pero con la practicidad de plegarse y almacenarse fácilmente. Servicio puntual y profesional.", rating: 5, date: "2025-08-10" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Sillas Plegables para Eventos en CDMX",
+    description: "Sillas plegables en 3 líneas: plástico reforzado, madera barnizada y Napoleón. Ideales para eventos masivos. Desde $15 por silla.",
+    url: "/servicios/mobiliario/sillas/plegables/",
+    priceRange: { min: 15, max: 80 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 95,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Sillas", url: "/servicios/mobiliario/sillas/" },
+    { name: "Sillas Plegables", url: "/servicios/mobiliario/sillas/plegables/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Sillas Plegables para Eventos en CDMX"
+  description="Renta de sillas plegables en 3 líneas: plástico reforzado, madera barnizada y Napoleón. Ideales para eventos masivos. Desde $15 por silla."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="La opción más económica desde $15"
+    title='Renta de <span class="highlight">Sillas Plegables</span> para Eventos en CDMX'
+    subtitle="Sillas plegables en 3 líneas: plástico reforzado (150 kg), madera barnizada (120 kg) y Napoleón (140 kg). Apilables, transportables y con montaje rapidísimo. Ideales para eventos masivos de 500+ personas. Entrega y montaje profesional."
+    primaryCTA={{ label: "Cotiza tus sillas plegables", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar sillas plegables para mi evento` }}
+    cards={[
+      {
+        title: "3 líneas para cada necesidad: plástico, madera y Napoleón",
+        content: "<strong>Renta de sillas plegables para eventos</strong> con el catálogo más completo en 3 líneas: <strong>plástico reforzado</strong> de polipropileno con 150 kg de resistencia en blanco, negro y marrón — la más económica para eventos masivos. <strong>Madera barnizada</strong> con asiento acolchado y 120 kg en natural y caoba — look cálido para ceremonias. <strong>Napoleón</strong> en resina con acabado metálico de 140 kg en dorado, plateado y blanco — elegancia accesible.",
+      },
+      {
+        title: "Apilables y transporte rápido para eventos masivos de 500+",
+        content: "<strong>Logística optimizada para eventos de gran formato</strong> con sillas 100% plegables y apilables hasta 15 unidades por pila. Un equipo de 4 personas monta 500 sillas en menos de 60 minutos. Flota propia de camiones para entrega simultánea en múltiples venues. Ideal para conferencias, ferias, ceremonias religiosas, graduaciones y cualquier evento donde necesitas gran capacidad con presupuesto accesible.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas sillas plegables para tu próximo evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con línea, cantidad y precio por unidad"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Sillas para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas sillas plegables para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar sillas plegables para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/><path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/><path d="M5 21v-2"/><path d="M19 21v-2"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Sillas Plegables</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Plegable Plástico Reforzado -->
+          <section class="section section--alt" aria-labelledby="plastico-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">La más económica</span>
+                <h2 class="showcase__title" id="plastico-heading">Plegable Plástico Reforzado</h2>
+                <p class="showcase__subtitle">Polipropileno de alta densidad con 150 kg de resistencia: la solución práctica para eventos masivos.</p>
+                <p class="showcase__text">La <strong>silla plegable de plástico reforzado</strong> es la opción más económica y funcional de nuestro catálogo — la solución definitiva para eventos donde necesitas gran cantidad de asientos con presupuesto controlado. Fabricada en polipropileno de alta densidad con <strong>150 kg de resistencia</strong>, disponible en blanco, negro y marrón. Su superficie es resistente al agua y a los rayos UV, lo que la hace perfecta para eventos al aire libre sin necesidad de protección adicional.</p>
+                <p class="showcase__text">Apilable hasta <strong>15 unidades por pila</strong>, lo que permite almacenar y transportar grandes cantidades en poco espacio. Ideal para eventos de <strong>500+ personas</strong> como conferencias empresariales, ferias, graduaciones, ceremonias religiosas y festivales. Combínalas con nuestras <a href="/servicios/mobiliario/mesas/">mesas y tablones</a> para un montaje integral a precio accesible.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Plástico Reforzado</span>
+                  <span class="showcase__tag">150 kg</span>
+                  <span class="showcase__tag">Eventos Masivos</span>
+                  <span class="showcase__tag">Económica</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Plegable Plástico
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/><path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/><path d="M5 21v-2"/><path d="M19 21v-2"/></svg>
+                  <span>Plegable Plástico Reforzado</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Plegable Madera Barnizada -->
+          <section class="section section--alt" aria-labelledby="madera-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Calidez accesible</span>
+                <h2 class="showcase__title" id="madera-heading">Plegable Madera Barnizada</h2>
+                <p class="showcase__subtitle">Madera barnizada con asiento acolchado: look cálido para ceremonias y conferencias con presupuesto inteligente.</p>
+                <p class="showcase__text">La <strong>silla plegable de madera barnizada</strong> eleva el nivel estético de la silla plegable tradicional. Fabricada en madera sólida con acabado barnizado de alta calidad y <strong>asiento acolchado integrado</strong> que garantiza comodidad durante horas. Con una resistencia de <strong>120 kg</strong>, está disponible en acabado natural y caoba — dos tonalidades que aportan calidez y elegancia a cualquier espacio.</p>
+                <p class="showcase__text">La favorita para <strong>ceremonias religiosas, conferencias de medio día, graduaciones y eventos sociales</strong> donde quieres un look más sofisticado que el plástico pero sin el presupuesto de sillas de diseño. El asiento acolchado la hace especialmente cómoda para eventos de larga duración. Combínalas con nuestra <a href="/servicios/accesorios/manteleria-textiles/">mantelería y textiles</a> para un montaje con personalidad.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Madera Barnizada</span>
+                  <span class="showcase__tag">120 kg</span>
+                  <span class="showcase__tag">Ceremonias</span>
+                  <span class="showcase__tag">Conferencias</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Plegable Madera
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/><path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/><path d="M5 21v-2"/><path d="M19 21v-2"/></svg>
+                  <span>Plegable Madera Barnizada</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Plegable Napoleón -->
+          <section class="section section--alt" aria-labelledby="napoleon-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Elegancia práctica</span>
+                <h2 class="showcase__title" id="napoleon-heading">Plegable Napoleón</h2>
+                <p class="showcase__subtitle">Resina con acabado metálico que combina la practicidad de la plegable con la elegancia de la silla de diseño.</p>
+                <p class="showcase__text">La <strong>silla plegable Napoleón</strong> es la opción premium dentro de la familia de plegables — fabricada en resina de alta calidad con <strong>acabado metálico</strong> disponible en dorado, plateado y blanco. Con una resistencia de <strong>140 kg</strong>, su diseño elegante con respaldo detallado la hace lucir como una silla de diseño pero con la ventaja práctica de plegarse completamente para transporte y almacenaje eficiente.</p>
+                <p class="showcase__text">Perfecta para eventos donde deseas <strong>elegancia con presupuesto inteligente</strong>: bodas civiles, cenas formales, inauguraciones y eventos sociales que buscan un look premium sin el costo de sillas Tiffany o Chiavari. Su acabado metálico refleja la luz de forma similar a las sillas de diseño, creando un ambiente sofisticado. Combínalas con nuestro <a href="/servicios/audiovisual/">equipo audiovisual</a> para un montaje completo.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Napoleón</span>
+                  <span class="showcase__tag">140 kg</span>
+                  <span class="showcase__tag">Acabado Metálico</span>
+                  <span class="showcase__tag">Elegancia</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Plegable Napoleón
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/><path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/><path d="M5 21v-2"/><path d="M19 21v-2"/></svg>
+                  <span>Plegable Napoleón</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Evento Masivo (500+ sillas) -->
+          <section class="section section--alt" aria-labelledby="masivo-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Gran formato</span>
+                <h2 class="showcase__title" id="masivo-heading">Kit Evento Masivo (500+ sillas)</h2>
+                <p class="showcase__subtitle">Paquetes desde 500 hasta 2,000+ sillas con logística coordinada, montaje express y precio especial por volumen.</p>
+                <p class="showcase__text">Nuestros <strong>kits de evento masivo</strong> están diseñados para organizadores que necesitan equipar grandes espacios con eficiencia y presupuesto controlado. Paquetes desde 500 hasta 2,000+ sillas con <strong>logística coordinada</strong> que incluye múltiples camiones de nuestra flota propia para entrega simultánea. Un equipo de 4 personas monta <strong>500 sillas en menos de 60 minutos</strong> gracias al sistema de plegado rápido y apilamiento optimizado.</p>
+                <p class="showcase__text">Los kits incluyen <strong>descuentos progresivos por volumen</strong>: a mayor cantidad, mejor precio por unidad. Puedes mezclar líneas dentro del mismo paquete — por ejemplo, Napoleón dorada para la mesa principal y plástico blanca para el resto de los invitados. Cada kit incluye un <strong>coordinador dedicado</strong> que supervisa la logística de entrega, montaje y recolección. Complementa con nuestras <a href="/servicios/pistas-baile/tarimas-escenarios/">tarimas y escenarios</a> para eventos de gran formato completos.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">500+ Sillas</span>
+                  <span class="showcase__tag">Logística Coordinada</span>
+                  <span class="showcase__tag">Precio Volumen</span>
+                  <span class="showcase__tag">Montaje Express</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Evento Masivo
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/><path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/><path d="M5 21v-2"/><path d="M19 21v-2"/></svg>
+                  <span>Kit Evento Masivo (500+ sillas)</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Sillas Plegables"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar sillas plegables para tu evento, es natural tener preguntas sobre las líneas disponibles, resistencia, cojines y logística. Aquí encontrarás las respuestas más comunes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor especializado en mobiliario te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en sillas plegables resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre sillas plegables para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Sillas para Eventos -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Sillas para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/sillas/" class="sidebar-nav__back">&uarr; Volver a Sillas</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/" class="sidebar-nav__back">&uarr; Volver a Mobiliario</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de sillas plegables:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas sillas plegables para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar sillas plegables para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tus Sillas Plegables"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores de mobiliario te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea que necesites 100 sillas plegables de plástico para una conferencia o 2,000 para un festival, estamos aquí para asesorarte con la línea y cantidad perfectas."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Conferencia">Conferencia</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Ceremonia Religiosa">Ceremonia Religiosa</option>
+                <option value="Graduación">Graduación</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Festival">Festival</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoPlegable">
+                Línea de silla plegable
+              </label>
+              <select id="tipoPlegable" name="tipoPlegable" class="form-field__input form-field__select">
+                <option value="">Selecciona la línea</option>
+                <option value="Plegable Plástico Blanca">Plegable Plástico Blanca</option>
+                <option value="Plegable Plástico Negra">Plegable Plástico Negra</option>
+                <option value="Plegable Madera Natural">Plegable Madera Natural</option>
+                <option value="Plegable Napoleón Dorada">Plegable Napoleón Dorada</option>
+                <option value="Paquete Evento Masivo 500+">Paquete Evento Masivo 500+</option>
+                <option value="Paquete Ceremonia">Paquete Ceremonia</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de sillas, línea preferida, venue, tipo de evento..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Desde $15 por silla</h3>
+            <p class="reserva-card__text">La opción más accesible de nuestro catálogo — funcionalidad y calidad a precio imbatible.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada de mobiliario para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoPlegable = document.getElementById('tipoPlegable').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Sillas Plegables para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoPlegable) texto += `*Línea de silla plegable:* ${tipoPlegable}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Mobiliario"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de mobiliario para eventos en la Ciudad de México. Cada aliado cuenta con inventario verificado, logística profesional y trayectoria comprobada.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad de sillas plegables en todas las líneas y cantidades para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Mobiliario Premium MX</h3>
+            <p class="partner-card__tagline">Especialistas en Sillas de Diseño</p>
+            <p class="partner-card__text">Especialistas en sillas de diseño para bodas y eventos sociales en CDMX. Inventario de más de 5,000 sillas Tiffany, Chiavari y Ghost con entrega y montaje profesional incluido.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Rent All CDMX</h3>
+            <p class="partner-card__tagline">Mobiliario y Sillas para Corporativos</p>
+            <p class="partner-card__text">Renta integral de mobiliario y sillas para eventos corporativos, congresos y ferias. Capacidad para eventos de 1,000+ personas con logística propia y servicio de montaje express.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventMob</h3>
+            <p class="partner-card__tagline">Mobiliario Contemporáneo y Clásico</p>
+            <p class="partner-card__text">Mobiliario contemporáneo y clásico para todo tipo de celebración. Sillas Tiffany, Crossback y plegables con más de 10 años equipando los eventos más importantes de la Ciudad de México.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MesasyMás</h3>
+            <p class="partner-card__tagline">Sillas, Mesas y Complementos</p>
+            <p class="partner-card__text">Sillas, mesas y complementos de mobiliario con servicio de logística puerta a puerta. Flota propia de camiones para entregas puntuales en CDMX y zona metropolitana.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Sillas plegables que equipan eventos masivos con calidad y precio accesible"
+    subheadline="Más de 1,000 eventos masivos equipados nos respaldan. Cotiza hoy y recibe descuento por volumen."
+    primaryCTA={{ label: "Cotizar sillas plegables", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar sillas plegables para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

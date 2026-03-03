@@ -195,3 +195,22 @@ Desde bodas íntimas de 100 personas hasta eventos de 600, los múltiples espaci
 Hay venues donde organizas un evento. Y hay lugares donde **tu celebración se convierte en parte de una historia que comenzó hace 250 años**. Cuando los invitados a tu boda caminen bajo las palmeras centenarias, cuando los votos se pronuncien ante un retablo que ha presenciado siglos de matrimonios, cuando la música resuene contra muros que han escuchado celebraciones desde la época virreinal, sabrán que están en un lugar especial.
 
 Hacienda de la Palma no ofrece una experiencia de evento: ofrece **un viaje en el tiempo donde tu celebración se une al legado de generaciones**.
+
+## Servicios de EVENTECH para Hacienda de la Palma
+
+Como partner oficial de EVENTECH, ofrecemos soluciones que respetan y realzan la arquitectura colonial:
+
+- **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** para las palmeras centenarias y muros de adobe
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** con fairy lights y candiles que armonizan con la época
+- **[Sonido profesional](/servicios/audiovisual/sonido/)** discreto para espacios históricos con acústica sensible
+- **[Mobiliario elegante](/servicios/mobiliario/)** que complementa sin competir con los acabados coloniales
+- **[Pantallas LED](/servicios/audiovisual/pantallas-led/)** para presentaciones que respetan el ambiente
+
+## Venues Similares con Historia Colonial
+
+Si buscas haciendas auténticas con capilla y jardines centenarios:
+
+- **[San Ángel Inn](/directorio/cdmx/san-angel/san-angel-inn/)** — Convento del siglo XVII, gastronomía galardonada
+- **[Hacienda de los Morales](/directorio/cdmx/polanco/hacienda-de-los-morales/)** — Colonial del siglo XVI en Polanco
+- **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — Sin límite de horario, 12,000 m² de jardines
+- **[Hacienda San Ángel](/directorio/cdmx/coyoacan/hacienda-san-angel/)** — Colonial con capilla barroca en Coyoacán

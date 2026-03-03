@@ -198,3 +198,22 @@ Hay bodas que suceden en espacios cerrados donde el mundo exterior desaparece. Y
 En Hacienda San Antonio, cuando pronuncies tus votos con el Nevado de Toluca observando en silencio, cuando bailes bajo las estrellas del cielo limpio del Valle, cuando brindes mientras el último rayo de sol corona la cumbre nevada, entenderás por qué algunas parejas viajan desde todo México para casarse aquí.
 
 **El volcán no es decoración: es testigo. Y su presencia hace de cada celebración algo legendario.**
+
+## Servicios de EVENTECH para Hacienda San Antonio
+
+Como partner oficial de EVENTECH, ofrecemos soluciones para eventos de gran escala con vistas espectaculares:
+
+- **[Carpas estructurales](/servicios/carpas/estructurales/)** transparentes para disfrutar la vista al Nevado sin preocupaciones climáticas
+- **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** para realzar la hacienda y jardines al atardecer
+- **[Sonido profesional](/servicios/audiovisual/sonido/)** line array para eventos de hasta 800 personas
+- **[Mobiliario elegante](/servicios/mobiliario/)** que complementa el ambiente colonial
+- **[Pistas de baile LED](/servicios/pistas-baile/pistas-led/)** espectaculares bajo las estrellas del Valle de Toluca
+
+## Venues Similares con Vistas Espectaculares
+
+Si buscas haciendas con paisajes naturales extraordinarios:
+
+- **[Hacienda Panoaya](/directorio/estado-mexico/amecameca/hacienda-panoaya/)** — Vista a los volcanes Popocatépetl e Iztaccíhuatl
+- **[Bosques del Nevado](/directorio/estado-mexico/zinacantepec/bosques-del-nevado/)** — Paisaje boscoso junto al volcán
+- **[Hacienda Vista Hermosa](/directorio/estado-mexico/ixtapan-de-la-sal/hacienda-vista-hermosa/)** — Vistas panorámicas en Ixtapan
+- **[Hotel Avándaro](/directorio/estado-mexico/valle-de-bravo/hotel-avandaro-golf-spa/)** — Lago y bosque en Valle de Bravo

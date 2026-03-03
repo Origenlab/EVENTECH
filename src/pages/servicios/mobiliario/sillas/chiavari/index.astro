@@ -1,0 +1,493 @@
+---
+/**
+ * ─── Sillas Chiavari — Página de Producto (Nivel 4) ───
+ * Aluminio ultraligero (1.8 kg) con diseño italiano clásico.
+ * Resistencia de 200 kg, 30+ colores de cojín.
+ *
+ * Jerarquía: Servicios > Mobiliario > Sillas > Sillas Chiavari
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Sillas", href: "/servicios/mobiliario/sillas/" },
+  { label: "Sillas Chiavari" },
+];
+
+const faqs = [
+  { question: "¿Cuál es la diferencia entre Chiavari y Tiffany?", answer: 'La principal diferencia es el diseño del respaldo y el material. La <strong>Chiavari</strong> tiene un respaldo angular con barras torneadas, fabricada en aluminio anodizado ultraligero (1.8 kg) con mayor resistencia (200 kg). La <a href="/servicios/mobiliario/sillas/tiffany/">Tiffany</a> tiene respaldo ovalado con barras verticales, fabricada en resina policarbonato + acero (4.5 kg, 180 kg). La Chiavari es más ligera, apilable hasta 12 unidades y tiene perfil más angular — ideal para corporativos. La Tiffany tiene un look más clásico y romántico — ideal para bodas.' },
+  { question: "¿Realmente soporta 200 kg por silla?", answer: "Sí. Las sillas Chiavari están fabricadas en <strong>aluminio anodizado de alta resistencia</strong> con uniones soldadas y reforzadas. Cada lote se somete a pruebas de carga estática de 200 kg y pruebas dinámicas de 150 kg (simulando movimiento). El aluminio anodizado no se oxida, no se deforma con el uso continuo y mantiene su acabado metalizado incluso después de cientos de eventos. Es la silla con mayor resistencia de toda nuestra colección." },
+  { question: "¿Cuántas opciones de cojín tienen?", answer: "Ofrecemos <strong>más de 30 colores de cojín</strong> para las Chiavari en tres tipos de tela: <strong>tela estándar</strong> (20 colores básicos incluidos sin costo), <strong>lycra</strong> (15 colores con cargo mínimo) y <strong>terciopelo</strong> (10 colores premium). Los cojines son intercambiables y se fijan con velcro — si necesitas un color específico para match con tu marca corporativa, envíanos la referencia Pantone y te confirmamos disponibilidad." },
+  { question: "¿Son prácticas para eventos masivos de 500+ personas?", answer: "Las Chiavari son <strong>ideales para eventos de gran formato</strong> gracias a tres ventajas clave: pesan solo 1.8 kg (las más ligeras de nuestra colección), son apilables hasta 12 unidades por torre y el montaje es rapidísimo. Un equipo de 4 personas puede montar 500 sillas Chiavari en menos de 90 minutos. Para eventos de 500+ personas, ofrecemos descuentos por volumen y coordinación logística con múltiples camiones de entrega simultánea." },
+  { question: "¿Puedo combinar Chiavari con otros modelos de silla?", answer: 'Sí, muchos de nuestros clientes combinan modelos para crear zonas diferenciadas. Las combinaciones más populares son: <strong>Chiavari dorada en mesa principal + Tiffany dorada en mesas de invitados</strong> (look uniforme con diferencia sutil), <strong>Chiavari + sillas Ghost en zonas lounge</strong> (contraste moderno), y <strong>Chiavari + plegables Napoleón para ceremonia</strong> (combinación práctica). Nuestros asesores te orientan para una combinación armoniosa.' },
+  { question: "¿Con cuánta anticipación debo reservar?", answer: "Recomendamos reservar con <strong>2 a 4 semanas de anticipación</strong>. Para eventos corporativos de gran formato (300+ sillas) y en temporada alta (septiembre a diciembre), sugerimos apartar con <strong>1 a 2 meses</strong> para garantizar disponibilidad del acabado específico. Un anticipo del 30% confirma tu reserva. Para congresos recurrentes, ofrecemos contratos anuales con tarifa preferencial." },
+];
+
+const specs = [
+  { label: "Material", value: "Aluminio anodizado" },
+  { label: "Peso", value: "1.8 kg" },
+  { label: "Resistencia", value: "200 kg" },
+  { label: "Acabados", value: "Dorado, Plateado, Negro mate, Bronce" },
+  { label: "Cojín", value: "30+ colores, intercambiable (tela/lycra/terciopelo)" },
+  { label: "Altura respaldo", value: "92 cm" },
+  { label: "Ancho asiento", value: "39 cm" },
+  { label: "Apilable", value: "Sí, hasta 12 unidades" },
+  { label: "Perfil", value: "Angular con barras torneadas" },
+  { label: "Mantenimiento", value: "Limpieza e inspección incluida pre-evento" },
+];
+
+const sidebarNav = [
+  { name: "Sillas Tiffany", href: "/servicios/mobiliario/sillas/tiffany/" },
+  { name: "Sillas Chiavari", href: null, active: true },
+  { name: "Sillas Ghost", href: "/servicios/mobiliario/sillas/ghost/" },
+  { name: "Sillas Crossback", href: "/servicios/mobiliario/sillas/crossback/" },
+  { name: "Sillas Plegables", href: "/servicios/mobiliario/sillas/plegables/" },
+];
+
+const sidebarRelated = [
+  { name: "Mesas para Eventos", href: "/servicios/mobiliario/mesas/" },
+  { name: "Barras para Eventos", href: "/servicios/mobiliario/barras/" },
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+  { name: "Equipo Audiovisual", href: "/servicios/audiovisual/" },
+  { name: "Iluminación Arquitectónica", href: "/servicios/iluminacion/arquitectonica/" },
+];
+
+const reviews = [
+  { author: "Mariana Torres", text: "Rentamos 300 sillas Chiavari doradas para la cena anual de nuestra empresa en un hotel de Polanco. El equipo montó todo impecablemente según el plano que les enviamos. Las sillas son elegantes, resistentes y los cojines azul marino le dieron un toque ejecutivo perfecto. Servicio excelente de principio a fin.", rating: 5, date: "2025-11-08" },
+  { author: "Luis Herrera", text: "Para el congreso de marketing necesitábamos 400 sillas ligeras y apilables. Las Chiavari plateadas fueron la solución perfecta — se montaron rapidísimo y aguantaron 3 días de uso intenso sin ningún problema. El acabado metalizado se veía premium. Definitivamente las volveremos a rentar.", rating: 5, date: "2025-09-25" },
+  { author: "Sofía Castillo", text: "Elegimos Chiavari negro mate para la graduación de mi hija en un jardín de Coyoacán. El contraste con los manteles blancos fue espectacular. Los cojines en terciopelo gris fueron un upgrade que valió cada peso. Montaje puntual, sillas impecables y recolección sin problema. Muy recomendados.", rating: 5, date: "2025-08-14" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Sillas Chiavari para Eventos en CDMX",
+    description: "Sillas Chiavari de aluminio ultraligero (1.8 kg) con carga de 200 kg. 30+ colores de cojín. Desde $40 por silla.",
+    url: "/servicios/mobiliario/sillas/chiavari/",
+    priceRange: { min: 40, max: 130 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 64,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Sillas", url: "/servicios/mobiliario/sillas/" },
+    { name: "Sillas Chiavari", url: "/servicios/mobiliario/sillas/chiavari/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Sillas Chiavari para Eventos en CDMX"
+  description="Renta de sillas Chiavari de aluminio ultraligero (1.8 kg) con carga de 200 kg. 30+ colores de cojín. Desde $40 por silla."
+  jsonLd={jsonLd}
+>
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <HeroPage
+    badge="Máxima resistencia: 200 kg por silla"
+    title='Renta de <span class="highlight">Sillas Chiavari</span> para Eventos en CDMX'
+    subtitle="Sillas Chiavari de aluminio anodizado ultraligero (1.8 kg) con la mayor resistencia de nuestra colección: 200 kg por silla. Acabados dorado, plateado, negro mate y bronce. 30+ colores de cojín intercambiable. Entrega y montaje profesional."
+    primaryCTA={{ label: "Cotiza tus sillas Chiavari", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar sillas Chiavari para mi evento` }}
+    cards={[
+      {
+        title: "Aluminio anodizado ultraligero con 200 kg de resistencia",
+        content: "<strong>Renta de sillas Chiavari para eventos</strong> fabricadas en aluminio anodizado de solo 1.8 kg por unidad — las más ligeras de nuestra colección — con una resistencia comprobada de <strong>200 kg por silla</strong>, la mayor de todos nuestros modelos. Disponibles en 4 acabados metalizados: dorado clásico, plateado elegante, negro mate ejecutivo y bronce sofisticado. Perfil angular con barras torneadas de diseño italiano que aporta distinción a cualquier montaje.",
+      },
+      {
+        title: "30+ colores de cojín en tela, lycra y terciopelo",
+        content: "<strong>Personalización total con más de 30 opciones de cojín</strong> intercambiable: tela estándar incluida sin costo en 20 colores, lycra en 15 tonos y terciopelo premium en 10 colores. Fijación por velcro para cambio rápido. Apilable hasta 12 unidades para logística eficiente en eventos de gran formato. Ideal para corporativos, congresos, bodas y graduaciones. Montaje de 500 sillas en menos de 90 minutos.",
+      },
+    ]}
+  />
+
+  <CTABanner
+    headline="¿Necesitas sillas Chiavari para tu próximo evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con acabado, cojín y precio por unidad"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Sillas para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li><a href={item.href} class="sidebar-related__link"><span class="sidebar-related__arrow">&rarr;</span>{item.name}</a></li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas sillas Chiavari para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar sillas Chiavari para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <div class="l4-main">
+
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/><path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/><path d="M5 21v-2"/><path d="M19 21v-2"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Sillas Chiavari</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- SHOWCASE: Chiavari Dorada -->
+          <section class="section section--alt" aria-labelledby="chiavari-dorada-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">El clásico italiano</span>
+                <h2 class="showcase__title" id="chiavari-dorada-heading">Chiavari Dorada</h2>
+                <p class="showcase__subtitle">El acabado dorado clásico que combina tradición italiana con resistencia industrial de 200 kg.</p>
+                <p class="showcase__text">La <strong>silla Chiavari dorada</strong> es el modelo insignia de la línea Chiavari, originada en la ciudad italiana de Chiavari en el siglo XIX. Su acabado dorado anodizado ofrece un <strong>brillo cálido y uniforme</strong> que no se desgasta con el uso — a diferencia de acabados pintados, el anodizado es parte del metal mismo. Con solo <strong>1.8 kg de peso y 200 kg de resistencia</strong>, es la combinación perfecta de elegancia y funcionalidad para eventos de cualquier escala.</p>
+                <p class="showcase__text">Las combinaciones más solicitadas son Chiavari dorada + cojín blanco para bodas, Chiavari dorada + cojín negro para galas corporativas y Chiavari dorada + cojín burdeos para cenas formales. Su perfil angular con barras torneadas aporta una <strong>distinción diferente a la Tiffany</strong> — más geométrica y contemporánea. Combínalas con nuestras <a href="/servicios/mobiliario/mesas/">mesas para eventos</a> para un montaje integral impecable.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Dorado Anodizado</span>
+                  <span class="showcase__tag">200 kg</span>
+                  <span class="showcase__tag">1.8 kg</span>
+                  <span class="showcase__tag">Diseño Italiano</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">Cotizar Chiavari Dorada</a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/><path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/><path d="M5 21v-2"/><path d="M19 21v-2"/></svg>
+                  <span>Chiavari Dorada</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SHOWCASE: Chiavari Plateada -->
+          <section class="section section--alt" aria-labelledby="chiavari-plateada-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Elegancia ejecutiva</span>
+                <h2 class="showcase__title" id="chiavari-plateada-heading">Chiavari Plateada</h2>
+                <p class="showcase__subtitle">Acabado plateado sofisticado para corporativos, congresos y celebraciones con paleta de colores fríos.</p>
+                <p class="showcase__text">La <strong>silla Chiavari plateada</strong> es la favorita del sector corporativo — su acabado metalizado aporta una <strong>imagen ejecutiva y profesional</strong> que eleva cualquier evento de negocios. El tono plateado combina naturalmente con decoraciones en gris, azul marino, blanco y negro, la paleta estándar de eventos corporativos. Cada silla es sometida a un proceso de anodizado uniforme que garantiza un acabado consistente en lotes de 100 a 1,000+ unidades.</p>
+                <p class="showcase__text">Ideal para <strong>congresos, conferencias, premiaciones, cenas de gala corporativa y eventos de networking</strong>. Las combinaciones más populares son plateada + cojín azul marino para congresos, plateada + cojín gris para conferencias y plateada + cojín blanco para premiaciones. Su peso de <strong>1.8 kg</strong> facilita reconfiguración rápida entre sesiones de conferencia y montaje de cena. Complementa con nuestro <a href="/servicios/audiovisual/">equipo audiovisual</a> para un evento corporativo integral.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Plateado Anodizado</span>
+                  <span class="showcase__tag">Corporativos</span>
+                  <span class="showcase__tag">Congresos</span>
+                  <span class="showcase__tag">Premiaciones</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">Cotizar Chiavari Plateada</a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/><path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/><path d="M5 21v-2"/><path d="M19 21v-2"/></svg>
+                  <span>Chiavari Plateada</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SHOWCASE: Chiavari Negro Mate -->
+          <section class="section section--alt" aria-labelledby="chiavari-negro-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Sofisticación moderna</span>
+                <h2 class="showcase__title" id="chiavari-negro-heading">Chiavari Negro Mate</h2>
+                <p class="showcase__subtitle">El acabado negro mate que aporta drama y sofisticación a eventos premium y de diseño.</p>
+                <p class="showcase__text">La <strong>silla Chiavari negro mate</strong> es la opción más contemporánea y audaz de la línea Chiavari. Su acabado negro mate absorbe la luz en lugar de reflejarla, creando un <strong>efecto dramático y sofisticado</strong> que destaca en eventos de diseño, lanzamientos de marca, galas nocturnas y bodas contemporáneas con estética dark luxury. Es la silla que elige el sector de moda, arte y entretenimiento.</p>
+                <p class="showcase__text">Combina espectacularmente con <strong>decoración en dorado, cobre y blanco</strong> para un contraste elegante. Las combinaciones más impactantes son negro mate + cojín dorado para galas de premiación, negro mate + cojín burdeos para cenas de gala y negro mate + cojín blanco para bodas contemporáneas. Con los mismos <strong>1.8 kg de peso y 200 kg de resistencia</strong>. Realza su presencia con nuestra <a href="/servicios/iluminacion/arquitectonica/">iluminación arquitectónica</a> para un efecto visual espectacular.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Negro Mate</span>
+                  <span class="showcase__tag">Dark Luxury</span>
+                  <span class="showcase__tag">Diseño</span>
+                  <span class="showcase__tag">Galas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">Cotizar Chiavari Negro Mate</a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/><path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/><path d="M5 21v-2"/><path d="M19 21v-2"/></svg>
+                  <span>Chiavari Negro Mate</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SHOWCASE: Chiavari Bronce -->
+          <section class="section section--alt" aria-labelledby="chiavari-bronce-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Toque vintage premium</span>
+                <h2 class="showcase__title" id="chiavari-bronce-heading">Chiavari Bronce</h2>
+                <p class="showcase__subtitle">Acabado bronce cálido que combina elegancia clásica con un toque vintage para eventos distinguidos.</p>
+                <p class="showcase__text">La <strong>silla Chiavari bronce</strong> ofrece un acabado metalizado cálido que se sitúa entre el dorado y el cobre — un tono <strong>sofisticado y diferente</strong> que aporta personalidad sin ser tan convencional como el dorado. Es la elección de clientes que buscan algo especial: bodas en haciendas con estética vintage-elegante, cenas íntimas en restaurantes exclusivos y eventos en venues industriales reconvertidos donde el bronce complementa materiales como madera, ladrillo y hierro.</p>
+                <p class="showcase__text">Combina naturalmente con <strong>paletas otoñales: terracota, mostaza, verde oliva y marfil</strong>. Las combinaciones más elegantes son bronce + cojín terracota para bodas de otoño, bronce + cojín verde oliva para eventos en jardín y bronce + cojín marfil para cenas vintage. La misma estructura de <strong>aluminio anodizado con 200 kg de resistencia</strong>. Complementa con nuestras <a href="/servicios/mobiliario/barras/">barras para eventos</a> en acabado similar para un look unificado.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Bronce Anodizado</span>
+                  <span class="showcase__tag">Vintage Elegante</span>
+                  <span class="showcase__tag">Haciendas</span>
+                  <span class="showcase__tag">Otoñal</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">Cotizar Chiavari Bronce</a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/><path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/><path d="M5 21v-2"/><path d="M19 21v-2"/></svg>
+                  <span>Chiavari Bronce</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- FAQ -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader id="faq-heading" title="Preguntas Frecuentes sobre Sillas Chiavari" subtitle="Resolvemos tus dudas" description={["Antes de rentar sillas Chiavari para tu evento, es natural tener preguntas sobre resistencia, cojines, logística y combinaciones. Aquí encontrarás las respuestas más comunes.", "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor especializado en mobiliario te responderá al instante."]} />
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer"><p set:html={faq.answer} /></div>
+                  </details>
+                ))}
+              </div>
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en sillas Chiavari resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre sillas Chiavari para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">Escribir por WhatsApp</a>
+                </div>
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Sillas para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item"><a href="/servicios/mobiliario/sillas/" class="sidebar-nav__back">&uarr; Volver a Sillas</a></li>
+              <li class="sidebar-nav__item"><a href="/servicios/mobiliario/" class="sidebar-nav__back">&uarr; Volver a Mobiliario</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de sillas Chiavari:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li><a href={item.href} class="sidebar-related__link"><span class="sidebar-related__arrow">&rarr;</span>{item.name}</a></li>
+              ))}
+            </ul>
+          </div>
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas sillas Chiavari para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar sillas Chiavari para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader id="reserva-heading" title="Cotiza Tus Sillas Chiavari" subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato" description={["Completa el formulario con los detalles de tu evento y uno de nuestros asesores de mobiliario te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.", "Ya sea que necesites 100 sillas Chiavari para un congreso o 300 para una boda corporativa, estamos aquí para asesorarte con el acabado y cojín perfectos."]} />
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">Nombre completo <span class="form-field__required">*</span></label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">Teléfono <span class="form-field__required">*</span></label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">Tipo de evento</label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Gala / Premiación">Gala / Premiación</option>
+                <option value="Graduación">Graduación</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">Fecha del evento</label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoChiavari">Acabado de silla Chiavari</label>
+              <select id="tipoChiavari" name="tipoChiavari" class="form-field__input form-field__select">
+                <option value="">Selecciona el acabado</option>
+                <option value="Chiavari Dorada">Chiavari Dorada</option>
+                <option value="Chiavari Plateada">Chiavari Plateada</option>
+                <option value="Chiavari Negro Mate">Chiavari Negro Mate</option>
+                <option value="Chiavari Bronce">Chiavari Bronce</option>
+                <option value="Paquete Corporativo">Paquete Corporativo</option>
+                <option value="Paquete Boda Chiavari">Paquete Boda Chiavari</option>
+              </select>
+            </div>
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">Mensaje <span class="form-field__required">*</span></label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Cuéntanos los detalles: número de sillas, color de cojín preferido, venue, estilo de tu evento..." rows="4" required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+        <aside class="reserva-sidebar">
+          <div class="reserva-card"><h3 class="reserva-card__title">Respuesta inmediata</h3><p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p></div>
+          <div class="reserva-card"><h3 class="reserva-card__title">30+ colores de cojín</h3><p class="reserva-card__text">Cada silla Chiavari incluye cojín intercambiable en tela, lycra o terciopelo sin costo adicional.</p></div>
+          <div class="reserva-card"><h3 class="reserva-card__title">Sin compromiso</h3><p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada de mobiliario para tu presupuesto.</p></div>
+          <div class="reserva-card reserva-card--highlight"><h3 class="reserva-card__title">Horario de atención</h3><p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoChiavari = document.getElementById('tipoChiavari').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+      let fechaTexto = 'No especificada';
+      if (fecha) { const d = new Date(fecha + 'T12:00:00'); fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }); }
+      let texto = `*Sillas Chiavari para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoChiavari) texto += `*Acabado Chiavari:* ${tipoChiavari}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+      window.open(`https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`, '_blank');
+    });
+    document.querySelectorAll('.form-field__input').forEach(function(input) { input.addEventListener('input', function() { this.classList.remove('form-field__input--error'); }); });
+  </script>
+
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader id="proveedores-heading" title="Proveedores de Confianza en Mobiliario" subtitle="Red de aliados profesionales" description={["Trabajamos con los proveedores más reconocidos de mobiliario para eventos en la Ciudad de México. Cada aliado cuenta con inventario verificado, logística profesional y trayectoria comprobada.", "Nuestra red de proveedores nos permite garantizar disponibilidad de sillas Chiavari en todos los acabados y cantidades para eventos de cualquier escala."]} />
+      <div class="grid grid--4">
+        <article class="partner-card"><div class="partner-card__header"><span class="partner-card__initial">M</span><div class="partner-card__badge">Aliado estratégico</div></div><div class="partner-card__content"><h3 class="partner-card__name">Mobiliario Premium MX</h3><p class="partner-card__tagline">Especialistas en Sillas de Diseño</p><p class="partner-card__text">Especialistas en sillas de diseño para bodas y eventos sociales en CDMX. Inventario de más de 5,000 sillas Tiffany, Chiavari y Ghost con entrega y montaje profesional incluido.</p></div></article>
+        <article class="partner-card"><div class="partner-card__header"><span class="partner-card__initial">R</span><div class="partner-card__badge">Renta integral</div></div><div class="partner-card__content"><h3 class="partner-card__name">Rent All CDMX</h3><p class="partner-card__tagline">Mobiliario y Sillas para Corporativos</p><p class="partner-card__text">Renta integral de mobiliario y sillas para eventos corporativos, congresos y ferias. Capacidad para eventos de 1,000+ personas con logística propia y servicio de montaje express.</p></div></article>
+        <article class="partner-card"><div class="partner-card__header"><span class="partner-card__initial">E</span><div class="partner-card__badge">+10 años de experiencia</div></div><div class="partner-card__content"><h3 class="partner-card__name">EventMob</h3><p class="partner-card__tagline">Mobiliario Contemporáneo y Clásico</p><p class="partner-card__text">Mobiliario contemporáneo y clásico para todo tipo de celebración. Sillas Tiffany, Crossback y plegables con más de 10 años equipando los eventos más importantes de la Ciudad de México.</p></div></article>
+        <article class="partner-card"><div class="partner-card__header"><span class="partner-card__initial">M</span><div class="partner-card__badge">Logística profesional</div></div><div class="partner-card__content"><h3 class="partner-card__name">MesasyMás</h3><p class="partner-card__tagline">Sillas, Mesas y Complementos</p><p class="partner-card__text">Sillas, mesas y complementos de mobiliario con servicio de logística puerta a puerta. Flota propia de camiones para entregas puntuales en CDMX y zona metropolitana.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    headline="Sillas Chiavari que elevan cualquier evento al nivel premium"
+    subheadline="Más de 500 eventos equipados con sillas Chiavari nos respaldan. Cotiza hoy y recibe asesoría personalizada de acabados y cojines."
+    primaryCTA={{ label: "Cotizar sillas Chiavari", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar sillas Chiavari para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

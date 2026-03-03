@@ -181,3 +181,12 @@ El Club de Banqueros **no es un venue de acceso abierto**:
 ## La Experiencia de Pertenecer
 
 Celebrar en el Club de Banqueros no es solo rentar un espacio: es **ser parte, aunque sea por unas horas, de un legado de exclusividad que ha definido la vida social de la élite mexicana durante seis décadas**. Cuando tus invitados crucen el portón de Reforma y entren a los jardines privados, sabrán que están en un lugar diferente. Un lugar donde la distinción no se compra: se gana.
+
+## Venues Similares de Alta Exclusividad
+
+Si buscas espacios con prestigio y elegancia comparable:
+
+- **[Hacienda de la Palma](/directorio/cdmx/lomas-chapultepec/hacienda-de-la-palma/)** — Colonial auténtica en Lomas, capilla del siglo XVIII
+- **[San Ángel Inn](/directorio/cdmx/san-angel/san-angel-inn/)** — Hacienda histórica con gastronomía legendaria
+- **[Hacienda de los Morales](/directorio/cdmx/polanco/hacienda-de-los-morales/)** — Colonial en Polanco, prestigio comparable
+- **[Casino Español](/directorio/cdmx/cuauhtemoc/casino-espanol/)** — Club histórico en el Centro, arquitectura monumental

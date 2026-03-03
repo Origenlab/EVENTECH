@@ -141,3 +141,12 @@ Con capacidad máxima de 180 personas en cóctel, Casa Awolly es ideal para even
 Casa Awolly se ha convertido en el **espacio favorito de marcas de diseño, agencias creativas y emprendedores** que entienden que el contexto importa tanto como el contenido. Aquí han sucedido lanzamientos de colecciones de moda, pop-ups gastronómicos de chefs reconocidos, sesiones editoriales para revistas internacionales y celebraciones privadas de quienes buscan algo diferente.
 
 No es el venue más grande de la Roma. No es el más económico. Pero para quienes valoran **la autenticidad, el diseño y la atmósfera**, no hay otro lugar igual.
+
+## Venues Similares con Estilo Boutique en Roma-Condesa
+
+Si buscas espacios con personalidad única para eventos íntimos:
+
+- **[Roma House](/directorio/cdmx/roma-condesa/roma-house/)** — Casona porfiriana de 1908, mayor capacidad, ambiente histórico
+- **[Terraza Roma](/directorio/cdmx/roma-condesa/terraza-roma/)** — Rooftop con vistas, enfoque en fiestas y cócteles
+- **[Casa Goldsmith](/directorio/cdmx/benito-juarez/casa-goldsmith/)** — Mansión contemporánea, jardines privados
+- **[Jardín Escondido](/directorio/cdmx/san-angel/jardin-escondido/)** — Oasis verde en San Ángel, ambiente romántico

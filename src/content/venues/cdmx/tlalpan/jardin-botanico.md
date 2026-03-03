@@ -200,3 +200,23 @@ La vegetación abundante y los cuerpos de agua crean un **microclima naturalment
 En un mundo de salones idénticos y jardines artificiales, el Jardín Botánico de Tlalpan ofrece algo extraordinario: la oportunidad de celebrar **inmersos en la biodiversidad real de México**, donde cada planta tiene nombre científico, donde los pájaros cantan sin que nadie los haya programado, donde el agua del lago refleja tanto las nubes como los rostros emocionados de tus invitados.
 
 Aquí, tu boda no compite con la naturaleza por atención: **tu celebración se convierte en parte del paisaje**, en un evento que se siente tan natural como las flores que lo rodean.
+
+## Servicios de EVENTECH para Jardín Botánico
+
+Como partner oficial de EVENTECH, ofrecemos soluciones que complementan y protegen el entorno natural:
+
+- **[Carpas estructurales](/servicios/carpas/estructurales/)** transparentes que no obstruyen las vistas al jardín
+- **[Carpas árabes](/servicios/carpas/carpas-arabes/)** elegantes para áreas de cóctel junto al lago
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** con fairy lights que respetan la flora
+- **[Pisos de duela](/servicios/carpas/pisos-complementos/)** para crear pistas de baile sobre el césped
+- **[Mobiliario natural](/servicios/mobiliario/)** que armoniza con el ambiente botánico
+- **[Sonido profesional](/servicios/audiovisual/sonido/)** calibrado para espacios al aire libre
+
+## Venues Similares con Naturaleza Espectacular
+
+Si buscas espacios donde la naturaleza es protagonista:
+
+- **[Casa del Lago UNAM](/directorio/cdmx/coyoacan/casa-del-lago/)** — Junto al Lago de Chapultepec, ambiente académico-cultural
+- **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — 12,000 m² de jardines con lago, sin límite de horario
+- **[Jardines Nativitas](/directorio/cdmx/xochimilco/nativitas/)** — Canales UNESCO, ahuehuetes centenarios, trajineras
+- **[Bosques del Nevado](/directorio/estado-mexico/zinacantepec/bosques-del-nevado/)** — Bosque de pinos con vista al Nevado de Toluca

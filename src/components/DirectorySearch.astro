@@ -1,0 +1,578 @@
+---
+/**
+ * ─── Directory Search Component ───
+ * Client-side search with autocomplete for the venue directory
+ * Data is embedded at build time for static site compatibility
+ */
+import { getCollection } from "astro:content";
+
+// Get all venues at build time
+const allVenues = await getCollection("venues");
+
+// Prepare search data
+const searchData = allVenues.map(venue => ({
+  name: venue.data.name,
+  type: venue.data.type,
+  region: venue.data.region,
+  zone: venue.data.zone,
+  zoneSlug: venue.data.zoneSlug,
+  capacity: venue.data.capacity,
+  priceRange: venue.data.priceRange,
+  eventTypes: venue.data.eventTypes || [],
+  image: venue.data.image,
+  shortDescription: venue.data.shortDescription,
+  premium: venue.data.premium || false,
+  verified: venue.data.verified || false,
+  url: `/directorio/${venue.data.region}/${venue.data.zoneSlug}/${venue.id.split('/').pop()?.replace('.md', '')}/`
+}));
+
+// Labels for display
+const venueTypeLabels: Record<string, string> = {
+  "salon": "Salón",
+  "jardin": "Jardín",
+  "hacienda": "Hacienda",
+  "terraza": "Terraza",
+  "hotel": "Hotel",
+  "restaurante": "Restaurante",
+  "foro": "Foro",
+  "quinta": "Quinta",
+  "mansion": "Mansión",
+  "centro-convenciones": "Centro de Convenciones",
+};
+
+const regionLabels: Record<string, string> = {
+  "cdmx": "CDMX",
+  "estado-mexico": "Edo. Méx."
+};
+---
+
+<div class="dir-search" id="directory-search">
+  <div class="dir-search__input-wrapper">
+    <svg class="dir-search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="8"/>
+      <path d="M21 21l-4.35-4.35"/>
+    </svg>
+    <input
+      type="text"
+      class="dir-search__input"
+      id="venue-search-input"
+      placeholder="Buscar venues por nombre, zona o tipo..."
+      autocomplete="off"
+    />
+    <button type="button" class="dir-search__clear" id="search-clear" aria-label="Limpiar búsqueda">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="dir-search__filters">
+    <select class="dir-search__filter" id="filter-region">
+      <option value="">Todas las regiones</option>
+      <option value="cdmx">CDMX</option>
+      <option value="estado-mexico">Estado de México</option>
+    </select>
+    <select class="dir-search__filter" id="filter-type">
+      <option value="">Todos los tipos</option>
+      <option value="hacienda">Haciendas</option>
+      <option value="jardin">Jardines</option>
+      <option value="salon">Salones</option>
+      <option value="terraza">Terrazas</option>
+      <option value="hotel">Hoteles</option>
+      <option value="quinta">Quintas</option>
+      <option value="restaurante">Restaurantes</option>
+      <option value="foro">Foros</option>
+      <option value="centro-convenciones">Centros de Convenciones</option>
+    </select>
+    <select class="dir-search__filter" id="filter-capacity">
+      <option value="">Cualquier capacidad</option>
+      <option value="0-100">Hasta 100 personas</option>
+      <option value="100-200">100-200 personas</option>
+      <option value="200-400">200-400 personas</option>
+      <option value="400-1000">400+ personas</option>
+    </select>
+  </div>
+
+  <div class="dir-search__results" id="search-results">
+    <!-- Results will be populated by JavaScript -->
+  </div>
+
+  <div class="dir-search__dropdown" id="search-dropdown">
+    <!-- Autocomplete dropdown -->
+  </div>
+</div>
+
+<!-- Embed venue data as JSON -->
+<script define:vars={{ searchData, venueTypeLabels, regionLabels }}>
+  window.__VENUE_SEARCH_DATA__ = searchData;
+  window.__VENUE_TYPE_LABELS__ = venueTypeLabels;
+  window.__REGION_LABELS__ = regionLabels;
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('venue-search-input') as HTMLInputElement;
+    const clearBtn = document.getElementById('search-clear') as HTMLButtonElement;
+    const dropdown = document.getElementById('search-dropdown') as HTMLDivElement;
+    const resultsContainer = document.getElementById('search-results') as HTMLDivElement;
+    const filterRegion = document.getElementById('filter-region') as HTMLSelectElement;
+    const filterType = document.getElementById('filter-type') as HTMLSelectElement;
+    const filterCapacity = document.getElementById('filter-capacity') as HTMLSelectElement;
+
+    const venues = (window as any).__VENUE_SEARCH_DATA__ || [];
+    const typeLabels = (window as any).__VENUE_TYPE_LABELS__ || {};
+    const regionLabels = (window as any).__REGION_LABELS__ || {};
+
+    let debounceTimer: ReturnType<typeof setTimeout>;
+
+    // Search function
+    function searchVenues(query: string, region: string, type: string, capacity: string) {
+      const q = query.toLowerCase().trim();
+
+      return venues.filter((venue: any) => {
+        // Text search
+        const matchesQuery = !q ||
+          venue.name.toLowerCase().includes(q) ||
+          venue.zone.toLowerCase().includes(q) ||
+          venue.type.toLowerCase().includes(q) ||
+          (venue.eventTypes || []).some((et: string) => et.toLowerCase().includes(q));
+
+        // Region filter
+        const matchesRegion = !region || venue.region === region;
+
+        // Type filter
+        const matchesType = !type || venue.type === type;
+
+        // Capacity filter
+        let matchesCapacity = true;
+        if (capacity) {
+          const [min, max] = capacity.split('-').map(Number);
+          if (max) {
+            matchesCapacity = venue.capacity.max >= min && venue.capacity.min <= max;
+          } else {
+            matchesCapacity = venue.capacity.max >= min;
+          }
+        }
+
+        return matchesQuery && matchesRegion && matchesType && matchesCapacity;
+      });
+    }
+
+    // Render dropdown results (autocomplete)
+    function renderDropdown(results: any[]) {
+      if (results.length === 0 || !searchInput.value.trim()) {
+        dropdown.innerHTML = '';
+        dropdown.classList.remove('dir-search__dropdown--visible');
+        return;
+      }
+
+      const items = results.slice(0, 6).map((venue: any) => `
+        <a href="${venue.url}" class="dir-search__dropdown-item">
+          <div class="dir-search__dropdown-item-image">
+            <img src="${venue.image || '/images/placeholder-venue.jpg'}" alt="${venue.name}" loading="lazy" />
+          </div>
+          <div class="dir-search__dropdown-item-content">
+            <span class="dir-search__dropdown-item-name">${venue.name}</span>
+            <span class="dir-search__dropdown-item-meta">
+              ${typeLabels[venue.type] || venue.type} · ${venue.zone} · ${venue.capacity.min}-${venue.capacity.max} pers.
+            </span>
+          </div>
+          ${venue.premium ? '<span class="dir-search__dropdown-item-badge">Premium</span>' : ''}
+        </a>
+      `).join('');
+
+      const viewAllLink = results.length > 6 ? `
+        <div class="dir-search__dropdown-footer">
+          <span>Ver ${results.length} resultados</span>
+        </div>
+      ` : '';
+
+      dropdown.innerHTML = items + viewAllLink;
+      dropdown.classList.add('dir-search__dropdown--visible');
+    }
+
+    // Render full results grid
+    function renderResults(results: any[]) {
+      if (results.length === 0) {
+        resultsContainer.innerHTML = `
+          <div class="dir-search__no-results">
+            <p>No se encontraron venues con esos criterios.</p>
+            <p>Intenta con otros filtros o <a href="/directorio/">explora todo el directorio</a>.</p>
+          </div>
+        `;
+        resultsContainer.classList.add('dir-search__results--visible');
+        return;
+      }
+
+      const hasFilters = filterRegion.value || filterType.value || filterCapacity.value || searchInput.value.trim();
+
+      if (!hasFilters) {
+        resultsContainer.innerHTML = '';
+        resultsContainer.classList.remove('dir-search__results--visible');
+        return;
+      }
+
+      const cards = results.slice(0, 12).map((venue: any) => `
+        <article class="venue-card">
+          <a href="${venue.url}" class="venue-card__link">
+            <div class="venue-card__image-wrapper">
+              <img
+                src="${venue.image || '/images/placeholder-venue.jpg'}"
+                alt="${venue.name}"
+                class="venue-card__image"
+                loading="lazy"
+                width="400"
+                height="300"
+              />
+              <div class="venue-card__badges">
+                ${venue.premium ? '<span class="venue-card__badge venue-card__badge--premium">Premium</span>' : ''}
+                ${venue.verified ? '<span class="venue-card__badge venue-card__badge--verified">Verificado</span>' : ''}
+              </div>
+              <span class="venue-card__price-badge">${venue.priceRange}</span>
+            </div>
+            <div class="venue-card__content">
+              <span class="venue-card__type">${typeLabels[venue.type] || venue.type}</span>
+              <h3 class="venue-card__name">${venue.name}</h3>
+              <p class="venue-card__location">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                ${venue.zone}, ${regionLabels[venue.region] || venue.region}
+              </p>
+              <p class="venue-card__description">${venue.shortDescription}</p>
+              <div class="venue-card__meta">
+                <span class="venue-card__capacity"><strong>${venue.capacity.min}-${venue.capacity.max}</strong> personas</span>
+              </div>
+            </div>
+          </a>
+        </article>
+      `).join('');
+
+      const header = `
+        <div class="dir-search__results-header">
+          <p><strong>${results.length}</strong> venues encontrados</p>
+          ${results.length > 12 ? `<p class="dir-search__results-hint">Mostrando los primeros 12. <a href="/directorio/">Ver todos</a></p>` : ''}
+        </div>
+      `;
+
+      resultsContainer.innerHTML = header + `<div class="dir-grid dir-grid--3">${cards}</div>`;
+      resultsContainer.classList.add('dir-search__results--visible');
+    }
+
+    // Debounced search handler
+    function handleSearch() {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        const results = searchVenues(
+          searchInput.value,
+          filterRegion.value,
+          filterType.value,
+          filterCapacity.value
+        );
+        renderDropdown(results);
+        renderResults(results);
+
+        // Show/hide clear button
+        clearBtn.style.display = searchInput.value ? 'flex' : 'none';
+      }, 150);
+    }
+
+    // Event listeners
+    searchInput.addEventListener('input', handleSearch);
+    searchInput.addEventListener('focus', () => {
+      if (searchInput.value.trim()) {
+        const results = searchVenues(searchInput.value, filterRegion.value, filterType.value, filterCapacity.value);
+        renderDropdown(results);
+      }
+    });
+
+    filterRegion.addEventListener('change', handleSearch);
+    filterType.addEventListener('change', handleSearch);
+    filterCapacity.addEventListener('change', handleSearch);
+
+    clearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      clearBtn.style.display = 'none';
+      dropdown.classList.remove('dir-search__dropdown--visible');
+      handleSearch();
+      searchInput.focus();
+    });
+
+    // Close dropdown on outside click
+    document.addEventListener('click', (e) => {
+      if (!(e.target as Element).closest('#directory-search')) {
+        dropdown.classList.remove('dir-search__dropdown--visible');
+      }
+    });
+
+    // Keyboard navigation
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        dropdown.classList.remove('dir-search__dropdown--visible');
+        searchInput.blur();
+      }
+    });
+
+    // Initialize clear button visibility
+    clearBtn.style.display = 'none';
+  });
+</script>
+
+<style>
+  .dir-search {
+    position: relative;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .dir-search__input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .dir-search__icon {
+    position: absolute;
+    left: var(--space-lg);
+    width: 20px;
+    height: 20px;
+    color: var(--color-text-muted);
+    pointer-events: none;
+  }
+
+  .dir-search__input {
+    width: 100%;
+    padding: var(--space-md) var(--space-lg);
+    padding-left: calc(var(--space-lg) + 28px);
+    padding-right: calc(var(--space-lg) + 36px);
+    font-size: var(--text-lg);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    background: white;
+    color: var(--color-text);
+    transition: all 0.2s ease;
+  }
+
+  .dir-search__input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 4px rgba(0, 184, 148, 0.1);
+  }
+
+  .dir-search__input::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .dir-search__clear {
+    position: absolute;
+    right: var(--space-md);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    border-radius: var(--radius-full);
+    background: var(--color-bg-alt);
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .dir-search__clear:hover {
+    background: var(--color-accent);
+    color: white;
+  }
+
+  .dir-search__clear svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .dir-search__filters {
+    display: flex;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .dir-search__filter {
+    flex: 1;
+    min-width: 150px;
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--text-sm);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: white;
+    color: var(--color-text);
+    cursor: pointer;
+  }
+
+  .dir-search__filter:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+
+  /* Dropdown */
+  .dir-search__dropdown {
+    position: absolute;
+    top: calc(100% + var(--space-sm));
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all 0.2s ease;
+  }
+
+  .dir-search__dropdown--visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dir-search__dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    text-decoration: none;
+    color: var(--color-text);
+    border-bottom: 1px solid var(--color-border-light);
+    transition: background 0.15s ease;
+  }
+
+  .dir-search__dropdown-item:last-child {
+    border-bottom: none;
+  }
+
+  .dir-search__dropdown-item:hover {
+    background: var(--color-bg-alt);
+  }
+
+  .dir-search__dropdown-item-image {
+    width: 60px;
+    height: 45px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .dir-search__dropdown-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .dir-search__dropdown-item-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .dir-search__dropdown-item-name {
+    display: block;
+    font-weight: 700;
+    color: var(--color-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .dir-search__dropdown-item-meta {
+    display: block;
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .dir-search__dropdown-item-badge {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    color: white;
+    border-radius: var(--radius-sm);
+  }
+
+  .dir-search__dropdown-footer {
+    padding: var(--space-sm) var(--space-md);
+    text-align: center;
+    font-size: var(--text-sm);
+    color: var(--color-accent);
+    background: var(--color-bg-alt);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  }
+
+  /* Results */
+  .dir-search__results {
+    display: none;
+    margin-top: var(--space-2xl);
+  }
+
+  .dir-search__results--visible {
+    display: block;
+  }
+
+  .dir-search__results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .dir-search__results-header p {
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .dir-search__results-hint {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .dir-search__results-hint a {
+    color: var(--color-accent);
+  }
+
+  .dir-search__no-results {
+    text-align: center;
+    padding: var(--space-3xl);
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-lg);
+  }
+
+  .dir-search__no-results p {
+    margin: 0 0 var(--space-sm);
+    color: var(--color-text-muted);
+  }
+
+  .dir-search__no-results a {
+    color: var(--color-accent);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .dir-search__filters {
+      flex-direction: column;
+    }
+
+    .dir-search__filter {
+      width: 100%;
+    }
+
+    .dir-search__input {
+      font-size: var(--text-base);
+    }
+
+    .dir-search__dropdown-item-image {
+      width: 50px;
+      height: 38px;
+    }
+  }
+</style>

@@ -171,3 +171,21 @@ El montaje puede comenzar **horas antes del cierre comercial** en coordinación 
 Hay venues modernos que intentan verse industriales con decoración. Y hay **Loreto y Peña Pobre: una fábrica real de 400 años** donde cada ladrillo, cada viga, cada chimenea cuenta una historia de siglos de industria mexicana.
 
 Cuando tus invitados entren a la nave principal y levanten la vista hacia esos techos de 12 metros sostenidos por cerchas centenarias, cuando caminen por la plaza empedrada bajo la sombra de chimeneas que vieron nacer la industria de este país, sabrán que están en un lugar **donde la historia no es decoración: es la estructura misma del espacio**.
+
+## Servicios de EVENTECH para Loreto y Peña Pobre
+
+Como partner oficial de EVENTECH, ofrecemos soluciones que complementan la estética industrial del venue:
+
+- **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** para resaltar vigas, chimeneas y muros centenarios
+- **[Iluminación de escenario](/servicios/iluminacion/escenario/)** profesional para eventos de alto impacto
+- **[Sonido profesional](/servicios/audiovisual/sonido/)** calibrado para espacios de gran altura con superficies duras
+- **[Pantallas LED](/servicios/audiovisual/pantallas-led/)** de alto brillo para naves industriales
+
+## Venues Similares con Carácter Industrial
+
+Si buscas espacios con arquitectura industrial distintiva:
+
+- **[Foro Kaluz Santa Fe](/directorio/cdmx/santa-fe/foro-kaluz/)** — Contemporáneo con tecnología de punta, 2,500 m²
+- **[La Industrial Azcapotzalco](/directorio/cdmx/azcapotzalco/la-industrial/)** — Nave industrial reconvertida, precio accesible
+- **[Centro Citibanamex](/directorio/cdmx/santa-fe/centro-citibanamex/)** — Escala masiva para eventos de +5,000 personas
+- **[Centro de Convenciones Tlatelolco](/directorio/cdmx/cuauhtemoc/centro-convenciones-tlatelolco/)** — Versatilidad técnica en zona centro

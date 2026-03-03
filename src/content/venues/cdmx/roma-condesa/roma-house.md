@@ -208,3 +208,21 @@ Hay venues que impresionan con tecnología de punta o con vistas espectaculares.
 Un evento en Roma House no se siente como un evento en un salón. Se siente como una **celebración en la casa de alguien extraordinario** —alguien con gusto impecable, historia fascinante, y la generosidad de abrir sus puertas para tu momento especial—.
 
 Eso es lo que hace a Roma House diferente: **no es un espacio que alquilas, es una experiencia que vives**.
+
+## Servicios de EVENTECH para Roma House
+
+Como partner oficial de EVENTECH, ofrecemos soluciones que respetan y realzan el carácter histórico del espacio:
+
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** con fairy lights y candiles para el patio andaluz
+- **[Sonido discreto](/servicios/audiovisual/sonido/)** que complementa sin dominar los espacios históricos
+- **[Mobiliario vintage](/servicios/mobiliario/)** que armoniza con la estética porfiriana
+- **[Pistas de baile portátiles](/servicios/pistas-baile/madera-clasica/)** sobre los pisos de pasta originales
+
+## Venues Similares con Carácter Histórico
+
+Si buscas la autenticidad de espacios con historia:
+
+- **[Casa Awolly](/directorio/cdmx/roma-condesa/casa-awolly/)** — Art déco de 1932, rooftop panorámico, más flexible
+- **[Hacienda San Ángel](/directorio/cdmx/coyoacan/hacienda-san-angel/)** — Colonial siglo XVII, jardines románticos
+- **[San Ángel Inn](/directorio/cdmx/san-angel/san-angel-inn/)** — Hacienda histórica con gastronomía galardonada
+- **[Casa de los Azulejos](/directorio/cdmx/centro-historico/casa-de-los-azulejos/)** — Palacio del siglo XVIII, fachada de talavera

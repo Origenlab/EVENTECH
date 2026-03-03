@@ -204,3 +204,23 @@ En el corazón de la zona más exclusiva de la ciudad, con acceso directo desde 
 Imagina a tus invitados cruzando el mismo portal que han atravesado generaciones de familias distinguidas. Brindando bajo los ahuehuetes que fueron plantados cuando México aún era Nueva España. Cenando platillos preparados por chefs que representan lo mejor de la gastronomía mexicana. Y bailando bajo las estrellas en un jardín que ha sido escenario de celebraciones inolvidables durante **500 años**.
 
 **Hacienda de los Morales no es solo un venue: es la definición de lo que significa celebrar con grandeza en México**.
+
+## Servicios de EVENTECH para Hacienda de los Morales
+
+Como partner oficial de EVENTECH, ofrecemos soluciones premium que complementan la elegancia histórica de este venue:
+
+- **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** para realzar los muros coloniales y arquerías centenarias
+- **[Fairy lights y guirnaldas](/servicios/iluminacion/decorativa/fairy-lights/)** en los ahuehuetes del jardín principal
+- **[Sonido profesional](/servicios/audiovisual/sonido/)** calibrado para acústica de espacios abiertos y salones con bóvedas
+- **[Pantallas LED](/servicios/audiovisual/pantallas-led/)** discretas para proyección sin afectar el patrimonio
+- **[Mobiliario de lujo](/servicios/mobiliario/salas-lounge/)** que complementa la estética colonial
+- **[Pistas de baile de madera](/servicios/pistas-baile/madera-clasica/)** sobre el césped del jardín
+
+## Venues Similares con Historia Colonial
+
+Si buscas la grandeza de las haciendas históricas:
+
+- **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — Colonial, sin límite horario, ambiente más íntimo
+- **[Hacienda San Ángel](/directorio/cdmx/coyoacan/hacienda-san-angel/)** — Siglo XVII, jardines románticos, cerca de Coyoacán
+- **[Hacienda Santa Cecilia](/directorio/estado-mexico/huixquilucan/hacienda-santa-cecilia/)** — 10 hectáreas, capilla del XVII, a 20 min de Santa Fe
+- **[Hacienda San Martín](/directorio/estado-mexico/lerma/hacienda-san-martin/)** — Lago privado con isla, jardines franceses

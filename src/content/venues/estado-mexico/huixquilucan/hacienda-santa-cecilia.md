@@ -196,3 +196,23 @@ El paquete incluye banquete, coordinación, montaje y desmontaje. **No tienes qu
 ## La Experiencia Santa Cecilia
 
 Imagina el momento: el sol se pone detrás de las montañas, pintando el cielo de naranja y rosa. Los ahuehuetes centenarios filtran la última luz del día mientras cientos de velas comienzan a iluminar el jardín. La música suena suave mientras tus invitados brindan con champagne, maravillados por la belleza del lugar. **Esto es Hacienda Santa Cecilia: donde los sueños de boda más ambiciosos se hacen realidad.**
+
+## Servicios de EVENTECH para Hacienda Santa Cecilia
+
+Como partner oficial de EVENTECH, ofrecemos soluciones de gran escala para este venue monumental:
+
+- **[Carpas estructurales](/servicios/carpas/estructurales/)** para ampliar capacidad en los jardines centenarios
+- **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** para realzar la capilla barroca y muros coloniales
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** con fairy lights en los ahuehuetes centenarios
+- **[Pistas de baile LED](/servicios/pistas-baile/pistas-led/)** espectaculares para bodas de gran formato
+- **[Sonido profesional](/servicios/audiovisual/sonido/)** calibrado para jardines de 5,000 m²
+- **[Mobiliario elegante](/servicios/mobiliario/)** que complementa la estética colonial
+
+## Venues Similares con Grandeza Colonial
+
+Si buscas haciendas históricas con capilla y jardines monumentales:
+
+- **[Hacienda de la Palma](/directorio/cdmx/lomas-chapultepec/hacienda-de-la-palma/)** — Colonial en Lomas, más cerca de CDMX
+- **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — Sin límite de horario, 12,000 m² de jardines
+- **[San Ángel Inn](/directorio/cdmx/san-angel/san-angel-inn/)** — Convento del siglo XVII, gastronomía legendaria
+- **[Hacienda San José Toluca](/directorio/estado-mexico/toluca/hacienda-san-jose/)** — Colonial en Toluca, escala similar

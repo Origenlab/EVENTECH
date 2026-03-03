@@ -1,0 +1,713 @@
+---
+/**
+ * ─── Mesas Redondas — Página de Producto (Nivel 4) ───
+ * Diámetros de 150 y 180 cm para 8-10 personas.
+ * El estándar de oro para banquetes.
+ *
+ * Jerarquía: Servicios > Mobiliario > Mesas > Mesas Redondas
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Mesas", href: "/servicios/mobiliario/mesas/" },
+  { label: "Mesas Redondas" },
+];
+
+const faqs = [
+  { question: "¿Cuántas mesas redondas necesito para mi evento?", answer: 'Para mesas de <strong>150 cm de diámetro</strong>, calcula 1 mesa por cada 8 invitados sentados, más espacio de circulación entre mesas (mínimo 1.5 m entre bordes). Para mesas de <strong>180 cm de diámetro</strong>, calcula 1 mesa por cada 10 invitados. Nuestro equipo te ayuda a calcular la cantidad exacta con el plano de tu venue — envíanos las dimensiones del salón o jardín y diseñamos el layout óptimo sin costo adicional.' },
+  { question: "¿Cuál es la diferencia entre la de 150 y 180 cm?", answer: 'La mesa redonda de <strong>150 cm</strong> acomoda 8 comensales de forma cómoda — es más compacta y permite más mesas en el mismo espacio, ideal para venues medianos. La de <strong>180 cm</strong> acomoda 10 comensales con mayor espacio entre cada persona, perfecta para eventos premium donde se busca comodidad extra o centros de mesa más elaborados. Ambas tienen la misma altura estándar de banquete (<strong>75 cm</strong>) y capacidad de carga de <strong>120 kg distribuidos</strong>. Recomendamos la de 180 cm cuando los centros de mesa son grandes o se requiere distribución VIP.' },
+  { question: "¿Las mesas incluyen mantelería?", answer: 'No por defecto — la mantelería se cotiza por separado para darte flexibilidad total en la elección de colores, telas y estilos. Ofrecemos más de <strong>30 colores</strong> en múltiples telas: poliéster, satinado, organza y overlays. Consulta nuestra sección de <a href="/servicios/accesorios/manteleria-textiles/">mantelería y textiles</a> para ver todas las opciones disponibles. Si prefieres un paquete integral mesa + mantelería, te hacemos una cotización especial con descuento.' },
+  { question: "¿Son estables en jardín o pasto?", answer: 'Sí. Cada mesa redonda está equipada con <strong>niveladores ajustables</strong> en la base metálica y sistema antivuelco que garantizan estabilidad total en cualquier superficie: pasto, terrazas, duela, concreto y pisos irregulares. Durante el montaje, nuestro equipo verifica el nivel de cada mesa individualmente y ajusta los niveladores según el terreno. Para eventos en jardín, recomendamos complementar con nuestras <a href="/servicios/carpas/">carpas profesionales</a> como respaldo ante lluvia.' },
+  { question: "¿Puedo combinar con mesas rectangulares?", answer: 'Sí, es una configuración muy popular. El montaje más común combina <strong>mesas redondas para los invitados</strong> + <strong>mesa rectangular como mesa de honor</strong> para novios, quinceañera o presidium. También se combinan redondas + rectangulares tipo buffet para estaciones de comida. Nuestro equipo diseña el layout combinado calculando las cantidades exactas de cada tipo según tu número de invitados y las dimensiones de tu venue.' },
+  { question: "¿Con cuánta anticipación debo reservar?", answer: 'Recomendamos reservar con <strong>2 a 4 semanas de anticipación</strong> para garantizar disponibilidad en la cantidad y formato que necesitas. En temporada alta (<strong>noviembre a febrero</strong>) y para eventos de 200+ invitados, sugerimos apartar con <strong>1 a 2 meses de anticipación</strong>. Un anticipo del 30% confirma tu reserva y asegura tu fecha.' },
+];
+
+const specs = [
+  { label: "Diámetro estándar", value: "150 cm (capacidad 8 personas)" },
+  { label: "Diámetro grande", value: "180 cm (capacidad 10 personas)" },
+  { label: "Tablero", value: "Triplay alta densidad, acabado melamínico" },
+  { label: "Capacidad de carga", value: "120 kg distribuidos" },
+  { label: "Altura", value: "75 cm (estándar banquete)" },
+  { label: "Base", value: "Metálica plegable con niveladores" },
+  { label: "Plegable", value: "Sí, patas abatibles" },
+  { label: "Resistencia superficie", value: "Antimanchas, humedad y calor" },
+  { label: "Apilable", value: "Sí, hasta 5 unidades" },
+  { label: "Mantenimiento", value: "Limpieza e inspección incluida pre-evento" },
+];
+
+const sidebarNav = [
+  { name: "Mesas Redondas", href: null, active: true },
+  { name: "Mesas Rectangulares", href: "/servicios/mobiliario/mesas/rectangulares/" },
+  { name: "Mesas Cocktail", href: "/servicios/mobiliario/mesas/cocktail/" },
+  { name: "Tablones y Buffet", href: "/servicios/mobiliario/mesas/tablones/" },
+];
+
+const sidebarRelated = [
+  { name: "Sillas para Eventos", href: "/servicios/mobiliario/sillas/" },
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+  { name: "Salas Lounge", href: "/servicios/mobiliario/salas-lounge/" },
+  { name: "Carpas Profesionales", href: "/servicios/carpas/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+];
+
+const reviews = [
+  { author: "Gabriela Hernández", text: "Rentamos 25 mesas redondas de 180 cm para nuestra boda de 250 personas en una hacienda. El layout quedó perfecto, las mesas estaban estables en el pasto y el equipo de montaje fue excelente. Súper profesionales.", rating: 5, date: "2025-11-18" },
+  { author: "Ricardo Domínguez", text: "15 redondas de 150 cm para una gala corporativa. Las combinamos con sillas Chiavari y todo coordinó perfecto. Montaje rápido y puntual, las mesas en excelentes condiciones.", rating: 5, date: "2025-10-08" },
+  { author: "Ana Laura Morales", text: "20 mesas redondas con mantelería completa en champagne para los XV años de mi hija. El resultado fue hermoso — las fotos parecen de revista. Muy recomendados.", rating: 5, date: "2025-09-15" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Mesas Redondas para Eventos en CDMX",
+    description: "Renta de mesas redondas de 150 cm (8 personas) y 180 cm (10 personas) para banquetes en CDMX. Base estabilizadora, 120 kg de capacidad. Desde $80 por mesa.",
+    url: "/servicios/mobiliario/mesas/redondas/",
+    priceRange: { min: 80, max: 250 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 78,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Mesas", url: "/servicios/mobiliario/mesas/" },
+    { name: "Mesas Redondas", url: "/servicios/mobiliario/mesas/redondas/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Mesas Redondas para Eventos en CDMX"
+  description="Renta de mesas redondas de 150 cm (8 personas) y 180 cm (10 personas) para banquetes en CDMX. Base estabilizadora, 120 kg de capacidad. Desde $80 por mesa."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="El estándar de oro para banquetes"
+    title='Renta de <span class="highlight">Mesas Redondas</span> para Eventos en CDMX'
+    subtitle="Mesas redondas de 150 cm (8 personas) y 180 cm (10 personas) con tablero de triplay de alta densidad y acabado melamínico. Base metálica plegable con niveladores. Capacidad de 120 kg. Entrega, montaje y asesoría de layout incluidos."
+    primaryCTA={{ label: "Cotiza tus mesas redondas", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar mesas redondas para mi evento` }}
+    cards={[
+      {
+        title: "Dos diámetros profesionales para 8 y 10 comensales",
+        content: "<strong>Renta de mesas redondas para eventos</strong> en dos formatos: <strong>150 cm de diámetro</strong> con capacidad para 8 personas — ideal para banquetes estándar y venues con espacio moderado. <strong>180 cm de diámetro</strong> con capacidad para 10 personas — perfecta para eventos donde se busca mayor comodidad o distribución VIP. Tablero de triplay de alta densidad con acabado melamínico resistente a manchas, humedad y calor. Capacidad de <strong>120 kg distribuidos</strong>.",
+      },
+      {
+        title: "Base estabilizadora y montaje profesional de layout completo",
+        content: "<strong>Servicio integral de mesas redondas</strong> con base metálica plegable equipada con niveladores ajustables que garantizan estabilidad total en cualquier superficie: pisos de salón, pasto, duela y terrazas. Nuestro equipo calcula la cantidad exacta según tu número de invitados y dimensiones del venue, diseña el layout óptimo con espacio de circulación y monta cada mesa con verificación de nivel. Entrega puntual y recolección incluida.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas mesas redondas para tu próximo evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con layout personalizado"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Mesas para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas mesas redondas para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar mesas redondas para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Mesas Redondas</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Redonda 150 cm — Banquete Estándar -->
+          <section class="section section--alt" aria-labelledby="150cm-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">La más solicitada</span>
+                <h2 class="showcase__title" id="150cm-heading">Redonda 150 cm — Banquete Estándar</h2>
+                <p class="showcase__subtitle">8 comensales con distribución perfecta: la mesa clásica para bodas, XV años y galas.</p>
+                <p class="showcase__text">La <strong>mesa redonda de 150 cm</strong> es el caballo de batalla de los banquetes en CDMX — presente en el 70% de los eventos que montamos. Acomoda <strong>8 comensales de forma cómoda</strong> con espacio suficiente para plato base, copas, cubiertos y centro de mesa. Es el estándar para bodas, XV años, galas corporativas y todo evento con servicio de banquete sentado. Su formato compacto permite maximizar la capacidad del venue sin sacrificar comodidad.</p>
+                <p class="showcase__text">Tablero de triplay de alta densidad con <strong>acabado melamínico resistente a manchas, humedad y calor</strong>. Base metálica plegable con niveladores ajustables y capacidad de <strong>120 kg distribuidos</strong>. Funciona en salones, jardines, terrazas y haciendas de cualquier tamaño. Combínalas con nuestras <a href="/servicios/mobiliario/sillas/">sillas para eventos</a> para un montaje integral que impresiona.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">150 cm</span>
+                  <span class="showcase__tag">8 Personas</span>
+                  <span class="showcase__tag">Banquetes</span>
+                  <span class="showcase__tag">Bodas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Redonda 150 cm
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+                  <span>Redonda 150 cm — Banquete Estándar</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Redonda 180 cm — Banquete VIP -->
+          <section class="section section--alt" aria-labelledby="180cm-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Mayor comodidad</span>
+                <h2 class="showcase__title" id="180cm-heading">Redonda 180 cm — Banquete VIP</h2>
+                <p class="showcase__subtitle">10 comensales con espacio generoso: ideal para distribuciones VIP y eventos premium.</p>
+                <p class="showcase__text">La <strong>mesa redonda de 180 cm</strong> es la elección para eventos premium donde la comodidad y el espacio son prioridad. Acomoda <strong>10 comensales con amplio espacio</strong> entre cada persona — ideal para galas corporativas donde se conversa durante horas, bodas con montaje de lujo y XV años con mesas de honor más generosas. El mayor diámetro permite centros de mesa más elaborados y arreglos florales de mayor volumen sin invadir el espacio de los comensales.</p>
+                <p class="showcase__text">Misma construcción premium: tablero de triplay de alta densidad con acabado melamínico y <strong>capacidad de 120 kg distribuidos</strong>. Popular para eventos donde se busca distribución VIP con mesas de 10 en lugar de 8, creando una experiencia más íntima y cómoda. Combínalas con <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a> y centros de mesa iluminados para un efecto espectacular que transforma cualquier banquete.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">180 cm</span>
+                  <span class="showcase__tag">10 Personas</span>
+                  <span class="showcase__tag">VIP</span>
+                  <span class="showcase__tag">Premium</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Redonda 180 cm
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+                  <span>Redonda 180 cm — Banquete VIP</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Redonda con Mantelería Completa -->
+          <section class="section section--alt" aria-labelledby="manteleria-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Look integral</span>
+                <h2 class="showcase__title" id="manteleria-heading">Redonda con Mantelería Completa</h2>
+                <p class="showcase__subtitle">Mesas redondas con mantel, cubremantel y camino coordinados para un acabado de revista.</p>
+                <p class="showcase__text">Ofrecemos <strong>paquetes completos de mesa redonda + mantelería</strong> para que tu montaje luzca impecable sin complicaciones. Más de <strong>30 colores disponibles</strong> en telas de poliéster, satinado y organza — desde blancos clásicos hasta tonos vibrantes como burdeos, esmeralda, dorado y champagne. Cada paquete incluye mantel base, cubremantel o overlay decorativo y servilletas coordinadas que transforman completamente el look de la mesa.</p>
+                <p class="showcase__text">La mantelería es el elemento que define la personalidad de tu banquete — un mismo salón se ve completamente diferente con manteles en blanco clásico versus champagne o con overlays de organza. Nuestro equipo de asesoría te ayuda a elegir la combinación perfecta según tu paleta de colores y estilo decorativo. Consulta todas las opciones en nuestra sección de <a href="/servicios/accesorios/manteleria-textiles/">mantelería y textiles</a> para ver catálogo completo de colores y telas.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Mantelería</span>
+                  <span class="showcase__tag">30+ Colores</span>
+                  <span class="showcase__tag">Cubre Mantel</span>
+                  <span class="showcase__tag">Acabado Premium</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar con Mantelería
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+                  <span>Redonda con Mantelería Completa</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Redonda para Jardín y Exterior -->
+          <section class="section section--alt" aria-labelledby="exterior-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Estables en cualquier terreno</span>
+                <h2 class="showcase__title" id="exterior-heading">Redonda para Jardín y Exterior</h2>
+                <p class="showcase__subtitle">Niveladores ajustables y base antivuelco para montajes perfectos en pasto, terrazas y jardines.</p>
+                <p class="showcase__text">Las mesas redondas están diseñadas para funcionar perfectamente en <strong>exteriores</strong>: pasto, terrazas de piedra, jardines con desnivel y superficies irregulares. La base metálica plegable incluye <strong>niveladores ajustables independientes</strong> en cada pata que compensan desniveles de hasta 3 cm, más sistema antivuelco que distribuye el centro de gravedad para máxima estabilidad incluso con carga completa de vajilla, cristalería y centros de mesa.</p>
+                <p class="showcase__text">Para eventos en jardín, recomendamos usar piso de duela o alfombra debajo de las mesas si el terreno es muy irregular — consulta nuestras opciones de <strong>pisos para eventos</strong>. El acabado melamínico del tablero es resistente a humedad, lo que las hace aptas para venues al aire libre. Complementa tu montaje exterior con nuestras <a href="/servicios/carpas/">carpas profesionales</a> para proteger a tus invitados del sol y la lluvia sin sacrificar el ambiente al aire libre.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Jardín</span>
+                  <span class="showcase__tag">Terraza</span>
+                  <span class="showcase__tag">Niveladores</span>
+                  <span class="showcase__tag">Antivuelco</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar para Exterior
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+                  <span>Redonda para Jardín y Exterior</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Mesas Redondas"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar mesas redondas para tu evento, es natural tener preguntas sobre tamaños, capacidad, mantelería y logística. Aquí encontrarás las respuestas más comunes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor especializado en mobiliario te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en mesas redondas resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre mesas redondas para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Mesas para Eventos -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Mesas para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/mesas/" class="sidebar-nav__back">&uarr; Volver a Mesas</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/" class="sidebar-nav__back">&uarr; Volver a Mobiliario</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de mesas redondas:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas mesas redondas para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar mesas redondas para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tus Mesas Redondas"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores de mobiliario te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea que necesites 10 mesas redondas para una cena íntima o 50 para un banquete de gala, estamos aquí para asesorarte con el formato y layout perfectos."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Gala / Cena Formal">Gala / Cena Formal</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Graduación">Graduación</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoRedonda">
+                Formato de mesa redonda
+              </label>
+              <select id="tipoRedonda" name="tipoRedonda" class="form-field__input form-field__select">
+                <option value="">Selecciona el formato</option>
+                <option value="Redonda 150 cm (8 personas)">Redonda 150 cm (8 personas)</option>
+                <option value="Redonda 180 cm (10 personas)">Redonda 180 cm (10 personas)</option>
+                <option value="Redonda con Mantelería">Redonda con Mantelería</option>
+                <option value="Paquete Boda Redondas">Paquete Boda Redondas</option>
+                <option value="Paquete Corporativo">Paquete Corporativo</option>
+                <option value="Combinación Redondas + Rectangulares">Combinación Redondas + Rectangulares</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de mesas, formato preferido, venue, número de invitados, estilo de tu evento..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Asesoría de layout gratis</h3>
+            <p class="reserva-card__text">Calculamos la cantidad exacta de mesas según tu venue y número de invitados sin costo adicional.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada de mobiliario para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoRedonda = document.getElementById('tipoRedonda').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Mesas Redondas para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoRedonda) texto += `*Formato mesa:* ${tipoRedonda}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Mobiliario"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de mobiliario para eventos en la Ciudad de México. Cada aliado cuenta con inventario verificado, logística profesional y trayectoria comprobada.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad de mesas redondas en todos los formatos y cantidades para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Mobiliario Premium MX</h3>
+            <p class="partner-card__tagline">Especialistas en Mesas de Diseño</p>
+            <p class="partner-card__text">Especialistas en mesas de diseño para bodas y eventos sociales en CDMX. Inventario de más de 3,000 mesas redondas, rectangulares y cocktail con entrega y montaje profesional incluido.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Rent All CDMX</h3>
+            <p class="partner-card__tagline">Mesas y Mobiliario para Corporativos</p>
+            <p class="partner-card__text">Renta integral de mesas y mobiliario para eventos corporativos, congresos y ferias. Capacidad para eventos de 1,000+ personas con logística propia y servicio de montaje express.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventMob</h3>
+            <p class="partner-card__tagline">Mesas Contemporáneas y Clásicas</p>
+            <p class="partner-card__text">Mesas contemporáneas y clásicas para todo tipo de celebración. Redondas, rectangulares y cocktail con más de 10 años equipando los eventos más importantes de la Ciudad de México.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MesasyMás</h3>
+            <p class="partner-card__tagline">Mesas, Sillas y Complementos</p>
+            <p class="partner-card__text">Mesas, sillas y complementos de mobiliario con servicio de logística puerta a puerta. Flota propia de camiones para entregas puntuales en CDMX y zona metropolitana.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Mesas redondas que transforman tu banquete en una experiencia perfecta"
+    subheadline="Más de 3,000 mesas en inventario nos respaldan. Cotiza hoy y recibe asesoría de layout sin compromiso."
+    primaryCTA={{ label: "Cotizar mesas redondas", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar mesas redondas para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

@@ -174,3 +174,21 @@ En el corazón de San Ángel, rodeado de calles empedradas, galerías de arte y 
 Hay lugares y hay **lugares con alma**. El San Ángel Inn pertenece a la segunda categoría. Cuando el sol se pone sobre los jardines y las velas comienzan a iluminar la piedra centenaria, algo mágico sucede. El tiempo parece detenerse, y por unas horas, tus invitados y tú son transportados a una época donde la belleza, la tradición y la celebración eran sagradas.
 
 **No es solo un evento. Es un viaje en el tiempo. Es romance materializado. Es el San Ángel Inn.**
+
+## Servicios de EVENTECH para San Ángel Inn
+
+Como partner oficial de EVENTECH, ofrecemos soluciones que realzan la belleza histórica del venue:
+
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** con fairy lights en los árboles centenarios del jardín
+- **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** para resaltar arcos coloniales y fuentes de cantera
+- **[Sonido discreto](/servicios/audiovisual/sonido/)** que respeta la acústica del espacio histórico
+- **[Pistas de baile portátiles](/servicios/pistas-baile/madera-clasica/)** sobre el césped del jardín
+
+## Venues Similares con Historia y Romance
+
+Si buscas la magia de espacios históricos con gastronomía excepcional:
+
+- **[Hacienda San Ángel](/directorio/cdmx/coyoacan/hacienda-san-angel/)** — Colonial del siglo XVII, capilla barroca, mismo barrio
+- **[Hacienda de los Morales](/directorio/cdmx/polanco/hacienda-de-los-morales/)** — Siglo XVI en Polanco, cocina galardonada
+- **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — Sin límite horario, ambiente íntimo
+- **[Jardín Escondido](/directorio/cdmx/san-angel/jardin-escondido/)** — Boutique bohemio, más íntimo, precio accesible

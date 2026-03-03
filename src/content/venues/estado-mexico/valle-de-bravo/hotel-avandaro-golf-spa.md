@@ -61,7 +61,6 @@ servicesIncluded:
   - limpieza
   - montaje
   - desmontaje
-  - hospedaje
 
 eventTypes:
   - bodas

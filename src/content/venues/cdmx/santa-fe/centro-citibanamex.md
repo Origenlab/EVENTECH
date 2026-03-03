@@ -238,3 +238,22 @@ Centro Citibanamex existe para **esos momentos épicos**. No es el venue para un
 Cuando el éxito de tu evento se mide en miles de asistentes y millones en inversión, cuando no hay margen para error técnico ni logístico, cuando necesitas que todo funcione a escala industrial con precisión de relojero, **solo hay un lugar en México que puede garantizarlo**.
 
 Ese lugar es Centro Citibanamex.
+
+## Servicios de EVENTECH para Centro Citibanamex
+
+Como partner oficial de EVENTECH, ofrecemos soluciones de escala industrial para este venue masivo:
+
+- **[Pantallas LED gigantes](/servicios/audiovisual/pantallas-led/)** — Videowalls de cualquier dimensión para audiencias masivas
+- **[Iluminación de escenario](/servicios/iluminacion/escenario/)** — Moving heads, follow spots, y sistemas para auditorios
+- **[Sonido profesional](/servicios/audiovisual/sonido/)** — Line arrays para espacios de +5,000 personas
+- **[Carpas estructurales](/servicios/carpas/estructurales/)** — Para expansión en jardines y terrazas exteriores
+- **[Mobiliario de gran formato](/servicios/mobiliario/)** — Miles de sillas y mesas para convenciones masivas
+
+## Venues Similares para Eventos de Gran Escala
+
+Si buscas espacios para eventos corporativos de diferentes escalas:
+
+- **[Foro Kaluz Santa Fe](/directorio/cdmx/santa-fe/foro-kaluz/)** — Formato más manejable (1,000 personas), misma zona
+- **[Centro de Convenciones Tlatelolco](/directorio/cdmx/cuauhtemoc/centro-convenciones-tlatelolco/)** — Alternativa en zona centro, capacidad media
+- **[Loreto y Peña Pobre](/directorio/cdmx/alvaro-obregon/loreto-pena-pobre/)** — Industrial histórico para eventos de 600 personas
+- **[Hotel W Mexico City](/directorio/cdmx/polanco/hotel-w-mexico-city/)** — Salones de hotel de lujo para eventos premium

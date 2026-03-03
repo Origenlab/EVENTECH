@@ -189,3 +189,21 @@ Sin caterings obligatorios ni paquetes rígidos, puedes **construir el evento qu
 Hay venues que ofrecen elegancia. Hay venues que ofrecen servicio. Y hay **Jardines Nativitas, que ofrece algo que no puede comprarse ni construirse: la conexión con 500 años de historia mexicana**.
 
 Cuando tus invitados vean llegar las trajineras adornadas con cempasúchil, cuando escuchen al mariachi cantando mientras navega hacia el embarcadero, cuando brinden bajo ahuehuetes que ya estaban aquí cuando Cortés llegó a estas tierras, sabrán que están en un lugar **donde la tradición mexicana no es decoración: es la esencia misma del espacio**.
+
+## Servicios de EVENTECH para Jardines Nativitas
+
+Como partner oficial de EVENTECH, ofrecemos soluciones que complementan la tradición del espacio:
+
+- **[Carpas estructurales](/servicios/carpas/estructurales/)** para protección climática sin perder la vista a los canales
+- **[Carpas árabes](/servicios/carpas/carpas-arabes/)** que armonizan con el ambiente tradicional mexicano
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** con antorchas LED y linternas estilo mexicano
+- **[Pisos de duela](/servicios/carpas/pisos-complementos/)** para crear superficies de baile sobre el jardín
+
+## Venues Similares con Tradición Mexicana
+
+Si buscas espacios con autenticidad cultural y conexión con la naturaleza:
+
+- **[Jardín Botánico Tlalpan](/directorio/cdmx/tlalpan/jardin-botanico/)** — 7 hectáreas de flora mexicana, lagos naturales
+- **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — Colonial del siglo XVII, capilla consagrada
+- **[Hacienda Panoaya](/directorio/estado-mexico/amecameca/hacienda-panoaya/)** — Tradición y naturaleza con vista a los volcanes
+- **[San Ángel Inn](/directorio/cdmx/san-angel/san-angel-inn/)** — Hacienda colonial, gastronomía tradicional de leyenda

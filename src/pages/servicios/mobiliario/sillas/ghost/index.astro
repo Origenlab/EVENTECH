@@ -1,0 +1,367 @@
+---
+/**
+ * ─── Sillas Ghost — Página de Producto (Nivel 4) ───
+ * Policarbonato transparente diseño Philippe Starck.
+ * Transparente cristal, humo y ámbar. 130 kg, UV resistente.
+ *
+ * Jerarquía: Servicios > Mobiliario > Sillas > Sillas Ghost
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Sillas", href: "/servicios/mobiliario/sillas/" },
+  { label: "Sillas Ghost" },
+];
+
+const faqs = [
+  { question: "¿Qué tan resistentes son las sillas Ghost?", answer: "Las sillas Ghost soportan <strong>130 kg de carga</strong> — más que suficiente para la gran mayoría de los invitados. Están fabricadas en policarbonato virgen de 3.5 mm de espesor, un material extremadamente resistente al impacto que no se astilla ni se quiebra. El policarbonato es el mismo material usado en escudos antidisturbios y visores de casco, así que la resistencia es real y comprobada." },
+  { question: "¿Se pueden usar al aire libre?", answer: 'Sí. El policarbonato virgen de las Ghost es <strong>resistente a rayos UV</strong> — no se amarillenta ni se degrada con exposición solar. Son aptas para jardines, terrazas y eventos completamente al exterior. Sin embargo, al ser más ligeras (3.8 kg), recomendamos anclarlas o usar bases con peso en jardines expuestos al viento. Combínalas bajo nuestras <a href="/servicios/carpas/">carpas profesionales</a> para máxima seguridad.' },
+  { question: "¿Se rayan fácilmente?", answer: "El policarbonato es <strong>significativamente más resistente a rayones</strong> que el acrílico o plástico común. Sin embargo, como cualquier material transparente, puede presentar marcas superficiales con el uso intenso. Por eso cada silla Ghost pasa por un <strong>proceso de pulido profesional antes de cada entrega</strong> — las recibirás con transparencia cristalina impecable." },
+  { question: "¿Incluyen cojín?", answer: "Las Ghost se rentan <strong>sin cojín por defecto</strong>, ya que la mayoría de los clientes prefieren el look transparente limpio. Sin embargo, ofrecemos cojines opcionales de gel transparente o tela de color con cargo adicional. Los cojines se fijan con velcro removible y están disponibles en blanco, negro, gris y colores personalizados. Consúltanos para opciones." },
+  { question: "¿Puedo combinar Ghost con otros modelos?", answer: 'Sí, las Ghost son las sillas más versátiles para combinaciones. Las mezclas más populares son: <strong>Ghost + Tiffany dorada</strong> (Ghost en zona lounge + Tiffany en comedor), <strong>Ghost en mesa principal + Chiavari en mesas de invitados</strong> y <strong>Ghost en ceremonia + Crossback en recepción rústica</strong>. Su transparencia funciona como elemento neutro que complementa cualquier otro modelo. Consúltanos para <a href="/servicios/mobiliario/salas-lounge/">salas lounge</a> con Ghost.' },
+  { question: "¿Cuántas sillas Ghost puedo rentar?", answer: "Contamos con un inventario de <strong>más de 500 sillas Ghost</strong> disponibles en transparente cristal. Para los acabados humo y ámbar, la disponibilidad es más limitada (hasta 200 unidades por acabado). Para eventos de más de 200 sillas Ghost, recomendamos reservar con <strong>3 a 4 semanas de anticipación</strong>. Un anticipo del 30% confirma tu reserva." },
+];
+
+const specs = [
+  { label: "Material", value: "Policarbonato virgen 3.5 mm" },
+  { label: "Resistencia", value: "130 kg" },
+  { label: "Acabados", value: "Transparente cristal, Humo, Ámbar" },
+  { label: "Peso", value: "3.8 kg" },
+  { label: "Diseño", value: "Louis Ghost - Philippe Starck" },
+  { label: "Altura respaldo", value: "92 cm" },
+  { label: "Ancho asiento", value: "40 cm" },
+  { label: "Apilable", value: "Sí, hasta 6 unidades" },
+  { label: "UV", value: "Resistente a rayos UV - uso exterior" },
+  { label: "Mantenimiento", value: "Pulido y limpieza incluidos pre-evento" },
+];
+
+const sidebarNav = [
+  { name: "Sillas Tiffany", href: "/servicios/mobiliario/sillas/tiffany/" },
+  { name: "Sillas Chiavari", href: "/servicios/mobiliario/sillas/chiavari/" },
+  { name: "Sillas Ghost", href: null, active: true },
+  { name: "Sillas Crossback", href: "/servicios/mobiliario/sillas/crossback/" },
+  { name: "Sillas Plegables", href: "/servicios/mobiliario/sillas/plegables/" },
+];
+
+const sidebarRelated = [
+  { name: "Salas Lounge", href: "/servicios/mobiliario/salas-lounge/" },
+  { name: "Mesas para Eventos", href: "/servicios/mobiliario/mesas/" },
+  { name: "Carpas Profesionales", href: "/servicios/carpas/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+  { name: "Pistas de Baile", href: "/servicios/pistas-baile/" },
+];
+
+const reviews = [
+  { author: "Diana Velasco", text: "Rentamos 120 sillas Ghost transparentes para nuestra boda minimalista en una terraza de la Condesa. El efecto fue increíble — parecía que los invitados flotaban. La decoración floral y las guirnaldas de luces se veían sin obstrucción. Las sillas llegaron impecables, cristalinas. Servicio puntual y profesional.", rating: 5, date: "2025-11-02" },
+  { author: "Valentina Ruiz", text: "Para el showroom de moda de mi marca necesitaba sillas que no compitieran con las prendas. Las Ghost fueron la elección perfecta — transparentes, elegantes y fotogénicas. Mis invitados quedaron impresionados y las fotos profesionales salieron espectaculares. 100% recomendadas para eventos de diseño.", rating: 5, date: "2025-10-18" },
+  { author: "Alejandro Navarro", text: "Usamos Ghost en acabado humo para un evento de arte contemporáneo en una galería de Polanco. El tono ahumado le dio un aire sofisticado sin ser invasivo. Las sillas son sorprendentemente cómodas a pesar de verse delicadas. El equipo de montaje fue muy cuidadoso y profesional.", rating: 5, date: "2025-09-05" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Sillas Ghost para Eventos en CDMX",
+    description: "Sillas Ghost de policarbonato transparente 3.5 mm, diseño Philippe Starck. Perfectas para eventos contemporáneos. Desde $45 por silla.",
+    url: "/servicios/mobiliario/sillas/ghost/",
+    priceRange: { min: 45, max: 150 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 53,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Sillas", url: "/servicios/mobiliario/sillas/" },
+    { name: "Sillas Ghost", url: "/servicios/mobiliario/sillas/ghost/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Sillas Ghost para Eventos en CDMX"
+  description="Renta de sillas Ghost de policarbonato transparente 3.5 mm, diseño Philippe Starck. Perfectas para eventos contemporáneos. Desde $45 por silla."
+  jsonLd={jsonLd}
+>
+  <div class="container"><Breadcrumbs items={breadcrumbItems} /></div>
+
+  <HeroPage
+    badge="Diseño Philippe Starck icónico"
+    title='Renta de <span class="highlight">Sillas Ghost</span> para Eventos en CDMX'
+    subtitle="Sillas Ghost de policarbonato virgen de 3.5 mm en transparente cristal, humo y ámbar. Diseño Louis Ghost de Philippe Starck con respaldo medallón icónico. Resistencia de 130 kg y protección UV. Entrega y montaje profesional."
+    primaryCTA={{ label: "Cotiza tus sillas Ghost", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar sillas Ghost para mi evento` }}
+    cards={[
+      {
+        title: "Policarbonato virgen de 3.5 mm en transparente, humo y ámbar",
+        content: "<strong>Renta de sillas Ghost para eventos</strong> fabricadas en policarbonato virgen de 3.5 mm de espesor — el mismo material usado en aplicaciones industriales de alta resistencia. Disponibles en 3 acabados: <strong>transparente cristal</strong> para máxima amplitud visual, <strong>humo</strong> para un toque contemporáneo sofisticado y <strong>ámbar</strong> para calidez elegante. Resistencia comprobada de 130 kg por silla con protección UV integrada para uso interior y exterior.",
+      },
+      {
+        title: "Respaldo medallón fotogénico y amplitud visual sin obstrucción",
+        content: "<strong>Diseño Louis Ghost de Philippe Starck</strong> con el icónico respaldo medallón que se ha convertido en un clásico del diseño contemporáneo. Su transparencia elimina la obstrucción visual — los arreglos florales, la decoración y la iluminación brillan sin competencia. Extremadamente fotogénica bajo cualquier condición de luz. Ideal para bodas minimalistas, showrooms de moda, eventos de arte y cualquier celebración donde la estética visual es prioridad.",
+      },
+    ]}
+  />
+
+  <CTABanner
+    headline="¿Necesitas sillas Ghost para tu próximo evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con acabado y precio por unidad"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Sillas para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (<span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>) : (<a href={item.href} class="sidebar-nav__link">{item.name}</a>)}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">{sidebarRelated.map((item) => (<li><a href={item.href} class="sidebar-related__link"><span class="sidebar-related__arrow">&rarr;</span>{item.name}</a></li>))}</ul>
+        </div>
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas sillas Ghost para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar sillas Ghost para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <div class="l4-main">
+
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/><path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/><path d="M5 21v-2"/><path d="M19 21v-2"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Sillas Ghost</h2>
+              </div>
+              <div class="specs-table__body">{specs.map((spec) => (<div class="specs-table__row"><div class="specs-table__label">{spec.label}</div><div class="specs-table__value">{spec.value}</div></div>))}</div>
+            </div>
+          </section>
+
+          <section class="section section--alt" aria-labelledby="ghost-cristal-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">La más solicitada</span>
+                <h2 class="showcase__title" id="ghost-cristal-heading">Ghost Transparente Cristal</h2>
+                <p class="showcase__subtitle">Transparencia total que desaparece en el espacio y deja brillar tu decoración sin competencia visual.</p>
+                <p class="showcase__text">La <strong>silla Ghost transparente cristal</strong> es el acabado insignia y más solicitado de la colección Ghost. Su transparencia completa la convierte en un <strong>elemento invisible que aporta elegancia sin restar protagonismo</strong> a la decoración, los arreglos florales y la iluminación. Es como si los invitados flotaran — un efecto visual espectacular que se multiplica cuando se combina con <a href="/servicios/iluminacion/decorativa/fairy-lights/">guirnaldas de luces</a>.</p>
+                <p class="showcase__text">Ideal para <strong>bodas minimalistas, eventos de moda, galerías de arte y lanzamientos de marca</strong> donde la estética clean es prioridad. En fotografía profesional, la Ghost transparente permite que el fondo y la ambientación brillen sin obstrucción — las fotos del evento quedan espectaculares. Cada silla pasa por <strong>pulido profesional antes de cada entrega</strong> para garantizar una transparencia cristalina impecable.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Transparente Cristal</span>
+                  <span class="showcase__tag">130 kg</span>
+                  <span class="showcase__tag">Fotogénica</span>
+                  <span class="showcase__tag">Minimalista</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">Cotizar Ghost Transparente</a>
+              </div>
+              <div class="showcase__image"><div class="showcase__placeholder" aria-hidden="true"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/><path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/><path d="M5 21v-2"/><path d="M19 21v-2"/></svg><span>Ghost Transparente Cristal</span></div></div>
+            </div>
+          </section>
+
+          <section class="section section--alt" aria-labelledby="ghost-humo-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Sofisticación sutil</span>
+                <h2 class="showcase__title" id="ghost-humo-heading">Ghost Humo</h2>
+                <p class="showcase__subtitle">Tono ahumado que aporta profundidad y un aire contemporáneo sin perder la transparencia.</p>
+                <p class="showcase__text">La <strong>silla Ghost humo</strong> ofrece una transparencia tintada en gris que aporta <strong>profundidad visual y sofisticación</strong> sin sacrificar la ligereza característica de las Ghost. El tono humo es más discreto que el cristal transparente — no desaparece por completo sino que aporta una presencia sutil que define el espacio sin dominarlo.</p>
+                <p class="showcase__text">La elección predilecta para <strong>eventos de arte contemporáneo, galerías, showrooms de diseño industrial y galas con estética urbana</strong>. Combina naturalmente con decoración en tonos grises, negros, blancos y metálicos. Especialmente impactante en espacios con pisos de concreto pulido, paredes de ladrillo y techos industriales. Complementa con nuestra <a href="/servicios/iluminacion/arquitectonica/">iluminación arquitectónica</a> para resaltar su tono ahumado.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Humo</span>
+                  <span class="showcase__tag">Arte Contemporáneo</span>
+                  <span class="showcase__tag">Urbano</span>
+                  <span class="showcase__tag">Diseño Industrial</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">Cotizar Ghost Humo</a>
+              </div>
+              <div class="showcase__image"><div class="showcase__placeholder" aria-hidden="true"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/><path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/><path d="M5 21v-2"/><path d="M19 21v-2"/></svg><span>Ghost Humo</span></div></div>
+            </div>
+          </section>
+
+          <section class="section section--alt" aria-labelledby="ghost-ambar-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Calidez elegante</span>
+                <h2 class="showcase__title" id="ghost-ambar-heading">Ghost Ámbar</h2>
+                <p class="showcase__subtitle">Tonalidad ámbar cálida que aporta luminosidad y un toque orgánico a eventos al aire libre.</p>
+                <p class="showcase__text">La <strong>silla Ghost ámbar</strong> combina la transparencia característica de las Ghost con un <strong>tono cálido dorado-ámbar</strong> que evoca miel y luz solar. Es la versión más cálida de la colección Ghost — ideal cuando quieres el look transparente pero con un toque de color que aporte calidez al espacio. El ámbar filtra la luz de forma hermosa, creando reflejos dorados suaves sobre las superficies cercanas.</p>
+                <p class="showcase__text">Perfecta para <strong>eventos al aire libre durante el atardecer, bodas en jardines tropicales y celebraciones con temática cálida</strong>. Combina espectacularmente con decoración en tonos terracota, dorado y verde natural. Es la Ghost que mejor funciona en exteriores porque su tono cálido complementa la luz natural. Combínalas con nuestras <a href="/servicios/carpas/">carpas transparentes</a> para un efecto visual de ensueño.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Ámbar</span>
+                  <span class="showcase__tag">Cálida</span>
+                  <span class="showcase__tag">Exteriores</span>
+                  <span class="showcase__tag">Jardines</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">Cotizar Ghost Ámbar</a>
+              </div>
+              <div class="showcase__image"><div class="showcase__placeholder" aria-hidden="true"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/><path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/><path d="M5 21v-2"/><path d="M19 21v-2"/></svg><span>Ghost Ámbar</span></div></div>
+            </div>
+          </section>
+
+          <section class="section section--alt" aria-labelledby="ghost-exterior-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Resistencia UV certificada</span>
+                <h2 class="showcase__title" id="ghost-exterior-heading">Ghost en Exteriores</h2>
+                <p class="showcase__subtitle">Protección UV integrada para jardines, terrazas y eventos al aire libre sin preocupaciones.</p>
+                <p class="showcase__text">Todas las sillas Ghost de nuestra colección cuentan con <strong>protección UV integrada en el policarbonato</strong> — no es un recubrimiento que se desgaste, sino una propiedad del material mismo. Esto las hace perfectas para eventos completamente al exterior: jardines, terrazas, playas y azoteas expuestas al sol directo. El policarbonato no se amarillenta ni se degrada con la exposición solar prolongada.</p>
+                <p class="showcase__text">Para eventos al exterior, recomendamos <strong>considerar el peso</strong> de las Ghost (3.8 kg) en zonas con viento — en jardines expuestos, usamos pesas discretas de base o las colocamos bajo <a href="/servicios/carpas/">carpas profesionales</a>. La combinación Ghost + carpa transparente + <a href="/servicios/iluminacion/decorativa/">guirnaldas de luces</a> es uno de nuestros montajes más solicitados para bodas en jardín. Montaje y desmontaje profesional incluido con precauciones específicas para exterior.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">UV Resistente</span>
+                  <span class="showcase__tag">Jardines</span>
+                  <span class="showcase__tag">Terrazas</span>
+                  <span class="showcase__tag">Azoteas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">Cotizar Ghost Exterior</a>
+              </div>
+              <div class="showcase__image"><div class="showcase__placeholder" aria-hidden="true"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/><path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/><path d="M5 21v-2"/><path d="M19 21v-2"/></svg><span>Ghost en Exteriores</span></div></div>
+            </div>
+          </section>
+
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader id="faq-heading" title="Preguntas Frecuentes sobre Sillas Ghost" subtitle="Resolvemos tus dudas" description={["Antes de rentar sillas Ghost para tu evento, es natural tener preguntas sobre resistencia, uso exterior, cuidado y acabados. Aquí encontrarás las respuestas más comunes.", "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor especializado en mobiliario te responderá al instante."]} />
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question"><span>{faq.question}</span><svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+                    <div class="faq-item__answer"><p set:html={faq.answer} /></div>
+                  </details>
+                ))}
+              </div>
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent"><h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3><p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en sillas Ghost resolverá todas tus dudas al instante.</p><a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre sillas Ghost para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">Escribir por WhatsApp</a></div>
+                <div class="faq-sidebar-card"><h3 class="faq-sidebar-card__title">Llámanos</h3><p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p><a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a></div>
+                <div class="faq-sidebar-card"><h3 class="faq-sidebar-card__title">Cotización express</h3><p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p><a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a></div>
+              </aside>
+            </div>
+          </section>
+        </div>
+
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Sillas para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (<li class="sidebar-nav__item">{item.active ? (<span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>) : (<a href={item.href} class="sidebar-nav__link">{item.name}</a>)}</li>))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item"><a href="/servicios/mobiliario/sillas/" class="sidebar-nav__back">&uarr; Volver a Sillas</a></li>
+              <li class="sidebar-nav__item"><a href="/servicios/mobiliario/" class="sidebar-nav__back">&uarr; Volver a Mobiliario</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de sillas Ghost:</p>
+            <ul class="sidebar-related">{sidebarRelated.map((item) => (<li><a href={item.href} class="sidebar-related__link"><span class="sidebar-related__arrow">&rarr;</span>{item.name}</a></li>))}</ul>
+          </div>
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas sillas Ghost para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar sillas Ghost para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader id="reserva-heading" title="Cotiza Tus Sillas Ghost" subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato" description={["Completa el formulario con los detalles de tu evento y uno de nuestros asesores de mobiliario te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.", "Ya sea que necesites 30 sillas Ghost para un showroom o 200 para una boda minimalista, estamos aquí para asesorarte con el acabado perfecto."]} />
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field"><label class="form-field__label" for="nombre">Nombre completo <span class="form-field__required">*</span></label><input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required /></div>
+            <div class="form-field"><label class="form-field__label" for="telefono">Teléfono <span class="form-field__required">*</span></label><input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required /></div>
+            <div class="form-field"><label class="form-field__label" for="tipoEvento">Tipo de evento</label><select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select"><option value="">Selecciona una opción</option><option value="Boda">Boda</option><option value="Showroom / Moda">Showroom / Moda</option><option value="Evento de Arte">Evento de Arte</option><option value="Evento Corporativo">Evento Corporativo</option><option value="Fiesta Social">Fiesta Social</option><option value="Lanzamiento de Marca">Lanzamiento de Marca</option><option value="Otro">Otro</option></select></div>
+            <div class="form-field"><label class="form-field__label" for="fecha">Fecha del evento</label><input type="date" id="fecha" name="fecha" class="form-field__input" /></div>
+            <div class="form-field form-field--full"><label class="form-field__label" for="tipoGhost">Acabado de silla Ghost</label><select id="tipoGhost" name="tipoGhost" class="form-field__input form-field__select"><option value="">Selecciona el acabado</option><option value="Ghost Transparente Cristal">Ghost Transparente Cristal</option><option value="Ghost Humo">Ghost Humo</option><option value="Ghost Ámbar">Ghost Ámbar</option><option value="Paquete Boda Ghost">Paquete Boda Ghost</option><option value="Paquete Evento Contemporáneo">Paquete Evento Contemporáneo</option><option value="Combinación Ghost + Tiffany">Combinación Ghost + Tiffany</option></select></div>
+            <div class="form-field form-field--full"><label class="form-field__label" for="mensaje">Mensaje <span class="form-field__required">*</span></label><textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Cuéntanos los detalles: número de sillas, venue (interior/exterior), estilo de tu evento..." rows="4" required></textarea></div>
+          </div>
+          <button type="submit" class="reserva-form__submit" id="btnEnviar"><svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Enviar por WhatsApp</button>
+        </form>
+        <aside class="reserva-sidebar">
+          <div class="reserva-card"><h3 class="reserva-card__title">Respuesta inmediata</h3><p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p></div>
+          <div class="reserva-card"><h3 class="reserva-card__title">Pulido incluido</h3><p class="reserva-card__text">Cada silla Ghost pasa por pulido profesional antes de tu evento para transparencia cristalina.</p></div>
+          <div class="reserva-card"><h3 class="reserva-card__title">Sin compromiso</h3><p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada de mobiliario para tu presupuesto.</p></div>
+          <div class="reserva-card reserva-card--highlight"><h3 class="reserva-card__title">Horario de atención</h3><p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoGhost = document.getElementById('tipoGhost').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+      if (!nombre || !telefono || !mensaje) { if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error'); if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error'); if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error'); return; }
+      let fechaTexto = 'No especificada';
+      if (fecha) { const d = new Date(fecha + 'T12:00:00'); fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }); }
+      let texto = `*Sillas Ghost para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoGhost) texto += `*Acabado Ghost:* ${tipoGhost}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+      window.open(`https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`, '_blank');
+    });
+    document.querySelectorAll('.form-field__input').forEach(function(input) { input.addEventListener('input', function() { this.classList.remove('form-field__input--error'); }); });
+  </script>
+
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader id="proveedores-heading" title="Proveedores de Confianza en Mobiliario" subtitle="Red de aliados profesionales" description={["Trabajamos con los proveedores más reconocidos de mobiliario para eventos en la Ciudad de México. Cada aliado cuenta con inventario verificado, logística profesional y trayectoria comprobada.", "Nuestra red de proveedores nos permite garantizar disponibilidad de sillas Ghost en todos los acabados para eventos de cualquier escala."]} />
+      <div class="grid grid--4">
+        <article class="partner-card"><div class="partner-card__header"><span class="partner-card__initial">M</span><div class="partner-card__badge">Aliado estratégico</div></div><div class="partner-card__content"><h3 class="partner-card__name">Mobiliario Premium MX</h3><p class="partner-card__tagline">Especialistas en Sillas de Diseño</p><p class="partner-card__text">Especialistas en sillas de diseño para bodas y eventos sociales en CDMX. Inventario de más de 5,000 sillas Tiffany, Chiavari y Ghost con entrega y montaje profesional incluido.</p></div></article>
+        <article class="partner-card"><div class="partner-card__header"><span class="partner-card__initial">R</span><div class="partner-card__badge">Renta integral</div></div><div class="partner-card__content"><h3 class="partner-card__name">Rent All CDMX</h3><p class="partner-card__tagline">Mobiliario y Sillas para Corporativos</p><p class="partner-card__text">Renta integral de mobiliario y sillas para eventos corporativos, congresos y ferias. Capacidad para eventos de 1,000+ personas con logística propia y servicio de montaje express.</p></div></article>
+        <article class="partner-card"><div class="partner-card__header"><span class="partner-card__initial">E</span><div class="partner-card__badge">+10 años de experiencia</div></div><div class="partner-card__content"><h3 class="partner-card__name">EventMob</h3><p class="partner-card__tagline">Mobiliario Contemporáneo y Clásico</p><p class="partner-card__text">Mobiliario contemporáneo y clásico para todo tipo de celebración. Sillas Tiffany, Crossback y plegables con más de 10 años equipando los eventos más importantes de la Ciudad de México.</p></div></article>
+        <article class="partner-card"><div class="partner-card__header"><span class="partner-card__initial">M</span><div class="partner-card__badge">Logística profesional</div></div><div class="partner-card__content"><h3 class="partner-card__name">MesasyMás</h3><p class="partner-card__tagline">Sillas, Mesas y Complementos</p><p class="partner-card__text">Sillas, mesas y complementos de mobiliario con servicio de logística puerta a puerta. Flota propia de camiones para entregas puntuales en CDMX y zona metropolitana.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner headline="Sillas Ghost que aportan elegancia invisible a tu evento" subheadline="Más de 500 sillas Ghost en inventario. Cotiza hoy y recibe asesoría personalizada de acabados." primaryCTA={{ label: "Cotizar sillas Ghost", href: "#reserva-heading" }} secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar sillas Ghost para mi evento` }} variant="accent" />
+</PageLayout>
+
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

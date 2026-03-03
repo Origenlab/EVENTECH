@@ -171,3 +171,22 @@ Como **partner de EVENTECH**, el Palacio de la Autonomía ofrece integración pe
 Imagina a tus invitados entrando por el portal colonial, sus pasos resonando en la cantera centenaria. La fuente del patio murmura suavemente mientras el sol se pone sobre los arcos. Arriba, los frescos del siglo XVIII observan en silencio —los mismos frescos que observaron la declaración de autonomía universitaria, los mismos que han sido testigos de siglos de historia mexicana. **Esta noche, son testigos de tu celebración.**
 
 El Palacio de la Autonomía no es solo un venue: es un **viaje en el tiempo donde el presente y el pasado se encuentran para crear momentos inolvidables**.
+
+## Servicios de EVENTECH para Palacio de la Autonomía
+
+Como partner oficial de EVENTECH, ofrecemos soluciones que respetan y realzan el patrimonio histórico:
+
+- **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** para resaltar frescos, arquerías y cantería sin daño
+- **[Sonido profesional](/servicios/audiovisual/sonido/)** calibrado para la acústica de espacios con bóvedas
+- **[Carpas estructurales](/servicios/carpas/estructurales/)** transparentes para protección del patio en temporada de lluvias
+- **[Mobiliario de época](/servicios/mobiliario/)** que complementa el estilo colonial del palacio
+- **[Pistas de baile portátiles](/servicios/pistas-baile/madera-clasica/)** sobre la cantera histórica
+
+## Venues Similares con Historia Colonial
+
+Si buscas la grandeza de espacios históricos en el Centro:
+
+- **[Palacio de Minería](/directorio/cdmx/cuauhtemoc/palacio-de-mineria/)** — Obra maestra de Tolsá, mayor capacidad, más formal
+- **[Casino Español](/directorio/cdmx/cuauhtemoc/casino-espanol/)** — Club histórico de 1863, candiles de Bohemia
+- **[Casa de los Azulejos](/directorio/cdmx/centro-historico/casa-de-los-azulejos/)** — Palacio del siglo XVIII con talavera icónica
+- **[Hacienda de los Morales](/directorio/cdmx/polanco/hacienda-de-los-morales/)** — Colonial del siglo XVI, jardines monumentales

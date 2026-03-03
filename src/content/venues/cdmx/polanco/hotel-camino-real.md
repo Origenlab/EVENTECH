@@ -202,3 +202,23 @@ Para eventos con invitados de fuera de la ciudad, el hotel ofrece **tarifas pref
 ## La Experiencia Camino Real
 
 Hay hoteles donde celebras eventos. Y hay un lugar donde cada evento se convierte en una experiencia arquitectónica, artística y gastronómica que tus invitados recordarán por siempre. **El Camino Real Polanco no es solo un venue: es un destino en sí mismo**, un lugar donde la visión de Ricardo Legorreta sigue viva en cada rincón, en cada juego de luz, en cada muro de ese rosa mexicano que cambió la arquitectura latinoamericana para siempre.
+
+## Servicios de EVENTECH para Hotel Camino Real
+
+Como partner oficial de EVENTECH, ofrecemos soluciones de producción para eventos de gran escala:
+
+- **[Pantallas LED de gran formato](/servicios/audiovisual/pantallas-led/)** para el Gran Salón y eventos de convención
+- **[Sistemas de sonido Line Array](/servicios/audiovisual/sonido/)** para audiencias de 1,000+ personas
+- **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** para realzar las esculturas de Tamayo y Calder
+- **[Moving heads y efectos de escenario](/servicios/iluminacion/escenario/)** para producciones de alto impacto
+- **[Proyectores profesionales](/servicios/audiovisual/proyectores/)** para mapping sobre los muros icónicos
+- **[Pistas de baile LED](/servicios/pistas-baile/pistas-led/)** que dialogan con la estética contemporánea
+
+## Venues Similares de Gran Formato
+
+Si buscas capacidad para eventos masivos con arquitectura distintiva:
+
+- **[Centro Citibanamex](/directorio/cdmx/santa-fe/centro-citibanamex/)** — El más grande de México, convenciones de 10,000+
+- **[Hotel W Mexico City](/directorio/cdmx/polanco/hotel-w-mexico-city/)** — Lujo contemporáneo, hasta 800 personas
+- **[Centro de Convenciones Tlatelolco](/directorio/cdmx/cuauhtemoc/centro-convenciones-tlatelolco/)** — Moderno, accesible, gran capacidad
+- **[Foro Kaluz Santa Fe](/directorio/cdmx/santa-fe/foro-kaluz/)** — Industrial contemporáneo, alta tecnología

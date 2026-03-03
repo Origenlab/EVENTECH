@@ -197,3 +197,22 @@ Con una calificación de **4.9 de 5 estrellas**, Hacienda San Ángel es consiste
 Hay bodas que se celebran en lugares bonitos. Y hay bodas que se celebran en **lugares que tienen alma**. Hacienda San Ángel pertenece a la segunda categoría: un espacio donde los muros recuerdan siglos de amor, donde la capilla ha escuchado miles de votos matrimoniales, donde los jardines han sido testigos de generaciones de primeros bailes.
 
 Cuando pronuncies tus votos bajo el retablo dorado de la capilla, cuando bailes tu primera pieza bajo las jacarandas centenarias, cuando brindes con tus seres queridos junto a la fuente colonial, **no estarás simplemente celebrando tu boda: estarás uniéndote a una tradición de romance que comenzó hace cuatro siglos**.
+
+## Servicios de EVENTECH para Hacienda San Ángel
+
+Como partner oficial de EVENTECH, ofrecemos paquetes completos para bodas en haciendas:
+
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** con miles de fairy lights en jacarandas
+- **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** para realzar capilla y muros coloniales
+- **[Carpas transparentes](/servicios/carpas/estructurales/)** elegantes para protección sin perder la vista al jardín
+- **[Mobiliario de época](/servicios/mobiliario/)** que complementa la estética colonial
+- **[Pistas de baile de madera](/servicios/pistas-baile/madera-clasica/)** sobre el césped centenario
+
+## Venues Similares con Capilla y Jardines Históricos
+
+Si buscas el romance de haciendas coloniales con capilla:
+
+- **[San Ángel Inn](/directorio/cdmx/san-angel/san-angel-inn/)** — Siglo XVII, jardines icónicos, gastronomía legendaria
+- **[Hacienda de los Morales](/directorio/cdmx/polanco/hacienda-de-los-morales/)** — Siglo XVI en Polanco, capilla consagrada
+- **[Hacienda Santa Cecilia](/directorio/estado-mexico/huixquilucan/hacienda-santa-cecilia/)** — 10 hectáreas, capilla del XVII
+- **[Hacienda Panoaya](/directorio/estado-mexico/amecameca/hacienda-panoaya/)** — 80 hectáreas, vista a volcanes

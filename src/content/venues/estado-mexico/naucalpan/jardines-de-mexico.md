@@ -187,3 +187,23 @@ Hay familias que gastan el presupuesto de una casa en una boda de 4 horas. Y hay
 Jardines de México no es el venue para quienes buscan impresionar con exclusividad. Es el venue para quienes buscan **celebrar con alegría, rodeados de sus seres queridos, en un espacio genuinamente hermoso**, y despertar al día siguiente sabiendo que tomaron una decisión inteligente.
 
 Eso, al final, es el verdadero lujo.
+
+## Servicios de EVENTECH para Jardines de México
+
+Como partner oficial de EVENTECH, ofrecemos soluciones completas para eventos de todos los tamaños:
+
+- **[Carpas estructurales](/servicios/carpas/estructurales/)** para protección climática sin perder la magia del jardín
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** con fairy lights y antorchas para el jardín nocturno
+- **[Pistas de baile LED](/servicios/pistas-baile/pistas-led/)** que transforman cualquier celebración
+- **[Sonido profesional](/servicios/audiovisual/sonido/)** para espacios al aire libre de cualquier tamaño
+- **[Inflables y juegos](/servicios/inflables/)** para el área infantil en eventos familiares
+- **[Mobiliario versátil](/servicios/mobiliario/)** desde rústico hasta elegante
+
+## Venues Similares en el Norte del Estado de México
+
+Si buscas opciones en esta zona con diferentes características:
+
+- **[Quinta Real Atizapán](/directorio/estado-mexico/atizapan/quinta-real-atizapan/)** — Capilla con vitrales, mayor elegancia, precio medio
+- **[Jardín Los Arcos](/directorio/estado-mexico/atizapan/jardin-los-arcos/)** — Tradición familiar, arcos de cantera, más íntimo
+- **[Hacienda Santa Cecilia](/directorio/estado-mexico/huixquilucan/hacienda-santa-cecilia/)** — Colonial de lujo con capilla del siglo XVII
+- **[Salón Tlalnepantla Real](/directorio/estado-mexico/tlalnepantla/salon-tlalnepantla-real/)** — Salón climatizado, eventos garantizados
