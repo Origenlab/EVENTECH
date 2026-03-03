@@ -936,21 +936,21 @@ Sistemas láser multicolor para efectos de máximo impacto:
 - Escritura láser (texto y logos)
 - Sincronización musical
 
-**Cold Sparks (Chispas Frías)**
+**Papelitos de Mariposas**
 
-Fuentes de chispas seguras para interiores:
+Lanzadores de papelitos en forma de mariposa para celebraciones:
 
 *Características:*
-- No producen calor peligroso
-- Certificadas para uso indoor
-- Altura de chispas de 2-4 metros
-- Control DMX para timing preciso
+- Papel de seda ultraligero biodegradable
+- Colores personalizados a la temática
+- Altura de vuelo de 3-8 metros
+- Activación por control remoto
 
 *Aplicaciones:*
-- Entrada de novios
+- Cumpleaños y fiestas infantiles
 - Pasarela de quinceañera
-- Primer baile
-- Momentos culminantes
+- Baby showers
+- Momentos de sorpresa
 
 **Confeti y Serpentinas**
 
@@ -1604,7 +1604,7 @@ EVENTECH entiende que cada boda es absolutamente única, una expresión irrepeti
 
 *Momentos especiales:*
 - Humo bajo para primer baile
-- Sparklers para entrada de novios
+- Papelitos de mariposas para entrada de novios
 - Confeti para brindis
 - Iluminación dramática para pastel
 
@@ -1646,7 +1646,7 @@ El centro indiscutible de la fiesta:
 - Cabezas móviles robotizadas
 - Follow spot para protagonista
 - Efectos de humo bajo para vals
-- Sparklers para entrada triunfal
+- Papelitos de mariposas para entrada triunfal
 
 *Ambiente general:*
 - Transformación cromática de salón

@@ -1,0 +1,731 @@
+---
+/**
+ * ─── Par LED RGBWA — Página de Producto (Nivel 4) ───
+ * La luminaria base de toda iluminación profesional para eventos.
+ * Mezcla 5-en-1, modo silencioso, DMX512, wireless e IP65.
+ *
+ * Jerarquía: Servicios > Iluminación > Escenario > Par LED RGBWA
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Iluminación", href: "/servicios/iluminacion/" },
+  { label: "Escenario", href: "/servicios/iluminacion/escenario/" },
+  { label: "Par LED RGBWA" },
+];
+
+const faqs = [
+  { question: "¿Cuántos pares LED necesito para mi evento?", answer: "La cantidad depende del tamaño del espacio y la intensidad de iluminación deseada. Para salones de hasta 150 m² recomendamos entre 6 y 10 pares LED, para espacios de 150 a 400 m² entre 10 y 16 unidades, y para venues grandes de 400+ m² desde 16 luminarias en adelante. Nuestro diseñador de iluminación realiza una visita técnica gratuita para evaluar alturas de techo, puntos de energía y color de superficies, y entregarte un plano con la cantidad exacta de par LED para tu evento." },
+  { question: "¿Puedo elegir cualquier color con los par LED RGBWA?", answer: "Sí. La mezcla 5-en-1 (rojo, verde, azul, blanco y ámbar) de nuestros par LED RGBWA permite crear millones de tonalidades con precisión profesional. Puedes enviarnos códigos Pantone o HEX y programamos el match exacto con la paleta de tu boda, marca corporativa o temática de fiesta. El canal ámbar es especialmente valioso para generar blancos cálidos naturales de 2700K que no se logran con mezcla RGB estándar. El técnico programa tus colores exactos antes del evento." },
+  { question: "¿Los par LED pueden operar en modo silencioso para ceremonias?", answer: 'Sí. Nuestros par LED RGBWA cuentan con modo silencioso que reduce el nivel de ruido a menos de 25 dB — prácticamente inaudible. El ventilador interno puede desactivarse por completo para momentos de máximo silencio como ceremonias religiosas, votos matrimoniales y discursos. En modo silencioso la potencia se limita al 70%, pero sigue siendo más que suficiente para iluminar altares, podiums y mesas principales. Para ceremonias al aire libre, combínalos con nuestra <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a>.' },
+  { question: "¿Se pueden usar par LED en exteriores?", answer: 'Sí, contamos con modelos IP65 diseñados específicamente para exterior. Están sellados contra lluvia, polvo y humedad con carcasa de aluminio fundido y conectores waterproof. Operan en temperaturas de 0°C a 45°C y soportan humedad relativa de hasta 95%. Para eventos en jardín, terraza o cualquier espacio abierto, utilizamos exclusivamente par LED IP65. Combínalos con nuestras <a href="/servicios/carpas/">carpas profesionales</a> para producción integral en exteriores.' },
+  { question: "¿Necesito un técnico para operar los par LED?", answer: "Sí, todos nuestros paquetes de par LED incluyen técnico operador dedicado durante todo el evento. El técnico programa las escenas de color según el timeline de tu evento: ceremonia en ámbar cálido, cena en blanco suave, brindis con spotlight y fiesta con cambios dinámicos. Opera la consola DMX512 en tiempo real y realiza ajustes instantáneos si cambias de planes. También se encarga del montaje completo, cableado, enfoque y desmontaje. No necesitas preocuparte por nada técnico." },
+  { question: "¿Cuál es la diferencia entre par LED y wash lights?", answer: 'El <strong>par LED</strong> es una luminaria compacta con haz fijo de 25° — ideal para iluminar áreas específicas como escenarios, altares, mesas principales y elementos decorativos puntuales. Las <a href="/servicios/iluminacion/arquitectonica/wash-lights/">wash lights</a> tienen un haz más amplio con zoom motorizado de 15° a 60°, diseñadas para cubrir grandes superficies con baños de color uniformes en techos y muros. Ambos se complementan perfectamente: los par LED definen puntos focales y las wash lights crean la atmósfera general. Ofrecemos paquetes combinados con descuento para una iluminación integral.' },
+];
+
+const specs = [
+  { label: "Tecnología LED", value: "RGBWA 5-en-1 (Rojo, Verde, Azul, Blanco, Ámbar)" },
+  { label: "Potencia por unidad", value: "270W (18 LEDs x 15W)" },
+  { label: "Ángulo de apertura", value: "25° estándar / 15°-40° con lentes opcionales" },
+  { label: "Control", value: "DMX-512 (6-10 canales), wireless DMX" },
+  { label: "Temperatura de color", value: "2700K – 6500K (ajustable por mezcla)" },
+  { label: "CRI", value: "85-92 (según modelo)" },
+  { label: "Modo silencioso", value: "< 25 dB (ventilador desactivable)" },
+  { label: "Clasificación IP", value: "IP20 (interior) / IP65 (exterior disponible)" },
+  { label: "Peso por unidad", value: "4-6 kg" },
+  { label: "Vida útil LED", value: "50,000+ horas" },
+];
+
+const sidebarNav = [
+  { name: "Par LED RGBWA", href: null, active: true },
+  { name: "Moving Heads", href: "/servicios/iluminacion/escenario/moving-heads/" },
+  { name: "Follow Spots", href: "/servicios/iluminacion/escenario/follow-spots/" },
+  { name: "Barras LED Motorizadas", href: "/servicios/iluminacion/escenario/barras-led/" },
+];
+
+const sidebarRelated = [
+  { name: "Carpas Profesionales", href: "/servicios/carpas/" },
+  { name: "Equipo Audiovisual", href: "/servicios/audiovisual/" },
+  { name: "Mobiliario Premium", href: "/servicios/mobiliario/" },
+  { name: "Pistas de Baile", href: "/servicios/pistas-baile/" },
+  { name: "Efectos Especiales", href: "/servicios/iluminacion/efectos-especiales/" },
+];
+
+const reviews = [
+  { author: "Roberto Méndez", text: "Rentamos 24 par LED RGBWA para nuestra boda en un jardín de Coyoacán. El diseñador programó ámbar cálido para la ceremonia y la transición a colores vibrantes en la fiesta fue espectacular. El canal ámbar da unos blancos cálidos que no se logran con RGB normal. Técnico atento toda la noche.", rating: 5, date: "2025-11-15" },
+  { author: "Laura Gutiérrez", text: "Contratamos par LED RGBWA+UV para el lanzamiento de producto de nuestra marca. El efecto UV en los materiales fluorescentes fue un éxito total — todos los invitados comentaron la iluminación. Montaje limpio, sin cables visibles y operación impecable durante las 6 horas del evento.", rating: 5, date: "2025-10-22" },
+  { author: "Diego Hernández", text: "Los par LED wireless fueron la solución perfecta para nuestra terraza sin tomas de corriente. Las baterías duraron toda la noche sin problema y el control por app nos permitió cambiar colores desde el celular. Muy práctico y el resultado visual fue profesional.", rating: 5, date: "2025-09-08" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Par LED RGBWA para Eventos en CDMX",
+    description: "Par LED RGBWA 18x15W con mezcla 5-en-1 para bodas, galas y eventos corporativos. Modo silencioso, control DMX512, técnico dedicado y montaje incluido. Desde $350 por luminaria.",
+    url: "/servicios/iluminacion/escenario/par-led/",
+    priceRange: { min: 350, max: 3000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 52,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Iluminación", url: "/servicios/iluminacion/" },
+    { name: "Escenario", url: "/servicios/iluminacion/escenario/" },
+    { name: "Par LED RGBWA", url: "/servicios/iluminacion/escenario/par-led/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Par LED RGBWA para Eventos en CDMX"
+  description="Renta de par LED RGBWA 18x15W con mezcla 5-en-1 para eventos en CDMX: modo silencioso, control DMX512, modelos wireless e IP65. Desde $350 por luminaria. Cotiza hoy."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Base de toda iluminación profesional"
+    title='Renta de <span class="highlight">Par LED RGBWA</span> para Eventos en CDMX'
+    subtitle="Par LED RGBWA 18x15W con mezcla de color 5-en-1, modo silencioso para ceremonias y control DMX512 profesional. La luminaria base para bodas, galas, corporativos y escenarios. Técnico dedicado incluido."
+    primaryCTA={{ label: "Cotiza tus par LED", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar par LED RGBWA para mi evento` }}
+    cards={[
+      {
+        title: "Luminarias RGBWA de grado profesional para cada escenario",
+        content: "<strong>Renta de par LED RGBWA para eventos</strong> con tecnología de mezcla 5-en-1 (rojo, verde, azul, blanco y ámbar) en la Ciudad de México. Cada unidad cuenta con 18 LEDs de 15W para un total de 270W de potencia, haz de 25° con opciones de lentes de 15° a 40°, modo silencioso inferior a 25 dB y control DMX512 en configuraciones de 6 a 10 canales. Montajes de 8, 16, 24 o 32 unidades para cubrir desde salones íntimos hasta escenarios de gran formato.",
+      },
+      {
+        title: "Control DMX y técnico operador incluido en cada renta",
+        content: "<strong>Servicio técnico completo</strong> con consola DMX512 profesional y programación de escenas personalizadas según el timeline de tu evento. Dimmer suave de 0-100% sin parpadeo, transiciones programables entre ceremonia, cena, brindis y fiesta. Truss, cableado DMX y de energía incluidos en el montaje. Modelos wireless DMX disponibles para instalaciones sin cableado visible.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas par LED para tu próximo evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con plano de iluminación personalizado"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Iluminación de Escenario</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas par LED para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar par LED RGBWA para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Par LED RGBWA</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Par LED RGBWA Standard (270W) -->
+          <section class="section section--alt" aria-labelledby="rgbwa-standard-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">El workhorse de eventos</span>
+                <h2 class="showcase__title" id="rgbwa-standard-heading">Par LED RGBWA Standard (270W)</h2>
+                <p class="showcase__subtitle">18x15W con mezcla 5-en-1: la base confiable para iluminación de escenario, ceremonias y ambientación.</p>
+                <p class="showcase__text">El <strong>par LED RGBWA Standard</strong> es la luminaria más solicitada para eventos profesionales en CDMX. Equipado con <strong>18 LEDs de 15W cada uno</strong> con mezcla 5-en-1 (rojo, verde, azul, blanco y ámbar), alcanza 270W de potencia total con un haz de 25° estándar y opciones de lentes de 15° a 40° para ajustar la cobertura. Control DMX de 6 a 10 canales, dimmer suave de 0-100% sin parpadeo y función de strobo integrada. Configuraciones típicas de 8, 16, 24 o 32 unidades según el tamaño del evento.</p>
+                <p class="showcase__text">Cuenta con <strong>modo silencioso inferior a 25 dB</strong>, ideal para ceremonias religiosas, votos matrimoniales y discursos donde el ruido de ventiladores es inaceptable. Función master/slave para sincronización automática sin necesidad de consola DMX. La luminaria más versátil para bodas, XV años y eventos corporativos donde necesitas iluminación confiable sin complicaciones. Complementa tu diseño con nuestro <a href="/servicios/audiovisual/">equipo audiovisual profesional</a> para una producción integral.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">RGBWA 5-en-1</span>
+                  <span class="showcase__tag">18x15W (270W)</span>
+                  <span class="showcase__tag">DMX 6-10ch</span>
+                  <span class="showcase__tag">Silent Mode</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Par LED RGBWA
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
+                  <span>Par LED RGBWA Standard</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Par LED RGBWA+UV Premium (324W) -->
+          <section class="section section--alt" aria-labelledby="rgbwauv-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">El estándar premium</span>
+                <h2 class="showcase__title" id="rgbwauv-heading">Par LED RGBWA+UV Premium (324W)</h2>
+                <p class="showcase__subtitle">6-en-1 con ultravioleta: el máximo rango de color para galas, conciertos y producciones de alto perfil.</p>
+                <p class="showcase__text">El <strong>par LED RGBWA+UV Premium</strong> es nuestra luminaria de gama alta con <strong>18 LEDs de 18W cada uno</strong> y mezcla 6-en-1 que incluye ultravioleta. Los 324W de potencia total combinados con un CRI de 95 lo convierten en la opción definitiva para eventos donde cada detalle de color importa. El <strong>canal UV genera efectos glow espectaculares</strong> en ropa blanca, flores, telas fluorescentes y elementos decorativos — un impacto visual que no se logra con RGBW estándar.</p>
+                <p class="showcase__text">Zoom motorizado de 15° a 60° para ajustar la cobertura sin mover la luminaria, <strong>12 canales DMX</strong> para control granular de cada color individual y dimmer de 16-bit para transiciones ultra-suaves sin escalonamientos visibles. La elección preferida para galas corporativas de alto perfil, conciertos y producciones audiovisuales. Combínalo con nuestros <a href="/servicios/iluminacion/efectos-especiales/">efectos especiales</a> de humo bajo y láser para una experiencia sensorial completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">RGBWA+UV 6-en-1</span>
+                  <span class="showcase__tag">18x18W (324W)</span>
+                  <span class="showcase__tag">CRI 95</span>
+                  <span class="showcase__tag">UV Glow</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Par LED RGBWA+UV
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
+                  <span>Par LED RGBWA+UV Premium</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Par LED Wireless (Batería) -->
+          <section class="section section--alt" aria-labelledby="wireless-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Sin cables, sin límites</span>
+                <h2 class="showcase__title" id="wireless-heading">Par LED Wireless (Batería)</h2>
+                <p class="showcase__subtitle">Batería Li-Ion 8-12 horas y control por app: ubicación libre en cualquier punto del venue.</p>
+                <p class="showcase__text">Los <strong>par LED wireless con batería</strong> eliminan por completo la necesidad de cables de energía y DMX, permitiendo ubicarlos en cualquier punto del venue sin restricciones. Batería de litio-ion recargable con <strong>autonomía de 8 a 12 horas</strong> a máxima potencia — más que suficiente para cualquier evento. Control vía <strong>W-DMX (wireless DMX)</strong> o app para smartphone y tablet que permite cambiar colores, escenas y brillo desde cualquier ubicación del venue en tiempo real.</p>
+                <p class="showcase__text">Ideales para <strong>centros de mesa iluminados, jardines sin tomas eléctricas, columnas aisladas y puntos de luz en pasillos</strong> donde el cableado es imposible o antiestético. Tecnología RGBWA de 12x15W por unidad con la misma calidad de mezcla de color que los modelos cableados. Cada unidad incluye indicador LED de nivel de batería y se recarga completamente en 5 horas. La solución perfecta cuando necesitas <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a> flexible sin comprometer la estética con cables visibles.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Batería Li-Ion</span>
+                  <span class="showcase__tag">8-12h autonomía</span>
+                  <span class="showcase__tag">W-DMX / App</span>
+                  <span class="showcase__tag">Sin cables</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Par LED Wireless
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
+                  <span>Par LED Wireless</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Par LED IP65 Outdoor -->
+          <section class="section section--alt" aria-labelledby="ip65-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Para exteriores e intemperie</span>
+                <h2 class="showcase__title" id="ip65-heading">Par LED IP65 Outdoor</h2>
+                <p class="showcase__subtitle">Sellados contra lluvia y polvo: iluminación profesional para jardines, terrazas y fachadas.</p>
+                <p class="showcase__text">Los <strong>par LED IP65 Outdoor</strong> están diseñados para funcionar en condiciones de exterior sin comprometer rendimiento ni seguridad. Certificación <strong>IP65 que garantiza protección total contra polvo y chorros de agua</strong> desde cualquier dirección. Carcasa de aluminio fundido con disipación térmica activa, conectores waterproof IP65 y cable de seguridad incluido. Operan en un rango de temperaturas de 0°C a 45°C y soportan humedad relativa de hasta 95% sin degradación.</p>
+                <p class="showcase__text">Con <strong>RGBW de 18x15W (270W)</strong> y ópticas de grado exterior con tratamiento anti-reflejo, ofrecen un brillo superior que compensa la luz ambiental natural de eventos al aire libre. Wireless DMX incluido para instalaciones donde el cableado no es viable o deseado. La elección número uno para eventos en jardín, fiestas al aire libre, terrazas y cualquier venue expuesto a la intemperie. Combinan perfectamente con nuestras <a href="/servicios/carpas/">carpas profesionales</a> para producción integral en exteriores.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">IP65 Sealed</span>
+                  <span class="showcase__tag">18x15W (270W)</span>
+                  <span class="showcase__tag">Aluminio fundido</span>
+                  <span class="showcase__tag">0°C a 45°C</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Par LED IP65
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
+                  <span>Par LED IP65 Outdoor</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Par LED RGBWA"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar par LED para tu evento, es natural tener preguntas sobre tipos de luminaria, colores, modo silencioso y operación técnica. Aquí encontrarás las respuestas más comunes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un especialista en iluminación de escenario te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en par LED resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre par LED RGBWA para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Iluminación de Escenario -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Iluminación de Escenario</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/escenario/" class="sidebar-nav__back">&uarr; Volver a Escenario</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/" class="sidebar-nav__back">&uarr; Volver a Iluminación</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de par LED:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas par LED para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar par LED RGBWA para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tus Par LED RGBWA"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros especialistas en iluminación de escenario te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un set de par LED RGBWA para tu boda o un paquete completo con RGBWA+UV para tu gala corporativa, estamos aquí para diseñar la iluminación perfecta."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoParLED">
+                Tipo de par LED
+              </label>
+              <select id="tipoParLED" name="tipoParLED" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de par LED</option>
+                <option value="Par LED RGBWA Standard">Par LED RGBWA Standard</option>
+                <option value="Par LED RGBWA+UV Premium">Par LED RGBWA+UV Premium</option>
+                <option value="Par LED Wireless (Batería)">Par LED Wireless (Batería)</option>
+                <option value="Par LED IP65 Exterior">Par LED IP65 Exterior</option>
+                <option value="Paquete Boda">Paquete Boda</option>
+                <option value="Paquete Corporativo">Paquete Corporativo</option>
+                <option value="Paquete Escenario Completo">Paquete Escenario Completo</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de invitados, tipo de venue (salón/jardín/terraza), colores deseados, dimensiones del espacio..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para diseñar un plano de iluminación con la cantidad exacta de par LED.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada de iluminación para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoParLED = document.getElementById('tipoParLED').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Par LED RGBWA para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoParLED) texto += `*Tipo de par LED:* ${tipoParLED}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Iluminación"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de iluminación profesional para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">REDEIL</h3>
+            <p class="partner-card__tagline">Renta de Iluminación Profesional</p>
+            <p class="partner-card__text">Líder en renta de iluminación para eventos sociales en CDMX y Estado de México. Especialistas en guirnaldas LED, cabezas móviles, iluminación arquitectónica, gobos personalizados y efectos especiales.</p>
+          </div>
+          <a href="https://rentadeiluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Iluminación + Audio</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">REDEIL Sonido</h3>
+            <p class="partner-card__tagline">Iluminación LED y Audio Profesional</p>
+            <p class="partner-card__text">Especialistas en audio JBL y QSC, iluminación LED profesional, DJ y pantallas LED para bodas, XV años y eventos corporativos. Servicio integral con instalación y operación técnica incluida.</p>
+          </div>
+          <a href="https://redeil.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">+15 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">RESOIL</h3>
+            <p class="partner-card__tagline">Renta de Sonido e Iluminación</p>
+            <p class="partner-card__text">Más de 15 años proporcionando equipo profesional de sonido e iluminación para eventos corporativos en CDMX. Guirnaldas LED, sky trackers, luces arquitectónicas, cascadas LED y gobos.</p>
+          </div>
+          <a href="https://rentadesonidoeiluminacion.com.mx/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">L</span>
+            <div class="partner-card__badge">+20 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">LUMINAPRO</h3>
+            <p class="partner-card__tagline">Expertos en Iluminación Profesional</p>
+            <p class="partner-card__text">Líder en renta de iluminación profesional para eventos con más de 20 años transformando espacios en CDMX. Servicio integral: diseño, instalación, operación y desmontaje de cabezas móviles, láser y más.</p>
+          </div>
+          <a href="https://renta-de-iluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Par LED RGBWA que transforman tu evento en una experiencia de luz profesional"
+    subheadline="Más de 500 eventos iluminados con par LED profesionales nos respaldan. Cotiza hoy y recibe un plano de iluminación personalizado."
+    primaryCTA={{ label: "Cotizar par LED RGBWA", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar par LED RGBWA para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

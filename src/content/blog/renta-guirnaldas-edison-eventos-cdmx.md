@@ -189,7 +189,7 @@ Cada instalación incluye un dimmer que permite ajustar la intensidad de los foc
 - **Durante la cena**: intensidad al 40-60% para complementar la luz de las velas sin competir con ellas
 - **Durante los brindis**: intensidad al 70-80% para visibilidad sin perder ambiente
 - **Durante la fiesta**: intensidad al 30-50% para crear ambiente de celebración sin deslumbrar
-- **Para momentos especiales**: apagado momentáneo para dar protagonismo a otros efectos (sparklers, humo bajo, follow spot)
+- **Para momentos especiales**: apagado momentáneo para dar protagonismo a otros efectos (papelitos de mariposas, humo bajo, follow spot)
 
 **Accesorios Incluidos**
 
@@ -597,7 +597,7 @@ El dimmer incluido en nuestras instalaciones no es solo un control de comodidad 
 - Para **retratos formales** (mesa de novios, brindis): dimmer al 70-80% para buena exposición
 - Para **fotos de ambiente** (panorámicas, establishing): dimmer al 50-60% para dramatismo
 - Para **primeros bailes** con humo bajo: dimmer al 30-40% para máximo drama
-- Para **sparklers o confeti**: dimmer al 20% para que los efectos especiales protagonicen
+- Para **papelitos de mariposas o confeti**: dimmer al 20% para que los efectos especiales protagonicen
 
 ## Preguntas Técnicas Fundamentales que Debes Hacer a Cualquier Proveedor
 

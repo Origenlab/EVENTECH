@@ -1,0 +1,744 @@
+---
+/**
+ * ─── Barras LED Motorizadas — Página de Producto (Nivel 4) ───
+ * Barras LED con pixel mapping, tilt motorizado y montaje en truss
+ * para backdrops de escenario espectaculares.
+ *
+ * Jerarquía: Servicios > Iluminación > Escenario > Barras LED
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Iluminación", href: "/servicios/iluminacion/" },
+  { label: "Escenario", href: "/servicios/iluminacion/escenario/" },
+  { label: "Barras LED" },
+];
+
+const faqs = [
+  { question: "¿Cuántas barras LED necesito para crear un backdrop de escenario?", answer: "Depende del ancho del backdrop y la densidad de efecto deseada. Para backdrops pequeños de 3 a 6 metros recomendamos entre 4 y 8 barras LED, para backdrops medianos de 6 a 10 metros entre 8 y 12 barras, y para producciones grandes de 10+ metros desde 12 hasta 20 o más unidades. A mayor cantidad de barras y menor separación entre ellas, más resolución en los efectos de pixel mapping y mayor impacto visual. Nuestro diseñador de iluminación evalúa tu escenario y te entrega un plano con la configuración óptima de barras para tu evento." },
+  { question: "¿Qué es pixel mapping y cómo funciona?", answer: 'El pixel mapping es el control individual de cada LED dentro de la barra mediante protocolos como Art-Net o sACN. En lugar de que toda la barra muestre un solo color, cada LED puede mostrar un color diferente de forma independiente, lo que permite crear efectos dinámicos como chases (secuencias de color), degradados, arcoíris, barridos y texto scrolling. Cuando colocas múltiples barras en filas paralelas, creas una matriz LED de baja resolución que puede reproducir gráficos simples y efectos de video — similar a una <a href="/servicios/audiovisual/pantallas-led/">pantalla LED</a> pero con un look más orgánico y artístico. El controlador DMX o software como Madrix o Resolume gestiona cada pixel en tiempo real.' },
+  { question: "¿Las barras LED se pueden sincronizar con la música?", answer: "Sí, la sincronización musical es una de las funciones más populares de las barras LED. Se logra de dos maneras: mediante entrada de audio en el controlador DMX (que analiza frecuencias y responde al beat, golpes de bajo y melodía) o mediante software dedicado como Madrix, Resolume o SoundSwitch que ofrece control avanzado con visuales prediseñados. La sincronización puede ser automática (el software detecta el BPM) o manual (el operador dispara efectos en vivo con el timeline musical). Es el setup ideal para DJ sets, conciertos, festivales y fiestas donde la música es protagonista." },
+  { question: "¿Qué estructura de truss necesito para las barras LED?", answer: 'Depende del venue y las limitaciones estructurales. Para venues sin puntos de carga en techo, utilizamos <strong>ground support</strong>: torres de truss autoportantes con base y motores de cadena que sostienen la estructura horizontal donde se montan las barras. Para venues con rigging disponible, usamos <strong>fly system</strong> con motores de cadena que suspenden el truss directamente del techo — más limpio visualmente y libera espacio en piso. Siempre evaluamos la capacidad de carga del venue y proveemos la estructura adecuada. Todo el truss de aluminio, motores, cableado y hardware de rigging está incluido en nuestros paquetes. Las <a href="/servicios/carpas/estructurales/">carpas estructurales</a> también soportan montajes de truss con barras LED.' },
+  { question: "¿Se pueden combinar barras LED con moving heads?", answer: 'Absolutamente, es la combinación profesional más común en producción de escenarios. Las barras LED funcionan como backdrop lumínico — el telón de fondo de color y efectos dinámicos — mientras que los <a href="/servicios/iluminacion/escenario/moving-heads/">moving heads</a> proporcionan efectos aéreos con haces de luz en movimiento. Añade <a href="/servicios/iluminacion/escenario/par-led/">par LED RGBWA</a> para iluminación de base y wash de escenario, y tienes un setup de iluminación profesional completo. Ofrecemos paquetes combinados con descuento que incluyen barras LED + moving heads + par LED + truss + operador DMX.' },
+  { question: "¿Las barras LED funcionan al aire libre?", answer: 'Sí, con las protecciones adecuadas. Nuestras barras LED se protegen con cubiertas rain cover individuales y utilizamos conexiones de energía con clasificación IP para resistir humedad. Para eventos al aire libre, combinamos las barras LED con nuestras <a href="/servicios/carpas/">carpas profesionales</a> que proporcionan protección contra lluvia y viento mientras permiten el montaje de truss con barras LED en su estructura. También contamos con modelos IP65 específicos para exterior que resisten lluvia directa sin cubiertas adicionales. El técnico evalúa las condiciones meteorológicas y selecciona la configuración más segura para tu evento outdoor.' },
+];
+
+const specs = [
+  { label: "Tipo de LED", value: "RGBW 4-en-1 / RGBWA+UV" },
+  { label: "LEDs por barra", value: "12-24 LEDs (según longitud)" },
+  { label: "Longitud", value: "0.5m / 1m / 1.2m" },
+  { label: "Tilt motorizado", value: "0° – 180° continuo" },
+  { label: "Pixel mapping", value: "Control individual por LED" },
+  { label: "Ángulo de haz", value: "25° estándar / 8° – 40° con lentes" },
+  { label: "Control DMX", value: "12-48 canales por barra, Art-Net, sACN" },
+  { label: "Protocolos pixel", value: "Art-Net, Kling-Net, sACN" },
+  { label: "Montaje", value: "Clamp para truss Ø48-52mm" },
+  { label: "Peso por barra", value: "5-8 kg" },
+];
+
+const sidebarNav = [
+  { name: "Par LED RGBWA", href: "/servicios/iluminacion/escenario/par-led/" },
+  { name: "Moving Heads", href: "/servicios/iluminacion/escenario/moving-heads/" },
+  { name: "Follow Spots", href: "/servicios/iluminacion/escenario/follow-spots/" },
+  { name: "Barras LED Motorizadas", href: null, active: true },
+];
+
+const sidebarRelated = [
+  { name: "Carpas Profesionales", href: "/servicios/carpas/" },
+  { name: "Equipo Audiovisual", href: "/servicios/audiovisual/" },
+  { name: "Mobiliario Premium", href: "/servicios/mobiliario/" },
+  { name: "Pistas de Baile LED", href: "/servicios/pistas-baile/pistas-led/" },
+  { name: "Efectos Especiales", href: "/servicios/iluminacion/efectos-especiales/" },
+];
+
+const reviews = [
+  { author: "Santiago Moreno", text: "Rentamos 16 barras LED con pixel mapping para un concierto en un foro de CDMX. El backdrop quedó increíble — los efectos sincronizados con la música crearon una experiencia visual que todos los asistentes comentaron. El equipo técnico fue impecable y el montaje en truss quedó perfecto.", rating: 5, date: "2025-11-25" },
+  { author: "Valeria Campos", text: "Usamos 8 barras LED RGBW para el backdrop de una conferencia corporativa. Programaron los colores exactos de nuestra marca y las transiciones entre panelistas fueron muy elegantes. Servicio puntual y profesional de principio a fin.", rating: 5, date: "2025-10-20" },
+  { author: "Andrés Ríos", text: "Contratamos el kit completo de barras LED con truss y motores para un evento de DJ. El pixel mapping sincronizado con la música fue el hit de la noche. El operador DMX controló todo en tiempo real y los efectos de barrido con el tilt motorizado fueron espectaculares.", rating: 5, date: "2025-09-15" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Barras LED Motorizadas para Eventos en CDMX",
+    description: "Barras LED motorizadas con pixel mapping RGBW para backdrops de escenario en eventos. Tilt motorizado, montaje en truss, control Art-Net/sACN y operador DMX incluido. Desde $600 por barra.",
+    url: "/servicios/iluminacion/escenario/barras-led/",
+    priceRange: { min: 600, max: 6000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 34,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Iluminación", url: "/servicios/iluminacion/" },
+    { name: "Escenario", url: "/servicios/iluminacion/escenario/" },
+    { name: "Barras LED Motorizadas", url: "/servicios/iluminacion/escenario/barras-led/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Barras LED Motorizadas para Eventos en CDMX"
+  description="Renta de barras LED motorizadas con pixel mapping para eventos en CDMX: RGBW, tilt motorizado, montaje en truss. Backdrops de escenario espectaculares. Operador DMX incluido. Cotiza hoy."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Backdrops lumínicos de escenario"
+    title='Renta de <span class="highlight">Barras LED Motorizadas</span> para Eventos en CDMX'
+    subtitle="Barras LED RGBW con pixel mapping individual y tilt motorizado de 0° a 180°. Montaje profesional en truss para backdrops de escenario con efectos lineales dinámicos. Operador DMX incluido en cada servicio."
+    primaryCTA={{ label: "Cotiza tus barras LED", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar barras LED motorizadas para mi evento` }}
+    cards={[
+      {
+        title: "Barras LED con pixel mapping individual",
+        content: "<strong>Renta de barras LED motorizadas para eventos</strong> con múltiples LEDs RGBW en formato lineal y control de pixel individual para efectos de chase, degradados y arcoíris dinámicos. Disponibles en longitudes de 0.5, 1 y 1.2 metros con tilt motorizado de 180° continuo. Baño de color uniforme sobre backdrops, cicloramas y cortinas de escenario — la base de cualquier producción de iluminación profesional para conciertos, festivales y galas en la Ciudad de México.",
+      },
+      {
+        title: "Montaje en truss y control DMX avanzado",
+        content: "<strong>Configuraciones horizontales de truss</strong> con 4, 8, 12 o 16 barras LED para crear backdrops de cualquier escala. Pixel mapping para texto, gráficos y video de baja resolución directamente en las barras. Sincronización musical en tiempo real con respuesta a beat y frecuencias. Compatible con Art-Net, sACN y Kling-Net. Rigging completo incluido: truss de aluminio, motores de cadena, cableado y hardware de seguridad.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas barras LED para tu próximo evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con diseño de backdrop personalizado"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Iluminación de Escenario</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas barras LED para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar barras LED motorizadas para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Barras LED Motorizadas</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Barras LED RGBW Standard -->
+          <section class="section section--alt" aria-labelledby="rgbw-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">La base del backdrop lumínico</span>
+                <h2 class="showcase__title" id="rgbw-heading">Barras LED RGBW Standard</h2>
+                <p class="showcase__subtitle">Barras de wash LED para baños de color uniformes sobre backdrops, telones y cicloramas de escenario.</p>
+                <p class="showcase__text">Las <strong>barras LED RGBW Standard</strong> son la base de cualquier backdrop lumínico profesional. Cada barra integra de 12 a 18 LEDs con mezcla de color <strong>RGBW 4-en-1</strong>, ofreciendo un baño de color uniforme y homogéneo sin puntos calientes ni sombras. El tilt motorizado de 0° a 180° permite dirigir el haz de luz desde la audiencia hacia el backdrop, ciclorama o telón de fondo, con transiciones suaves controladas por DMX.</p>
+                <p class="showcase__text">Se montan en filas horizontales de <strong>4 a 16 barras sobre truss</strong>, creando muros de color detrás de presentadores, artistas o escenarios corporativos. Control DMX de 12 a 24 canales por barra con fades de 16-bit ultra-suaves. La solución ideal para <strong>presentaciones corporativas, conferencias, galas y ceremonias</strong> donde se requiere un fondo de color elegante y profesional. Combínalas con nuestras <a href="/servicios/audiovisual/pantallas-led/">pantallas LED</a> para complementar el contenido visual del escenario.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">RGBW Wash</span>
+                  <span class="showcase__tag">Tilt Motorizado</span>
+                  <span class="showcase__tag">12-18 LEDs</span>
+                  <span class="showcase__tag">Backdrop Color</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Barras LED RGBW
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M9 18h6"/><path d="M10 22h4"/>
+                    <path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/>
+                  </svg>
+                  <span>Barras LED RGBW Standard</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Barras LED con Pixel Mapping -->
+          <section class="section section--alt" aria-labelledby="pixel-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Efectos dinámicos avanzados</span>
+                <h2 class="showcase__title" id="pixel-heading">Barras LED con Pixel Mapping</h2>
+                <p class="showcase__subtitle">Control individual por LED para chase, degradados, arcoíris y patrones dinámicos en tiempo real.</p>
+                <p class="showcase__text">Las <strong>barras LED con pixel mapping</strong> llevan los backdrops de escenario al siguiente nivel con control individual de cada LED. Cada punto de luz es independientemente direccionable vía <strong>Art-Net o sACN</strong>, lo que permite crear efectos dinámicos imposibles con wash convencional: secuencias de chase, degradados de color fluidos, barridos de arcoíris, texto scrolling y gráficos simples. De 24 a 48 canales DMX por barra para máxima resolución de control.</p>
+                <p class="showcase__text">Cuando se disponen en <strong>múltiples filas (matriz)</strong>, las barras crean una pantalla LED de baja resolución capaz de reproducir efectos de video sin necesidad de paneles LED tradicionales — un look más orgánico y artístico. La <strong>sincronización musical</strong> responde al beat, golpes de bajo y frecuencias para efectos automáticos o triggereados manualmente. La elección ideal para <strong>DJ sets, conciertos, festivales y fiestas</strong> donde los efectos visuales son protagonistas. Complementa con nuestras <a href="/servicios/pistas-baile/pistas-led/">pistas de baile LED</a> para una experiencia visual 360°.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Pixel Individual</span>
+                  <span class="showcase__tag">Art-Net / sACN</span>
+                  <span class="showcase__tag">Efectos Dinámicos</span>
+                  <span class="showcase__tag">Music Sync</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Barras LED Pixel
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M9 18h6"/><path d="M10 22h4"/>
+                    <path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/>
+                  </svg>
+                  <span>Barras LED Pixel Mapping</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Barras LED Motorizadas Tilt -->
+          <section class="section section--alt" aria-labelledby="tilt-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Movimiento y dinamismo</span>
+                <h2 class="showcase__title" id="tilt-heading">Barras LED Motorizadas Tilt</h2>
+                <p class="showcase__subtitle">Rotación motorizada continua 0°-180° para crear efectos de barrido y sweeps espectaculares.</p>
+                <p class="showcase__text">Las <strong>barras LED motorizadas con tilt</strong> añaden la dimensión de movimiento al backdrop lumínico. Con rotación continua de <strong>0° a 180°</strong>, crean efectos dramáticos de barrido: todas las barras tilteando al unísono para un golpe visual, efectos de ola (tilt secuencial de barra en barra), patrones de abanico (fan) donde las barras se abren y cierran desde el centro. La velocidad es controlable vía DMX desde sweeps lentos y elegantes hasta movimientos rápidos tipo strobe.</p>
+                <p class="showcase__text">Cuando se combina el <strong>tilt motorizado con pixel mapping</strong>, el resultado es una experiencia lumínica tridimensional: cambios de color + movimiento de haz = el centerpiece visual de cualquier concierto, festival o producción de escenario de alto perfil. Los sweeps coordinados con momentos climáticos de la música generan reacciones inmediatas del público. Para máximo impacto, combina con <a href="/servicios/iluminacion/escenario/moving-heads/">moving heads</a> que añaden haces aéreos al diseño de iluminación.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Tilt 0°-180°</span>
+                  <span class="showcase__tag">Barridos</span>
+                  <span class="showcase__tag">Wave Effects</span>
+                  <span class="showcase__tag">Fan Patterns</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Barras Motorizadas
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M9 18h6"/><path d="M10 22h4"/>
+                    <path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/>
+                  </svg>
+                  <span>Barras LED Motorizadas Tilt</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit de Barras para Truss Completo -->
+          <section class="section section--alt" aria-labelledby="kit-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Solución llave en mano</span>
+                <h2 class="showcase__title" id="kit-heading">Kit de Barras para Truss Completo</h2>
+                <p class="showcase__subtitle">Paquete completo: barras LED + truss de aluminio + motores de cadena + controlador DMX.</p>
+                <p class="showcase__text">Nuestro <strong>kit completo de barras LED para truss</strong> es la solución llave en mano para backdrops de escenario profesionales. Cada paquete incluye: 8, 12 o 16 barras LED motorizadas, truss de aluminio de 6 a 12 metros lineales, motores de cadena para sistema fly, controlador DMX compatible con Art-Net, todo el cableado (DMX, energía, señal) y hardware de rigging completo con clamps, eslingas y safety cables.</p>
+                <p class="showcase__text">Nuestro equipo se encarga de todo el proceso: <strong>evaluación del venue, diseño de la configuración, entrega, instalación, programación, operación y desmontaje</strong>. Cero preocupación para el cliente. Disponible en configuración de ground support (torres autoportantes) para venues sin rigging o sistema aéreo con motores de cadena para máxima limpieza visual. La solución integral que también funciona dentro de nuestras <a href="/servicios/carpas/estructurales/">carpas estructurales</a> para eventos en exteriores.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Kit Completo</span>
+                  <span class="showcase__tag">Truss + Motores</span>
+                  <span class="showcase__tag">Llave en Mano</span>
+                  <span class="showcase__tag">Todo Incluido</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Completo
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M9 18h6"/><path d="M10 22h4"/>
+                    <path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/>
+                  </svg>
+                  <span>Kit Barras LED + Truss Completo</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Barras LED Motorizadas"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar barras LED para tu evento, es natural tener preguntas sobre cantidad, pixel mapping, truss y combinaciones con otros equipos. Aquí encontrarás las respuestas más comunes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un especialista en iluminación de escenario te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en barras LED resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre barras LED motorizadas para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Iluminación de Escenario -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Iluminación de Escenario</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/escenario/" class="sidebar-nav__back">&uarr; Volver a Escenario</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/" class="sidebar-nav__back">&uarr; Volver a Iluminación</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de barras LED:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas barras LED para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar barras LED motorizadas para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tus Barras LED Motorizadas"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros especialistas en iluminación de escenario te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un set de barras LED RGBW para tu conferencia o un kit completo con truss y pixel mapping para tu concierto, estamos aquí para diseñar el backdrop perfecto."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Concierto">Concierto</option>
+                <option value="Festival">Festival</option>
+                <option value="DJ Set / Fiesta">DJ Set / Fiesta</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Gala / Premiación">Gala / Premiación</option>
+                <option value="Boda">Boda</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoBarraLED">
+                Tipo de barra LED
+              </label>
+              <select id="tipoBarraLED" name="tipoBarraLED" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de barra LED</option>
+                <option value="Barras LED RGBW Standard">Barras LED RGBW Standard</option>
+                <option value="Barras LED Pixel Mapping">Barras LED Pixel Mapping</option>
+                <option value="Barras LED Motorizadas Tilt">Barras LED Motorizadas Tilt</option>
+                <option value="Kit 8 Barras + Truss">Kit 8 Barras + Truss</option>
+                <option value="Kit 12 Barras + Truss">Kit 12 Barras + Truss</option>
+                <option value="Kit 16 Barras + Truss">Kit 16 Barras + Truss</option>
+                <option value="Paquete Concierto/Festival">Paquete Concierto/Festival</option>
+                <option value="Paquete Corporativo">Paquete Corporativo</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: tipo de escenario, ancho del backdrop, cantidad de barras, venue (foro/salón/exterior), tipo de evento..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para diseñar la configuración de barras LED y truss óptima para tu escenario.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada de iluminación de escenario para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoBarraLED = document.getElementById('tipoBarraLED').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Barras LED Motorizadas para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoBarraLED) texto += `*Tipo de barra LED:* ${tipoBarraLED}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Iluminación"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de iluminación profesional para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">REDEIL</h3>
+            <p class="partner-card__tagline">Renta de Iluminación Profesional</p>
+            <p class="partner-card__text">Líder en renta de iluminación para eventos sociales en CDMX y Estado de México. Especialistas en guirnaldas LED, cabezas móviles, iluminación arquitectónica, gobos personalizados y efectos especiales.</p>
+          </div>
+          <a href="https://rentadeiluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Iluminación + Audio</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">REDEIL Sonido</h3>
+            <p class="partner-card__tagline">Iluminación LED y Audio Profesional</p>
+            <p class="partner-card__text">Especialistas en audio JBL y QSC, iluminación LED profesional, DJ y pantallas LED para bodas, XV años y eventos corporativos. Servicio integral con instalación y operación técnica incluida.</p>
+          </div>
+          <a href="https://redeil.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">+15 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">RESOIL</h3>
+            <p class="partner-card__tagline">Renta de Sonido e Iluminación</p>
+            <p class="partner-card__text">Más de 15 años proporcionando equipo profesional de sonido e iluminación para eventos corporativos en CDMX. Guirnaldas LED, sky trackers, luces arquitectónicas, cascadas LED y gobos.</p>
+          </div>
+          <a href="https://rentadesonidoeiluminacion.com.mx/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">L</span>
+            <div class="partner-card__badge">+20 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">LUMINAPRO</h3>
+            <p class="partner-card__tagline">Expertos en Iluminación Profesional</p>
+            <p class="partner-card__text">Líder en renta de iluminación profesional para eventos con más de 20 años transformando espacios en CDMX. Servicio integral: diseño, instalación, operación y desmontaje de cabezas móviles, láser y más.</p>
+          </div>
+          <a href="https://renta-de-iluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Barras LED motorizadas que transforman tu escenario en un espectáculo visual"
+    subheadline="Más de 500 eventos con iluminación de escenario profesional nos respaldan. Cotiza hoy y recibe un diseño de backdrop personalizado."
+    primaryCTA={{ label: "Cotizar barras LED", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar barras LED motorizadas para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

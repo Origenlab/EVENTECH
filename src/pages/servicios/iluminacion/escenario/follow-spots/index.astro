@@ -1,0 +1,730 @@
+---
+/**
+ * ─── Follow Spots — Página de Producto (Nivel 4) ───
+ * Seguimiento profesional de luz para protagonistas en eventos.
+ * Accent amber #e17055.
+ *
+ * Jerarquía: Servicios > Iluminación > Escenario > Follow Spots
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Iluminación", href: "/servicios/iluminacion/" },
+  { label: "Escenario", href: "/servicios/iluminacion/escenario/" },
+  { label: "Follow Spots" },
+];
+
+const faqs = [
+  { question: "¿Cuántos follow spots necesito para mi evento?", answer: "Depende del tipo de evento y la cantidad de protagonistas. Para <strong>bodas y galas</strong> con un solo protagonista (novia, festejado, presentador), 1 follow spot es suficiente. Para eventos con <strong>múltiples protagonistas o cross-fade</strong> entre presentadores, recomendamos 2 unidades. Para <strong>conciertos, desfiles de moda y producciones a gran escala</strong>, utilizamos 3 a 4 follow spots con operadores coordinados para seguimiento simultáneo de diferentes artistas. Nuestro diseñador de iluminación evalúa tu evento y recomienda la cantidad exacta." },
+  { question: "¿El operador del follow spot está incluido en la renta?", answer: "Sí, siempre. Cada follow spot incluye un <strong>operador profesional dedicado</strong> durante todo el evento. El operador está capacitado en protocolo de eventos (bodas, galas, conciertos) y se coordina con el DJ, MC o director de escena para seguir con precisión milimétrica a cada protagonista. El operador maneja zoom, iris, filtros de color y dimmer en tiempo real. También se encarga del montaje, enfoque y desmontaje del equipo." },
+  { question: "¿El follow spot es ruidoso? ¿Afectará mi ceremonia?", answer: 'Los modelos <strong>HMI 1200W</strong> tienen un ventilador de enfriamiento que genera ruido moderado, lo que los hace ideales para conciertos, fiestas y eventos con música amplificada. Para <strong>ceremonias religiosas, votos y momentos íntimos</strong>, utilizamos follow spots <strong>LED de funcionamiento prácticamente silencioso</strong>, sin ventilador audible. Evaluamos tu evento y seleccionamos el modelo adecuado. Si necesitas iluminación base silenciosa, nuestros <a href="/servicios/iluminacion/escenario/par-led/">par LED RGBWA</a> son el complemento perfecto.' },
+  { question: "¿Desde qué distancia funciona el follow spot?", answer: "El <strong>follow spot HMI 1200W</strong> tiene un alcance efectivo de <strong>30 a 80 metros</strong>, ideal para auditorios, teatros y venues grandes. El <strong>follow spot LED 600W</strong> alcanza de <strong>15 a 40 metros</strong>, perfecto para salones de eventos, jardines y espacios medianos. Realizamos una visita técnica gratuita para medir las distancias exactas de tu venue y recomendarte el modelo correcto. Si tu escenario supera los 80 metros, podemos configurar múltiples follow spots con posiciones estratégicas." },
+  { question: "¿Puedo usar filtros de color con el follow spot?", answer: "Sí. Todos nuestros follow spots incluyen una <strong>rueda de 6 colores</strong> más filtros adicionales: <strong>CTO</strong> (conversión a cálido/tungsteno), <strong>CTB</strong> (conversión a frío/daylight), y <strong>frost</strong> (difusión suave). Podemos agregar <strong>filtros de gel personalizados</strong> para colores específicos que coincidan con la paleta de tu evento, marca corporativa o temática de fiesta. El operador cambia los filtros en tiempo real según el momento del evento — cálido para ceremonia, colores vibrantes para fiesta." },
+  { question: "¿Dónde se coloca el follow spot?", answer: "El follow spot se monta sobre un <strong>trípode profesional de alta resistencia</strong> en una posición elevada al fondo del venue: balcón, plataforma técnica, mezzanine o posición dedicada. La ubicación ideal es a <strong>30-45 grados de ángulo</strong> respecto al escenario para evitar deslumbramiento y lograr un haz de luz natural. Realizamos una <strong>visita técnica gratuita</strong> para evaluar las opciones de posicionamiento en tu venue y determinar el ángulo óptimo de proyección y visibilidad." },
+];
+
+const specs = [
+  { label: "Fuente de luz", value: "HMI 1200W / LED 600W+" },
+  { label: "CRI", value: "90+ (colores naturales)" },
+  { label: "Temperatura de color", value: "5600K (daylight) / 3200K con filtro" },
+  { label: "Zoom", value: "8° – 22° manual" },
+  { label: "Iris", value: "Variable, apertura controlada" },
+  { label: "Filtros", value: "Rueda de 6 colores + frost + CTO/CTB" },
+  { label: "Dimmer", value: "Mecánico suave (sin parpadeo)" },
+  { label: "Alcance", value: "30 – 80 metros efectivos" },
+  { label: "Montaje", value: "Trípode profesional / Plataforma elevada" },
+  { label: "Peso", value: "25 – 35 kg (con trípode)" },
+];
+
+const sidebarNav = [
+  { name: "Par LED RGBWA", href: "/servicios/iluminacion/escenario/par-led/" },
+  { name: "Moving Heads", href: "/servicios/iluminacion/escenario/moving-heads/" },
+  { name: "Follow Spots", href: null, active: true },
+  { name: "Barras LED Motorizadas", href: "/servicios/iluminacion/escenario/barras-led/" },
+];
+
+const sidebarRelated = [
+  { name: "Carpas Profesionales", href: "/servicios/carpas/" },
+  { name: "Equipo Audiovisual", href: "/servicios/audiovisual/" },
+  { name: "Mobiliario Premium", href: "/servicios/mobiliario/" },
+  { name: "Pistas de Baile", href: "/servicios/pistas-baile/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+];
+
+const reviews = [
+  { author: "Alejandra Vega", text: "El follow spot para nuestra boda fue espectacular. El operador siguió a los novios durante la entrada, primer baile y brindis con una precisión impresionante. El filtro cálido CTO le dio un tono romántico hermoso a cada momento. Las fotos y video quedaron increíbles gracias a la luz del follow spot. Totalmente recomendado para bodas.", rating: 5, date: "2025-11-28" },
+  { author: "Miguel Ángel Torres", text: "Contratamos 3 follow spots para nuestra gala corporativa con premiación. Cada presentador y premiado fue seguido con precisión milimétrica durante su momento en el escenario. Los operadores se coordinaron perfectamente con nuestro director de escena. Servicio puntual, profesional y el equipo llegó 3 horas antes para montaje y pruebas.", rating: 5, date: "2025-10-18" },
+  { author: "Daniela Rosas", text: "Usamos follow spots para un desfile de moda en CDMX y el resultado fue de nivel internacional. El seguimiento de las modelos en la pasarela fue impecable, sin perder a ninguna en ningún momento. Los cambios de color con la rueda de filtros añadieron dramatismo a cada colección. El equipo de EVENTECH conoce su oficio a la perfección.", rating: 5, date: "2025-09-12" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Follow Spots para Eventos en CDMX",
+    description: "Follow spots HMI 1200W y LED 600W+ con operador profesional dedicado para bodas, galas, conciertos y desfiles. CRI 90+, filtros de color, alcance hasta 80 metros. Desde $2,500 por evento.",
+    url: "/servicios/iluminacion/escenario/follow-spots/",
+    priceRange: { min: 2500, max: 8000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 29,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Iluminación", url: "/servicios/iluminacion/" },
+    { name: "Escenario", url: "/servicios/iluminacion/escenario/" },
+    { name: "Follow Spots", url: "/servicios/iluminacion/escenario/follow-spots/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Follow Spots para Eventos en CDMX"
+  description="Renta de follow spots 1200W+ HMI y LED para eventos en CDMX: seguimiento profesional, CRI 90+, filtros de color, operador dedicado. Ideal para galas, bodas y conciertos. Cotiza hoy."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="El protagonista siempre iluminado"
+    title='Renta de <span class="highlight">Follow Spots</span> para Eventos en CDMX'
+    subtitle="Follow spots HMI 1200W+ y LED de alta potencia con CRI 90+, tracking manual preciso, filtros de color intercambiables y operador profesional dedicado. Seguimiento de luz para bodas, galas, conciertos y espectáculos en vivo."
+    primaryCTA={{ label: "Cotiza tus follow spots", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar follow spots para mi evento` }}
+    cards={[
+      {
+        title: "Seguidores de luz de alto rendimiento",
+        content: "<strong>Renta de follow spots para eventos</strong> con fuentes HMI de 1200W+ o LED de 600W+ que producen luz blanca brillante con CRI 90+ para una reproducción de color natural y fiel. Zoom manual de 8° a 22° para ajustar el tamaño del haz con precisión, iris variable para control de apertura, filtros de color en rueda de 6 posiciones, y dimmer mecánico suave sin parpadeo. Ideales para galas, discursos, desfiles de moda, ceremonias y espectáculos en vivo.",
+      },
+      {
+        title: "Operador profesional dedicado durante todo el evento",
+        content: "<strong>Operador capacitado incluido</strong> en cada renta de follow spot. El operador sigue al presentador, novia, artista o protagonista con precisión milimétrica durante todo el evento, coordinándose con el DJ, MC o director de escena. Manejo profesional de zoom, iris, filtros y dimmer en tiempo real según el momento del evento. Trípode profesional de alta resistencia, filtros de gel y set completo de CTO/CTB incluidos en la renta.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas follow spots para tu próximo evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con evaluación técnica de tu venue"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Iluminación de Escenario</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas follow spots para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar follow spots para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Follow Spots</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Follow Spot HMI 1200W+ -->
+          <section class="section section--alt" aria-labelledby="hmi-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Potencia de grado profesional</span>
+                <h2 class="showcase__title" id="hmi-heading">Follow Spot HMI 1200W+</h2>
+                <p class="showcase__subtitle">Lámpara de descarga HMI de máxima potencia: luz blanca brillante que alcanza hasta 80 metros.</p>
+                <p class="showcase__text">El <strong>follow spot HMI 1200W+</strong> utiliza una lámpara de descarga HMI que produce un haz de luz intensamente brillante, balanceado a <strong>daylight (5600K)</strong> con un CRI superior a 90. Los colores de la ropa, maquillaje, decoraciones y escenografía se reproducen de forma natural y fiel. Zoom manual de <strong>8° a 22°</strong> para ajustar el tamaño del haz con precisión al protagonista, e iris variable para control fino de la apertura del círculo de luz.</p>
+                <p class="showcase__text">Ideal para <strong>auditorios grandes, teatros, recintos y venues de 400+ personas</strong> donde se necesita alcance de 30 a 80 metros efectivos. El dimmer mecánico permite fade-in y fade-out suaves sin parpadeo, creando transiciones elegantes. Montaje sobre trípode profesional de alta resistencia o plataforma elevada para ángulo óptimo. Combínalo con nuestro <a href="/servicios/audiovisual/">equipo audiovisual</a> para una producción integral de escenario.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">HMI 1200W+</span>
+                  <span class="showcase__tag">CRI 90+</span>
+                  <span class="showcase__tag">Alcance 80m</span>
+                  <span class="showcase__tag">Daylight 5600K</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Follow Spot HMI
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
+                  <span>Follow Spot HMI 1200W+</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Follow Spot LED -->
+          <section class="section section--alt" aria-labelledby="led-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Tecnología LED de nueva generación</span>
+                <h2 class="showcase__title" id="led-heading">Follow Spot LED</h2>
+                <p class="showcase__subtitle">LED de alta potencia con arranque instantáneo, menor consumo y funcionamiento silencioso.</p>
+                <p class="showcase__text">El <strong>follow spot LED 600W+</strong> ofrece arranque instantáneo sin tiempo de calentamiento (a diferencia de los HMI que requieren varios minutos de warm-up). Funcionamiento <strong>prácticamente silencioso</strong> al no necesitar ventilador de alta potencia, lo que lo hace ideal para ceremonias, votos matrimoniales y momentos íntimos donde el ruido es inaceptable. Temperatura de color ajustable de <strong>3200K a 6500K vía DMX</strong> sin necesidad de cambiar geles físicos.</p>
+                <p class="showcase__text">Menor consumo energético que los modelos HMI, lo que se traduce en <strong>ahorro de energía y menor carga al generador</strong>. Sin riesgo de fallo de lámpara durante el evento (los LEDs no explotan como las HMI). Cuerpo más compacto y ligero para transporte y montaje ágil. Ideal para <strong>bodas, XV años, eventos corporativos y ceremonias</strong> donde la discreción sonora es prioridad. Combínalo con nuestros <a href="/servicios/iluminacion/escenario/par-led/">par LED RGBWA</a> como base de iluminación de escenario.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">LED 600W+</span>
+                  <span class="showcase__tag">Arranque Instantáneo</span>
+                  <span class="showcase__tag">Silencioso</span>
+                  <span class="showcase__tag">3200-6500K</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Follow Spot LED
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
+                  <span>Follow Spot LED</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Follow Spot para Bodas y Galas -->
+          <section class="section section--alt" aria-labelledby="bodas-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">El momento que merece luz propia</span>
+                <h2 class="showcase__title" id="bodas-heading">Follow Spot para Bodas y Galas</h2>
+                <p class="showcase__subtitle">Seguimiento profesional para entrada de novios, primer baile, brindis y todos los momentos especiales.</p>
+                <p class="showcase__text">Operador dedicado capacitado específicamente en <strong>protocolo de bodas y galas</strong>: entrada de la novia, primer baile, lanzamiento de ramo, brindis, baile padre-hija, corte de pastel y todos los momentos que merecen protagonismo. Filtro <strong>CTO cálido</strong> para un look romántico y favorecedor en tonos dorados que embellece el vestido, el maquillaje y la decoración. Control de iris para revelación gradual — el haz se abre lentamente sobre la novia mientras camina al altar.</p>
+                <p class="showcase__text">Se combina con <strong>iluminación base de par LED</strong> para cobertura general del salón mientras el follow spot destaca al protagonista. Transiciones suaves de dimmer mecánico para entradas y salidas elegantes sin cortes abruptos de luz. El operador se coordina con el DJ/MC para timing perfecto en cada momento — sabe exactamente cuándo encender, cuándo seguir y cuándo hacer fade-out. Complementa con nuestra <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a> para un ambiente integral.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Bodas y Galas</span>
+                  <span class="showcase__tag">Filtro CTO Warm</span>
+                  <span class="showcase__tag">Operador Dedicado</span>
+                  <span class="showcase__tag">Protocolo Evento</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Follow Spot Bodas
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
+                  <span>Follow Spot para Bodas y Galas</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Follow Spot para Conciertos y Espectáculos -->
+          <section class="section section--alt" aria-labelledby="conciertos-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Performance de alto nivel</span>
+                <h2 class="showcase__title" id="conciertos-heading">Follow Spot para Conciertos y Espectáculos</h2>
+                <p class="showcase__subtitle">Seguimiento de alta velocidad para artistas en movimiento, desfiles de moda y espectáculos en vivo.</p>
+                <p class="showcase__text">Tracking de <strong>alta velocidad</strong> para artistas que se desplazan por todo el escenario, con operadores entrenados en seguimiento dinámico y anticipación de movimiento. Configuración de <strong>múltiples follow spots (2 a 4 unidades)</strong> para seguimiento simultáneo de diferentes performers — cada operador asignado a un artista específico. Cambios de color en la rueda sincronizados con la música y las transiciones de la producción. <strong>Cross-fade entre follow spots</strong> para transiciones fluidas cuando un performer sale y otro entra.</p>
+                <p class="showcase__text">Esencial para <strong>conciertos, desfiles de moda, teatro, ceremonias de premiación, espectáculos de danza</strong> y cualquier producción en vivo donde el movimiento es constante. Montaje sobre plataformas elevadas para ángulo óptimo de proyección y máxima visibilidad del operador. Los operadores trabajan con comunicación por intercom con el director de escena para cues precisos. Complementa con nuestras <a href="/servicios/iluminacion/escenario/moving-heads/">moving heads</a> para un diseño de iluminación de escenario completo y profesional.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Alta Velocidad</span>
+                  <span class="showcase__tag">Multi-Spot</span>
+                  <span class="showcase__tag">Conciertos</span>
+                  <span class="showcase__tag">Desfiles</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Follow Spot Espectáculos
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
+                  <span>Follow Spot para Conciertos</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Follow Spots"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar follow spots para tu evento, es natural tener preguntas sobre tipos de luminaria, alcance, operación y posicionamiento. Aquí encontrarás las respuestas más comunes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un especialista en iluminación de escenario te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en follow spots resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre follow spots para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Iluminación de Escenario -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Iluminación de Escenario</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/escenario/" class="sidebar-nav__back">&uarr; Volver a Escenario</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/" class="sidebar-nav__back">&uarr; Volver a Iluminación</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de follow spots:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas follow spots para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar follow spots para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tus Follow Spots"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros especialistas en iluminación de escenario te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un follow spot para tu boda o un set completo de 4 unidades para tu concierto, estamos aquí para iluminar a tus protagonistas."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Desfile de Moda">Desfile de Moda</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoFollowSpot">
+                Tipo de follow spot
+              </label>
+              <select id="tipoFollowSpot" name="tipoFollowSpot" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de follow spot</option>
+                <option value="Follow Spot HMI 1200W">Follow Spot HMI 1200W</option>
+                <option value="Follow Spot LED 600W">Follow Spot LED 600W</option>
+                <option value="Follow Spot Boda (1 unidad + operador)">Follow Spot Boda (1 unidad + operador)</option>
+                <option value="Follow Spot Gala (2 unidades + operadores)">Follow Spot Gala (2 unidades + operadores)</option>
+                <option value="Follow Spot Concierto (3-4 unidades)">Follow Spot Concierto (3-4 unidades)</option>
+                <option value="Paquete Escenario Completo">Paquete Escenario Completo</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de invitados, tipo de venue (salón/jardín/auditorio), momentos a iluminar, distancia al escenario..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para determinar el posicionamiento óptimo del follow spot y el modelo adecuado.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada de iluminación de escenario para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoFollowSpot = document.getElementById('tipoFollowSpot').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Follow Spots para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoFollowSpot) texto += `*Tipo de follow spot:* ${tipoFollowSpot}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Iluminación"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de iluminación profesional para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">REDEIL</h3>
+            <p class="partner-card__tagline">Renta de Iluminación Profesional</p>
+            <p class="partner-card__text">Líder en renta de iluminación para eventos sociales en CDMX y Estado de México. Especialistas en guirnaldas LED, cabezas móviles, iluminación arquitectónica, gobos personalizados y efectos especiales.</p>
+          </div>
+          <a href="https://rentadeiluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Iluminación + Audio</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">REDEIL Sonido</h3>
+            <p class="partner-card__tagline">Iluminación LED y Audio Profesional</p>
+            <p class="partner-card__text">Especialistas en audio JBL y QSC, iluminación LED profesional, DJ y pantallas LED para bodas, XV años y eventos corporativos. Servicio integral con instalación y operación técnica incluida.</p>
+          </div>
+          <a href="https://redeil.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">+15 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">RESOIL</h3>
+            <p class="partner-card__tagline">Renta de Sonido e Iluminación</p>
+            <p class="partner-card__text">Más de 15 años proporcionando equipo profesional de sonido e iluminación para eventos corporativos en CDMX. Guirnaldas LED, sky trackers, luces arquitectónicas, cascadas LED y gobos.</p>
+          </div>
+          <a href="https://rentadesonidoeiluminacion.com.mx/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">L</span>
+            <div class="partner-card__badge">+20 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">LUMINAPRO</h3>
+            <p class="partner-card__tagline">Expertos en Iluminación Profesional</p>
+            <p class="partner-card__text">Líder en renta de iluminación profesional para eventos con más de 20 años transformando espacios en CDMX. Servicio integral: diseño, instalación, operación y desmontaje de cabezas móviles, láser y más.</p>
+          </div>
+          <a href="https://renta-de-iluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Follow spots que iluminan a los protagonistas de tu evento"
+    subheadline="Operadores profesionales, equipo de grado teatral y seguimiento preciso. Cotiza hoy y recibe una evaluación técnica personalizada de tu venue."
+    primaryCTA={{ label: "Cotizar follow spots", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar follow spots para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

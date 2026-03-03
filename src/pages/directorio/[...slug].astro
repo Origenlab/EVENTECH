@@ -254,22 +254,67 @@ const jsonLd = [
             ]}
           />
 
-          {/* Zone cards */}
-          <div class="grid grid--3" style="margin-bottom: var(--space-3xl);">
+          {/* Zone cards - Professional Layout */}
+          <div class="dir-grid dir-grid--3" style="margin-bottom: var(--space-3xl);">
             {[...new Set(venues.map(v => v.data.zone))].map(zoneName => {
               const zoneVenues = venues.filter(v => v.data.zone === zoneName);
               const zoneSlug = zoneVenues[0]?.data.zoneSlug;
+              const venueTypes = [...new Set(zoneVenues.map(v => venueTypeLabels[v.data.type] || v.data.type))].slice(0, 3);
+              const featuredCount = zoneVenues.filter(v => v.data.featured).length;
+              const premiumCount = zoneVenues.filter(v => v.data.premium).length;
               return (
-                <a href={`/directorio/${region}/${zoneSlug}/`} class="subzone-card">
-                  <h3 class="subzone-card__title">{zoneName}</h3>
-                  <p class="subzone-card__description">
-                    {zoneVenues.length} venues disponibles
-                  </p>
-                  <div class="subzone-card__meta">
-                    <span>{zoneVenues.filter(v => v.data.featured).length} destacados</span>
-                    <span>Ver venues →</span>
+                <article class="zone-card-pro">
+                  <div class="zone-card-pro__header">
+                    <div class="zone-card-pro__icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                      </svg>
+                    </div>
+                    {premiumCount > 0 && (
+                      <span class="zone-card-pro__badge">
+                        {premiumCount} Premium
+                      </span>
+                    )}
                   </div>
-                </a>
+                  <div class="zone-card-pro__content">
+                    <h3 class="zone-card-pro__title">{zoneName}</h3>
+                    <p class="zone-card-pro__description">
+                      Explora <strong>{zoneVenues.length} venues</strong> para bodas, XV años y eventos corporativos en {zoneName}.
+                    </p>
+                    <div class="zone-card-pro__types">
+                      {venueTypes.map(type => (
+                        <span class="zone-card-pro__type">{type}</span>
+                      ))}
+                      {venueTypes.length < [...new Set(zoneVenues.map(v => venueTypeLabels[v.data.type]))].length && (
+                        <span class="zone-card-pro__type zone-card-pro__type--more">+más</span>
+                      )}
+                    </div>
+                    <div class="zone-card-pro__stats">
+                      <div class="zone-card-pro__stat">
+                        <span class="zone-card-pro__stat-value">{zoneVenues.length}</span>
+                        <span class="zone-card-pro__stat-label">Venues</span>
+                      </div>
+                      {featuredCount > 0 && (
+                        <div class="zone-card-pro__stat">
+                          <span class="zone-card-pro__stat-value">{featuredCount}</span>
+                          <span class="zone-card-pro__stat-label">Destacados</span>
+                        </div>
+                      )}
+                      <div class="zone-card-pro__stat">
+                        <span class="zone-card-pro__stat-value">{zoneVenues.filter(v => v.data.verified).length}</span>
+                        <span class="zone-card-pro__stat-label">Verificados</span>
+                      </div>
+                    </div>
+                  </div>
+                  <a href={`/directorio/${region}/${zoneSlug}/`} class="zone-card-pro__btn">
+                    Ver venues en {zoneName}
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M5 12h14"/>
+                      <path d="M12 5l7 7-7 7"/>
+                    </svg>
+                  </a>
+                </article>
               );
             })}
           </div>

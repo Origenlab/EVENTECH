@@ -336,7 +336,7 @@ Las guirnaldas Edison son solo una capa dentro de un diseño de iluminación int
 - [Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/) — [Wash lights](/servicios/iluminacion/arquitectonica/wash-lights/) y [uplighting](/servicios/iluminacion/arquitectonica/uplighting/) para transformar el venue
 - [Iluminación decorativa complementaria](/servicios/iluminacion/decorativa/) — [Candiles](/servicios/iluminacion/decorativa/candiles/), [esferas LED](/servicios/iluminacion/decorativa/esferas-led/), [letras luminosas](/servicios/iluminacion/decorativa/letras-luminosas/)
 - [Iluminación de escenario](/servicios/iluminacion/escenario/) — Par LED, cabezas móviles, follow spots
-- [Efectos especiales](/servicios/iluminacion/efectos-especiales/) — Humo bajo, sparklers, láser, confeti
+- [Efectos especiales](/servicios/iluminacion/efectos-especiales/) — Humo bajo, mariposas, láser, confeti
 
 Cuando un solo proveedor diseña toda la iluminación del evento, las capas se complementan y potencian en lugar de competir. El resultado es una **experiencia lumínica coherente** que cuenta una historia visual a lo largo de toda la noche.
 

@@ -1,0 +1,744 @@
+---
+/**
+ * ─── Moving Heads — Página de Producto (Nivel 4) ───
+ * Cabezas móviles beam, spot, wash e hybrid para eventos.
+ * Color accent amber #e17055 (jerarquía L4).
+ *
+ * Jerarquía: Servicios > Iluminación > Escenario > Moving Heads
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Iluminación", href: "/servicios/iluminacion/" },
+  { label: "Escenario", href: "/servicios/iluminacion/escenario/" },
+  { label: "Moving Heads" },
+];
+
+const faqs = [
+  { question: "¿Cuántos moving heads necesito para mi evento?", answer: 'La cantidad depende del formato y tamaño de tu evento. Para <strong>bodas y galas</strong> recomendamos entre 4 y 8 moving heads: 4 para efectos puntuales de beam y gobo, 8 para un show de luz completo con cobertura 360°. Para <strong>conciertos y festivales</strong> el estándar es de 8 a 16 unidades montadas en truss aéreo con motores de cadena. Para <strong>producciones de gran formato</strong> (festivales, lanzamientos de producto, convenciones) trabajamos con 16 a 40+ luminarias combinando beam, spot y wash. Nuestro diseñador de iluminación realiza una visita técnica gratuita para evaluar tu venue y entregarte un plano con la cantidad exacta.' },
+  { question: "¿Puedo proyectar mi logo o monograma con los moving heads?", answer: 'Sí. Los modelos <strong>Moving Head Spot</strong> cuentan con ruedas de gobos fijas y rotatorias que permiten proyectar patrones personalizados. Envía tu diseño (logo, monograma, iniciales) con al menos <strong>2 semanas de anticipación</strong> y fabricamos un gobo metálico o de vidrio a medida. Los gobos de vidrio permiten proyección a color y mayor definición. También ofrecemos gobos estándar con patrones geométricos, florales y de estrellas incluidos sin costo adicional.' },
+  { question: "¿Los moving heads son ruidosos?", answer: 'Depende del modelo. Los <strong>Moving Head Beam y Spot</strong> utilizan motores de pan/tilt y ventiladores que generan ruido mecánico — son ideales para conciertos, fiestas y eventos con música amplificada donde el ruido no es perceptible. Los <strong>Moving Head Wash</strong> cuentan con <strong>modo silencioso (silent mode)</strong> que reduce la velocidad de ventiladores y es apto para ceremonias y momentos solemnes. Para momentos 100% silenciosos como votos o discursos, recomendamos complementar con <a href="/servicios/iluminacion/escenario/par-led/">par LED estáticos</a> que no generan ruido alguno.' },
+  { question: "¿Qué estructura de truss necesito para moving heads?", answer: 'La estructura depende de la cantidad de luminarias y el peso total del rig. Para montajes de <strong>hasta 12 moving heads</strong> utilizamos ground support (truss autoportante) que no requiere puntos de anclaje en el techo. Para rigs de <strong>más de 12 unidades</strong> o venues con altura superior a 8 metros, empleamos fly system con motores de cadena de 1 tonelada. Cada moving head pesa entre 15 y 25 kg, por lo que la evaluación estructural del venue es fundamental. Nuestro equipo de rigging certificado realiza la inspección de carga y diseña el plano de puntos de anclaje antes del montaje.' },
+  { question: "¿Puedo combinar moving heads con otros tipos de iluminación?", answer: 'Absolutamente — de hecho, es lo más recomendable para un diseño de iluminación profesional. La combinación más común es: <strong>moving heads para efectos dinámicos</strong> (beam aéreo, gobos, color wash en movimiento) + <a href="/servicios/iluminacion/escenario/par-led/">par LED RGBWA como base de color estática</a> en el escenario + follow spots para seguimiento de artistas o novios. También se complementan con <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a> (fairy lights, candiles) para crear capas de luz con profundidad. Nuestro diseñador integra todos los sistemas en una sola consola DMX para operación sincronizada.' },
+  { question: "¿Los moving heads funcionan al aire libre?", answer: 'Sí, con las precauciones adecuadas. Para eventos al aire libre utilizamos <strong>rain covers profesionales</strong> que protegen las luminarias de lluvia y humedad sin afectar el rango de movimiento ni la dispersión de luz. También contamos con modelos con clasificación <strong>IP65</strong> diseñados específicamente para exterior. Siempre monitoreamos las condiciones climáticas el día del evento y contamos con planes de contingencia. La combinación ideal para exteriores es moving heads protegidos montados en truss dentro de nuestras <a href="/servicios/carpas/">carpas profesionales</a> — esto ofrece protección total sin sacrificar el espectáculo visual.' },
+];
+
+const specs = [
+  { label: "Tipos disponibles", value: "Beam, Spot, Wash, Hybrid (BSW)" },
+  { label: "Potencia", value: "200W – 700W (según modelo)" },
+  { label: "Rotación", value: "360° continuo pan / 270° tilt" },
+  { label: "Fuente de luz", value: "LED / Descarga (Osram/Philips)" },
+  { label: "Gobos", value: "Ruedas fijas + rotatorias, personalizables" },
+  { label: "Prisma", value: "3, 6 y 8 facetas + frost" },
+  { label: "Color", value: "CMY substractivo + rueda de color" },
+  { label: "Control DMX", value: "16-24 canales, Art-Net, sACN" },
+  { label: "Peso por unidad", value: "15-25 kg" },
+  { label: "Montaje", value: "Truss aéreo con motores de cadena" },
+];
+
+const sidebarNav = [
+  { name: "Par LED RGBWA", href: "/servicios/iluminacion/escenario/par-led/" },
+  { name: "Moving Heads", href: null, active: true },
+  { name: "Follow Spots", href: "/servicios/iluminacion/escenario/follow-spots/" },
+  { name: "Barras LED Motorizadas", href: "/servicios/iluminacion/escenario/barras-led/" },
+];
+
+const sidebarRelated = [
+  { name: "Carpas Profesionales", href: "/servicios/carpas/" },
+  { name: "Equipo Audiovisual", href: "/servicios/audiovisual/" },
+  { name: "Mobiliario Premium", href: "/servicios/mobiliario/" },
+  { name: "Pistas de Baile", href: "/servicios/pistas-baile/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+];
+
+const reviews = [
+  { author: "Fernando Castillo", text: "Rentamos 12 moving heads para la gala de nuestra boda en un salón de Polanco. Los beams aéreos cruzando el techo con prisma fueron impresionantes, y el gobo con nuestro monograma proyectado en la pista de baile fue el detalle que todos nuestros invitados comentaron. El operador DMX coordinó los cambios de iluminación con cada momento de la noche. Servicio impecable.", rating: 5, date: "2025-11-20" },
+  { author: "Ana María López", text: "Contratamos 24 moving heads para el lanzamiento de producto de nuestra marca. El show de luces sincronizado con la música y los videos fue espectacular — los beams cortando el humo y los spots proyectando el logo en 360° dejaron a todos los asistentes boquiabiertos. El equipo técnico fue extremadamente profesional y el montaje quedó impecable.", rating: 5, date: "2025-10-15" },
+  { author: "Carlos Jiménez", text: "Los moving heads para nuestro festival de música fueron exactamente lo que necesitábamos. Los beams cortando a través del haze creaban ese efecto de concierto internacional que buscábamos. Combinados con los wash para color base en el escenario, el resultado visual fue de primer nivel. Sin duda los volveremos a contratar para la próxima edición.", rating: 5, date: "2025-09-25" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Moving Heads para Eventos en CDMX",
+    description: "Renta de moving heads beam, spot, wash e hybrid para eventos en CDMX. Rotación 360°, gobos personalizados, prisma, CMY color mixing, control DMX profesional. Operador incluido. Desde $800 por luminaria.",
+    url: "/servicios/iluminacion/escenario/moving-heads/",
+    priceRange: { min: 800, max: 8000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 38,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Iluminación", url: "/servicios/iluminacion/" },
+    { name: "Escenario", url: "/servicios/iluminacion/escenario/" },
+    { name: "Moving Heads", url: "/servicios/iluminacion/escenario/moving-heads/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Moving Heads para Eventos en CDMX"
+  description="Renta de moving heads beam, spot y wash con rotación 360° para eventos en CDMX: gobos, prisma, CMY color mixing, DMX profesional. Operador incluido. Cotiza hoy."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="El espectáculo visual definitivo"
+    title='Renta de <span class="highlight">Moving Heads</span> para Eventos en CDMX'
+    subtitle="Cabezas móviles beam, spot y wash con rotación 360° pan/tilt, gobos personalizados, prisma multifaceta y CMY color mixing. Control DMX profesional con operador dedicado incluido para conciertos, galas, bodas y festivales."
+    primaryCTA={{ label: "Cotiza tus moving heads", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar moving heads para mi evento` }}
+    cards={[
+      {
+        title: "Cabezas móviles de grado profesional para cada escenario",
+        content: "<strong>Renta de moving heads para eventos</strong> con tecnología beam, spot, wash e hybrid (BSW) de última generación en la Ciudad de México. Luminarias de 200W a 700W con rotación continua de 360° en pan y 270° en tilt, ruedas de gobos fijas y rotatorias (geométricos, florales, personalizados), efectos de prisma de 3, 6 y 8 facetas, y mezcla de color CMY substractiva con millones de tonalidades. Ideales para conciertos, galas corporativas, bodas de alto perfil y festivales de música.",
+      },
+      {
+        title: "Operador DMX y rigging profesional incluido",
+        content: "<strong>Servicio técnico integral</strong> en cada renta de moving heads. Operador DMX certificado con consola profesional de 16 a 24 canales por luminaria, programación de escenas sincronizadas con el timeline de tu evento, enfoque motorizado y zoom variable. Montaje en truss de aluminio estructural con motores de cadena, cables de seguridad y rigging profesional certificado. Art-Net y sACN disponibles para redes de iluminación de gran escala.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas moving heads para tu próximo evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con diseño de iluminación y plano de rigging personalizado"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Iluminación de Escenario</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas moving heads para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar moving heads para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Moving Heads</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Moving Head Beam -->
+          <section class="section section--alt" aria-labelledby="beam-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Haces de alto impacto</span>
+                <h2 class="showcase__title" id="beam-heading">Moving Head Beam</h2>
+                <p class="showcase__subtitle">Haz concentrado y potente que corta el aire: el arma visual para conciertos y fiestas de gran formato.</p>
+                <p class="showcase__text">El <strong>Moving Head Beam</strong> produce un haz ultra-concentrado de 1° a 3.8° de apertura que corta a través del haze y la niebla creando efectos aéreos dramáticos visibles a grandes distancias. El prisma multifaceta multiplica el haz en patrones tridimensionales espectaculares — 3 facetas para triángulos definidos, 6 para abanicos y 8 para efectos circulares envolventes. Con potencias de <strong>300W a 700W</strong> (fuente Osram o Philips), los beams son visibles incluso en venues abiertos de gran formato donde la luz ambiental compite con la artificial.</p>
+                <p class="showcase__text">Rotación de <strong>pan/tilt 360° continuo</strong> a velocidad variable — desde movimientos lentos y cinematográficos hasta barridos ultrarrápidos sincronizados con el BPM de la música. Efectos de rainbow, split colors y gobo de línea para multiplicar la complejidad visual. La elección número uno para conciertos, festivales, DJ sets y fiestas de alto nivel donde el impacto visual es protagonista. Combínalos con nuestras <a href="/servicios/pistas-baile/">pistas de baile LED</a> para una experiencia inmersiva completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Beam 1°-3.8°</span>
+                  <span class="showcase__tag">300-700W</span>
+                  <span class="showcase__tag">Prisma 3D</span>
+                  <span class="showcase__tag">Aerial Effects</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Moving Head Beam
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M9 18h6"/><path d="M10 22h4"/>
+                    <path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/>
+                  </svg>
+                  <span>Moving Head Beam</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Moving Head Spot -->
+          <section class="section section--alt" aria-labelledby="spot-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Precisión y definición</span>
+                <h2 class="showcase__title" id="spot-heading">Moving Head Spot</h2>
+                <p class="showcase__subtitle">Haz definido con gobos y enfoque motorizado: proyecta patrones, logos y texturas en cualquier superficie.</p>
+                <p class="showcase__text">El <strong>Moving Head Spot</strong> ofrece un haz definido con <strong>enfoque motorizado</strong> que permite proyecciones nítidas a cualquier distancia. Sus ruedas de gobos — fijas y rotatorias — incluyen patrones geométricos, florales y, lo más importante, <strong>gobos personalizados</strong> con tu logo, monograma o iniciales grabados en metal o vidrio. El iris variable controla el diámetro del haz de forma precisa, desde un punto concentrado hasta una proyección amplia, adaptándose a cada momento del evento.</p>
+                <p class="showcase__text">La elección perfecta para <strong>eventos corporativos</strong> (proyección de logo en paredes, pisos y techos), <strong>bodas</strong> (monograma de los novios sobre la pista de baile) y <strong>teatro</strong> (texturas y ambientes escénicos). La mezcla de color <strong>CMY substractiva</strong> genera colores infinitos con transiciones suaves y sin saltos. Combina los spots con nuestras <a href="/servicios/audiovisual/pantallas-led/">pantallas LED</a> para una producción audiovisual integral donde la luz y el video se complementan.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Gobos Personalizados</span>
+                  <span class="showcase__tag">Enfoque Motorizado</span>
+                  <span class="showcase__tag">Iris Variable</span>
+                  <span class="showcase__tag">Logo Projection</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Moving Head Spot
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M9 18h6"/><path d="M10 22h4"/>
+                    <path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/>
+                  </svg>
+                  <span>Moving Head Spot</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Moving Head Wash -->
+          <section class="section section--alt" aria-labelledby="wash-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Baños de color amplios</span>
+                <h2 class="showcase__title" id="wash-heading">Moving Head Wash</h2>
+                <p class="showcase__subtitle">Cobertura amplia con zoom variable: llena escenarios completos de color uniforme y vibrante.</p>
+                <p class="showcase__text">El <strong>Moving Head Wash</strong> produce un baño de luz amplio con apertura de <strong>8° a 60° mediante zoom motorizado</strong>, capaz de cubrir desde un punto específico hasta un escenario completo en un solo haz. Equipados con múltiples LEDs de alta potencia con <strong>control individual por pixel</strong>, permiten efectos de chase, degradados y color independiente por cada LED. La cobertura de color es uniforme y vibrante, sin puntos calientes ni sombras, ideal para bañar escenarios, venues y elementos arquitectónicos de color.</p>
+                <p class="showcase__text">El <strong>rango de zoom</strong> permite pasar de spot concentrado a wash amplio en una sola luminaria, maximizando la versatilidad con menos unidades. Los efectos de pixel mapping crean secuencias visuales dinámicas directamente en la cara de la luminaria. El <strong>modo silencioso</strong> disponible los hace aptos para galas, eventos corporativos y ceremonias donde el ruido es un factor crítico. Combínalos con nuestros <a href="/servicios/iluminacion/arquitectonica/wash-lights/">wash lights arquitectónicos</a> para una cobertura de color en 360° del venue completo.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Zoom 8°-60°</span>
+                  <span class="showcase__tag">Pixel Control</span>
+                  <span class="showcase__tag">Silent Mode</span>
+                  <span class="showcase__tag">Color Wash</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Moving Head Wash
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M9 18h6"/><path d="M10 22h4"/>
+                    <path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/>
+                  </svg>
+                  <span>Moving Head Wash</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Moving Head Hybrid (BSW) -->
+          <section class="section section--alt" aria-labelledby="hybrid-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">3 en 1: Beam + Spot + Wash</span>
+                <h2 class="showcase__title" id="hybrid-heading">Moving Head Hybrid (BSW)</h2>
+                <p class="showcase__subtitle">Una luminaria, tres funciones: beam concentrado, spot con gobos y wash amplio en un solo equipo.</p>
+                <p class="showcase__text">El <strong>Moving Head Hybrid BSW</strong> combina las tres modalidades — beam, spot y wash — en una sola luminaria de alto rendimiento. Esto significa <strong>menos puntos de rigging, menos peso en el truss y mayor eficiencia presupuestal</strong> sin sacrificar capacidades. En modo beam genera haces aéreos concentrados con prisma; en modo spot proyecta gobos y patrones con enfoque preciso; en modo wash baña áreas amplias de color uniforme. El cambio entre modos se realiza instantáneamente vía DMX durante el evento.</p>
+                <p class="showcase__text">La opción más <strong>versátil</strong> para eventos que necesitan de todo: ceremonia con wash suave, cena con gobos decorativos y fiesta con beams dinámicos — todo desde las mismas luminarias. Más de <strong>20 canales DMX</strong> por unidad para control granular. Compatible con <strong>Art-Net y sACN</strong> para integración en redes de iluminación profesional de gran escala. Para producciones que demandan flexibilidad absoluta, combina los hybrid con nuestros <a href="/servicios/iluminacion/escenario/par-led/">par LED</a> como base de color estática.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Beam + Spot + Wash</span>
+                  <span class="showcase__tag">3 en 1</span>
+                  <span class="showcase__tag">20+ DMX ch</span>
+                  <span class="showcase__tag">Máxima Versatilidad</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Moving Head Hybrid
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M9 18h6"/><path d="M10 22h4"/>
+                    <path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/>
+                  </svg>
+                  <span>Moving Head Hybrid BSW</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Moving Heads"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar moving heads para tu evento, es natural tener preguntas sobre tipos de luminaria, rigging, gobos personalizados y operación DMX. Aquí encontrarás las respuestas más comunes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un especialista en iluminación de escenario te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en moving heads resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre moving heads para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Iluminación de Escenario -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Iluminación de Escenario</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/escenario/" class="sidebar-nav__back">&uarr; Volver a Escenario</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/" class="sidebar-nav__back">&uarr; Volver a Iluminación</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de moving heads:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas moving heads para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar moving heads para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tus Moving Heads"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros especialistas en iluminación de escenario te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un set de moving heads beam para tu concierto o un paquete completo hybrid BSW para tu gala corporativa, estamos aquí para diseñar el espectáculo de luz perfecto."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoMovingHead">
+                Tipo de moving head
+              </label>
+              <select id="tipoMovingHead" name="tipoMovingHead" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de moving head</option>
+                <option value="Moving Head Beam">Moving Head Beam</option>
+                <option value="Moving Head Spot">Moving Head Spot</option>
+                <option value="Moving Head Wash">Moving Head Wash</option>
+                <option value="Moving Head Hybrid BSW">Moving Head Hybrid BSW</option>
+                <option value="Paquete Boda (4-8 unidades)">Paquete Boda (4-8 unidades)</option>
+                <option value="Paquete Concierto (8-16 unidades)">Paquete Concierto (8-16 unidades)</option>
+                <option value="Paquete Festival (16+ unidades)">Paquete Festival (16+ unidades)</option>
+                <option value="Gobos Personalizados">Gobos Personalizados</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de invitados, tipo de venue (salón/jardín/terraza), tipo de show deseado (beams aéreos/gobos/wash), dimensiones del espacio..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para diseñar un plano de rigging e iluminación con la cantidad exacta de moving heads.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada de iluminación de escenario para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoMovingHead = document.getElementById('tipoMovingHead').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Moving Heads para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoMovingHead) texto += `*Tipo de moving head:* ${tipoMovingHead}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Iluminación"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de iluminación profesional para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">REDEIL</h3>
+            <p class="partner-card__tagline">Renta de Iluminación Profesional</p>
+            <p class="partner-card__text">Líder en renta de iluminación para eventos sociales en CDMX y Estado de México. Especialistas en guirnaldas LED, cabezas móviles, iluminación arquitectónica, gobos personalizados y efectos especiales.</p>
+          </div>
+          <a href="https://rentadeiluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Iluminación + Audio</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">REDEIL Sonido</h3>
+            <p class="partner-card__tagline">Iluminación LED y Audio Profesional</p>
+            <p class="partner-card__text">Especialistas en audio JBL y QSC, iluminación LED profesional, DJ y pantallas LED para bodas, XV años y eventos corporativos. Servicio integral con instalación y operación técnica incluida.</p>
+          </div>
+          <a href="https://redeil.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">+15 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">RESOIL</h3>
+            <p class="partner-card__tagline">Renta de Sonido e Iluminación</p>
+            <p class="partner-card__text">Más de 15 años proporcionando equipo profesional de sonido e iluminación para eventos corporativos en CDMX. Guirnaldas LED, sky trackers, luces arquitectónicas, cascadas LED y gobos.</p>
+          </div>
+          <a href="https://rentadesonidoeiluminacion.com.mx/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">L</span>
+            <div class="partner-card__badge">+20 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">LUMINAPRO</h3>
+            <p class="partner-card__tagline">Expertos en Iluminación Profesional</p>
+            <p class="partner-card__text">Líder en renta de iluminación profesional para eventos con más de 20 años transformando espacios en CDMX. Servicio integral: diseño, instalación, operación y desmontaje de cabezas móviles, láser y más.</p>
+          </div>
+          <a href="https://renta-de-iluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Moving heads que transforman tu evento en un espectáculo de luz profesional"
+    subheadline="Más de 500 eventos iluminados con cabezas móviles profesionales nos respaldan. Cotiza hoy y recibe un diseño de iluminación personalizado con plano de rigging."
+    primaryCTA={{ label: "Cotizar moving heads", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar moving heads para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>
