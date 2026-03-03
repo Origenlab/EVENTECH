@@ -308,3 +308,110 @@ export function eventTypeJsonLd(eventType: {
     })),
   };
 }
+
+/** Generate EventVenue JSON-LD (for venue/salon pages in directorio) */
+export function venueJsonLd(venue: {
+  name: string;
+  description: string;
+  url: string;
+  image?: string;
+  address: {
+    street: string;
+    locality: string;
+    region: string;
+    postalCode?: string;
+    country?: string;
+  };
+  geo?: {
+    lat: number;
+    lng: number;
+  };
+  telephone?: string;
+  email?: string;
+  priceRange?: string;
+  capacity?: {
+    min: number;
+    max: number;
+  };
+  rating?: number;
+  reviewCount?: number;
+  amenities?: string[];
+  openingHours?: {
+    weekdays?: string;
+    weekends?: string;
+  };
+}) {
+  const schema: Record<string, any> = {
+    "@context": "https://schema.org",
+    "@type": "EventVenue",
+    name: venue.name,
+    description: venue.description,
+    url: canonicalURL(venue.url),
+    image: venue.image ? canonicalURL(venue.image) : undefined,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: venue.address.street,
+      addressLocality: venue.address.locality,
+      addressRegion: venue.address.region,
+      postalCode: venue.address.postalCode,
+      addressCountry: venue.address.country ?? "MX",
+    },
+  };
+
+  if (venue.geo) {
+    schema.geo = {
+      "@type": "GeoCoordinates",
+      latitude: venue.geo.lat,
+      longitude: venue.geo.lng,
+    };
+  }
+
+  if (venue.telephone) {
+    schema.telephone = venue.telephone;
+  }
+
+  if (venue.email) {
+    schema.email = venue.email;
+  }
+
+  if (venue.priceRange) {
+    schema.priceRange = venue.priceRange;
+  }
+
+  if (venue.capacity) {
+    schema.maximumAttendeeCapacity = venue.capacity.max;
+  }
+
+  if (venue.rating && venue.reviewCount) {
+    schema.aggregateRating = {
+      "@type": "AggregateRating",
+      ratingValue: venue.rating,
+      reviewCount: venue.reviewCount,
+      bestRating: 5,
+      worstRating: 1,
+    };
+  }
+
+  if (venue.amenities && venue.amenities.length > 0) {
+    schema.amenityFeature = venue.amenities.map(amenity => ({
+      "@type": "LocationFeatureSpecification",
+      name: amenity,
+      value: true,
+    }));
+  }
+
+  if (venue.openingHours) {
+    const hours: string[] = [];
+    if (venue.openingHours.weekdays) {
+      hours.push(`Mo-Fr ${venue.openingHours.weekdays}`);
+    }
+    if (venue.openingHours.weekends) {
+      hours.push(`Sa-Su ${venue.openingHours.weekends}`);
+    }
+    if (hours.length > 0) {
+      schema.openingHours = hours;
+    }
+  }
+
+  return schema;
+}

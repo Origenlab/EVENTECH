@@ -9,7 +9,7 @@ import SectionHeader from "@components/SectionHeader.astro";
 import Breadcrumbs from "@components/Breadcrumbs.astro";
 import CTABanner from "@components/CTABanner.astro";
 import { getCollection } from "astro:content";
-import { breadcrumbJsonLd } from "@utils/seo";
+import { breadcrumbJsonLd, venueJsonLd } from "@utils/seo";
 import { SERVICE_CATEGORIES, SITE } from "@data/site";
 import "@styles/directorio.css";
 
@@ -185,6 +185,30 @@ const jsonLd = [
     name: item.label,
     url: item.href
   }))),
+  // Add venue schema for venue pages
+  ...(type === "venue" && venue ? [
+    venueJsonLd({
+      name: venue.data.name,
+      description: venue.data.seoDescription || venue.data.shortDescription,
+      url: `/directorio/${region}/${zone}/${venue.data.slug}/`,
+      image: venue.data.image,
+      address: {
+        street: venue.data.address,
+        locality: venue.data.zone,
+        region: venue.data.region === "cdmx" ? "Ciudad de México" : "Estado de México",
+        postalCode: venue.data.postalCode,
+      },
+      geo: venue.data.coordinates,
+      telephone: venue.data.contact?.phone,
+      email: venue.data.contact?.email,
+      priceRange: venue.data.priceRange,
+      capacity: venue.data.capacity,
+      rating: venue.data.rating,
+      reviewCount: venue.data.reviewCount,
+      amenities: venue.data.amenities,
+      openingHours: venue.data.schedule,
+    })
+  ] : []),
 ];
 ---
 
@@ -483,6 +507,109 @@ const jsonLd = [
                       <p class="venue-review__meta">{review.eventType} • {review.date}</p>
                     </div>
                   ))}
+                </div>
+              </div>
+            )}
+
+            <!-- Services Included -->
+            {venue.data.servicesIncluded && venue.data.servicesIncluded.length > 0 && (
+              <div class="venue-section">
+                <h2 class="venue-section__title">Servicios Incluidos</h2>
+                <div class="venue-services-included">
+                  {venue.data.servicesIncluded.map(service => (
+                    <div class="venue-service-item">
+                      <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                      <span>{service.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <!-- Schedule & Pricing Info Box -->
+            <div class="venue-info-box">
+              <div class="venue-info-box__grid">
+                {venue.data.schedule && (
+                  <div class="venue-info-box__item">
+                    <div class="venue-info-box__icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div class="venue-info-box__content">
+                      <h4>Horarios</h4>
+                      <p><strong>Entre semana:</strong> {venue.data.schedule.weekdays}</p>
+                      <p><strong>Fines de semana:</strong> {venue.data.schedule.weekends}</p>
+                      {venue.data.schedule.minHours && <p class="venue-info-box__note">Mínimo {venue.data.schedule.minHours} horas</p>}
+                    </div>
+                  </div>
+                )}
+                {(venue.data.pricePerPerson || venue.data.rentalPrice) && (
+                  <div class="venue-info-box__item">
+                    <div class="venue-info-box__icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <div class="venue-info-box__content">
+                      <h4>Precios</h4>
+                      {venue.data.pricePerPerson && (
+                        <p><strong>Por persona:</strong> ${venue.data.pricePerPerson.min.toLocaleString()} - ${venue.data.pricePerPerson.max.toLocaleString()} MXN</p>
+                      )}
+                      {venue.data.rentalPrice && (
+                        <p><strong>Renta:</strong> ${venue.data.rentalPrice.min.toLocaleString()} - ${venue.data.rentalPrice.max.toLocaleString()} MXN</p>
+                      )}
+                      <p class="venue-info-box__badge">{venue.data.priceRange}</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <!-- Restrictions -->
+            {venue.data.restrictions && venue.data.restrictions.length > 0 && (
+              <div class="venue-section venue-section--warning">
+                <h2 class="venue-section__title">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  Consideraciones Importantes
+                </h2>
+                <ul class="venue-restrictions">
+                  {venue.data.restrictions.map(restriction => (
+                    <li>{restriction}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <!-- EVENTECH Partner Badge -->
+            {venue.data.eventechPartner && (
+              <div class="venue-partner-banner">
+                <div class="venue-partner-banner__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                </div>
+                <div class="venue-partner-banner__content">
+                  <h3>Partner Oficial EVENTECH</h3>
+                  <p>Hemos trabajado en este venue y conocemos sus instalaciones. Podemos asesorarte sobre el equipo ideal para tu evento.</p>
+                  {venue.data.eventechDiscount && (
+                    <span class="venue-partner-banner__discount">{venue.data.eventechDiscount}</span>
+                  )}
+                </div>
+              </div>
+            )}
+
+            <!-- Location / Google Maps -->
+            {venue.data.googleMapsUrl && (
+              <div class="venue-section">
+                <h2 class="venue-section__title">Ubicación</h2>
+                <div class="venue-location-card">
+                  <div class="venue-location-card__info">
+                    <p class="venue-location-card__address">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      {venue.data.address}
+                    </p>
+                    <p class="venue-location-card__zone">{venue.data.neighborhood}, {venue.data.zone}</p>
+                    {venue.data.postalCode && <p class="venue-location-card__postal">C.P. {venue.data.postalCode}</p>}
+                  </div>
+                  <a href={venue.data.googleMapsUrl} target="_blank" rel="noopener noreferrer" class="venue-location-card__btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                    Ver en Google Maps
+                  </a>
                 </div>
               </div>
             )}
