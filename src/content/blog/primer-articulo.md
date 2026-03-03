@@ -17,7 +17,7 @@ relatedServices:
 relatedEvents:
   - "bodas"
 draft: false
-featured: true
+featured: false
 ---
 
 ## Introducción

@@ -32,7 +32,7 @@ relatedEvents:
 relatedPosts:
   - "rentadeiluminacion-renta-iluminacion-profesional-eventos-cdmx"
 draft: false
-featured: true
+featured: false
 cta:
   label: "Cotiza iluminación para tu evento"
   href: "/cotizar/"

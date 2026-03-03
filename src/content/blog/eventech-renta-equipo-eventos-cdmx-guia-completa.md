@@ -39,7 +39,7 @@ relatedPosts:
   - "redeil-renta-iluminacion-audio-eventos-cdmx"
   - "rentadeiluminacion-renta-iluminacion-profesional-eventos-cdmx"
 draft: false
-featured: true
+featured: false
 cta:
   label: "Cotiza tu evento completo"
   href: "/cotizar/"

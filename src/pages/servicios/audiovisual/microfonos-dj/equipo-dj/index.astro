@@ -1,0 +1,734 @@
+---
+/**
+ * ─── Equipo DJ Completo — Pagina de Producto (Nivel 4) ───
+ * Pioneer CDJ-3000, controlador DDJ-1000 y mixer DJM-900NXS2
+ * con monitores KRK/JBL para fiestas y eventos.
+ *
+ * Jerarquia: Servicios > Audiovisual > Micrófonos y DJ > Equipo DJ
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Audiovisual", href: "/servicios/audiovisual/" },
+  { label: "Micrófonos y DJ", href: "/servicios/audiovisual/microfonos-dj/" },
+  { label: "Equipo DJ" },
+];
+
+const faqs = [
+  { question: "¿La renta incluye DJ o solo el equipo?", answer: 'La renta incluye <strong>únicamente el equipo profesional</strong>: tornamesas, controladores, mixer, monitores, cableado y técnico de instalación. No incluimos DJ. Si necesitas recomendación de DJ, te conectamos con nuestros <strong>DJs asociados de confianza</strong> con experiencia comprobada en bodas, fiestas y eventos corporativos. También trabajamos sin problema con tu propio DJ — solo necesita llegar, conectar su USB y empezar a mezclar.' },
+  { question: "¿Cuál es la diferencia entre CDJ-3000 y DDJ-1000?", answer: 'Los <strong>Pioneer CDJ-3000</strong> son tornamesas individuales de grado profesional con pantalla táctil de 9", análisis de tracks en tiempo real y conectividad múltiple (USB/SD/WiFi/Link). Son el estándar de la industria y los que los DJs profesionales esperan encontrar. El <strong>DDJ-1000</strong> es un controlador todo-en-uno más compacto que integra jog wheels, pads y mixer en una sola unidad — ideal para DJs que prefieren setup portable y para fiestas medianas donde el espacio es limitado.' },
+  { question: "¿Mi DJ puede traer su propio equipo y combinar con el de ustedes?", answer: 'Sí, nuestro equipo es <strong>100% compatible con cualquier setup</strong>. Tu DJ puede traer sus controladores o accesorios personales y conectarlos a nuestro mixer DJM-900NXS2 mediante los puertos USB, auxiliares o canales disponibles. Nuestro técnico se encarga de la integración y verifica que todo funcione perfectamente antes del evento. También ofrecemos <strong>solo monitores o solo mixer</strong> si tu DJ tiene parte del equipo.' },
+  { question: "¿Se puede combinar el equipo DJ con un sistema de sonido?", answer: 'Sí, es la configuración más popular. Conectamos el equipo DJ directamente a nuestro <a href="/servicios/audiovisual/sonido/">sistema de sonido line array</a> mediante <strong>salida XLR balanceada del mixer</strong> para audio de máxima calidad. El ingeniero de audio gestiona niveles, ecualización y protección de los altavoces. También ofrecemos <strong>paquetes integrados DJ + Sonido</strong> con descuento especial que incluyen equipo Pioneer completo + sistema de amplificación profesional.' },
+  { question: "¿Cuáles son los requisitos eléctricos del equipo DJ?", answer: 'El setup estándar (2 CDJ-3000 + mixer + monitores) requiere <strong>2 contactos de 110V estándar</strong> con tierra física. Todo el equipo funciona con electricidad doméstica normal. Proporcionamos <strong>regletas reguladas con protección contra picos</strong> para proteger el equipo de fluctuaciones de voltaje. Para venues al aire libre o locaciones sin electricidad confiable, recomendamos complementar con nuestras <a href="/servicios/accesorios/plantas-energia/">plantas de energía</a>.' },
+  { question: "¿Con cuánta anticipación debo reservar el equipo DJ?", answer: 'Recomendamos reservar con <strong>3 a 4 semanas de anticipación</strong> para garantizar disponibilidad del equipo Pioneer CDJ-3000 y DJM-900NXS2. Este es nuestro equipo más solicitado, especialmente en <strong>temporada alta (noviembre a febrero)</strong> y fines de semana. Para el DDJ-1000 la disponibilidad suele ser mayor. Si necesitas setup completo con sonido y cabina DJ, lo ideal es apartar con <strong>1-2 meses de anticipación</strong>.' },
+];
+
+const specs = [
+  { label: "Tornamesas", value: "Pioneer CDJ-3000 x2" },
+  { label: "Controlador", value: "Pioneer DDJ-1000" },
+  { label: "Mixer", value: "Pioneer DJM-900NXS2, 4 canales" },
+  { label: "Monitores", value: "KRK Rokit 8 / JBL 308P MkII" },
+  { label: "Efectos", value: "Beat FX integrados en mixer" },
+  { label: "Conexiones", value: "USB / SD / WiFi / Link" },
+  { label: "Cableado", value: "XLR y RCA blindado profesional" },
+  { label: "Energía", value: "Regletas reguladas con protección contra picos" },
+  { label: "Doble USB", value: "Transición entre DJs sin interrupciones" },
+  { label: "Técnico", value: "Instalación completa y soporte en evento" },
+];
+
+const sidebarNav = [
+  { name: "Micrófonos Inalámbricos", href: "/servicios/audiovisual/microfonos-dj/inalambricos/" },
+  { name: "Solapa y Diadema", href: "/servicios/audiovisual/microfonos-dj/solapa-diadema/" },
+  { name: "Equipo DJ", href: null, active: true },
+  { name: "Cabina DJ", href: "/servicios/audiovisual/microfonos-dj/cabina-dj/" },
+];
+
+const sidebarRelated = [
+  { name: "Sonido Line Array", href: "/servicios/audiovisual/sonido/" },
+  { name: "Pistas de Baile", href: "/servicios/pistas-baile/" },
+  { name: "Iluminación Escenario", href: "/servicios/iluminacion/escenario/" },
+  { name: "Efectos Especiales", href: "/servicios/iluminacion/efectos-especiales/" },
+  { name: "Cabina DJ", href: "/servicios/audiovisual/microfonos-dj/cabina-dj/" },
+];
+
+const reviews = [
+  { author: "Mariana y Diego", text: "Rentamos el setup CDJ-3000 completo para nuestra boda de 300 personas en un jardín de Tlalpan. Nuestro DJ quedó encantado con el equipo — dijo que era exactamente lo que usa en los mejores clubs. El técnico lo instaló todo impecablemente y el sonido fue espectacular toda la noche.", rating: 5, date: "2025-11-25" },
+  { author: "Valentina Pérez", text: "Para los XV años de mi hija contratamos el DDJ-1000 con monitores KRK. El espacio era reducido y el controlador compacto fue perfecto. El DJ mezcló sin problemas durante 5 horas y la fiesta fue increíble. El técnico fue muy amable y resolvió todo rápidamente.", rating: 5, date: "2025-10-18" },
+  { author: "Ing. Roberto Sánchez", text: "Organizamos un festival corporativo para 500 personas y necesitábamos el full setup Pioneer con transición entre 3 DJs. El equipo funcionó impecable durante 8 horas, las transiciones con doble USB fueron transparentes y el técnico estuvo atento todo el evento. Producción de primer nivel.", rating: 5, date: "2025-09-30" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Equipo DJ Profesional para Eventos en CDMX",
+    description: "Renta de equipo DJ Pioneer CDJ-3000, controlador DDJ-1000 y mixer DJM-900NXS2 para fiestas y eventos en CDMX. Monitores KRK/JBL incluidos. Desde $3,000.",
+    url: "/servicios/audiovisual/microfonos-dj/equipo-dj/",
+    priceRange: { min: 3000, max: 15000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 312,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Audiovisual", url: "/servicios/audiovisual/" },
+    { name: "Micrófonos y DJ", url: "/servicios/audiovisual/microfonos-dj/" },
+    { name: "Equipo DJ", url: "/servicios/audiovisual/microfonos-dj/equipo-dj/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Equipo DJ Profesional para Eventos en CDMX"
+  description="Renta de equipo DJ Pioneer CDJ-3000, controlador DDJ-1000 y mixer DJM-900NXS2 para fiestas y eventos en CDMX. Monitores KRK/JBL incluidos. Desde $3,000."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="El setup que los mejores DJs exigen"
+    title='Renta de <span class="highlight">Equipo DJ Profesional</span> para Eventos en CDMX'
+    subtitle="Pioneer CDJ-3000 con pantalla táctil, controlador DDJ-1000, mixer DJM-900NXS2 con Beat FX y monitores de referencia KRK/JBL. Técnico de instalación dedicado en cada evento."
+    primaryCTA={{ label: "Cotiza tu equipo DJ", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar equipo DJ profesional para mi evento` }}
+    cards={[
+      {
+        title: "Pioneer CDJ-3000, DDJ-1000 y DJM-900NXS2",
+        content: "<strong>Renta de equipo DJ profesional</strong> con el hardware más solicitado de la industria. Tornamesas Pioneer CDJ-3000 con pantalla táctil HD de 9 pulgadas, análisis de tracks en tiempo real y conectividad USB/SD/WiFi. Controlador DDJ-1000 con jog wheels de tamaño completo para sets versátiles. Mixer DJM-900NXS2 de 4 canales con efectos Beat FX integrados y doble puerto USB para transiciones entre DJs sin interrupciones. El equipo que los DJs profesionales esperan encontrar en cualquier evento de primer nivel.",
+      },
+      {
+        title: "Monitores KRK/JBL, cableado blindado y técnico incluido",
+        content: "<strong>Servicio técnico completo</strong> con monitores de referencia KRK Rokit 8 y JBL 308P MkII posicionados en la cabina para mezcla precisa. Todo el cableado es profesional XLR y RCA blindado, con regletas de energía reguladas y protección contra picos de voltaje. Nuestro técnico se encarga de la instalación completa, configuración de niveles, prueba de sonido y soporte durante todo el evento. Tu DJ solo necesita llegar, conectar su USB y empezar a mezclar.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas el mejor equipo DJ para tu próxima fiesta?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con el setup ideal para tu evento y DJ"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Micrófonos y DJ para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas equipo DJ profesional para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar equipo DJ profesional para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="15.5" r="2.5"/><path d="M8 17V5l12-2v10"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Equipo DJ Profesional</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Pioneer CDJ-3000 Setup -->
+          <section class="section section--alt" aria-labelledby="cdj3000-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">El estándar de la industria</span>
+                <h2 class="showcase__title" id="cdj3000-heading">Pioneer CDJ-3000 Setup</h2>
+                <p class="showcase__subtitle">Dos tornamesas CDJ-3000 con mixer DJM-900NXS2 para bodas premium y eventos de primer nivel.</p>
+                <p class="showcase__text">El <strong>Pioneer CDJ-3000 Setup</strong> es nuestro paquete más solicitado para <strong>bodas premium, galas corporativas y eventos sociales de alto perfil</strong>. Incluye dos tornamesas CDJ-3000 con pantalla táctil HD de 9 pulgadas, análisis de forma de onda en tiempo real, 8 hot cues por banco y motor de jog wheel con retroalimentación háptica. El mixer <strong>DJM-900NXS2</strong> con 4 canales ofrece efectos Beat FX de calidad estudio, ecualizador de 3 bandas por canal y salida master XLR balanceada.</p>
+                <p class="showcase__text">Conectividad USB, SD, WiFi y Pioneer DJ Link para sincronización perfecta entre tornamesas. El <strong>doble puerto USB</strong> del mixer permite transiciones transparentes entre DJs sin interrumpir la música. Incluye monitores de referencia <strong>KRK Rokit 8</strong> posicionados en la cabina para que el DJ escuche su mezcla con precisión. Todo sobre <strong>cableado XLR blindado</strong> y regletas reguladas con protección contra picos. Combínalo con nuestra <a href="/servicios/audiovisual/microfonos-dj/cabina-dj/">cabina DJ iluminada</a> para un setup visual impresionante.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">2x CDJ-3000</span>
+                  <span class="showcase__tag">DJM-900NXS2</span>
+                  <span class="showcase__tag">Pantalla 9"</span>
+                  <span class="showcase__tag">Bodas premium</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar CDJ-3000 Setup
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                    <line x1="12" y1="19" x2="12" y2="23"/>
+                    <line x1="8" y1="23" x2="16" y2="23"/>
+                  </svg>
+                  <span>Pioneer CDJ-3000 Setup</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: DDJ-1000 Compacto -->
+          <section class="section section--alt" aria-labelledby="ddj1000-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Todo en uno para fiestas medianas</span>
+                <h2 class="showcase__title" id="ddj1000-heading">DDJ-1000 Compacto</h2>
+                <p class="showcase__subtitle">Controlador Pioneer todo-en-uno con jog wheels de tamaño completo para fiestas medianas y espacios reducidos.</p>
+                <p class="showcase__text">El <strong>Pioneer DDJ-1000</strong> es el controlador más versátil para <strong>fiestas medianas, XV años y eventos sociales</strong> donde el espacio es limitado. Integra dos canales con jog wheels de tamaño completo (las mismas dimensiones que un CDJ), pads de performance, faders y una sección de mixer en una sola unidad compacta. Compatible con <strong>Rekordbox DJ</strong>, ofrece toda la potencia del software Pioneer con una experiencia de mezcla profesional.</p>
+                <p class="showcase__text">Perfecto para DJs que prefieren setup portable sin sacrificar funcionalidad. Incluye <strong>pantalla LCD integrada</strong> con visualización de forma de onda, indicadores de nivel y BPM. Salida master balanceada y booth output independiente para monitores. Funciona conectado a un laptop con cable USB — no requiere drivers adicionales. Nuestro técnico instala todo, configura el software y verifica el audio antes del evento. Combínalo con nuestras <a href="/servicios/pistas-baile/">pistas de baile</a> para la fiesta perfecta.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Todo-en-uno</span>
+                  <span class="showcase__tag">Jog wheels full</span>
+                  <span class="showcase__tag">Rekordbox</span>
+                  <span class="showcase__tag">Fiestas medianas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar DDJ-1000 Compacto
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                    <line x1="12" y1="19" x2="12" y2="23"/>
+                    <line x1="8" y1="23" x2="16" y2="23"/>
+                  </svg>
+                  <span>DDJ-1000 Compacto</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Setup Full Pioneer -->
+          <section class="section section--alt" aria-labelledby="full-pioneer-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">El paquete completo</span>
+                <h2 class="showcase__title" id="full-pioneer-heading">Setup Full Pioneer</h2>
+                <p class="showcase__subtitle">CDJ-3000 + DJM-900NXS2 + monitores KRK/JBL + cableado completo para producciones profesionales.</p>
+                <p class="showcase__text">Nuestro <strong>Setup Full Pioneer</strong> es el paquete más completo para <strong>producciones profesionales y eventos de gran escala</strong>. Incluye absolutamente todo lo que un DJ necesita: 2 tornamesas CDJ-3000, mixer DJM-900NXS2 de 4 canales, par de monitores KRK Rokit 8 o JBL 308P MkII, todo el cableado XLR y RCA blindado, regletas reguladas con protección contra picos y mesa de soporte profesional con la altura ergonómica correcta.</p>
+                <p class="showcase__text">El paquete viene con <strong>técnico de instalación dedicado</strong> que llega 3 horas antes del evento para montar, cablear, nivelar y hacer prueba de sonido completa. Verificamos niveles de salida, ecualización de monitores, funcionamiento de todos los puertos USB y sincronización entre tornamesas. Tu DJ solo necesita llegar, conectar su USB y enfocarse en la música. Ideal para <strong>bodas de 200+ personas, festivales corporativos y fiestas premium</strong>. Complementa con nuestra <a href="/servicios/iluminacion/escenario/">iluminación de escenario</a> para un show visual completo.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Paquete completo</span>
+                  <span class="showcase__tag">CDJ + DJM + monitores</span>
+                  <span class="showcase__tag">Técnico 3hrs antes</span>
+                  <span class="showcase__tag">200+ personas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Setup Full Pioneer
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                    <line x1="12" y1="19" x2="12" y2="23"/>
+                    <line x1="8" y1="23" x2="16" y2="23"/>
+                  </svg>
+                  <span>Setup Full Pioneer</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit DJ + Sonido -->
+          <section class="section section--alt" aria-labelledby="kit-dj-sonido-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">La fiesta completa</span>
+                <h2 class="showcase__title" id="kit-dj-sonido-heading">Kit DJ + Sonido</h2>
+                <p class="showcase__subtitle">Equipo DJ profesional integrado con sistema de sonido line array para la experiencia completa.</p>
+                <p class="showcase__text">Nuestro <strong>Kit DJ + Sonido</strong> es la solución integral que combina el <strong>equipo DJ Pioneer completo</strong> con un sistema de amplificación profesional line array. Incluye 2 CDJ-3000 o DDJ-1000 (según preferencia del DJ), mixer DJM-900NXS2, monitores de cabina, más sistema de sonido con altavoces line array, subwoofers, amplificadores y procesadores. Todo conectado, ecualizado y listo para la fiesta.</p>
+                <p class="showcase__text">El ingeniero de audio gestiona <strong>niveles, ecualización y protección del sistema</strong> desde una consola central, coordinando el equipo DJ con el sistema de amplificación para un sonido limpio y potente en todo el venue. Incluye <strong>micrófono inalámbrico para brindis y anuncios</strong> integrado al sistema. Este kit elimina la necesidad de contratar equipo DJ y sonido por separado — un solo proveedor, una sola logística, mejor precio. Combínalo con nuestros <a href="/servicios/iluminacion/efectos-especiales/">efectos especiales</a> para una producción memorable.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">DJ + Line Array</span>
+                  <span class="showcase__tag">Todo integrado</span>
+                  <span class="showcase__tag">Ingeniero dedicado</span>
+                  <span class="showcase__tag">Mejor precio</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit DJ + Sonido
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                    <line x1="12" y1="19" x2="12" y2="23"/>
+                    <line x1="8" y1="23" x2="16" y2="23"/>
+                  </svg>
+                  <span>Kit DJ + Sonido</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Equipo DJ"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu equipo DJ, es natural tener preguntas sobre modelos, compatibilidad y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor técnico te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de equipo DJ resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre equipo DJ profesional para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Micrófonos y DJ -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Micrófonos y DJ para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/audiovisual/microfonos-dj/" class="sidebar-nav__back">&uarr; Volver a Micrófonos y DJ</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/audiovisual/" class="sidebar-nav__back">&uarr; Volver a Audiovisual</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje DJ:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas equipo DJ profesional para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar equipo DJ profesional para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Equipo DJ Profesional"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores técnicos te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un setup CDJ-3000 para tu boda o un kit DJ + sonido para tu festival, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoDJ">
+                Tipo de equipo DJ
+              </label>
+              <select id="tipoDJ" name="tipoDJ" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de equipo</option>
+                <option value="CDJ-3000 Setup (2 tornamesas + mixer)">CDJ-3000 Setup (2 tornamesas + mixer)</option>
+                <option value="DDJ-1000 Compacto">DDJ-1000 Compacto</option>
+                <option value="Setup Full Pioneer">Setup Full Pioneer</option>
+                <option value="Kit DJ + Sonido">Kit DJ + Sonido</option>
+                <option value="Solo Monitores KRK/JBL">Solo Monitores KRK/JBL</option>
+                <option value="Paquete Boda DJ">Paquete Boda DJ</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de asistentes, tipo de venue, si cuentas con DJ propio, duración del evento, necesidad de sonido..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Prueba de sonido gratis</h3>
+            <p class="reserva-card__text">Nuestro técnico realiza prueba de sonido completa antes del evento para garantizar audio perfecto.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría técnica personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoDJ = document.getElementById('tipoDJ').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Equipo DJ Profesional*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoDJ) texto += `*Tipo de equipo DJ:* ${tipoDJ}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Audiovisual"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de equipo audiovisual para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">A</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">AudioVisual Pro MX</h3>
+            <p class="partner-card__tagline">Equipo DJ y Audio Profesional</p>
+            <p class="partner-card__text">Líder en renta de equipo DJ Pioneer y sistemas de audio para fiestas y eventos en CDMX. CDJ-3000, DDJ-1000, DJM-900 y monitores profesionales con técnico dedicado.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">S</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">SonidoEventos CDMX</h3>
+            <p class="partner-card__tagline">DJ, Sonido y Producción para Eventos</p>
+            <p class="partner-card__text">Especialistas en soluciones integrales de DJ y sonido para bodas, fiestas y festivales. Equipo Pioneer, line array JBL, producción de audio y técnicos certificados.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">T</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">TechEvents</h3>
+            <p class="partner-card__tagline">Tecnología DJ para Eventos</p>
+            <p class="partner-card__text">Más de 10 años proporcionando equipo DJ de última generación para eventos en CDMX. Pioneer CDJ, DDJ, DJM y paquetes completos DJ + sonido + iluminación.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MediaRent</h3>
+            <p class="partner-card__tagline">Renta de Equipo DJ y Multimedia</p>
+            <p class="partner-card__text">Servicio integral de renta de equipo DJ con logística profesional en toda la CDMX y área metropolitana. Pioneer, monitores, cableado y operadores técnicos certificados.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="El equipo DJ Pioneer que transforma cualquier evento en la mejor fiesta"
+    subheadline="Más de 500 eventos con equipo Pioneer nos respaldan. Cotiza hoy y recibe asesoría técnica sin compromiso."
+    primaryCTA={{ label: "Cotizar equipo DJ", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar equipo DJ profesional para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

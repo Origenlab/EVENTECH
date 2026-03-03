@@ -1,0 +1,742 @@
+---
+/**
+ * ─── Accesorios Decorativos — Pagina de Producto (Nivel 4) ───
+ * Bases para centros de mesa, portavelas, atriles, marcos y
+ * senalizacion en acabados dorado, plateado, cobre y cristal.
+ *
+ * Jerarquia: Servicios > Mobiliario > Barras > Accesorios Decorativos
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Barras", href: "/servicios/mobiliario/barras/" },
+  { label: "Accesorios Decorativos" },
+];
+
+const faqs = [
+  { question: "¿Cuántas piezas necesito por mesa?", answer: 'La configuración estándar es <strong>1 base para centro de mesa + 2 a 4 portavelas por mesa</strong>. Para mesas redondas de 150 cm sugerimos 3 portavelas; para mesas rectangulares de 240 cm, 4 a 6 portavelas distribuidas a lo largo. Nuestros asesores te ayudan con la cantidad exacta según tu layout.' },
+  { question: "¿Los paquetes temáticos incluyen suficientes piezas?", answer: 'Sí. Cada paquete temático incluye piezas para <strong>10 a 30 mesas</strong> según el tamaño seleccionado. Incluye bases de centro de mesa, portavelas, elementos decorativos y señalización básica. Puedes agregar piezas individuales adicionales con descuento sobre precio unitario.' },
+  { question: "¿Se pueden personalizar los accesorios?", answer: 'Sí. Ofrecemos <strong>personalización con viniles decorativos, grabado en cristal y acabados en colores especiales</strong>. Los números de mesa se pueden hacer en acrílico con tipografía personalizada. Toda personalización requiere <strong>2 semanas de anticipación</strong>. Consulta opciones y precios con tu asesor.' },
+  { question: "¿Las velas están incluidas con los portavelas?", answer: 'Los portavelas y votivas se rentan como <strong>contenedores sin velas</strong>. Sin embargo, ofrecemos paquetes con velas LED incluidas (más seguras y reutilizables) o podemos recomendarte proveedores de velas naturales. Las velas LED son la opción preferida en venues que no permiten fuego real.' },
+  { question: "¿Puedo mezclar piezas de diferentes paquetes temáticos?", answer: 'Absolutamente. Los paquetes son sugerencias curadas, pero puedes <strong>combinar piezas de cualquier línea</strong>. La mezcla más popular es bases Elegantes (dorado) con portavelas Románticos (cristal) para bodas clásicas. Nuestros asesores te guían para crear combinaciones armoniosas.' },
+  { question: "¿Con cuánta anticipación debo reservar?", answer: 'Para piezas individuales, <strong>1 a 2 semanas</strong> es suficiente. Para paquetes temáticos completos o eventos de 20+ mesas, recomendamos <strong>3 semanas</strong>. Piezas personalizadas requieren <strong>4 semanas</strong>. En temporada de bodas (mayo-junio, noviembre-diciembre), reserva con mayor anticipación.' },
+];
+
+const specs = [
+  { label: "Bases centros de mesa", value: "Cilíndricas, cuadradas, candelabro (40-80 cm)" },
+  { label: "Portavelas", value: "Votivas cristal, cilindros, candelabros de 3 y 5 brazos" },
+  { label: "Atriles", value: "Madera rústica, metal dorado, acrílico transparente" },
+  { label: "Marcos", value: "Vintage dorado, moderno negro, rústico madera" },
+  { label: "Acabados disponibles", value: "Dorado, Plateado, Cobre envejecido, Cristal" },
+  { label: "Señalización", value: "Letras luminosas, números de mesa, pizarras" },
+  { label: "Paquetes temáticos", value: "Romántico, Rústico, Moderno, Elegante" },
+  { label: "Pedestales", value: "Exhibición de pastel, arreglos florales (60-100 cm)" },
+  { label: "Biombos", value: "Separadores de ambiente en madera, metal o tela" },
+  { label: "Personalización", value: "Viniles, grabado, colores especiales (2 semanas)" },
+];
+
+const sidebarNav = [
+  { name: "Barras de Bebidas", href: "/servicios/mobiliario/barras/barras-bebidas/" },
+  { name: "Mesas de Postres", href: "/servicios/mobiliario/barras/postres/" },
+  { name: "Periqueras y Bancos", href: "/servicios/mobiliario/barras/periqueras/" },
+  { name: "Accesorios Decorativos", href: null, active: true },
+];
+
+const sidebarRelated = [
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+  { name: "Mesas para Eventos", href: "/servicios/mobiliario/mesas/" },
+  { name: "Sillas de Diseño", href: "/servicios/mobiliario/sillas/" },
+  { name: "Salas Lounge", href: "/servicios/mobiliario/salas-lounge/" },
+];
+
+const reviews = [
+  { author: "Carolina Estrada", text: "Los centros de mesa dorados y las votivas de cristal fueron el toque perfecto para nuestra boda. El paquete Romántico incluyó todo lo necesario para 25 mesas. El resultado fue digno de revista. Servicio impecable de principio a fin.", rating: 5, date: "2025-11-30" },
+  { author: "Elena Rivas", text: "Rentamos el paquete Rústico para nuestra boda en hacienda. Las bases de cobre envejecido con los faroles de cristal crearon un ambiente mágico. Los atriles de madera para los menús fueron un detalle hermoso. Todo llegó impecable.", rating: 5, date: "2025-10-12" },
+  { author: "Adrián Navarro", text: "Para nuestra gala corporativa usamos bases espejadas y candelabros de 5 brazos. El efecto fue de hotel cinco estrellas. Los números de mesa en acrílico con nuestra tipografía fueron un plus genial. Profesionalismo total.", rating: 5, date: "2025-09-01" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Accesorios Decorativos para Eventos en CDMX",
+    description: "Renta de accesorios decorativos para eventos: bases para centros de mesa, portavelas, atriles, marcos y señalización en CDMX. Acabados dorado, plateado y cobre. Desde $30 por pieza.",
+    url: "/servicios/mobiliario/barras/accesorios-decorativos/",
+    priceRange: { min: 30, max: 3000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 210,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Barras", url: "/servicios/mobiliario/barras/" },
+    { name: "Accesorios Decorativos", url: "/servicios/mobiliario/barras/accesorios-decorativos/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Accesorios Decorativos para Eventos en CDMX"
+  description="Renta de accesorios decorativos para eventos: bases para centros de mesa, portavelas, atriles, marcos y señalización en CDMX. Acabados dorado, plateado y cobre. Desde $30 por pieza."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Los detalles que hacen la diferencia"
+    title='Renta de <span class="highlight">Accesorios Decorativos</span> para Eventos en CDMX'
+    subtitle="Bases para centros de mesa, portavelas y votivas, atriles y caballetes, marcos decorativos y señalización. Acabados en dorado, plateado, cobre y cristal. Piezas individuales o paquetes temáticos. Entrega y montaje profesional incluidos."
+    primaryCTA={{ label: "Cotiza tus accesorios", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar accesorios decorativos para mi evento` }}
+    cards={[
+      {
+        title: "Catálogo completo de accesorios en dorado, plateado, cobre y cristal",
+        content: "<strong>Renta de accesorios decorativos</strong> con el catálogo más completo para eventos en CDMX. <strong>Bases para centros de mesa</strong> cilíndricas, cuadradas y tipo candelabro de 40 a 80 cm en dorado, plateado, cobre y cristal. <strong>Portavelas y votivas</strong> en cristal transparente, dorado y espejo para crear ambientes íntimos. <strong>Atriles y caballetes</strong> de madera y metal para señalización, menús y distribución — cada pieza seleccionada para elevar cualquier estilo decorativo.",
+      },
+      {
+        title: "Piezas individuales o paquetes temáticos con asesoría decorativa",
+        content: "<strong>Servicio integral de accesorios</strong> con renta individual o paquetes temáticos prediseñados: Romántico, Rústico, Moderno y Elegante. Cada paquete incluye selección curada de bases, portavelas, marcos y elementos complementarios. Nuestros asesores te guían para elegir las piezas que mejor complementan tu mobiliario, mantelería y estilo de evento. Entrega y montaje profesional incluidos en CDMX.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas accesorios decorativos para tu evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con opciones de accesorios para tu celebración"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Barras y Complementos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas accesorios decorativos?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar accesorios decorativos para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Accesorios Decorativos</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Bases y Centros de Mesa -->
+          <section class="section section--alt" aria-labelledby="bases-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">El corazón de cada mesa</span>
+                <h2 class="showcase__title" id="bases-heading">Bases y Centros de Mesa</h2>
+                <p class="showcase__subtitle">Bases cilíndricas, cuadradas y tipo candelabro en alturas de 40 a 80 cm con acabados premium en dorado, plateado, cobre y cristal.</p>
+                <p class="showcase__text">Las <strong>bases para centros de mesa</strong> son el elemento que define la personalidad visual de cada mesa en tu evento. Nuestra colección incluye bases <strong>cilíndricas</strong> elegantes, <strong>cuadradas</strong> contemporáneas y tipo <strong>candelabro</strong> clásicas en alturas de 40 a 80 cm. Acabados en dorado champagne, plateado espejo, cobre envejecido y cristal transparente — cada pieza diseñada para sostener arreglos florales, velas y composiciones decorativas con estabilidad y estilo.</p>
+                <p class="showcase__text">La <strong>base correcta transforma una mesa ordinaria en una pieza de diseño</strong>. Para bodas elegantes, las bases doradas de 60 cm con arreglos florales son las más solicitadas. Para eventos corporativos, las bases cuadradas plateadas proyectan modernidad. Combina con nuestros <a href="/servicios/accesorios/manteleria-textiles/">manteles y textiles</a> para un resultado profesional y cohesivo.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Bases</span>
+                  <span class="showcase__tag">Centros de Mesa</span>
+                  <span class="showcase__tag">Dorado</span>
+                  <span class="showcase__tag">Plateado</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Bases y Centros
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                  </svg>
+                  <span>Bases y Centros de Mesa</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Portavelas y Votivas -->
+          <section class="section section--alt" aria-labelledby="portavelas-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Ambientes íntimos y cálidos</span>
+                <h2 class="showcase__title" id="portavelas-heading">Portavelas y Votivas</h2>
+                <p class="showcase__subtitle">Votivas de cristal, cilindros para velas flotantes, candelabros de 3 y 5 brazos y faroles con marco metálico.</p>
+                <p class="showcase__text">Nuestra colección de <strong>portavelas y votivas</strong> crea puntos de luz cálidos que transforman la atmósfera de cualquier mesa. <strong>Votivas de cristal transparente</strong> en 3 tamaños, <strong>cilindros de cristal</strong> para velas flotantes, <strong>candelabros de 3 y 5 brazos</strong> en dorado y plateado, y <strong>faroles de cristal</strong> con marco metálico — cada pieza diseñada para generar ambientes íntimos y acogedores que invitan a la conversación.</p>
+                <p class="showcase__text">Los portavelas son el complemento perfecto para las bases de centro de mesa. La combinación más popular para bodas es <strong>base dorada + 3 votivas de cristal por mesa</strong>, creando un efecto de luz envolvente al atardecer. Ofrecemos paquetes con <strong>velas LED incluidas</strong> para venues que no permiten fuego real — misma estética cálida con total seguridad. Combina con nuestra <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a> para un ambiente mágico.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Portavelas</span>
+                  <span class="showcase__tag">Votivas</span>
+                  <span class="showcase__tag">Candelabros</span>
+                  <span class="showcase__tag">Cristal</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Portavelas
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                  </svg>
+                  <span>Portavelas y Votivas</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Atriles y Señalización -->
+          <section class="section section--alt" aria-labelledby="atriles-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Orientación con estilo</span>
+                <h2 class="showcase__title" id="atriles-heading">Atriles y Señalización</h2>
+                <p class="showcase__subtitle">Atriles de madera rústica, caballetes de metal dorado, números de mesa en acrílico y pizarras con marco para menús.</p>
+                <p class="showcase__text"><strong>Atriles de madera rústica</strong> para bodas campestres, <strong>caballetes de metal dorado</strong> para eventos elegantes y <strong>bases de acrílico transparente</strong> para celebraciones contemporáneas — nuestra línea de señalización combina funcionalidad con diseño. <strong>Números de mesa</strong> en acrílico, madera o espejo con tipografía personalizable. <strong>Pizarras con marco</strong> para menús y bienvenida que añaden un toque artesanal y personal a cada rincón del evento.</p>
+                <p class="showcase__text">Complementa con <strong>letras luminosas decorativas</strong> para la mesa de regalos o la zona de fotos. Todo diseñado para orientar a los invitados con elegancia, desde la entrada del venue hasta la distribución de mesas. Los números de mesa en acrílico con tipografía personalizada son el detalle favorito de wedding planners — se producen en <strong>2 semanas</strong> con el diseño que elijas.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Atriles</span>
+                  <span class="showcase__tag">Señalización</span>
+                  <span class="showcase__tag">Números Mesa</span>
+                  <span class="showcase__tag">Pizarras</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Señalización
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                  </svg>
+                  <span>Atriles y Señalización</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Paquete Temático Completo -->
+          <section class="section section--alt" aria-labelledby="paquete-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Selección curada por expertos</span>
+                <h2 class="showcase__title" id="paquete-heading">Paquete Temático Completo</h2>
+                <p class="showcase__subtitle">4 paquetes prediseñados con bases, portavelas, señalización y elementos complementarios para 10 a 30 mesas.</p>
+                <p class="showcase__text">Nuestros <strong>4 paquetes temáticos prediseñados</strong> son la forma más sencilla de decorar tu evento con coherencia visual: <strong>Romántico</strong> (dorado + cristal + velas), <strong>Rústico</strong> (madera + cobre + faroles), <strong>Moderno</strong> (acrílico + plateado + geometría), <strong>Elegante</strong> (espejo + dorado + candelabros). Cada paquete incluye bases, portavelas, señalización y elementos complementarios para 10 a 30 mesas según el tamaño seleccionado.</p>
+                <p class="showcase__text">Puedes usar un paquete tal como viene o <strong>mezclar piezas de diferentes líneas</strong> para crear tu propia combinación. Nuestros asesores decorativos te guían para elegir la selección que mejor complementa tu <a href="/servicios/mobiliario/mesas/">estilo de mesas</a>, mantelería y concepto general del evento. Incluye entrega, montaje y distribución profesional según layout aprobado. Descuento especial al combinar con otros servicios de mobiliario.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Paquete Completo</span>
+                  <span class="showcase__tag">Romántico</span>
+                  <span class="showcase__tag">Rústico</span>
+                  <span class="showcase__tag">Moderno</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Paquete Temático
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                  </svg>
+                  <span>Paquete Temático Completo</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Accesorios Decorativos"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar accesorios decorativos para tu evento, es natural tener preguntas sobre cantidades, personalización y logística. Aquí encontrarás las respuestas más comunes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un especialista en decoración te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en decoración resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre accesorios decorativos para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Barras y Complementos -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Barras y Complementos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/barras/" class="sidebar-nav__back">&uarr; Volver a Barras</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/" class="sidebar-nav__back">&uarr; Volver a Mobiliario</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tus accesorios decorativos:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas accesorios decorativos?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar accesorios decorativos para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tus Accesorios Decorativos"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros especialistas en decoración te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea piezas individuales o un paquete temático completo, estamos aquí para transformar cada detalle de tu evento en una obra de arte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoAccesorio">
+                Tipo de accesorio
+              </label>
+              <select id="tipoAccesorio" name="tipoAccesorio" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de accesorio</option>
+                <option value="Bases Centros de Mesa">Bases Centros de Mesa</option>
+                <option value="Portavelas y Votivas">Portavelas y Votivas</option>
+                <option value="Atriles y Caballetes">Atriles y Caballetes</option>
+                <option value="Marcos Decorativos">Marcos Decorativos</option>
+                <option value="Números de Mesa">Números de Mesa</option>
+                <option value="Paquete Romántico">Paquete Romántico</option>
+                <option value="Paquete Rústico">Paquete Rústico</option>
+                <option value="Paquete Moderno">Paquete Moderno</option>
+                <option value="Paquete Elegante">Paquete Elegante</option>
+                <option value="Combinación Personalizada">Combinación Personalizada</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos: cantidad de mesas, estilo de evento, tipo de accesorios, si necesitas personalización..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Asesoría decorativa</h3>
+            <p class="reserva-card__text">Te ayudamos a elegir las piezas ideales según tu estilo de evento, cantidad de mesas y presupuesto.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada de decoración para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoAccesorio = document.getElementById('tipoAccesorio').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Accesorios Decorativos para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoAccesorio) texto += `*Tipo de accesorio:* ${tipoAccesorio}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Accesorios Decorativos"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de accesorios decorativos para eventos en la Ciudad de México. Cada aliado cuenta con inventario certificado, logística propia y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de estilos y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Mobiliario Premium MX</h3>
+            <p class="partner-card__tagline">Accesorios de Diseño</p>
+            <p class="partner-card__text">Líder en renta de accesorios decorativos de diseño para eventos sociales en CDMX y Estado de México. Especialistas en bases doradas, portavelas de cristal y paquetes temáticos con servicio de montaje profesional.</p>
+          </div>
+          <a href="#reserva-heading" class="partner-card__btn">
+            Solicitar cotización
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Rent All CDMX</h3>
+            <p class="partner-card__tagline">Complementos para Eventos</p>
+            <p class="partner-card__text">Servicio integral de renta de accesorios decorativos y complementos para eventos corporativos, bodas y galas. Inventario extenso con piezas en todos los acabados, montaje profesional y logística puntual en toda la zona metropolitana.</p>
+          </div>
+          <a href="#reserva-heading" class="partner-card__btn">
+            Solicitar cotización
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventMob</h3>
+            <p class="partner-card__tagline">Decoración y Accesorios</p>
+            <p class="partner-card__text">Más de 10 años proporcionando accesorios decorativos y elementos de ambientación para eventos en CDMX. Paquetes temáticos completos con asesoría decorativa personalizada según concepto y estilo de evento.</p>
+          </div>
+          <a href="#reserva-heading" class="partner-card__btn">
+            Solicitar cotización
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MesasyMás</h3>
+            <p class="partner-card__tagline">Accesorios con Logística Integral</p>
+            <p class="partner-card__text">Especialistas en accesorios decorativos con logística integral para eventos de cualquier escala. Flota propia de transporte, equipo de montaje capacitado y disponibilidad garantizada en CDMX y área metropolitana.</p>
+          </div>
+          <a href="#reserva-heading" class="partner-card__btn">
+            Solicitar cotización
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Accesorios decorativos que transforman cada detalle en una obra de arte"
+    subheadline="Más de 200 eventos decorados con nuestros accesorios nos respaldan. Cotiza hoy y recibe asesoría personalizada con nuestro catálogo completo de piezas y paquetes temáticos."
+    primaryCTA={{ label: "Cotizar accesorios", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar accesorios decorativos para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

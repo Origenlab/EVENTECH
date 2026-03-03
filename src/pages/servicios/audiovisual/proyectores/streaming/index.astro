@@ -1,0 +1,714 @@
+---
+/**
+ * ─── Streaming en Vivo — Página de Producto (Nivel 4) ───
+ * Servicio de streaming profesional con cámaras HD, switcher
+ * Blackmagic y encoder para transmisión a YouTube, Zoom y Teams.
+ *
+ * Jerarquía: Servicios > Audiovisual > Proyectores > Streaming en Vivo
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Audiovisual", href: "/servicios/audiovisual/" },
+  { label: "Proyectores", href: "/servicios/audiovisual/proyectores/" },
+  { label: "Streaming en Vivo" },
+];
+
+const faqs = [
+  { question: "¿Qué velocidad de internet necesito para hacer streaming?", answer: "Para una transmisión en HD (1080p) estable, necesitas un mínimo de 10 Mbps de subida dedicados al streaming. Sin embargo, recomendamos 20-50 Mbps de subida para garantizar calidad y evitar cortes. Nuestro equipo incluye medición de velocidad en el venue y, si la conexión del salón no es suficiente, llevamos un enlace dedicado por internet móvil 5G/4G como respaldo. También configuramos codificación adaptativa para ajustar la calidad automáticamente según el ancho de banda disponible." },
+  { question: "¿Pueden transmitir a varias plataformas al mismo tiempo?", answer: "Sí, nuestro servicio de streaming multi-plataforma permite transmitir simultáneamente a YouTube Live, Facebook Live, Zoom, Microsoft Teams, Vimeo y cualquier plataforma que soporte RTMP/RTMPS. Utilizamos un encoder de hardware dedicado con capacidad de restream a múltiples destinos sin pérdida de calidad. Cada plataforma recibe la señal optimizada según sus especificaciones técnicas. Puedes tener tu evento en vivo en todas las plataformas que necesites sin equipo adicional." },
+  { question: "¿El streaming incluye grabación del evento?", answer: "Sí, todos nuestros paquetes de streaming incluyen grabación completa del evento en alta definición (1080p o 4K según el equipo) como respaldo. La grabación se realiza de forma independiente al streaming, directamente en disco SSD, para garantizar una copia perfecta sin depender de la calidad de internet. Al finalizar el evento, te entregamos el archivo en formato MP4 listo para edición o distribución. Opcionalmente ofrecemos edición básica del video posterior al evento." },
+  { question: "¿Cuántas cámaras necesito para mi evento?", answer: "Depende del tipo de evento. Para conferencias y presentaciones, 1 cámara fija es suficiente. Para paneles de discusión, ceremonias de graduación y eventos corporativos recomendamos 2 cámaras (una general y una de detalle). Para bodas, galas, conciertos y producciones de alto perfil, el setup ideal es de 3 a 4 cámaras con operador dedicado en cada una para capturar diferentes ángulos y momentos. Nuestro director técnico gestiona las transiciones entre cámaras en tiempo real." },
+  { question: "¿Se pueden agregar gráficos y logos durante la transmisión?", answer: "Sí, nuestro switcher Blackmagic ATEM permite insertar gráficos en tiempo real durante la transmisión: logo de tu empresa o evento en esquina permanente, lower thirds con nombres de ponentes, contadores de tiempo, transiciones con identidad de marca, imágenes de espera para pausas y pantallas de inicio/cierre personalizadas. Necesitamos recibir tu material gráfico (logos en PNG transparente) con al menos 3 días de anticipación para preparar las plantillas." },
+  { question: "¿Con cuánta anticipación debo reservar streaming?", answer: "Recomendamos reservar con 3 a 4 semanas de anticipación para garantizar disponibilidad de equipo y permitir la planeación técnica: visita al venue para evaluar conectividad, pruebas de internet, configuración de plataformas y preparación de gráficos. Para eventos de gran escala con multi-cámara y producción integral, lo ideal es apartar con 1 a 2 meses. En temporada alta de congresos (septiembre a noviembre), la demanda aumenta significativamente." },
+];
+
+const specs = [
+  { label: "Cámaras", value: "HD/4K PTZ y fijas (1 a 4 según paquete)" },
+  { label: "Switcher", value: "Blackmagic ATEM Mini / ATEM Pro" },
+  { label: "Encoder", value: "Hardware dedicado (no depende de PC)" },
+  { label: "Plataformas", value: "YouTube / Zoom / Teams / Facebook / RTMP" },
+  { label: "Internet", value: "Conexión dedicada 50 Mbps+ (respaldo 5G)" },
+  { label: "Gráficos", value: "Títulos, logos y lower thirds en tiempo real" },
+  { label: "Grabación", value: "Respaldo HD/4K en SSD incluido" },
+  { label: "Audio", value: "Integración con sistema de sonido PA del venue" },
+  { label: "Operador", value: "Director técnico de video incluido" },
+  { label: "Monitoreo", value: "Preview + Program en monitores dedicados" },
+];
+
+const sidebarNav = [
+  { name: "Proyectores Full HD y 4K", href: "/servicios/audiovisual/proyectores/fullhd-4k/" },
+  { name: "Streaming en Vivo", href: null, active: true },
+  { name: "Video Mapping", href: "/servicios/audiovisual/proyectores/mapping/" },
+  { name: "Pantallas de Proyección", href: "/servicios/audiovisual/proyectores/pantallas-proyeccion/" },
+];
+
+const sidebarRelated = [
+  { name: "Proyectores Full HD y 4K", href: "/servicios/audiovisual/proyectores/fullhd-4k/" },
+  { name: "Sonido Profesional", href: "/servicios/audiovisual/sonido/" },
+  { name: "Micrófonos y DJ", href: "/servicios/audiovisual/microfonos-dj/" },
+  { name: "Pantallas LED", href: "/servicios/audiovisual/pantallas-led/" },
+  { name: "Monitores", href: "/servicios/audiovisual/pantallas-led/monitores/" },
+];
+
+const reviews = [
+  { author: "Lic. Andrea Guzmán", text: "Contratamos streaming para nuestro congreso médico con 3 cámaras y transmisión simultánea a YouTube y Zoom. La calidad de video fue impecable y tuvimos más de 800 personas conectadas sin un solo corte. El operador gestionó las transiciones entre cámaras y los gráficos con nombres de ponentes de manera profesional. Excelente servicio.", rating: 5, date: "2025-11-10" },
+  { author: "Carlos Mendoza", text: "Hicimos streaming de nuestra boda para familiares en el extranjero. La transmisión fue perfecta — mis abuelos en España pudieron ver toda la ceremonia en HD. El equipo llevó internet de respaldo porque el salón tenía mala señal y no hubo ningún problema. Muy recomendable.", rating: 5, date: "2025-10-22" },
+  { author: "Mtra. Fernanda Ruiz", text: "Necesitábamos transmitir una graduación universitaria a múltiples plataformas. El servicio incluyó 2 cámaras, gráficos con los nombres de cada graduado y transmisión simultánea a YouTube y Facebook. Todo funcionó perfecto y la grabación HD que nos entregaron la usamos para el video institucional. Profesionales de verdad.", rating: 5, date: "2025-09-30" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Equipo de Streaming en Vivo para Eventos en CDMX",
+    description: "Servicio de streaming profesional con cámaras HD, switcher Blackmagic y encoder para transmisión a YouTube, Zoom y Teams. Desde $5,000.",
+    url: "/servicios/audiovisual/proyectores/streaming/",
+    priceRange: { min: 5000, max: 25000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 67,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Audiovisual", url: "/servicios/audiovisual/" },
+    { name: "Proyectores", url: "/servicios/audiovisual/proyectores/" },
+    { name: "Streaming en Vivo", url: "/servicios/audiovisual/proyectores/streaming/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Equipo de Streaming en Vivo para Eventos en CDMX"
+  description="Servicio de streaming profesional con cámaras HD, switcher Blackmagic y encoder para transmisión a YouTube, Zoom y Teams. Desde $5,000."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Transmite tu evento al mundo"
+    title='Renta de Equipo de <span class="highlight">Streaming en Vivo</span> para Eventos en CDMX'
+    subtitle="Servicio completo de streaming profesional con cámaras HD/4K, switcher Blackmagic ATEM, encoder de hardware y transmisión simultánea a YouTube, Zoom, Teams y cualquier plataforma. Director técnico de video incluido."
+    primaryCTA={{ label: "Cotiza tu streaming", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar streaming en vivo para mi evento` }}
+    cards={[
+      {
+        title: "Producción de video en vivo con equipo profesional",
+        content: "<strong>Servicio de streaming profesional</strong> con cámaras HD y 4K PTZ y fijas, switcher Blackmagic ATEM Mini y Pro para transiciones en vivo, encoder de hardware dedicado y conexión a internet redundante. Transmisión simultánea a YouTube Live, Zoom, Microsoft Teams, Facebook Live y cualquier plataforma RTMP. Calidad de transmisión hasta 1080p a 60fps con audio embebido profesional y monitoreo constante de la señal — grabación completa en SSD como respaldo incluida.",
+      },
+      {
+        title: "Director técnico y gráficos en tiempo real",
+        content: "<strong>Producción integral</strong> con director técnico de video dedicado que gestiona transiciones entre cámaras, inserción de gráficos en tiempo real (logos, lower thirds, nombres de ponentes, contadores), gestión de Q&A remoto y monitoreo de la señal durante toda la transmisión. Internet de respaldo por enlace 5G incluido. Configuración de plataformas, pruebas previas y soporte técnico continuo para que tu evento híbrido sea impecable.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Quieres transmitir tu evento a audiencias remotas?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con opciones de streaming para tu evento"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Proyectores y Video</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas streaming para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar streaming en vivo para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Streaming en Vivo</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Streaming Básico -->
+          <section class="section section--alt" aria-labelledby="basico-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Conferencias y charlas</span>
+                <h2 class="showcase__title" id="basico-heading">Streaming Básico</h2>
+                <p class="showcase__subtitle">Setup con 1 cámara HD fija y encoder para transmisión estable a una plataforma — ideal para conferencias y presentaciones.</p>
+                <p class="showcase__text">Nuestro <strong>paquete de streaming básico</strong> incluye 1 cámara HD fija en trípode con encuadre general del escenario, encoder de hardware dedicado para codificación estable sin depender de una computadora, y transmisión a la plataforma de tu elección (YouTube, Zoom, Teams o Facebook). La señal de audio se toma directamente del sistema de sonido del venue para calidad profesional. Incluye <strong>monitoreo de la transmisión en pantalla dedicada</strong> y grabación HD de respaldo.</p>
+                <p class="showcase__text">El operador configura la transmisión 2 horas antes del evento, realiza pruebas de conexión y calidad de imagen, y permanece monitoreando durante toda la transmisión. Si el internet del venue presenta problemas, activa el <strong>enlace de respaldo por red móvil 5G</strong>. Perfecto para <strong>conferencias corporativas, capacitaciones, clases magistrales, ceremonias religiosas y juntas de consejo</strong> donde necesitas una señal limpia y confiable sin producción multi-cámara. Complementa con nuestro <a href="/servicios/audiovisual/sonido/">sonido profesional</a> si el venue no cuenta con sistema de audio.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">1 cámara HD</span>
+                  <span class="showcase__tag">Encoder dedicado</span>
+                  <span class="showcase__tag">Grabación HD</span>
+                  <span class="showcase__tag">Respaldo 5G</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Streaming Básico
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                  <span>Streaming Básico</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Streaming Pro -->
+          <section class="section section--alt" aria-labelledby="pro-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Multi-cámara</span>
+                <h2 class="showcase__title" id="pro-heading">Streaming Pro</h2>
+                <p class="showcase__subtitle">Producción multi-cámara con switcher Blackmagic ATEM para transiciones profesionales y gráficos en tiempo real.</p>
+                <p class="showcase__text">El <strong>paquete Streaming Pro</strong> es nuestra solución más popular para eventos que requieren producción de video de nivel broadcast. Incluye <strong>2 a 3 cámaras HD/4K</strong> (general, medio plano y detalle), switcher <strong>Blackmagic ATEM Mini Pro</strong> para transiciones fluidas entre cámaras, inserción de gráficos en tiempo real (lower thirds con nombres de ponentes, logo permanente, contadores) y encoder de hardware con codificación H.264/H.265 para máxima calidad de transmisión.</p>
+                <p class="showcase__text">Nuestro <strong>director técnico de video</strong> opera el switcher durante todo el evento, seleccionando los mejores ángulos y gestionando transiciones suaves entre cámaras. Incluye monitoreo en pantallas de preview y program, grabación independiente en cada cámara y una grabación master del programa final. La producción incluye <strong>pantalla de espera personalizada, intro/outro con identidad del evento y gestión de Q&A remoto</strong>. Ideal para <strong>congresos, paneles de discusión, ceremonias de premiación, graduaciones y galas corporativas</strong>. Integración perfecta con nuestros <a href="/servicios/audiovisual/microfonos-dj/">micrófonos profesionales</a>.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">2-3 cámaras</span>
+                  <span class="showcase__tag">Blackmagic ATEM</span>
+                  <span class="showcase__tag">Gráficos en vivo</span>
+                  <span class="showcase__tag">Director técnico</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Streaming Pro
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                  <span>Streaming Pro</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Streaming Multi-Plataforma -->
+          <section class="section section--alt" aria-labelledby="multi-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Máximo alcance</span>
+                <h2 class="showcase__title" id="multi-heading">Streaming Multi-Plataforma</h2>
+                <p class="showcase__subtitle">Transmisión simultánea a YouTube, Facebook, Zoom, Teams y más — llega a todas las audiencias al mismo tiempo.</p>
+                <p class="showcase__text">Nuestro <strong>servicio de streaming multi-plataforma</strong> permite transmitir tu evento en vivo a múltiples destinos simultáneamente sin pérdida de calidad. Utilizamos un encoder profesional con capacidad de <strong>restream a 5+ plataformas</strong> al mismo tiempo: YouTube Live, Facebook Live, Zoom Webinar, Microsoft Teams Live Events, Vimeo, Twitch y cualquier servidor RTMP personalizado. Cada plataforma recibe la señal optimizada según sus especificaciones técnicas de bitrate y resolución.</p>
+                <p class="showcase__text">Incluye todo lo del paquete Streaming Pro más <strong>configuración y prueba de cada plataforma, gestión de claves de transmisión, monitoreo de audiencia en tiempo real</strong> y un dashboard donde puedes ver las estadísticas de viewers de todas las plataformas. Nuestro equipo gestiona la comunicación con audiencias remotas: chat en vivo, preguntas de Zoom y comentarios de YouTube se pueden mostrar en pantalla para el presentador. La solución definitiva para <strong>eventos corporativos con audiencia global, lanzamientos de producto, transmisiones gubernamentales y eventos religiosos</strong> con feligresía distribuida.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">5+ plataformas</span>
+                  <span class="showcase__tag">Restream simultáneo</span>
+                  <span class="showcase__tag">Dashboard analytics</span>
+                  <span class="showcase__tag">Chat integrado</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Multi-Plataforma
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                  <span>Streaming Multi-Plataforma</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Híbrido -->
+          <section class="section section--alt" aria-labelledby="hibrido-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Presencial + Virtual</span>
+                <h2 class="showcase__title" id="hibrido-heading">Kit Evento Híbrido</h2>
+                <p class="showcase__subtitle">Producción completa para eventos con audiencia presencial y remota: streaming + proyección + sonido integrados.</p>
+                <p class="showcase__text">Nuestro <strong>Kit Evento Híbrido</strong> es la solución integral para eventos que combinan audiencia presencial y virtual. Incluye el paquete de streaming multi-cámara completo más <strong>proyector o pantalla LED</strong> para que los asistentes presenciales vean el contenido, sistema de sonido con <strong>mezcla independiente para sala y streaming</strong> (la audiencia remota escucha el audio optimizado, no el eco de la sala), y gestión bidireccional de preguntas entre ambas audiencias.</p>
+                <p class="showcase__text">El kit incluye <strong>2 operadores dedicados</strong>: un director de video para la transmisión y un técnico de audio que gestiona las mezclas separadas para sala y stream. Los participantes remotos pueden intervenir por Zoom con audio y video que se proyecta en la sala para que los presenciales los vean y escuchen claramente. Incluye configuración completa, pruebas con ponentes remotos 1 día antes, y soporte técnico integral durante todo el evento. Perfecto para <strong>congresos híbridos, juntas de accionistas internacionales, conferencias académicas y eventos corporativos globales</strong>. Complementa con nuestras <a href="/servicios/carpas/">carpas profesionales</a> para eventos al aire libre.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Presencial + Virtual</span>
+                  <span class="showcase__tag">Audio dual mix</span>
+                  <span class="showcase__tag">Q&A bidireccional</span>
+                  <span class="showcase__tag">2 operadores</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Híbrido
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                  <span>Kit Evento Híbrido</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Streaming en Vivo"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de contratar streaming para tu evento, es natural tener preguntas sobre equipo, plataformas y logística. Aquí encontrarás las respuestas más comunes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un especialista en producción de video te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en streaming resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre streaming en vivo para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Proyectores y Video -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Proyectores y Video</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/audiovisual/proyectores/" class="sidebar-nav__back">&uarr; Volver a Proyectores</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/audiovisual/" class="sidebar-nav__back">&uarr; Volver a Audiovisual</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de streaming:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas streaming para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar streaming en vivo para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Streaming en Vivo"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros especialistas en producción de video te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea streaming básico con 1 cámara o una producción multi-cámara con gráficos en vivo, estamos aquí para llevar tu evento al mundo."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoStreaming">
+                Tipo de streaming
+              </label>
+              <select id="tipoStreaming" name="tipoStreaming" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de servicio</option>
+                <option value="Streaming Básico (1 cámara)">Streaming Básico (1 cámara)</option>
+                <option value="Streaming Pro (2-3 cámaras)">Streaming Pro (2-3 cámaras)</option>
+                <option value="Streaming Multi-Plataforma">Streaming Multi-Plataforma</option>
+                <option value="Kit Evento Híbrido">Kit Evento Híbrido</option>
+                <option value="Solo Grabación (sin transmisión)">Solo Grabación (sin transmisión)</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: plataforma(s) de transmisión, número de asistentes presenciales y remotos, duración del evento, tipo de venue, si necesitas gráficos personalizados..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Prueba técnica previa</h3>
+            <p class="reserva-card__text">Realizamos pruebas de conectividad y calidad de video en tu venue antes del evento para garantizar una transmisión perfecta.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada de producción de video para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoStreaming = document.getElementById('tipoStreaming').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Streaming en Vivo para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoStreaming) texto += `*Tipo de streaming:* ${tipoStreaming}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Audiovisual"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de equipo audiovisual para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">A</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">AudioVisual Pro MX</h3>
+            <p class="partner-card__tagline">Streaming y Producción de Video</p>
+            <p class="partner-card__text">Líder en servicios de streaming profesional y producción de video en vivo para eventos corporativos y sociales en CDMX. Cámaras PTZ, switchers Blackmagic y encoders dedicados.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">S</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">SonidoEventos CDMX</h3>
+            <p class="partner-card__tagline">Audio, Video y Streaming para Eventos</p>
+            <p class="partner-card__text">Especialistas en soluciones audiovisuales integrales para congresos, bodas y festivales. Streaming multi-cámara, sonido profesional, microfonía inalámbrica y grabación HD con técnicos certificados.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">T</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">TechEvents</h3>
+            <p class="partner-card__tagline">Tecnología Audiovisual para Eventos</p>
+            <p class="partner-card__text">Más de 10 años proporcionando streaming profesional y equipo audiovisual de última generación para eventos corporativos en CDMX. Eventos híbridos, webcasting y producción integral.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MediaRent</h3>
+            <p class="partner-card__tagline">Renta de Equipo Multimedia</p>
+            <p class="partner-card__text">Servicio integral de renta de equipo multimedia con logística profesional en toda la CDMX. Streaming, cámaras, switchers, encoders, sonido y operadores técnicos certificados.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Lleva tu evento al mundo con streaming profesional"
+    subheadline="Más de 200 transmisiones exitosas nos respaldan. Cotiza hoy y recibe asesoría técnica sin compromiso."
+    primaryCTA={{ label: "Cotizar streaming", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar streaming en vivo para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

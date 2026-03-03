@@ -1,0 +1,687 @@
+---
+/**
+ * ─── Monitores y Displays Profesionales — Pagina de Producto (Nivel 4) ───
+ * Monitores de retorno, displays de señalizacion digital y pantallas
+ * informativas para congresos y expos.
+ *
+ * Jerarquia: Servicios > Audiovisual > Pantallas LED > Monitores
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Audiovisual", href: "/servicios/audiovisual/" },
+  { label: "Pantallas LED", href: "/servicios/audiovisual/pantallas-led/" },
+  { label: "Monitores y Displays" },
+];
+
+const faqs = [
+  { question: "¿Ofrecen pantallas táctiles para registro de eventos?", answer: "Sí. Contamos con <strong>pantallas táctiles de 32 y 43 pulgadas</strong> con tecnología multi-touch capacitiva, ideales para sistemas de check-in/registro de asistentes, directorios interactivos de expo y kioscos de información. Incluyen soporte de pedestal o mesa, software de señalización digital preinstalado y conectividad WiFi/Ethernet para actualizaciones en tiempo real. Nuestro técnico configura tu contenido interactivo y permanece disponible durante el evento para resolver cualquier ajuste." },
+  { question: "¿Puedo gestionar el contenido de varios monitores desde un solo punto?", answer: "Sí. Nuestro sistema de <strong>gestión centralizada de contenido</strong> permite controlar el contenido de múltiples monitores desde un solo laptop o tablet. Puedes programar <strong>contenido diferente para cada monitor</strong> (agenda en uno, mapa de expo en otro, bienvenida en un tercero) o sincronizar el mismo contenido en todos. El sistema permite actualizaciones en tiempo real vía WiFi — cambios de horario, anuncios de última hora o mensajes personalizados se reflejan al instante en todos los monitores conectados." },
+  { question: "¿Qué es un monitor de retorno y para qué sirve?", answer: 'Un <strong>monitor de retorno</strong> (también llamado confidence monitor) es una pantalla que se coloca frente al presentador o panelista, fuera de la vista del público, para que pueda ver sus notas, diapositivas y el timer de su presentación sin voltear hacia la pantalla principal. Es esencial en <strong>conferencias, paneles de discusión y keynotes</strong> para que los presentadores mantengan contacto visual con la audiencia. Nuestros monitores de retorno de 15 a 24 pulgadas incluyen soporte ajustable, conexión HDMI independiente y opción de mostrar contenido diferente al de la pantalla principal.' },
+  { question: "¿Los monitores se pueden conectar por WiFi?", answer: "Sí. Nuestros displays de señalización digital incluyen <strong>conectividad WiFi y Ethernet</strong> para recibir contenido de forma inalámbrica. Esto permite actualizaciones remotas sin necesidad de cables adicionales — perfecto para monitores distribuidos en diferentes zonas de un congreso o expo. Para monitores de retorno y displays con contenido de video en tiempo real, recomendamos conexión por <strong>HDMI cableado</strong> para garantizar latencia cero y máxima estabilidad de señal." },
+  { question: "¿Pueden personalizar los monitores con la imagen de mi empresa?", answer: "Sí. Ofrecemos <strong>personalización completa de contenido</strong> para todos los monitores: pantallas de bienvenida con logo y colores corporativos, marcos de contenido con branding, plantillas de agenda con identidad visual de tu evento y animaciones de transición personalizadas. Si proporcionas tu manual de marca (logo, colores, tipografías), nuestro equipo crea las plantillas sin costo adicional. También podemos integrar tu contenido con <strong>feeds de redes sociales en tiempo real</strong> y hashtags del evento." },
+  { question: "¿Cuántos monitores necesito para mi congreso o expo?", answer: "Depende del tamaño y distribución del evento. Como referencia: para un <strong>congreso de 1-2 salas</strong>, recomendamos 2-4 monitores de retorno + 2-3 displays de señalización. Para <strong>expos con 10-20 stands</strong>, 6-10 displays de señalización + 2 de registro. Para <strong>convenciones grandes</strong>, 10-20 monitores distribuidos entre salas, pasillos y área de registro. Nuestro equipo evalúa el plano de tu venue y te propone la distribución óptima con cotización detallada por monitor." },
+];
+
+const specs = [
+  { label: "Monitores retorno", value: '15" – 24" con soporte ajustable' },
+  { label: "Displays señalización", value: '32" – 55" (horizontal / vertical)' },
+  { label: "Resolución", value: "Full HD 1080p" },
+  { label: "Touch", value: "Pantallas táctiles opcionales (32-43\")" },
+  { label: "Soporte", value: "Mesa / Pared / Pedestal bajo" },
+  { label: "Conectividad", value: "HDMI / USB / WiFi / Ethernet" },
+  { label: "Software", value: "Señalización digital incluido" },
+  { label: "Formato", value: "Horizontal / Vertical (rotación libre)" },
+  { label: "Brillo", value: "500 – 1,500 nits (interior)" },
+  { label: "Técnico", value: "Configuración e instalación incluida" },
+];
+
+const sidebarNav = [
+  { name: "Pantallas en Pedestal", href: "/servicios/audiovisual/pantallas-led/pedestal/" },
+  { name: "Videowall Modular", href: "/servicios/audiovisual/pantallas-led/videowall/" },
+  { name: "Pantallas Gigantes Exterior", href: "/servicios/audiovisual/pantallas-led/exterior/" },
+  { name: "Monitores y Displays", href: null, active: true },
+];
+
+const sidebarRelated = [
+  { name: "Proyectores", href: "/servicios/audiovisual/proyectores/" },
+  { name: "Streaming en Vivo", href: "/servicios/audiovisual/microfonos-dj/" },
+  { name: "Sonido Profesional", href: "/servicios/audiovisual/sonido/" },
+  { name: "Iluminación Arquitectónica", href: "/servicios/iluminacion/arquitectonica/" },
+  { name: "Mesas para Eventos", href: "/servicios/mobiliario/mesas/" },
+];
+
+const reviews = [
+  { author: "Dra. Elena Ramírez", text: "Contratamos 8 monitores de retorno y 6 displays de señalización para un congreso médico de 3 días en el Centro de Convenciones. Cada sala tenía su monitor de retorno para los ponentes y los displays en los pasillos mostraban la agenda actualizada en tiempo real. El equipo técnico configuró todo impecablemente y resolvió cada ajuste al instante. Servicio profesional de primer nivel.", rating: 5, date: "2025-11-25" },
+  { author: "Fernando Castillo", text: "Usamos 12 displays de señalización y 2 pantallas táctiles de registro para nuestra expo comercial anual con 30 stands. Los displays mostraban el directorio de expositores, mapa de la expo y horarios de conferencias. Las pantallas táctiles de check-in agilizaron enormemente el registro de los 800 visitantes. EVENTECH coordinó toda la logística sin un solo problema.", rating: 5, date: "2025-10-03" },
+  { author: "Ana María López", text: "Para nuestra conferencia de tecnología necesitábamos monitores de retorno para 4 presentadores simultáneos y displays con la agenda del evento. EVENTECH proporcionó todo el equipo con gestión centralizada — pudimos actualizar horarios y mensajes en todos los monitores al mismo tiempo desde un solo laptop. El técnico fue muy profesional y atento a cada detalle.", rating: 5, date: "2025-09-18" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Monitores y Displays para Eventos en CDMX",
+    description: "Monitores de retorno, displays de señalización digital y pantallas informativas para congresos y expos en CDMX. Desde $800 por monitor.",
+    url: "/servicios/audiovisual/pantallas-led/monitores/",
+    priceRange: { min: 800, max: 4000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 167,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Audiovisual", url: "/servicios/audiovisual/" },
+    { name: "Pantallas LED", url: "/servicios/audiovisual/pantallas-led/" },
+    { name: "Monitores y Displays", url: "/servicios/audiovisual/pantallas-led/monitores/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Monitores y Displays para Eventos en CDMX"
+  description="Renta de monitores de retorno, displays de señalización digital y pantallas informativas para congresos y expos en CDMX. Desde $800 por monitor."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Señalización digital profesional"
+    title='Renta de <span class="highlight">Monitores y Displays</span> para Eventos en CDMX'
+    subtitle="Monitores de retorno para presentadores, displays de señalización digital y pantallas informativas para congresos, expos y eventos corporativos. Software de gestión y técnico de configuración incluidos."
+    primaryCTA={{ label: "Cotiza tus monitores", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar monitores y displays para mi evento` }}
+    cards={[
+      {
+        title: "Monitores de retorno y displays de señalización profesional",
+        content: "<strong>Renta de monitores y displays</strong> especializados para eventos corporativos y congresos en CDMX. Monitores de retorno de 15 a 24 pulgadas para presentadores y panelistas con soporte ajustable y conexión independiente. Displays de señalización digital de 32 a 55 pulgadas para agendas, directorios de expo, bienvenida y contenido informativo. Pantallas táctiles opcionales para sistemas de check-in y kioscos interactivos. Formato horizontal o vertical según tus necesidades.",
+      },
+      {
+        title: "Gestión centralizada de contenido con técnico incluido",
+        content: "<strong>Software de señalización digital</strong> incluido en cada renta para gestionar el contenido de todos los monitores desde un solo punto. Actualiza agendas, mensajes y contenido en tiempo real vía WiFi. Nuestro técnico se encarga de la configuración inicial, personalización con tu branding corporativo, instalación en cada ubicación y soporte durante todo el evento. Conectividad HDMI, USB, WiFi y Ethernet para máxima flexibilidad. Desmontaje incluido.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Congreso, expo o conferencia en puerta?"
+    subheadline="Cotiza sin compromiso — diseñamos la distribución de monitores perfecta para tu evento"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Pantallas LED para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas monitores para tu congreso o expo?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar monitores y displays para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Monitores y Displays</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Monitor de Retorno -->
+          <section class="section section--alt" aria-labelledby="retorno-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Esencial para presentadores</span>
+                <h2 class="showcase__title" id="retorno-heading">Monitor de Retorno</h2>
+                <p class="showcase__subtitle">El confidence monitor que todo presentador necesita: notas, diapositivas y timer sin voltear a la pantalla principal.</p>
+                <p class="showcase__text">El <strong>monitor de retorno</strong> (confidence monitor) es un equipo esencial para conferencias y presentaciones profesionales. Se coloca frente al presentador, fuera de la vista del público, mostrando las <strong>diapositivas actuales y siguientes, notas del presentador y timer</strong> de la presentación. Disponible en <strong>15 y 24 pulgadas</strong> con soporte ajustable en altura y ángulo, se adapta a podiums, mesas de conferencia y escenarios con atril.</p>
+                <p class="showcase__text">Cada monitor de retorno incluye <strong>conexión HDMI independiente</strong> de la pantalla principal — puede mostrar la vista de presentador de PowerPoint mientras el público ve las diapositivas en la pantalla grande. También funciona como <strong>prompter de guión, monitor de cámara en vivo o pantalla de countdown</strong>. El técnico configura la distribución de señal y la vista de presentador antes de tu evento. Combínalo con nuestros <a href="/servicios/audiovisual/microfonos-dj/">micrófonos profesionales</a> para una presentación impecable.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">15" y 24"</span>
+                  <span class="showcase__tag">Soporte ajustable</span>
+                  <span class="showcase__tag">Vista presentador</span>
+                  <span class="showcase__tag">HDMI independiente</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Monitor de Retorno
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/>
+                  </svg>
+                  <span>Monitor de Retorno</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Display de Registro -->
+          <section class="section section--alt" aria-labelledby="registro-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Primera impresión perfecta</span>
+                <h2 class="showcase__title" id="registro-heading">Display de Registro y Bienvenida</h2>
+                <p class="showcase__subtitle">Pantallas de bienvenida y check-in digital que agilizan el registro y elevan la imagen de tu evento.</p>
+                <p class="showcase__text">Los <strong>displays de registro y bienvenida</strong> transforman la entrada de tu evento en una experiencia profesional de primer nivel. Pantallas de <strong>32 a 43 pulgadas</strong> en formato vertical con mensaje de bienvenida personalizado, logo del evento, agenda del día y sistema de <strong>check-in digital</strong>. Disponibles con <strong>pantalla táctil opcional</strong> para que los asistentes se registren directamente, escaneen su QR de entrada o consulten el programa del evento de manera interactiva.</p>
+                <p class="showcase__text">El contenido de bienvenida se personaliza con tu <strong>branding corporativo</strong>: colores, logo, tipografías y mensajes de patrocinadores. El sistema se integra con plataformas de registro como Eventbrite, Cvent y sistemas personalizados vía navegador web. Incluye <strong>pedestal elegante o soporte de mesa</strong>, conectividad WiFi para actualizaciones remotas y técnico de configuración. Ideal para <strong>congresos, convenciones, seminarios, galas de premiación y eventos de networking</strong>. Combínalo con nuestros <a href="/servicios/accesorios/senalizacion-alfombras/">accesorios de señalización</a> para un montaje de recepción impecable.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">32-43" vertical</span>
+                  <span class="showcase__tag">Touch opcional</span>
+                  <span class="showcase__tag">Check-in digital</span>
+                  <span class="showcase__tag">Branding custom</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Display de Registro
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/>
+                  </svg>
+                  <span>Display de Registro</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Señalización Digital -->
+          <section class="section section--alt" aria-labelledby="senalizacion-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Información en tiempo real</span>
+                <h2 class="showcase__title" id="senalizacion-heading">Señalización Digital</h2>
+                <p class="showcase__subtitle">Displays informativos para directorios, mapas de expo, agendas dinámicas y contenido de patrocinadores.</p>
+                <p class="showcase__text">La <strong>señalización digital profesional</strong> es el complemento esencial para expos, congresos y eventos corporativos donde los asistentes necesitan acceso constante a información actualizada. Displays de <strong>43 a 55 pulgadas</strong> en formato horizontal o vertical, distribuidos estratégicamente en pasillos, lobbies, áreas de descanso y entradas de salas para mostrar <strong>directorios de expositores, mapas de la expo, agendas por sala, horarios de conferencias y contenido de patrocinadores</strong>.</p>
+                <p class="showcase__text">El software de señalización digital incluido permite <strong>gestión centralizada de contenido</strong> — actualiza horarios, mensajes de emergencia o anuncios de última hora en todos los displays simultáneamente desde un solo laptop. Programación por zonas para mostrar contenido diferente según la ubicación del display. Compatibilidad con <strong>feeds de redes sociales, hashtags del evento y contenido multimedia</strong>. Cada display incluye reproductor multimedia integrado y conectividad WiFi/Ethernet. Complementa con nuestras <a href="/servicios/audiovisual/pantallas-led/pedestal/">pantallas LED en pedestal</a> para las salas principales.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">43-55" displays</span>
+                  <span class="showcase__tag">Gestión centralizada</span>
+                  <span class="showcase__tag">Actualización en vivo</span>
+                  <span class="showcase__tag">Multi-zona</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Señalización Digital
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/>
+                  </svg>
+                  <span>Señalización Digital</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Congreso -->
+          <section class="section section--alt" aria-labelledby="kit-congreso-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Solución integral</span>
+                <h2 class="showcase__title" id="kit-congreso-heading">Kit Congreso Multi-Monitor</h2>
+                <p class="showcase__subtitle">Paquete completo de monitores para congresos: retorno, registro, señalización y gestión centralizada.</p>
+                <p class="showcase__text">Nuestro <strong>Kit Congreso Multi-Monitor</strong> es la solución integral para eventos de múltiples días y salas. Incluye <strong>monitores de retorno para cada sala de conferencias</strong>, displays de registro en las entradas, señalización digital en pasillos y áreas comunes, y un <strong>sistema de gestión centralizada</strong> que permite controlar todo el contenido desde un solo punto. El kit se dimensiona según el tamaño de tu congreso — desde 4-6 monitores para eventos de una sala hasta 20+ monitores para convenciones con múltiples tracks.</p>
+                <p class="showcase__text">Cada kit incluye <strong>técnico de configuración y soporte on-site</strong> durante todo el congreso, soportes profesionales para cada ubicación (mesa, pedestal, pared o truss), cableado oculto con canaletas, <strong>red WiFi dedicada</strong> para la señalización digital y sistema de respaldo para contenido crítico. El técnico permanece disponible para <strong>actualizaciones de agenda en tiempo real, cambios de sala de último minuto y resolución inmediata de cualquier incidencia</strong>. Complementa con nuestro <a href="/servicios/audiovisual/sonido/">sonido profesional</a> y <a href="/servicios/audiovisual/proyectores/">proyectores</a> para una producción de congreso completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">4-20+ monitores</span>
+                  <span class="showcase__tag">Gestión centralizada</span>
+                  <span class="showcase__tag">Técnico on-site</span>
+                  <span class="showcase__tag">Multi-día</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Congreso
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/>
+                  </svg>
+                  <span>Kit Congreso Multi-Monitor</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Monitores y Displays"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar monitores para tu congreso o expo, es natural tener preguntas sobre configuraciones, gestión de contenido y logística. Aquí encontrarás las respuestas más comunes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor técnico te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de monitores resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre monitores y displays para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Pantallas LED para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/audiovisual/pantallas-led/" class="sidebar-nav__back">&uarr; Volver a Pantallas LED</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/audiovisual/" class="sidebar-nav__back">&uarr; Volver a Audiovisual</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de monitores:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas monitores para tu congreso o expo?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar monitores y displays para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tus Monitores y Displays"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu congreso, expo o evento corporativo y uno de nuestros asesores técnicos te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un monitor de retorno para tu presentación o un kit completo de 20 monitores para tu convención, estamos aquí para diseñar la solución perfecta."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Congreso">Congreso</option>
+                <option value="Conferencia">Conferencia</option>
+                <option value="Expo / Feria">Expo / Feria</option>
+                <option value="Convención">Convención</option>
+                <option value="Seminario">Seminario</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Gala / Premiación">Gala / Premiación</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoMonitor">
+                Tipo de monitor
+              </label>
+              <select id="tipoMonitor" name="tipoMonitor" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de monitor</option>
+                <option value='Monitor Retorno 15"'>Monitor Retorno 15"</option>
+                <option value='Monitor Retorno 24"'>Monitor Retorno 24"</option>
+                <option value='Display 32" Señalización'>Display 32" Señalización</option>
+                <option value='Display 55" Señalización'>Display 55" Señalización</option>
+                <option value="Pantalla Táctil">Pantalla Táctil</option>
+                <option value="Kit Congreso Multi-Monitor">Kit Congreso Multi-Monitor</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Cuéntanos los detalles: número de salas, cantidad de monitores, tipo de contenido, duración del evento, venue..." rows="4" required></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para diseñar la distribución óptima de monitores y displays.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría técnica personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoMonitor = document.getElementById('tipoMonitor').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Monitores y Displays*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoMonitor) texto += `*Tipo de monitor:* ${tipoMonitor}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Audiovisual"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de equipo audiovisual para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">A</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">AudioVisual Pro MX</h3>
+            <p class="partner-card__tagline">Monitores y Señalización Digital</p>
+            <p class="partner-card__text">Líder en renta de monitores profesionales y sistemas de señalización digital para congresos, expos y eventos corporativos en CDMX. Gestión centralizada de contenido y soporte técnico dedicado.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">S</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">SonidoEventos CDMX</h3>
+            <p class="partner-card__tagline">Audio, Video y Displays Corporativos</p>
+            <p class="partner-card__text">Especialistas en soluciones audiovisuales para congresos y convenciones. Monitores de retorno, displays de señalización, sonido profesional y producción técnica completa con operadores certificados.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">T</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">TechEvents</h3>
+            <p class="partner-card__tagline">Tecnología para Congresos y Expos</p>
+            <p class="partner-card__text">Más de 10 años proporcionando equipo audiovisual para congresos en CDMX. Monitores, displays táctiles, sistemas de registro digital y producción integral de eventos corporativos.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MediaRent</h3>
+            <p class="partner-card__tagline">Renta de Monitores Profesionales</p>
+            <p class="partner-card__text">Servicio integral de renta de monitores y displays con logística profesional en toda la CDMX. Equipos de señalización digital, pantallas táctiles y operadores técnicos para eventos multi-día.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Monitores y displays que elevan la profesionalidad de tu evento"
+    subheadline="Más de 400 congresos y expos equipados nos respaldan. Cotiza hoy y recibe asesoría técnica sin compromiso."
+    primaryCTA={{ label: "Cotizar monitores", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar monitores y displays para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

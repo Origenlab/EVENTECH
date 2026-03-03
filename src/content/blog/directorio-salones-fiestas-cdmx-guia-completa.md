@@ -1,8 +1,8 @@
 ---
-title: "Directorio de Salones para Fiestas en CDMX — Guía 2025"
-seoTitle: "Directorio Salones para Fiestas CDMX 2025 | +35 Venues Verificados"
+title: "Directorio de Salones para Fiestas en CDMX — Guía"
+seoTitle: "Directorio Salones para Fiestas CDMX | +35 Venues Verificados"
 description: "Encuentra el salón perfecto para tu evento en CDMX. +35 venues verificados con filtros por zona, capacidad y tipo de evento."
-date: 2025-03-03
+date: 2026-03-03
 category: "guias"
 image: "/images/blog/directorio-salones-cdmx.jpg"
 author: "Equipo EVENTECH"
@@ -611,7 +611,5 @@ El venue perfecto existe, y está en nuestro directorio. Ya sea que busques la e
 [**Cotizar Equipo para tu Evento →**](/cotizar/)
 
 ---
-
-*Artículo actualizado: Marzo 2025*
 
 *¿Conoces un venue que debería estar en nuestro directorio? [Contáctanos](/contacto/) para sugerirlo.*

@@ -1,0 +1,687 @@
+---
+/**
+ * ─── Mezcladoras y Monitoreo — Pagina de Producto (Nivel 4) ───
+ * Consolas digitales Yamaha y Allen & Heath de 16 a 32 canales
+ * para eventos en CDMX. Monitores de escenario incluidos.
+ *
+ * Jerarquia: Servicios > Audiovisual > Sonido > Mezcladoras
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Audiovisual", href: "/servicios/audiovisual/" },
+  { label: "Sonido", href: "/servicios/audiovisual/sonido/" },
+  { label: "Mezcladoras y Monitoreo" },
+];
+
+const faqs = [
+  { question: "¿Qué consola necesito según el tamaño de mi evento?", answer: 'Para <strong>bodas y eventos sociales</strong> con banda, DJ y 2-4 micrófonos, una consola de <strong>16 canales Yamaha TF1</strong> es suficiente. Para <strong>conciertos y festivales</strong> con banda completa, múltiples micrófonos y fuentes de audio, recomendamos una consola de <strong>32 canales Yamaha CL3/CL5 o Allen & Heath dLive</strong>. La diferencia principal es el número de canales simultáneos: 16 canales para eventos sencillos, 32+ canales para producciones complejas con muchas fuentes de audio. Nuestro ingeniero evalúa tu rider técnico y recomienda la opción ideal.' },
+  { question: "¿La consola incluye monitores de escenario?", answer: "Nuestros paquetes de consola incluyen <strong>monitores de escenario (wedges) bajo solicitud</strong>. El <strong>Kit Monitoreo</strong> incluye monitores activos de 12 y 15 pulgadas con mezclas independientes para cada posición de escenario. También ofrecemos <strong>sidefills (monitores laterales)</strong> para cubrir el escenario completo. Para artistas profesionales que lo requieran, contamos con <strong>sistemas IEM (In-Ear Monitors)</strong> con receptores inalámbricos de alta fidelidad. Cada monitor tiene su propia mezcla personalizada gestionada por el ingeniero de monitoreo." },
+  { question: "¿Puedo grabar el audio de mi evento con la consola?", answer: "Sí, todas nuestras consolas digitales incluyen <strong>grabación multitrack vía USB</strong> integrada. La Yamaha TF graba hasta 34 tracks simultáneos y la CL graba hasta 64 tracks. Esto permite capturar cada canal por separado (voz, instrumentos, música ambiente) para una <strong>post-producción profesional</strong>. El archivo se guarda directamente en una memoria USB o disco duro externo. Ideal para <strong>grabar conferencias, conciertos y ceremonias</strong> que necesiten edición posterior o distribución." },
+  { question: "¿Qué es un split y para qué sirve?", answer: "Un <strong>split (o splitter de audio)</strong> es un dispositivo que duplica la señal de cada micrófono e instrumento para enviarla a dos consolas independientes: una para el <strong>FOH (Front of House)</strong> que maneja el sonido que escucha la audiencia, y otra para <strong>monitoreo</strong> que gestiona lo que escuchan los artistas en escenario. Esto permite que el ingeniero de FOH y el de monitoreo trabajen de forma independiente sin afectarse mutuamente. Es esencial en <strong>conciertos y producciones con banda en vivo</strong> donde los artistas necesitan mezclas de monitor personalizadas." },
+  { question: "¿Las consolas funcionan con stage box digital?", answer: 'Sí, todas nuestras consolas digitales trabajan con <strong>stage boxes (cajas de escenario) digitales</strong> conectadas por cable Cat6 o fibra óptica. La stage box se coloca en el escenario y convierte las señales de los micrófonos de analógico a digital, enviando todo por un solo cable hasta la consola. Esto <strong>elimina la necesidad de tirar docenas de cables analógicos XLR</strong> entre el escenario y la posición de mezcla, simplificando el montaje, reduciendo el peso del cableado y mejorando la calidad de la señal al minimizar la longitud de cable analógico.' },
+  { question: "¿Incluye sistema de intercom para el equipo técnico?", answer: "Sí, nuestros paquetes de producción incluyen <strong>sistema de intercom profesional con comunicación bidireccional</strong> entre el ingeniero de audio (FOH), el ingeniero de monitoreo, el director de escena y el coordinador de producción. Cada posición cuenta con un <strong>beltpack con auricular y micrófono</strong> para comunicación clara incluso en ambientes ruidosos. Es esencial para <strong>coordinar entradas de artistas, cambios de escena, cues de iluminación y cualquier ajuste técnico</strong> durante el evento en tiempo real." },
+];
+
+const specs = [
+  { label: "Consolas", value: "Yamaha TF/CL, Allen & Heath dLive/SQ" },
+  { label: "Canales", value: "16 a 32 canales" },
+  { label: "Formato", value: "Digital con recall de escenas" },
+  { label: "Monitores", value: "Escenario 12\" y 15\" activos" },
+  { label: "Procesadores", value: "Gates / Compresores / EQ por canal" },
+  { label: "IEM", value: "In-ear monitors opcionales" },
+  { label: "Intercom", value: "Sistema de comunicación técnica" },
+  { label: "Grabación", value: "Multitrack USB incluida" },
+  { label: "Splits", value: "Para FOH + monitoreo independiente" },
+  { label: "Ingeniero", value: "De audio dedicado incluido" },
+];
+
+const sidebarNav = [
+  { name: "Sistemas Line Array", href: "/servicios/audiovisual/sonido/line-array/" },
+  { name: "Bocinas Amplificadas", href: "/servicios/audiovisual/sonido/bocinas/" },
+  { name: "Subwoofers y Graves", href: "/servicios/audiovisual/sonido/subwoofers/" },
+  { name: "Mezcladoras y Monitoreo", href: null, active: true },
+];
+
+const sidebarRelated = [
+  { name: "Line Array", href: "/servicios/audiovisual/sonido/line-array/" },
+  { name: "Bocinas Amplificadas", href: "/servicios/audiovisual/sonido/bocinas/" },
+  { name: "Micrófonos Inalámbricos", href: "/servicios/audiovisual/microfonos-dj/" },
+  { name: "Streaming en Vivo", href: "/servicios/audiovisual/proyectores/" },
+  { name: "Tarimas y Escenarios", href: "/servicios/pistas-baile/tarimas-escenarios/" },
+];
+
+const reviews = [
+  { author: "Ing. Alejandro Fuentes", text: "Contratamos una consola Yamaha CL5 de 32 canales con stage box y split para un concierto de 2,000 personas. El ingeniero de audio fue excepcional, la mezcla de FOH sonó impecable y los artistas estuvieron encantados con sus mezclas de monitor. La grabación multitrack nos permitió hacer la mezcla del disco en vivo. Servicio de primer nivel.", rating: 5, date: "2025-11-25" },
+  { author: "Sofía Contreras", text: "Rentamos una Yamaha TF1 de 16 canales para nuestra boda con trío y DJ. El ingeniero coordinó las transiciones entre la ceremonia, los discursos y la fiesta sin un solo problema. La calidad de audio fue cristalina y el micrófono inalámbrico funcionó perfecto para los brindis. Muy profesionales.", rating: 5, date: "2025-10-18" },
+  { author: "Lic. Roberto Méndez", text: "Usamos una Allen & Heath con 4 monitores de escenario para un congreso de 3 días con 12 ponentes. El sistema de intercom fue crucial para coordinar las entradas y la grabación multitrack nos permitió distribuir el audio de cada conferencia. Logística impecable y equipo técnico de primera.", rating: 5, date: "2025-09-08" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Mezcladoras y Monitoreo para Eventos en CDMX",
+    description: "Renta de consolas digitales Yamaha y Allen & Heath de 16 a 32 canales para eventos en CDMX. Monitores de escenario y procesadores incluidos. Desde $3,000.",
+    url: "/servicios/audiovisual/sonido/mezcladoras/",
+    priceRange: { min: 3000, max: 15000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 89,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Audiovisual", url: "/servicios/audiovisual/" },
+    { name: "Sonido", url: "/servicios/audiovisual/sonido/" },
+    { name: "Mezcladoras y Monitoreo", url: "/servicios/audiovisual/sonido/mezcladoras/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Mezcladoras y Monitoreo para Eventos en CDMX"
+  description="Renta de consolas digitales Yamaha y Allen & Heath de 16 a 32 canales para eventos en CDMX. Monitores de escenario y procesadores incluidos. Desde $3,000."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Control total del audio en tu evento"
+    title='Renta de <span class="highlight">Mezcladoras y Monitoreo</span> para Eventos en CDMX'
+    subtitle="Consolas digitales Yamaha TF/CL y Allen & Heath dLive/SQ de 16 a 32 canales. Monitores de escenario, procesadores, grabación multitrack e ingeniero de audio incluidos."
+    primaryCTA={{ label: "Cotiza tu consola", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar mezcladoras y monitoreo para mi evento` }}
+    cards={[
+      {
+        title: "Consolas digitales de última generación con procesamiento completo",
+        content: "<strong>Renta de consolas digitales profesionales</strong> con las marcas líderes del audio para eventos en CDMX. Yamaha TF y CL Series con interfaz táctil intuitiva y Allen & Heath dLive y SQ con procesamiento de 96 kHz. Configuraciones de 16 a 32 canales con procesamiento interno completo: ecualización paramétrica, compresión dinámica, gates, efectos y gestión de grupos por canal. Recall de escenas para transiciones instantáneas entre momentos del evento. Stage box digital con conexión Cat6 o fibra óptica.",
+      },
+      {
+        title: "Monitoreo profesional e ingeniero de audio dedicado",
+        content: "<strong>Sistema de monitoreo completo incluido</strong> en cada renta de consola. Monitores de escenario activos de 12 y 15 pulgadas con mezclas independientes para cada posición. Sistema de intercom profesional para coordinación del equipo técnico. Grabación multitrack USB para post-producción. Splits para FOH y monitoreo independiente. Ingeniero de audio dedicado que gestiona la mezcla, los monitores y la comunicación técnica durante todo tu evento.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas control profesional del audio en tu evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con la consola y monitoreo ideal para tu producción"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Sonido Profesional</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas mezcladoras para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar mezcladoras y monitoreo para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Mezcladoras y Monitoreo</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Consola 16ch -->
+          <section class="section section--alt" aria-labelledby="consola16-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Ideal para bodas y eventos sociales</span>
+                <h2 class="showcase__title" id="consola16-heading">Consola 16 Canales</h2>
+                <p class="showcase__subtitle">La consola digital perfecta para bodas, corporativos y eventos sociales con banda, DJ y micrófonos.</p>
+                <p class="showcase__text">Nuestra <strong>consola digital de 16 canales Yamaha TF1</strong> es la opción ideal para <strong>bodas y eventos sociales</strong> que requieren gestión profesional del audio. Con <strong>interfaz táctil de 15 pulgadas</strong>, ofrece control intuitivo de cada canal con ecualización paramétrica, compresión dinámica y efectos integrados. Los 16 canales son suficientes para manejar simultáneamente: micrófono del maestro de ceremonias, micrófonos para brindis, entrada del DJ, salida de la laptop para presentaciones y música ambiente.</p>
+                <p class="showcase__text">Incluye <strong>recall de escenas</strong> que permite programar configuraciones preestablecidas para cada momento del evento: ceremonia (micrófonos + música suave), cena (música ambiente), brindis (micrófono inalámbrico con reverb) y fiesta (DJ a volumen completo). El ingeniero de audio cambia de escena con un solo toque, garantizando transiciones suaves y profesionales. Stage box de 16 inputs con conexión Cat6 para un montaje limpio y rápido. Ideal para <strong>bodas, cenas de gala, bautizos, graduaciones y presentaciones corporativas</strong>. Complementa con nuestro <a href="/servicios/audiovisual/sonido/bocinas/">equipo de bocinas</a> para un sistema completo.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Yamaha TF1</span>
+                  <span class="showcase__tag">16 canales</span>
+                  <span class="showcase__tag">Pantalla táctil</span>
+                  <span class="showcase__tag">Recall de escenas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Consola 16ch
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/>
+                  </svg>
+                  <span>Consola 16 Canales</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Consola 32ch -->
+          <section class="section section--alt" aria-labelledby="consola32-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Para conciertos y festivales</span>
+                <h2 class="showcase__title" id="consola32-heading">Consola 32 Canales</h2>
+                <p class="showcase__subtitle">La consola profesional para conciertos, festivales y producciones con banda completa y múltiples fuentes de audio.</p>
+                <p class="showcase__text">La <strong>consola digital de 32 canales Yamaha CL3/CL5 o Allen & Heath dLive</strong> es la herramienta definitiva para producciones de audio complejas. Con <strong>32+ canales de entrada, 16+ buses auxiliares y procesamiento de 96 kHz</strong>, maneja simultáneamente cada micrófono e instrumento de una banda completa: batería (8-10 mics), bajo, guitarras, teclados, voces principales y coros, más fuentes adicionales como pistas de respaldo y efectos. Procesamiento interno de estudio incluyendo EQ, compresión, gates y efectos premium por canal.</p>
+                <p class="showcase__text">Incluye <strong>stage box digital de 32 inputs con conversión A/D de alta calidad</strong>, conectada por Cat6 o fibra óptica hasta la posición de mezcla. Sistema de <strong>recall completo</strong> que guarda toda la configuración de la consola (niveles, EQ, efectos) permitiendo reproducir exactamente la misma mezcla en eventos recurrentes o ensayos. Ideal para <strong>conciertos, festivales de música, producciones teatrales, conferencias multi-sala y eventos híbridos con streaming</strong>. Complementa con nuestro <a href="/servicios/audiovisual/sonido/line-array/">sistema line array</a> para una producción de nivel profesional.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Yamaha CL / Allen & Heath</span>
+                  <span class="showcase__tag">32 canales</span>
+                  <span class="showcase__tag">96 kHz</span>
+                  <span class="showcase__tag">Stage box digital</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Consola 32ch
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/>
+                  </svg>
+                  <span>Consola 32 Canales</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Kit Monitoreo -->
+          <section class="section section--alt" aria-labelledby="monitoreo-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Audio perfecto en escenario</span>
+                <h2 class="showcase__title" id="monitoreo-heading">Kit Monitoreo Completo</h2>
+                <p class="showcase__subtitle">Monitores de escenario (wedges) + sidefills para que los artistas escuchen perfectamente en el escenario.</p>
+                <p class="showcase__text">El <strong>Kit Monitoreo</strong> proporciona audio de alta fidelidad directamente en el escenario para <strong>músicos, cantantes, ponentes y presentadores</strong>. Incluye <strong>monitores de escenario (wedges) activos de 12 y 15 pulgadas</strong> posicionados en cada posición del escenario, con mezclas independientes para cada monitor. Cada artista escucha exactamente lo que necesita: el cantante escucha su voz y la guía, el baterista escucha el click y el bajo, el guitarrista escucha su amplificador y la voz.</p>
+                <p class="showcase__text">También incluye <strong>sidefills (monitores laterales de mayor potencia)</strong> que cubren las áreas del escenario donde los wedges individuales no alcanzan, ideal para bandas con mucho movimiento en escena. Para artistas que lo prefieran, ofrecemos <strong>IEM (In-Ear Monitors)</strong> con receptores inalámbricos de alta fidelidad que eliminan el ruido del escenario y proporcionan una mezcla personal cristalina. El ingeniero de monitoreo dedicado gestiona todas las mezclas desde una consola independiente. Ideal para <strong>conciertos, festivales, producciones teatrales y conferencias con múltiples ponentes</strong>. Complementa con nuestras <a href="/servicios/pistas-baile/tarimas-escenarios/">tarimas modulares</a> para un escenario profesional completo.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Wedges 12" y 15"</span>
+                  <span class="showcase__tag">Sidefills</span>
+                  <span class="showcase__tag">IEM disponible</span>
+                  <span class="showcase__tag">Mezclas independientes</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Monitoreo
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/>
+                  </svg>
+                  <span>Kit Monitoreo</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Producción Completo -->
+          <section class="section section--alt" aria-labelledby="produccion-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Producción de audio integral</span>
+                <h2 class="showcase__title" id="produccion-heading">Kit Producción Completo</h2>
+                <p class="showcase__subtitle">Consola + procesadores + grabación + intercom: todo lo que necesitas para una producción profesional.</p>
+                <p class="showcase__text">El <strong>Kit Producción Completo</strong> es nuestra configuración más avanzada de mezcla y monitoreo, diseñada para <strong>producciones de nivel profesional</strong> que requieren control total de cada aspecto del audio. Incluye <strong>consola de 32 canales (FOH), consola de monitoreo independiente, stage box digital de 32 inputs, splitter para señal dual, procesadores outboard premium y sistema de grabación multitrack</strong>. Dos ingenieros de audio dedicados: uno para FOH y otro exclusivamente para monitoreo.</p>
+                <p class="showcase__text">El kit también incluye <strong>sistema de intercom profesional de 4-6 posiciones</strong> (FOH, monitoreo, director de escena, iluminación, video, backstage) con comunicación bidireccional clara. <strong>Grabación multitrack de hasta 64 canales</strong> para post-producción profesional o transmisión en streaming con mezcla dedicada. Todo el sistema se conecta por <strong>red digital Dante/AES50</strong> para máxima calidad y flexibilidad. Ideal para <strong>conciertos de artistas nacionales e internacionales, festivales multi-escenario, producciones de TV/streaming y eventos corporativos de alto perfil</strong>. Complementa con nuestra <a href="/servicios/iluminacion/escenario/">iluminación de escenario</a> y <a href="/servicios/audiovisual/pantallas-led/">pantallas LED</a> para una producción integral.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">FOH + Monitoreo</span>
+                  <span class="showcase__tag">Grabación 64ch</span>
+                  <span class="showcase__tag">Intercom 6 pos</span>
+                  <span class="showcase__tag">Red Dante</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Producción
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/>
+                  </svg>
+                  <span>Kit Producción Completo</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Mezcladoras y Monitoreo"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu consola y sistema de monitoreo, es natural tener preguntas sobre configuraciones, canales y procesamiento. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor técnico te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de audio resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre mezcladoras y monitoreo para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Sonido Profesional</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/audiovisual/sonido/" class="sidebar-nav__back">&uarr; Volver a Sonido</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/audiovisual/" class="sidebar-nav__back">&uarr; Volver a Audiovisual</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de audio:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas mezcladoras para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar mezcladoras y monitoreo para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Consola y Monitoreo"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores técnicos te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea una consola de 16 canales para tu boda o un kit de producción completo para tu festival, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoMezcladora">
+                Tipo de mezcladora
+              </label>
+              <select id="tipoMezcladora" name="tipoMezcladora" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de mezcladora</option>
+                <option value="Consola 16ch Yamaha">Consola 16ch Yamaha</option>
+                <option value="Consola 32ch Yamaha">Consola 32ch Yamaha</option>
+                <option value="Allen & Heath 24ch">Allen & Heath 24ch</option>
+                <option value="Kit Monitoreo Escenario">Kit Monitoreo Escenario</option>
+                <option value="Kit Producción Completo">Kit Producción Completo</option>
+                <option value="IEM (In-Ear Monitors)">IEM (In-Ear Monitors)</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Cuéntanos los detalles: número de músicos/ponentes, tipo de producción, si necesitas monitores de escenario, grabación multitrack, intercom..." rows="4" required></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para recomendarte la consola y monitoreo ideal para tu producción.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría técnica personalizada para tu presupuesto.</p>
+          </div>
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoMezcladora = document.getElementById('tipoMezcladora').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Mezcladoras y Monitoreo*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoMezcladora) texto += `*Tipo de mezcladora:* ${tipoMezcladora}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Audiovisual"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de equipo audiovisual para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">A</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">AudioVisual Pro MX</h3>
+            <p class="partner-card__tagline">Consolas y Monitoreo Profesional</p>
+            <p class="partner-card__text">Líder en renta de consolas digitales y sistemas de monitoreo para conciertos, festivales y producciones en CDMX. Yamaha, Allen & Heath, monitores de escenario y sistemas IEM.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">S</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">SonidoEventos CDMX</h3>
+            <p class="partner-card__tagline">Audio y Producción para Eventos</p>
+            <p class="partner-card__text">Especialistas en consolas digitales y sistemas de monitoreo para bodas, congresos y festivales. Ingenieros de audio certificados, stage boxes digitales y grabación multitrack.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">T</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">TechEvents</h3>
+            <p class="partner-card__tagline">Tecnología Audiovisual para Eventos</p>
+            <p class="partner-card__text">Más de 10 años proporcionando equipo audiovisual de última generación para producciones en CDMX. Consolas, monitoreo, line array, iluminación y producción integral.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MediaRent</h3>
+            <p class="partner-card__tagline">Renta de Equipo Multimedia</p>
+            <p class="partner-card__text">Servicio integral de renta de equipo multimedia con logística profesional en toda la CDMX y área metropolitana. Consolas, monitoreo, sonido y operadores técnicos certificados.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Control profesional del audio que tu evento necesita"
+    subheadline="Más de 500 eventos con mezcladoras profesionales nos respaldan. Cotiza hoy y recibe asesoría técnica sin compromiso."
+    primaryCTA={{ label: "Cotizar mezcladoras", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar mezcladoras y monitoreo para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

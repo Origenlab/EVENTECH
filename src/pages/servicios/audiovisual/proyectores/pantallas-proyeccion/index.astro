@@ -1,0 +1,716 @@
+---
+/**
+ * ─── Pantallas de Proyección — Página de Producto (Nivel 4) ───
+ * Pantallas de proyección front y rear desde 100 hasta 300 pulgadas
+ * en trípode, eléctrica, frame y fast-fold para eventos.
+ *
+ * Jerarquía: Servicios > Audiovisual > Proyectores > Pantallas de Proyección
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Audiovisual", href: "/servicios/audiovisual/" },
+  { label: "Proyectores", href: "/servicios/audiovisual/proyectores/" },
+  { label: "Pantallas de Proyección" },
+];
+
+const faqs = [
+  { question: "¿Qué tamaño de pantalla necesito para mi evento?", answer: "La regla general es que el ancho de la pantalla debe ser al menos 1/6 de la distancia al espectador más lejano. Para reuniones de 20-50 personas en sala de juntas, una pantalla de 100-120 pulgadas es ideal. Para conferencias de 100-200 personas, recomendamos 150-200 pulgadas. Para eventos de más de 200 personas en auditorios o salones de banquetes, necesitas 200-300 pulgadas. Nuestro técnico evalúa tu venue y te recomienda el tamaño exacto para que todos los asistentes puedan ver la imagen con claridad y comodidad." },
+  { question: "¿Cuál es la diferencia entre front y rear projection?", answer: 'Front projection (proyección frontal) es la configuración más común: el proyector está delante de la pantalla, del mismo lado que la audiencia. Es más económica y funciona con cualquier pantalla blanca estándar. Rear projection (retroproyección) coloca el proyector detrás de la pantalla usando un material translúcido especial. Es ideal para escenarios donde no quieres que el haz de luz sea visible o donde los presentadores caminan frente a la pantalla sin generar sombra. Requiere espacio adicional detrás de la pantalla (2-4 metros según el lente del proyector).' },
+  { question: "¿Cuánto tiempo toma montar una pantalla fast-fold?", answer: "Nuestras pantallas fast-fold profesionales se montan en 15 a 30 minutos dependiendo del tamaño. La estructura plegable de aluminio se abre como un acordeón y la superficie de proyección se sujeta con snap buttons. Para pantallas de 200-300 pulgadas, el montaje requiere 2 técnicos. El drapeado negro lateral se instala en 10 minutos adicionales. Todo el proceso de montaje, nivelación y prueba de imagen se completa en menos de 1 hora. Es la opción ideal para eventos con tiempos de montaje ajustados." },
+  { question: "¿Las pantallas funcionan en exteriores?", answer: 'Sí, nuestras pantallas fast-fold y de frame son aptas para uso exterior. Sin embargo, necesitas considerar el viento (pueden actuar como velas) y la luz ambiental (requieren proyectores de mayor potencia). Para cine al aire libre, ofrecemos pantallas inflables de gran formato que son resistentes al viento y fáciles de montar. En todos los casos, recomendamos eventos nocturnos para mejor calidad de imagen. Complementa con nuestras <a href="/servicios/carpas/">carpas profesionales</a> para proteger el equipo en caso de lluvia.' },
+  { question: "¿Puedo rentar solo la pantalla sin proyector?", answer: "Sí, ofrecemos renta de pantallas de proyección por separado si ya cuentas con proyector propio o lo rentas con otro proveedor. La pantalla se entrega montada y nivelada por nuestro técnico, quien verifica la tensión de la superficie y la estabilidad de la estructura. También incluimos drapeado negro lateral para un acabado profesional. Si necesitas ayuda para configurar tu proyector con nuestra pantalla, nuestro técnico puede asistirte con el ajuste de imagen sin costo adicional." },
+  { question: "¿Con cuánta anticipación debo reservar una pantalla?", answer: "Para pantallas de trípode y tamaños estándar (hasta 150 pulgadas), recomendamos reservar con 1 a 2 semanas de anticipación. Para pantallas fast-fold de 200 a 300 pulgadas y pantallas de rear projection, lo ideal es reservar con 2 a 3 semanas porque la disponibilidad es más limitada. En temporada alta de eventos (noviembre a febrero), las pantallas grandes se agotan rápidamente, así que recomendamos apartar con la mayor anticipación posible. Atendemos urgencias sujetas a disponibilidad." },
+];
+
+const specs = [
+  { label: "Tipos", value: "Trípode / Eléctrica / Frame / Fast-fold" },
+  { label: "Tamaños", value: '100" a 300" (diagonal)' },
+  { label: "Proyección", value: "Front / Rear (translúcida)" },
+  { label: "Material", value: "Matte White / High Contrast Grey" },
+  { label: "Aspect ratio", value: "16:9 / 4:3 / 16:10" },
+  { label: "Ganancia", value: "1.0 a 1.3 (según superficie)" },
+  { label: "Montaje", value: "Piso / Techo / Fly (suspendida)" },
+  { label: "Fast-fold", value: "Montaje en 15 min (estructura plegable)" },
+  { label: "Rear projection", value: "Material translúcido para retroproyección" },
+  { label: "Accesorios", value: "Drapeado negro lateral incluido" },
+];
+
+const sidebarNav = [
+  { name: "Proyectores Full HD y 4K", href: "/servicios/audiovisual/proyectores/fullhd-4k/" },
+  { name: "Streaming en Vivo", href: "/servicios/audiovisual/proyectores/streaming/" },
+  { name: "Video Mapping", href: "/servicios/audiovisual/proyectores/mapping/" },
+  { name: "Pantallas de Proyección", href: null, active: true },
+];
+
+const sidebarRelated = [
+  { name: "Proyectores Full HD y 4K", href: "/servicios/audiovisual/proyectores/fullhd-4k/" },
+  { name: "Sonido Profesional", href: "/servicios/audiovisual/sonido/" },
+  { name: "Streaming en Vivo", href: "/servicios/audiovisual/proyectores/streaming/" },
+  { name: "Iluminación Profesional", href: "/servicios/iluminacion/" },
+  { name: "Carpas Profesionales", href: "/servicios/carpas/" },
+];
+
+const reviews = [
+  { author: "Lic. Mariana Torres", text: "Rentamos una pantalla fast-fold de 200 pulgadas para un congreso de 300 personas y la calidad de imagen fue excelente. El montaje fue rapidísimo — en 20 minutos ya estaba lista. El drapeado negro le dio un acabado muy profesional. El técnico dejó todo perfectamente nivelado y alineado con el proyector. Servicio puntual y profesional.", rating: 5, date: "2025-11-12" },
+  { author: "Jorge Ramírez", text: "Usamos pantalla de rear projection para un evento corporativo donde los presentadores caminaban frente a la pantalla. Cero sombras, imagen perfecta. El técnico nos asesoró sobre la distancia ideal del proyector y el resultado fue impecable. Definitivamente la mejor opción para escenarios.", rating: 5, date: "2025-10-20" },
+  { author: "Ana Lucía Herrera", text: "Pantalla inflable para cine al aire libre en nuestra boda. Fue un hit total — los invitados amaron la proyección del video de nuestra historia al aire libre. El montaje fue sencillo y la imagen se veía increíble en la noche. El proyector de 7,000 lúmenes que nos recomendaron fue perfecto para el jardín.", rating: 5, date: "2025-09-25" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Pantallas de Proyección para Eventos en CDMX",
+    description: "Renta de pantallas de proyección front y rear desde 100 hasta 300 pulgadas en trípode, eléctrica, frame y fast-fold para eventos en CDMX. Desde $500.",
+    url: "/servicios/audiovisual/proyectores/pantallas-proyeccion/",
+    priceRange: { min: 500, max: 5000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 213,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Audiovisual", url: "/servicios/audiovisual/" },
+    { name: "Proyectores", url: "/servicios/audiovisual/proyectores/" },
+    { name: "Pantallas de Proyección", url: "/servicios/audiovisual/proyectores/pantallas-proyeccion/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Pantallas de Proyección para Eventos en CDMX"
+  description="Renta de pantallas de proyección front y rear desde 100 hasta 300 pulgadas en trípode, eléctrica, frame y fast-fold para eventos en CDMX. Desde $500."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="La superficie perfecta para cada proyección"
+    title='Renta de <span class="highlight">Pantallas de Proyección</span> para Eventos en CDMX'
+    subtitle="Pantallas de proyección profesional front y rear desde 100 hasta 300 pulgadas en formatos trípode, eléctrica, frame y fast-fold. Material Matte White y High Contrast Grey con drapeado negro lateral incluido. Montaje técnico profesional."
+    primaryCTA={{ label: "Cotiza tu pantalla", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar pantallas de proyección para mi evento` }}
+    cards={[
+      {
+        title: "Pantallas profesionales para cada tipo de evento",
+        content: "<strong>Renta de pantallas de proyección</strong> en 4 formatos para cubrir cualquier necesidad: trípode portátil para reuniones rápidas, eléctrica con control remoto para salas corporativas, frame con tensor perimetral para imagen perfectamente plana, y fast-fold con estructura plegable de montaje rápido para eventos de gran formato. Tamaños desde 100 hasta 300 pulgadas con relación de aspecto 16:9, 4:3 y 16:10. Material Matte White con ganancia 1.0 para ángulo de visión amplio y High Contrast Grey con ganancia 0.8 para ambientes con luz.",
+      },
+      {
+        title: "Front y rear projection con montaje profesional",
+        content: "<strong>Configuraciones front y rear projection</strong> para cada escenario. Front projection estándar para la mayoría de eventos con pantalla blanca Matte White. Rear projection con material translúcido para escenarios donde los presentadores caminan frente a la pantalla sin generar sombra. Drapeado negro lateral incluido para acabado profesional. Nuestro técnico monta, nivela y alinea la pantalla con el proyector para una imagen perfecta — montaje fast-fold completo en 15 minutos.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas la pantalla perfecta para tu proyección?"
+    subheadline="Cotiza sin compromiso — te recomendamos el tipo y tamaño ideal para tu venue y audiencia"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Proyectores y Video</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas una pantalla de proyección?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar pantallas de proyección para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Pantallas de Proyección</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Pantalla Trípode -->
+          <section class="section section--alt" aria-labelledby="tripode-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Juntas y presentaciones</span>
+                <h2 class="showcase__title" id="tripode-heading">Pantalla Trípode</h2>
+                <p class="showcase__subtitle">Pantalla portátil con trípode integrado para reuniones, presentaciones rápidas y eventos con montaje express.</p>
+                <p class="showcase__text">La <strong>pantalla de trípode</strong> es la solución más práctica y económica para presentaciones corporativas, capacitaciones y reuniones de trabajo. Disponible en tamaños de <strong>100, 120 y 150 pulgadas</strong> con relación de aspecto 16:9 y 4:3. El trípode de aluminio se despliega en menos de 2 minutos y la pantalla se eleva con un mecanismo de resorte suave. Material Matte White con ganancia 1.0 para un ángulo de visión de 160 grados que garantiza que todos los asistentes vean la imagen claramente.</p>
+                <p class="showcase__text">Incluye <strong>estuche de transporte acolchado</strong> y nuestro técnico la entrega montada y nivelada en tu venue. Ideal para <strong>salas de juntas, salones de capacitación, aulas universitarias, iglesias y cualquier espacio donde necesites montaje rápido sin perforaciones ni instalación permanente</strong>. La pantalla se coloca en cualquier superficie plana y su peso reducido (8-12 kg) permite reposicionarla fácilmente. Perfecta para combinar con nuestros <a href="/servicios/audiovisual/proyectores/fullhd-4k/">proyectores de 5,000 lúmenes</a> para un setup completo.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">100" a 150"</span>
+                  <span class="showcase__tag">Montaje 2 min</span>
+                  <span class="showcase__tag">Portátil</span>
+                  <span class="showcase__tag">Matte White</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Pantalla Trípode
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                  <span>Pantalla Trípode</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Pantalla Fast-Fold -->
+          <section class="section section--alt" aria-labelledby="fastfold-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Eventos y conferencias</span>
+                <h2 class="showcase__title" id="fastfold-heading">Pantalla Fast-Fold</h2>
+                <p class="showcase__subtitle">Pantalla profesional con estructura plegable de aluminio para eventos de gran formato — montaje rápido en 15 minutos.</p>
+                <p class="showcase__text">La <strong>pantalla fast-fold</strong> es el estándar profesional para eventos de mediana y gran escala. Disponible en tamaños de <strong>150, 200, 250 y 300 pulgadas</strong> con estructura plegable de aluminio anodizado que se monta en 15 a 30 minutos. La superficie de proyección se sujeta con snap buttons para una tensión perfecta y uniforme que elimina arrugas y ondulaciones. Disponible en material <strong>Matte White (front projection) y translúcido (rear projection)</strong>.</p>
+                <p class="showcase__text">Incluye <strong>drapeado negro lateral y superior</strong> que enmarca la imagen de manera profesional y bloquea la luz parásita. Patas ajustables en altura para nivelar la pantalla en cualquier superficie, incluso en terreno irregular como jardines. Estructura autoportante que no requiere sujeción al techo ni perforaciones. La opción preferida para <strong>congresos, convenciones, proyecciones en bodas, conferencias magistrales, cine empresarial y cualquier evento donde la calidad de imagen sea prioritaria</strong>. Complementa con nuestro <a href="/servicios/audiovisual/sonido/">sonido profesional</a> para una experiencia audiovisual completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">150" a 300"</span>
+                  <span class="showcase__tag">Montaje 15 min</span>
+                  <span class="showcase__tag">Drapeado incluido</span>
+                  <span class="showcase__tag">Front/Rear</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Pantalla Fast-Fold
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                  <span>Pantalla Fast-Fold</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Pantalla Rear Projection -->
+          <section class="section section--alt" aria-labelledby="rear-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Escenarios y galas</span>
+                <h2 class="showcase__title" id="rear-heading">Pantalla Rear Projection</h2>
+                <p class="showcase__subtitle">Pantalla translúcida para retroproyección: cero sombras cuando los presentadores caminan frente a la imagen.</p>
+                <p class="showcase__text">La <strong>pantalla de rear projection</strong> utiliza un material translúcido especial que permite proyectar desde atrás de la pantalla. El resultado es una imagen brillante y uniforme sin sombras cuando personas caminan frente a ella — la solución ideal para <strong>escenarios donde los presentadores se mueven libremente, shows de premiación, pasarelas y galas</strong> donde el haz de luz del proyector no debe ser visible para la audiencia.</p>
+                <p class="showcase__text">Disponible en formato fast-fold de <strong>150 a 300 pulgadas</strong> con material translúcido de alta ganancia que mantiene la saturación de color y el contraste. Requiere un espacio mínimo de <strong>2 a 4 metros detrás de la pantalla</strong> para el proyector (menos con lentes short throw). Incluye drapeado negro perimetral y nuestro técnico calcula la distancia exacta de proyección según el lente disponible. La opción profesional para <strong>eventos corporativos de alto nivel, galas en hoteles, convenciones y producciones de escenario</strong> donde la estética visual es prioritaria. Combina con nuestra <a href="/servicios/iluminacion/escenario/">iluminación de escenario</a> para producción integral.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Retroproyección</span>
+                  <span class="showcase__tag">Cero sombras</span>
+                  <span class="showcase__tag">Material translúcido</span>
+                  <span class="showcase__tag">150" a 300"</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Rear Projection
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                  <span>Pantalla Rear Projection</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Cine al Aire Libre -->
+          <section class="section section--alt" aria-labelledby="cine-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Experiencia al aire libre</span>
+                <h2 class="showcase__title" id="cine-heading">Kit Cine al Aire Libre</h2>
+                <p class="showcase__subtitle">Pantalla inflable de gran formato + proyector + sonido para noches de cine en jardines, terrazas y eventos al aire libre.</p>
+                <p class="showcase__text">Nuestro <strong>Kit Cine al Aire Libre</strong> incluye pantalla inflable de <strong>200 a 300 pulgadas</strong>, proyector de 7,000+ lúmenes para exteriores nocturnos, sistema de sonido con bocinas amplificadas y todo el cableado necesario. La pantalla inflable se monta en 20 minutos con un soplador eléctrico silencioso y es resistente al viento moderado. El material de proyección Matte White tensado ofrece una imagen uniforme y brillante.</p>
+                <p class="showcase__text">El kit es perfecto para <strong>bodas en jardín con proyección del video de los novios, fiestas de cumpleaños con películas, eventos comunitarios, noches de cine corporativas y festivales</strong>. Incluye técnico para montaje, calibración de imagen y sonido, y permanece disponible durante la proyección. Ofrecemos <strong>cojines y cobijas como complemento</strong> para crear un ambiente acogedor estilo picnic. Funciona mejor después del atardecer cuando la luz natural baja. Complementa con nuestras <a href="/servicios/carpas/">carpas profesionales</a> como área de respaldo en caso de lluvia y con <a href="/servicios/accesorios/calefaccion-clima/">calentadores</a> para noches frías.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Pantalla inflable</span>
+                  <span class="showcase__tag">Proyector + Sonido</span>
+                  <span class="showcase__tag">200" a 300"</span>
+                  <span class="showcase__tag">Montaje 20 min</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Cine
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                  <span>Kit Cine al Aire Libre</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Pantallas de Proyección"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar una pantalla de proyección para tu evento, es natural tener preguntas sobre tamaños, tipos y montaje. Aquí encontrarás las respuestas más comunes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un especialista en equipo audiovisual te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en pantallas resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre pantallas de proyección para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Proyectores y Video -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Proyectores y Video</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/audiovisual/proyectores/" class="sidebar-nav__back">&uarr; Volver a Proyectores</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/audiovisual/" class="sidebar-nav__back">&uarr; Volver a Audiovisual</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de pantalla:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas una pantalla de proyección?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar pantallas de proyección para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Pantalla de Proyección"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros especialistas en equipo audiovisual te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea una pantalla trípode para tu junta o una fast-fold de 300 pulgadas para tu convención, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Cine al Aire Libre">Cine al Aire Libre</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoPantallaProy">
+                Tipo de pantalla
+              </label>
+              <select id="tipoPantallaProy" name="tipoPantallaProy" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de pantalla</option>
+                <option value="Pantalla Trípode 100-120&quot;">Pantalla Trípode 100-120"</option>
+                <option value="Pantalla Trípode 150&quot;">Pantalla Trípode 150"</option>
+                <option value="Pantalla Fast-Fold 150-200&quot;">Pantalla Fast-Fold 150-200"</option>
+                <option value="Pantalla Fast-Fold 250-300&quot;">Pantalla Fast-Fold 250-300"</option>
+                <option value="Pantalla Rear Projection">Pantalla Rear Projection</option>
+                <option value="Kit Cine al Aire Libre">Kit Cine al Aire Libre</option>
+                <option value="Solo pantalla (sin proyector)">Solo pantalla (sin proyector)</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de asistentes, tipo de venue (salón/jardín/auditorio), si necesitas proyector incluido, front o rear projection..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para recomendar el tamaño y tipo de pantalla ideal según tu espacio y audiencia.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría técnica personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoPantallaProy = document.getElementById('tipoPantallaProy').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Pantallas de Proyección para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoPantallaProy) texto += `*Tipo de pantalla:* ${tipoPantallaProy}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Audiovisual"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de equipo audiovisual para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">A</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">AudioVisual Pro MX</h3>
+            <p class="partner-card__tagline">Pantallas y Proyección Profesional</p>
+            <p class="partner-card__text">Líder en renta de pantallas de proyección y equipo audiovisual para eventos corporativos y sociales en CDMX. Pantallas fast-fold, trípode, rear projection y sistemas inflables para cine al aire libre.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">S</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">SonidoEventos CDMX</h3>
+            <p class="partner-card__tagline">Audio, Video y Pantallas para Eventos</p>
+            <p class="partner-card__text">Especialistas en soluciones audiovisuales integrales para congresos, bodas y festivales. Pantallas de proyección, proyectores, sonido profesional y streaming con técnicos certificados.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">T</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">TechEvents</h3>
+            <p class="partner-card__tagline">Tecnología Audiovisual para Eventos</p>
+            <p class="partner-card__text">Más de 10 años proporcionando pantallas de proyección y equipo audiovisual de última generación para eventos corporativos en CDMX. Fast-fold, rear projection y producción integral.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MediaRent</h3>
+            <p class="partner-card__tagline">Renta de Equipo Multimedia</p>
+            <p class="partner-card__text">Servicio integral de renta de pantallas y equipo multimedia con logística profesional en toda la CDMX. Pantallas, proyectores, sonido, iluminación y operadores técnicos certificados.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="La pantalla perfecta para que tu proyección brille"
+    subheadline="Más de 500 eventos con pantallas de proyección nos respaldan. Cotiza hoy y recibe asesoría técnica sin compromiso."
+    primaryCTA={{ label: "Cotizar pantallas", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar pantallas de proyección para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

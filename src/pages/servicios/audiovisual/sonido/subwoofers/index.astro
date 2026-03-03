@@ -1,0 +1,687 @@
+---
+/**
+ * ─── Subwoofers y Graves — Pagina de Producto (Nivel 4) ───
+ * Subwoofers de 18 y 21 pulgadas para fiestas, conciertos y
+ * eventos con DJ en CDMX.
+ *
+ * Jerarquia: Servicios > Audiovisual > Sonido > Subwoofers
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Audiovisual", href: "/servicios/audiovisual/" },
+  { label: "Sonido", href: "/servicios/audiovisual/sonido/" },
+  { label: "Subwoofers y Graves" },
+];
+
+const faqs = [
+  { question: "¿Cuántos subwoofers necesito para mi evento?", answer: "La proporción recomendada es <strong>1 subwoofer por cada 100 personas en espacios cerrados y 1 por cada 50 personas al aire libre</strong>. Para eventos con DJ o música electrónica, recomendamos aumentar la proporción. Por ejemplo: una boda en salón con 150 invitados necesita 2 subwoofers de 18 pulgadas; un festival outdoor con 300 personas requiere 6 subwoofers mínimo. Para configuraciones cardioide (graves direccionales), se requieren al menos 3 unidades. Nuestro ingeniero calcula la configuración exacta según tu evento." },
+  { question: "¿Qué diferencia hay entre un subwoofer de 18 y uno de 21 pulgadas?", answer: 'El <strong>subwoofer de 18 pulgadas</strong> es el estándar profesional para eventos en salón: pesa entre 35-40 kg, tiene respuesta desde 35 Hz y entrega 1,200-1,500W RMS. Perfecto para bodas, corporativos y fiestas de hasta 300 personas. El <strong>subwoofer de 21 pulgadas</strong> es la opción de máxima potencia: pesa entre 45-55 kg, tiene respuesta desde 28 Hz y entrega 2,000-3,000W RMS. Ideal para conciertos, festivales y eventos donde los graves profundos son protagonistas. Ambos son activos con amplificación integrada.' },
+  { question: "¿Qué es la configuración cardioide y cuándo la necesito?", answer: "La <strong>configuración cardioide</strong> es una técnica de posicionamiento de subwoofers que concentra la energía sonora hacia el frente (donde está la audiencia) y la reduce significativamente hacia atrás (donde están los vecinos o el escenario). Se logra con <strong>mínimo 3 subwoofers posicionados estratégicamente</strong> con procesamiento digital de fase. Es ideal para <strong>venues con restricciones de ruido, eventos cerca de zonas residenciales, escenarios donde los artistas necesitan menos graves en el monitor</strong> y cualquier producción que requiera control preciso de los graves." },
+  { question: "¿Los subwoofers se pueden usar solos o necesitan bocinas/line array?", answer: 'Los subwoofers son <strong>complemento de un sistema de sonido principal</strong> (bocinas amplificadas o line array). Reproducen únicamente las frecuencias bajas (28-150 Hz), por lo que necesitan tops (cajas de medios y agudos) para un sonido completo. Nuestros paquetes incluyen la combinación correcta: el <strong>Kit DJ</strong> incluye 2 subwoofers + 2 bocinas tops, y los sistemas line array ya incluyen subwoofers dimensionados. Si ya tienes tu propio sistema de tops, puedes rentar subwoofers individuales como complemento. Consulta nuestras <a href="/servicios/audiovisual/sonido/bocinas/">bocinas amplificadas</a> o <a href="/servicios/audiovisual/sonido/line-array/">sistemas line array</a>.' },
+  { question: "¿Se puede sentir la vibración de los subwoofers en el piso?", answer: "Sí, los subwoofers profesionales generan vibraciones que se transmiten al piso, especialmente en frecuencias por debajo de 40 Hz. Para <strong>eventos en pisos elevados o estructuras sensibles</strong>, utilizamos bases aislantes de goma que reducen la transmisión de vibraciones al suelo. En eventos sobre <strong>pistas de baile o tarimas</strong>, los subwoofers se posicionan estratégicamente para que la vibración se perciba como parte de la experiencia sin afectar la estructura. Nuestro ingeniero evalúa las condiciones del piso y selecciona la configuración más segura." },
+  { question: "¿Los subwoofers consumen mucha electricidad?", answer: "Los subwoofers profesionales con amplificación clase D son <strong>eficientes energéticamente</strong>. Un subwoofer de 18 pulgadas consume entre 800-1,200W y uno de 21 pulgadas entre 1,500-2,500W. Para eventos con 2-4 subwoofers, un circuito de <strong>110V/20A estándar</strong> es suficiente. Para configuraciones grandes con 6+ subwoofers, recomendamos un circuito dedicado o una <a href=\"/servicios/accesorios/plantas-energia/\">planta de energía</a>. Cada subwoofer incluye protección contra sobrecarga y nuestro equipo técnico verifica la instalación eléctrica del venue antes de conectar." },
+];
+
+const specs = [
+  { label: "Tamaños", value: "18\" y 21\" profesionales" },
+  { label: "Potencia", value: "1,200W – 3,000W RMS" },
+  { label: "Frecuencia", value: "28 – 150 Hz" },
+  { label: "Modo", value: "Cardioide / Omnidireccional" },
+  { label: "Marcas", value: "JBL / QSC / d&b audiotechnik" },
+  { label: "Amplificación", value: "Activos clase D integrada" },
+  { label: "Procesador", value: "DSP integrado con crossover" },
+  { label: "Apilable", value: "Sí, hasta 4 por stack" },
+  { label: "Peso", value: "35 – 55 kg según modelo" },
+  { label: "Proporción", value: "1 sub/100 pers interior, 1/50 exterior" },
+];
+
+const sidebarNav = [
+  { name: "Sistemas Line Array", href: "/servicios/audiovisual/sonido/line-array/" },
+  { name: "Bocinas Amplificadas", href: "/servicios/audiovisual/sonido/bocinas/" },
+  { name: "Subwoofers y Graves", href: null, active: true },
+  { name: "Mezcladoras y Monitoreo", href: "/servicios/audiovisual/sonido/mezcladoras/" },
+];
+
+const sidebarRelated = [
+  { name: "Bocinas Amplificadas", href: "/servicios/audiovisual/sonido/bocinas/" },
+  { name: "Equipo DJ", href: "/servicios/audiovisual/microfonos-dj/" },
+  { name: "Line Array", href: "/servicios/audiovisual/sonido/line-array/" },
+  { name: "Iluminación Escenario", href: "/servicios/iluminacion/escenario/" },
+  { name: "Pistas de Baile", href: "/servicios/pistas-baile/" },
+];
+
+const reviews = [
+  { author: "Diego Hernández", text: "Rentamos 4 subwoofers de 18 pulgadas para una fiesta de fin de año con DJ en un salón de Polanco. La potencia de graves fue increíble, la pista de baile no paró en toda la noche. El ingeniero configuró todo en cardioide para no molestar a los vecinos y funcionó perfecto. Servicio de primera.", rating: 5, date: "2025-12-20" },
+  { author: "Valeria Sánchez", text: "Agregamos 2 subwoofers de 21 pulgadas a nuestro line array para un concierto al aire libre de 1,500 personas. Los graves se sentían en todo el cuerpo desde el frente hasta la parte de atrás. El equipo técnico fue super profesional y el montaje estuvo listo a tiempo. Totalmente recomendados.", rating: 5, date: "2025-10-30" },
+  { author: "Ricardo Morales", text: "Contraté el Kit DJ completo con 2 subs y 2 tops para la boda de mi hermana en un jardín. El sonido fue potente y claro, los graves le dieron otra dimensión a la fiesta. El operador coordinó todo con el DJ y no hubo un solo problema. Excelente relación calidad-precio.", rating: 5, date: "2025-09-14" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Subwoofers para Eventos en CDMX",
+    description: "Renta de subwoofers de 18 y 21 pulgadas para fiestas, conciertos y eventos con DJ en CDMX. Potencia de graves profesional. Desde $1,500 por unidad.",
+    url: "/servicios/audiovisual/sonido/subwoofers/",
+    priceRange: { min: 1500, max: 6000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 145,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Audiovisual", url: "/servicios/audiovisual/" },
+    { name: "Sonido", url: "/servicios/audiovisual/sonido/" },
+    { name: "Subwoofers y Graves", url: "/servicios/audiovisual/sonido/subwoofers/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Subwoofers para Eventos en CDMX"
+  description="Renta de subwoofers de 18 y 21 pulgadas para fiestas, conciertos y eventos con DJ en CDMX. Potencia de graves profesional. Desde $1,500 por unidad."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Potencia de graves que se siente"
+    title='Renta de <span class="highlight">Subwoofers</span> para Eventos en CDMX'
+    subtitle="Subwoofers profesionales de 18 y 21 pulgadas JBL, QSC y d&b audiotechnik. Configuración cardioide disponible. Ingeniero de audio incluido en cada renta."
+    primaryCTA={{ label: "Cotiza tus subwoofers", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar subwoofers para mi evento` }}
+    cards={[
+      {
+        title: "Subwoofers de 18 y 21 pulgadas con potencia profesional",
+        content: "<strong>Renta de subwoofers profesionales</strong> con las marcas líderes del audio para eventos en CDMX. Subwoofers activos de 18 pulgadas (1,200-1,500W RMS) para bodas y fiestas en salón, y 21 pulgadas (2,000-3,000W RMS) para conciertos, festivales y eventos masivos. Respuesta en frecuencia desde 28 Hz para graves profundos y definidos que se sienten en todo el cuerpo. Configuración cardioide disponible para concentrar los graves hacia la audiencia y reducir el impacto en áreas no deseadas.",
+      },
+      {
+        title: "Configuración profesional con ingeniero de audio incluido",
+        content: "<strong>Servicio técnico completo incluido</strong> en cada renta de subwoofers. Nuestro ingeniero de audio calcula la cantidad y posicionamiento exacto de subwoofers según el tamaño de tu evento, tipo de venue y género musical. Procesador DSP integrado con crossover digital para integración perfecta con bocinas o line array. Configuración cardioide para venues con restricciones de ruido. Cada subwoofer se verifica y calibra antes de la entrega para garantizar rendimiento óptimo.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas graves potentes para tu próximo evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con la configuración de subwoofers ideal para tu evento"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Sonido Profesional</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas subwoofers para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar subwoofers para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Subwoofers Profesionales</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Sub 18" -->
+          <section class="section section--alt" aria-labelledby="sub18-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">El estándar para fiestas y bodas</span>
+                <h2 class="showcase__title" id="sub18-heading">Subwoofer 18 Pulgadas</h2>
+                <p class="showcase__subtitle">Graves profundos y definidos para fiestas, bodas y eventos en salón de hasta 300 personas.</p>
+                <p class="showcase__text">Nuestro <strong>subwoofer de 18 pulgadas</strong> es el estándar de la industria para eventos en espacios cerrados. Con <strong>1,200-1,500W RMS de potencia</strong> y respuesta en frecuencia desde 35 Hz, entrega graves profundos, controlados y con definición que transforman cualquier fiesta. La amplificación clase D integrada garantiza eficiencia energética y un peso manejable de 35-40 kg. Gabinete de madera contrachapada de abedul con acabado resistente a impactos.</p>
+                <p class="showcase__text">Incluye <strong>procesador DSP con crossover digital y protección contra sobrecarga</strong>. Se integra perfectamente con nuestras bocinas amplificadas mediante el filtro de crossover que separa las frecuencias bajas automáticamente. Ideal como complemento para <strong>bodas con DJ en salón, fiestas privadas, XV años, graduaciones y cualquier evento social de hasta 300 personas</strong> donde quieras que la música se sienta en el cuerpo. Combínalo con nuestras <a href="/servicios/pistas-baile/">pistas de baile</a> para la experiencia completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">18 pulgadas</span>
+                  <span class="showcase__tag">1,200-1,500W RMS</span>
+                  <span class="showcase__tag">Desde 35 Hz</span>
+                  <span class="showcase__tag">Hasta 300 personas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Sub 18"
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/>
+                  </svg>
+                  <span>Subwoofer 18"</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Sub 21" -->
+          <section class="section section--alt" aria-labelledby="sub21-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Máxima potencia para conciertos</span>
+                <h2 class="showcase__title" id="sub21-heading">Subwoofer 21 Pulgadas</h2>
+                <p class="showcase__subtitle">La potencia máxima en graves para conciertos, festivales y eventos donde los bajos son protagonistas.</p>
+                <p class="showcase__text">El <strong>subwoofer de 21 pulgadas</strong> es nuestra opción de máxima potencia para producciones de gran formato. Con <strong>2,000-3,000W RMS</strong> y respuesta en frecuencia desde 28 Hz, este subwoofer reproduce los graves más profundos con una presión acústica que se siente en todo el cuerpo, incluso a grandes distancias. El driver de 21 pulgadas mueve un volumen de aire significativamente mayor que el de 18, resultando en graves más profundos y con mayor impacto físico.</p>
+                <p class="showcase__text">Diseñado para <strong>conciertos, festivales de música electrónica, eventos de DJ de gran formato y cualquier producción donde los graves sean el protagonista</strong>. Gabinete reforzado de madera contrachapada de abedul con recubrimiento de poliurea resistente a condiciones de gira. Se apilan hasta 4 unidades por stack para configuraciones de máxima potencia. Incluye <strong>amplificación de alto rendimiento con protección térmica y limitadores de pico</strong>. Complementa con nuestro <a href="/servicios/audiovisual/sonido/line-array/">sistema line array</a> para una producción de concierto completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">21 pulgadas</span>
+                  <span class="showcase__tag">2,000-3,000W RMS</span>
+                  <span class="showcase__tag">Desde 28 Hz</span>
+                  <span class="showcase__tag">Conciertos / Festivales</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Sub 21"
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/>
+                  </svg>
+                  <span>Subwoofer 21"</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Kit DJ -->
+          <section class="section section--alt" aria-labelledby="kitdj-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">El favorito para fiestas con DJ</span>
+                <h2 class="showcase__title" id="kitdj-heading">Kit DJ Completo</h2>
+                <p class="showcase__subtitle">2 subwoofers + 2 bocinas tops: el paquete completo para fiestas con DJ de hasta 400 personas.</p>
+                <p class="showcase__text">Nuestro <strong>Kit DJ</strong> es el paquete más solicitado para <strong>fiestas con DJ, XV años, graduaciones y celebraciones</strong> donde la música es la protagonista. Incluye <strong>2 subwoofers de 18 pulgadas + 2 bocinas tops de 15 pulgadas en trípode</strong>, configurados como un sistema completo de rango extendido. Los subwoofers proporcionan los graves profundos que hacen vibrar la pista, mientras que los tops entregan los medios y agudos con claridad cristalina.</p>
+                <p class="showcase__text">El kit incluye <strong>procesador de crossover digital que separa las frecuencias automáticamente</strong>, cables XLR profesionales, y un operador de audio que configura el sistema, ecualiza según el espacio y monitorea los niveles durante todo el evento. Los subwoofers se posicionan a los lados de la cabina del DJ o bajo la tarima para máximo impacto. Cubre con holgura eventos de <strong>hasta 400 personas en salón cerrado</strong>. Combina con nuestra <a href="/servicios/iluminacion/escenario/">iluminación de escenario</a> para crear la experiencia completa de club.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">2 subs 18"</span>
+                  <span class="showcase__tag">2 tops 15"</span>
+                  <span class="showcase__tag">Crossover digital</span>
+                  <span class="showcase__tag">Hasta 400 personas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit DJ
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/>
+                  </svg>
+                  <span>Kit DJ Completo</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Stack Cardioide -->
+          <section class="section section--alt" aria-labelledby="cardioide-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Graves direccionales para venues sensibles</span>
+                <h2 class="showcase__title" id="cardioide-heading">Stack Cardioide</h2>
+                <p class="showcase__subtitle">Configuración de graves direccionales que concentra la potencia hacia la audiencia y reduce el ruido detrás del escenario.</p>
+                <p class="showcase__text">El <strong>Stack Cardioide</strong> es nuestra configuración más avanzada de subwoofers, diseñada para <strong>venues con restricciones de ruido, eventos cerca de zonas residenciales y producciones que requieren control preciso de los graves</strong>. Utilizamos mínimo <strong>3 subwoofers posicionados estratégicamente</strong> con procesamiento digital de fase que concentra la energía sonora hasta <strong>15 dB más</strong> hacia el frente comparado con la parte trasera del stack.</p>
+                <p class="showcase__text">Esta configuración es la preferida por <strong>ingenieros de audio profesionales</strong> porque elimina la acumulación indeseada de graves detrás del escenario (que afecta a los músicos), reduce las quejas de vecinos y cumple con las normativas de ruido de la CDMX sin sacrificar potencia para la audiencia. Requiere <strong>procesador digital avanzado con gestión de fase y delay</strong> que nuestro ingeniero configura en sitio. Ideal para <strong>jardines de eventos, haciendas, terrazas y venues urbanos con vecinos cercanos</strong>. Complementa con nuestras <a href="/servicios/carpas/">carpas estructurales</a> para contener el sonido.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Cardioide</span>
+                  <span class="showcase__tag">-15 dB trasero</span>
+                  <span class="showcase__tag">Procesamiento digital</span>
+                  <span class="showcase__tag">Anti-ruido</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Stack Cardioide
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/>
+                  </svg>
+                  <span>Stack Cardioide</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Subwoofers"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tus subwoofers, es natural tener preguntas sobre potencia, configuración y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor técnico te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de audio resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre subwoofers para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Sonido Profesional</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/audiovisual/sonido/" class="sidebar-nav__back">&uarr; Volver a Sonido</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/audiovisual/" class="sidebar-nav__back">&uarr; Volver a Audiovisual</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de audio:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas subwoofers para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar subwoofers para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tus Subwoofers"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores técnicos te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un subwoofer individual o un stack cardioide completo, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoSub">
+                Tipo de subwoofer
+              </label>
+              <select id="tipoSub" name="tipoSub" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de subwoofer</option>
+                <option value='Sub 18" Individual'>Sub 18" Individual</option>
+                <option value='Sub 21" Individual'>Sub 21" Individual</option>
+                <option value='Par Sub 18"'>Par Sub 18"</option>
+                <option value='Par Sub 21"'>Par Sub 21"</option>
+                <option value="Kit DJ Completo">Kit DJ Completo</option>
+                <option value="Stack Cardioide">Stack Cardioide</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Cuéntanos los detalles: número de asistentes, tipo de venue (salón/jardín/foro), tipo de música (DJ/electrónica/en vivo), si necesitas configuración cardioide..." rows="4" required></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para recomendarte la configuración de subwoofers ideal.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría técnica personalizada para tu presupuesto.</p>
+          </div>
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoSub = document.getElementById('tipoSub').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Subwoofers para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoSub) texto += `*Tipo de subwoofer:* ${tipoSub}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Audiovisual"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de equipo audiovisual para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">A</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">AudioVisual Pro MX</h3>
+            <p class="partner-card__tagline">Subwoofers y Audio Profesional</p>
+            <p class="partner-card__text">Líder en renta de subwoofers profesionales y sistemas de audio para conciertos, festivales y eventos con DJ en CDMX. Subwoofers JBL, QSC y d&b con configuración cardioide disponible.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">S</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">SonidoEventos CDMX</h3>
+            <p class="partner-card__tagline">Audio Profesional para Eventos</p>
+            <p class="partner-card__text">Especialistas en subwoofers y soluciones de audio para fiestas, bodas y eventos sociales. Kits DJ completos, configuraciones cardioide y operadores técnicos certificados.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">T</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">TechEvents</h3>
+            <p class="partner-card__tagline">Tecnología Audiovisual para Eventos</p>
+            <p class="partner-card__text">Más de 10 años proporcionando equipo audiovisual de última generación para eventos en CDMX. Subwoofers, line array, iluminación y producción integral de conciertos y festivales.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MediaRent</h3>
+            <p class="partner-card__tagline">Renta de Equipo Multimedia</p>
+            <p class="partner-card__text">Servicio integral de renta de equipo multimedia con logística profesional en toda la CDMX y área metropolitana. Subwoofers, sonido, iluminación y operadores técnicos certificados.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Graves potentes que transforman la experiencia de tu evento"
+    subheadline="Más de 500 eventos con subwoofers profesionales nos respaldan. Cotiza hoy y recibe asesoría técnica sin compromiso."
+    primaryCTA={{ label: "Cotizar subwoofers", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar subwoofers para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

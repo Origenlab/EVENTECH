@@ -1,0 +1,750 @@
+---
+/**
+ * ─── Lounge Elegante — Pagina de Producto (Nivel 4) ───
+ * Sets premium de sala lounge Elegante en tela satinada con hilos metalicos:
+ * champagne dorado, plata rose, marfil perlado y blanco cristal.
+ *
+ * Jerarquia: Servicios > Mobiliario > Salas Lounge > Lounge Elegante
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Salas Lounge", href: "/servicios/mobiliario/salas-lounge/" },
+  { label: "Lounge Elegante" },
+];
+
+const faqs = [
+  { question: "¿Qué hace diferente al Lounge Elegante de los demás estilos?", answer: 'El Lounge Elegante es nuestra <strong>línea premium</strong> con materiales y acabados de la más alta calidad. La diferencia principal está en la <strong>tela satinada con hilos metálicos</strong> (no cuero ni terciopelo), el <strong>sofá curvo</strong> (no recto), los <strong>sillones tipo trono</strong> con respaldo dorado alto (120 cm), la <strong>mesa espejada</strong> y los <strong>cojines con lentejuelas</strong> incluidos. Es la línea diseñada para eventos donde el lujo es prioridad.' },
+  { question: "¿Los sillones trono son solo decorativos o funcionales?", answer: 'Son completamente funcionales. Cada sillón trono soporta <strong>130 kg de carga</strong> con asiento acolchado de alta densidad. El respaldo alto de 120 cm con acabado dorado no solo es espectacular visualmente, sino que ofrece soporte ergonómico. Son los asientos favoritos de novios para la mesa de honor y protocolo de presidencia en galas.' },
+  { question: "¿La tela satinada se mancha fácilmente?", answer: 'La tela satinada con hilos metálicos tiene <strong>tratamiento antimanchas Scotchgard</strong> de fábrica. Derrames menores se eliminan con un paño húmedo. Para nuestro servicio, cada pieza se <strong>limpia profesionalmente</strong> antes y después de cada evento. Incluimos protectores de asiento transparentes para la hora de la cena si lo requieres.' },
+  { question: "¿Puedo rentar los sillones trono por separado?", answer: 'Sí. Ofrecemos <strong>renta de piezas individuales</strong>: sillones trono (ideales para mesa de honor o zona de fotos), sofá curvo (para recepción), mesas espejadas y cojines de lentejuelas. También puedes configurar sets personalizados combinando piezas de nuestra línea Elegante.' },
+  { question: "¿Combina con otros estilos de lounge?", answer: 'Sí, especialmente con <a href="/servicios/mobiliario/salas-lounge/vintage/">Lounge Vintage</a> para crear zonas con diferentes niveles de exclusividad. La combinación más solicitada es Elegante champagne para zona VIP/mesa de honor y Vintage esmeralda para áreas sociales. Nuestros asesores diseñan la distribución para que la transición entre estilos sea armoniosa.' },
+  { question: "¿Con cuánta anticipación debo reservar?", answer: 'Al ser nuestra línea premium con inventario limitado, recomendamos <strong>4 a 6 semanas de anticipación</strong>. Los tonos champagne dorado y plata rosé son los más solicitados y se agotan rápido en temporada de bodas. Para eventos de diciembre, sugerimos reservar desde <strong>octubre</strong>. Anticipo del 40% confirma tu reserva premium.' },
+];
+
+const specs = [
+  { label: "Tapicería", value: "Tela satinada con hilos metálicos" },
+  { label: "Estructura", value: "Madera reforzada con acabados dorado champagne" },
+  { label: "Tonos premium", value: "Champagne dorado, Plata rosé, Marfil perlado, Blanco cristal" },
+  { label: "Set premium incluye", value: "Sofá curvo 3 plazas + 2 sillones trono + mesa espejada + mesa dorada + 4 cojines lentejuelas" },
+  { label: "Sofá curvo", value: "220 cm largo × 95 cm profundidad × 85 cm alto" },
+  { label: "Sillones trono", value: "90 cm ancho × 90 cm profundidad × 120 cm alto (respaldo alto dorado)" },
+  { label: "Mesa centro", value: "Espejo con marco dorado (100 × 60 cm)" },
+  { label: "Capacidad", value: "Set para 5-7 personas sentadas" },
+  { label: "Resistencia", value: "130 kg por asiento" },
+  { label: "Mantenimiento", value: "Limpieza premium especializada incluida pre-evento" },
+];
+
+const sidebarNav = [
+  { name: "Lounge Moderno", href: "/servicios/mobiliario/salas-lounge/moderno/" },
+  { name: "Lounge Vintage", href: "/servicios/mobiliario/salas-lounge/vintage/" },
+  { name: "Lounge Boho", href: "/servicios/mobiliario/salas-lounge/boho/" },
+  { name: "Lounge Elegante", href: null, active: true },
+];
+
+const sidebarRelated = [
+  { name: "Sillas de Diseño", href: "/servicios/mobiliario/sillas/" },
+  { name: "Mesas para Eventos", href: "/servicios/mobiliario/mesas/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+  { name: "Accesorios Premium", href: "/servicios/accesorios/" },
+  { name: "Carpas Estructurales", href: "/servicios/carpas/estructurales/" },
+];
+
+const reviews = [
+  { author: "Lorena Fuentes", text: "El lounge Elegante champagne dorado fue la estrella de nuestra boda en Hotel Camino Real. Los sillones trono junto a la mesa de honor fueron espectaculares — parecíamos realeza. Los hilos metálicos brillaban con la iluminación y cada foto quedó increíble. Servicio de primera clase.", rating: 5, date: "2025-12-15" },
+  { author: "Gabriela Sánchez", text: "Para los XV años de mi hija elegimos Elegante plata rosé. El efecto fue mágico — el brillo sutil de la tela satinada combinó perfecto con nuestra temática de princesa. Los cojines con lentejuelas fueron el detalle que enamoró a todas las invitadas. Montaje impecable.", rating: 5, date: "2025-11-02" },
+  { author: "Eduardo Villanueva", text: "Necesitábamos lounge premium para nuestra gala de premiación anual. El blanco cristal con los sillones trono dorados creó un ambiente de exclusividad total. Nuestros ejecutivos y homenajeados quedaron impresionados. Repetiremos sin duda para el próximo año.", rating: 5, date: "2025-09-20" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Lounge Elegante para Eventos en CDMX",
+    description: "Renta de salas lounge Elegante con tela satinada e hilos metálicos en champagne dorado, plata rosé, marfil perlado y blanco cristal. La línea premium para galas y bodas de lujo. Desde $5,000.",
+    url: "/servicios/mobiliario/salas-lounge/elegante/",
+    priceRange: { min: 5000, max: 18000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 65,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Salas Lounge", url: "/servicios/mobiliario/salas-lounge/" },
+    { name: "Lounge Elegante", url: "/servicios/mobiliario/salas-lounge/elegante/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Lounge Elegante para Eventos en CDMX"
+  description="Renta de salas lounge Elegante con tela satinada e hilos metálicos en champagne dorado, plata rosé, marfil perlado y blanco cristal. La línea premium para galas y bodas de lujo. Desde $5,000."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="La línea premium para bodas de lujo"
+    title='Renta de <span class="highlight">Lounge Elegante</span> para Eventos en CDMX'
+    subtitle="Sets premium de sala lounge Elegante en tela satinada con hilos metálicos: champagne dorado, plata rosé, marfil perlado y blanco cristal. Sofá curvo de 3 plazas, sillones tipo trono, mesa de centro espejada, mesa lateral dorada y cojines con lentejuelas. Montaje profesional incluido."
+    primaryCTA={{ label: "Cotiza tu lounge Elegante", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar lounge Elegante para mi evento` }}
+    cards={[
+      {
+        title: "Tela satinada con hilos metálicos en 4 tonos premium",
+        content: "<strong>Renta de lounge Elegante</strong> — nuestra línea más exclusiva para galas de premiación, bodas de lujo y eventos de alta sociedad en CDMX. Tapizado en tela satinada con hilos metálicos que capturan la luz de forma espectacular. Estructura reforzada con <strong>acabados en dorado champagne y detalles en espejo</strong>. 4 tonos premium: <strong>champagne dorado</strong> para bodas opulentas, <strong>plata rosé</strong> para XV años, <strong>marfil perlado</strong> para ceremonias religiosas y <strong>blanco cristal</strong> para galas impolutas.",
+      },
+      {
+        title: "Sets premium con sofá curvo, sillones trono y accesorios de lujo",
+        content: "<strong>Servicio integral de lounge Elegante</strong> con set premium: sofá curvo de 3 plazas (220 cm), 2 sillones tipo trono con respaldo alto dorado, mesa de centro espejada, mesa lateral con acabado dorado y 4 cojines decorativos con lentejuelas. Cada pieza es una declaración de estilo que eleva cualquier venue a categoría de lujo. Montaje profesional con ajuste milimétrico y distribución según plano de evento.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Buscas lounge Elegante con tela satinada e hilos metálicos para tu evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con tonos premium y distribución para tu venue"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Salas Lounge para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas lounge Elegante para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar lounge Elegante para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/><path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/><path d="M5 21v-2"/><path d="M19 21v-2"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Lounge Elegante</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Lounge Elegante Champagne Dorado -->
+          <section class="section section--alt" aria-labelledby="champagne-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Bodas de lujo y opulencia</span>
+                <h2 class="showcase__title" id="champagne-heading">Lounge Elegante Champagne Dorado</h2>
+                <p class="showcase__subtitle">El champagne dorado irradia opulencia y calidez. La elección preferida para bodas de ensueño en haciendas, hoteles boutique y salones de gala.</p>
+                <p class="showcase__text">El <strong>lounge Elegante champagne dorado</strong> es sinónimo de opulencia y calidez para las bodas más soñadas de la Ciudad de México. Los hilos metálicos dorados capturan cada rayo de luz creando un brillo sutil que fascina a los invitados desde el primer momento. La tela satinada en tono champagne aporta una elegancia cálida que combina naturalmente con haciendas coloniales, hoteles boutique y salones de gala con techos altos.</p>
+                <p class="showcase__text">Combina con <a href="/servicios/iluminacion/decorativa/">iluminación cálida</a> y candelabros para un efecto deslumbrante. El sofá curvo de 220 cm con los <strong>sillones tipo trono dorados</strong> crean la zona de honor perfecta para los novios, mientras que la mesa espejada refleja la luz ambiental multiplicando la sensación de lujo. Cada detalle — desde los cojines con lentejuelas hasta los acabados en dorado champagne — está diseñado para que tu boda sea una experiencia inolvidable.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Champagne Dorado</span>
+                  <span class="showcase__tag">Bodas de Lujo</span>
+                  <span class="showcase__tag">Haciendas</span>
+                  <span class="showcase__tag">Opulencia</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Lounge Champagne Dorado
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/>
+                    <path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/>
+                    <path d="M5 21v-2"/><path d="M19 21v-2"/>
+                  </svg>
+                  <span>Lounge Elegante Champagne Dorado</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Lounge Elegante Plata Rosé -->
+          <section class="section section--alt" aria-labelledby="plata-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">XV años y celebraciones femeninas</span>
+                <h2 class="showcase__title" id="plata-heading">Lounge Elegante Plata Rosé</h2>
+                <p class="showcase__subtitle">Plata rosé combina la frescura del plateado con la calidez del rosa — una paleta moderna y juvenil.</p>
+                <p class="showcase__text">El <strong>lounge Elegante plata rosé</strong> es la fusión perfecta entre la frescura del plateado y la calidez del rosa para celebraciones femeninas y juveniles en CDMX. Ideal para XV años con temática de princesa, despedidas de soltera exclusivas y bodas con paleta rosada. Los hilos metálicos plateados aportan un brillo sofisticado sin saturar, creando un ambiente romántico y moderno que encanta a todas las generaciones.</p>
+                <p class="showcase__text">Los <strong>sillones tipo trono</strong> en plata rosé son el centro de atención para la festejada y su corte de honor. La mesa espejada complementa el tono plateado creando reflejos que multiplican el brillo. Combina con <a href="/servicios/iluminacion/decorativa/fairy-lights/">fairy lights</a> en tono cálido y arreglos florales en rosa y blanco para un resultado de revista. Los cojines con lentejuelas plateadas son el detalle final que tus invitadas querrán fotografiar.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Plata Rosé</span>
+                  <span class="showcase__tag">XV Años</span>
+                  <span class="showcase__tag">Despedidas</span>
+                  <span class="showcase__tag">Bodas Rosadas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Lounge Plata Rosé
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/>
+                    <path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/>
+                    <path d="M5 21v-2"/><path d="M19 21v-2"/>
+                  </svg>
+                  <span>Lounge Elegante Plata Rosé</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Lounge Elegante Marfil Perlado -->
+          <section class="section section--alt" aria-labelledby="marfil-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Ceremonias y recepciones</span>
+                <h2 class="showcase__title" id="marfil-heading">Lounge Elegante Marfil Perlado</h2>
+                <p class="showcase__subtitle">Marfil perlado transmite pureza y serenidad. La opción más refinada para ceremonias religiosas, recepciones de boda y eventos de alta categoría.</p>
+                <p class="showcase__text">El <strong>lounge Elegante marfil perlado</strong> transmite pureza, serenidad y refinamiento para las ceremonias más solemnes de la Ciudad de México. El acabado perlado crea un efecto nacarado sutil que se aprecia especialmente en fotografías profesionales, otorgando a cada toma un brillo etéreo que eleva la estética del evento. Ideal para ceremonias religiosas, recepciones de boda clásicas y eventos donde la discreción es sinónimo de lujo.</p>
+                <p class="showcase__text">Combina con flores blancas y cristalería fina para una estética impecable. El <strong>sofá curvo marfil</strong> con los sillones trono de respaldo dorado alto generan un contraste sutil pero contundente — la calidez del marfil enmarcada por el brillo del dorado. La mesa espejada refleja los arreglos florales y la iluminación, duplicando la belleza del montaje. Complementa con <a href="/servicios/accesorios/manteleria-textiles/">mantelería premium</a> en tonos neutros para un resultado cohesivo y fotogénico.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Marfil Perlado</span>
+                  <span class="showcase__tag">Ceremonias</span>
+                  <span class="showcase__tag">Recepciones</span>
+                  <span class="showcase__tag">Refinamiento</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Lounge Marfil Perlado
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/>
+                    <path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/>
+                    <path d="M5 21v-2"/><path d="M19 21v-2"/>
+                  </svg>
+                  <span>Lounge Elegante Marfil Perlado</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Lounge Elegante Blanco Cristal -->
+          <section class="section section--alt" aria-labelledby="blanco-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Galas y premiaciones</span>
+                <h2 class="showcase__title" id="blanco-heading">Lounge Elegante Blanco Cristal</h2>
+                <p class="showcase__subtitle">Blanco cristal absoluto para galas impolutas y eventos donde la limpieza visual es prioridad.</p>
+                <p class="showcase__text">El <strong>lounge Elegante blanco cristal</strong> es la expresión máxima de pureza visual para galas impolutas y eventos donde cada detalle debe transmitir excelencia. Los sillones trono dorados son el contraste perfecto contra el blanco puro de la tela satinada, creando una composición de alto impacto visual que fotografía de manera espectacular. Ideal para premiaciones corporativas, lanzamientos de marca premium y bodas minimalistas de alto nivel.</p>
+                <p class="showcase__text">El blanco cristal es el lienzo perfecto para que la <a href="/servicios/iluminacion/arquitectonica/">iluminación arquitectónica</a> transforme el ambiente con cambios de color según el momento del evento. Los hilos metálicos capturan y reflejan cualquier tono de luz, permitiendo que un mismo set pase de blanco puro en la ceremonia a dorado cálido en la cena y a tonos vibrantes en la fiesta. Los <strong>cojines con lentejuelas</strong> en blanco brillan bajo los reflectores creando un efecto de gala cinematográfica.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Blanco Cristal</span>
+                  <span class="showcase__tag">Galas</span>
+                  <span class="showcase__tag">Premiaciones</span>
+                  <span class="showcase__tag">Premium</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Lounge Blanco Cristal
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/>
+                    <path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/>
+                    <path d="M5 21v-2"/><path d="M19 21v-2"/>
+                  </svg>
+                  <span>Lounge Elegante Blanco Cristal</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Lounge Elegante"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar lounge Elegante para tu evento, es natural tener preguntas sobre materiales, tonos y logística. Aquí encontrarás las respuestas más comunes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un especialista en mobiliario lounge te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en lounge Elegante resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre lounge Elegante para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Salas Lounge -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Salas Lounge para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/salas-lounge/" class="sidebar-nav__back">&uarr; Volver a Salas Lounge</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/" class="sidebar-nav__back">&uarr; Volver a Mobiliario</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de lounge Elegante:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas lounge Elegante para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar lounge Elegante para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Lounge Elegante"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros especialistas en mobiliario lounge te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un set champagne dorado para tu boda de lujo o una combinación de tonos premium para tu gala, estamos aquí para crear espacios inolvidables."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoLounge">
+                Tono premium
+              </label>
+              <select id="tipoLounge" name="tipoLounge" class="form-field__input form-field__select">
+                <option value="">Selecciona el tono premium</option>
+                <option value="Elegante Champagne Dorado">Elegante Champagne Dorado</option>
+                <option value="Elegante Plata Rosé">Elegante Plata Rosé</option>
+                <option value="Elegante Marfil Perlado">Elegante Marfil Perlado</option>
+                <option value="Elegante Blanco Cristal">Elegante Blanco Cristal</option>
+                <option value="Paquete Boda de Lujo">Paquete Boda de Lujo</option>
+                <option value="Combinación Multi-Tono">Combinación Multi-Tono</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de sets, tono preferido, tipo de evento, venue, piezas individuales que necesitas..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para recomendar la distribución ideal de zonas lounge según el espacio.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada de tonos y distribución para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoLounge = document.getElementById('tipoLounge').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Lounge Elegante para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoLounge) texto += `*Tono premium:* ${tipoLounge}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Mobiliario"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de mobiliario lounge para eventos en la Ciudad de México. Cada aliado cuenta con inventario premium, logística profesional y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de tonos y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Mobiliario Premium MX</h3>
+            <p class="partner-card__tagline">Especialistas en Lounge de Lujo</p>
+            <p class="partner-card__text">Líder en renta de lounge Elegante para bodas de lujo y eventos de alta sociedad en CDMX. Sets premium en tela satinada con hilos metálicos y acabados dorados. Montaje profesional con ajuste milimétrico y asesoría de distribución incluida.</p>
+          </div>
+          <a href="https://rentadeiluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Rent All CDMX</h3>
+            <p class="partner-card__tagline">Lounge para Galas Premium</p>
+            <p class="partner-card__text">Especialistas en mobiliario lounge para galas de premiación, recepciones diplomáticas y eventos premium. Inventario exclusivo con sets Elegante en champagne dorado, plata rosé y blanco cristal. Servicio integral de entrega, montaje y recolección.</p>
+          </div>
+          <a href="https://redeil.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventMob</h3>
+            <p class="partner-card__tagline">Lounge Exclusivo y Premium</p>
+            <p class="partner-card__text">Más de 10 años proporcionando mobiliario lounge exclusivo para eventos en CDMX y Estado de México. Sets Elegante con acabados artesanales, tela satinada de importación y piezas premium que elevan cualquier evento a categoría de lujo.</p>
+          </div>
+          <a href="https://rentadesonidoeiluminacion.com.mx/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MesasyMás</h3>
+            <p class="partner-card__tagline">Sets Premium y Complementos</p>
+            <p class="partner-card__text">Logística impecable para eventos de gran escala. Flota propia de vehículos especializados para transporte seguro de mobiliario lounge premium. Entrega puntual, montaje cuidadoso y recolección post-evento en toda la Zona Metropolitana.</p>
+          </div>
+          <a href="https://renta-de-iluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Lounge Elegante que eleva tu evento a categoría de lujo"
+    subheadline="Nuestra línea premium ha sido protagonista en las bodas y galas más exclusivas de CDMX. Cotiza hoy y recibe asesoría de diseño personalizada."
+    primaryCTA={{ label: "Cotizar lounge Elegante", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar lounge Elegante para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

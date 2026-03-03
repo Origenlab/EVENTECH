@@ -1,0 +1,586 @@
+---
+/**
+ * ─── Mesas de Postres y Candy Bar — Página de Producto (Nivel 4) ───
+ * Mesas de postres escalonadas y candy bars para eventos.
+ *
+ * Jerarquía: Servicios > Mobiliario > Barras > Mesas de Postres
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Barras", href: "/servicios/mobiliario/barras/" },
+  { label: "Mesas de Postres" },
+];
+
+const faqs = [
+  { question: "¿Cuántos niveles necesito para mi evento?", answer: "Depende del número de invitados y variedad de postres: <strong>3 niveles</strong> para eventos de 50-80 personas, <strong>5 niveles</strong> para 80-200 personas y <strong>7 niveles</strong> para 200+ personas. La configuración también depende del tipo de postres — pasteles grandes requieren menos niveles con superficie amplia, mientras que cupcakes y dulces pequeños aprovechan más niveles." },
+  { question: "¿Las superficies son seguras para alimentos?", answer: "Sí. Todas nuestras superficies tienen <strong>tratamiento food-safe</strong> certificado para contacto directo con alimentos. La madera tiene barniz alimentario, el acrílico es grado alimenticio y las piezas vintage se sanitizan con productos aptos para contacto con comida." },
+  { question: "¿Puedo combinar líneas en una misma mesa?", answer: "Sí, la línea Vintage es especialmente versátil para combinaciones. Puedes usar una <strong>base de madera escalonada con bandejas vintage</strong> encima, o <strong>bases de acrílico con piezas decorativas vintage</strong>. Nuestros asesores te ayudan a crear la combinación perfecta." },
+  { question: "¿Incluye los postres y dulces?", answer: "No, la renta incluye únicamente la <strong>estructura y superficies de exhibición</strong>. Los postres, pasteles y dulces los proporciona tu servicio de catering o pastelería de preferencia. Podemos recomendarte pastelerías aliadas en CDMX si necesitas orientación." },
+  { question: "¿Cómo se monta y desmonta?", answer: "Nuestro equipo se encarga del <strong>montaje completo</strong>: armado de la estructura, nivelación de cada superficie, colocación de iluminación LED (si aplica) y verificación final. El montaje toma entre 30 y 60 minutos según la complejidad. La recolección se realiza al finalizar el evento." },
+  { question: "¿Con cuánta anticipación debo reservar?", answer: "Recomendamos <strong>2 a 3 semanas de anticipación</strong>. Las mesas de Acrílico LED y las configuraciones Vintage de 7 niveles son las más solicitadas. En temporada alta (noviembre-febrero), sugiere reservar con <strong>1 mes de anticipación</strong>." },
+];
+
+const specs = [
+  { label: "Líneas disponibles", value: "Madera escalonada, Acrílico LED, Vintage" },
+  { label: "Niveles", value: "De 3 a 7 según configuración" },
+  { label: "Capacidad", value: "50 a 300 porciones (según tamaño)" },
+  { label: "Superficie", value: "Tratamiento food-safe para contacto con alimentos" },
+  { label: "Madera", value: "Pino barnizado, acabado natural o blanco" },
+  { label: "Acrílico", value: "Transparente con retroiluminación LED 8 colores" },
+  { label: "Vintage", value: "Bandejas pedestal + vitrinas + piezas mix & match" },
+  { label: "Base", value: "Estructura metálica reforzada con niveladores" },
+  { label: "Altura total", value: "80 a 150 cm (según niveles)" },
+  { label: "Mantenimiento", value: "Sanitización incluida pre-evento" },
+];
+
+const sidebarNav = [
+  { name: "Barras de Bebidas", href: "/servicios/mobiliario/barras/barras-bebidas/" },
+  { name: "Mesas de Postres", href: null, active: true },
+  { name: "Periqueras y Bancos", href: "/servicios/mobiliario/barras/periqueras/" },
+  { name: "Accesorios Decorativos", href: "/servicios/mobiliario/barras/accesorios-decorativos/" },
+];
+
+const sidebarRelated = [
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+  { name: "Vajilla y Cristalería", href: "/servicios/catering/vajilla-cristaleria/" },
+  { name: "Sillas de Diseño", href: "/servicios/mobiliario/sillas/" },
+  { name: "Carpas Profesionales", href: "/servicios/carpas/" },
+];
+
+const reviews = [
+  { author: "Sofía Martínez", text: "La mesa de postres vintage de 5 niveles fue la estrella del candy bar de mi boda. Las bandejas doradas con pedestal le dieron un toque de pastelería parisina. Los invitados tomaban fotos antes de tomar sus dulces. Montaje impecable.", rating: 5, date: "2025-12-05" },
+  { author: "Ana Paula Guzmán", text: "Elegimos mesa acrílico LED para el baby shower y fue espectacular. Los cupcakes parecían flotar con la retroiluminación rosa. El efecto en las fotos fue increíble. Súper recomendado para eventos nocturnos.", rating: 5, date: "2025-10-20" },
+  { author: "Daniela Ochoa", text: "Para nuestra boda rústica en jardín, la mesa de madera escalonada fue perfecta. El acabado natural combinó hermosamente con la decoración. 7 niveles para 250 invitados y sobraron espacios. Excelente calidad.", rating: 5, date: "2025-09-08" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Mesas de Postres y Candy Bar para Eventos en CDMX",
+    description: "Renta de mesas de postres escalonadas y candy bars en madera, acrílico LED y vintage para bodas y eventos en CDMX. De 3 a 7 niveles. Desde $800. Montaje incluido.",
+    url: "/servicios/mobiliario/barras/postres/",
+    priceRange: { min: 800, max: 5000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 134,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Barras", url: "/servicios/mobiliario/barras/" },
+    { name: "Mesas de Postres", url: "/servicios/mobiliario/barras/postres/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Mesas de Postres y Candy Bar para Eventos en CDMX"
+  description="Renta de mesas de postres escalonadas y candy bars en madera, acrílico LED y vintage para bodas y eventos en CDMX. De 3 a 7 niveles. Desde $800. Montaje incluido."
+  jsonLd={jsonLd}
+>
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <HeroPage
+    badge="Exhibiciones gastronómicas que enamoran"
+    title='Renta de <span class="highlight">Mesas de Postres</span> para Eventos en CDMX'
+    subtitle="Mesas de postres y candy bars en 3 líneas: madera escalonada, acrílico con retroiluminación LED y vintage con piezas decorativas. De 3 a 7 niveles con capacidad de 50 a 300 porciones. Superficies aptas para contacto con alimentos. Montaje profesional incluido."
+    primaryCTA={{ label: "Cotiza tu mesa de postres", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar mesas de postres para mi evento` }}
+    cards={[
+      {
+        title: "Tres líneas de exhibición: madera, acrílico LED y vintage",
+        content: "<strong>Renta de mesas de postres</strong> con las estructuras más espectaculares para eventos en CDMX. Línea <strong>Madera</strong> con niveles escalonados de pino barnizado para bodas rústicas y baby showers. Línea <strong>Acrílico</strong> con superficies transparentes y retroiluminación LED opcional para eventos nocturnos. Línea <strong>Vintage</strong> con piezas de diferentes alturas, bandejas con pedestal y vitrinas decorativas — cada configuración diseñada para exhibir dulces como obras de arte.",
+      },
+      {
+        title: "Superficies food-safe con capacidad de 50 a 300 porciones",
+        content: "<strong>Servicio integral de mesas de postres</strong> con configuraciones de 3 a 7 niveles. Todas las superficies están tratadas para <strong>contacto directo con alimentos</strong>. Capacidad desde 50 porciones para eventos íntimos hasta 300 para bodas y galas. Montaje profesional con nivelación exacta de cada pieza, distribución visual atractiva y recolección incluida dentro de CDMX.",
+      },
+    ]}
+  />
+
+  <CTABanner
+    headline="¿Quieres una exhibición de postres espectacular en tu evento?"
+    subheadline="Cotiza sin compromiso — te ayudamos a elegir la línea y configuración perfecta"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- MOBILE SIDEBAR -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Barras y Complementos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas mesas de postres para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar mesas de postres para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT + SIDEBAR -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <div class="l4-main">
+
+          <!-- SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M6 12V8a6 6 0 0112 0v4"/><path d="M4 12v4a2 2 0 002 2h12a2 2 0 002-2v-4"/><path d="M12 18v3"/><path d="M8 21h8"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Mesas de Postres</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- SHOWCASE: Mesa de Postres Madera -->
+          <section class="section section--alt" aria-labelledby="madera-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Bodas y baby showers</span>
+                <h2 class="showcase__title" id="madera-heading">Mesa de Postres Madera</h2>
+                <p class="showcase__subtitle">Niveles escalonados en pino barnizado con acabado natural o blanco para eventos rústicos y elegantes.</p>
+                <p class="showcase__text">Nuestra <strong>mesa de postres en madera</strong> ofrece niveles escalonados fabricados en pino barnizado con acabado natural o blanco. Disponible en configuraciones de <strong>3 a 5 niveles</strong> con superficie amplia para pasteles, cupcakes, galletas decoradas y dulces artesanales. Las patas torneadas aportan una estética rústica que se integra naturalmente con decoraciones de bodas campestres, baby showers y bautizos.</p>
+                <p class="showcase__text">El barniz alimentario permite <strong>contacto directo con alimentos</strong> sin necesidad de charolas intermedias. La estructura de madera maciza soporta el peso de pasteles de varios pisos y exhibiciones abundantes sin flexión. Combina perfectamente con sillas <a href="/servicios/mobiliario/sillas/">Crossback</a> y <a href="/servicios/accesorios/manteleria-textiles/">mantelería natural</a> para un montaje coherente. Ideal para eventos de 50 a 200 invitados en jardines, haciendas y salones con estética orgánica.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Madera Escalonada</span>
+                  <span class="showcase__tag">Bodas Rústicas</span>
+                  <span class="showcase__tag">Baby Shower</span>
+                  <span class="showcase__tag">Natural</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Mesa Madera
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M2 12h20"/><path d="M6 12V8a6 6 0 0112 0v4"/><path d="M4 12v4a2 2 0 002 2h12a2 2 0 002-2v-4"/><path d="M12 18v3"/><path d="M8 21h8"/></svg>
+                  <span>Mesa de Postres Madera</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SHOWCASE: Mesa de Postres Acrílico LED -->
+          <section class="section section--alt" aria-labelledby="acrilico-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Eventos nocturnos</span>
+                <h2 class="showcase__title" id="acrilico-heading">Mesa de Postres Acrílico LED</h2>
+                <p class="showcase__subtitle">Superficies transparentes con retroiluminación LED en 8 colores para un efecto visual de flotación.</p>
+                <p class="showcase__text">Nuestra <strong>mesa de postres en acrílico</strong> utiliza superficies transparentes de grado alimenticio que crean un efecto de flotación espectacular. La retroiluminación LED opcional está disponible en <strong>8 colores</strong> que puedes combinar con la paleta de tu evento. Configuraciones de <strong>3 a 7 niveles</strong> con bases cromadas que aportan un look moderno y sofisticado.</p>
+                <p class="showcase__text">El efecto visual en eventos nocturnos es impactante — los postres parecen <strong>suspendidos en el aire</strong> con un halo de luz que resalta cada pieza. La iluminación LED se controla de forma independiente por nivel, permitiendo crear degradados de color o efectos estáticos según el momento del evento. Ideal para <strong>bodas modernas, fiestas temáticas, XV años y eventos corporativos</strong>. Combina con nuestra <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a> para un ambiente completo. Las bases cromadas se nivelan individualmente para superficies irregulares.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Acrílico LED</span>
+                  <span class="showcase__tag">Flotación</span>
+                  <span class="showcase__tag">8 Colores</span>
+                  <span class="showcase__tag">Nocturno</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Mesa Acrílico LED
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M2 12h20"/><path d="M6 12V8a6 6 0 0112 0v4"/><path d="M4 12v4a2 2 0 002 2h12a2 2 0 002-2v-4"/><path d="M12 18v3"/><path d="M8 21h8"/></svg>
+                  <span>Mesa de Postres Acrílico LED</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SHOWCASE: Mesa de Postres Vintage -->
+          <section class="section section--alt" aria-labelledby="vintage-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Elegancia clásica</span>
+                <h2 class="showcase__title" id="vintage-heading">Mesa de Postres Vintage</h2>
+                <p class="showcase__subtitle">Colección curada de bandejas con pedestal, vitrinas y piezas decorativas con acabados dorado, plateado y cobre.</p>
+                <p class="showcase__text">Nuestra <strong>mesa de postres vintage</strong> es una colección curada de bandejas con pedestal, vitrinas con tapa, platos de diferentes alturas y marcos decorativos. Cada pieza es única con acabados en <strong>dorado, plateado y cobre envejecido</strong> que aportan una estética de pastelería europea sofisticada y artesanal. La configuración mix & match permite crear composiciones personalizadas según el estilo de tu evento.</p>
+                <p class="showcase__text">La línea Vintage es la más versátil de nuestra colección — las piezas individuales se combinan libremente para crear <strong>exhibiciones de diferentes alturas y texturas</strong>. Las vitrinas con tapa protegen los postres más delicados mientras los exhiben elegantemente. Las bandejas con pedestal elevan cupcakes y macarons a diferentes niveles creando profundidad visual. Ideal para <strong>bodas elegantes, despedidas de soltera, tea parties y eventos con estética refinada</strong>. Complementa con <a href="/servicios/catering/vajilla-cristaleria/">vajilla y cristalería</a> de la misma línea estética.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Vintage</span>
+                  <span class="showcase__tag">Bandejas Pedestal</span>
+                  <span class="showcase__tag">Dorado</span>
+                  <span class="showcase__tag">Pastelería</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Mesa Vintage
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M2 12h20"/><path d="M6 12V8a6 6 0 0112 0v4"/><path d="M4 12v4a2 2 0 002 2h12a2 2 0 002-2v-4"/><path d="M12 18v3"/><path d="M8 21h8"/></svg>
+                  <span>Mesa de Postres Vintage</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SHOWCASE: Kit Candy Bar Completo -->
+          <section class="section section--alt" aria-labelledby="kit-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Todo incluido</span>
+                <h2 class="showcase__title" id="kit-heading">Kit Candy Bar Completo</h2>
+                <p class="showcase__subtitle">Configuración integral con estructura, bandejas, carteles decorativos, contenedores y cucharas de servicio.</p>
+                <p class="showcase__text">Nuestro <strong>kit candy bar completo</strong> es la configuración integral para eventos que quieren una estación de dulces espectacular sin complicaciones. Incluye estructura escalonada + bandejas complementarias + <strong>carteles decorativos</strong> + contenedores de dulces transparentes + cucharas de servicio + etiquetas personalizables. Disponible en las 3 líneas (madera, acrílico, vintage) según tu estilo de evento.</p>
+                <p class="showcase__text">El kit está diseñado para eventos de <strong>100+ invitados</strong> con variedad de dulces y postres. La configuración incluye entre 8 y 12 piezas de exhibición que permiten organizar diferentes tipos de dulces por categoría: chocolates, gomitas, galletas, cupcakes, cake pops y más. Nuestro equipo monta la estructura y organiza la distribución visual para que cada dulce tenga su espacio protagonista. Combina con nuestras <a href="/servicios/mobiliario/barras/">barras de bebidas</a> para crear una zona completa de experiencia gastronómica. Montaje y recolección incluidos dentro de CDMX.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Candy Bar</span>
+                  <span class="showcase__tag">Todo Incluido</span>
+                  <span class="showcase__tag">100+ Invitados</span>
+                  <span class="showcase__tag">Completo</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Candy Bar
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M2 12h20"/><path d="M6 12V8a6 6 0 0112 0v4"/><path d="M4 12v4a2 2 0 002 2h12a2 2 0 002-2v-4"/><path d="M12 18v3"/><path d="M8 21h8"/></svg>
+                  <span>Kit Candy Bar Completo</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- FAQ -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Mesas de Postres"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu mesa de postres para tu evento, es natural tener preguntas sobre materiales, capacidad y logística. Aquí encontrarás las respuestas más comunes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un especialista te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en mesas de postres resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre mesas de postres para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">Escribir por WhatsApp</a>
+                </div>
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- DESKTOP SIDEBAR -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Barras y Complementos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/barras/" class="sidebar-nav__back">&uarr; Volver a Barras</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/" class="sidebar-nav__back">&uarr; Volver a Mobiliario</a>
+              </li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu mesa de postres:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas mesas de postres para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar mesas de postres para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESERVA FORM -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Mesa de Postres"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros especialistas te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea una mesa rústica para una boda campestre o un candy bar LED para una fiesta nocturna, estamos aquí para crear exhibiciones que enamoren a tus invitados."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">Nombre completo <span class="form-field__required">*</span></label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">Teléfono <span class="form-field__required">*</span></label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">Tipo de evento</label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">Fecha del evento</label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoPostres">Tipo de mesa de postres</label>
+              <select id="tipoPostres" name="tipoPostres" class="form-field__input form-field__select">
+                <option value="">Selecciona el paquete</option>
+                <option value="Mesa Madera 3 Niveles">Mesa Madera 3 Niveles</option>
+                <option value="Mesa Madera 5 Niveles">Mesa Madera 5 Niveles</option>
+                <option value="Mesa Acrílico LED 3 Niveles">Mesa Acrílico LED 3 Niveles</option>
+                <option value="Mesa Acrílico LED 5-7 Niveles">Mesa Acrílico LED 5-7 Niveles</option>
+                <option value="Mesa Vintage Curada">Mesa Vintage Curada</option>
+                <option value="Kit Candy Bar Completo">Kit Candy Bar Completo</option>
+                <option value="Combinación de Líneas">Combinación de Líneas</option>
+                <option value="No estoy seguro">No estoy seguro</option>
+              </select>
+            </div>
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">Mensaje <span class="form-field__required">*</span></label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Cuéntanos: tipo de postres, número de invitados, estilo de evento, línea de tu preferencia..." rows="4" required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Montaje incluido</h3>
+            <p class="reserva-card__text">Armado, nivelación, colocación de iluminación LED y recolección al finalizar el evento.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para tu exhibición de postres.</p>
+          </div>
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoPostres = document.getElementById('tipoPostres').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Mesas de Postres para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoPostres) texto += `*Tipo de mesa:* ${tipoPostres}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- PROVEEDORES -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader id="proveedores-heading" title="Proveedores de Confianza en Mobiliario" subtitle="Red de aliados profesionales" description={["Trabajamos con los proveedores más reconocidos de mobiliario profesional para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, logística propia y trayectoria comprobada en la industria.", "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de piezas y cobertura completa para eventos de cualquier escala."]} />
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header"><span class="partner-card__initial">M</span><div class="partner-card__badge">Especialistas en Exhibición Gastronómica</div></div>
+          <div class="partner-card__content"><h3 class="partner-card__name">Mobiliario Premium MX</h3><p class="partner-card__tagline">Especialistas en Exhibición Gastronómica</p><p class="partner-card__text">Líder en renta de mesas de postres y candy bars para eventos sociales en CDMX y Estado de México. Líneas en madera, acrílico LED y vintage con montaje profesional incluido.</p></div>
+          <a href="#reserva-heading" class="partner-card__btn">Cotizar <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </article>
+        <article class="partner-card">
+          <div class="partner-card__header"><span class="partner-card__initial">R</span><div class="partner-card__badge">Mesas de Postres para Eventos</div></div>
+          <div class="partner-card__content"><h3 class="partner-card__name">Rent All CDMX</h3><p class="partner-card__tagline">Mesas de Postres para Eventos</p><p class="partner-card__text">Amplio catálogo de mesas de postres en diferentes estilos y materiales. Servicio integral con transporte, montaje y recolección para bodas, XV años y eventos corporativos en CDMX.</p></div>
+          <a href="#reserva-heading" class="partner-card__btn">Cotizar <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </article>
+        <article class="partner-card">
+          <div class="partner-card__header"><span class="partner-card__initial">E</span><div class="partner-card__badge">Candy Bars y Exhibiciones</div></div>
+          <div class="partner-card__content"><h3 class="partner-card__name">EventMob</h3><p class="partner-card__tagline">Candy Bars y Exhibiciones</p><p class="partner-card__text">Especialistas en candy bars completos y estaciones de dulces para eventos. Diseño personalizado de exhibiciones gastronómicas con piezas exclusivas y acabados premium.</p></div>
+          <a href="#reserva-heading" class="partner-card__btn">Cotizar <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </article>
+        <article class="partner-card">
+          <div class="partner-card__header"><span class="partner-card__initial">M</span><div class="partner-card__badge">Postres y Complementos con Logística</div></div>
+          <div class="partner-card__content"><h3 class="partner-card__name">MesasyMás</h3><p class="partner-card__tagline">Postres y Complementos con Logística</p><p class="partner-card__text">Renta de mesas de postres con logística completa: transporte, montaje, sanitización y recolección. Cobertura en toda la zona metropolitana de CDMX con disponibilidad garantizada.</p></div>
+          <a href="#reserva-heading" class="partner-card__btn">Cotizar <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    headline="Mesas de postres que transforman tus dulces en una exhibición espectacular"
+    subheadline="Más de 130 eventos con candy bars y mesas de postres nos respaldan. Cotiza hoy y recibe una propuesta personalizada."
+    primaryCTA={{ label: "Cotizar mesa de postres", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar mesas de postres para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

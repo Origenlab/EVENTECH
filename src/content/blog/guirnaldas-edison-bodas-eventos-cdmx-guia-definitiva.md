@@ -43,7 +43,7 @@ relatedPosts:
   - "eventech-renta-equipo-eventos-cdmx-guia-completa"
   - "redeil-renta-iluminacion-audio-eventos-cdmx"
 draft: false
-featured: true
+featured: false
 cta:
   label: "Cotiza guirnaldas para tu evento"
   href: "/servicios/iluminacion/decorativa/fairy-lights/"

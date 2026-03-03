@@ -1,0 +1,714 @@
+---
+/**
+ * ─── Video Mapping — Página de Producto (Nivel 4) ───
+ * Servicio de video mapping profesional con proyectores de alto lumen
+ * y software Resolume para fachadas, escenarios y eventos especiales.
+ *
+ * Jerarquía: Servicios > Audiovisual > Proyectores > Video Mapping
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Audiovisual", href: "/servicios/audiovisual/" },
+  { label: "Proyectores", href: "/servicios/audiovisual/proyectores/" },
+  { label: "Video Mapping" },
+];
+
+const faqs = [
+  { question: "¿Qué es exactamente el video mapping y cómo funciona?", answer: "El video mapping (también llamado projection mapping) es una técnica que utiliza proyectores de alto lumen para proyectar contenido visual adaptado a la geometría de superficies tridimensionales. Mediante software especializado como Resolume Arena o MadMapper, se mapea digitalmente cada superficie del objeto o edificio y se crea contenido animado que se deforma para ajustarse perfectamente a sus formas. El resultado es una ilusión óptica donde el edificio, escenario u objeto parece cobrar vida con animaciones, colores y efectos visuales." },
+  { question: "¿Cuánto tiempo toma preparar un video mapping?", answer: "El proceso completo requiere de 2 a 4 semanas dependiendo de la complejidad. La primera semana incluye el levantamiento técnico del venue (mediciones, fotografías, modelo 3D). Las siguientes 1 a 2 semanas se dedican al diseño y producción del contenido visual personalizado. Finalmente, 1 a 2 días antes del evento se realiza la instalación de proyectores, calibración geométrica y ensayos generales. Para cake mapping y objetos pequeños, el proceso es más rápido (1 a 2 semanas). Para fachadas de edificios completos, puede requerir hasta 6 semanas." },
+  { question: "¿El video mapping funciona en exteriores?", answer: 'Sí, pero requiere condiciones específicas. Para exteriores necesitamos proyectores de muy alta luminosidad (15,000 a 20,000 lúmenes) y el evento debe realizarse en horario nocturno o al atardecer, cuando la luz natural no compite con la proyección. Fachadas de edificios de color claro o blanco ofrecen los mejores resultados. En caso de lluvia o viento fuerte, el mapping exterior no es viable por protección del equipo. Para eventos al aire libre, recomendamos complementar con nuestras <a href="/servicios/carpas/">carpas profesionales</a> como área de respaldo.' },
+  { question: "¿Puedo personalizar el contenido del mapping?", answer: "Absolutamente. Todo nuestro contenido de video mapping se diseña a medida para cada evento. Para bodas: animaciones florales, efectos de luces, iniciales de los novios, countdown y proyección sobre el pastel de bodas. Para eventos corporativos: logotipos animados, presentaciones de producto, datos en movimiento y efectos de marca. Para shows artísticos: animaciones abstractas, efectos de profundidad y sincronización con música. Necesitamos recibir tu material de marca (logos, colores, tipografías) con al menos 2 semanas de anticipación." },
+  { question: "¿Qué superficies se pueden usar para video mapping?", answer: "Prácticamente cualquier superficie sólida puede ser mapeada: fachadas de edificios, escenarios, pasteles de boda (cake mapping), mesas de honor, columnas, arcos decorativos, objetos 3D, automóviles y esculturas. Las superficies ideales son de color claro (blanco o gris) con textura mate que no refleje la luz. Si la superficie es oscura o de color, se puede compensar con proyectores de mayor potencia. Nuestro equipo evalúa cada superficie para determinar la viabilidad técnica y recomendar la mejor solución." },
+  { question: "¿Con cuánta anticipación debo reservar video mapping?", answer: "Por la complejidad de producción, recomendamos reservar con 1 a 2 meses de anticipación como mínimo. Este tiempo permite el levantamiento técnico del venue, diseño y producción de contenido personalizado, revisiones con el cliente, instalación y ensayos. Para mapping de fachadas de edificios o producciones de gran escala, lo ideal es apartar con 2 a 3 meses. En temporada alta (noviembre a febrero para bodas, septiembre a noviembre para corporativos) la demanda aumenta significativamente." },
+];
+
+const specs = [
+  { label: "Software", value: "Resolume Arena / MadMapper" },
+  { label: "Proyectores", value: "10,000 – 20,000 lm láser (según escala)" },
+  { label: "Superficies", value: "Fachadas / Escenarios / Pasteles / Objetos 3D" },
+  { label: "Contenido", value: "Diseño personalizado incluido" },
+  { label: "Calibración", value: "Mapping geométrico preciso (warping)" },
+  { label: "Resolución", value: "Full HD / 4K por proyector" },
+  { label: "Multi-proyector", value: "Fusión de imagen (edge blending)" },
+  { label: "Tiempo producción", value: "2 – 4 semanas (diseño + contenido)" },
+  { label: "Técnico", value: "Operador de mapping dedicado" },
+  { label: "Ensayo", value: "Calibración on-site incluida" },
+];
+
+const sidebarNav = [
+  { name: "Proyectores Full HD y 4K", href: "/servicios/audiovisual/proyectores/fullhd-4k/" },
+  { name: "Streaming en Vivo", href: "/servicios/audiovisual/proyectores/streaming/" },
+  { name: "Video Mapping", href: null, active: true },
+  { name: "Pantallas de Proyección", href: "/servicios/audiovisual/proyectores/pantallas-proyeccion/" },
+];
+
+const sidebarRelated = [
+  { name: "Proyectores Alto Lumen", href: "/servicios/audiovisual/proyectores/fullhd-4k/" },
+  { name: "Iluminación Escenario", href: "/servicios/iluminacion/escenario/" },
+  { name: "Efectos Especiales", href: "/servicios/iluminacion/efectos-especiales/" },
+  { name: "Sonido Profesional", href: "/servicios/audiovisual/sonido/" },
+  { name: "Pantallas LED", href: "/servicios/audiovisual/pantallas-led/" },
+];
+
+const reviews = [
+  { author: "Alejandra y Rodrigo", text: "Contratamos cake mapping para nuestra boda y fue el momento más impactante de la noche. El pastel se transformó con animaciones de flores, nuestras iniciales y un countdown antes de cortarlo. Los invitados no podían creer lo que veían. El equipo de producción capturó perfectamente el concepto que queríamos. Absolutamente mágico.", rating: 5, date: "2025-11-25" },
+  { author: "Lic. Arturo Vega", text: "Video mapping para el lanzamiento de un producto farmacéutico sobre el escenario del centro de convenciones. La animación del logotipo con efectos 3D y la presentación del producto fue espectacular. El equipo técnico trabajó 3 semanas en el contenido y el resultado superó nuestras expectativas. Los directivos quedaron impresionados.", rating: 5, date: "2025-10-08" },
+  { author: "Arq. Gabriela Soto", text: "Mapping sobre la fachada de un museo para un evento de arte contemporáneo. Utilizaron 3 proyectores de 15,000 lúmenes y el resultado fue una obra de arte en sí misma. La calibración geométrica fue perfecta — cada ventana y moldura se integró con la animación. Un servicio profesional de primer nivel.", rating: 5, date: "2025-09-15" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Video Mapping para Eventos en CDMX",
+    description: "Servicio de video mapping profesional con proyectores de alto lumen y software Resolume para fachadas, escenarios y eventos especiales en CDMX. Desde $15,000.",
+    url: "/servicios/audiovisual/proyectores/mapping/",
+    priceRange: { min: 15000, max: 80000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 34,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Audiovisual", url: "/servicios/audiovisual/" },
+    { name: "Proyectores", url: "/servicios/audiovisual/proyectores/" },
+    { name: "Video Mapping", url: "/servicios/audiovisual/proyectores/mapping/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Video Mapping para Eventos en CDMX"
+  description="Servicio de video mapping profesional con proyectores de alto lumen y software Resolume para fachadas, escenarios y eventos especiales en CDMX. Desde $15,000."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Proyección artística que transforma superficies"
+    title='Renta de <span class="highlight">Video Mapping</span> para Eventos en CDMX'
+    subtitle="Servicio profesional de video mapping con proyectores láser de 10,000 a 20,000 lúmenes y software Resolume Arena para fachadas, escenarios, pasteles de boda y objetos 3D. Diseño de contenido personalizado y operador de mapping dedicado incluidos."
+    primaryCTA={{ label: "Cotiza tu mapping", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar video mapping para mi evento` }}
+    cards={[
+      {
+        title: "Proyección inmersiva sobre cualquier superficie",
+        content: "<strong>Video mapping profesional</strong> que transforma fachadas de edificios, escenarios, pasteles de boda, mesas de honor y objetos 3D en experiencias visuales inmersivas. Proyectores láser de 10,000 a 20,000 lúmenes con software Resolume Arena y MadMapper para calibración geométrica precisa (warping) que adapta el contenido visual a la geometría exacta de cada superficie. Configuraciones multi-proyector con edge blending para cubrir superficies de gran formato sin costuras visibles.",
+      },
+      {
+        title: "Contenido personalizado y producción integral",
+        content: "<strong>Diseño de contenido visual a medida</strong> para cada evento: logotipos animados para lanzamientos corporativos, efectos florales y countdown para bodas, animaciones artísticas para galas y shows de luz sincronizados con música. Proceso completo que incluye levantamiento técnico del venue, modelo 3D de la superficie, diseño y producción de contenido, revisiones con el cliente, instalación de proyectores, calibración geométrica y ensayos previos — operador de mapping dedicado durante todo el evento.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Quieres transformar tu venue con proyecciones artísticas?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con opciones de mapping para tu evento"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Proyectores y Video</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas video mapping para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar video mapping para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Video Mapping</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Cake Mapping -->
+          <section class="section section--alt" aria-labelledby="cake-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Bodas y celebraciones</span>
+                <h2 class="showcase__title" id="cake-heading">Cake Mapping</h2>
+                <p class="showcase__subtitle">Proyección sobre el pastel de bodas que lo transforma con animaciones, colores y efectos visuales personalizados.</p>
+                <p class="showcase__text">El <strong>cake mapping</strong> es una de las tendencias más impactantes en bodas y celebraciones. Mediante un proyector de alta resolución colocado sobre el pastel y software de mapping especializado, la superficie del pastel se transforma con <strong>animaciones de flores que florecen, efectos de luces que danzan, las iniciales de los novios, countdown antes del corte</strong> y cualquier diseño personalizado que imagines. El resultado es un momento WOW que tus invitados nunca olvidarán y que genera contenido espectacular para fotos y video.</p>
+                <p class="showcase__text">Nuestro equipo diseña el contenido a medida según la temática y colores de tu boda. El proceso incluye <strong>fotografía del pastel (o modelo 3D si aún no está listo), diseño de 3 a 5 animaciones distintas, calibración el día del evento</strong> y operación durante el momento del corte. El mapping se sincroniza con música y con la coordinación de tu wedding planner para que cada segundo sea perfecto. También disponible para <strong>XV años, baby showers y cumpleaños temáticos</strong>. Complementa con nuestro <a href="/servicios/iluminacion/decorativa/">servicio de iluminación decorativa</a> para una atmósfera completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Pastel de boda</span>
+                  <span class="showcase__tag">Animaciones personalizadas</span>
+                  <span class="showcase__tag">Countdown</span>
+                  <span class="showcase__tag">Coord. wedding planner</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Cake Mapping
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                  <span>Cake Mapping</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Stage Mapping -->
+          <section class="section section--alt" aria-labelledby="stage-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Conciertos y galas</span>
+                <h2 class="showcase__title" id="stage-heading">Stage Mapping</h2>
+                <p class="showcase__subtitle">Proyección sobre escenarios que transforma la escenografía con efectos visuales dinámicos sincronizados con música.</p>
+                <p class="showcase__text">Nuestro <strong>stage mapping</strong> convierte escenarios estáticos en experiencias visuales inmersivas. Utilizamos <strong>2 a 4 proyectores láser de 10,000 a 15,000 lúmenes</strong> con edge blending para cubrir toda la superficie del escenario sin costuras visibles. El contenido se diseña a medida de la escenografía existente: paneles, pantallas traseras, columnas, arcos y elementos decorativos se integran en una animación continua que reacciona a la música y a los momentos clave del show.</p>
+                <p class="showcase__text">El stage mapping es ideal para <strong>conciertos, galas corporativas, ceremonias de premiación, shows de talento y espectáculos en vivo</strong> donde el escenario necesita transformarse visualmente sin cambiar la escenografía física. Nuestro operador de mapping trabaja en coordinación con el director de escena y el ingeniero de sonido para sincronizar las proyecciones con la música, iluminación y coreografía. Incluye <strong>diseño de contenido, modelo 3D del escenario, 2 días de montaje y calibración</strong>. Combina con nuestros <a href="/servicios/iluminacion/escenario/">equipos de iluminación de escenario</a> para una producción integral.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Multi-proyector</span>
+                  <span class="showcase__tag">Edge blending</span>
+                  <span class="showcase__tag">Sincronización musical</span>
+                  <span class="showcase__tag">Escenografía inmersiva</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Stage Mapping
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                  <span>Stage Mapping</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Facade Mapping -->
+          <section class="section section--alt" aria-labelledby="facade-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Gran formato</span>
+                <h2 class="showcase__title" id="facade-heading">Facade Mapping</h2>
+                <p class="showcase__subtitle">Proyección artística sobre fachadas de edificios que transforma la arquitectura en una experiencia visual espectacular.</p>
+                <p class="showcase__text">El <strong>facade mapping</strong> es la expresión más espectacular del video mapping. Proyectamos sobre <strong>fachadas completas de edificios, monumentos y estructuras arquitectónicas</strong> utilizando proyectores láser de 15,000 a 20,000 lúmenes en configuración multi-proyector con fusión de imagen seamless. El contenido visual se diseña siguiendo la geometría exacta de la fachada — ventanas, puertas, molduras, columnas y cada detalle arquitectónico se integra en la animación para crear ilusiones de profundidad, movimiento y transformación.</p>
+                <p class="showcase__text">Nuestro equipo realiza un <strong>levantamiento fotogramétrico completo</strong> de la fachada para generar un modelo 3D preciso sobre el que se diseña el contenido. El resultado son animaciones donde el edificio parece desmoronarse, reconstruirse, llenarse de flores, transformarse en cristal o cualquier efecto visual imaginable. Requiere <strong>3 a 6 semanas de producción</strong> según la escala y complejidad. Ideal para <strong>inauguraciones, festivales de luz, eventos gubernamentales, lanzamientos de marca y celebraciones de aniversario</strong>. Complementa con nuestro <a href="/servicios/audiovisual/sonido/">sonido profesional</a> para sincronización audiovisual completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">15,000-20,000 lm</span>
+                  <span class="showcase__tag">Fotogrametría 3D</span>
+                  <span class="showcase__tag">Multi-proyector</span>
+                  <span class="showcase__tag">Fachadas completas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Facade Mapping
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                  <span>Facade Mapping</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Mapping Corporativo -->
+          <section class="section section--alt" aria-labelledby="corporativo-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Lanzamientos de producto</span>
+                <h2 class="showcase__title" id="corporativo-heading">Mapping Corporativo</h2>
+                <p class="showcase__subtitle">Video mapping especializado para lanzamientos de producto, convenciones y eventos de marca con contenido institucional.</p>
+                <p class="showcase__text">Nuestro <strong>mapping corporativo</strong> está diseñado específicamente para <strong>lanzamientos de producto, convenciones empresariales y eventos de marca</strong> donde el impacto visual refuerza el mensaje institucional. Proyectamos sobre escenarios, productos a escala, stands de exhibición y superficies personalizadas para crear reveals espectaculares de nuevos productos, animaciones con datos corporativos en movimiento, timelines históricos y experiencias de marca inmersivas que generan engagement y cobertura mediática.</p>
+                <p class="showcase__text">El proceso incluye <strong>reunión creativa con el equipo de marketing, diseño de storyboard, producción de contenido alineado a la identidad de marca</strong> (colores, tipografías, tono de comunicación), revisiones y aprobaciones antes de la producción final. Ofrecemos integración con sistemas de <strong>audio, iluminación, confeti y efectos especiales</strong> para crear un show completo. Incluye director de producción que coordina todos los elementos técnicos. Ideal para <strong>automotrices, farmacéuticas, tecnología, finanzas y cualquier industria</strong> que busque impactar. Complementa con nuestros <a href="/servicios/iluminacion/efectos-especiales/">efectos especiales</a> para máximo impacto.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Identidad de marca</span>
+                  <span class="showcase__tag">Product reveal</span>
+                  <span class="showcase__tag">Storyboard a medida</span>
+                  <span class="showcase__tag">Producción integral</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Mapping Corporativo
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                  <span>Mapping Corporativo</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Video Mapping"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de contratar video mapping para tu evento, es natural tener preguntas sobre el proceso, tiempos y posibilidades. Aquí encontrarás las respuestas más comunes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un especialista en producción visual te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en video mapping resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre video mapping para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Proyectores y Video -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Proyectores y Video</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/audiovisual/proyectores/" class="sidebar-nav__back">&uarr; Volver a Proyectores</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/audiovisual/" class="sidebar-nav__back">&uarr; Volver a Audiovisual</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de mapping:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas video mapping para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar video mapping para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Video Mapping"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros especialistas en producción visual te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea cake mapping para tu boda o facade mapping para tu evento corporativo, estamos aquí para crear una experiencia visual inolvidable."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Lanzamiento de Producto">Lanzamiento de Producto</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoMapping">
+                Tipo de mapping
+              </label>
+              <select id="tipoMapping" name="tipoMapping" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de mapping</option>
+                <option value="Cake Mapping (pastel)">Cake Mapping (pastel)</option>
+                <option value="Stage Mapping (escenario)">Stage Mapping (escenario)</option>
+                <option value="Facade Mapping (fachada)">Facade Mapping (fachada)</option>
+                <option value="Mapping Corporativo (producto)">Mapping Corporativo (producto)</option>
+                <option value="Mapping de Objetos 3D">Mapping de Objetos 3D</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: superficie a mapear (fachada/escenario/pastel/objeto), dimensiones aproximadas, venue (interior/exterior), temática del contenido visual..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue y superficie sin costo para diseñar la propuesta de mapping ideal para tu evento.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría creativa y técnica personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoMapping = document.getElementById('tipoMapping').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Video Mapping para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoMapping) texto += `*Tipo de mapping:* ${tipoMapping}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Audiovisual"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de equipo audiovisual para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">A</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">AudioVisual Pro MX</h3>
+            <p class="partner-card__tagline">Video Mapping y Producción Visual</p>
+            <p class="partner-card__text">Líder en video mapping y producción visual para eventos corporativos y sociales en CDMX. Proyectores láser de alto lumen, software Resolume Arena y diseño de contenido personalizado.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">S</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">SonidoEventos CDMX</h3>
+            <p class="partner-card__tagline">Audio, Video y Mapping para Eventos</p>
+            <p class="partner-card__text">Especialistas en soluciones audiovisuales integrales. Video mapping, proyección profesional, sonido line array y producción de eventos con técnicos y diseñadores certificados.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">T</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">TechEvents</h3>
+            <p class="partner-card__tagline">Tecnología Audiovisual para Eventos</p>
+            <p class="partner-card__text">Más de 10 años proporcionando video mapping y equipo audiovisual de última generación para eventos corporativos en CDMX. Facade mapping, stage mapping y producción integral.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MediaRent</h3>
+            <p class="partner-card__tagline">Renta de Equipo Multimedia</p>
+            <p class="partner-card__text">Servicio integral de producción visual con logística profesional en toda la CDMX. Proyectores de alto lumen, software de mapping, diseño de contenido y operadores certificados.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Video mapping que transforma tu evento en una experiencia visual única"
+    subheadline="Más de 100 proyecciones de mapping exitosas nos respaldan. Cotiza hoy y recibe una propuesta creativa sin compromiso."
+    primaryCTA={{ label: "Cotizar video mapping", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar video mapping para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

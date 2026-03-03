@@ -22,7 +22,7 @@ relatedPosts:
   - redeil-renta-iluminacion-audio-eventos-cdmx
   - eventech-renta-equipo-eventos-cdmx-guia-completa
   - paled-renta-pantallas-led-eventos-cdmx
-featured: true
+featured: false
 readingTime: 18
 ---
 

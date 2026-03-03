@@ -29,7 +29,7 @@ relatedPosts:
   - "eventech-renta-equipo-eventos-cdmx-guia-completa"
   - "redeil-renta-iluminacion-audio-eventos-cdmx"
 draft: false
-featured: true
+featured: false
 cta:
   label: "Cotiza pantallas LED para tu evento"
   href: "/cotizar/"

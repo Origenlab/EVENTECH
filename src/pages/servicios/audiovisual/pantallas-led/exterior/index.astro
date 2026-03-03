@@ -1,0 +1,687 @@
+---
+/**
+ * ─── Pantallas LED Exterior — Pagina de Producto (Nivel 4) ───
+ * Pantallas LED de alto brillo 5,000+ nits con certificacion IP65
+ * para eventos al aire libre.
+ *
+ * Jerarquia: Servicios > Audiovisual > Pantallas LED > Exterior
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Audiovisual", href: "/servicios/audiovisual/" },
+  { label: "Pantallas LED", href: "/servicios/audiovisual/pantallas-led/" },
+  { label: "Pantallas Exterior" },
+];
+
+const faqs = [
+  { question: "¿Las pantallas LED de exterior resisten la lluvia?", answer: "Sí. Nuestras pantallas outdoor cuentan con <strong>certificación IP65</strong> que garantiza protección total contra polvo y chorros de agua directos. Los paneles están sellados herméticamente y los conectores son a prueba de agua. En caso de lluvia moderada, las pantallas continúan operando sin problemas. Para lluvias intensas o tormentas eléctricas, nuestro técnico evalúa las condiciones y puede activar el protocolo de protección que incluye desconexión controlada y cobertura con lonas impermeables. El equipo eléctrico siempre está protegido con tablero aislado y conexiones a tierra certificadas." },
+  { question: "¿Cuánto brillo necesita una pantalla LED para verse bien bajo el sol?", answer: "Para eventos diurnos con luz solar directa, se requiere un <strong>mínimo de 5,000 nits</strong> de brillo para que la imagen sea claramente visible. Nuestras pantallas outdoor ofrecen entre <strong>5,000 y 7,000 nits</strong>, lo cual garantiza una imagen nítida y con colores vibrantes incluso a pleno sol del mediodía. Como referencia, una pantalla interior típica tiene 1,000-2,000 nits y sería prácticamente invisible bajo luz solar directa. Para eventos al atardecer o nocturnos al aire libre, el brillo se reduce automáticamente para una visualización cómoda." },
+  { question: "¿Qué requerimientos eléctricos tienen las pantallas outdoor?", answer: 'Las pantallas LED de exterior requieren <strong>alimentación 220V</strong> con tablero de distribución protegido contra humedad. Para configuraciones de 2x1.5m, un circuito dedicado de 220V es suficiente. Para pantallas de 3x2m o más, recomendamos alimentación trifásica 220V o una <a href="/servicios/accesorios/plantas-energia/">planta de energía dedicada</a> de mínimo 20kW. Nuestro equipo técnico instala protección diferencial, puesta a tierra certificada y tablero aislado para garantizar la seguridad total del sistema eléctrico en condiciones de intemperie.' },
+  { question: "¿Hasta qué velocidad de viento resisten las pantallas?", answer: "Nuestras estructuras de soporte outdoor están diseñadas para resistir <strong>vientos de hasta 60 km/h</strong> (brisa fuerte a viento moderado). Los paneles se montan sobre estructuras ground stack con contrapesos certificados o sistemas de rigging con puntos de anclaje reforzados. Para eventos en zonas con vientos frecuentes, utilizamos <strong>estructuras con lastres adicionales y tensores de acero</strong>. Nuestro equipo monitorea las condiciones meteorológicas antes y durante el evento. Si se pronostican vientos superiores a 60 km/h, coordinamos medidas de protección preventivas con el organizador." },
+  { question: "¿El contenido se ve bien con la luz del sol?", answer: "Sí, gracias al <strong>alto brillo de 5,000-7,000 nits</strong> y la tecnología anti-reflejo de nuestros paneles outdoor. Los colores se mantienen vibrantes y el contraste es suficiente para que el contenido sea perfectamente legible bajo luz solar directa. Para mejores resultados, recomendamos usar contenido con <strong>colores saturados, texto grande y alto contraste</strong> (fondo oscuro con texto claro o viceversa). Nuestro técnico ajusta la calibración de brillo y contraste en tiempo real según las condiciones de luz del momento para garantizar la mejor experiencia visual." },
+  { question: "¿Cuánto tiempo toma instalar una pantalla LED de exterior?", answer: "El montaje de pantallas outdoor requiere más tiempo que las de interior debido a la estructura de soporte reforzada y las medidas de seguridad adicionales. Una <strong>pantalla de 2x1.5m</strong> se instala en aproximadamente <strong>3 a 4 horas</strong>. Configuraciones de <strong>3x2m</strong> requieren 4 a 6 horas. Para <strong>pantallas gigantes de 5x3m</strong>, el montaje puede tomar 6 a 10 horas incluyendo estructura, paneles, cableado y pruebas. Siempre programamos el montaje con margen suficiente — generalmente el día anterior para configuraciones grandes." },
+];
+
+const specs = [
+  { label: "Brillo", value: "5,000 – 7,000 nits (alto brillo outdoor)" },
+  { label: "Certificación", value: "IP65 (resistente a polvo y agua)" },
+  { label: "Pixel pitch", value: "P3.9 / P4.8 (outdoor optimizado)" },
+  { label: "Dimensiones", value: "2×1.5 m hasta 5×3 m+" },
+  { label: "Estructura", value: "Rigging certificado / Ground stack reforzado" },
+  { label: "Visibilidad", value: "Hasta 100 m de distancia" },
+  { label: "Resistencia", value: "Viento hasta 60 km/h" },
+  { label: "Alimentación", value: "220V con tablero protegido IP65" },
+  { label: "Contenido", value: "Video / Gráficos / Streaming en vivo" },
+  { label: "Técnico", value: "Ingeniero de video incluido" },
+];
+
+const sidebarNav = [
+  { name: "Pantallas en Pedestal", href: "/servicios/audiovisual/pantallas-led/pedestal/" },
+  { name: "Videowall Modular", href: "/servicios/audiovisual/pantallas-led/videowall/" },
+  { name: "Pantallas Gigantes Exterior", href: null, active: true },
+  { name: "Monitores y Displays", href: "/servicios/audiovisual/pantallas-led/monitores/" },
+];
+
+const sidebarRelated = [
+  { name: "Sonido Exterior", href: "/servicios/audiovisual/sonido/" },
+  { name: "Carpas Estructurales", href: "/servicios/carpas/estructurales/" },
+  { name: "Plantas de Energía", href: "/servicios/accesorios/plantas-energia/" },
+  { name: "Tarimas y Escenarios", href: "/servicios/pistas-baile/tarimas-escenarios/" },
+  { name: "Iluminación Exterior", href: "/servicios/iluminacion/arquitectonica/" },
+];
+
+const reviews = [
+  { author: "Ricardo Sánchez", text: "Contratamos una pantalla outdoor de 3x2 metros para un festival de música en un parque de CDMX. A pleno sol del mediodía se veía increíblemente nítida — los videos musicales con colores vibrantes y sin ningún reflejo molesto. La estructura resistió sin problemas un viento considerable por la tarde. El equipo de EVENTECH fue muy profesional con todo el montaje.", rating: 5, date: "2025-12-01" },
+  { author: "Marcela Gutiérrez", text: "Usamos la pantalla LED exterior de 2x1.5m para una feria comercial al aire libre. Tres días seguidos de exposición al sol y una lluvia ligera el segundo día — la pantalla funcionó impecable en todo momento. Los visitantes podían ver nuestro contenido con total claridad desde el otro extremo del espacio. Excelente inversión.", rating: 5, date: "2025-10-18" },
+  { author: "Andrés Morales", text: "Montamos el kit de transmisión deportiva con pantalla de 5x3 metros para ver la final de un torneo en un club deportivo. 500 personas disfrutaron del partido con imagen perfecta. El sonido exterior complementó genial. El montaje fue el día anterior y todo estuvo listo sin contratiempos. Repetiremos para el próximo torneo.", rating: 5, date: "2025-09-14" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Pantallas LED Exterior para Eventos en CDMX",
+    description: "Pantallas LED de alto brillo 5,000+ nits y certificación IP65 para eventos al aire libre en CDMX. Resistentes a sol y lluvia. Desde $12,000.",
+    url: "/servicios/audiovisual/pantallas-led/exterior/",
+    priceRange: { min: 12000, max: 60000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 54,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Audiovisual", url: "/servicios/audiovisual/" },
+    { name: "Pantallas LED", url: "/servicios/audiovisual/pantallas-led/" },
+    { name: "Pantallas Exterior", url: "/servicios/audiovisual/pantallas-led/exterior/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Pantallas LED Exterior para Eventos en CDMX"
+  description="Renta de pantallas LED de alto brillo 5,000+ nits y certificación IP65 para eventos al aire libre en CDMX. Resistentes a sol y lluvia. Desde $12,000."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="5,000+ nits: visibilidad total bajo el sol"
+    title='Renta de <span class="highlight">Pantallas LED Exterior</span> para Eventos en CDMX'
+    subtitle="Pantallas LED de alto brillo con certificación IP65 para eventos al aire libre. Resistentes a sol, lluvia y viento. Desde 2x1.5 hasta 5x3 metros con ingeniero de video incluido."
+    primaryCTA={{ label: "Cotiza tu pantalla outdoor", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar pantallas LED de exterior para mi evento` }}
+    cards={[
+      {
+        title: "Alto brillo y certificación IP65 para intemperie",
+        content: "<strong>Renta de pantallas LED de exterior</strong> con brillo de 5,000 a 7,000 nits que garantiza imagen nítida incluso bajo luz solar directa. Certificación IP65 contra polvo y agua para operar en condiciones de intemperie. Pixel pitch P3.9 y P4.8 optimizado para visualización a distancias de hasta 100 metros. Dimensiones desde 2x1.5 metros para eventos medianos hasta 5x3 metros o más para conciertos y festivales masivos. Paneles anti-reflejo con colores vibrantes bajo cualquier condición de luz.",
+      },
+      {
+        title: "Estructura certificada e ingeniero de video dedicado",
+        content: "<strong>Servicio técnico completo</strong> con ingeniero de video certificado y estructura de soporte reforzada para condiciones outdoor. Rigging profesional o ground stack con contrapesos certificados para vientos de hasta 60 km/h. Tablero eléctrico protegido IP65 con conexión a tierra y protección diferencial. Calibración de brillo automática según condiciones de luz en tiempo real. Montaje profesional con pruebas previas y operación técnica dedicada durante todo el evento.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Evento al aire libre con pantalla de alto impacto?"
+    subheadline="Cotiza sin compromiso — diseñamos la solución outdoor perfecta para tu evento"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Pantallas LED para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas pantallas outdoor para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar pantallas LED de exterior para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Pantallas LED Exterior</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Pantalla Outdoor 2x1.5m -->
+          <section class="section section--alt" aria-labelledby="outdoor-2x15-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Eventos medianos al aire libre</span>
+                <h2 class="showcase__title" id="outdoor-2x15-heading">Pantalla Outdoor 2x1.5 Metros</h2>
+                <p class="showcase__subtitle">La pantalla de exterior más compacta: perfecta para eventos corporativos, ferias y activaciones de marca al aire libre.</p>
+                <p class="showcase__text">La <strong>pantalla LED outdoor de 2x1.5 metros</strong> es la solución ideal para eventos al aire libre de tamaño mediano con audiencias de <strong>100 a 300 personas</strong>. Con <strong>5,000 nits de brillo</strong> y certificación IP65, ofrece una imagen nítida y colores vibrantes bajo luz solar directa. Pixel pitch P3.9 para una resolución óptima a distancias de visualización de 5 a 30 metros — perfecta para ferias comerciales, activaciones de marca, torneos deportivos y eventos comunitarios.</p>
+                <p class="showcase__text">El montaje se completa en <strong>3 a 4 horas</strong> con estructura ground stack reforzada y contrapesos certificados. Incluye tablero eléctrico protegido IP65, procesador de video profesional y técnico de operación dedicado. Funciona con alimentación <strong>220V con un circuito dedicado</strong> — sin necesidad de planta de energía para esta configuración. Ideal también para <strong>bodas en jardín, eventos en azoteas y celebraciones al atardecer</strong> donde la luz natural requiere mayor potencia que una pantalla convencional. Complementa con nuestras <a href="/servicios/carpas/estructurales/">carpas estructurales</a> para crear una zona techada junto a la pantalla.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">2×1.5 metros</span>
+                  <span class="showcase__tag">5,000 nits</span>
+                  <span class="showcase__tag">IP65</span>
+                  <span class="showcase__tag">100-300 personas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Pantalla 2×1.5m
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/>
+                  </svg>
+                  <span>Pantalla Outdoor 2×1.5m</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Pantalla Outdoor 3x2m -->
+          <section class="section section--alt" aria-labelledby="outdoor-3x2-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">La más popular outdoor</span>
+                <h2 class="showcase__title" id="outdoor-3x2-heading">Pantalla Outdoor 3x2 Metros</h2>
+                <p class="showcase__subtitle">El tamaño estándar para festivales, conciertos al aire libre y eventos con 300 a 1,000 asistentes.</p>
+                <p class="showcase__text">La <strong>pantalla LED outdoor de 3x2 metros</strong> es nuestra configuración más solicitada para eventos al aire libre y el estándar de la industria de festivales y conciertos en CDMX. Con <strong>6 metros cuadrados de superficie visual y 5,500 nits de brillo</strong>, ofrece un impacto espectacular visible desde distancias de hasta 50 metros. Paneles P3.9 con refresh rate de 3,840 Hz — imagen perfecta tanto para el público en vivo como para grabaciones de video y transmisiones.</p>
+                <p class="showcase__text">El montaje requiere <strong>4 a 6 horas</strong> con estructura ground stack reforzada o rigging aéreo según el venue. Incluye procesador Novastar con gestión de múltiples fuentes, cableado SDI redundante y <strong>tablero eléctrico trifásico protegido</strong>. Ideal para <strong>festivales de música, conciertos, eventos deportivos, presentaciones al aire libre y ferias masivas</strong>. Para eventos diurnos de larga duración, la calibración automática de brillo ajusta la intensidad según la posición del sol. Complementa con nuestro <a href="/servicios/audiovisual/sonido/">sonido profesional exterior</a> para una producción completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">3×2 metros</span>
+                  <span class="showcase__tag">5,500 nits</span>
+                  <span class="showcase__tag">P3.9 outdoor</span>
+                  <span class="showcase__tag">300-1,000 personas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Pantalla 3×2m
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/>
+                  </svg>
+                  <span>Pantalla Outdoor 3×2m</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Pantalla Outdoor 5x3m -->
+          <section class="section section--alt" aria-labelledby="outdoor-5x3-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Eventos masivos</span>
+                <h2 class="showcase__title" id="outdoor-5x3-heading">Pantalla Outdoor 5x3 Metros</h2>
+                <p class="showcase__subtitle">La pantalla gigante para conciertos masivos, festivales y eventos con más de 1,000 asistentes.</p>
+                <p class="showcase__text">La <strong>pantalla LED outdoor de 5x3 metros</strong> (15 m² de superficie) es la solución para <strong>eventos masivos al aire libre</strong> donde el impacto visual debe ser proporcional a una audiencia de miles de personas. Con paneles <strong>P4.8 de 7,000 nits</strong> — el máximo brillo disponible — la imagen es nítida y vibrante a distancias de hasta 100 metros. Visible claramente desde cualquier punto de un parque, explanada o estadio abierto incluso bajo el sol más intenso del mediodía.</p>
+                <p class="showcase__text">El montaje requiere <strong>6 a 10 horas</strong> con estructura de rigging profesional certificada para vientos de hasta 60 km/h. Incluye <strong>dos técnicos dedicados</strong> (ingeniero de video + operador), procesador Novastar profesional, cableado SDI redundante y planta de energía dedicada recomendada. Ideal para <strong>conciertos masivos, festivales multi-día, eventos deportivos, celebraciones cívicas y proyecciones públicas</strong>. El montaje generalmente se programa el día anterior al evento para pruebas completas. Complementa con nuestras <a href="/servicios/pistas-baile/tarimas-escenarios/">tarimas profesionales</a> y <a href="/servicios/accesorios/plantas-energia/">plantas de energía</a> para una producción de nivel festival.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">5×3 metros</span>
+                  <span class="showcase__tag">7,000 nits</span>
+                  <span class="showcase__tag">P4.8 outdoor</span>
+                  <span class="showcase__tag">1,000+ personas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Pantalla 5×3m
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/>
+                  </svg>
+                  <span>Pantalla Outdoor 5×3m</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Transmisión Deportiva -->
+          <section class="section section--alt" aria-labelledby="kit-deportivo-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Experiencia en vivo</span>
+                <h2 class="showcase__title" id="kit-deportivo-heading">Kit Transmisión Deportiva</h2>
+                <p class="showcase__subtitle">Pantallas gigantes para ver partidos, torneos y eventos deportivos en vivo al aire libre.</p>
+                <p class="showcase__text">Nuestro <strong>Kit de Transmisión Deportiva</strong> está diseñado para crear la experiencia de estadio al aire libre. Incluye <strong>pantalla LED outdoor de 3x2 o 5x3 metros</strong>, receptor de señal satelital/streaming HD, procesador de video con upscaling a la resolución nativa del panel y sistema de decodificación de señal con respaldo. La configuración garantiza <strong>latencia mínima</strong> para que la acción se vea en tiempo real sin retraso respecto a la señal de TV.</p>
+                <p class="showcase__text">Ideal para <strong>finales de futbol, peleas de box, eventos de MMA, olimpiadas y torneos internacionales</strong> en clubes deportivos, restaurantes con terraza, plazas públicas y fiestas privadas. El kit incluye <strong>sonido exterior profesional sincronizado</strong> con la transmisión para una experiencia inmersiva completa. Nuestro técnico gestiona la señal en tiempo real y resuelve cualquier intermitencia al instante con fuentes de respaldo. Complementa con nuestro <a href="/servicios/catering/">servicio de catering</a> para una experiencia de watch party completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Señal HD en vivo</span>
+                  <span class="showcase__tag">Latencia mínima</span>
+                  <span class="showcase__tag">Sonido incluido</span>
+                  <span class="showcase__tag">Señal de respaldo</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Deportivo
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/>
+                  </svg>
+                  <span>Kit Transmisión Deportiva</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Pantallas LED Exterior"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu pantalla LED outdoor, es natural tener preguntas sobre resistencia climática, brillo y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un ingeniero de video te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un ingeniero de video resolverá todas tus dudas sobre pantallas outdoor al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre pantallas LED de exterior para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Pantallas LED para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/audiovisual/pantallas-led/" class="sidebar-nav__back">&uarr; Volver a Pantallas LED</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/audiovisual/" class="sidebar-nav__back">&uarr; Volver a Audiovisual</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje outdoor:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas pantallas outdoor para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar pantallas LED de exterior para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Pantalla LED Exterior"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento al aire libre y uno de nuestros ingenieros de video te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea una pantalla de 2x1.5 metros para tu feria o una gigante de 5x3 metros para tu festival, estamos aquí para llevar el impacto visual a exteriores."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Evento Deportivo">Evento Deportivo</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoPantallaExt">
+                Tipo de pantalla exterior
+              </label>
+              <select id="tipoPantallaExt" name="tipoPantallaExt" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de pantalla</option>
+                <option value="2x1.5m P3.9">2×1.5m P3.9</option>
+                <option value="3x2m P3.9">3×2m P3.9</option>
+                <option value="5x3m P4.8">5×3m P4.8</option>
+                <option value="Kit Deportivo">Kit Deportivo</option>
+                <option value="Paquete Festival">Paquete Festival</option>
+                <option value="Configuración Personalizada">Configuración Personalizada</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Cuéntanos los detalles: ubicación del evento, número de asistentes, horario (diurno/nocturno), acceso a energía eléctrica..." rows="4" required></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu ubicación al aire libre sin costo para diseñar la configuración outdoor ideal.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría de ingeniería de video outdoor para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoPantallaExt = document.getElementById('tipoPantallaExt').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Pantallas LED Exterior*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoPantallaExt) texto += `*Tipo de pantalla:* ${tipoPantallaExt}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Audiovisual"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de equipo audiovisual para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">A</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">AudioVisual Pro MX</h3>
+            <p class="partner-card__tagline">Pantallas Outdoor de Alto Brillo</p>
+            <p class="partner-card__text">Líder en renta de pantallas LED outdoor con certificación IP65 para festivales, conciertos y eventos masivos al aire libre en CDMX. Paneles de 5,000 a 7,000 nits con estructura reforzada.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">S</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">SonidoEventos CDMX</h3>
+            <p class="partner-card__tagline">Audio y Video Exterior Profesional</p>
+            <p class="partner-card__text">Especialistas en soluciones audiovisuales para exteriores con pantallas LED de alto brillo, sonido line array outdoor y producción técnica completa para festivales y eventos masivos.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">T</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">TechEvents</h3>
+            <p class="partner-card__tagline">Tecnología LED Outdoor Certificada</p>
+            <p class="partner-card__text">Más de 10 años proporcionando pantallas LED outdoor para eventos al aire libre en CDMX. Equipo IP65 certificado, estructuras de viento y producción integral para festivales y conciertos.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MediaRent</h3>
+            <p class="partner-card__tagline">Renta de Pantallas para Exteriores</p>
+            <p class="partner-card__text">Servicio integral de renta de pantallas LED outdoor con logística profesional en toda la CDMX. Estructura certificada, plantas de energía y operadores técnicos especializados en exteriores.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Pantallas LED outdoor que brillan más que el sol en tu evento"
+    subheadline="Más de 200 eventos al aire libre exitosos nos respaldan. Cotiza hoy y recibe asesoría técnica outdoor sin compromiso."
+    primaryCTA={{ label: "Cotizar pantallas outdoor", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar pantallas LED de exterior para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>
