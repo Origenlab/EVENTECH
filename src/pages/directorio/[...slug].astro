@@ -75,6 +75,13 @@ export async function getStaticPaths() {
 
 const { type, region, zone, zoneName, venues, venue } = Astro.props;
 
+// Render venue markdown content if it's a venue page
+let VenueContent: any = null;
+if (type === "venue" && venue) {
+  const { Content } = await venue.render();
+  VenueContent = Content;
+}
+
 // Labels
 const regionLabels: Record<string, string> = {
   "cdmx": "Ciudad de México",
@@ -416,12 +423,16 @@ const jsonLd = [
               )}
             </div>
 
-            <!-- Description -->
-            <div class="venue-section">
-              <h2 class="venue-section__title">Acerca del Venue</h2>
-              <div class="prose">
-                <p>{venue.data.description}</p>
-              </div>
+            <!-- Description / Full Content -->
+            <div class="venue-content prose">
+              {VenueContent ? (
+                <VenueContent />
+              ) : (
+                <div class="venue-section">
+                  <h2 class="venue-section__title">Acerca del Venue</h2>
+                  <p>{venue.data.description}</p>
+                </div>
+              )}
             </div>
 
             <!-- Amenities -->

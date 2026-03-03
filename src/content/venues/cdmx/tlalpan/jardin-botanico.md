@@ -1,8 +1,8 @@
 ---
 name: "Jardín Botánico de Tlalpan"
 slug: "jardin-botanico-tlalpan"
-description: "Un oasis de naturaleza en el sur de la ciudad, el Jardín Botánico de Tlalpan ofrece espacios únicos rodeados de vegetación endémica mexicana. Con senderos entre plantas nativas, lagos con patos y áreas verdes impecables, es el escenario perfecto para eventos al aire libre que buscan conexión con la naturaleza. La tranquilidad del entorno contrasta bellamente con la celebración, creando memorias inolvidables."
-shortDescription: "Jardín botánico con lagos y vegetación nativa para eventos al aire libre en Tlalpan."
+description: "El Jardín Botánico de Tlalpan es un santuario de biodiversidad mexicana donde más de 3,000 especies de plantas nativas crean el escenario perfecto para eventos que buscan conectar con la naturaleza sin salir de la ciudad. Sus 7 hectáreas incluyen lagos con patos y garzas, senderos entre cactáceas y suculentas, bosques de encinos y fresnos, y explanadas de césped donde carpas elegantes se integran armoniosamente con el paisaje. Para parejas y familias que sueñan con celebrar rodeados de verde auténtico, este jardín ofrece una experiencia que ningún salón puede igualar."
+shortDescription: "7 hectáreas de vegetación nativa mexicana con lagos, senderos botánicos y explanadas para eventos al aire libre."
 
 region: "cdmx"
 zone: "Tlalpan"
@@ -97,12 +97,13 @@ reviews:
     text: "El entorno natural hizo nuestra boda especial. Las fotos quedaron increíbles."
     eventType: "boda"
 
-seoTitle: "Jardín Botánico Tlalpan - Bodas y Eventos al Aire Libre"
-seoDescription: "Jardín botánico en Tlalpan con lagos y naturaleza. Hasta 600 personas. Bodas, XV años y eventos familiares al aire libre."
+seoTitle: "Jardín Botánico Tlalpan - Bodas y Eventos en Naturaleza | CDMX"
+seoDescription: "7 hectáreas de jardín botánico con lagos y vegetación nativa en Tlalpan. Bodas y eventos al aire libre hasta 600 personas."
 keywords:
   - jardin botanico tlalpan eventos
   - bodas al aire libre cdmx
   - salon jardin tlalpan
+  - eventos naturaleza cdmx
 
 featured: true
 premium: false
@@ -111,17 +112,91 @@ order: 1
 publishedAt: 2025-01-15
 ---
 
-## Naturaleza en Estado Puro
+## Un Ecosistema Vivo como Escenario de tu Celebración
 
-El Jardín Botánico de Tlalpan es uno de los secretos mejor guardados de la Ciudad de México para eventos al aire libre.
+El Jardín Botánico de Tlalpan no es un jardín decorativo: es un **museo vivo de la biodiversidad mexicana** donde más de 3,000 especies de plantas nativas —desde cactáceas del desierto de Sonora hasta orquídeas de las selvas de Chiapas— coexisten en un espacio diseñado para preservar y exhibir la extraordinaria riqueza natural de nuestro país.
 
-## Espacios
+Celebrar aquí significa mucho más que rentar un espacio bonito: significa **sumergir a tus invitados en un ecosistema** donde patos silvestres nadan en lagos cristalinos, donde colibríes visitan las flores mientras tú pronuncias tus votos, donde el aroma de plantas medicinales se mezcla con el perfume de las flores de tu bouquet. Es un venue para quienes entienden que **la naturaleza auténtica es el mejor decorador**.
 
-### Explanada del Lago
-Área principal frente al lago con capacidad para 400 invitados. Vista única con reflejos en el agua.
+## Espacios Disponibles para Eventos
 
-### Jardín de las Rosas
-Espacio íntimo rodeado de rosales para ceremonias de hasta 150 personas.
+### Explanada del Lago Principal (Capacidad: 350-500 banquete / 700 cóctel)
 
-### Kiosco Central
-Estructura histórica perfecta para músicos o como punto focal de la recepción.
+El corazón del jardín es su **lago de 2,000 metros cuadrados** rodeado de una explanada de césped perfectamente cuidado. Esta área, sombreada por fresnos y ahuehuetes centenarios, ofrece vistas panorámicas al agua donde patos, garzas y ocasionalmente alguna garza blanca crean un espectáculo de vida silvestre que encanta a los invitados.
+
+La explanada tiene infraestructura para **carpas de gran formato**, con conexiones eléctricas y superficies niveladas que permiten montajes profesionales. Al atardecer, cuando el sol se refleja en el lago y las aves regresan a sus nidos, este espacio se transforma en un escenario mágico.
+
+**Ideal para:** Bodas de formato medio a grande, XV años espectaculares, eventos corporativos que buscan conexión con la naturaleza, fiestas familiares.
+
+### Jardín de las Rosas (Capacidad: 100-150 ceremonia)
+
+Un espacio íntimo cercado por **rosales de más de 50 variedades**, desde las clásicas rosas rojas hasta raras variedades azules y negras traídas de viveros especializados. Un arco natural formado por rosales trepadores crea el **altar perfecto para ceremonias** sin necesidad de decoración adicional.
+
+En primavera, cuando los rosales florecen en explosión de colores y fragancias, este espacio es simplemente **imposible de superar** como escenario de ceremonia.
+
+**Ideal para:** Ceremonias de boda civiles o religiosas, intercambio de anillos, sesiones fotográficas románticas.
+
+### Sendero de las Cactáceas (Capacidad: 80-120 cóctel)
+
+Un camino serpenteante entre **cactus y suculentas de todo México** —desde pequeñas mamillarias hasta imponentes cardones de 6 metros de altura— ofrece un espacio único para cócteles de recepción donde los invitados deambulan descubriendo formas y texturas extraordinarias.
+
+**Ideal para:** Cócteles de bienvenida, eventos con estética desértica, sesiones fotográficas con plantas espectaculares.
+
+### Kiosco Histórico (Capacidad: músicos o punto focal)
+
+En el centro del jardín se alza un **kiosco de hierro forjado de principios del siglo XX**, restaurado con respeto por sus detalles originales. Este punto focal puede utilizarse para ubicar al trío o cuarteto de música, como altar para ceremonias pequeñas, o como elemento decorativo central del evento.
+
+**Ideal para:** Ubicación de músicos, ceremonias muy íntimas, punto focal visual.
+
+### Área Infantil del Bosque (Capacidad: actividades para niños)
+
+Una sección del jardín con **juegos integrados en la naturaleza** —casas en los árboles, puentes colgantes, áreas de exploración— permite que los niños invitados disfruten de manera segura mientras los adultos celebran. Supervisores del jardín pueden asignarse para cuidado durante el evento.
+
+**Ideal para:** Eventos familiares con muchos niños, bodas con área de entretenimiento infantil separada.
+
+## La Filosofía del Jardín Botánico
+
+### Conservación Activa
+Este no es solo un espacio de eventos: es una **institución de conservación** que protege especies amenazadas y educa sobre la biodiversidad mexicana. Al celebrar aquí, contribuyes directamente a esta misión.
+
+### Respeto por la Naturaleza
+Los eventos en el jardín se diseñan para **minimizar el impacto ambiental**: sin pirotecnia que asuste a la fauna, con montajes que no dañan la vegetación, con horarios que respetan los ciclos naturales.
+
+### Autenticidad Biológica
+Las plantas aquí no son decoración: son **especímenes botánicos reales** cuidados por expertos. Cada área del jardín representa un ecosistema específico de México, desde los desiertos hasta las selvas.
+
+## ¿Por Qué Elegir el Jardín Botánico de Tlalpan?
+
+### Naturaleza Genuina
+Esto no es un jardín de salón con plantas decorativas: es un **ecosistema vivo** con fauna silvestre, sonidos de naturaleza y la energía que solo la biodiversidad auténtica puede ofrecer.
+
+### Fotografías Únicas
+Los fondos que ofrece el jardín —lagos, rosales, cactáceas, bosques— permiten **sesiones fotográficas variadas** sin salir del venue. Cada rincón es una localización diferente.
+
+### Precio Accesible
+Para ser un espacio de 7 hectáreas con esta calidad de vegetación y mantenimiento, los precios son **significativamente menores** que haciendas o jardines privados de tamaño similar.
+
+### Clima Agradable
+La vegetación abundante y los cuerpos de agua crean un **microclima naturalmente fresco**, incluso en los días más calurosos de la ciudad.
+
+## Servicios Incluidos
+
+- **Coordinador del jardín** para logística de espacios
+- **Seguridad** y supervisión durante el evento
+- **Limpieza** pre y post evento
+- **Montaje y desmontaje** básico
+- **Estacionamiento** para 120 vehículos
+- **Acceso a sanitarios** del jardín
+
+## Consideraciones del Espacio
+
+- **Música amplificada** permitida hasta las 22:00 hrs
+- **Sin pirotecnia** por protección de la fauna
+- **Proveedores externos** permitidos (no hay catering exclusivo)
+- **Carpas requeridas** para eventos con más de 200 personas (protección climática)
+
+## La Experiencia de Celebrar con la Naturaleza
+
+En un mundo de salones idénticos y jardines artificiales, el Jardín Botánico de Tlalpan ofrece algo extraordinario: la oportunidad de celebrar **inmersos en la biodiversidad real de México**, donde cada planta tiene nombre científico, donde los pájaros cantan sin que nadie los haya programado, donde el agua del lago refleja tanto las nubes como los rostros emocionados de tus invitados.
+
+Aquí, tu boda no compite con la naturaleza por atención: **tu celebración se convierte en parte del paisaje**, en un evento que se siente tan natural como las flores que lo rodean.
