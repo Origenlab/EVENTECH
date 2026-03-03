@@ -63,7 +63,6 @@ schedule:
 contact:
   phone: "55 5525 3939"
   email: "eventos@casalamm.com.mx"
-  website: "https://www.casalamm.com.mx"
   instagram: "@casalamm"
 
 image: "/images/venues/casa-lamm-hero.jpg"

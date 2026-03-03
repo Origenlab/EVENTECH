@@ -64,7 +64,6 @@ schedule:
 contact:
   phone: "55 5876 2770"
   email: "eventos.tepotzotlan@inah.gob.mx"
-  website: "https://www.virreinato.inah.gob.mx"
 
 image: "/images/venues/exhacienda-tepotzotlan-hero.jpg"
 gallery:

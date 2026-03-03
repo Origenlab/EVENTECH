@@ -2,6 +2,7 @@
 /**
  * ─── Breadcrumbs Component ───
  * Migas de pan para navegación y SEO.
+ * Incluye su propio container para uso consistente en todo el sitio.
  */
 type BreadcrumbItem = {
   label: string;
@@ -15,28 +16,35 @@ type Props = {
 const { items } = Astro.props;
 ---
 
-<nav class="breadcrumbs" aria-label="Migas de pan">
-  <ol class="breadcrumbs__list">
-    {items.map((item, index) => (
-      <li class="breadcrumbs__item">
-        {item.href && index < items.length - 1 ? (
-          <a href={item.href} class="breadcrumbs__link">{item.label}</a>
-        ) : (
-          <span class="breadcrumbs__current" aria-current="page">{item.label}</span>
-        )}
-        {index < items.length - 1 && (
-          <span class="breadcrumbs__separator" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="9 18 15 12 9 6"/>
-            </svg>
-          </span>
-        )}
-      </li>
-    ))}
-  </ol>
-</nav>
+<div class="breadcrumbs-wrapper">
+  <nav class="breadcrumbs container" aria-label="Migas de pan">
+    <ol class="breadcrumbs__list">
+      {items.map((item, index) => (
+        <li class="breadcrumbs__item">
+          {item.href && index < items.length - 1 ? (
+            <a href={item.href} class="breadcrumbs__link">{item.label}</a>
+          ) : (
+            <span class="breadcrumbs__current" aria-current="page">{item.label}</span>
+          )}
+          {index < items.length - 1 && (
+            <span class="breadcrumbs__separator" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </span>
+          )}
+        </li>
+      ))}
+    </ol>
+  </nav>
+</div>
 
 <style>
+  .breadcrumbs-wrapper {
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
   .breadcrumbs {
     padding-block: var(--space-md);
   }

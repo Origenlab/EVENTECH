@@ -1,0 +1,681 @@
+---
+/**
+ * ─── Guirnaldas Edison 200 Metros — Página de Paquete (Nivel 5) ───
+ * Paquete de 200m con ~400 focos LED Edison, sockets cada 0.5m, cable negro.
+ * Para eventos grandes, festivales y haciendas. Color accent: Amber #e17055.
+ *
+ * Jerarquía: Servicios > Iluminación > Decorativa > Fairy Lights > Guirnaldas 200m
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Iluminación", href: "/servicios/iluminacion/" },
+  { label: "Decorativa", href: "/servicios/iluminacion/decorativa/" },
+  { label: "Fairy Lights", href: "/servicios/iluminacion/decorativa/fairy-lights/" },
+  { label: "Guirnaldas 200m" },
+];
+
+const faqs = [
+  { question: "¿Para cuántas personas alcanza el paquete de 200 metros de guirnaldas Edison?", answer: 'El paquete de 200 metros está diseñado para <strong>eventos grandes de 200 a 500+ personas</strong>. Cubre hasta 200 m² de espacio con 400 focos LED Edison, ideal para bodas grandes en haciendas y jardines amplios, festivales, ferias navideñas, mercados artesanales y eventos corporativos de gran escala. Con esta cantidad de metraje puedes cubrir múltiples zonas: banquete, pista, coctel, pasillos de acceso y zonas de fotografía.' },
+  { question: "¿200 metros de guirnaldas necesitan instalación eléctrica especial?", answer: 'El consumo total de 200 metros es de aproximadamente <strong>800W</strong>, lo que requiere distribuir la carga en <strong>al menos 2 circuitos eléctricos</strong> independientes para mayor seguridad. No necesitas una instalación eléctrica industrial — dos tomas domésticas estándar de 120V en ubicaciones diferentes son suficientes. Nuestro técnico divide las guirnaldas en secciones de 100m conectadas a circuitos separados, evitando sobrecargas. Para venues con tomas limitadas, incluimos extensiones profesionales de calibre adecuado sin costo adicional.' },
+  { question: "¿Cuánto tiempo toma el montaje de 200 metros de guirnaldas?", answer: 'El montaje profesional de 200 metros toma entre <strong>4 y 6 horas</strong>, dependiendo de la complejidad del espacio, la cantidad de zonas a cubrir y los puntos de anclaje disponibles. Para instalaciones en haciendas grandes o explanadas, nuestro equipo de 2-3 técnicos trabaja en paralelo para reducir el tiempo. Recomendamos programar el montaje la mañana del evento o incluso el día anterior si el venue lo permite. El desmontaje posterior toma aproximadamente 2-3 horas.' },
+  { question: "¿Puedo usar 200 metros de guirnaldas Edison para un festival o feria?", answer: 'Absolutamente. El paquete de 200 metros es <strong>ideal para festivales, ferias, bazares y mercados</strong>. La distribución típica para un food court o bazar: líneas paralelas de guirnaldas Edison sobre los pasillos entre stands (cada pasillo de 20-30m), creando un techo de focos cálidos que invita a los visitantes a recorrer todo el espacio. Para bazares navideños, las Edison de 2700K crean la atmósfera perfecta de mercado europeo. Todos nuestros equipos incluyen versión IP65 para exteriores.' },
+  { question: "¿Se pueden combinar 200 metros de Edison con otros tipos de iluminación?", answer: 'Sí, y para eventos grandes es altamente recomendable. Las combinaciones más populares para 200m+ son: Edison perimetral + <a href="/servicios/iluminacion/decorativa/candiles/">candiles de cristal</a> sobre la zona central de banquete, Edison en el jardín + <a href="/servicios/iluminacion/decorativa/esferas-led/">esferas luminosas</a> flotantes en el césped, y Edison en el food court + <a href="/servicios/iluminacion/decorativa/letras-luminosas/">letras luminosas</a> de marca en la entrada del evento. Nuestro diseñador de iluminación crea un plano integral coordinando todos los elementos.' },
+  { question: "¿El paquete de 200 metros incluye montaje y desmontaje?", answer: 'Sí, el precio de renta incluye <strong>montaje profesional completo, operación durante el evento y desmontaje</strong> sin costos ocultos. Para 200 metros, nuestro equipo de 2-3 técnicos se encarga de: instalación de todos los puntos de anclaje (cables de acero, ganchos, tensores), tendido de las guirnaldas, conexión eléctrica con dimmers en cada circuito, prueba completa del sistema y permanencia de un técnico durante las primeras horas del evento para ajustes de última hora. El desmontaje se programa para después del evento o al día siguiente.' },
+];
+
+const specs = [
+  { label: "Longitud total", value: "200 metros" },
+  { label: "Número de focos", value: "~400 focos LED Edison" },
+  { label: "Separación entre sockets", value: "50 cm" },
+  { label: "Tipo de foco", value: "LED Edison vintage filamento 2W" },
+  { label: "Temperatura de color", value: "2700K (warm white)" },
+  { label: "Cable", value: "Negro industrial, calibre 16 AWG" },
+  { label: "Conexión", value: "Plug & play, encadenable" },
+  { label: "Consumo total", value: "~800W (2 circuitos recomendados)" },
+  { label: "Cobertura aproximada", value: "~200 m²" },
+  { label: "Clasificación IP", value: "IP44 interior / IP65 disponible" },
+  { label: "Incluye", value: "2 dimmers, extensiones, ganchos, montaje y desmontaje" },
+];
+
+const sidebarNav = [
+  { name: "Guirnaldas 50m (100 focos)", href: "/servicios/iluminacion/decorativa/fairy-lights/guirnaldas-50m/" },
+  { name: "Guirnaldas 100m (200 focos)", href: "/servicios/iluminacion/decorativa/fairy-lights/guirnaldas-100m/" },
+  { name: "Guirnaldas 200m (400 focos)", href: null, active: true },
+  { name: "Guirnaldas 400m (800 focos)", href: "/servicios/iluminacion/decorativa/fairy-lights/guirnaldas-400m/" },
+];
+
+const sidebarRelated = [
+  { name: "Candiles y Candelabros", href: "/servicios/iluminacion/decorativa/candiles/" },
+  { name: "Esferas y Figuras LED", href: "/servicios/iluminacion/decorativa/esferas-led/" },
+  { name: "Letras Luminosas", href: "/servicios/iluminacion/decorativa/letras-luminosas/" },
+  { name: "Wash Lights LED", href: "/servicios/iluminacion/arquitectonica/wash-lights/" },
+  { name: "Uplighting Perimetral", href: "/servicios/iluminacion/arquitectonica/uplighting/" },
+];
+
+const reviews = [
+  { author: "Diana Castillo", text: "Organizamos una boda de 300 personas en una hacienda de Tlalpan y el paquete de 200 metros de guirnaldas Edison fue absolutamente espectacular. Cubrieron la explanada completa, el jardín de coctel y los pasillos. Los 400 focos crearon un ambiente de hacienda colonial con luz cálida por todos lados. Cada foto de la boda se veía increíble. El equipo de montaje fue impecable.", rating: 5, date: "2025-12-15" },
+  { author: "Alejandro Guzmán", text: "Usamos 200 metros de Edison para un bazar navideño corporativo de 3 días. Las guirnaldas cubrieron 8 pasillos entre stands de proveedores y el efecto de mercado europeo fue exactamente lo que buscábamos. La versión IP65 aguantó una noche de llovizna sin problema. El montaje tomó una mañana completa pero el resultado valió cada minuto. Repetiremos sin duda.", rating: 5, date: "2025-11-28" },
+  { author: "Sofía Hernández", text: "Para los XV años de mi sobrina queríamos algo grandioso y con 200 metros de guirnaldas Edison lo logramos. El jardín de la hacienda se transformó en un escenario de cuento de hadas. La combinación con esferas luminosas en el césped fue una sugerencia del equipo de Eventech y fue un acierto total. Servicio de primera, muy profesionales.", rating: 5, date: "2025-10-20" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Guirnaldas Edison 200 Metros para Eventos Grandes en CDMX",
+    description: "Renta de guirnaldas Edison de 200 metros con 400 focos LED vintage para bodas grandes, festivales y eventos corporativos en CDMX. Cobertura hasta 200m². Instalación profesional incluida.",
+    url: "/servicios/iluminacion/decorativa/fairy-lights/guirnaldas-200m/",
+    priceRange: { min: 5000, max: 11000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 3,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Iluminación", url: "/servicios/iluminacion/" },
+    { name: "Decorativa", url: "/servicios/iluminacion/decorativa/" },
+    { name: "Fairy Lights", url: "/servicios/iluminacion/decorativa/fairy-lights/" },
+    { name: "Guirnaldas 200m", url: "/servicios/iluminacion/decorativa/fairy-lights/guirnaldas-200m/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Guirnaldas Edison 200m — 400 Focos LED CDMX"
+  description="Renta de guirnaldas Edison de 200 metros con 400 focos LED vintage para bodas grandes, festivales y eventos corporativos en CDMX. Cobertura hasta 200m². Instalación profesional incluida."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Para eventos grandes y festivales"
+    title='Renta de <span class="highlight">Guirnaldas Edison 200 Metros</span> — 400 Focos LED'
+    subtitle="El paquete más grande para bodas de 200+ invitados, haciendas, festivales y eventos corporativos de gran escala. 400 focos LED Edison vintage con cobertura de hasta 200 m². Montaje profesional con equipo de 2-3 técnicos."
+    primaryCTA={{ label: "Cotiza el paquete 200m", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar el paquete de guirnaldas Edison de 200 metros` }}
+    cards={[
+      {
+        title: "400 focos Edison LED — cobertura total para eventos grandes",
+        content: "<strong>Paquete de 200 metros de guirnaldas Edison LED</strong> con aproximadamente 400 focos de filamento visible estilo vintage distribuidos cada 50 centímetros. Cobertura de hasta 200 m² — suficiente para explanadas de haciendas, jardines amplios, carpas grandes, food courts de festivales y múltiples zonas de evento simultáneas. Cable negro industrial calibre 16 AWG, clasificación IP44 interior e IP65 disponible para exterior. Sistema plug & play distribuido en 2 circuitos eléctricos independientes.",
+      },
+      {
+        title: "Montaje profesional con equipo técnico dedicado",
+        content: "<strong>Equipo de 2-3 técnicos especializados</strong> para montaje profesional de 4-6 horas. Incluye instalación de todos los puntos de anclaje (cables de acero, ganchos, tensores), tendido de guirnaldas en el diseño personalizado para tu espacio, conexión eléctrica con 2 dimmers regulables independientes (10%-100%), extensiones profesionales, ganchos de sujeción y desmontaje completo sin costo. Técnico de guardia durante las primeras horas del evento para ajustes de última hora. Consumo total ~800W distribuido en 2 circuitos.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Planeas un evento grande de 200+ personas?"
+    subheadline="El paquete de 200 metros cubre explanadas, haciendas y festivales completos — cotiza sin compromiso"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Paquetes Guirnaldas Edison</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas guirnaldas Edison para tu evento grande?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar el paquete de guirnaldas Edison de 200 metros`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Guirnaldas Edison 200m</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Bodas Grandes y Haciendas -->
+          <section class="section section--alt" aria-labelledby="bodas-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Para 200+ invitados</span>
+                <h2 class="showcase__title" id="bodas-heading">Bodas Grandes y Haciendas (200+ Invitados)</h2>
+                <p class="showcase__subtitle">400 focos Edison cubriendo explanadas, jardines amplios y múltiples zonas de evento en haciendas y fincas.</p>
+                <p class="showcase__text">El <strong>paquete de 200 metros de guirnaldas Edison</strong> es la elección para bodas grandes en haciendas, fincas y jardines amplios donde se necesita cubrir la <strong>explanada completa</strong>. Con 400 focos LED Edison cubrimos hasta 200 m² — suficiente para zona de ceremonia + banquete + pista de baile + coctel + pasillos de acceso, todo bajo un manto continuo de luz cálida vintage.</p>
+                <p class="showcase__text">La distribución típica para haciendas: guirnaldas en zigzag cruzando la explanada principal entre postes y árboles (120-150m), con líneas adicionales en el corredor de bienvenida y la zona de coctel (50-80m). Las instalamos a diferentes alturas para crear profundidad visual — más bajas sobre las mesas (3m) y más altas en los pasillos (4-5m). Combinación espectacular con <a href="/servicios/carpas/estructurales/">carpas estructurales</a> para eventos donde se necesita techo parcial con iluminación vintage integral.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">200+ invitados</span>
+                  <span class="showcase__tag">Haciendas y fincas</span>
+                  <span class="showcase__tag">Cobertura 200 m²</span>
+                  <span class="showcase__tag">Múltiples zonas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar para Boda Grande
+                </a>
+              </div>
+              <div class="showcase__image">
+                <img src="/images/guirnaldas/guirnaldas-edison-200-metros-boda-grande.avif" alt="Guirnaldas Edison 200 metros para boda grande en hacienda" width="1200" height="686" loading="lazy" />
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Festivales, Ferias y Mercados -->
+          <section class="section section--alt" aria-labelledby="festivales-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Ambiente de mercado europeo</span>
+                <h2 class="showcase__title" id="festivales-heading">Festivales, Ferias y Mercados</h2>
+                <p class="showcase__subtitle">Líneas paralelas de Edison sobre food courts, bazares navideños y pasillos de feria con estética vintage industrial.</p>
+                <p class="showcase__text">Las <strong>200 metros de guirnaldas Edison</strong> son perfectas para festivales gastronómicos, bazares navideños, ferias artesanales y mercados al aire libre. La distribución típica: <strong>líneas paralelas de guirnaldas</strong> sobre los pasillos entre stands o food trucks, creando un techo de focos cálidos que invita a los visitantes a recorrer todo el espacio. Cada foco Edison emite una luz cálida de 2700K que recrea la atmósfera de los mercados europeos de invierno.</p>
+                <p class="showcase__text">Para food courts y <a href="/servicios/catering/estaciones-servicio/">estaciones de servicio</a>, instalamos las guirnaldas en filas sobre las áreas de mesas comunitarias, creando zonas definidas de iluminación cálida donde los comensales se sienten cómodos. La versión <strong>IP65 para exteriores</strong> resiste lluvia y humedad — fundamental para eventos de varios días al aire libre. Incluimos 2 dimmers independientes para poder regular la intensidad por zonas o crear efectos de encendido secuencial al atardecer.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Food courts</span>
+                  <span class="showcase__tag">Bazares navideños</span>
+                  <span class="showcase__tag">Ferias artesanales</span>
+                  <span class="showcase__tag">IP65 exterior</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar para Festival o Feria
+                </a>
+              </div>
+              <div class="showcase__image">
+                <img src="/images/guirnaldas/renta-guirnaldas-200m-festival-feria.avif" alt="Renta guirnaldas Edison 200m festival y feria" width="1200" height="686" loading="lazy" />
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Diseño Integral de Iluminación Completa -->
+          <section class="section section--alt" aria-labelledby="integral-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Iluminación decorativa completa</span>
+                <h2 class="showcase__title" id="integral-heading">Diseño Integral — Iluminación Decorativa Completa</h2>
+                <p class="showcase__subtitle">Edison + candiles + esferas + letras luminosas: un diseño de iluminación integral que transforma todo el evento.</p>
+                <p class="showcase__text">Para eventos donde la iluminación es protagonista, el <strong>paquete de 200 metros de guirnaldas Edison</strong> se convierte en la base de un diseño integral que combina múltiples elementos decorativos. La propuesta más espectacular: <strong>Edison perimetral</strong> enmarcando todo el espacio (200m) + <a href="/servicios/iluminacion/decorativa/candiles/">candiles de cristal</a> colgantes sobre la zona central de banquete + <a href="/servicios/iluminacion/decorativa/esferas-led/">esferas luminosas</a> flotantes en el jardín + <a href="/servicios/iluminacion/decorativa/letras-luminosas/">letras luminosas</a> LOVE o marca del evento en la entrada.</p>
+                <p class="showcase__text">Nuestro <strong>diseñador de iluminación</strong> crea un plano técnico donde cada elemento se complementa en intensidad, temperatura de color y distribución espacial. Los 2 dimmers del paquete de 200m permiten regular zonas independientes — más tenue en el banquete, más intenso en el acceso. El resultado es una experiencia inmersiva de luz que acompaña a los invitados desde que llegan hasta que se despiden. Este nivel de diseño integral es lo que diferencia un evento memorable de uno ordinario.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Edison + Candiles</span>
+                  <span class="showcase__tag">Esferas LED</span>
+                  <span class="showcase__tag">Letras luminosas</span>
+                  <span class="showcase__tag">Diseño integral</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Diseño Integral
+                </a>
+              </div>
+              <div class="showcase__image">
+                <img src="/images/guirnaldas/guirnaldas-200m-diseno-integral-iluminacion.avif" alt="Guirnaldas Edison 200m diseño integral iluminación completa" width="1200" height="686" loading="lazy" />
+              </div>
+            </div>
+          </section>
+
+          <!-- GALERÍA: Guirnaldas Edison 200 Metros -->
+          <section class="section" aria-labelledby="galeria-heading">
+            <div class="container">
+              <h2 class="section-header__title" id="galeria-heading">Galería — Guirnaldas Edison 200 Metros</h2>
+              <p class="section-header__description">Proyectos reales de guirnaldas Edison de 200 metros: bodas grandes, festivales, haciendas y diseño integral en CDMX.</p>
+              <div class="galeria-grid">
+                <img src="/images/guirnaldas/renta-guirnaldas-edison-200m-hero.avif" alt="Renta guirnaldas Edison 200 metros para eventos grandes" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/renta-guirnaldas-edison-200m-hacienda.avif" alt="Guirnaldas Edison 200m hacienda" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/guirnaldas-200m-explanada-evento-cdmx.avif" alt="Guirnaldas 200m explanada evento CDMX" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/renta-guirnaldas-200m-bazar-navidad.avif" alt="Renta guirnaldas 200m bazar navidad" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/guirnaldas-edison-200m-food-court.avif" alt="Guirnaldas Edison 200m food court" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/renta-guirnaldas-200m-boda-400-invitados.avif" alt="Renta guirnaldas 200m boda 400 invitados" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/guirnaldas-200m-jardin-amplio-evento.avif" alt="Guirnaldas 200m jardín amplio evento" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/renta-guirnaldas-edison-200m-carpa-estructural.avif" alt="Renta guirnaldas Edison 200m carpa estructural" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/guirnaldas-200m-mercado-gourmet-cdmx.avif" alt="Guirnaldas 200m mercado gourmet CDMX" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/renta-guirnaldas-200m-iluminacion-completa.avif" alt="Renta guirnaldas 200m iluminación completa" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/guirnaldas-200m-evento-masivo-exterior.avif" alt="Guirnaldas 200m evento masivo exterior" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/renta-guirnaldas-edison-200m-montaje.avif" alt="Renta guirnaldas Edison 200m montaje" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/guirnaldas-200m-boda-destino-hacienda.avif" alt="Guirnaldas 200m boda destino hacienda" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/renta-guirnaldas-200m-instalacion-profesional.avif" alt="Renta guirnaldas 200m instalación profesional" width="600" height="343" loading="lazy" />
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. FAQ -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes — Guirnaldas Edison 200 Metros"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Todo lo que necesitas saber antes de rentar el paquete de 200 metros — nuestro paquete más grande para eventos de gran escala.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un especialista te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en guirnaldas Edison resolverá tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre el paquete de guirnaldas Edison de 200 metros`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Paquetes Guirnaldas Edison</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/decorativa/fairy-lights/" class="sidebar-nav__back">&uarr; Volver a Fairy Lights</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/decorativa/" class="sidebar-nav__back">&uarr; Volver a Decorativa</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tus guirnaldas Edison:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas guirnaldas Edison para tu evento grande?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar el paquete de guirnaldas Edison de 200 metros`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       8. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza el Paquete de Guirnaldas Edison 200m"
+        subtitle="El más grande — cuéntanos sobre tu evento"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros especialistas te responderá por WhatsApp con una cotización personalizada para el paquete de 200 metros.",
+          "Sin compromiso, sin costos ocultos. Montaje con equipo de 2-3 técnicos y desmontaje incluidos."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda Grande">Boda Grande</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Festival / Feria">Festival / Feria</option>
+                <option value="Bazar / Mercado">Bazar / Mercado</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="paquete">
+                Paquete de guirnaldas
+              </label>
+              <select id="paquete" name="paquete" class="form-field__input form-field__select">
+                <option value="Guirnaldas Edison 50m (100 focos)">Guirnaldas Edison 50m (100 focos)</option>
+                <option value="Guirnaldas Edison 100m (200 focos)">Guirnaldas Edison 100m (200 focos)</option>
+                <option value="Guirnaldas Edison 200m (400 focos)" selected>Guirnaldas Edison 200m (400 focos)</option>
+                <option value="Guirnaldas Edison 400m (800 focos)">Guirnaldas Edison 400m (800 focos)</option>
+                <option value="Combinación de paquetes">Combinación de paquetes</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Cuéntanos los detalles: tipo de venue (hacienda/explanada/jardín), metros cuadrados, número de invitados, zonas a cubrir, si necesitas IP65 para exteriores..." rows="4" required></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para diseñar la distribución ideal de 200m de guirnaldas según dimensiones y zonas.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para tu presupuesto.</p>
+          </div>
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const paquete = document.getElementById('paquete').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Guirnaldas Edison 200m para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (paquete) texto += `*Paquete:* ${paquete}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Iluminación"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de iluminación profesional para eventos en la Ciudad de México.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">REDEIL</h3>
+            <p class="partner-card__tagline">Renta de Iluminación Profesional</p>
+            <p class="partner-card__text">Líder en renta de iluminación para eventos sociales en CDMX y Estado de México. Especialistas en guirnaldas LED, cabezas móviles e iluminación arquitectónica.</p>
+          </div>
+          <a href="https://rentadeiluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Iluminación + Audio</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">REDEIL Sonido</h3>
+            <p class="partner-card__tagline">Iluminación LED y Audio Profesional</p>
+            <p class="partner-card__text">Especialistas en audio JBL y QSC, iluminación LED profesional, DJ y pantallas LED para bodas, XV años y eventos corporativos.</p>
+          </div>
+          <a href="https://redeil.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">+15 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">RESOIL</h3>
+            <p class="partner-card__tagline">Renta de Sonido e Iluminación</p>
+            <p class="partner-card__text">Más de 15 años proporcionando equipo profesional de sonido e iluminación para eventos corporativos en CDMX.</p>
+          </div>
+          <a href="https://rentadesonidoeiluminacion.com.mx/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">L</span>
+            <div class="partner-card__badge">+20 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">LUMINAPRO</h3>
+            <p class="partner-card__tagline">Expertos en Iluminación Profesional</p>
+            <p class="partner-card__text">Líder en renta de iluminación profesional para eventos con más de 20 años transformando espacios en CDMX.</p>
+          </div>
+          <a href="https://renta-de-iluminacion.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="400 focos Edison para iluminar tu evento a gran escala"
+    subheadline="El paquete de 200 metros cubre haciendas, festivales y eventos de 200+ personas. Cotiza hoy con equipo de montaje profesional incluido."
+    primaryCTA={{ label: "Cotizar paquete 200m", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa el paquete de guirnaldas Edison de 200 metros` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

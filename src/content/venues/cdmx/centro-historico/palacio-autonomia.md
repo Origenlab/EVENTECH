@@ -65,7 +65,6 @@ schedule:
 contact:
   phone: "55 5702 3456"
   email: "eventos@palacioautonomia.mx"
-  website: "https://www.palacioautonomia.unam.mx"
 
 image: "/images/venues/palacio-autonomia-hero.jpg"
 gallery:

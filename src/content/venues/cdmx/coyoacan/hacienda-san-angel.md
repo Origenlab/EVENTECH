@@ -74,7 +74,6 @@ contact:
   phone: "55 5616 1402"
   whatsapp: "55 2345 6789"
   email: "reservaciones@haciendasanangel.mx"
-  website: "https://www.haciendasanangel.mx"
   instagram: "@haciendasanangel"
 
 image: "/images/venues/hacienda-sanangel-hero.jpg"

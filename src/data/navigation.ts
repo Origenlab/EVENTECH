@@ -28,6 +28,15 @@ export const mainNav: NavItem[] = [
       { label: "Ver todos", href: "/servicios/" },
     ],
   },
+  {
+    label: "Directorio",
+    href: "/directorio/",
+    children: [
+      { label: "CDMX", href: "/directorio/cdmx/" },
+      { label: "Estado de México", href: "/directorio/estado-mexico/" },
+      { label: "Ver todos", href: "/directorio/" },
+    ],
+  },
   { label: "Bodas", href: "/eventos/bodas/" },
   { label: "Nosotros", href: "/nosotros/" },
   { label: "Blog", href: "/blog/" },
@@ -47,6 +56,7 @@ export const footerNav: Record<string, NavItem[]> = {
   empresa: [
     { label: "Nosotros", href: "/nosotros/" },
     { label: "Bodas", href: "/eventos/bodas/" },
+    { label: "Directorio Salones", href: "/directorio/" },
     { label: "Cobertura CDMX", href: "/zonas/cdmx/" },
     { label: "Blog", href: "/blog/" },
   ],

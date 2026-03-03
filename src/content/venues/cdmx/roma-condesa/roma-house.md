@@ -69,7 +69,6 @@ contact:
   phone: "55 5574 8901"
   whatsapp: "55 5678 9012"
   email: "hola@romahouse.mx"
-  website: "https://www.romahouse.mx"
   instagram: "@romahouse.mx"
 
 image: "/images/venues/roma-house-hero.jpg"

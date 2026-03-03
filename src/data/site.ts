@@ -51,8 +51,8 @@ export const SITE = {
   business: {
     priceRange: "$$",
     openingHours: {
-      weekdays: { opens: "09:00", closes: "18:00" },
-      saturday: { opens: "10:00", closes: "14:00" },
+      weekdays: { opens: "09:00", closes: "19:00" },
+      saturday: { opens: "09:00", closes: "14:00" },
     },
     geo: {
       latitude: 19.4326,

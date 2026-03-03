@@ -74,7 +74,6 @@ contact:
   phone: "722 271 5678"
   whatsapp: "722 123 4567"
   email: "eventos@haciendasanantoniometepec.mx"
-  website: "https://www.haciendasanantoniometepec.mx"
   instagram: "@hsanantoniometepec"
 
 image: "/images/venues/hacienda-sanantonio-hero.jpg"

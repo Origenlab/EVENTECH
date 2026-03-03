@@ -58,7 +58,6 @@ schedule:
 contact:
   phone: "55 5268 2000"
   email: "eventos@centrocitibanamex.com"
-  website: "https://www.centrocitibanamex.com"
 
 image: "/images/venues/citibanamex-hero.jpg"
 gallery:

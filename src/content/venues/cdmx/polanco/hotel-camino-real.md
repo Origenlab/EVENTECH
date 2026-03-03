@@ -78,7 +78,6 @@ schedule:
 contact:
   phone: "55 5263 8888"
   email: "eventos.polanco@caminoreal.com"
-  website: "https://www.caminoreal.com/polanco"
   instagram: "@caminorealpolanco"
 
 image: "/images/venues/camino-real-hero.jpg"

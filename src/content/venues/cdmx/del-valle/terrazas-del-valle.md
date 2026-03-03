@@ -71,7 +71,6 @@ contact:
   phone: "55 5523 4567"
   whatsapp: "55 3456 7890"
   email: "info@terrazasdelvalle.mx"
-  website: "https://www.terrazasdelvalle.mx"
   instagram: "@terrazasdelvalle"
 
 image: "/images/venues/terrazas-valle-hero.jpg"

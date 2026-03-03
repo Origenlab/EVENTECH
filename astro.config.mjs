@@ -25,13 +25,31 @@ export default defineConfig({
         if (item.url === "https://eventech.mx/") {
           item.priority = 1.0;
           item.changefreq = "daily";
-        } else if (item.url.includes("/servicios/")) {
+        } else if (item.url === "https://eventech.mx/servicios/") {
           item.priority = 0.9;
+          item.changefreq = "weekly";
+        } else if (item.url.includes("/servicios/") && item.url.split("/").filter(Boolean).length <= 3) {
+          // L2: /servicios/mobiliario/
+          item.priority = 0.8;
+          item.changefreq = "weekly";
+        } else if (item.url.includes("/servicios/") && item.url.split("/").filter(Boolean).length <= 4) {
+          // L3: /servicios/iluminacion/decorativa/
+          item.priority = 0.7;
+          item.changefreq = "weekly";
+        } else if (item.url.includes("/servicios/")) {
+          // L4/L5: deeper pages
+          item.priority = 0.6;
           item.changefreq = "weekly";
         } else if (item.url.includes("/eventos/")) {
           item.priority = 0.8;
           item.changefreq = "weekly";
         } else if (item.url.includes("/zonas/")) {
+          item.priority = 0.7;
+          item.changefreq = "monthly";
+        } else if (item.url.includes("/cotizar/")) {
+          item.priority = 0.8;
+          item.changefreq = "weekly";
+        } else if (item.url.includes("/directorio/")) {
           item.priority = 0.7;
           item.changefreq = "monthly";
         } else if (item.url.includes("/blog/")) {

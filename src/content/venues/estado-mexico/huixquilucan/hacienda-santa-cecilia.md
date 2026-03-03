@@ -76,7 +76,6 @@ contact:
   phone: "55 5247 8900"
   whatsapp: "55 6789 0123"
   email: "eventos@haciendasantacecilia.mx"
-  website: "https://www.haciendasantacecilia.mx"
   instagram: "@haciendasantacecilia"
 
 image: "/images/venues/hacienda-santacecilia-hero.jpg"
