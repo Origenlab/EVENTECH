@@ -1,0 +1,731 @@
+---
+/**
+ * ─── Equipo de Servicio — Pagina de Producto (Nivel 4) ───
+ * Samovares, chafing dishes, dispensadores de bebidas, bases para
+ * pastel y poncheras para banquetes profesionales.
+ *
+ * Jerarquia: Servicios > Catering > Vajilla y Cristalería > Equipo de Servicio
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Catering", href: "/servicios/catering/" },
+  { label: "Vajilla y Cristalería", href: "/servicios/catering/vajilla-cristaleria/" },
+  { label: "Equipo de Servicio" },
+];
+
+const faqs = [
+  { question: "¿Qué incluye la renta de un chafing dish?", answer: 'Cada <strong>chafing dish</strong> incluye la base de acero inoxidable, el recipiente interior (GN completo para rectangular o 4 litros para redondo), la tapa (roll-top para rectangular o abatible para redondo) y <strong>2 calentadores de gel incluidos</strong> que mantienen los alimentos calientes por aproximadamente 3 horas cada uno. Si tu evento dura más, proporcionamos calentadores adicionales sin costo extra.' },
+  { question: "¿Los samovares incluyen combustible?", answer: 'Sí, cada <strong>samovar</strong> incluye combustible sólido (pastillas de metanol) suficiente para mantener el agua caliente durante <strong>6-8 horas continuas</strong>. El samovar de 15 litros es ideal para cafés y tés de hasta 100 personas, mientras que el de 20 litros cubre eventos de hasta 150 personas. Para eventos más grandes, recomendamos rentar múltiples unidades distribuidas estratégicamente.' },
+  { question: "¿Los dispensadores mantienen la temperatura de las bebidas?", answer: 'Los <strong>dispensadores de jugo (10 y 20 litros)</strong> son de vidrio con grifo y mantienen las bebidas a temperatura ambiente — ideales para aguas frescas, jugos y limonadas. Los <strong>dispensadores de agua con sistema de frío</strong> mantienen el agua a temperatura de refrigeración durante varias horas. Para bebidas calientes, los samovares son la opción recomendada.' },
+  { question: "¿Qué tamaños de bases para pastel tienen disponibles?", answer: 'Disponemos de <strong>bases escalonadas de 3 niveles</strong> (ideal para pasteles medianos y mesas de postres compactas) y <strong>bases de 5 niveles</strong> (perfectas para pasteles de boda grandes y mesas de postres espectaculares). Ambas en acabado plateado con estructura reforzada que soporta hasta 15 kg por nivel. También ofrecemos <strong>bases individuales circulares</strong> de diferentes diámetros.' },
+  { question: "¿Cuál es el pedido mínimo de equipo de servicio?", answer: 'No hay un mínimo estricto para equipo de servicio — puedes rentar desde <strong>1 chafing dish o 1 samovar</strong>. Sin embargo, para obtener las mejores tarifas, recomendamos el paquete mínimo de 5 piezas combinadas. Para eventos de buffet completo, ofrecemos <strong>paquetes todo incluido</strong> que cubren desde 50 hasta 500 servicios con chafing dishes, samovares, dispensadores y accesorios.' },
+  { question: "¿Puedo combinar equipo de servicio con vajilla y cubiertos?", answer: 'Por supuesto, es lo más recomendable. Al rentar equipo de servicio junto con nuestra <a href="/servicios/catering/vajilla-cristaleria/platos-vajilla/">vajilla de porcelana</a>, <a href="/servicios/catering/vajilla-cristaleria/copas-cristaleria/">cristalería</a> y <a href="/servicios/catering/vajilla-cristaleria/cubiertos-charolas/">cubiertos</a>, garantizas un servicio de banquete coordinado y profesional. Ofrecemos <strong>paquetes combinados con descuento</strong> y coordinamos toda la logística de entrega en un solo envío.' },
+];
+
+const specs = [
+  { label: "Samovar", value: "15 y 20 litros acero inoxidable" },
+  { label: "Chafing dish rectangular", value: "GN completo con tapa roll-top" },
+  { label: "Chafing dish redondo", value: "4 litros con tapa abatible" },
+  { label: "Dispensador jugo", value: "10 y 20 litros con grifo" },
+  { label: "Dispensador agua", value: "20 litros con sistema de frío" },
+  { label: "Base pastel", value: "Escalonada 3 y 5 niveles" },
+  { label: "Ponchera", value: "Cristal 10 litros con cucharón" },
+  { label: "Calentador gel", value: "Incluido con cada chafing" },
+  { label: "Capacidad", value: "50-500 servicios según inventario" },
+  { label: "Montaje", value: "Distribución en mesas incluida" },
+];
+
+const sidebarNav = [
+  { name: "Platos y Vajilla", href: "/servicios/catering/vajilla-cristaleria/platos-vajilla/" },
+  { name: "Copas y Cristalería", href: "/servicios/catering/vajilla-cristaleria/copas-cristaleria/" },
+  { name: "Cubiertos y Charolas", href: "/servicios/catering/vajilla-cristaleria/cubiertos-charolas/" },
+  { name: "Equipo de Servicio", href: null, active: true },
+];
+
+const sidebarRelated = [
+  { name: "Estaciones de Servicio", href: "/servicios/catering/estaciones-servicio/" },
+  { name: "Cocina Móvil", href: "/servicios/catering/cocina-movil/" },
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+  { name: "Mobiliario Mesas", href: "/servicios/mobiliario/mesas/" },
+  { name: "Refrigeración", href: "/servicios/catering/refrigeracion/" },
+];
+
+const reviews = [
+  { author: "Laura Castillo", text: "Rentamos 8 chafing dishes y 2 samovares para el buffet de nuestra boda de 300 personas en un jardín de Tlalpan. Todo llegó impecable y con combustible de sobra. Los chafing dishes mantuvieron la comida caliente durante 4 horas sin problema. Los samovares fueron perfectos para la estación de café y chocolate. Excelente servicio.", rating: 5, date: "2025-11-25" },
+  { author: "Hotel Presidente InterContinental", text: "Para nuestro desayuno corporativo de 200 ejecutivos necesitábamos equipo adicional al del hotel. Los chafing dishes de EVENTECH eran idénticos en calidad a los nuestros. La entrega fue puntual a las 5:00 AM y la recolección coordinada perfectamente con nuestro equipo. Profesionalismo total.", rating: 5, date: "2025-10-18" },
+  { author: "Familia Rodríguez Pérez", text: "Para la fiesta de XV años de mi hija rentamos dispensadores de bebidas, ponchera de cristal y la base de pastel escalonada de 5 niveles. Todo quedó espectacular, especialmente la ponchera que fue el centro de la mesa de bebidas. La base del pastel soportó perfectamente el pastel de 3 pisos. Muy recomendados.", rating: 5, date: "2025-09-30" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Equipo de Servicio para Banquetes en CDMX",
+    description: "Renta de samovares, chafing dishes, dispensadores de bebidas, bases para pastel y poncheras para banquetes profesionales. Desde $150 por pieza.",
+    url: "/servicios/catering/vajilla-cristaleria/equipo-servicio/",
+    priceRange: { min: 150, max: 800 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 164,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Catering", url: "/servicios/catering/" },
+    { name: "Vajilla y Cristalería", url: "/servicios/catering/vajilla-cristaleria/" },
+    { name: "Equipo de Servicio", url: "/servicios/catering/vajilla-cristaleria/equipo-servicio/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Equipo de Servicio para Banquetes en CDMX | EVENTECH"
+  description="Renta de samovares, chafing dishes, dispensadores de bebidas, bases para pastel y poncheras para banquetes profesionales. Desde $150 por pieza."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Banquetes profesionales de primer nivel"
+    title='Renta de <span class="highlight">Equipo de Servicio</span> para Banquetes'
+    subtitle="Samovares para café y agua caliente, chafing dishes rectangulares y redondos, dispensadores de jugos y agua, bases para pastel escalonadas y poncheras de cristal. Calentadores incluidos."
+    primaryCTA={{ label: "Cotiza tu equipo", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar equipo de servicio para banquetes` }}
+    cards={[
+      {
+        title: "Equipo profesional para mantener y servir alimentos",
+        content: "<strong>Renta de equipo de servicio para banquetes</strong> en CDMX. Samovares para café y agua caliente de 15 y 20 litros en acero inoxidable, chafing dishes rectangulares y redondos con tapa roll-top y abatible, dispensadores de jugos y agua de 10 y 20 litros con grifo, bases para pastel escalonadas de 3 y 5 niveles, y poncheras de cristal de 10 litros con cucharón. Todo en acero inoxidable de grado profesional.",
+      },
+      {
+        title: "Calentadores incluidos y montaje en mesas",
+        content: "<strong>Calentadores de gel incluidos</strong> para cada chafing dish sin costo adicional, accesorios de servicio completos como cucharones, pinzas y tapas de repuesto. Montaje y distribución en mesas de buffet incluido en el servicio. Entrega un día antes o el mismo día según tus necesidades, con recolección al día siguiente. Cobertura completa dentro de CDMX y zona metropolitana.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas equipo profesional para tu banquete?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con el equipo ideal para tu tipo de servicio y número de invitados"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Vajilla y Cristalería</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas equipo de servicio para tu banquete?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar equipo de servicio para banquetes`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Equipo de Servicio</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Samovares y Dispensadores -->
+          <section class="section section--alt" aria-labelledby="samovares-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Bebidas calientes y frescas</span>
+                <h2 class="showcase__title" id="samovares-heading">Samovares y Dispensadores</h2>
+                <p class="showcase__subtitle">Samovares de acero inoxidable y dispensadores de bebidas para servicio continuo en tu evento.</p>
+                <p class="showcase__text">Nuestros <strong>samovares de 15 y 20 litros</strong> en acero inoxidable son perfectos para estaciones de café, té, chocolate caliente y agua caliente para infusiones. El sistema de calentamiento por combustible sólido mantiene el agua a <strong>temperatura de servicio (85-95°C) durante 6-8 horas continuas</strong> sin necesidad de electricidad — ideal para jardines, terrazas y venues sin acceso a corriente en el área de servicio.</p>
+                <p class="showcase__text">Los <strong>dispensadores de jugo (10 y 20 litros)</strong> en vidrio con grifo de acero son la solución elegante para servir aguas frescas, jugos naturales, limonadas y sangría. Los <strong>dispensadores de agua con sistema de frío</strong> mantienen el agua a temperatura de refrigeración. Para eventos al aire libre, recomendamos combinar samovares y dispensadores con nuestras <a href="/servicios/carpas/">carpas y cubiertas</a> para proteger las estaciones del sol y la lluvia.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Samovares 15/20L</span>
+                  <span class="showcase__tag">Dispensadores vidrio</span>
+                  <span class="showcase__tag">6-8 horas continuas</span>
+                  <span class="showcase__tag">Sin electricidad</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Samovares
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Samovares y Dispensadores</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Chafing Dishes Profesionales -->
+          <section class="section section--alt" aria-labelledby="chafing-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">El corazón del buffet</span>
+                <h2 class="showcase__title" id="chafing-heading">Chafing Dishes Profesionales</h2>
+                <p class="showcase__subtitle">Baños maría rectangulares y redondos con calentadores de gel incluidos para mantener los alimentos calientes.</p>
+                <p class="showcase__text">Los <strong>chafing dishes (baños maría)</strong> son el equipo esencial de cualquier buffet profesional. Nuestros modelos <strong>rectangulares con tapa roll-top</strong> aceptan recipientes GN completos y son ideales para platillos principales como arroz, pasta, carnes y guarniciones. Los <strong>chafing dishes redondos de 4 litros con tapa abatible</strong> son perfectos para sopas, cremas, salsas y guisos. Todos fabricados en acero inoxidable de grado profesional con acabado espejo.</p>
+                <p class="showcase__text">Cada chafing dish incluye <strong>2 calentadores de gel</strong> que mantienen los alimentos a temperatura segura (60-70°C) durante aproximadamente 3 horas. Para eventos de larga duración, proporcionamos calentadores adicionales sin costo extra. La tapa roll-top del modelo rectangular permite que los invitados se sirvan sin que la tapa estorbe, mientras que la tapa abatible del redondo mantiene el calor de manera más eficiente. Complementa con nuestras <a href="/servicios/catering/estaciones-servicio/">estaciones de servicio</a> para un buffet completo.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Rectangular GN</span>
+                  <span class="showcase__tag">Redondo 4L</span>
+                  <span class="showcase__tag">Gel calentador incluido</span>
+                  <span class="showcase__tag">Acero inoxidable</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Chafing Dishes
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Chafing Dishes Profesionales</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Bases para Pastel Escalonadas -->
+          <section class="section section--alt" aria-labelledby="pastel-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Mesas de postres espectaculares</span>
+                <h2 class="showcase__title" id="pastel-heading">Bases para Pastel Escalonadas</h2>
+                <p class="showcase__subtitle">Bases de 3 y 5 niveles para pasteles de boda y mesas de postres impresionantes.</p>
+                <p class="showcase__text">Nuestras <strong>bases para pastel escalonadas</strong> son el complemento perfecto para mesas de postres espectaculares. La <strong>base de 3 niveles</strong> es ideal para pasteles medianos de hasta 3 pisos y mesas de postres compactas con cupcakes, petit fours y galletas decoradas. La <strong>base de 5 niveles</strong> es la elección para pasteles de boda grandes de hasta 5 pisos y mesas de postres abundantes para eventos de más de 200 personas.</p>
+                <p class="showcase__text">Ambos modelos tienen <strong>acabado plateado con estructura reforzada</strong> que soporta hasta 15 kg por nivel. Los platos de cada nivel son removibles para facilitar el montaje y la limpieza. También disponemos de <strong>poncheras de cristal de 10 litros con cucharón</strong> para punch, sangría o bebidas especiales, y <strong>fuentes de chocolate</strong> de 3 y 5 pisos para eventos con estación de fondue. Complementa con nuestra <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a> para resaltar tu mesa de postres.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">3 y 5 niveles</span>
+                  <span class="showcase__tag">15 kg por nivel</span>
+                  <span class="showcase__tag">Acabado plateado</span>
+                  <span class="showcase__tag">Poncheras cristal</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Bases para Pastel
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Bases para Pastel Escalonadas</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Banquete Servicio Completo -->
+          <section class="section section--alt" aria-labelledby="kit-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Todo para tu buffet profesional</span>
+                <h2 class="showcase__title" id="kit-heading">Kit Banquete Servicio Completo</h2>
+                <p class="showcase__subtitle">Paquete integral con chafing dishes, samovares, dispensadores y accesorios para un buffet impecable.</p>
+                <p class="showcase__text">Nuestro <strong>Kit Banquete Servicio Completo</strong> reúne todo el equipo necesario para operar un buffet profesional sin importar la escala de tu evento. El paquete estándar para 100 personas incluye: <strong>6 chafing dishes rectangulares, 2 chafing dishes redondos, 2 samovares de 15 litros, 2 dispensadores de jugo de 20 litros y 1 dispensador de agua con sistema de frío</strong>. Escalable hasta 500 personas con equipo adicional proporcionalmente.</p>
+                <p class="showcase__text">El kit incluye <strong>todos los calentadores de gel necesarios, cucharones, pinzas de servicio y montaje en las mesas de buffet</strong>. Nuestro equipo de logística distribuye los chafing dishes y samovares estratégicamente según el layout de tu venue para optimizar el flujo de servicio. Para eventos con múltiples estaciones de comida, calculamos la distribución de equipo por estación. Complementa con nuestra <a href="/servicios/catering/vajilla-cristaleria/platos-vajilla/">vajilla de porcelana</a> y <a href="/servicios/catering/vajilla-cristaleria/cubiertos-charolas/">cubiertos</a> para un servicio integral.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Chafing + Samovares</span>
+                  <span class="showcase__tag">Dispensadores</span>
+                  <span class="showcase__tag">Montaje incluido</span>
+                  <span class="showcase__tag">50-500 personas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Banquete Completo
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Kit Banquete Servicio Completo</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Equipo de Servicio"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu equipo de servicio para banquetes, es natural tener preguntas sobre capacidades, combustible y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de equipo de servicio resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre equipo de servicio para banquetes`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Vajilla y Cristalería -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Vajilla y Cristalería</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/vajilla-cristaleria/" class="sidebar-nav__back">&uarr; Volver a Vajilla y Cristalería</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/" class="sidebar-nav__back">&uarr; Volver a Catering</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu servicio de banquete:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas equipo de servicio para tu banquete?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar equipo de servicio para banquetes`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Equipo de Servicio"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada de equipo de servicio. Sin compromiso, sin costos ocultos.",
+          "Ya sea un samovar para tu reunión o un kit completo de buffet para 500 personas, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoEquipo">
+                Tipo de equipo
+              </label>
+              <select id="tipoEquipo" name="tipoEquipo" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de equipo</option>
+                <option value="Samovar 15L">Samovar 15L</option>
+                <option value="Samovar 20L">Samovar 20L</option>
+                <option value="Chafing Dish Rectangular">Chafing Dish Rectangular</option>
+                <option value="Chafing Dish Redondo">Chafing Dish Redondo</option>
+                <option value="Dispensador 20L">Dispensador 20L</option>
+                <option value="Base Pastel">Base Pastel</option>
+                <option value="Paquete Banquete Completo">Paquete Banquete Completo</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de invitados, tipo de servicio (buffet/mesa), cuántos chafing dishes necesitas, si requieres samovares..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Montaje incluido</h3>
+            <p class="reserva-card__text">Distribuimos el equipo en tus mesas de buffet y lo dejamos listo para servir. Calentadores de gel incluidos.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para elegir el equipo ideal según tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoEquipo = document.getElementById('tipoEquipo').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Equipo de Servicio para Banquetes*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoEquipo) texto += `*Tipo de equipo:* ${tipoEquipo}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Catering"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de equipo de catering para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para banquetes de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Catering Pro MX</h3>
+            <p class="partner-card__tagline">Servicio Integral de Catering</p>
+            <p class="partner-card__text">Servicio integral de catering y estaciones gourmet para eventos en CDMX. Vajilla premium, cristalería fina y montaje de mesa profesional para bodas, corporativos y eventos sociales de primer nivel.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">G</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">GastroEventos CDMX</h3>
+            <p class="partner-card__tagline">Equipo de Cocina y Servicio</p>
+            <p class="partner-card__text">Renta de equipo de cocina y estaciones de servicio profesional. Vajilla de porcelana, cristalería templada y cubiertos de acero inoxidable para eventos de 50 a 2,000 personas en toda la CDMX.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">ChefMóvil</h3>
+            <p class="partner-card__tagline">Estaciones de Comida en Vivo</p>
+            <p class="partner-card__text">Estaciones de comida en vivo con chef y equipo profesional certificado. Vajilla artesanal, montaje temático y servicio de mesa completo para eventos gastronómicos únicos en la Ciudad de México.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">B</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">BanquetesPro</h3>
+            <p class="partner-card__tagline">Mobiliario y Equipo de Catering</p>
+            <p class="partner-card__text">Mobiliario y equipo de catering para bodas, corporativos y sociales. Vajilla, cristalería, cubiertos y equipo de servicio con logística profesional en toda la CDMX y área metropolitana.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Equipo de servicio que eleva tu banquete al siguiente nivel"
+    subheadline="Más de 500 eventos con nuestro equipo de catering nos respaldan. Cotiza hoy y recibe asesoría personalizada sin compromiso."
+    primaryCTA={{ label: "Cotizar equipo de servicio", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar equipo de servicio para banquetes` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

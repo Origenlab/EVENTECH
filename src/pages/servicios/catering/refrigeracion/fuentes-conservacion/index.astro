@@ -1,0 +1,730 @@
+---
+/**
+ * ─── Fuentes y Conservación — Pagina de Producto (Nivel 4) ───
+ * Fuentes de chocolate, charoleras con calentador, vitrinas frías
+ * y gabinetes calientes para conservación y exhibición gourmet.
+ *
+ * Jerarquia: Servicios > Catering > Refrigeración > Fuentes y Conservación
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Catering", href: "/servicios/catering/" },
+  { label: "Refrigeración", href: "/servicios/catering/refrigeracion/" },
+  { label: "Fuentes y Conservación" },
+];
+
+const faqs = [
+  { question: "¿Qué incluye la renta de una fuente de chocolate?", answer: "La renta de nuestras fuentes de chocolate incluye la <strong>fuente de acero inoxidable</strong> (3 o 5 niveles según tu elección), motor y sistema de calentamiento, bandeja base recolectora y <strong>brochetas de bambú</strong>. En el paquete premium incluimos también el <strong>chocolate belga de cobertura</strong> (3 o 5 kg según el modelo) listo para fundirse. Tú proporcionas las frutas, marshmallows y complementos para los invitados. Incluimos instalación, prueba de funcionamiento y limpieza post-evento." },
+  { question: "¿Qué tipo de chocolate se usa en las fuentes?", answer: "Utilizamos <strong>chocolate belga de cobertura de alta calidad</strong>, disponible en tres variedades: chocolate con leche (el más popular para bodas y XV años), chocolate semi-amargo (preferido en eventos corporativos) y chocolate blanco (ideal para mesas temáticas con colores). El chocolate viene pre-templado y listo para fundirse en la fuente. Si prefieres usar tu propio chocolate, debe ser <strong>chocolate de cobertura con alto porcentaje de manteca de cacao</strong> para fluir correctamente. No recomendamos chocolate de mesa convencional." },
+  { question: "¿Cuánta capacidad tiene la vitrina fría de exhibición?", answer: "Nuestra vitrina fría de exhibición cuenta con <strong>3 niveles de cristal templado</strong> con capacidad para exhibir hasta <strong>24 charolas estándar GN 1/2 o 48 platos de postre individuales</strong>. Mantiene temperatura constante entre 3°C y 8°C con iluminación LED que resalta la presentación de los alimentos. Las dimensiones son 120 cm de ancho x 70 cm de profundidad x 140 cm de alto. Ideal para postres, ensaladas, canapés, sushi, frutas y cualquier preparación que requiera conservación fría con exhibición visible." },
+  { question: "¿Para qué se usa el gabinete caliente?", answer: "El gabinete caliente mantiene platillos cocidos a temperatura segura de <strong>60°C a 85°C</strong> durante todo el servicio, evitando que se enfríen o resequen. Es ideal para <strong>buffets de platillos calientes, estaciones de tacos, carnes, arroces, sopas y guarniciones</strong>. Tiene capacidad para 12 charolas GN estándar distribuidas en 4 niveles con control de humedad independiente. El termostato digital permite ajustar la temperatura según el tipo de alimento. Perfecto para eventos donde el servicio dura más de 2 horas." },
+  { question: "¿Qué requerimientos eléctricos necesitan estos equipos?", answer: "Todos nuestros equipos de fuentes y conservación operan con <strong>corriente estándar de 110V</strong>. La fuente de chocolate consume aproximadamente 250W, la vitrina fría 350W y el gabinete caliente 1,500W. Para un montaje completo con los tres equipos, recomendamos un <strong>circuito dedicado de 20 amperes</strong>. Las charoleras con calentador de gel no requieren electricidad. Evaluamos la disponibilidad eléctrica de tu venue antes del evento para asegurar compatibilidad." },
+  { question: "¿Puedo combinar fuentes con otros servicios de postres?", answer: "Es la combinación más popular. Nuestros clientes suelen armar <strong>mesas de postres completas</strong> combinando fuente de chocolate + vitrina fría para postres + charoleras con calentador para churros o crepas. Complementa con nuestras <a href=\"/servicios/catering/estaciones-servicio/\">estaciones de servicio</a> para una mesa de postres espectacular. También ofrecemos <strong>paquetes de conservación completa</strong> que incluyen gabinete caliente para el buffet principal y vitrina fría para la mesa de postres." },
+];
+
+const specs = [
+  { label: "Fuente chocolate 3 niveles", value: "60 cm, capacidad 3 kg chocolate" },
+  { label: "Fuente chocolate 5 niveles", value: "85 cm, capacidad 5 kg chocolate" },
+  { label: "Vitrina fría", value: "Exhibición 3-8°C, 3 niveles" },
+  { label: "Gabinete caliente", value: "60-85°C, 12 charolas GN" },
+  { label: "Charolera calentador", value: "Individual con gel combustible" },
+  { label: "Chocolate", value: "Belga incluido en paquete premium" },
+  { label: "Accesorios fuente", value: "Brochetas, frutas base, bandeja" },
+  { label: "Termostato", value: "Digital de precisión en cada equipo" },
+  { label: "Energía", value: "110V estándar para vitrinas y gabinetes" },
+  { label: "Exhibición", value: "Iluminación LED integrada en vitrinas" },
+];
+
+const sidebarNav = [
+  { name: "Refrigeradores Industriales", href: "/servicios/catering/refrigeracion/refrigeradores/" },
+  { name: "Hieleras Profesionales", href: "/servicios/catering/refrigeracion/hieleras/" },
+  { name: "Dispensadores de Bebidas", href: "/servicios/catering/refrigeracion/dispensadores-bebidas/" },
+  { name: "Fuentes y Conservación", href: null, active: true },
+];
+
+const sidebarRelated = [
+  { name: "Estaciones de Servicio", href: "/servicios/catering/estaciones-servicio/" },
+  { name: "Cocina Móvil", href: "/servicios/catering/cocina-movil/" },
+  { name: "Vajilla y Cristalería", href: "/servicios/catering/vajilla-cristaleria/" },
+  { name: "Plantas de Energía", href: "/servicios/accesorios/plantas-energia/" },
+  { name: "Carpas para Eventos", href: "/servicios/carpas/" },
+];
+
+const reviews = [
+  { author: "María José Sánchez", text: "La fuente de chocolate de 5 niveles fue el centro de atención en nuestra boda en San Ángel. El chocolate belga tenía un sabor increíble y los invitados no dejaron de bañar frutas y marshmallows toda la noche. El equipo de EVENTECH instaló todo perfectamente y la limpieza fue impecable.", rating: 5, date: "2025-11-25" },
+  { author: "Chef Alejandro Rivas", text: "Para nuestro buffet corporativo de 300 personas rentamos 2 gabinetes calientes y una vitrina fría. Los gabinetes mantuvieron los platillos a temperatura perfecta durante 5 horas de servicio continuo. La vitrina fría exhibió nuestros postres con una presentación espectacular. Equipo profesional de verdad.", rating: 5, date: "2025-10-12" },
+  { author: "Lorena Vázquez", text: "Organizamos una expo gastronómica y EVENTECH nos proporcionó vitrinas frías, charoleras con calentador y fuentes de chocolate. Todo el equipo llegó puntual, en perfectas condiciones y el técnico verificó temperaturas constantemente. La presentación de los alimentos fue impecable durante los 2 días del evento.", rating: 5, date: "2025-09-08" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Fuentes de Chocolate y Equipo de Conservación en CDMX",
+    description: "Fuentes de chocolate, charoleras con calentador, vitrinas frías y gabinetes calientes para mantener alimentos a temperatura ideal. Desde $600.",
+    url: "/servicios/catering/refrigeracion/fuentes-conservacion/",
+    priceRange: { min: 600, max: 4000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 163,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Catering", url: "/servicios/catering/" },
+    { name: "Refrigeración", url: "/servicios/catering/refrigeracion/" },
+    { name: "Fuentes y Conservación", url: "/servicios/catering/refrigeracion/fuentes-conservacion/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Fuentes de Chocolate y Equipo de Conservación en CDMX | EVENTECH"
+  description="Renta de fuentes de chocolate, charoleras con calentador, vitrinas frías y gabinetes calientes para mantener alimentos a temperatura ideal. Desde $600."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Conservación y exhibición gourmet"
+    title='Renta de <span class="highlight">Fuentes y Conservación</span> para Eventos'
+    subtitle="Fuentes de chocolate de 3 y 5 niveles, vitrinas frías de exhibición, gabinetes calientes y charoleras con calentador para conservación y presentación gourmet."
+    primaryCTA={{ label: "Cotiza tu equipo", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar fuentes de chocolate y equipo de conservación para mi evento` }}
+    cards={[
+      {
+        title: "Fuentes de chocolate y vitrinas frías de exhibición",
+        content: "<strong>Renta de fuentes y equipo de conservación</strong> para eventos en CDMX. Fuentes de chocolate de 3 y 5 niveles con chocolate belga de cobertura, vitrinas frías de exhibición para postres y canapés con iluminación LED, y gabinetes calientes para conservación de platillos durante buffets prolongados. Cada equipo con termostato digital de precisión para mantener la temperatura ideal.",
+      },
+      {
+        title: "Charoleras con calentador y accesorios de exhibición",
+        content: "<strong>Equipo complementario de conservación</strong> para presentaciones gourmet. Charoleras con calentador de gel combustible para servicio sin electricidad, bandejas GN estándar compatibles con gabinetes y vitrinas, termostato de control digital en cada equipo y accesorios de exhibición para presentaciones profesionales que impresionan a tus invitados.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas conservar y exhibir alimentos en tu evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con el equipo ideal para tu menú y tipo de servicio"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Refrigeración para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas fuentes de chocolate o equipo de conservación?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar fuentes de chocolate y equipo de conservación para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Fuentes y Conservación</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Fuente de Chocolate 3 Niveles -->
+          <section class="section section--alt" aria-labelledby="fuente-3-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Perfecta para mesas de postres</span>
+                <h2 class="showcase__title" id="fuente-3-heading">Fuente de Chocolate 3 Niveles</h2>
+                <p class="showcase__subtitle">Fuente compacta de 60 cm con capacidad para 3 kg de chocolate belga, ideal para bodas y eventos de hasta 150 personas.</p>
+                <p class="showcase__text">Nuestra <strong>fuente de chocolate de 3 niveles</strong> es la opción más popular para mesas de postres en bodas, XV años y fiestas sociales. Con una altura de <strong>60 cm y capacidad para 3 kg de chocolate</strong> de cobertura, crea una cascada continua que invita a los invitados a bañar frutas, marshmallows, churros y galletas. El motor silencioso y el sistema de calentamiento controlado mantienen el chocolate a temperatura perfecta de <strong>40-45°C</strong> para un flujo constante sin grumos.</p>
+                <p class="showcase__text">Fabricada en <strong>acero inoxidable grado alimenticio</strong> con acabado brillante que complementa cualquier decoración. Incluye <strong>bandeja base recolectora, brochetas de bambú y cucharillas para servicio</strong>. En el paquete premium incluimos el chocolate belga de cobertura listo para fundir. Recomendamos ubicarla en una mesa de al menos 120 cm como centro de la estación de postres. Complementa con nuestra <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a> para resaltar la presentación.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">60 cm de altura</span>
+                  <span class="showcase__tag">3 kg chocolate</span>
+                  <span class="showcase__tag">3 niveles</span>
+                  <span class="showcase__tag">Hasta 150 personas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Fuente 3 Niveles
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Fuente de Chocolate 3 Niveles</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Fuente de Chocolate 5 Niveles -->
+          <section class="section section--alt" aria-labelledby="fuente-5-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Impacto visual espectacular</span>
+                <h2 class="showcase__title" id="fuente-5-heading">Fuente de Chocolate 5 Niveles</h2>
+                <p class="showcase__subtitle">Fuente premium de 85 cm con 5 kg de chocolate belga para bodas grandes y eventos de hasta 300 personas.</p>
+                <p class="showcase__text">La <strong>fuente de chocolate de 5 niveles</strong> es nuestra opción premium para eventos de gran formato. Con <strong>85 cm de altura y 5 niveles de cascada</strong>, se convierte en el centro de atención de cualquier mesa de postres. Capacidad para <strong>5 kg de chocolate belga</strong> que fluye continuamente, suficiente para servir a <strong>200-300 invitados</strong> durante toda la celebración. El motor de doble potencia garantiza un flujo constante y uniforme incluso con alta demanda de servicio.</p>
+                <p class="showcase__text">El sistema de calentamiento con <strong>doble resistencia y termostato ajustable</strong> permite trabajar con diferentes tipos de chocolate: con leche, semi-amargo y blanco. La base ampliada ofrece mayor superficie para colocar frutas y complementos alrededor de la fuente. Incluye <strong>kit completo de servicio: brochetas, cucharillas, platos de degustación y bandeja decorativa</strong>. En el paquete premium incluimos 5 kg de chocolate belga y un surtido de frutas base (fresas, plátano, uvas). Ideal para <strong>bodas de gala, XV años y eventos corporativos de alto nivel</strong>.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">85 cm de altura</span>
+                  <span class="showcase__tag">5 kg chocolate</span>
+                  <span class="showcase__tag">5 niveles</span>
+                  <span class="showcase__tag">200-300 personas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Fuente 5 Niveles
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Fuente de Chocolate 5 Niveles</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Vitrina Fría de Exhibición -->
+          <section class="section section--alt" aria-labelledby="vitrina-fria-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Exhibición refrigerada elegante</span>
+                <h2 class="showcase__title" id="vitrina-fria-heading">Vitrina Fría de Exhibición</h2>
+                <p class="showcase__subtitle">Vitrina refrigerada de 3 niveles con iluminación LED para exhibir postres, canapés y platillos fríos con presentación impecable.</p>
+                <p class="showcase__text">Nuestra <strong>vitrina fría de exhibición</strong> combina conservación profesional con presentación elegante. Con <strong>3 niveles de cristal templado</strong> y temperatura controlada entre 3°C y 8°C, mantiene postres, ensaladas, canapés, sushi, frutas y cualquier preparación fría en condiciones óptimas mientras los exhibe de forma atractiva para los invitados. La <strong>iluminación LED integrada con temperatura de color cálida</strong> resalta los colores y texturas de los alimentos.</p>
+                <p class="showcase__text">El vidrio templado curvo con <strong>tratamiento anti-empañamiento</strong> garantiza visibilidad perfecta en todo momento. El compresor silencioso opera sin generar vibraciones que puedan afectar la presentación de los platillos. Incluye <strong>bandejas GN estándar, termostato digital visible, sistema de drenaje y patas niveladoras</strong>. Perfecta para <strong>buffets de postres en bodas, mesas de canapés en cócteles, exhibición de sushi en eventos temáticos y presentación de frutas</strong> en recepciones. Complementa con nuestra <a href="/servicios/catering/vajilla-cristaleria/">vajilla y cristalería</a> profesional.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">3 niveles cristal</span>
+                  <span class="showcase__tag">3-8°C</span>
+                  <span class="showcase__tag">LED integrado</span>
+                  <span class="showcase__tag">Anti-empañamiento</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Vitrina Fría
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Vitrina Fría de Exhibición</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Gabinete Caliente Profesional -->
+          <section class="section section--alt" aria-labelledby="gabinete-caliente-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Platillos calientes por horas</span>
+                <h2 class="showcase__title" id="gabinete-caliente-heading">Gabinete Caliente Profesional</h2>
+                <p class="showcase__subtitle">Gabinete con control de temperatura de 60-85°C y 12 charolas GN para buffets prolongados y servicio continuo.</p>
+                <p class="showcase__text">Nuestro <strong>gabinete caliente profesional</strong> mantiene platillos cocidos a temperatura de servicio segura durante horas, garantizando que cada plato se sirva caliente y en condiciones óptimas. Con capacidad para <strong>12 charolas GN estándar en 4 niveles</strong>, almacena una variedad completa de platillos: carnes, arroces, pastas, sopas, guarniciones y salsas. El <strong>control de temperatura digital de 60°C a 85°C</strong> permite ajustar el calor según el tipo de alimento.</p>
+                <p class="showcase__text">El sistema de <strong>humedad controlada independiente</strong> evita que los alimentos se resequen, manteniendo la textura y jugosidad originales. Las puertas de vidrio templado permiten visualizar el contenido sin abrir, minimizando la pérdida de calor. Incluye <strong>charolas GN de acero inoxidable, termostato digital con display LED, sistema de vapor y ruedas con freno</strong> para reposicionar durante el montaje. Ideal para <strong>buffets de bodas, eventos corporativos de larga duración, estaciones de tacos y servicio de banquetes</strong>. Complementa con nuestro <a href="/servicios/catering/cocina-movil/">equipo de cocina móvil</a> para preparación y conservación in situ.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">12 charolas GN</span>
+                  <span class="showcase__tag">60-85°C</span>
+                  <span class="showcase__tag">Humedad controlada</span>
+                  <span class="showcase__tag">Servicio continuo</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Gabinete Caliente
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Gabinete Caliente Profesional</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Fuentes y Conservación"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu equipo de fuentes y conservación, es natural tener preguntas sobre capacidad, tipos de chocolate y funcionamiento. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de fuentes y conservación resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre fuentes de chocolate y equipo de conservación para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Refrigeración -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Refrigeración para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/refrigeracion/" class="sidebar-nav__back">&uarr; Volver a Refrigeración</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/" class="sidebar-nav__back">&uarr; Volver a Catering</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu servicio de conservación:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas fuentes de chocolate o equipo de conservación?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar fuentes de chocolate y equipo de conservación para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Equipo de Fuentes y Conservación"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea una fuente de chocolate para tu boda o un paquete completo de conservación para tu buffet, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoEquipo">
+                Tipo de equipo
+              </label>
+              <select id="tipoEquipo" name="tipoEquipo" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de equipo</option>
+                <option value="Fuente Chocolate 3 Niveles">Fuente Chocolate 3 Niveles</option>
+                <option value="Fuente Chocolate 5 Niveles">Fuente Chocolate 5 Niveles</option>
+                <option value="Vitrina Fría">Vitrina Fría</option>
+                <option value="Gabinete Caliente">Gabinete Caliente</option>
+                <option value="Charolera con Calentador">Charolera con Calentador</option>
+                <option value="Paquete Conservación Completa">Paquete Conservación Completa</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de asistentes, tipo de venue (salón/jardín/terraza), menú planeado, duración del servicio..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Prueba de temperatura</h3>
+            <p class="reserva-card__text">Verificamos la temperatura de cada equipo antes de que inicie tu evento para garantizar conservación perfecta.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoEquipo = document.getElementById('tipoEquipo').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Fuentes y Conservación para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoEquipo) texto += `*Tipo de equipo:* ${tipoEquipo}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Catering"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de equipo de catering y refrigeración para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Catering Pro MX</h3>
+            <p class="partner-card__tagline">Servicio Integral de Catering</p>
+            <p class="partner-card__text">Servicio integral de catering y estaciones gourmet para eventos en CDMX. Equipo de refrigeración industrial, cocina móvil y logística completa para bodas, corporativos y eventos sociales.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">G</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">GastroEventos CDMX</h3>
+            <p class="partner-card__tagline">Equipo de Cocina y Servicio</p>
+            <p class="partner-card__text">Renta de equipo de cocina y estaciones de servicio profesional. Refrigeradores industriales, congeladores, hieleras y equipo complementario para eventos de cualquier escala en CDMX.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">ChefMóvil</h3>
+            <p class="partner-card__tagline">Estaciones de Comida en Vivo</p>
+            <p class="partner-card__text">Estaciones de comida en vivo con chef y equipo profesional certificado. Cocina móvil, refrigeración portátil y servicio integral de alimentos para eventos exclusivos en CDMX.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">B</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">BanquetesPro</h3>
+            <p class="partner-card__tagline">Mobiliario y Equipo de Catering</p>
+            <p class="partner-card__text">Mobiliario y equipo de catering para bodas, corporativos y sociales. Refrigeración industrial, vajilla, cristalería y todo el equipamiento necesario para banquetes de primera.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Conservación gourmet que impresiona a tus invitados"
+    subheadline="Más de 500 eventos con equipo de conservación nos respaldan. Cotiza hoy y recibe asesoría sin compromiso."
+    primaryCTA={{ label: "Cotizar fuentes y conservación", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar fuentes de chocolate y equipo de conservación para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

@@ -1,0 +1,731 @@
+---
+/**
+ * ─── Dispensadores de Bebidas — Pagina de Producto (Nivel 4) ───
+ * Dispensadores de jugos, torres cerveceras, enfriadores de vino
+ * y máquinas de bebidas frozen para barras y eventos.
+ *
+ * Jerarquia: Servicios > Catering > Refrigeración > Dispensadores de Bebidas
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Catering", href: "/servicios/catering/" },
+  { label: "Refrigeración", href: "/servicios/catering/refrigeracion/" },
+  { label: "Dispensadores de Bebidas" },
+];
+
+const faqs = [
+  { question: "¿Qué tipos de dispensadores de bebidas tienen disponibles?", answer: "Contamos con 4 tipos principales: <strong>Dispensadores de jugos y agua</strong> de 10 y 20 litros con enfriamiento integrado, ideales para recepciones y brunchs. <strong>Torres cerveceras</strong> de 1 y 3 grifos con sistema CO2 para servicio de cerveza de barril. <strong>Enfriadores de vino</strong> de 12 y 24 botellas con control de temperatura por zona. Y <strong>máquinas de bebidas frozen</strong> de 2 y 3 tanques para margaritas, daiquiris y granizados. Todos incluyen instalación y puesta en marcha." },
+  { question: "¿Las torres cerveceras incluyen el tanque de CO2 y los barriles?", answer: "Sí, cada torre cervecera incluye el <strong>tanque de CO2 necesario para la operación</strong>, regulador de presión, mangueras de conexión y grifo profesional. Los <strong>barriles de cerveza no están incluidos</strong> — tú proporcionas los barriles de la cervecería o marca de tu preferencia (barriles estándar de 20L o 30L con conexión tipo S o D). Nuestro técnico conecta todo, ajusta la presión óptima según el tipo de cerveza y verifica el flujo antes de que inicie tu evento." },
+  { question: "¿Las máquinas de bebidas frozen pueden hacer cualquier sabor?", answer: "Sí, las máquinas frozen son muy versátiles. Cada tanque funciona de forma independiente, así que puedes ofrecer <strong>2 o 3 sabores diferentes simultáneamente</strong>. Los sabores más populares son margarita, piña colada, daiquiri de fresa, limonada frozen y michelada frozen. Tú proporcionas las mezclas preparadas y la máquina se encarga de congelarlas y mantenerlas en consistencia perfecta. Cada tanque de 12-15 litros rinde aproximadamente <strong>60-75 vasos de 200ml</strong>." },
+  { question: "¿Qué requerimientos eléctricos necesitan los dispensadores?", answer: "Los dispensadores de jugos y las torres cerveceras operan con <strong>110V estándar</strong> (corriente normal). Los enfriadores de vino de 12 botellas también usan 110V; el de 24 botellas con zonas duales requiere un circuito dedicado de 15 amperes. Las máquinas frozen de 2 tanques funcionan con 110V, mientras que las de 3 tanques necesitan <strong>220V</strong>. Todas requieren un espacio plano y estable. Si tu evento es en exterior sin corriente, ofrecemos <a href=\"/servicios/accesorios/plantas-energia/\">plantas de energía</a> compatibles." },
+  { question: "¿Puedo combinar dispensadores con una barra de bebidas?", answer: "Es la combinación ideal. Muchos clientes arman su barra con <strong>torre cervecera + dispensadores de jugos + máquina frozen + hieleras</strong> para ofrecer servicio completo. Complementa con nuestras <a href=\"/servicios/mobiliario/barras/\">barras de bebidas profesionales</a> para una presentación impecable. Ofrecemos <strong>paquetes de bar completo</strong> que incluyen todos los dispensadores, equipo de enfriamiento y mobiliario de barra con descuento por combinación." },
+  { question: "¿Cuánto espacio necesito para instalar los dispensadores?", answer: "Depende del tipo de dispensador. Los <strong>dispensadores de jugos</strong> de 10L ocupan 40x30 cm sobre una mesa; los de 20L, 50x40 cm. Las <strong>torres cerveceras</strong> necesitan un espacio de 60x40 cm sobre barra más espacio inferior para el barril (60x60 cm). Los <strong>enfriadores de vino</strong> de 12 botellas ocupan 50x50 cm en piso; los de 24, 60x60 cm. Las <strong>máquinas frozen</strong> requieren 80x50 cm sobre superficie estable. Recomendamos al menos <strong>2-3 metros lineales de barra</strong> para un montaje completo." },
+];
+
+const specs = [
+  { label: "Dispensador jugo 10L", value: "Con enfriamiento y grifo" },
+  { label: "Dispensador jugo 20L", value: "Con enfriamiento y grifo" },
+  { label: "Torre cervecera 1 grifo", value: "Sistema CO2 con barril 20/30L" },
+  { label: "Torre cervecera 3 grifos", value: "Sistema CO2 triple con barriles" },
+  { label: "Enfriador vino 12 btl", value: "Termoeléctrico 8-18°C" },
+  { label: "Enfriador vino 24 btl", value: "Compresor 5-18°C zonas duales" },
+  { label: "Máquina frozen 2 tanques", value: "12L por tanque, 110V" },
+  { label: "Máquina frozen 3 tanques", value: "15L por tanque, 220V" },
+  { label: "CO2", value: "Tanque incluido para torres cerveceras" },
+  { label: "Instalación", value: "Técnico de montaje incluido" },
+];
+
+const sidebarNav = [
+  { name: "Refrigeradores Industriales", href: "/servicios/catering/refrigeracion/refrigeradores/" },
+  { name: "Hieleras Profesionales", href: "/servicios/catering/refrigeracion/hieleras/" },
+  { name: "Dispensadores de Bebidas", href: null, active: true },
+  { name: "Fuentes y Conservación", href: "/servicios/catering/refrigeracion/fuentes-conservacion/" },
+];
+
+const sidebarRelated = [
+  { name: "Estaciones de Servicio", href: "/servicios/catering/estaciones-servicio/" },
+  { name: "Cocina Móvil", href: "/servicios/catering/cocina-movil/" },
+  { name: "Vajilla y Cristalería", href: "/servicios/catering/vajilla-cristaleria/" },
+  { name: "Plantas de Energía", href: "/servicios/accesorios/plantas-energia/" },
+  { name: "Carpas para Eventos", href: "/servicios/carpas/" },
+];
+
+const reviews = [
+  { author: "Paulina Herrera", text: "Para nuestra boda con barra abierta rentamos 2 torres cerveceras de 3 grifos y una máquina frozen de 3 tanques. Las torres mantuvieron la cerveza perfecta toda la noche y los margaritas frozen fueron el hit de la fiesta. El técnico de EVENTECH fue muy atento y todo funcionó sin fallas.", rating: 5, date: "2025-11-08" },
+  { author: "Ricardo Domínguez", text: "Organizamos una feria de cerveza artesanal con 6 torres cerveceras y dispensadores de jugos como opción sin alcohol. EVENTECH coordinó todo impecablemente: conexiones, CO2, presión perfecta para cada tipo de cerveza. Los asistentes quedaron encantados con el servicio. Volveremos a trabajar con ellos.", rating: 5, date: "2025-09-30" },
+  { author: "Ing. Laura Castillo", text: "Para nuestro evento empresarial de verano rentamos dispensadores de agua fresca, enfriadores de vino y máquinas frozen. La presentación fue excelente y todo funcionó perfectamente durante las 6 horas del evento. El equipo llegó a tiempo y el desmontaje fue rápido. Muy profesionales.", rating: 5, date: "2025-08-15" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Dispensadores de Bebidas para Eventos en CDMX",
+    description: "Dispensadores de jugos, torres cerveceras, enfriadores de vino y máquinas de bebidas frozen para barras y eventos. Desde $800 por día.",
+    url: "/servicios/catering/refrigeracion/dispensadores-bebidas/",
+    priceRange: { min: 800, max: 4500 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 176,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Catering", url: "/servicios/catering/" },
+    { name: "Refrigeración", url: "/servicios/catering/refrigeracion/" },
+    { name: "Dispensadores de Bebidas", url: "/servicios/catering/refrigeracion/dispensadores-bebidas/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Dispensadores de Bebidas para Eventos en CDMX | EVENTECH"
+  description="Renta de dispensadores de jugos, torres cerveceras, enfriadores de vino y máquinas de bebidas frozen para barras y eventos. Desde $800 por día."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Servicio continuo de bebidas"
+    title='Renta de <span class="highlight">Dispensadores de Bebidas</span> para Eventos'
+    subtitle="Dispensadores de jugos y agua, torres cerveceras con CO2, enfriadores de vino con control de temperatura y máquinas de bebidas frozen para barras profesionales."
+    primaryCTA={{ label: "Cotiza tu dispensador", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar dispensadores de bebidas para mi evento` }}
+    cards={[
+      {
+        title: "Dispensadores de jugos, torres cerveceras y enfriadores de vino",
+        content: "<strong>Renta de dispensadores de bebidas</strong> profesionales para eventos en CDMX. Dispensadores de jugos y agua de 10 y 20 litros con enfriamiento integrado, torres cerveceras de 1 y 3 grifos con sistema CO2, enfriadores de vino para 12 y 24 botellas con control de temperatura por zona, y máquinas de bebidas frozen de 2 y 3 tanques para margaritas, daiquiris y granizados.",
+      },
+      {
+        title: "Instalación profesional y servicio técnico incluido",
+        content: "<strong>Servicio de instalación completo</strong> incluido en cada renta. Sistema de enfriamiento integrado en dispensadores, tanque de CO2 incluido para torres cerveceras, vasos de degustación opcionales y mantenimiento técnico durante el evento. Nuestro técnico se encarga del montaje, conexión, calibración y verificación de funcionamiento antes de que inicie tu evento.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas servicio profesional de bebidas en tu evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con los dispensadores ideales para tu tipo de barra y número de invitados"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Refrigeración para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas dispensadores de bebidas para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar dispensadores de bebidas para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Dispensadores de Bebidas</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Dispensadores de Jugos y Agua -->
+          <section class="section section--alt" aria-labelledby="dispensadores-jugos-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Frescura para recepciones</span>
+                <h2 class="showcase__title" id="dispensadores-jugos-heading">Dispensadores de Jugos y Agua</h2>
+                <p class="showcase__subtitle">Dispensadores con enfriamiento integrado de 10 y 20 litros para recepciones, brunchs y eventos al aire libre.</p>
+                <p class="showcase__text">Nuestros <strong>dispensadores de jugos y agua</strong> ofrecen servicio continuo de bebidas frescas con presentación elegante. El modelo de <strong>10 litros</strong> es perfecto para mesas de bienvenida, estaciones de café y áreas de descanso en eventos de hasta 80 personas. El modelo de <strong>20 litros</strong> cubre recepciones y brunchs de hasta 150 personas con flujo constante. Ambos cuentan con <strong>sistema de enfriamiento integrado</strong> que mantiene las bebidas entre 4°C y 8°C sin necesidad de hielo.</p>
+                <p class="showcase__text">Fabricados en <strong>acero inoxidable con grifo de servicio profesional</strong> y base elevada para facilitar el llenado de vasos. El sistema de enfriamiento por compresión mantiene temperatura constante sin diluir el sabor de las bebidas. Perfectos para <strong>agua de frutas, limonadas, jugos naturales, agua mineral y aguas frescas tradicionales</strong>. Cada dispensador incluye limpieza, sanitización y verificación de funcionamiento. Combínalos con nuestras <a href="/servicios/catering/vajilla-cristaleria/">copas y cristalería</a> para un servicio de primera.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">10 y 20 litros</span>
+                  <span class="showcase__tag">Enfriamiento integrado</span>
+                  <span class="showcase__tag">Acero inoxidable</span>
+                  <span class="showcase__tag">4-8°C</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Dispensadores de Jugos
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Dispensadores de Jugos y Agua</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Torres Cerveceras -->
+          <section class="section section--alt" aria-labelledby="torres-cerveceras-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Cerveza de barril perfecta</span>
+                <h2 class="showcase__title" id="torres-cerveceras-heading">Torres Cerveceras</h2>
+                <p class="showcase__subtitle">Torres de 1 y 3 grifos con sistema CO2 profesional para servicio de cerveza de barril en eventos.</p>
+                <p class="showcase__text">Nuestras <strong>torres cerveceras profesionales</strong> ofrecen servicio de cerveza de barril con la temperatura y presión perfectas. La torre de <strong>1 grifo</strong> es ideal para eventos íntimos y barras temáticas con una sola variedad de cerveza, compatible con barriles estándar de 20 y 30 litros. La torre de <strong>3 grifos</strong> permite ofrecer hasta 3 variedades diferentes simultáneamente — perfecta para <strong>bodas con barra abierta, ferias de cerveza artesanal y eventos corporativos</strong> donde la diversidad de opciones es clave.</p>
+                <p class="showcase__text">Cada torre incluye <strong>tanque de CO2, regulador de presión calibrado, mangueras de grado alimenticio y grifo profesional con compensador de flujo</strong>. El sistema de enfriamiento mantiene la cerveza entre 3°C y 5°C desde el barril hasta el grifo. Nuestro técnico conecta los barriles, calibra la presión según el tipo de cerveza (ale, lager, stout) y verifica el primer servicio. También ofrecemos <strong>vasos de cerveza</strong> en renta. Complementa con nuestras <a href="/servicios/mobiliario/barras/">barras de bebidas</a> para una estación cervecera completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">1 y 3 grifos</span>
+                  <span class="showcase__tag">Sistema CO2</span>
+                  <span class="showcase__tag">3-5°C</span>
+                  <span class="showcase__tag">Barriles 20/30L</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Torres Cerveceras
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Torres Cerveceras</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Enfriadores de Vino -->
+          <section class="section section--alt" aria-labelledby="enfriadores-vino-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Vinos a temperatura perfecta</span>
+                <h2 class="showcase__title" id="enfriadores-vino-heading">Enfriadores de Vino</h2>
+                <p class="showcase__subtitle">Enfriadores de 12 y 24 botellas con control de temperatura para servicio profesional de vinos.</p>
+                <p class="showcase__text">Nuestros <strong>enfriadores de vino profesionales</strong> mantienen cada botella a la temperatura ideal de servicio. El modelo de <strong>12 botellas</strong> con sistema termoeléctrico silencioso ofrece un rango de 8°C a 18°C, perfecto para barras pequeñas y mesas de honor en bodas de hasta 100 personas. El modelo de <strong>24 botellas</strong> con compresor profesional cuenta con <strong>zonas duales de temperatura</strong> (5-18°C) para almacenar vinos blancos y tintos simultáneamente en sus rangos óptimos.</p>
+                <p class="showcase__text">Ambos modelos incluyen <strong>estantes de madera con revestimiento antivibración, iluminación LED interior suave, panel digital de control de temperatura y puerta de vidrio templado con protección UV</strong> que permite visualizar las etiquetas sin abrir. El enfriador de 24 botellas ofrece además <strong>control independiente por zona</strong>: zona superior para blancos a 8-12°C y zona inferior para tintos a 14-18°C. Perfectos para <strong>bodas, catas de vino, eventos gourmet y recepciones de gala</strong>. Complementa con nuestra <a href="/servicios/catering/vajilla-cristaleria/">cristalería profesional</a> para el servicio.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">12 y 24 botellas</span>
+                  <span class="showcase__tag">Zonas duales</span>
+                  <span class="showcase__tag">5-18°C</span>
+                  <span class="showcase__tag">Protección UV</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Enfriadores de Vino
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Enfriadores de Vino</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Máquinas de Bebidas Frozen -->
+          <section class="section section--alt" aria-labelledby="frozen-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">El hit de cualquier fiesta</span>
+                <h2 class="showcase__title" id="frozen-heading">Máquinas de Bebidas Frozen</h2>
+                <p class="showcase__subtitle">Máquinas de 2 y 3 tanques para margaritas, daiquiris, granizados y bebidas frozen de cualquier sabor.</p>
+                <p class="showcase__text">Nuestras <strong>máquinas de bebidas frozen</strong> son el complemento perfecto para barras de fiesta y eventos al aire libre. El modelo de <strong>2 tanques</strong> (12 litros cada uno) permite ofrecer 2 sabores simultáneos, ideal para fiestas de hasta 150 personas. El modelo de <strong>3 tanques</strong> (15 litros cada uno) cubre eventos de hasta 300 personas con 3 opciones diferentes. Cada tanque rinde aproximadamente <strong>60-75 vasos de 200 ml</strong>, y se puede rellenar durante el evento para servicio continuo.</p>
+                <p class="showcase__text">Las máquinas mantienen una <strong>consistencia frozen perfecta a -3°C</strong> mediante un sistema de aspas rotativas que evitan la cristalización. Los sabores más populares incluyen <strong>margarita, piña colada, daiquiri de fresa, mojito frozen, michelada frozen y limonada granizada</strong>. Tú proporcionas las mezclas preparadas y la máquina hace el resto. Incluyen <strong>dispensador con grifo, bandeja de goteo y limpieza post-evento</strong>. Combínalas con nuestras <a href="/servicios/catering/refrigeracion/hieleras/">hieleras profesionales</a> para un bar de verano completo.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">2 y 3 tanques</span>
+                  <span class="showcase__tag">12-15L por tanque</span>
+                  <span class="showcase__tag">Multi-sabor</span>
+                  <span class="showcase__tag">Servicio continuo</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Máquina Frozen
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Máquinas de Bebidas Frozen</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Dispensadores de Bebidas"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tus dispensadores de bebidas, es natural tener preguntas sobre tipos, capacidades y requerimientos. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de dispensadores resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre dispensadores de bebidas para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Refrigeración -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Refrigeración para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/refrigeracion/" class="sidebar-nav__back">&uarr; Volver a Refrigeración</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/" class="sidebar-nav__back">&uarr; Volver a Catering</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu barra de bebidas:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas dispensadores de bebidas para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar dispensadores de bebidas para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Dispensador de Bebidas"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un dispensador de jugos para tu recepción o un paquete completo de bar para tu boda, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoEquipo">
+                Tipo de dispensador
+              </label>
+              <select id="tipoEquipo" name="tipoEquipo" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de dispensador</option>
+                <option value="Dispensador 10L">Dispensador 10L</option>
+                <option value="Dispensador 20L">Dispensador 20L</option>
+                <option value="Torre 1 Grifo">Torre 1 Grifo</option>
+                <option value="Torre 3 Grifos">Torre 3 Grifos</option>
+                <option value="Enfriador Vino">Enfriador Vino</option>
+                <option value="Máquina Frozen 2 Tanques">Máquina Frozen 2 Tanques</option>
+                <option value="Paquete Bar Completo">Paquete Bar Completo</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de asistentes, tipo de bebidas, si necesitas barra, duración del evento..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Prueba de funcionamiento</h3>
+            <p class="reserva-card__text">Verificamos cada dispensador y hacemos prueba de servicio antes de que inicie tu evento.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoEquipo = document.getElementById('tipoEquipo').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Dispensadores de Bebidas para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoEquipo) texto += `*Tipo de dispensador:* ${tipoEquipo}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Catering"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de equipo de catering y refrigeración para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Catering Pro MX</h3>
+            <p class="partner-card__tagline">Servicio Integral de Catering</p>
+            <p class="partner-card__text">Servicio integral de catering y estaciones gourmet para eventos en CDMX. Equipo de refrigeración industrial, cocina móvil y logística completa para bodas, corporativos y eventos sociales.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">G</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">GastroEventos CDMX</h3>
+            <p class="partner-card__tagline">Equipo de Cocina y Servicio</p>
+            <p class="partner-card__text">Renta de equipo de cocina y estaciones de servicio profesional. Refrigeradores industriales, congeladores, hieleras y equipo complementario para eventos de cualquier escala en CDMX.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">ChefMóvil</h3>
+            <p class="partner-card__tagline">Estaciones de Comida en Vivo</p>
+            <p class="partner-card__text">Estaciones de comida en vivo con chef y equipo profesional certificado. Cocina móvil, refrigeración portátil y servicio integral de alimentos para eventos exclusivos en CDMX.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">B</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">BanquetesPro</h3>
+            <p class="partner-card__tagline">Mobiliario y Equipo de Catering</p>
+            <p class="partner-card__text">Mobiliario y equipo de catering para bodas, corporativos y sociales. Refrigeración industrial, vajilla, cristalería y todo el equipamiento necesario para banquetes de primera.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Dispensadores profesionales que elevan el servicio de tu evento"
+    subheadline="Más de 500 eventos con dispensadores de bebidas nos respaldan. Cotiza hoy y recibe asesoría sin compromiso."
+    primaryCTA={{ label: "Cotizar dispensadores", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar dispensadores de bebidas para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

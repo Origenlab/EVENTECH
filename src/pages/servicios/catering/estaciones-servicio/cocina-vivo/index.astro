@@ -1,0 +1,730 @@
+---
+/**
+ * ─── Cocina en Vivo — Pagina de Producto (Nivel 4) ───
+ * Estaciones de show cooking, sushi bar, wok y pasta station
+ * con chef interactivo para eventos.
+ *
+ * Jerarquia: Servicios > Catering > Estaciones de Servicio > Cocina en Vivo
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Catering", href: "/servicios/catering/" },
+  { label: "Estaciones de Servicio", href: "/servicios/catering/estaciones-servicio/" },
+  { label: "Cocina en Vivo" },
+];
+
+const faqs = [
+  { question: "¿Qué incluye la renta de una estación de cocina en vivo?", answer: 'Cada estación incluye el <strong>equipo profesional de cocina completo</strong>: mesa caliente con campana (show cooking), barra refrigerada (sushi bar), quemador industrial con wok (estación wok) o cocción con salseado (pasta station). Además incluye utensilios profesionales, mesa de preparación, presentación del área con decoración elegante, campana extractora portátil para interiores y <strong>chef especializado incluido</strong> en la renta. Los insumos alimenticios se cotizan por separado o como <a href="/servicios/catering/estaciones-servicio/">paquete integral</a>.' },
+  { question: "¿El chef y el personal están incluidos?", answer: "Sí, cada estación de cocina en vivo incluye un <strong>chef especializado</strong> en la disciplina correspondiente: chef ejecutivo para show cooking, itamae (maestro de sushi) para sushi bar, chef wok para estación asiática y chef italiano para pasta station. Cada chef tiene mínimo 5 años de experiencia en eventos y domina la interacción con los invitados, explicando técnicas, ingredientes y preparaciones. Para estaciones grandes (200+ personas), incluimos un ayudante de cocina adicional sin costo extra." },
+  { question: "¿Los insumos y alimentos están incluidos?", answer: "La renta base incluye <strong>equipo, chef y montaje</strong>. Los insumos alimenticios se cotizan por separado según el número de invitados y el menú seleccionado. Ofrecemos <strong>paquetes todo incluido</strong> con ingredientes premium: pescado de grado sushi, cortes importados, pasta fresca artesanal, vegetales orgánicos y salsas caseras. Nuestro chef diseña un menú personalizado y te presentamos una cotización detallada con opciones para diferentes presupuestos." },
+  { question: "¿Qué espacio y ventilación necesitan las estaciones?", answer: "Cada estación necesita un espacio mínimo de <strong>4 x 3 metros</strong> (incluyendo zona de preparación, cocción y servicio). La estación de wok y show cooking requieren buena ventilación o un espacio al aire libre, ya que generan calor y aromas intensos. Incluimos <strong>campana extractora portátil</strong> para eventos en interiores que filtra humo y olores. El sushi bar y la pasta station pueden funcionar en interiores sin ventilación especial. Realizamos una visita técnica previa a tu venue para garantizar las condiciones óptimas." },
+  { question: "¿Puedo personalizar el menú de cocina en vivo?", answer: "Absolutamente. Nuestro chef crea un <strong>menú 100% personalizado</strong> para tu evento. En show cooking puedes elegir entre cocina francesa, mediterránea, mexicana contemporánea o fusión. El sushi bar ofrece desde rolls clásicos hasta creaciones de autor con ingredientes premium. La estación de wok se adapta a cocina tailandesa, china, japonesa o pan-asiática. La pasta station incluye opciones desde fettuccine clásico hasta ravioli relleno artesanal. También podemos adaptar los menús para restricciones alimentarias: vegetariano, vegano, sin gluten o kosher." },
+  { question: "¿Puedo combinar diferentes estaciones de cocina en vivo?", answer: 'Sí, las combinaciones son nuestra especialidad. Los paquetes más populares son: <strong>Sushi Bar + Wok</strong> (experiencia asiática completa), <strong>Show Cooking + Pasta Station</strong> (para cenas de gala) y el <strong>Paquete Gourmet Completo</strong> con las 4 estaciones para eventos de más de 200 personas. Ofrecemos <strong>descuentos por paquetes de múltiples estaciones</strong>. También puedes combinar con nuestras <a href="/servicios/catering/estaciones-servicio/barras-bebidas/">barras de bebidas</a> y <a href="/servicios/catering/estaciones-servicio/postres/">estaciones de postres</a> para una experiencia gastronómica integral.' },
+];
+
+const specs = [
+  { label: "Estaciones", value: "Show Cooking, Sushi Bar, Wok, Pasta Station" },
+  { label: "Show Cooking", value: "Mesa caliente con campana + chef" },
+  { label: "Sushi Bar", value: "Barra refrigerada con itamae" },
+  { label: "Wok", value: "Quemador industrial con extracción" },
+  { label: "Pasta", value: "Cocción al momento con salseado en vivo" },
+  { label: "Chef", value: "Especializado incluido por estación" },
+  { label: "Capacidad", value: "100-250 personas por estación" },
+  { label: "Equipo", value: "Profesional de cocina completo" },
+  { label: "Menú", value: "Personalizable según evento" },
+  { label: "Extracción", value: "Campana portátil para interiores" },
+];
+
+const sidebarNav = [
+  { name: "Barras de Bebidas", href: "/servicios/catering/estaciones-servicio/barras-bebidas/" },
+  { name: "Tacos y Parrilla", href: "/servicios/catering/estaciones-servicio/tacos-parrilla/" },
+  { name: "Estaciones de Postres", href: "/servicios/catering/estaciones-servicio/postres/" },
+  { name: "Cocina en Vivo", href: null, active: true },
+];
+
+const sidebarRelated = [
+  { name: "Cocina Móvil", href: "/servicios/catering/cocina-movil/" },
+  { name: "Vajilla y Cristalería", href: "/servicios/catering/vajilla-cristaleria/" },
+  { name: "Refrigeración", href: "/servicios/catering/refrigeracion/" },
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+  { name: "Carpas para Eventos", href: "/servicios/carpas/" },
+];
+
+const reviews = [
+  { author: "Ricardo Fernández", text: "Contratamos el show cooking y sushi bar para nuestra cena de gala corporativa en un hotel de Polanco con 180 invitados. El chef ejecutivo preparó platillos de cocina francesa frente a los directivos y el itamae del sushi bar impresionó a todos con su técnica y presentación artística. La experiencia gastronómica fue el tema de conversación durante semanas.", rating: 5, date: "2025-11-28" },
+  { author: "Isabella Torres", text: "Para nuestra boda fusión elegimos la estación de wok asiático y pasta station italiana. Fue la combinación perfecta: los invitados podían elegir entre pad thai, ramen y salteados o fettuccine alfredo y ravioli de trufa. Los dos chefs interactuaban con los invitados y personalizaban cada plato. La calidad de los ingredientes y la presentación fueron excepcionales.", rating: 5, date: "2025-10-15" },
+  { author: "Andrés Medina", text: "El sushi bar premium fue la atracción principal de nuestro evento de diseño. El itamae preparó nigiri con salmón premium, rolls de autor con trufa y sashimi con presentación artística que parecía una obra de arte. Los invitados hacían fila para ver la técnica del chef. Definitivamente la mejor decisión gastronómica para nuestro evento.", rating: 5, date: "2025-09-20" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Estaciones de Cocina en Vivo en CDMX",
+    description: "Renta de estaciones de show cooking, sushi bar, wok y pasta station con chef interactivo para eventos en CDMX. Experiencia gastronómica única. Desde $4,000.",
+    url: "/servicios/catering/estaciones-servicio/cocina-vivo/",
+    priceRange: { min: 4000, max: 15000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 160,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Catering", url: "/servicios/catering/" },
+    { name: "Estaciones de Servicio", url: "/servicios/catering/estaciones-servicio/" },
+    { name: "Cocina en Vivo", url: "/servicios/catering/estaciones-servicio/cocina-vivo/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Estaciones de Cocina en Vivo en CDMX | EVENTECH"
+  description="Renta de estaciones de show cooking, sushi bar, wok y pasta station con chef interactivo para eventos en CDMX. Experiencia gastronómica única. Desde $4,000."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Show cooking: gastronomía y entretenimiento"
+    title='Renta de <span class="highlight">Estaciones de Cocina en Vivo</span> para Eventos'
+    subtitle="Show cooking con chef interactivo, sushi bar con itamae profesional, estación de wok asiática y pasta station italiana. Chef especializado incluido en cada estación."
+    primaryCTA={{ label: "Cotiza tu estación", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar estaciones de cocina en vivo para mi evento` }}
+    cards={[
+      {
+        title: "Show cooking, sushi bar, wok y pasta station en vivo",
+        content: "<strong>Renta de estaciones de cocina en vivo para eventos</strong> que transforman la gastronomía en espectáculo. Show cooking con chef interactivo preparando platillos de autor frente a tus invitados, sushi bar con itamae profesional creando nigiri, rolls y sashimi con técnica artística, estación de wok asiática con salteados a fuego alto y llamas espectaculares, y pasta station italiana con cocción al momento y salseado en vivo. Cada estación sirve de 100 a 250 personas con una experiencia gastronómica única e inolvidable.",
+      },
+      {
+        title: "Chef especializado incluido y diseño de menú personalizado",
+        content: "<strong>Chef especializado incluido</strong> en cada renta de estación de cocina en vivo. Cada chef tiene mínimo 5 años de experiencia en eventos y domina la interacción con los invitados, convirtiendo la preparación de alimentos en un show gastronómico. Equipo profesional de cocina completo, campana extractora portátil para interiores, mesa de preparación y presentación elegante del área. Menú 100% personalizable con opciones para restricciones alimentarias. Insumos opcionales con cotización según evento.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Buscas una experiencia gastronómica que impresione?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con la estación de cocina en vivo ideal para tu evento"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Estaciones de Servicio</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas cocina en vivo para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar estaciones de cocina en vivo para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Cocina en Vivo</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Show Cooking Chef Interactivo -->
+          <section class="section section--alt" aria-labelledby="show-cooking-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Gastronomía como espectáculo</span>
+                <h2 class="showcase__title" id="show-cooking-heading">Show Cooking Chef Interactivo</h2>
+                <p class="showcase__subtitle">Chef ejecutivo preparando platillos de autor frente a tus invitados con técnicas profesionales en vivo.</p>
+                <p class="showcase__text">Nuestro <strong>show cooking con chef interactivo</strong> transforma la preparación de alimentos en un espectáculo gastronómico que cautiva a todos los presentes. El <strong>chef ejecutivo</strong> prepara platillos de autor al momento sobre una mesa caliente profesional con campana extractora, explicando cada técnica, ingrediente y secreto de cocina mientras los invitados observan fascinados. Opciones de cocina: francesa clásica, mexicana contemporánea, mediterránea, fusión asiática o cocina molecular con técnicas vanguardistas.</p>
+                <p class="showcase__text">El show incluye <strong>flambeo espectacular</strong>, cortes de precisión, emplatado artístico y degustación interactiva donde cada invitado recibe su plato personalizado. Ideal para <strong>cenas de gala corporativas, bodas de alto nivel, lanzamientos de producto premium y eventos exclusivos</strong> donde la experiencia gastronómica es protagonista. El chef puede adaptar platillos a restricciones dietéticas y preferencias especiales. Combínala con nuestro <a href="/servicios/audiovisual/">equipo audiovisual</a> para proyectar el show cooking en pantallas LED y que todos los invitados disfruten la acción de cerca.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Chef ejecutivo</span>
+                  <span class="showcase__tag">Cocina de autor</span>
+                  <span class="showcase__tag">Show interactivo</span>
+                  <span class="showcase__tag">100-250 personas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Show Cooking
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Show Cooking Chef Interactivo</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Sushi Bar Premium -->
+          <section class="section section--alt" aria-labelledby="sushi-bar-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Arte culinario japonés</span>
+                <h2 class="showcase__title" id="sushi-bar-heading">Sushi Bar Premium</h2>
+                <p class="showcase__subtitle">Itamae profesional preparando nigiri, rolls y sashimi con ingredientes premium y presentación artística.</p>
+                <p class="showcase__text">Nuestro <strong>sushi bar premium</strong> lleva la experiencia del mejor restaurante japonés directamente a tu evento. El <strong>itamae (maestro de sushi)</strong> con técnica certificada prepara al momento: nigiri con salmón noruego, atún rojo y camarón, maki rolls clásicos (California, Philadelphia, Spicy Tuna), rolls de autor con trufa, foie gras y aguacate rostizado, sashimi con cortes precisos y presentación artística, y temaki (conos de mano) personalizados para cada invitado.</p>
+                <p class="showcase__text">La <strong>barra refrigerada profesional</strong> mantiene todos los ingredientes a temperatura óptima de seguridad alimentaria. La presentación incluye tabla de bambú, piedra volcánica, decoración con flores comestibles y hielo seco para un efecto visual espectacular. Incluye salsa de soya premium, wasabi fresco, jengibre encurtido y ponzu. Ideal para <strong>cenas elegantes, eventos corporativos de alto nivel, bodas fusión y lanzamientos de producto</strong>. Combínala con nuestra <a href="/servicios/catering/estaciones-servicio/barras-bebidas/">barra de bebidas</a> con sake y cocteles japoneses para una experiencia asiática completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Itamae profesional</span>
+                  <span class="showcase__tag">Ingredientes premium</span>
+                  <span class="showcase__tag">Barra refrigerada</span>
+                  <span class="showcase__tag">Rolls de autor</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Sushi Bar
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Sushi Bar Premium</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Estación de Wok Asiático -->
+          <section class="section section--alt" aria-labelledby="wok-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Fuego y sabor oriental</span>
+                <h2 class="showcase__title" id="wok-heading">Estación de Wok Asiático</h2>
+                <p class="showcase__subtitle">Chef wok preparando salteados espectaculares a fuego alto con ingredientes frescos al momento.</p>
+                <p class="showcase__text">Nuestra <strong>estación de wok asiático</strong> ofrece el show gastronómico más espectacular y sensorial de nuestro catálogo. El <strong>chef wok especializado</strong> prepara salteados a fuego alto sobre un quemador industrial de alta potencia, lanzando llamas que alcanzan más de un metro de altura mientras los ingredientes vuelan en el wok con técnica profesional. Los invitados eligen sus ingredientes y el chef prepara cada plato al momento: pad thai, arroz frito, lo mein, ramen express, yakisoba y curry salteado.</p>
+                <p class="showcase__text">La estación incluye <strong>barra de ingredientes frescos</strong> donde cada invitado selecciona: proteínas (pollo, res, camarón, tofu), vegetales (brócoli, zanahoria, champiñones, pimiento, edamame), salsas (soya, teriyaki, sriracha, tamarindo, ostión) y noodles (arroz, udon, soba, glass noodles). La campana extractora portátil maneja el humo en interiores. Ideal para <strong>eventos casuales elegantes, fiestas temáticas asiáticas, corporativos creativos y bodas contemporáneas</strong>. Complementa con nuestra <a href="/servicios/iluminacion/">iluminación profesional</a> para ambientar la estación con tonos cálidos.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Fuego alto</span>
+                  <span class="showcase__tag">Ingredientes a elegir</span>
+                  <span class="showcase__tag">Chef especializado</span>
+                  <span class="showcase__tag">Show visual</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Estación Wok
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Estación de Wok Asiático</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Pasta Station Italiana -->
+          <section class="section section--alt" aria-labelledby="pasta-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Tradición italiana en tu evento</span>
+                <h2 class="showcase__title" id="pasta-heading">Pasta Station Italiana</h2>
+                <p class="showcase__subtitle">Chef italiano preparando pasta fresca al momento con salseado en vivo y queso parmesano rallado.</p>
+                <p class="showcase__text">Nuestra <strong>pasta station italiana</strong> lleva la tradición culinaria de Italia a tu evento con preparación al momento que enamora a todos los paladares. El <strong>chef italiano especializado</strong> cocina al instante: fettuccine alfredo con parmesano reggiano rallado en vivo, penne all'arrabbiata con tomate San Marzano, ravioli relleno de ricotta y espinacas con salsa de mantequilla y salvia, y risotto cremoso con champiñones porcini y trufa negra. Cada plato se termina frente al invitado con el salseado final y la presentación gourmet.</p>
+                <p class="showcase__text">La estación incluye <strong>mesa de cocción profesional</strong> con múltiples quemadores, olla de pasta con canastillas para cocción rápida, sartenes para salteado y flambeo, y tabla de quesos italianos para rallado en vivo. La barra de ingredientes ofrece aceite de oliva extra virgen, albahaca fresca, tomates cherry, prosciutto, bresaola y pan artesanal con aceite de ajo. Ideal para <strong>bodas románticas, cenas corporativas elegantes, eventos temáticos italianos y celebraciones de aniversario</strong>. Complementa con una <a href="/servicios/catering/estaciones-servicio/postres/">estación de postres</a> con tiramisú y panna cotta.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Pasta fresca</span>
+                  <span class="showcase__tag">Salseado en vivo</span>
+                  <span class="showcase__tag">Chef italiano</span>
+                  <span class="showcase__tag">Parmesano rallado</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Pasta Station
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Pasta Station Italiana</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Cocina en Vivo"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu estación de cocina en vivo, es natural tener preguntas sobre chef, menú y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de cocina en vivo resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre estaciones de cocina en vivo para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Estaciones de Servicio -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Estaciones de Servicio</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/estaciones-servicio/" class="sidebar-nav__back">&uarr; Volver a Estaciones de Servicio</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/" class="sidebar-nav__back">&uarr; Volver a Catering</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu estación de cocina:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas cocina en vivo para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar estaciones de cocina en vivo para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Estación de Cocina en Vivo"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un sushi bar para tu boda o un paquete gourmet completo para tu evento corporativo, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoEstacion">
+                Tipo de estación
+              </label>
+              <select id="tipoEstacion" name="tipoEstacion" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de estación</option>
+                <option value="Show Cooking Chef">Show Cooking Chef</option>
+                <option value="Sushi Bar Premium">Sushi Bar Premium</option>
+                <option value="Estación Wok">Estación Wok</option>
+                <option value="Pasta Station">Pasta Station</option>
+                <option value="Paquete Fusión 2 Estaciones">Paquete Fusión 2 Estaciones</option>
+                <option value="Paquete Gourmet Completo">Paquete Gourmet Completo</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de invitados, tipo de venue (salón/jardín/terraza), preferencias gastronómicas, si necesitas insumos incluidos..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Degustación previa</h3>
+            <p class="reserva-card__text">Agenda una degustación con nuestro chef para definir el menú perfecto para tu evento.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría gastronómica personalizada.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoEstacion = document.getElementById('tipoEstacion').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Estaciones de Cocina en Vivo*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoEstacion) texto += `*Tipo de estación:* ${tipoEstacion}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Catering"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de equipo de catering para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, personal capacitado y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Catering Pro MX</h3>
+            <p class="partner-card__tagline">Catering y Estaciones Gourmet</p>
+            <p class="partner-card__text">Servicio integral de catering y estaciones gourmet para eventos en CDMX. Barras de bebidas, estaciones de comida en vivo y montaje profesional con equipo de primera calidad.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">G</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">GastroEventos CDMX</h3>
+            <p class="partner-card__tagline">Equipo de Cocina y Estaciones</p>
+            <p class="partner-card__text">Renta de equipo de cocina y estaciones de servicio profesional. Especialistas en barras de bebidas, planchas industriales y mobiliario de catering para todo tipo de evento.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">ChefMóvil</h3>
+            <p class="partner-card__tagline">Cocina en Vivo y Estaciones</p>
+            <p class="partner-card__text">Estaciones de comida en vivo con chef y equipo profesional certificado. Más de 10 años de experiencia en eventos corporativos, bodas y celebraciones sociales en CDMX.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">B</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">BanquetesPro</h3>
+            <p class="partner-card__tagline">Mobiliario y Equipo de Catering</p>
+            <p class="partner-card__text">Mobiliario y equipo de catering para bodas, corporativos y sociales. Barras de bebidas, mesas de servicio, equipo de cocina y logística profesional en toda la CDMX.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Cocina en vivo que transforma tu evento en una experiencia inolvidable"
+    subheadline="Más de 500 eventos con cocina en vivo nos respaldan. Cotiza hoy y recibe asesoría gastronómica sin compromiso."
+    primaryCTA={{ label: "Cotizar cocina en vivo", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar estaciones de cocina en vivo para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>
