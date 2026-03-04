@@ -1,0 +1,730 @@
+---
+/**
+ * ─── Manteles y Cubremesas — Pagina de Producto (Nivel 4) ───
+ * Manteles redondos, rectangulares y cuadrados en poliéster, satín,
+ * organza y lino para bodas, banquetes y eventos corporativos.
+ *
+ * Jerarquia: Servicios > Accesorios > Mantelería y Textiles > Manteles y Cubremesas
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Accesorios", href: "/servicios/accesorios/" },
+  { label: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+  { label: "Manteles y Cubremesas" },
+];
+
+const faqs = [
+  { question: "¿Qué tipos de tela manejan para manteles y cuál es la diferencia?", answer: 'Manejamos 4 tipos principales de tela para manteles: <strong>Poliéster estándar</strong> — económico, resistente a arrugas, ideal para eventos casuales y corporativos. <strong>Satín</strong> — brillo elegante con caída suave, perfecto para bodas y galas. <strong>Organza</strong> — transparente y delicada, ideal como overlay sobre mantel base. <strong>Lino premium</strong> — textura natural con aspecto rústico-elegante. Cada tela tiene diferentes niveles de caída, brillo y textura. Nuestro asesor te recomienda la opción ideal según el estilo de tu evento y presupuesto.' },
+  { question: "¿Pueden igualar el color exacto de mi paleta de evento?", answer: 'Sí, ofrecemos un servicio de <strong>color matching</strong> donde nos envías tu paleta (código Pantone, muestra física o referencia fotográfica) y seleccionamos las combinaciones más cercanas de nuestro inventario de más de 50 colores. Siempre enviamos <strong>muestras físicas para aprobación</strong> antes del evento sin costo adicional. En caso de requerir un tono muy específico fuera de catálogo, contamos con proveedores de telas especiales con un tiempo de preparación de 2 a 3 semanas.' },
+  { question: "¿Cuál es el pedido mínimo de manteles?", answer: 'El pedido mínimo es de <strong>10 piezas por tipo</strong> (por ejemplo, 10 manteles redondos satín blanco). Para paquetes combinados que incluyen manteles + cubremesas de diferentes formatos no hay mínimo estricto — armamos paquetes desde 1 mesa. En eventos grandes ofrecemos <strong>precios preferenciales por volumen</strong> a partir de 50 piezas con descuentos progresivos.' },
+  { question: "¿Los manteles llegan lavados y planchados?", answer: 'Absolutamente. Toda nuestra mantelería se entrega <strong>recién lavada, desinfectada y planchada profesionalmente</strong> con vapor industrial. Cada pieza pasa por un control de calidad verificando que no tenga manchas, rasgaduras ni decoloración. Se transporta en fundas individuales para mantener el planchado impecable. Al finalizar tu evento, <strong>recolectamos la mantelería sucia</strong> — el lavado de retorno está incluido sin costo adicional.' },
+  { question: "¿Qué medidas de manteles necesito para mis mesas?", answer: 'Depende del formato de tu mesa: para <strong>mesas redondas de 150 cm</strong> recomendamos manteles de 120" (caída completa al piso) o 108" (media caída). Para <strong>mesas redondas de 180 cm</strong>, manteles de 132". Para <strong>mesas rectangulares estándar</strong>, 90x132" o 90x156". Los <strong>cubremesas cuadrados</strong> de 72x72" y 85x85" funcionan como overlay sobre el mantel base. Nuestro asesor calcula las medidas exactas según tus mesas.' },
+  { question: "¿Con cuánta anticipación entregan los manteles?", answer: 'La entrega estándar es <strong>1 día antes de tu evento</strong> (entre 9:00 y 14:00 horas) para que tengas tiempo de supervisar el montaje. Para eventos en viernes o sábado, entregamos el jueves o viernes respectivamente. También ofrecemos entrega el mismo día con un cargo de logística urgente. La <strong>recolección se realiza el día siguiente</strong> al evento. Nuestro equipo coordina horarios con tu wedding planner o responsable del venue.' },
+];
+
+const specs = [
+  { label: "Formas", value: "Redondo, Rectangular, Cuadrado" },
+  { label: "Telas", value: "Poliéster, Satín, Organza, Lino" },
+  { label: "Colores", value: "50+ tonos con color matching" },
+  { label: "Medidas redondo", value: '120", 132" para mesas 150/180 cm' },
+  { label: "Medidas rectangular", value: '90x132", 90x156" estándar' },
+  { label: "Medidas cuadrado", value: '72x72", 85x85" overlay' },
+  { label: "Pedido mínimo", value: "10 piezas por tipo" },
+  { label: "Lavado", value: "Profesional incluido ida y vuelta" },
+  { label: "Planchado", value: "Vapor industrial incluido" },
+  { label: "Entrega", value: "1 día antes del evento" },
+];
+
+const sidebarNav = [
+  { name: "Manteles y Cubremesas", href: null, active: true },
+  { name: "Cubresillas y Bandas", href: "/servicios/accesorios/manteleria-textiles/cubresillas-bandas/" },
+  { name: "Servilletas y Caminos", href: "/servicios/accesorios/manteleria-textiles/servilletas-caminos/" },
+  { name: "Overlays y Telas Especiales", href: "/servicios/accesorios/manteleria-textiles/overlays-especiales/" },
+];
+
+const sidebarRelated = [
+  { name: "Vajilla y Cristalería", href: "/servicios/catering/vajilla-cristaleria/" },
+  { name: "Mobiliario Sillas", href: "/servicios/mobiliario/sillas/" },
+  { name: "Mobiliario Mesas", href: "/servicios/mobiliario/mesas/" },
+  { name: "Señalización y Alfombras", href: "/servicios/accesorios/senalizacion-alfombras/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+];
+
+const reviews = [
+  { author: "Carolina Méndez", text: "Rentamos 150 manteles de satín marfil para nuestra boda en un jardín de Coyoacán. El color matching fue perfecto — igualaron exactamente el tono de nuestras invitaciones. Llegaron planchados impecablemente y la recolección al día siguiente fue puntual. La caída del satín en las mesas redondas se veía espectacular en las fotos.", rating: 5, date: "2025-11-22" },
+  { author: "Fernando Ruiz", text: "Usamos manteles rectangulares de lino gris oxford para un evento corporativo de 80 personas en Polanco. La textura del lino le dio un aspecto sofisticado y profesional a todo el montaje. El servicio de lavado incluido nos ahorró mucha logística. Excelente calidad y atención.", rating: 5, date: "2025-10-05" },
+  { author: "Mariana López", text: "Contratamos manteles de poliéster blanco con overlays de organza dorada para un banquete formal de 200 personas. El inventario de EVENTECH nos permitió cubrir todas las mesas sin problema. La entrega fue un día antes como prometieron y cada mantel venía en su funda individual. Servicio impecable.", rating: 5, date: "2025-09-18" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Manteles y Cubremesas para Eventos en CDMX",
+    description: "Renta de manteles redondos, rectangulares y cuadrados en poliéster, satín, organza y lino. Más de 50 colores. Lavados y planchados. Desde $35 por pieza.",
+    url: "/servicios/accesorios/manteleria-textiles/manteles-cubremesas/",
+    priceRange: { min: 35, max: 150 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 312,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Accesorios", url: "/servicios/accesorios/" },
+    { name: "Mantelería y Textiles", url: "/servicios/accesorios/manteleria-textiles/" },
+    { name: "Manteles y Cubremesas", url: "/servicios/accesorios/manteleria-textiles/manteles-cubremesas/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Manteles y Cubremesas para Eventos en CDMX | EVENTECH"
+  description="Renta de manteles redondos, rectangulares y cuadrados en poliéster, satín, organza y lino. Más de 50 colores. Lavados y planchados. Desde $35 por pieza."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Más de 50 colores disponibles"
+    title='Renta de <span class="highlight">Manteles y Cubremesas</span> para Eventos'
+    subtitle="Manteles redondos, rectangulares y cuadrados en poliéster, satín, organza y lino premium. Más de 50 colores con servicio de color matching, lavado y planchado profesional incluido."
+    primaryCTA={{ label: "Cotiza tus manteles", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar manteles y cubremesas para mi evento` }}
+    cards={[
+      {
+        title: "Manteles en poliéster, satín, organza y lino premium",
+        content: "<strong>Renta de manteles y cubremesas</strong> para eventos en CDMX con el catálogo más amplio de formatos y telas. Manteles redondos, rectangulares y cuadrados en poliéster, satín, organza y lino premium. Más de 50 colores con servicio de color matching para tu paleta de evento. Medidas disponibles desde 72x72\" hasta 132\" redondo para cubrir mesas de 150 y 180 cm con caída completa al piso o media caída según tu preferencia.",
+      },
+      {
+        title: "Entrega lavada, planchada y con recolección incluida",
+        content: "<strong>Servicio integral sin preocupaciones</strong>. Cada mantel se entrega recién lavado, desinfectado y planchado profesionalmente con vapor industrial. Empaque individual en fundas para mantener el planchado impecable hasta el montaje. Recolección con lavado incluido sin costo adicional al día siguiente del evento. Inventario para hasta 500 mesas simultáneas con control de calidad pieza por pieza.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Buscas manteles perfectos para tu evento?"
+    subheadline="Cotiza sin compromiso — te enviamos muestras de color y textura para que apruebes antes de tu evento"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Mantelería y Textiles</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas manteles y cubremesas para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar manteles y cubremesas para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones — Manteles y Cubremesas</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Manteles Satín Elegante -->
+          <section class="section section--alt" aria-labelledby="satin-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">El favorito para bodas</span>
+                <h2 class="showcase__title" id="satin-heading">Manteles Satín Elegante</h2>
+                <p class="showcase__subtitle">El brillo sofisticado del satín transforma cada mesa en una pieza de alta gama para bodas y galas.</p>
+                <p class="showcase__text">Nuestros <strong>manteles de satín</strong> son la elección favorita para <strong>bodas, galas y eventos de etiqueta</strong> en la Ciudad de México. El satín ofrece un brillo elegante y una caída suave que enmarca cada mesa con sofisticación. Disponibles en formatos <strong>redondo (120" y 132"), rectangular (90x132" y 90x156") y cuadrado (72x72" y 85x85")</strong>. Más de 30 colores de satín disponibles, desde los clásicos blanco, marfil y champagne hasta tonos metálicos como dorado, plateado y oro rosa.</p>
+                <p class="showcase__text">La caída completa hasta el piso crea un efecto visual impresionante en <strong>mesas de honor, mesa de novios y mesas de invitados</strong>. Cada mantel de satín se plancha con vapor industrial para un acabado sin arrugas. Combínalos con nuestros <a href="/servicios/accesorios/manteleria-textiles/cubresillas-bandas/">cubresillas y bandas</a> en colores coordinados para un montaje textil integral que luzca perfecto en cada fotografía de tu evento.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Satín premium</span>
+                  <span class="showcase__tag">30+ colores</span>
+                  <span class="showcase__tag">Caída elegante</span>
+                  <span class="showcase__tag">Bodas y galas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Manteles Satín
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Manteles Satín Elegante</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Manteles Poliéster Clásico -->
+          <section class="section section--alt" aria-labelledby="poliester-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Máxima resistencia y economía</span>
+                <h2 class="showcase__title" id="poliester-heading">Manteles Poliéster Clásico</h2>
+                <p class="showcase__subtitle">La opción más versátil y resistente para eventos corporativos, banquetes y celebraciones de gran formato.</p>
+                <p class="showcase__text">Nuestros <strong>manteles de poliéster profesional</strong> son la base de cualquier montaje exitoso. Su principal ventaja: <strong>resistencia superior a arrugas y manchas</strong>, lo que los hace ideales para eventos con servicio de alimentos y bebidas. Disponibles en los tres formatos (redondo, rectangular, cuadrado) y en <strong>más de 50 colores sólidos</strong>. El poliéster premium que utilizamos tiene un gramaje de 200 GSM que ofrece peso y caída profesional.</p>
+                <p class="showcase__text">Perfectos para <strong>eventos corporativos, conferencias, banquetes masivos y celebraciones sociales</strong> donde se necesita un acabado profesional a un precio accesible. Su resistencia permite que las mesas luzcan impecables durante todo el evento sin importar derrames o uso intensivo. Combínalos con <a href="/servicios/accesorios/manteleria-textiles/overlays-especiales/">overlays decorativos</a> de organza o lentejuela para elevar el look sin aumentar significativamente el presupuesto.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Poliéster 200 GSM</span>
+                  <span class="showcase__tag">50+ colores</span>
+                  <span class="showcase__tag">Anti-arrugas</span>
+                  <span class="showcase__tag">Eventos grandes</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Manteles Poliéster
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Manteles Poliéster Clásico</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Manteles Lino Premium -->
+          <section class="section section--alt" aria-labelledby="lino-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Textura natural premium</span>
+                <h2 class="showcase__title" id="lino-heading">Manteles Lino Premium</h2>
+                <p class="showcase__subtitle">La textura orgánica del lino aporta carácter y sofisticación natural para eventos rústico-elegantes.</p>
+                <p class="showcase__text">Nuestros <strong>manteles de lino premium</strong> son la elección ideal para eventos con estética <strong>rústica, boho, campestre y orgánica</strong>. La textura natural del lino crea una atmósfera cálida y auténtica que fotografía extraordinariamente bien. Disponibles en tonos neutros y terrosos: <strong>natural, arena, gris claro, gris oxford, taupe, terracota y verde olivo</strong>. Formatos redondo y rectangular con caída completa o media caída.</p>
+                <p class="showcase__text">El lino premium que utilizamos tiene un acabado <strong>suavizado (stone-washed)</strong> que le da esa textura desestructurada tan codiciada en bodas campestres y eventos al aire libre. Cada mantel de lino se plancha con temperatura controlada para conservar su textura característica sin arrugas excesivas. Combínalos con <a href="/servicios/accesorios/manteleria-textiles/servilletas-caminos/">caminos de yute</a> y servilletas coordinadas para un montaje rústico-elegante completo.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Lino stone-washed</span>
+                  <span class="showcase__tag">Tonos naturales</span>
+                  <span class="showcase__tag">Rústico-elegante</span>
+                  <span class="showcase__tag">Bodas campestres</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Manteles Lino
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Manteles Lino Premium</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Manteles Organza Overlay -->
+          <section class="section section--alt" aria-labelledby="organza-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Capas de elegancia</span>
+                <h2 class="showcase__title" id="organza-heading">Manteles Organza Overlay</h2>
+                <p class="showcase__subtitle">Cubremesas transparentes de organza que agregan dimensión y profundidad visual sobre el mantel base.</p>
+                <p class="showcase__text">Nuestros <strong>manteles de organza overlay</strong> se colocan sobre el mantel base para crear composiciones de <strong>múltiples capas con textura y transparencia</strong>. La organza cristal permite ver el color del mantel inferior mientras aporta un brillo sutil y etéreo. Disponibles en tamaños <strong>cuadrado (72x72" y 85x85") y redondo (108")</strong> para adaptarse a mesas de honor, centros de mesa y buffets. Más de 25 colores de organza disponibles.</p>
+                <p class="showcase__text">La técnica de layering con organza es una de las más utilizadas por <strong>wedding planners y decoradores profesionales</strong> para crear profundidad visual sin saturar la paleta. Un mantel blanco con overlay de organza champagne, o un mantel negro con organza dorada, transforma completamente la percepción de la mesa. Combínalos con nuestra <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a> para que la luz juegue con las capas de tela y cree reflejos espectaculares.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Organza cristal</span>
+                  <span class="showcase__tag">25+ colores</span>
+                  <span class="showcase__tag">Layering</span>
+                  <span class="showcase__tag">Mesas de honor</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Organza Overlay
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Manteles Organza Overlay</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Manteles y Cubremesas"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tus manteles, es natural tener preguntas sobre telas, colores, medidas y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de mantelería resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre manteles y cubremesas para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Mantelería y Textiles -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Mantelería y Textiles</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/accesorios/manteleria-textiles/" class="sidebar-nav__back">&uarr; Volver a Mantelería y Textiles</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/accesorios/" class="sidebar-nav__back">&uarr; Volver a Accesorios</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de manteles:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas manteles y cubremesas para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar manteles y cubremesas para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tus Manteles y Cubremesas"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sean 10 manteles para una cena íntima o 200 para tu boda, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoMantel">
+                Tipo de mantel
+              </label>
+              <select id="tipoMantel" name="tipoMantel" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de mantel</option>
+                <option value="Mantel Redondo Satín">Mantel Redondo Satín</option>
+                <option value="Mantel Redondo Poliéster">Mantel Redondo Poliéster</option>
+                <option value="Mantel Rectangular Satín">Mantel Rectangular Satín</option>
+                <option value="Mantel Rectangular Lino">Mantel Rectangular Lino</option>
+                <option value="Overlay Organza">Overlay Organza</option>
+                <option value="Paquete Mantelería Completa">Paquete Mantelería Completa</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de mesas, formato (redonda/rectangular), tipo de tela, colores deseados, si necesitas muestras..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Muestras de tela gratis</h3>
+            <p class="reserva-card__text">Solicita muestras físicas de color y textura sin costo para aprobar antes de tu evento.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría de color personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoMantel = document.getElementById('tipoMantel').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Manteles y Cubremesas*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoMantel) texto += `*Tipo de mantel:* ${tipoMantel}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Mantelería"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de mantelería y textiles para eventos en la Ciudad de México. Cada aliado cuenta con inventario certificado, servicio de lavandería profesional y trayectoria comprobada.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de colores y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">A</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Accesorios Event MX</h3>
+            <p class="partner-card__tagline">Mantelería, textiles y accesorios premium para eventos en CDMX</p>
+            <p class="partner-card__text">Líder en renta de mantelería profesional con el catálogo más amplio de colores y telas para bodas, banquetes y eventos corporativos. Servicio de lavado industrial y entrega coordinada.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">RentaDecor CDMX</h3>
+            <p class="partner-card__tagline">Renta de mantelería, cubresillas y decoración textil profesional</p>
+            <p class="partner-card__text">Especialistas en paquetes completos de mantelería con cubresillas, bandas y servilletas coordinadas. Servicio de montaje y desmontaje para eventos de hasta 500 personas.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">T</span>
+            <div class="partner-card__badge">Calidad certificada</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">TextilEvent</h3>
+            <p class="partner-card__tagline">Textiles de alta calidad con servicio de lavado y planchado incluido</p>
+            <p class="partner-card__text">Textiles premium con lavado y planchado profesional incluido en cada renta. Control de calidad pieza por pieza y empaque individual para garantizar presentación impecable.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">Servicio integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventosPro Accesorios</h3>
+            <p class="partner-card__tagline">Complementos y accesorios integrales para todo tipo de evento</p>
+            <p class="partner-card__text">Servicio integral de accesorios y mantelería con logística profesional en toda la CDMX y área metropolitana. Inventario amplio con disponibilidad garantizada en temporada alta.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Manteles que transforman la presentación de cada mesa"
+    subheadline="Más de 50 colores, 4 tipos de tela y lavado profesional incluido. Cotiza hoy y recibe muestras sin compromiso."
+    primaryCTA={{ label: "Cotizar manteles", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar manteles y cubremesas para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

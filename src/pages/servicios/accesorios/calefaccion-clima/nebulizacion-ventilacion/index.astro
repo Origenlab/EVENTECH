@@ -1,0 +1,731 @@
+---
+/**
+ * ─── Nebulizacion y Ventilacion — Pagina de Producto (Nivel 4) ───
+ * Sistemas de nebulizacion de alta presion, ventiladores industriales
+ * y enfriamiento evaporativo para eventos al aire libre en CDMX.
+ *
+ * Jerarquia: Servicios > Accesorios > Calefaccion y Clima > Nebulizacion y Ventilacion
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Accesorios", href: "/servicios/accesorios/" },
+  { label: "Calefacción y Clima", href: "/servicios/accesorios/calefaccion-clima/" },
+  { label: "Nebulización y Ventilación" },
+];
+
+const faqs = [
+  { question: "¿Los sistemas de nebulización mojan a los invitados?", answer: 'No. Nuestros sistemas de nebulización de <strong>alta presión (1,000 PSI)</strong> generan micro-gotas de 10 a 15 micrones de diámetro que se evaporan completamente antes de llegar a las personas. A diferencia de los nebulizadores domésticos de baja presión que sí mojan, nuestros equipos profesionales crean una <strong>niebla seca invisible</strong> que reduce la temperatura ambiental entre 8 y 12 grados centígrados sin dejar residuos de humedad en la piel, el mobiliario o la decoración del evento.' },
+  { question: "¿Cuánta agua consume un sistema de nebulización durante un evento?", answer: 'El consumo de agua es sorprendentemente bajo. Un sistema perimetral de <strong>20 boquillas operando durante 8 horas</strong> consume aproximadamente 80 a 100 litros de agua, equivalente a menos de un tinaco doméstico. Cada boquilla de nebulización consume entre <strong>0.5 y 0.7 litros por minuto</strong> a 1,000 PSI. Para un evento de 6 horas con 30 boquillas, el consumo total es de aproximadamente 120 litros. Proporcionamos un tanque de reserva y conexión a toma de agua del venue como respaldo.' },
+  { question: "¿Qué área cubre un sistema de nebulización y cuántos ventiladores necesito?", answer: 'Cada <strong>línea de nebulización perimetral</strong> cubre un frente de 15 a 20 metros lineales con una profundidad de enfriamiento de 3 a 4 metros. Para áreas cerradas, los <strong>ventiladores industriales de 24 a 36 pulgadas</strong> cubren de 80 a 150 m² cada uno dependiendo del modelo. Como referencia: un jardín de 200 m² para 150 invitados requiere aproximadamente 2 líneas de nebulización perimetral más 3-4 ventiladores industriales para una cobertura uniforme.' },
+  { question: "¿Qué nivel de ruido producen los ventiladores industriales?", answer: 'Nuestros ventiladores industriales operan entre <strong>55 y 68 dB</strong> dependiendo del modelo y la velocidad seleccionada. Para referencia, una conversación normal es de 60 dB. Los modelos de 24 pulgadas generan 55-58 dB a velocidad media (ideales para cenas y recepciones), mientras que los de 36 pulgadas alcanzan 65-68 dB a máxima potencia (diseñados para carpas y hangares donde el ruido ambiental es mayor). La <strong>bomba de nebulización</strong> opera a 62 dB y se coloca en una zona alejada del área de invitados.' },
+  { question: "¿Qué requisitos eléctricos necesitan los equipos de nebulización y ventilación?", answer: 'Los ventiladores industriales requieren <strong>corriente monofásica 110V/220V estándar</strong> con consumo de 180 a 450 watts por unidad. La bomba de nebulización de alta presión consume entre <strong>1,500 y 2,200 watts</strong> dependiendo del modelo y requiere una toma de 220V dedicada. Para un kit completo de nebulización + 4 ventiladores, necesitas aproximadamente 3,500 watts. Si tu venue no cuenta con la capacidad eléctrica, proporcionamos <a href="/servicios/accesorios/plantas-energia/">plantas de energía</a> dimensionadas para tu montaje.' },
+  { question: "¿Los sistemas de nebulización funcionan en interiores y exteriores?", answer: 'La <strong>nebulización de alta presión está diseñada principalmente para exteriores</strong>: jardines, terrazas, patios y carpas abiertas donde la ventilación natural permite la evaporación óptima de las micro-gotas. En interiores o carpas cerradas recomendamos nuestros <strong>ventiladores industriales con enfriamiento evaporativo</strong> que utilizan un panel húmedo para enfriar el aire sin añadir humedad al ambiente. Para espacios completamente cerrados, consulta nuestro <a href="/servicios/accesorios/calefaccion-clima/ac-portatil/">aire acondicionado portátil</a> como alternativa más efectiva.' },
+];
+
+const specs = [
+  { label: "Sistemas", value: "Nebulización alta presión, ventiladores, evaporativos" },
+  { label: "Cobertura nebulización", value: "15 – 20 m lineales por línea, 3 – 4 m profundidad" },
+  { label: "Presión de agua", value: "800 – 1,000 PSI (alta presión profesional)" },
+  { label: "Tamaño de gota", value: "10 – 15 micrones (evaporación instantánea)" },
+  { label: "Diámetro ventiladores", value: "24\", 30\" y 36\" industriales" },
+  { label: "Flujo de aire", value: "4,500 – 12,000 CFM según modelo" },
+  { label: "Nivel de ruido", value: "55 – 68 dB (conversación normal: 60 dB)" },
+  { label: "Consumo eléctrico", value: "180 – 2,200 W según equipo" },
+  { label: "Consumo de agua", value: "0.5 – 0.7 L/min por boquilla" },
+  { label: "Instalación", value: "Profesional, técnico incluido en servicio" },
+];
+
+const sidebarNav = [
+  { name: "Calentadores de Patio", href: "/servicios/accesorios/calefaccion-clima/calentadores-patio/" },
+  { name: "Calefacción Industrial", href: "/servicios/accesorios/calefaccion-clima/calefaccion-industrial/" },
+  { name: "Nebulización y Ventilación", href: null, active: true },
+  { name: "Aire Acondicionado Portátil", href: "/servicios/accesorios/calefaccion-clima/ac-portatil/" },
+];
+
+const sidebarRelated = [
+  { name: "Carpas para Eventos", href: "/servicios/carpas/" },
+  { name: "Plantas de Energía", href: "/servicios/accesorios/plantas-energia/" },
+  { name: "Catering y Refrigeración", href: "/servicios/catering/" },
+  { name: "Inflables para Eventos", href: "/servicios/inflables/" },
+  { name: "Iluminación para Eventos", href: "/servicios/iluminacion/" },
+];
+
+const reviews = [
+  { author: "Gabriela Estrada Villalobos", text: "Organizamos un festival gastronómico en un jardín de Coyoacán en pleno julio y la nebulización fue nuestra salvación. Con 35 grados afuera, el sistema perimetral redujo la temperatura a unos 24 grados en toda el área de comensales. Ningún invitado se mojó, la comida se mantuvo fresca y el servicio técnico fue impecable. No imagino un evento de verano sin nebulización.", rating: 5, date: "2025-07-18" },
+  { author: "Ricardo Méndez Aguirre", text: "Rentamos 6 ventiladores industriales de 36 pulgadas para un congreso dentro de una carpa hangar de 30x20 metros. El calor era sofocante antes de encenderlos, pero en 15 minutos la circulación de aire transformó el ambiente por completo. Los asistentes estuvieron cómodos durante las 10 horas del evento. El ruido era mínimo y no interfirió con las conferencias. Excelente inversión.", rating: 5, date: "2025-08-05" },
+  { author: "Patricia Sánchez Duarte", text: "Para nuestra boda en una terraza de Polanco contratamos el kit clima exterior completo: nebulización perimetral más ventiladores. Fue una tarde de agosto con mucho calor y nuestros invitados comentaron lo fresco que se sentía el espacio. El montaje fue discreto, las líneas de nebulización casi no se veían y los ventiladores los colocaron estratégicamente detrás de la vegetación. Servicio de primera.", rating: 5, date: "2025-09-12" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Nebulización y Ventilación para Eventos en CDMX",
+    description: "Sistemas de nebulización de alta presión y ventiladores industriales para eventos al aire libre. Reducción de 8 a 12 grados centígrados. Desde $2,000 por sistema.",
+    url: "/servicios/accesorios/calefaccion-clima/nebulizacion-ventilacion/",
+    priceRange: { min: 2000, max: 18000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 143,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Accesorios", url: "/servicios/accesorios/" },
+    { name: "Calefacción y Clima", url: "/servicios/accesorios/calefaccion-clima/" },
+    { name: "Nebulización y Ventilación", url: "/servicios/accesorios/calefaccion-clima/nebulizacion-ventilacion/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Nebulización y Ventilación para Eventos en CDMX | EVENTECH"
+  description="Renta de sistemas de nebulización de alta presión y ventiladores industriales para eventos al aire libre. Reducción de 8 a 12 °C. Desde $2,000 por sistema."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Enfriamiento profesional para eventos de verano"
+    title='Renta de <span class="highlight">Nebulización y Ventilación</span> para Eventos'
+    subtitle="Sistemas de nebulización de alta presión (1,000 PSI) con micro-gotas de 10-15 micrones y ventiladores industriales de 24 a 36 pulgadas. Reducción de temperatura de 8 a 12 °C sin mojar a tus invitados."
+    primaryCTA={{ label: "Cotiza tu sistema de enfriamiento", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar nebulización y ventilación para mi evento` }}
+    cards={[
+      {
+        title: "Nebulización de alta presión y ventiladores industriales",
+        content: "<strong>Renta de sistemas de nebulización profesional</strong> para eventos al aire libre en CDMX. Equipos de alta presión (800-1,000 PSI) que generan micro-gotas de 10 a 15 micrones — se evaporan antes de tocar a los invitados, reduciendo la temperatura ambiental entre 8 y 12 grados centígrados. Ventiladores industriales de 24, 30 y 36 pulgadas con flujo de aire de 4,500 a 12,000 CFM. Ideales para bodas en jardín, festivales, ferias gastronómicas, eventos corporativos al aire libre y cualquier montaje donde el calor sea un factor.",
+      },
+      {
+        title: "Instalación profesional con técnico dedicado",
+        content: "<strong>Servicio completo con montaje, operación y supervisión técnica</strong> durante todo tu evento. Las líneas de nebulización se instalan de forma discreta en el perímetro del espacio usando postes de acero inoxidable o fijadas a estructuras existentes. Los ventiladores industriales se posicionan estratégicamente según el flujo de aire del venue. Consumo de agua mínimo (80-120 litros por evento) y requisitos eléctricos estándar. Entrega, instalación y recolección incluidas dentro de CDMX.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Tu evento al aire libre necesita enfriamiento profesional?"
+    subheadline="Cotiza sin compromiso — te diseñamos un plan de climatización a la medida de tu espacio"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Calefacción y Clima para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas nebulización o ventilación para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar nebulización y ventilación para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Nebulización y Ventilación</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Nebulización Perimetral — Terrazas y Jardines -->
+          <section class="section section--alt" aria-labelledby="nebulizacion-perimetral-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Enfriamiento sin mojar</span>
+                <h2 class="showcase__title" id="nebulizacion-perimetral-heading">Nebulización Perimetral — Terrazas y Jardines</h2>
+                <p class="showcase__subtitle">Sistema de nebulización de alta presión perimetral que reduce la temperatura ambiental entre 8 y 12 °C sin generar humedad perceptible.</p>
+                <p class="showcase__text">Nuestro <strong>sistema de nebulización perimetral de alta presión</strong> es la solución más efectiva para eventos al aire libre durante los meses de calor en CDMX. Utiliza una bomba profesional de <strong>1,000 PSI</strong> que impulsa agua a través de boquillas de acero inoxidable con orificio de 0.15 mm, generando micro-gotas de <strong>10 a 15 micrones de diámetro</strong> — tan finas que se evaporan completamente en el aire antes de alcanzar a los invitados. El resultado es una reducción de temperatura de <strong>8 a 12 grados centígrados</strong> en el área de cobertura sin dejar residuos de humedad en piel, ropa o mobiliario.</p>
+                <p class="showcase__text">Las líneas de nebulización se instalan en el <strong>perímetro del espacio usando postes de acero inoxidable de 2.5 metros</strong> o se fijan directamente a pérgolas, estructuras de carpas o vegetación existente. Cada línea cubre un frente de 15 a 20 metros lineales con una profundidad de enfriamiento de 3 a 4 metros. La bomba se ubica a distancia del área social para minimizar el ruido. Ideal para <strong>bodas en jardín, cenas en terraza, festivales gastronómicos y recepciones de cóctel</strong> al aire libre. Combínalo con nuestras <a href="/servicios/carpas/">carpas abiertas</a> para crear una zona fresca y protegida del sol.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">1,000 PSI</span>
+                  <span class="showcase__tag">10-15 micrones</span>
+                  <span class="showcase__tag">Reduce 8-12 °C</span>
+                  <span class="showcase__tag">No moja</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Nebulización Perimetral
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Nebulización Perimetral</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Ventiladores Industriales — Carpas y Hangares -->
+          <section class="section section--alt" aria-labelledby="ventiladores-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Circulación de aire masiva</span>
+                <h2 class="showcase__title" id="ventiladores-heading">Ventiladores Industriales — Carpas y Hangares</h2>
+                <p class="showcase__subtitle">Ventiladores industriales de 24 a 36 pulgadas con flujo de aire de hasta 12,000 CFM para espacios grandes y semi-cerrados.</p>
+                <p class="showcase__text">Nuestros <strong>ventiladores industriales de pedestal y tambor</strong> están diseñados para mover grandes volúmenes de aire en carpas, hangares, naves y espacios semi-cerrados donde la temperatura puede elevarse rápidamente con la concentración de personas. Disponibles en tres tamaños — <strong>24 pulgadas (4,500 CFM), 30 pulgadas (7,500 CFM) y 36 pulgadas (12,000 CFM)</strong> — con velocidad variable de 3 posiciones y motor silencioso de rodamientos sellados. El nivel de ruido oscila entre <strong>55 y 68 dB</strong>, comparable a una conversación normal.</p>
+                <p class="showcase__text">Los ventiladores tipo tambor de 36 pulgadas son la opción favorita para <strong>carpas estructurales de más de 100 m²</strong> y hangares donde se requiere renovar el aire completo del espacio varias veces por hora. Los modelos de pedestal de 24 y 30 pulgadas son ideales para zonas específicas como <strong>áreas de cocina en vivo, estaciones de catering y backstage</strong>. Cada unidad consume entre 180 y 450 watts, opera en 110V/220V estándar y se posiciona estratégicamente según la distribución de tu montaje. Complementa con nuestras <a href="/servicios/accesorios/plantas-energia/">plantas de energía</a> si tu venue requiere capacidad eléctrica adicional.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">24" – 36"</span>
+                  <span class="showcase__tag">Hasta 12,000 CFM</span>
+                  <span class="showcase__tag">55-68 dB</span>
+                  <span class="showcase__tag">Velocidad variable</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Ventiladores Industriales
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Ventiladores Industriales</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Sistema de Enfriamiento Evaporativo -->
+          <section class="section section--alt" aria-labelledby="evaporativo-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Tecnología evaporativa avanzada</span>
+                <h2 class="showcase__title" id="evaporativo-heading">Sistema de Enfriamiento Evaporativo</h2>
+                <p class="showcase__subtitle">Enfriadores evaporativos portátiles que combinan ventilación y agua para reducir la temperatura en espacios semi-cerrados sin ductos de instalación.</p>
+                <p class="showcase__text">Los <strong>enfriadores evaporativos portátiles</strong> son la solución intermedia entre los ventiladores industriales y el aire acondicionado portátil. Utilizan un <strong>panel de celulosa húmedo de alta eficiencia</strong> a través del cual se fuerza aire caliente, produciendo aire fresco y limpio sin necesidad de ductos, condensadores ni gas refrigerante. Cada unidad portátil cubre entre <strong>60 y 100 m² con una reducción de temperatura de 5 a 8 grados centígrados</strong> y un flujo de aire de 5,000 a 8,000 CFM. Consumen apenas 200 a 350 watts — una fracción del consumo de un aire acondicionado convencional.</p>
+                <p class="showcase__text">El sistema evaporativo es especialmente efectivo en <strong>carpas con ventilación lateral, hangares con puertas abiertas y espacios semi-cubiertos</strong> donde el intercambio de aire es continuo. A diferencia del aire acondicionado, no requiere espacio cerrado herméticamente para funcionar. Incluye tanque de agua de <strong>40 a 60 litros</strong> con autonomía de 4 a 6 horas y ruedas industriales para reposicionamiento durante el evento. Ideal para <a href="/servicios/catering/">zonas de catering</a> y backstage donde el calor de la cocina se concentra rápidamente.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">60-100 m² cobertura</span>
+                  <span class="showcase__tag">5-8 °C reducción</span>
+                  <span class="showcase__tag">200-350 W</span>
+                  <span class="showcase__tag">Sin ductos</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Enfriamiento Evaporativo
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Enfriamiento Evaporativo</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Clima Exterior Completo -->
+          <section class="section section--alt" aria-labelledby="kit-clima-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Solución integral todo incluido</span>
+                <h2 class="showcase__title" id="kit-clima-heading">Kit Clima Exterior Completo</h2>
+                <p class="showcase__subtitle">Paquete combinado de nebulización perimetral + ventiladores industriales + enfriamiento evaporativo para cobertura total de eventos grandes.</p>
+                <p class="showcase__text">Nuestro <strong>Kit Clima Exterior Completo</strong> integra las tres tecnologías de enfriamiento para ofrecer la máxima reducción de temperatura en eventos de gran escala al aire libre. Incluye <strong>2 líneas de nebulización perimetral de alta presión</strong> (40 metros lineales de cobertura), <strong>4 ventiladores industriales de 30 pulgadas</strong> posicionados estratégicamente y <strong>2 enfriadores evaporativos portátiles</strong> para zonas de alta concentración como áreas de comida y backstage. Cobertura total de hasta <strong>300 m² con reducción de temperatura de 10 a 15 grados centígrados</strong>.</p>
+                <p class="showcase__text">El kit incluye <strong>bomba de alta presión, tanque de reserva de agua, cableado eléctrico completo, postes de instalación</strong> y un técnico de climatización dedicado durante todo el evento que monitorea temperatura y ajusta los equipos según las condiciones. Precio de paquete con ahorro significativo versus renta individual de cada sistema. Disponemos de kits para <strong>150, 300 y 500+ invitados</strong>. Complementa con nuestras <a href="/servicios/carpas/">carpas con laterales abiertos</a>, <a href="/servicios/iluminacion/">iluminación</a> y <a href="/servicios/mobiliario/">mobiliario</a> para un montaje completo y confortable.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Nebulización + Ventiladores + Evaporativos</span>
+                  <span class="showcase__tag">Hasta 300 m²</span>
+                  <span class="showcase__tag">Técnico dedicado</span>
+                  <span class="showcase__tag">Precio paquete</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Clima Completo
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Kit Clima Exterior Completo</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Nebulización y Ventilación"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu sistema de nebulización o ventilación, es natural tener preguntas sobre funcionamiento, consumo de agua y cobertura. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor técnico te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de climatización resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre nebulización y ventilación para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Calefacción y Clima -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Calefacción y Clima para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/accesorios/calefaccion-clima/" class="sidebar-nav__back">&uarr; Volver a Calefacción y Clima</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/accesorios/" class="sidebar-nav__back">&uarr; Volver a Accesorios</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de climatización:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas nebulización o ventilación para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar nebulización y ventilación para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Sistema de Nebulización y Ventilación"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un sistema de nebulización para tu boda en jardín o un kit completo de ventilación para tu congreso en carpa, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoSistema">
+                Tipo de sistema
+              </label>
+              <select id="tipoSistema" name="tipoSistema" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de sistema</option>
+                <option value="Nebulización Perimetral">Nebulización Perimetral</option>
+                <option value="Ventiladores Industriales 24 pulgadas">Ventiladores Industriales 24"</option>
+                <option value="Ventiladores Industriales 30 pulgadas">Ventiladores Industriales 30"</option>
+                <option value="Ventiladores Industriales 36 pulgadas">Ventiladores Industriales 36"</option>
+                <option value="Enfriamiento Evaporativo">Enfriamiento Evaporativo</option>
+                <option value="Kit Clima Exterior Completo">Kit Clima Exterior Completo</option>
+                <option value="Combinación personalizada">Combinación personalizada</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de invitados, tipo de venue (jardín/terraza/carpa/hangar), dimensiones del espacio, si es exterior o semi-cubierto..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para diseñar el plan de climatización ideal para tu evento.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoSistema = document.getElementById('tipoSistema').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Nebulización y Ventilación*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoSistema) texto += `*Tipo de sistema:* ${tipoSistema}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Accesorios para Eventos"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de accesorios y complementos para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">A</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Accesorios Event MX</h3>
+            <p class="partner-card__tagline">Climatización y accesorios premium para eventos en CDMX</p>
+            <p class="partner-card__text">Líder en renta de sistemas de nebulización, ventilación industrial y climatización para eventos sociales y corporativos. Equipo profesional de alta presión con técnicos certificados y servicio integral.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">RentaDecor CDMX</h3>
+            <p class="partner-card__tagline">Soluciones de climatización y confort para todo tipo de evento</p>
+            <p class="partner-card__text">Especialistas en enfriamiento evaporativo, nebulización perimetral y ventilación para bodas, congresos y festivales. Equipos de última generación con mantenimiento preventivo garantizado.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">T</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">TextilEvent</h3>
+            <p class="partner-card__tagline">Complementos y climatización profesional para montajes de evento</p>
+            <p class="partner-card__text">Más de 10 años proporcionando soluciones de climatización de alta calidad para eventos en CDMX. Nebulización, ventilación, calefacción y logística integral para montajes profesionales.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventosPro Accesorios</h3>
+            <p class="partner-card__tagline">Renta integral de climatización con cobertura en toda la CDMX</p>
+            <p class="partner-card__text">Servicio integral de renta de equipos de climatización con logística profesional en toda la CDMX y área metropolitana. Nebulización, ventilación y enfriamiento con operadores certificados.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Nebulización y ventilación que transforman eventos sofocantes en experiencias confortables"
+    subheadline="Más de 400 eventos climatizados nos respaldan. Cotiza hoy y recibe asesoría técnica sin compromiso."
+    primaryCTA={{ label: "Cotizar sistema de enfriamiento", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar nebulización y ventilación para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

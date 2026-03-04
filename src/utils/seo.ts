@@ -309,6 +309,61 @@ export function eventTypeJsonLd(eventType: {
   };
 }
 
+/** Generate ItemList JSON-LD (for directory listing pages) */
+export function itemListJsonLd(items: {
+  name: string;
+  url: string;
+  image?: string;
+  description?: string;
+}[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    numberOfItems: items.length,
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      url: canonicalURL(item.url),
+      ...(item.image && { image: canonicalURL(item.image) }),
+      ...(item.description && { description: item.description }),
+    })),
+  };
+}
+
+/** Generate CollectionPage JSON-LD (for directory region/zone pages) */
+export function collectionPageJsonLd(page: {
+  name: string;
+  description: string;
+  url: string;
+  numberOfItems: number;
+  areaServed?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: page.name,
+    description: page.description,
+    url: canonicalURL(page.url),
+    numberOfItems: page.numberOfItems,
+    ...(page.areaServed && {
+      about: {
+        "@type": "Place",
+        name: page.areaServed,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: page.areaServed,
+          addressCountry: "MX",
+        },
+      },
+    }),
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": `${SITE.url}/#website`,
+    },
+  };
+}
+
 /** Generate EventVenue JSON-LD (for venue/salon pages in directorio) */
 export function venueJsonLd(venue: {
   name: string;

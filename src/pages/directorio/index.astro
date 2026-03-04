@@ -10,7 +10,7 @@ import CTABanner from "@components/CTABanner.astro";
 import Breadcrumbs from "@components/Breadcrumbs.astro";
 import DirectorySearch from "@components/DirectorySearch.astro";
 import { getCollection } from "astro:content";
-import { breadcrumbJsonLd } from "@utils/seo";
+import { breadcrumbJsonLd, itemListJsonLd, collectionPageJsonLd } from "@utils/seo";
 import "@styles/directorio.css";
 
 const breadcrumbItems = [
@@ -62,6 +62,21 @@ const jsonLd = [
     { name: "Inicio", url: "/" },
     { name: "Directorio", url: "/directorio/" },
   ]),
+  collectionPageJsonLd({
+    name: "Directorio de Salones de Fiestas",
+    description: "Directorio completo de salones, jardines, haciendas y venues para eventos en CDMX y Estado de México",
+    url: "/directorio/",
+    numberOfItems: totalVenues,
+    areaServed: "Ciudad de México y Estado de México",
+  }),
+  itemListJsonLd(
+    featuredList.map(venue => ({
+      name: venue.data.name,
+      url: `/directorio/${venue.data.region}/${venue.data.zoneSlug}/${venue.id.split('/').pop()?.replace('.md', '')}/`,
+      image: venue.data.image,
+      description: venue.data.shortDescription,
+    }))
+  ),
 ];
 ---
 

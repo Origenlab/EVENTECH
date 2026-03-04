@@ -1,0 +1,730 @@
+---
+/**
+ * ─── AC Portatil — Pagina de Producto (Nivel 4) ───
+ * Aire acondicionado portatil para eventos: spot coolers, AC industrial,
+ * sistemas ducteados y kits de climatizacion integral para carpas y venues.
+ *
+ * Jerarquia: Servicios > Accesorios > Calefaccion y Clima > AC Portatil
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Accesorios", href: "/servicios/accesorios/" },
+  { label: "Calefacción y Clima", href: "/servicios/accesorios/calefaccion-clima/" },
+  { label: "AC Portátil" },
+];
+
+const faqs = [
+  { question: "¿Cuántos BTU necesito para climatizar mi carpa o salón?", answer: 'La regla general es <strong>400-500 BTU por metro cuadrado</strong> en espacios cerrados con buena aislación, y <strong>600-800 BTU por m²</strong> en carpas o espacios semi-abiertos donde hay mayor pérdida térmica. Por ejemplo, una carpa estructural de 100 m² requiere entre 60,000 y 80,000 BTU (5-7 toneladas de refrigeración). Nuestro ingeniero realiza un <strong>cálculo de carga térmica profesional</strong> considerando orientación solar, número de personas, equipos de iluminación y cocina que generan calor adicional, para dimensionar el sistema exacto que necesitas.' },
+  { question: "¿Qué tan ruidosos son los equipos de AC portátil?", answer: 'Nuestros spot coolers compactos operan entre <strong>55 y 62 dB</strong> — similar al volumen de una conversación normal — y se colocan estratégicamente para minimizar la percepción acústica. Los equipos industriales de 5-10 TR generan entre <strong>65 y 72 dB</strong>, por lo que siempre se instalan en el exterior con <strong>ductos flexibles aislados</strong> que conducen el aire frío al interior, reduciendo el ruido percibido dentro del venue a menos de 50 dB. Para eventos con música en vivo o DJ, el sistema de sonido enmascara completamente cualquier ruido residual.' },
+  { question: "¿Qué requerimientos eléctricos tienen los equipos de AC portátil?", answer: 'Los spot coolers de 1-3 TR operan con <strong>alimentación monofásica 220V a 15-30 amperes</strong>, compatible con la mayoría de instalaciones comerciales. Los equipos industriales de 5-10 TR requieren <strong>alimentación trifásica 220/440V a 40-80 amperes</strong> con protección termomagnética. Si tu venue no cuenta con la capacidad eléctrica necesaria, ofrecemos <a href="/servicios/accesorios/plantas-energia/">plantas de energía</a> dimensionadas específicamente para alimentar el sistema de climatización. Nuestro técnico evalúa la instalación eléctrica del venue antes del evento.' },
+  { question: "¿Se puede ductar el aire acondicionado dentro de una carpa?", answer: 'Sí, es la configuración más común para eventos en carpas. Utilizamos <strong>ductos flexibles aislados de 30 a 60 cm de diámetro</strong> que conducen el aire frío desde el equipo exterior hasta difusores distribuidos estratégicamente dentro de la carpa. Los ductos se ocultan bajo falsos techos, por los laterales o a nivel de piso con cubiertas decorativas. Para <a href="/servicios/carpas/hangar/">carpas tipo hangar</a> de gran envergadura, instalamos <strong>ductos rígidos con múltiples salidas</strong> y rejillas direccionales para garantizar distribución uniforme en toda el área.' },
+  { question: "¿Realmente puede enfriarse una carpa con AC portátil?", answer: 'Absolutamente. Con el dimensionamiento correcto, logramos reducir la temperatura interior de una carpa entre <strong>8 y 15 grados centígrados</strong> respecto al exterior. La clave está en tres factores: <strong>capacidad suficiente en toneladas de refrigeración</strong> según la superficie y carga térmica, <strong>sellado adecuado de la carpa</strong> con paredes laterales y piso, y <strong>distribución uniforme del aire</strong> mediante ductos y difusores. Nuestras <a href="/servicios/carpas/estructurales/">carpas estructurales</a> con paredes modulares son ideales para climatización porque permiten un sellado casi hermético.' },
+  { question: "¿Con cuánta anticipación debo reservar el AC portátil para mi evento?", answer: 'Recomendamos reservar con <strong>mínimo 2 a 3 semanas de anticipación</strong> para eventos estándar, y <strong>4 a 6 semanas</strong> para eventos grandes que requieran múltiples unidades industriales o sistemas ducteados complejos. Durante la temporada de calor en CDMX (marzo a mayo), la demanda se dispara y el equipo se agenda rápidamente. La reserva incluye una <strong>visita técnica previa al venue</strong> donde nuestro ingeniero evalúa accesos, instalación eléctrica, puntos de ducteado y elabora el plano de climatización sin costo adicional.' },
+];
+
+const specs = [
+  { label: "Capacidad", value: "1 – 10 TR (12,000 – 120,000 BTU)" },
+  { label: "Cobertura", value: "20 – 500 m² según equipo" },
+  { label: "Consumo eléctrico", value: "1.5 – 25 kW según modelo" },
+  { label: "Refrigerante", value: "R-410A ecológico, libre de CFC" },
+  { label: "Nivel ruido", value: "55 – 72 dB (equipo) / <50 dB (interior)" },
+  { label: "Diámetro ductos", value: "30 – 60 cm flexibles aislados" },
+  { label: "Flujo de aire", value: "800 – 4,500 CFM según modelo" },
+  { label: "Dimensiones", value: "Desde 60×50×90 cm hasta 180×120×200 cm" },
+  { label: "Peso", value: "45 – 350 kg según capacidad" },
+  { label: "Voltaje", value: "220V monofásico / 220-440V trifásico" },
+];
+
+const sidebarNav = [
+  { name: "Calentadores de Patio", href: "/servicios/accesorios/calefaccion-clima/calentadores-patio/" },
+  { name: "Calefacción Industrial", href: "/servicios/accesorios/calefaccion-clima/calefaccion-industrial/" },
+  { name: "Nebulización y Ventilación", href: "/servicios/accesorios/calefaccion-clima/nebulizacion-ventilacion/" },
+  { name: "AC Portátil", href: null, active: true },
+];
+
+const sidebarRelated = [
+  { name: "Carpas Estructurales", href: "/servicios/carpas/estructurales/" },
+  { name: "Carpas Hangar", href: "/servicios/carpas/hangar/" },
+  { name: "Plantas de Energía", href: "/servicios/accesorios/plantas-energia/" },
+  { name: "Catering Estaciones", href: "/servicios/catering/estaciones-servicio/" },
+  { name: "Iluminación Escenario", href: "/servicios/iluminacion/escenario/" },
+];
+
+const reviews = [
+  { author: "Ricardo Mendoza Estrada", text: "Organizamos un congreso médico de 400 personas en una carpa hangar en Santa Fe durante abril y el calor era insoportable. EVENTECH instaló 3 unidades industriales de 10 TR con ductos que cubrían toda la carpa de 600 m². La temperatura se mantuvo en 22 grados todo el día a pesar de los 34 grados del exterior. El montaje fue nocturno para no interferir con la preparación del evento. Servicio impecable y técnicos muy profesionales.", rating: 5, date: "2025-04-18" },
+  { author: "Alejandra Gutiérrez Morales", text: "Nuestra boda fue en mayo en un jardín de Cuernavaca con carpa estructural de 200 m². Teníamos pánico de que los invitados pasaran calor. EVENTECH colocó 2 equipos de 5 TR con ductos ocultos bajo el cielo drapeado y nadie supo que había aire acondicionado hasta que les dijimos. La temperatura fue perfecta toda la noche. Los ductos eran invisibles y el ruido cero dentro de la carpa. Superó todas nuestras expectativas.", rating: 5, date: "2025-05-12" },
+  { author: "José Luis Paredes Vega", text: "Para nuestra expo comercial de 3 días en una nave industrial, rentamos el kit de climatización integral con 4 unidades industriales y distribución ducteada. El sistema mantuvo 800 m² de exhibición a temperatura constante de 23 grados con 1,200 visitantes diarios. El equipo técnico de EVENTECH monitoreó el sistema las 3 jornadas completas y ajustó la distribución según la afluencia. Inversión que vale cada peso.", rating: 5, date: "2025-06-05" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Aire Acondicionado Portátil para Eventos en CDMX",
+    description: "Aire acondicionado portátil para eventos: spot coolers de 1-3 TR, AC industrial de 5-10 TR, sistemas ducteados para carpas y kits de climatización integral. Desde $5,000 por evento.",
+    url: "/servicios/accesorios/calefaccion-clima/ac-portatil/",
+    priceRange: { min: 5000, max: 45000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 143,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Accesorios", url: "/servicios/accesorios/" },
+    { name: "Calefacción y Clima", url: "/servicios/accesorios/calefaccion-clima/" },
+    { name: "AC Portátil", url: "/servicios/accesorios/calefaccion-clima/ac-portatil/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Aire Acondicionado Portátil para Eventos en CDMX | EVENTECH"
+  description="Renta de AC portátil para eventos: spot coolers 1-3 TR, aire acondicionado industrial 5-10 TR, sistemas ducteados para carpas y kits de climatización integral. Desde $5,000."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Climatización profesional para cualquier evento"
+    title='Renta de <span class="highlight">AC Portátil</span> para Eventos'
+    subtitle="Aire acondicionado portátil de 1 a 10 toneladas de refrigeración con ductos aislados para carpas, salones y venues. Spot coolers, equipos industriales y sistemas ducteados con técnico en sitio."
+    primaryCTA={{ label: "Cotiza tu climatización", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar aire acondicionado portátil para mi evento` }}
+    cards={[
+      {
+        title: "Spot coolers y AC industrial de 1 a 10 toneladas de refrigeración",
+        content: "<strong>Renta de aire acondicionado portátil</strong> profesional para eventos en CDMX. Desde spot coolers compactos de 1-3 TR para salones y carpas pequeñas hasta equipos industriales de 5-10 TR para carpas estructurales y hangares de gran superficie. Capacidades de 12,000 a 120,000 BTU con flujos de aire de 800 a 4,500 CFM. Refrigerante ecológico R-410A y operación silenciosa con ductos aislados que reducen el ruido interior a menos de 50 dB. Ideales para bodas en carpa, congresos, expos y eventos corporativos donde el confort térmico es fundamental.",
+      },
+      {
+        title: "Sistemas ducteados con instalación profesional",
+        content: "<strong>Servicio completo con instalación de ductos flexibles aislados</strong> de 30 a 60 cm de diámetro que conducen el aire frío desde el equipo exterior hasta difusores distribuidos dentro de tu venue. Los ductos se ocultan bajo cielos drapeados, laterales de carpa o cubiertas decorativas para mantener la estética del montaje. Incluye visita técnica previa, cálculo de carga térmica, montaje profesional, técnico de supervisión durante el evento y desmontaje posterior. Compatible con nuestras plantas de energía para venues sin capacidad eléctrica suficiente.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas climatizar tu carpa o venue para un evento?"
+    subheadline="Cotiza sin compromiso — incluimos visita técnica y cálculo de carga térmica gratis"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Calefacción y Clima para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas AC portátil para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar aire acondicionado portátil para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — AC Portátil</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Spot Cooler 1-3 TR -->
+          <section class="section section--alt" aria-labelledby="spot-cooler-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Compacto y versátil</span>
+                <h2 class="showcase__title" id="spot-cooler-heading">Spot Cooler 1-3 TR — Salones y Carpas Pequeñas</h2>
+                <p class="showcase__subtitle">Unidades portátiles de enfriamiento directo con capacidad de 12,000 a 36,000 BTU para espacios de 20 a 80 m².</p>
+                <p class="showcase__text">Nuestros <strong>spot coolers portátiles de 1 a 3 toneladas de refrigeración</strong> son la solución más ágil para climatizar salones pequeños, carpas árabes y espacios de hasta 80 m². Con capacidades de <strong>12,000 a 36,000 BTU</strong> y flujos de aire de 800 a 1,500 CFM, estas unidades compactas (60x50x90 cm) se conectan a una toma monofásica de 220V y comienzan a enfriar en minutos. Operan con refrigerante <strong>R-410A ecológico</strong> y generan entre 55 y 60 dB — comparable al ruido de una conversación normal. Ideales para <strong>bodas íntimas, reuniones ejecutivas, ceremonias religiosas</strong> y eventos donde necesitas enfriamiento puntual sin instalación compleja.</p>
+                <p class="showcase__text">Cada spot cooler incluye <strong>ducto flexible aislado de 30 cm</strong> para expulsar el aire caliente al exterior y manguera de drenado de condensados. La descarga de aire frío es direccional con louvers ajustables para enfocar el flujo donde más se necesita. Disponemos de unidades con <strong>termostato digital</strong> para mantener temperatura constante de forma automática. Perfectos para complementar <a href="/servicios/carpas/carpas-arabes/">carpas árabes</a> en eventos de primavera y verano donde el calor puede arruinar la experiencia de los invitados.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">1-3 TR</span>
+                  <span class="showcase__tag">12,000-36,000 BTU</span>
+                  <span class="showcase__tag">220V Monofásico</span>
+                  <span class="showcase__tag">Hasta 80 m²</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Spot Cooler
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Spot Cooler 1-3 TR</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: AC Industrial 5-10 TR -->
+          <section class="section section--alt" aria-labelledby="ac-industrial-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Potencia industrial</span>
+                <h2 class="showcase__title" id="ac-industrial-heading">AC Industrial 5-10 TR — Carpas Estructurales</h2>
+                <p class="showcase__subtitle">Equipos de alta capacidad de 60,000 a 120,000 BTU con flujo de 2,500 a 4,500 CFM para carpas de 100 a 500 m².</p>
+                <p class="showcase__text">Nuestros <strong>equipos de aire acondicionado industrial de 5 a 10 toneladas de refrigeración</strong> están diseñados para climatizar carpas estructurales, naves industriales y venues de gran superficie. Con capacidades de <strong>60,000 a 120,000 BTU</strong> y flujos de aire masivos de 2,500 a 4,500 CFM, estas unidades pueden reducir la temperatura interior hasta <strong>15 grados centígrados</strong> respecto al exterior. Operan con alimentación <strong>trifásica 220/440V</strong> y requieren entre 40 y 80 amperes según el modelo. El equipo se instala siempre en el exterior de la carpa, eliminando ruido y vibración del espacio del evento.</p>
+                <p class="showcase__text">Cada unidad industrial incluye <strong>ductos flexibles aislados de 45-60 cm de diámetro</strong> con múltiples salidas y difusores para garantizar distribución uniforme del aire frío en toda la superficie. El compresor scroll de alta eficiencia consume entre <strong>15 y 25 kW</strong> y opera con refrigerante R-410A. Nuestro técnico HVAC supervisa el equipo durante todo el evento, monitoreando temperatura y ajustando el sistema en tiempo real. Ideales para <strong>congresos, ferias, expos, bodas de 300+ invitados</strong> y cualquier evento en <a href="/servicios/carpas/estructurales/">carpas estructurales</a> donde el confort de cientos de personas depende de la climatización.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">5-10 TR</span>
+                  <span class="showcase__tag">60,000-120,000 BTU</span>
+                  <span class="showcase__tag">Trifásico 220/440V</span>
+                  <span class="showcase__tag">Hasta 500 m²</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar AC Industrial
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>AC Industrial 5-10 TR</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Sistema Ducteado para Hangares -->
+          <section class="section section--alt" aria-labelledby="ducteado-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Gran escala profesional</span>
+                <h2 class="showcase__title" id="ducteado-heading">Sistema Ducteado para Hangares</h2>
+                <p class="showcase__subtitle">Red de ductos rígidos y flexibles con múltiples difusores para climatización uniforme en carpas hangar de 300 a 1,000+ m².</p>
+                <p class="showcase__text">Nuestro <strong>sistema ducteado profesional para hangares</strong> es la solución de climatización para eventos de gran escala que requieren distribución uniforme del aire frío en superficies superiores a 300 m². Utilizamos una combinación de <strong>ductos rígidos galvanizados de 60 cm</strong> como troncal principal y ramificaciones de ducto flexible aislado con difusores cada 3-5 metros para eliminar puntos calientes. El sistema se diseña con software de cálculo CFD (dinámica de fluidos computacional) para garantizar que cada zona del hangar reciba el flujo de aire necesario según su carga térmica específica.</p>
+                <p class="showcase__text">Para <a href="/servicios/carpas/hangar/">carpas hangar</a> de 20 y 30 metros de claro, instalamos múltiples unidades industriales trabajando en paralelo con un <strong>controlador centralizado</strong> que balancea la carga entre equipos y mantiene la temperatura objetivo de forma automática. Los ductos se fijan a la estructura del hangar con soportes de acero y quedan ocultos a nivel de cercha para no interferir con la estética del montaje. Incluye <strong>sensores de temperatura en 4 a 8 zonas</strong> del hangar para monitoreo en tiempo real. Ideal para <strong>expos industriales, festivales multi-día, lanzamientos de producto y convenciones</strong> de gran aforo.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">300-1,000+ m²</span>
+                  <span class="showcase__tag">Ductos Rígidos + Flexibles</span>
+                  <span class="showcase__tag">Multi-Zona</span>
+                  <span class="showcase__tag">Control Centralizado</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Sistema Ducteado
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Sistema Ducteado para Hangares</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Climatización Integral -->
+          <section class="section section--alt" aria-labelledby="kit-integral-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Todo incluido</span>
+                <h2 class="showcase__title" id="kit-integral-heading">Kit Climatización Integral</h2>
+                <p class="showcase__subtitle">Paquete completo con AC industrial, ducteado, planta de energía y técnico HVAC para eventos que requieren solución llave en mano.</p>
+                <p class="showcase__text">Nuestro <strong>Kit de Climatización Integral</strong> es la solución llave en mano para eventos donde la temperatura es un factor crítico y no hay margen de error. Incluye <strong>equipos de AC industrial dimensionados a medida</strong> según el cálculo de carga térmica de tu venue, red completa de ductos flexibles aislados con difusores, <a href="/servicios/accesorios/plantas-energia/">planta de energía</a> dedicada si el venue no tiene capacidad eléctrica suficiente, cableado y protecciones eléctricas, y técnico HVAC certificado en sitio durante todo el evento. El paquete se cotiza como precio cerrado sin sorpresas.</p>
+                <p class="showcase__text">El kit incluye <strong>visita técnica previa al venue</strong> donde nuestro ingeniero evalúa el espacio, calcula la carga térmica considerando número de invitados, equipos de iluminación, cocina y hora del día, diseña el plano de ducteado y determina la capacidad eléctrica necesaria. Durante el evento, el técnico <strong>monitorea temperatura y humedad</strong> en tiempo real y ajusta el sistema según las condiciones cambiantes. Ideal para <strong>bodas premium, congresos internacionales, lanzamientos de marca y galas de premiación</strong> donde el confort de los asistentes es innegociable. Complementa con <a href="/servicios/iluminacion/">iluminación profesional</a> y <a href="/servicios/audiovisual/">equipo audiovisual</a> para una producción integral.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">AC + Ductos + Planta</span>
+                  <span class="showcase__tag">Técnico en Sitio</span>
+                  <span class="showcase__tag">Llave en Mano</span>
+                  <span class="showcase__tag">Precio Cerrado</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Integral
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Kit Climatización Integral</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre AC Portátil para Eventos"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar aire acondicionado portátil para tu evento, es natural tener preguntas sobre capacidad, instalación y requerimientos eléctricos. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un ingeniero de climatización te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un ingeniero de climatización resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre aire acondicionado portátil para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Calefacción y Clima -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Calefacción y Clima para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/accesorios/calefaccion-clima/" class="sidebar-nav__back">&uarr; Volver a Calefacción y Clima</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/accesorios/" class="sidebar-nav__back">&uarr; Volver a Accesorios</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de climatización:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas AC portátil para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar aire acondicionado portátil para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Aire Acondicionado Portátil"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros ingenieros te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un spot cooler para tu salón o un sistema ducteado completo para tu hangar, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoAC">
+                Tipo de AC portátil
+              </label>
+              <select id="tipoAC" name="tipoAC" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de equipo</option>
+                <option value="Spot Cooler 1 TR">Spot Cooler 1 TR (hasta 30 m²)</option>
+                <option value="Spot Cooler 2-3 TR">Spot Cooler 2-3 TR (hasta 80 m²)</option>
+                <option value="AC Industrial 5 TR">AC Industrial 5 TR (hasta 200 m²)</option>
+                <option value="AC Industrial 10 TR">AC Industrial 10 TR (hasta 500 m²)</option>
+                <option value="Sistema Ducteado Hangar">Sistema Ducteado para Hangar</option>
+                <option value="Kit Climatización Integral">Kit Climatización Integral</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: tipo de venue (carpa/salón/nave), superficie aproximada en m², número de invitados, si cuentas con instalación eléctrica trifásica..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para calcular la carga térmica y dimensionar el sistema ideal.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría de un ingeniero HVAC para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoAC = document.getElementById('tipoAC').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*AC Portátil*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoAC) texto += `*Tipo de AC:* ${tipoAC}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Climatización para Eventos"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de climatización y HVAC para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado y técnicos con experiencia comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipos y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">ClimaEvent MX</h3>
+            <p class="partner-card__tagline">Climatización profesional para eventos de cualquier escala en CDMX</p>
+            <p class="partner-card__text">Líder en renta de equipos de aire acondicionado portátil para eventos. Spot coolers, unidades industriales y sistemas ducteados con ingenieros HVAC certificados y servicio integral de instalación.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">RefriEventos CDMX</h3>
+            <p class="partner-card__tagline">Soluciones de refrigeración temporal para expos, congresos y festivales</p>
+            <p class="partner-card__text">Especialistas en climatización de carpas y espacios temporales. Equipos industriales de 5 a 30 TR con ducteado profesional y plantas de energía dedicadas para eventos de gran formato.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">A</span>
+            <div class="partner-card__badge">+12 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">AireTemp Pro</h3>
+            <p class="partner-card__tagline">AC portátil de alta eficiencia con monitoreo remoto en tiempo real</p>
+            <p class="partner-card__text">Más de 12 años proporcionando soluciones de climatización para eventos en CDMX y área metropolitana. Equipo de última generación con refrigerante ecológico y técnicos certificados en HVAC.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">F</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">FríoExpress Eventos</h3>
+            <p class="partner-card__tagline">Entrega, instalación y supervisión de climatización temporal 24/7</p>
+            <p class="partner-card__text">Servicio integral de renta de AC portátil con logística profesional en toda la CDMX y zona metropolitana. Montaje nocturno disponible, técnicos en sitio y soporte de emergencia las 24 horas.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Climatización profesional que garantiza el confort de tus invitados"
+    subheadline="Más de 400 eventos climatizados nos respaldan. Cotiza hoy y recibe asesoría técnica HVAC sin compromiso."
+    primaryCTA={{ label: "Cotizar AC portátil", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar aire acondicionado portátil para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

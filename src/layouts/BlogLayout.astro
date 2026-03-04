@@ -2,7 +2,7 @@
 /**
  * ─── BlogLayout ───
  * Layout profesional para artículos del blog.
- * Incluye: HeroPage, Breadcrumbs, two-column layout con sidebar.
+ * Incluye: HeroPage, Breadcrumbs, two-column layout con sidebar dinámico.
  */
 import PageLayout from "./PageLayout.astro";
 import HeroPage from "@components/HeroPage.astro";
@@ -27,6 +27,8 @@ type Props = {
   category?: string;
   tags?: string[];
   relatedPosts?: string[];
+  relatedServices?: string[];
+  keywords?: string[];
 };
 
 const {
@@ -42,29 +44,64 @@ const {
   category,
   tags,
   relatedPosts,
+  relatedServices,
+  keywords,
 } = Astro.props;
 
 const minutes = readingTime(body);
+
+// Format dates
+const formattedDate = date.toLocaleDateString("es-MX", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+
+const formattedUpdatedDate = updatedDate?.toLocaleDateString("es-MX", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
 
 // Fetch related posts
 let relatedPostsData: Awaited<ReturnType<typeof getCollection<"blog">>> = [];
 if (relatedPosts && relatedPosts.length > 0) {
   const allPosts = await getCollection("blog", ({ data }) => !data.draft);
-  relatedPostsData = allPosts.filter(p => relatedPosts.includes(p.slug)).slice(0, 3);
+  relatedPostsData = allPosts.filter(p => relatedPosts.includes(p.slug)).slice(0, 4);
 }
 
-// Extract headings for TOC (## level headings)
-const headingMatches = body.matchAll(/^##\s+(.+)$/gm);
+// Extract headings for TOC (## and ### level headings)
+const headingMatches = body.matchAll(/^(#{2,3})\s+(.+)$/gm);
 const headings = Array.from(headingMatches).map(match => {
-  const text = match[1].trim();
+  const level = match[1].length; // 2 or 3
+  const text = match[2].trim()
+    .replace(/\*\*/g, '') // Remove bold markers
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'); // Remove links, keep text
   const headingSlug = text
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
-  return { text, slug: headingSlug };
+  return { text, slug: headingSlug, level };
 });
+
+// Service labels and URLs
+const SERVICE_DATA: Record<string, { label: string; url: string; icon: string }> = {
+  "mobiliario": { label: "Mobiliario", url: "/servicios/mobiliario/", icon: "🪑" },
+  "audiovisual": { label: "Audiovisual", url: "/servicios/audiovisual/", icon: "🔊" },
+  "carpas": { label: "Carpas", url: "/servicios/carpas/", icon: "⛺" },
+  "iluminacion": { label: "Iluminación", url: "/servicios/iluminacion/", icon: "💡" },
+  "pistas-baile": { label: "Pistas de Baile", url: "/servicios/pistas-baile/", icon: "💃" },
+  "inflables": { label: "Inflables", url: "/servicios/inflables/", icon: "🎈" },
+  "catering": { label: "Equipo Catering", url: "/servicios/catering/", icon: "🍽️" },
+  "accesorios": { label: "Accesorios", url: "/servicios/accesorios/", icon: "🔧" },
+};
+
+// Get dynamic services (from article) or default set
+const displayServices = relatedServices && relatedServices.length > 0
+  ? relatedServices.filter(s => SERVICE_DATA[s])
+  : ["mobiliario", "audiovisual", "iluminacion", "carpas"];
 
 const CATEGORY_LABELS: Record<string, string> = {
   "bodas": "Bodas",
@@ -76,7 +113,18 @@ const CATEGORY_LABELS: Record<string, string> = {
   "casos-exito": "Casos de Éxito",
 };
 
+const CATEGORY_ICONS: Record<string, string> = {
+  "bodas": "💍",
+  "xv-anos": "👑",
+  "corporativos": "🏢",
+  "tendencias": "📈",
+  "guias": "📖",
+  "tips": "💡",
+  "casos-exito": "🏆",
+};
+
 const categoryLabel = category ? (CATEGORY_LABELS[category] || category) : "Blog";
+const categoryIcon = category ? (CATEGORY_ICONS[category] || "📄") : "📄";
 
 // Breadcrumbs
 const breadcrumbItems = [
@@ -103,9 +151,9 @@ const jsonLd = [
   ]),
 ];
 
-// Generar excerpt para las cards del hero (primeros 2 párrafos del body)
-const paragraphs = body.split('\n\n').filter(p => p.trim() && !p.startsWith('#') && !p.startsWith('-') && !p.startsWith('*'));
-const firstParagraph = paragraphs[0]?.replace(/\*\*/g, '').substring(0, 300) || description;
+// Generar excerpt para las cards del hero
+const paragraphs = body.split('\n\n').filter(p => p.trim() && !p.startsWith('#') && !p.startsWith('-') && !p.startsWith('*') && !p.startsWith('|'));
+const firstParagraph = paragraphs[0]?.replace(/\*\*/g, '').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').substring(0, 280) || description;
 ---
 
 <PageLayout
@@ -123,7 +171,7 @@ const firstParagraph = paragraphs[0]?.replace(/\*\*/g, '').substring(0, 300) || 
        HERO
        ═══════════════════════════════════════════════════════════════════════ -->
   <HeroPage
-    badge={`${categoryLabel} · ${minutes} min de lectura`}
+    badge={`${categoryIcon} ${categoryLabel} · ${minutes} min de lectura`}
     title={title}
     subtitle={description}
     primaryCTA={{ label: "Cotizar equipo", href: "/cotizar/" }}
@@ -131,11 +179,11 @@ const firstParagraph = paragraphs[0]?.replace(/\*\*/g, '').substring(0, 300) || 
     cards={[
       {
         title: "Sobre este artículo",
-        content: `<strong>${firstParagraph}...</strong> Continúa leyendo para descubrir toda la información que necesitas para tu próximo evento.`,
+        content: `<strong>${firstParagraph}...</strong> Continúa leyendo para descubrir toda la información que necesitas.`,
       },
       {
         title: "¿Necesitas ayuda?",
-        content: `En <strong>EVENTECH</strong> somos expertos en renta de equipo para eventos. Si después de leer este artículo tienes dudas o necesitas cotizar, <strong>contáctanos por WhatsApp</strong> para asesoría personalizada.`,
+        content: `En <strong>EVENTECH</strong> somos expertos en renta de equipo para eventos en CDMX. <strong>Contáctanos por WhatsApp</strong> para asesoría personalizada gratuita.`,
       },
     ]}
   />
@@ -161,19 +209,41 @@ const firstParagraph = paragraphs[0]?.replace(/\*\*/g, '').substring(0, 300) || 
         <article class="blog-post__main">
           <!-- Article Header -->
           <header class="blog-article__header">
-            {category && (
-              <a href="/blog/" class="blog-post__category-link">
-                {categoryLabel}
-              </a>
-            )}
+            <div class="blog-article__meta-bar">
+              {category && (
+                <a href={`/blog/?cat=${category}`} class="blog-post__category-link">
+                  <span class="blog-post__category-icon">{categoryIcon}</span>
+                  {categoryLabel}
+                </a>
+              )}
+              <div class="blog-article__dates">
+                <time datetime={date.toISOString()} class="blog-article__date">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  {formattedDate}
+                </time>
+                {formattedUpdatedDate && (
+                  <span class="blog-article__updated">
+                    (Actualizado: {formattedUpdatedDate})
+                  </span>
+                )}
+              </div>
+            </div>
             <div class="blog-article__meta">
-              <span class="blog-article__reading">{minutes} min de lectura</span>
-              {author && <span class="blog-article__author">Por {author}</span>}
+              <span class="blog-article__reading">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                {minutes} min de lectura
+              </span>
+              {author && (
+                <span class="blog-article__author">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  Por {author}
+                </span>
+              )}
             </div>
             {tags && tags.length > 0 && (
               <div class="blog-article__tags">
                 {tags.map(tag => (
-                  <span class="blog-article__tag">{tag}</span>
+                  <span class="blog-article__tag">#{tag.replace(/\s+/g, '')}</span>
                 ))}
               </div>
             )}
@@ -217,8 +287,11 @@ const firstParagraph = paragraphs[0]?.replace(/\*\*/g, '').substring(0, 300) || 
                 <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(canonicalURL(`/blog/${slug}/`))}`} class="blog-article__share-btn blog-article__share-btn--facebook" target="_blank" rel="noopener" aria-label="Compartir en Facebook">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                 </a>
-                <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(canonicalURL(`/blog/${slug}/`))}`} class="blog-article__share-btn blog-article__share-btn--twitter" target="_blank" rel="noopener" aria-label="Compartir en Twitter">
+                <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(canonicalURL(`/blog/${slug}/`))}`} class="blog-article__share-btn blog-article__share-btn--twitter" target="_blank" rel="noopener" aria-label="Compartir en X">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(canonicalURL(`/blog/${slug}/`))}`} class="blog-article__share-btn blog-article__share-btn--linkedin" target="_blank" rel="noopener" aria-label="Compartir en LinkedIn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                 </a>
               </div>
             </div>
@@ -227,31 +300,35 @@ const firstParagraph = paragraphs[0]?.replace(/\*\*/g, '').substring(0, 300) || 
 
         <!-- Sidebar -->
         <aside class="blog-sidebar">
-          <!-- Author Card -->
-          <div class="blog-sidebar-card">
-            <h3 class="blog-sidebar-card__title">Autor</h3>
-            <div class="author-card">
-              <div class="author-card__avatar" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                  <circle cx="12" cy="7" r="4"/>
-                </svg>
-              </div>
-              <div class="author-card__info">
-                <p class="author-card__name">{author}</p>
-                <p class="author-card__role">Especialistas en eventos</p>
-              </div>
+          <!-- Quick Navigation -->
+          <div class="blog-sidebar-card blog-sidebar-card--highlight">
+            <h3 class="blog-sidebar-card__title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+              Navegación Rápida
+            </h3>
+            <div class="quick-actions">
+              <a href="/cotizar/" class="quick-action quick-action--primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+                Cotizar Equipo
+              </a>
+              <a href={`https://wa.me/${SITE.contact.whatsapp}`} class="quick-action quick-action--whatsapp">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp
+              </a>
             </div>
           </div>
 
           <!-- Table of Contents -->
           {headings.length > 2 && (
             <div class="blog-sidebar-card">
-              <h3 class="blog-sidebar-card__title">En este artículo</h3>
+              <h3 class="blog-sidebar-card__title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                En este artículo
+              </h3>
               <nav aria-label="Tabla de contenidos">
                 <ul class="toc-list">
-                  {headings.slice(0, 8).map(h => (
-                    <li class="toc-list__item">
+                  {headings.slice(0, 10).map(h => (
+                    <li class:list={["toc-list__item", { "toc-list__item--sub": h.level === 3 }]}>
                       <a href={`#${h.slug}`} class="toc-list__link">{h.text}</a>
                     </li>
                   ))}
@@ -260,21 +337,35 @@ const firstParagraph = paragraphs[0]?.replace(/\*\*/g, '').substring(0, 300) || 
             </div>
           )}
 
-          <!-- Services Links -->
+          <!-- Services Links (Dynamic) -->
           <div class="blog-sidebar-card">
-            <h3 class="blog-sidebar-card__title">Servicios Relacionados</h3>
+            <h3 class="blog-sidebar-card__title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              Servicios Relacionados
+            </h3>
             <div class="blog-sidebar__services">
-              <a href="/servicios/iluminacion/" class="blog-sidebar__service-link">Iluminación</a>
-              <a href="/servicios/audiovisual/" class="blog-sidebar__service-link">Audiovisual</a>
-              <a href="/servicios/mobiliario/" class="blog-sidebar__service-link">Mobiliario</a>
-              <a href="/servicios/carpas/" class="blog-sidebar__service-link">Carpas</a>
+              {displayServices.map(serviceKey => {
+                const service = SERVICE_DATA[serviceKey];
+                return service ? (
+                  <a href={service.url} class="blog-sidebar__service-link">
+                    <span class="service-link__icon">{service.icon}</span>
+                    {service.label}
+                  </a>
+                ) : null;
+              })}
             </div>
+            <a href="/servicios/" class="blog-sidebar__view-all">
+              Ver todos los servicios →
+            </a>
           </div>
 
           <!-- Related Posts -->
           {relatedPostsData.length > 0 && (
             <div class="blog-sidebar-card">
-              <h3 class="blog-sidebar-card__title">Artículos relacionados</h3>
+              <h3 class="blog-sidebar-card__title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                Te puede interesar
+              </h3>
               <div class="related-posts-list">
                 {relatedPostsData.map(post => (
                   <a href={`/blog/${post.slug}/`} class="related-post-card">
@@ -288,20 +379,49 @@ const firstParagraph = paragraphs[0]?.replace(/\*\*/g, '').substring(0, 300) || 
                         loading="lazy"
                       />
                     ) : (
-                      <div class="related-post-card__image related-post-card__image--placeholder"></div>
+                      <div class="related-post-card__image related-post-card__image--placeholder">
+                        <span class="related-post-card__placeholder-icon">
+                          {CATEGORY_ICONS[post.data.category || ''] || '📄'}
+                        </span>
+                      </div>
                     )}
-                    <span class="related-post-card__title">{post.data.title}</span>
+                    <div class="related-post-card__content">
+                      <span class="related-post-card__category">
+                        {CATEGORY_LABELS[post.data.category || ''] || 'Blog'}
+                      </span>
+                      <span class="related-post-card__title">{post.data.title}</span>
+                    </div>
                   </a>
                 ))}
               </div>
             </div>
           )}
 
+          <!-- Author Card -->
+          <div class="blog-sidebar-card">
+            <h3 class="blog-sidebar-card__title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Autor
+            </h3>
+            <div class="author-card">
+              <div class="author-card__avatar" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+              </div>
+              <div class="author-card__info">
+                <p class="author-card__name">{author}</p>
+                <p class="author-card__role">Especialistas en eventos CDMX</p>
+              </div>
+            </div>
+          </div>
+
           <!-- CTA Card -->
           <div class="blog-sidebar-card blog-sidebar-card--accent">
-            <h3 class="blog-sidebar-card__title">¿Necesitas equipo?</h3>
+            <h3 class="blog-sidebar-card__title">¿Listo para tu evento?</h3>
             <p class="blog-sidebar-card__text">
-              Cotiza sin compromiso y recibe asesoría personalizada para tu evento.
+              Cotiza sin compromiso y recibe asesoría personalizada de nuestro equipo de expertos.
             </p>
             <a href="/cotizar/" class="blog-sidebar-card__btn">
               Cotizar ahora
@@ -329,22 +449,32 @@ const firstParagraph = paragraphs[0]?.replace(/\*\*/g, '').substring(0, 300) || 
   .blog-article__header {
     display: flex;
     flex-direction: column;
-    gap: var(--space-sm);
+    gap: var(--space-md);
     margin-block-end: var(--space-xl);
   }
 
+  .blog-article__meta-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+  }
+
   .blog-post__category-link {
-    display: inline-block;
-    width: fit-content;
-    padding: 0.25rem 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: 0.35rem 0.85rem;
     font-size: var(--text-xs);
-    font-weight: 600;
+    font-weight: 700;
     color: var(--color-accent);
     background: rgba(0, 184, 148, 0.1);
     border-radius: var(--radius-full);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.03em;
     text-decoration: none;
+    transition: all var(--transition-fast);
   }
 
   .blog-post__category-link:hover {
@@ -352,22 +482,53 @@ const firstParagraph = paragraphs[0]?.replace(/\*\*/g, '').substring(0, 300) || 
     color: white;
   }
 
-  .blog-article__meta {
+  .blog-post__category-icon {
+    font-size: 0.9em;
+  }
+
+  .blog-article__dates {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-md);
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .blog-article__date {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
     font-size: var(--text-sm);
     color: var(--color-text-light);
   }
 
-  .blog-article__reading::before,
-  .blog-article__author::before {
-    content: none;
+  .blog-article__date svg {
+    opacity: 0.6;
   }
 
-  .blog-article__author::before {
-    content: "·";
-    margin-inline-end: var(--space-md);
+  .blog-article__updated {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  .blog-article__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    font-size: var(--text-sm);
+    color: var(--color-text-light);
+  }
+
+  .blog-article__reading,
+  .blog-article__author {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .blog-article__reading svg,
+  .blog-article__author svg {
+    opacity: 0.5;
   }
 
   .blog-article__tags {
@@ -377,11 +538,12 @@ const firstParagraph = paragraphs[0]?.replace(/\*\*/g, '').substring(0, 300) || 
   }
 
   .blog-article__tag {
-    padding: 0.125rem 0.5rem;
+    padding: 0.2rem 0.6rem;
     font-size: var(--text-xs);
-    color: var(--color-text-muted);
-    background: var(--color-bg-alt);
+    color: var(--color-accent);
+    background: rgba(0, 184, 148, 0.08);
     border-radius: var(--radius-sm);
+    font-weight: 500;
   }
 
   /* Article Image */
@@ -399,14 +561,14 @@ const firstParagraph = paragraphs[0]?.replace(/\*\*/g, '').substring(0, 300) || 
   .blog-article__placeholder {
     width: 100%;
     aspect-ratio: 16 / 9;
-    background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
     border-radius: var(--radius-lg);
     margin-block-end: var(--space-2xl);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-text-muted);
-    opacity: 0.5;
+    color: white;
+    opacity: 0.8;
   }
 
   /* Article Footer */
@@ -442,22 +604,187 @@ const firstParagraph = paragraphs[0]?.replace(/\*\*/g, '').substring(0, 300) || 
     height: 40px;
     border-radius: var(--radius-full);
     color: white;
+    transition: transform var(--transition-fast);
   }
 
   .blog-article__share-btn:hover {
-    opacity: 0.9;
+    transform: scale(1.1);
   }
 
-  .blog-article__share-btn--whatsapp {
+  .blog-article__share-btn--whatsapp { background: #25D366; }
+  .blog-article__share-btn--facebook { background: #1877F2; }
+  .blog-article__share-btn--twitter { background: #000; }
+  .blog-article__share-btn--linkedin { background: #0A66C2; }
+
+  /* Sidebar Highlight Card */
+  .blog-sidebar-card--highlight {
+    background: linear-gradient(135deg, rgba(0, 184, 148, 0.08) 0%, rgba(26, 26, 46, 0.05) 100%);
+    border: 1px solid rgba(0, 184, 148, 0.2);
+  }
+
+  .blog-sidebar-card__title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .blog-sidebar-card__title svg {
+    color: var(--color-accent);
+  }
+
+  /* Quick Actions */
+  .quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .quick-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: 0.75rem 1rem;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+  }
+
+  .quick-action--primary {
+    background: var(--color-accent);
+    color: white;
+  }
+
+  .quick-action--primary:hover {
+    background: var(--color-accent-hover);
+    transform: translateY(-2px);
+  }
+
+  .quick-action--whatsapp {
     background: #25D366;
+    color: white;
   }
 
-  .blog-article__share-btn--facebook {
-    background: #1877F2;
+  .quick-action--whatsapp:hover {
+    background: #1da851;
+    transform: translateY(-2px);
   }
 
-  .blog-article__share-btn--twitter {
-    background: #000;
+  /* TOC Sub-items */
+  .toc-list__item--sub {
+    padding-inline-start: calc(var(--space-md) + var(--space-md));
+  }
+
+  .toc-list__item--sub .toc-list__link {
+    font-size: var(--text-xs);
+  }
+
+  /* Services with icons */
+  .blog-sidebar__services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xs);
+  }
+
+  .blog-sidebar__service-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--color-text-light);
+    text-decoration: none;
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+  }
+
+  .blog-sidebar__service-link:hover {
+    background: var(--color-accent);
+    color: white;
+  }
+
+  .service-link__icon {
+    font-size: 1rem;
+  }
+
+  .blog-sidebar__view-all {
+    display: block;
+    margin-top: var(--space-sm);
+    font-size: var(--text-xs);
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .blog-sidebar__view-all:hover {
+    text-decoration: underline;
+  }
+
+  /* Related Post Card Enhanced */
+  .related-post-card {
+    display: flex;
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: background var(--transition-fast);
+  }
+
+  .related-post-card:hover {
+    background: var(--color-bg-alt);
+  }
+
+  .related-post-card__image {
+    width: 70px;
+    height: 52px;
+    border-radius: var(--radius-sm);
+    object-fit: cover;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  }
+
+  .related-post-card__image--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .related-post-card__placeholder-icon {
+    font-size: 1.2rem;
+  }
+
+  .related-post-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .related-post-card__category {
+    font-size: 0.65rem;
+    color: var(--color-accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .related-post-card__title {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-primary);
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .related-post-card:hover .related-post-card__title {
+    color: var(--color-accent);
   }
 
   /* Author card avatar placeholder */
@@ -465,15 +792,10 @@ const firstParagraph = paragraphs[0]?.replace(/\*\*/g, '').substring(0, 300) || 
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: var(--color-bg-alt);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-text-muted);
-  }
-
-  /* Related post placeholder */
-  .related-post-card__image--placeholder {
-    background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+    color: white;
   }
 </style>

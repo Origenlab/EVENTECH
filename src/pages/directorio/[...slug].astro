@@ -9,7 +9,7 @@ import SectionHeader from "@components/SectionHeader.astro";
 import Breadcrumbs from "@components/Breadcrumbs.astro";
 import CTABanner from "@components/CTABanner.astro";
 import { getCollection } from "astro:content";
-import { breadcrumbJsonLd, venueJsonLd } from "@utils/seo";
+import { breadcrumbJsonLd, venueJsonLd, collectionPageJsonLd, itemListJsonLd } from "@utils/seo";
 import { SERVICE_CATEGORIES, SITE } from "@data/site";
 import "@styles/directorio.css";
 
@@ -409,6 +409,42 @@ const jsonLd = [
     name: item.label,
     url: item.href
   }))),
+  // Add CollectionPage schema for region pages
+  ...(type === "region" && venues ? [
+    collectionPageJsonLd({
+      name: `Salones de Fiestas en ${regionLabels[region]}`,
+      description: `Directorio de venues para eventos en ${regionLabels[region]}`,
+      url: `/directorio/${region}/`,
+      numberOfItems: venues.length,
+      areaServed: regionLabels[region],
+    }),
+    itemListJsonLd(
+      venues.slice(0, 10).map(v => ({
+        name: v.data.name,
+        url: `/directorio/${region}/${v.data.zoneSlug}/${v.id.split('/').pop()?.replace('.md', '')}/`,
+        image: v.data.image,
+        description: v.data.shortDescription,
+      }))
+    ),
+  ] : []),
+  // Add CollectionPage schema for zone pages
+  ...(type === "zone" && venues ? [
+    collectionPageJsonLd({
+      name: `Venues para Eventos en ${zoneName}`,
+      description: `Salones, jardines y haciendas para bodas, XV años y eventos en ${zoneName}, ${regionLabels[region]}`,
+      url: `/directorio/${region}/${zone}/`,
+      numberOfItems: venues.length,
+      areaServed: `${zoneName}, ${regionLabels[region]}`,
+    }),
+    itemListJsonLd(
+      venues.map(v => ({
+        name: v.data.name,
+        url: `/directorio/${region}/${zone}/${v.id.split('/').pop()?.replace('.md', '')}/`,
+        image: v.data.image,
+        description: v.data.shortDescription,
+      }))
+    ),
+  ] : []),
   // Add venue schema for venue pages
   ...(type === "venue" && venue ? [
     venueJsonLd({

@@ -1,0 +1,730 @@
+---
+/**
+ * ─── Podiums y Atriles — Página de Producto (Nivel 4) ───
+ * Podiums de acrílico con iluminación LED, atriles ejecutivos
+ * de madera y aluminio, y kits de conferencia para congresos,
+ * premiaciones y eventos corporativos de alto nivel.
+ *
+ * Jerarquía: Servicios > Accesorios > Señalización y Alfombras > Podiums y Atriles
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Accesorios", href: "/servicios/accesorios/" },
+  { label: "Señalización y Alfombras", href: "/servicios/accesorios/senalizacion-alfombras/" },
+  { label: "Podiums y Atriles" },
+];
+
+const faqs = [
+  { question: "¿Qué diferencia hay entre un podium y un atril?", answer: 'El <strong>podium</strong> es una estructura elevada (tarima o plataforma) donde se posiciona el orador para ganar visibilidad sobre la audiencia; su altura estándar oscila entre 10 y 20 cm. El <strong>atril</strong> es el mueble con superficie inclinada donde se apoyan documentos, tabletas o dispositivos durante la presentación. En la práctica, la mayoría de nuestros clientes rentan el <strong>conjunto podium + atril</strong> para crear una estación de oratoria profesional completa. Todos nuestros paquetes incluyen ambos elementos y se adaptan al perfil de tu evento.' },
+  { question: "¿Los atriles tienen conexión para micrófono y pantalla de retorno?", answer: 'Sí. Nuestros <strong>atriles ejecutivos y de acrílico</strong> vienen preparados con pasacables ocultos, soporte para micrófono de cuello de ganso, entrada auxiliar para monitor de retorno (teleprompter) y bandeja interna para tableta o laptop. Los modelos premium incluyen <strong>puerto USB de carga, luz LED de lectura integrada</strong> y regulación de altura de la superficie de apoyo. Si necesitas integración con teleprompter, consulta nuestros <a href="/servicios/audiovisual/pantallas-led/monitores/">monitores de retorno</a> para una solución completa.' },
+  { question: "¿Puedo personalizar el atril con el logo de mi empresa?", answer: 'Absolutamente. Ofrecemos tres opciones de branding: <strong>vinilo adhesivo de corte</strong> (producción en 24 h, reutilizable), <strong>placa de acrílico grabada en láser</strong> (3-5 días, acabado premium) y <strong>impresión directa sobre panel frontal</strong> (5-7 días, full color). El vinilo adhesivo es la opción más popular para eventos corporativos recurrentes porque se retira sin dejar residuo. Te enviamos prueba digital para aprobación antes de producción. Solo necesitamos tu logo en formato vectorial (AI, EPS o PDF).' },
+  { question: "¿Qué capacidad de peso soportan los atriles?", answer: 'Nuestros atriles están diseñados para uso profesional intensivo. Los modelos de <strong>madera y aluminio soportan hasta 25 kg</strong>, suficiente para laptop, carpetas, botellas de agua y micrófono simultáneamente. Los <strong>atriles de acrílico soportan hasta 15 kg</strong> con distribución uniforme. Todas las bases cuentan con <strong>niveladores ajustables</strong> y contrapeso en la base para evitar volcaduras. Para presentaciones con equipos pesados (múltiples monitores, equipo de sonido), recomendamos nuestros podiums reforzados con estructura de aluminio aeronáutico.' },
+  { question: "¿Incluyen iluminación los atriles de acrílico?", answer: 'Sí. Nuestros <strong>atriles de acrílico premium incluyen iluminación LED perimetral</strong> integrada con control remoto inalámbrico. Puedes elegir entre <strong>luz blanca fija para conferencias formales, RGB para eventos corporativos con colores de marca</strong>, o modo gradiente dinámico para premiaciones y galas. La iluminación es alimentada por batería recargable con autonomía de 12 horas, eliminando cables visibles. También puedes conectar a corriente directa para eventos de larga duración.' },
+  { question: "¿Ofrecen servicio de montaje y asistencia técnica durante el evento?", answer: 'Cada renta incluye <strong>transporte, montaje profesional y desmontaje</strong> en CDMX y zona metropolitana. Nuestro equipo llega con 2 horas de anticipación para instalar, nivelar y probar todos los elementos (iluminación, micrófono, monitor de retorno). Para congresos y eventos multi-día, ofrecemos <strong>técnico en sitio permanente</strong> que asiste a los oradores con ajustes de altura, volumen de micrófono y cambios de branding entre ponencias. El servicio técnico se cotiza por jornada.' },
+];
+
+const specs = [
+  { label: "Materiales", value: "Acrílico cristal, madera lacada, aluminio aeronáutico" },
+  { label: "Altura regulable", value: "90 cm - 130 cm (ajuste sin herramientas)" },
+  { label: "Superficie de apoyo", value: "45 × 35 cm inclinada, antideslizante" },
+  { label: "Capacidad de peso", value: "15 kg (acrílico) / 25 kg (madera/aluminio)" },
+  { label: "Iluminación LED", value: "Perimetral RGB, control remoto, batería 12 h" },
+  { label: "Branding", value: "Vinilo, acrílico grabado láser o impresión directa" },
+  { label: "Conectividad", value: "Pasacables ocultos, soporte mic, puerto USB" },
+  { label: "Teleprompter", value: "Compatible con monitores de retorno 10-15″" },
+  { label: "Acabados", value: "Negro mate, blanco, madera natural, cristal transparente" },
+  { label: "Instalación", value: "Incluida con nivelación y prueba técnica" },
+];
+
+const sidebarNav = [
+  { name: "Alfombras Premium", href: "/servicios/accesorios/senalizacion-alfombras/alfombras-premium/" },
+  { name: "Postes Separadores", href: "/servicios/accesorios/senalizacion-alfombras/postes-separadores/" },
+  { name: "Podiums y Atriles", href: null, active: true },
+  { name: "Backdrops y Señalética", href: "/servicios/accesorios/senalizacion-alfombras/backdrops-senaletica/" },
+];
+
+const sidebarRelated = [
+  { name: "Pantallas LED Monitores", href: "/servicios/audiovisual/pantallas-led/monitores/" },
+  { name: "Micrófonos Inalámbricos", href: "/servicios/audiovisual/microfonos-dj/inalambricos/" },
+  { name: "Iluminación Escenario", href: "/servicios/iluminacion/escenario/" },
+  { name: "Tarimas y Escenarios", href: "/servicios/pistas-baile/tarimas-escenarios/" },
+  { name: "Mobiliario Salas Lounge", href: "/servicios/mobiliario/salas-lounge/" },
+];
+
+const reviews = [
+  { author: "Lic. Roberto Méndez Arriaga", text: "Organizamos el congreso nacional de cirugía con 1,200 asistentes en el Centro de Convenciones de la CDMX. Rentamos 3 atriles de acrílico con LED para las salas simultáneas. La calidad de los atriles fue impecable — iluminación perfecta, estables, y el branding con el logo del congreso grabado en láser le dio un aspecto institucional de primer nivel. El técnico de EVENTECH estuvo presente las 3 jornadas coordinando cambios entre ponentes. Totalmente profesional.", rating: 5, date: "2025-11-15" },
+  { author: "Mariana Solís Herrera", text: "Para la premiación anual de nuestra firma de consultoría necesitábamos un atril que proyectara seriedad pero con un toque moderno. El atril de madera lacada en negro con iluminación sutil fue exactamente lo que buscábamos. La superficie de apoyo era amplia, el micrófono quedó perfectamente integrado y la regulación de altura fue útil porque tuvimos 8 oradores de estaturas muy distintas. Servicio puntual y equipo en excelentes condiciones.", rating: 5, date: "2025-10-28" },
+  { author: "Ing. Carlos Villanueva Torres", text: "Contratamos el kit de conferencia completo para un seminario de 3 días: podium con tarima, atril de aluminio, 2 monitores de retorno y señalización de mesa. La integración entre el atril y el teleprompter fue impecable — los ponentes internacionales quedaron impresionados con la producción. El equipo de EVENTECH hizo la prueba de sonido e iluminación con anticipación y todo funcionó sin contratiempos. Relación calidad-precio inmejorable.", rating: 5, date: "2025-09-12" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Podiums y Atriles Profesionales para Eventos en CDMX",
+    description: "Renta de podiums y atriles de acrílico con LED, madera lacada y aluminio para conferencias, congresos, premiaciones y eventos corporativos. Branding personalizado e instalación incluida. Desde $1,500.",
+    url: "/servicios/accesorios/senalizacion-alfombras/podiums-atriles/",
+    priceRange: { min: 1500, max: 12000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 214,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Accesorios", url: "/servicios/accesorios/" },
+    { name: "Señalización y Alfombras", url: "/servicios/accesorios/senalizacion-alfombras/" },
+    { name: "Podiums y Atriles", url: "/servicios/accesorios/senalizacion-alfombras/podiums-atriles/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Podiums y Atriles Profesionales para Eventos en CDMX | EVENTECH"
+  description="Renta de podiums y atriles de acrílico con LED, madera lacada y aluminio para conferencias, congresos, premiaciones y eventos corporativos. Branding personalizado e instalación incluida. Desde $1,500."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Oratoria profesional para cada escenario"
+    title='Renta de <span class="highlight">Podiums y Atriles</span> Profesionales'
+    subtitle="Atriles de acrílico con iluminación LED, madera lacada y aluminio aeronáutico para conferencias, congresos y premiaciones. Branding corporativo, teleprompter compatible e instalación incluida en CDMX."
+    primaryCTA={{ label: "Cotiza tu atril", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar podiums y atriles profesionales para mi evento` }}
+    cards={[
+      {
+        title: "Atriles de acrílico, madera y aluminio con tecnología integrada",
+        content: "<strong>Renta de podiums y atriles profesionales</strong> para eventos en CDMX con el catálogo más completo de la industria. Atriles de acrílico cristal con iluminación LED perimetral RGB y control remoto. Atriles ejecutivos de madera lacada en negro, blanco o acabado natural. Modelos de aluminio aeronáutico ultraligeros para congresos itinerantes. Altura regulable de 90 a 130 cm sin herramientas, superficie de apoyo antideslizante de 45 × 35 cm y pasacables ocultos para micrófono, monitor de retorno y carga USB.",
+      },
+      {
+        title: "Branding corporativo, teleprompter y asistencia técnica en sitio",
+        content: "<strong>Servicio integral de podiums para conferencias</strong> con personalización profesional de marca. Vinilo adhesivo de corte en 24 horas, placa de acrílico grabada en láser o impresión directa full color sobre panel frontal. Compatible con teleprompter y monitores de retorno de 10 a 15 pulgadas. Cada renta incluye transporte, montaje profesional con nivelación, prueba técnica completa y desmontaje. Técnico en sitio disponible para congresos multi-día.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Organizas una conferencia, congreso o premiación?"
+    subheadline="Cotiza sin compromiso — te asesoramos para elegir el atril perfecto según tu venue y formato de evento"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Señalización y Alfombras</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas podiums o atriles para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar podiums y atriles profesionales para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Podiums y Atriles</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Atril de Acrílico con LED -->
+          <section class="section section--alt" aria-labelledby="atril-acrilico-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">El más solicitado para galas y premiaciones</span>
+                <h2 class="showcase__title" id="atril-acrilico-heading">Atril de Acrílico con Iluminación LED</h2>
+                <p class="showcase__subtitle">Transparencia y tecnología que elevan cualquier presentación a nivel de producción televisiva.</p>
+                <p class="showcase__text">Nuestro <strong>atril de acrílico cristal con LED perimetral</strong> es la pieza central de conferencias y premiaciones de alto perfil. Fabricado en acrílico de 12 mm de espesor con bordes pulidos a espejo, integra un sistema de <strong>iluminación LED RGB controlado por remoto inalámbrico</strong> que permite adaptar el color a la identidad visual de tu marca — blanco corporativo, azul institucional o cualquier tono del espectro RGB. La batería recargable garantiza 12 horas de autonomía sin cables visibles.</p>
+                <p class="showcase__text">La superficie inclinada de <strong>45 × 35 cm con acabado antideslizante</strong> soporta hasta 15 kg con estabilidad total. Incluye pasacables ocultos para micrófono de cuello de ganso, bandeja interna para tableta y puerto USB de carga. Compatible con <a href="/servicios/audiovisual/pantallas-led/monitores/">monitores de retorno</a> de 10 a 15 pulgadas para teleprompter. Ideal para <strong>premiaciones corporativas, conferencias de prensa, inauguraciones y eventos de gala</strong> donde la imagen visual es prioritaria.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Acrílico 12 mm</span>
+                  <span class="showcase__tag">LED RGB</span>
+                  <span class="showcase__tag">Batería 12 h</span>
+                  <span class="showcase__tag">Teleprompter ready</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Atril de Acrílico
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Atril Acrílico LED</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Atril Ejecutivo de Madera -->
+          <section class="section section--alt" aria-labelledby="atril-madera-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Elegancia clásica para entornos corporativos</span>
+                <h2 class="showcase__title" id="atril-madera-heading">Atril Ejecutivo de Madera Lacada</h2>
+                <p class="showcase__subtitle">Presencia institucional y solidez para conferencias donde cada detalle comunica autoridad.</p>
+                <p class="showcase__text">El <strong>atril ejecutivo de madera lacada</strong> proyecta la seriedad y el profesionalismo que exigen los entornos corporativos de alto nivel. Disponible en acabados <strong>negro mate, blanco perla y madera natural</strong>, cada pieza está fabricada con MDF de alta densidad y lacado de 3 capas que garantiza un acabado uniforme y resistente a marcas de uso. La base reforzada de 60 × 50 cm con niveladores ajustables proporciona una estabilidad excepcional en cualquier superficie.</p>
+                <p class="showcase__text">Diseñado para soportar <strong>hasta 25 kg</strong>, integra compartimento oculto para documentos, soporte interno para botella de agua, pasacables para micrófono y bandeja extraíble para laptop o tableta. La altura se regula de <strong>90 a 130 cm</strong> mediante mecanismo telescópico sin herramientas, adaptándose a la estatura de cada orador en segundos. Ideal para <strong>juntas de consejo, asambleas de accionistas, conferencias magistrales, ceremonias de graduación</strong> y eventos donde la imagen institucional es fundamental. Personaliza el panel frontal con <a href="/servicios/accesorios/senalizacion-alfombras/backdrops-senaletica/">vinilo o placa grabada</a> con tu logotipo.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Madera lacada</span>
+                  <span class="showcase__tag">25 kg capacidad</span>
+                  <span class="showcase__tag">Altura regulable</span>
+                  <span class="showcase__tag">3 acabados</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Atril de Madera
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Atril Ejecutivo Madera</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Atril de Aluminio Ultraligero -->
+          <section class="section section--alt" aria-labelledby="atril-aluminio-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Portabilidad profesional para congresos itinerantes</span>
+                <h2 class="showcase__title" id="atril-aluminio-heading">Atril de Aluminio Aeronáutico</h2>
+                <p class="showcase__subtitle">Diseño minimalista, ultra portátil y resistente para eventos que requieren montaje y desmontaje ágil.</p>
+                <p class="showcase__text">El <strong>atril de aluminio aeronáutico</strong> pesa apenas <strong>4.5 kg</strong> completamente armado, lo que lo convierte en la opción ideal para congresos itinerantes, conferencias en múltiples salas y eventos donde la velocidad de montaje es crítica. La estructura tubular de aluminio 6061-T6 con acabado anodizado proporciona una resistencia excepcional sin sacrificar portabilidad. Se arma y desarma en menos de 2 minutos sin herramientas.</p>
+                <p class="showcase__text">A pesar de su ligereza, soporta <strong>hasta 20 kg</strong> gracias a su diseño de ingeniería triangulada. La superficie de apoyo en ABS de alta resistencia incluye <strong>borde antideslizante, clip para documentos y soporte lateral para micrófono</strong>. Disponible en acabados aluminio natural, negro mate y blanco. Perfecto para <strong>seminarios, talleres, presentaciones en universidades, eventos al aire libre y congresos multi-sala</strong> donde necesitas reposicionar el equipo entre sesiones. Combínalo con nuestras <a href="/servicios/pistas-baile/tarimas-escenarios/modulares/">tarimas modulares</a> para crear un escenario completo.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">4.5 kg total</span>
+                  <span class="showcase__tag">Aluminio 6061</span>
+                  <span class="showcase__tag">Armado 2 min</span>
+                  <span class="showcase__tag">Anodizado premium</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Atril de Aluminio
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Atril Aluminio Aeronáutico</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Conferencia Completo -->
+          <section class="section section--alt" aria-labelledby="kit-conferencia-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Solución integral para congresos y premiaciones</span>
+                <h2 class="showcase__title" id="kit-conferencia-heading">Kit Conferencia Completo</h2>
+                <p class="showcase__subtitle">Podium + atril + teleprompter + branding: todo listo para que tus ponentes solo se preocupen por su mensaje.</p>
+                <p class="showcase__text">Nuestro <strong>Kit Conferencia Completo</strong> reúne todo lo que necesitas para una estación de oratoria de nivel profesional. El paquete estándar incluye <strong>podium elevado de 15 cm con acabado alfombrado, atril a elección (acrílico LED, madera o aluminio), monitor de retorno de 12 pulgadas para teleprompter</strong> y branding del panel frontal con tu logo corporativo. La configuración se adapta al perfil de tu evento — desde seminarios ejecutivos hasta congresos internacionales con traducción simultánea.</p>
+                <p class="showcase__text">El kit incluye <strong>montaje profesional con prueba técnica completa</strong>: verificación de nivelado, integración de micrófono, calibración de teleprompter y prueba de iluminación. Para eventos multi-día, nuestro técnico permanece en sitio para asistir a cada orador con ajustes de altura, branding intercambiable entre ponencias y soporte de teleprompter en tiempo real. Complementa tu estación con <a href="/servicios/audiovisual/microfonos-dj/inalambricos/">micrófonos inalámbricos</a> y <a href="/servicios/audiovisual/pantallas-led/pedestal/">pantallas LED</a> para una producción de nivel broadcast.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Podium + Atril</span>
+                  <span class="showcase__tag">Teleprompter 12″</span>
+                  <span class="showcase__tag">Branding incluido</span>
+                  <span class="showcase__tag">Técnico en sitio</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Conferencia
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Kit Conferencia Completo</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Podiums y Atriles"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu podium o atril, es natural tener preguntas sobre materiales, personalización, conectividad y logística. Aquí encontrarás las respuestas más comunes de organizadores y coordinadores de eventos.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor especializado te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de equipamiento para conferencias resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre podiums y atriles para mi evento`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Señalización y Alfombras -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Señalización y Alfombras</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/accesorios/senalizacion-alfombras/" class="sidebar-nav__back">&uarr; Volver a Señalización y Alfombras</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/accesorios/" class="sidebar-nav__back">&uarr; Volver a Accesorios</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu estación de conferencia:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas podiums o atriles para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar podiums y atriles profesionales para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Podium o Atril Profesional"
+        subtitle="Cuéntanos sobre tu conferencia y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un atril de acrílico para una premiación o un kit completo para un congreso de 3 días, estamos aquí para asesorarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Congreso">Congreso</option>
+                <option value="Conferencia">Conferencia</option>
+                <option value="Premiación">Premiación</option>
+                <option value="Seminario">Seminario</option>
+                <option value="Asamblea">Asamblea</option>
+                <option value="Graduación">Graduación</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoAtril">
+                Tipo de atril
+              </label>
+              <select id="tipoAtril" name="tipoAtril" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de atril</option>
+                <option value="Acrílico con LED">Acrílico con LED</option>
+                <option value="Madera Lacada Negro">Madera Lacada Negro</option>
+                <option value="Madera Lacada Blanco">Madera Lacada Blanco</option>
+                <option value="Aluminio Aeronáutico">Aluminio Aeronáutico</option>
+                <option value="Kit Conferencia Completo">Kit Conferencia Completo</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: tipo de conferencia, número de oradores, si necesitas branding, teleprompter, micrófono, tipo de venue..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para recomendar la mejor configuración de podium y atril según el aforo y acústica del espacio.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoAtril = document.getElementById('tipoAtril').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Podiums y Atriles Profesionales*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoAtril) texto += `*Tipo de atril:* ${tipoAtril}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Equipamiento para Conferencias"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de mobiliario y equipamiento para conferencias en la Ciudad de México. Cada aliado cuenta con inventario certificado y trayectoria comprobada en la industria de eventos.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, calidad y cobertura completa para congresos y eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">A</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Accesorios Event MX</h3>
+            <p class="partner-card__tagline">Equipamiento profesional para conferencias y congresos en CDMX</p>
+            <p class="partner-card__text">Especialistas en podiums, atriles y mobiliario para ponencias con inventario propio y servicio de branding. Entrega inmediata en toda la CDMX y área metropolitana con montaje incluido.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">RentaDecor CDMX</h3>
+            <p class="partner-card__tagline">Renta de atriles y señalización para eventos corporativos</p>
+            <p class="partner-card__text">Más de 8 años proporcionando equipamiento de alta calidad para congresos, seminarios y premiaciones. Atriles en acrílico, madera y aluminio con servicio completo de personalización.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">T</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">TextilEvent</h3>
+            <p class="partner-card__tagline">Mobiliario y accesorios con estándares de calidad internacional</p>
+            <p class="partner-card__text">Proveedores de podiums, atriles y complementos para producción de eventos con certificación de calidad y mantenimiento profesional incluido en cada renta.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventosPro Accesorios</h3>
+            <p class="partner-card__tagline">Soluciones integrales de señalización y equipamiento</p>
+            <p class="partner-card__text">Servicio integral de renta con logística profesional en toda la CDMX. Podiums, atriles, señalización y backdrops con operadores técnicos certificados y montaje incluido.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Podiums y atriles que elevan el nivel de tus conferencias"
+    subheadline="Más de 400 congresos y conferencias nos respaldan. Cotiza hoy y recibe asesoría sin compromiso."
+    primaryCTA={{ label: "Cotizar podiums y atriles", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar podiums y atriles profesionales para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

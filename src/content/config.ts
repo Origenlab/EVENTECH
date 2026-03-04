@@ -365,6 +365,7 @@ const venues = defineCollection({
       "centro-convenciones",
       "rooftop",
       "playa",
+      "club-privado",
     ]),
     subtype: z.string().optional(), // e.g. "boutique", "colonial", "moderno"
 
@@ -450,6 +451,14 @@ const venues = defineCollection({
       "despedidas",
       "baby-showers",
       "cenas-gala",
+      "sesiones-foto",
+      "primeras-comuniones",
+      "fiestas-privadas",
+      "reuniones",
+      "congresos",
+      "exposiciones",
+      "ferias",
+      "conciertos",
     ])).default([]),
 
     // Schedule

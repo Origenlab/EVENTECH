@@ -1,0 +1,730 @@
+---
+/**
+ * ─── Tableros de Distribución Eléctrica — Pagina de Producto (Nivel 4) ───
+ * Tableros de distribución, spider boxes, interruptores termomagnéticos
+ * y sistemas de protección eléctrica para eventos temporales.
+ *
+ * Jerarquia: Servicios > Accesorios > Plantas de Energía > Tableros de Distribución
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Accesorios", href: "/servicios/accesorios/" },
+  { label: "Plantas de Energía", href: "/servicios/accesorios/plantas-energia/" },
+  { label: "Tableros de Distribución" },
+];
+
+const faqs = [
+  { question: "¿Qué certificaciones de seguridad tienen los tableros de distribución?", answer: 'Todos nuestros tableros cumplen con la <strong>NOM-001-SEDE-2012</strong> (Instalaciones Eléctricas) y la <strong>NOM-003-SCFI-2014</strong> (Productos Eléctricos). Cada tablero cuenta con <strong>certificación UL y CSA</strong>, interruptores termomagnéticos de marcas reconocidas (Square D, Siemens, ABB) y bus de cobre de alta conductividad. Antes de cada evento, nuestro técnico realiza pruebas de aislamiento con megóhmetro y verificación de continuidad del sistema de tierra física para garantizar una instalación 100% segura conforme a la normativa vigente.' },
+  { question: "¿Cómo se balancea la carga entre circuitos?", answer: 'Nuestro ingeniero eléctrico realiza un <strong>levantamiento previo de cargas</strong> donde identifica el consumo de cada equipo del evento: sonido, iluminación, video, catering, climatización y servicios auxiliares. Con esta información diseña un <strong>diagrama unifilar</strong> que distribuye las cargas de forma equilibrada entre las fases del tablero principal. Durante el evento, el técnico monitorea el consumo por circuito con pinza amperimétrica y rebalancea si detecta desviaciones superiores al 15% entre fases, protegiendo los equipos contra sobrecalentamiento y caídas de voltaje.' },
+  { question: "¿Cuántos circuitos puede manejar un tablero?", answer: 'Ofrecemos tableros desde <strong>6 hasta 42 circuitos</strong> según la complejidad del evento. Un tablero de 6 circuitos es ideal para eventos sociales de hasta 200 personas. Para <strong>expos y conciertos</strong>, instalamos tableros principales de 30-42 circuitos con tableros secundarios (spider boxes) distribuidos por zonas. Cada circuito cuenta con su propio <strong>interruptor termomagnético calibrado</strong> según la carga asignada, permitiendo aislar cualquier zona sin afectar el resto del evento. Los circuitos se identifican con etiquetas profesionales para facilitar la operación.' },
+  { question: "¿Los tableros incluyen protección GFCI contra electrocución?", answer: 'Sí, todos nuestros tableros incluyen <strong>interruptores diferenciales (GFCI) de 30 mA</strong> en circuitos expuestos a humedad, intemperie o contacto con público. Esto es obligatorio por la <strong>NOM-001-SEDE</strong> para instalaciones temporales en eventos. Los GFCI detectan fugas de corriente a tierra de apenas 30 miliamperes y desconectan el circuito en menos de 30 milisegundos, previniendo electrocuciones. En eventos al aire libre o con presencia de agua (fuentes, nebulizadores), instalamos GFCI en el 100% de los circuitos como medida adicional de seguridad.' },
+  { question: "¿Qué longitudes de cable manejan para la distribución?", answer: 'Disponemos de cables de distribución en longitudes de <strong>15, 30, 50, 75 y 100 metros</strong> con calibres desde 10 AWG hasta 4/0 AWG según el amperaje requerido. Para distancias mayores a 50 metros, utilizamos <strong>cables de mayor calibre</strong> para compensar la caída de voltaje y mantener la tensión dentro del rango de +/- 5% que exige la norma. Todo el cableado se instala con <strong>canalización profesional</strong>: rampas de paso vehicular, cubrecables peatonales y ductos aéreos para mantener la seguridad y estética del venue. El técnico calcula la caída de voltaje para cada tramo antes de la instalación.' },
+  { question: "¿Es necesario contar con supervisión técnica durante todo el evento?", answer: 'Recomendamos y ofrecemos <strong>supervisión técnica permanente</strong> para eventos con tableros de 200A o más, o con más de 12 circuitos activos. El técnico electricista certificado por la <strong>STPS</strong> permanece en sitio durante toda la duración del evento, monitoreando cargas, temperatura de conexiones, estado de interruptores y calidad del voltaje. Para eventos menores, realizamos la instalación, pruebas y entrega al responsable del venue, con <strong>línea de emergencia 24/7</strong> y tiempo de respuesta menor a 45 minutos en CDMX. La supervisión incluye bitácora digital de mediciones cada hora.' },
+];
+
+const specs = [
+  { label: "Tipos de tablero", value: "Principal, secundario y spider box" },
+  { label: "Circuitos", value: "6, 12, 18, 24, 30 y 42 polos" },
+  { label: "Amperaje", value: "100A, 200A, 400A y 600A" },
+  { label: "Voltaje", value: "127/220V monofásico y trifásico" },
+  { label: "Protección", value: "Termomagnéticos + GFCI 30 mA" },
+  { label: "Calibre de cables", value: "10 AWG a 4/0 AWG" },
+  { label: "Sistema de tierra", value: "Varilla copperweld 3m + conductor" },
+  { label: "Gabinete", value: "NEMA 3R (intemperie) o NEMA 1 (interior)" },
+  { label: "Dimensiones tablero", value: "Desde 40x30x15 hasta 120x80x30 cm" },
+  { label: "Certificaciones", value: "NOM-001-SEDE, UL, CSA" },
+];
+
+const sidebarNav = [
+  { name: "Generadores 20-50 kW", href: "/servicios/accesorios/plantas-energia/gen-20-50/" },
+  { name: "Generadores 50-150 kW", href: "/servicios/accesorios/plantas-energia/gen-50-150/" },
+  { name: "Generadores 150-500 kW", href: "/servicios/accesorios/plantas-energia/gen-150-500/" },
+  { name: "Tableros de Distribución", href: null, active: true },
+];
+
+const sidebarRelated = [
+  { name: "Iluminación Escenario", href: "/servicios/iluminacion/escenario/" },
+  { name: "Audiovisual Sonido", href: "/servicios/audiovisual/sonido/" },
+  { name: "Carpas Estructurales", href: "/servicios/carpas/estructurales/" },
+  { name: "Calefacción y Clima", href: "/servicios/accesorios/calefaccion-clima/" },
+  { name: "Catering Cocina Móvil", href: "/servicios/catering/cocina-movil/" },
+];
+
+const reviews = [
+  { author: "Alejandro Fuentes Garza", text: "Contratamos tableros de distribución de 400A para una expo industrial de 4 días en Centro Citibanamex. EVENTECH diseñó la distribución eléctrica para 28 stands con circuitos independientes, cada uno con su spider box y protección GFCI. El técnico monitoreó las cargas durante todo el evento y rebalanceó las fases el segundo día cuando un expositor conectó equipo adicional. Cero interrupciones en 4 días. Servicio impecable y totalmente profesional.", rating: 5, date: "2025-11-22" },
+  { author: "Mariana Estrada Villarreal", text: "Para nuestra boda en un jardín de Coyoacán necesitábamos distribución eléctrica segura para iluminación, sonido, cocina y fuentes. EVENTECH instaló un tablero principal de 200A con 4 spider boxes distribuidos por zonas. Todo el cableado quedó oculto con rampas y canaletas. El técnico estuvo atento toda la noche y la instalación fue perfecta. Nos encantó la profesionalidad y la tranquilidad de saber que todo estaba bajo norma.", rating: 5, date: "2025-10-05" },
+  { author: "Roberto Cantú Mendoza", text: "Organizamos un festival de música en un parque de la CDMX y EVENTECH proporcionó todo el sistema de distribución eléctrica: tablero principal de 400A, 6 spider boxes para escenario, sonido, iluminación, food trucks, zona VIP y servicios. La instalación cumplió al 100% con la norma NOM-001 que nos exigió Protección Civil. Los dos técnicos estuvieron atentos las 14 horas del evento. Profesionales de primer nivel.", rating: 5, date: "2025-09-18" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Tableros de Distribución Eléctrica para Eventos en CDMX",
+    description: "Renta de tableros de distribución eléctrica, spider boxes e instalación temporal certificada NOM-001 para eventos. Interruptores termomagnéticos, GFCI y supervisión técnica. Desde $3,000.",
+    url: "/servicios/accesorios/plantas-energia/tableros-distribucion/",
+    priceRange: { min: 3000, max: 25000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 134,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Accesorios", url: "/servicios/accesorios/" },
+    { name: "Plantas de Energía", url: "/servicios/accesorios/plantas-energia/" },
+    { name: "Tableros de Distribución", url: "/servicios/accesorios/plantas-energia/tableros-distribucion/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Tableros de Distribución Eléctrica para Eventos en CDMX | EVENTECH"
+  description="Renta de tableros de distribución eléctrica, spider boxes e instalación temporal certificada NOM-001 para eventos. Interruptores termomagnéticos, GFCI y supervisión técnica. Desde $3,000."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Distribución eléctrica certificada NOM-001"
+    title='Renta de <span class="highlight">Tableros de Distribución</span> Eléctrica para Eventos'
+    subtitle="Tableros principales, spider boxes e instalación eléctrica temporal con protección termomagnética, GFCI y sistema de tierra física. Técnicos electricistas certificados STPS y cumplimiento normativo total."
+    primaryCTA={{ label: "Cotiza tu tablero", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar tableros de distribución eléctrica para mi evento` }}
+    cards={[
+      {
+        title: "Tableros de 100A a 600A con protección termomagnética y GFCI",
+        content: "<strong>Tableros de distribución eléctrica de 100A, 200A, 400A y 600A</strong> con interruptores termomagnéticos calibrados, protección diferencial GFCI de 30 mA y sistema de tierra física con varilla copperweld. Gabinetes NEMA 3R para intemperie y NEMA 1 para interior. De 6 a 42 circuitos independientes con bus de cobre de alta conductividad. Cumplimiento total con NOM-001-SEDE-2012 para instalaciones eléctricas temporales en eventos.",
+      },
+      {
+        title: "Instalación profesional con diseño unifilar y supervisión técnica",
+        content: "<strong>Ingeniero eléctrico diseña el diagrama unifilar</strong> según el layout de tu evento, distribuyendo cargas equilibradas entre fases. Spider boxes estratégicamente ubicados por zonas, cableado oculto con rampas vehiculares y cubrecables peatonales. Supervisión técnica permanente con monitoreo de cargas por circuito, temperatura de conexiones y calidad de voltaje. Bitácora digital de mediciones cada hora y línea de emergencia 24/7.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas distribución eléctrica segura para tu evento?"
+    subheadline="Cotiza sin compromiso — diseñamos el diagrama unifilar y calculamos cargas según tu layout"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Plantas de Energía para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas distribución eléctrica profesional?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar tableros de distribución eléctrica para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Tableros de Distribución</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Tablero Principal 200A — Eventos Medianos -->
+          <section class="section section--alt" aria-labelledby="tablero-200a-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Bodas y eventos sociales</span>
+                <h2 class="showcase__title" id="tablero-200a-heading">Tablero Principal 200A — Eventos Medianos</h2>
+                <p class="showcase__subtitle">Distribución eléctrica profesional para bodas, XV años, fiestas corporativas y eventos sociales de hasta 500 personas.</p>
+                <p class="showcase__text">El <strong>tablero principal de 200A</strong> es nuestra solución más solicitada para <strong>eventos sociales y corporativos de mediana escala</strong>. Con capacidad para alimentar simultáneamente <strong>iluminación decorativa, sonido profesional, pantallas LED, estaciones de catering, refrigeración y climatización</strong> a través de 12-18 circuitos independientes con protección termomagnética calibrada. El gabinete NEMA 3R permite instalación en exteriores sin riesgo, con bus de cobre de alta conductividad y barras de distribución balanceadas entre fases.</p>
+                <p class="showcase__text">Incluye <strong>sistema de tierra física</strong> con varilla copperweld de 3 metros, conductor de cobre desnudo calibre 8 AWG y conexiones exotérmicas certificadas. Cada circuito se identifica con etiquetas profesionales que indican la zona, carga asignada y calibre del conductor. Combínalo con nuestros <a href="/servicios/accesorios/plantas-energia/gen-20-50/">generadores de 20-50 kW</a> para una instalación eléctrica autónoma completa en venues sin infraestructura eléctrica.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">200A</span>
+                  <span class="showcase__tag">12-18 circuitos</span>
+                  <span class="showcase__tag">NEMA 3R</span>
+                  <span class="showcase__tag">Tierra física</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Tablero 200A
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Tablero Principal 200A</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Tablero Industrial 400A — Grandes Eventos -->
+          <section class="section section--alt" aria-labelledby="tablero-400a-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Expos y conciertos</span>
+                <h2 class="showcase__title" id="tablero-400a-heading">Tablero Industrial 400A — Grandes Eventos</h2>
+                <p class="showcase__subtitle">Sistema de distribución de alta capacidad para expos comerciales, conciertos, festivales y producciones de gran formato.</p>
+                <p class="showcase__text">El <strong>tablero industrial de 400A</strong> es el centro de distribución eléctrica para <strong>eventos de gran escala</strong> que requieren alimentar múltiples zonas con cargas elevadas. Con <strong>30-42 circuitos independientes</strong>, interruptores termomagnéticos de marco moldeado (MCCB) para las alimentaciones principales y protección GFCI en todos los circuitos expuestos al público. Capacidad para distribuir energía a <strong>escenarios con line array, iluminación robotizada, pantallas LED de gran formato, áreas de catering industrial y sistemas de climatización</strong>.</p>
+                <p class="showcase__text">El tablero incluye <strong>medidor de energía digital</strong> con registro de consumo por fase, factor de potencia y demanda máxima. Los interruptores principales de 400A cuentan con protección contra cortocircuito de 65 kA y ajuste de corriente térmica para optimizar la protección según la carga real. Ideal para <strong>expos de 3-5 días</strong> en venues como Centro Citibanamex, Expo Reforma o Expo Santa Fe. Complementa con nuestros <a href="/servicios/accesorios/plantas-energia/gen-150-500/">generadores de 150-500 kW</a> para eventos sin acometida eléctrica.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">400A</span>
+                  <span class="showcase__tag">30-42 circuitos</span>
+                  <span class="showcase__tag">MCCB 65 kA</span>
+                  <span class="showcase__tag">Medidor digital</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Tablero 400A
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Tablero Industrial 400A</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Spider Boxes y Distribución de Campo -->
+          <section class="section section--alt" aria-labelledby="spider-boxes-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Distribución por zonas</span>
+                <h2 class="showcase__title" id="spider-boxes-heading">Spider Boxes y Distribución de Campo</h2>
+                <p class="showcase__subtitle">Cajas de distribución portátiles con protección individual para llevar energía segura a cada zona del evento.</p>
+                <p class="showcase__text">Los <strong>spider boxes</strong> son tableros de distribución portátiles que se instalan cerca de cada zona del evento para proporcionar <strong>energía segura con protección local</strong>. Cada spider box cuenta con <strong>6-8 salidas con protección termomagnética y GFCI individual</strong>, indicadores LED de estado por circuito y conexión de entrada mediante conector tipo Cam-Lock o pin & sleeve industrial. Disponibles en configuración <strong>monofásica 127V, bifásica 220V y trifásica 220V</strong> según los requerimientos de cada zona.</p>
+                <p class="showcase__text">Instalamos spider boxes estratégicamente en cada área: <strong>escenario (sonido + iluminación), zona de catering (cocina + refrigeración), área de exhibición (pantallas + stands), zona VIP y servicios auxiliares</strong>. El cableado entre el tablero principal y cada spider box se realiza con conductores de calibre apropiado, protegidos con rampas de paso y cubrecables profesionales. Complementa con nuestra <a href="/servicios/iluminacion/escenario/">iluminación de escenario</a> y <a href="/servicios/audiovisual/sonido/">sonido profesional</a> para una producción integral.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">6-8 salidas</span>
+                  <span class="showcase__tag">GFCI individual</span>
+                  <span class="showcase__tag">Cam-Lock</span>
+                  <span class="showcase__tag">LED de estado</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Spider Boxes
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Spider Boxes Distribución</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Eléctrico Integral con Protección -->
+          <section class="section section--alt" aria-labelledby="kit-electrico-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Solución integral certificada</span>
+                <h2 class="showcase__title" id="kit-electrico-heading">Kit Eléctrico Integral con Protección</h2>
+                <p class="showcase__subtitle">Paquete completo de distribución eléctrica: tablero principal + spider boxes + cableado + tierra física + supervisión técnica.</p>
+                <p class="showcase__text">Nuestro <strong>Kit Eléctrico Integral</strong> es la solución todo-en-uno para eventos que requieren <strong>instalación eléctrica temporal completa y certificada</strong>. Incluye tablero principal de 200A o 400A según demanda, <strong>4-6 spider boxes distribuidos por zonas, cableado profesional con rampas y cubrecables, sistema de tierra física completo, señalización de seguridad NOM y supervisión técnica permanente</strong>. El ingeniero eléctrico diseña el diagrama unifilar personalizado, calcula la caída de voltaje por tramo y dimensiona las protecciones para cada circuito.</p>
+                <p class="showcase__text">El kit incluye <strong>pruebas de aislamiento con megóhmetro</strong> antes de energizar, verificación de continuidad del sistema de tierra, medición de resistencia de puesta a tierra (menor a 25 ohms según NOM) y entrega de <strong>bitácora técnica</strong> con todas las mediciones. Ideal para eventos que requieren dictamen de Protección Civil como <strong>conciertos al aire libre, festivales, expos y eventos masivos</strong>. Complementa con nuestros <a href="/servicios/accesorios/plantas-energia/gen-50-150/">generadores de 50-150 kW</a> para venues sin acometida eléctrica.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Tablero + Spider Boxes</span>
+                  <span class="showcase__tag">Cableado completo</span>
+                  <span class="showcase__tag">Tierra física</span>
+                  <span class="showcase__tag">Supervisión técnica</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Eléctrico Integral
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Kit Eléctrico Integral</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Tableros de Distribución"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu sistema de distribución eléctrica, es natural tener preguntas sobre seguridad, certificaciones y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor técnico te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de distribución eléctrica resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre tableros de distribución eléctrica para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Plantas de Energía -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Plantas de Energía para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/accesorios/plantas-energia/" class="sidebar-nav__back">&uarr; Volver a Plantas de Energía</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/accesorios/" class="sidebar-nav__back">&uarr; Volver a Accesorios</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu instalación eléctrica:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas distribución eléctrica profesional?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar tableros de distribución eléctrica para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Tablero de Distribución"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores técnicos te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un tablero de 200A para tu boda o un sistema completo de 400A para tu expo, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoTablero">
+                Tipo de tablero
+              </label>
+              <select id="tipoTablero" name="tipoTablero" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de tablero</option>
+                <option value="Tablero 100A (6-12 circuitos)">Tablero 100A (6-12 circuitos)</option>
+                <option value="Tablero 200A (12-18 circuitos)">Tablero 200A (12-18 circuitos)</option>
+                <option value="Tablero 400A (30-42 circuitos)">Tablero 400A (30-42 circuitos)</option>
+                <option value="Tablero 600A Industrial">Tablero 600A Industrial</option>
+                <option value="Spider Boxes (distribución por zonas)">Spider Boxes (distribución por zonas)</option>
+                <option value="Kit Eléctrico Integral">Kit Eléctrico Integral</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de asistentes, tipo de venue, equipos a alimentar, zonas del evento, si es interior o exterior, si necesitas trifásico..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Diagrama unifilar gratis</h3>
+            <p class="reserva-card__text">Diseñamos el diagrama unifilar y mapa de distribución eléctrica sin costo según el layout de tu evento.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría técnica personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoTablero = document.getElementById('tipoTablero').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Tableros de Distribución*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoTablero) texto += `*Tipo de tablero:* ${tipoTablero}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Accesorios para Eventos"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de accesorios y equipamiento para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">A</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Accesorios Event MX</h3>
+            <p class="partner-card__tagline">Distribución eléctrica y plantas de energía para eventos en CDMX</p>
+            <p class="partner-card__text">Proveedor integral de tableros de distribución, spider boxes y sistemas de protección eléctrica para eventos temporales. Equipo certificado NOM-001 con técnicos electricistas acreditados por la STPS.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">RentaDecor CDMX</h3>
+            <p class="partner-card__tagline">Renta de equipamiento técnico y accesorios profesionales</p>
+            <p class="partner-card__text">Especialistas en renta de accesorios y equipamiento técnico para eventos. Tableros de distribución, cableado profesional y logística con cobertura en toda la CDMX y área metropolitana.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">T</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">TextilEvent</h3>
+            <p class="partner-card__tagline">Accesorios de alta calidad con servicio técnico certificado</p>
+            <p class="partner-card__text">Más de 10 años proporcionando accesorios y equipamiento de primera calidad para eventos en CDMX. Servicio completo con instalación, supervisión técnica y entrega puntual incluidos.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventosPro Accesorios</h3>
+            <p class="partner-card__tagline">Complementos y accesorios integrales para todo tipo de evento</p>
+            <p class="partner-card__text">Servicio integral de renta de accesorios y complementos con logística profesional en toda la CDMX y área metropolitana. Equipamiento técnico, plantas de energía y distribución eléctrica certificada.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Distribución eléctrica segura y certificada para tu evento"
+    subheadline="Más de 500 eventos con instalaciones eléctricas temporales nos respaldan. Cotiza hoy y recibe asesoría técnica sin compromiso."
+    primaryCTA={{ label: "Cotizar tablero de distribución", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar tableros de distribución eléctrica para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

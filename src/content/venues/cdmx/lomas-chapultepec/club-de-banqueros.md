@@ -1,6 +1,6 @@
 ---
 name: "Club de Banqueros de México"
-slug: "club-de-banqueros"
+slug: "club-de-banqueros-lomas"
 description: "El Club de Banqueros de México es uno de los clubes privados más prestigiosos del país, ubicado en una impresionante mansión de estilo francés en Lomas de Chapultepec. Sus elegantes salones con acabados de madera, candelabros de cristal y jardines manicurados ofrecen el escenario perfecto para bodas de alta sociedad, eventos corporativos de primer nivel y celebraciones que demandan distinción y exclusividad."
 shortDescription: "Club privado en mansión histórica con salones elegantes y jardines exclusivos en Lomas de Chapultepec."
 

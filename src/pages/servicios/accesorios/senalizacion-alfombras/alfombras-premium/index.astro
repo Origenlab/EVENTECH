@@ -1,0 +1,730 @@
+---
+/**
+ * ─── Alfombras Rojas y Premium — Pagina de Producto (Nivel 4) ───
+ * Alfombras rojas de 1 a 15 metros, alfombras custom con logo
+ * corporativo y opciones premium para recepciones VIP y galas.
+ *
+ * Jerarquia: Servicios > Accesorios > Señalización y Alfombras > Alfombras Premium
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Accesorios", href: "/servicios/accesorios/" },
+  { label: "Señalización y Alfombras", href: "/servicios/accesorios/senalizacion-alfombras/" },
+  { label: "Alfombras Rojas y Premium" },
+];
+
+const faqs = [
+  { question: "¿Puedo solicitar alfombras en medidas personalizadas?", answer: 'Sí. Nuestras alfombras rojas y premium están disponibles en largos estándar de <strong>1, 3, 5, 8, 10 y 15 metros</strong> con ancho estándar de 1 metro. Si necesitas una medida especial — por ejemplo, 12 metros de largo o hasta 2 metros de ancho — podemos cortarla a la medida exacta de tu venue. Solo necesitamos confirmación con al menos 5 días de anticipación para medidas fuera de inventario. Consulta nuestras <a href="/servicios/accesorios/senalizacion-alfombras/postes-separadores/">opciones de postes separadores</a> para complementar tu red carpet.' },
+  { question: "¿Cuánto tiempo toma producir una alfombra con logo corporativo?", answer: "Las alfombras con logo impreso o bordado requieren entre <strong>5 y 10 días hábiles</strong> de producción, dependiendo de la complejidad del diseño y las dimensiones. Necesitamos tu archivo de logo en formato vectorial (AI, EPS o PDF en alta resolución). Para logos sencillos en una sola tinta, el tiempo es de 5 días hábiles. Diseños multicolor o alfombras de gran formato (más de 5 metros) requieren hasta 10 días. Te enviamos prueba digital para aprobación antes de producir." },
+  { question: "¿Qué colores de alfombra tienen disponibles?", answer: "Nuestro inventario permanente incluye <strong>rojo clásico, negro elegante, blanco nupcial, azul corporativo y dorado premium</strong>. El rojo es el más popular y está disponible en todos los largos (1 a 15 metros) con entrega inmediata. Los demás colores están disponibles en largos de hasta 10 metros. Para colores especiales (verde, morado, rosado, gris) fabricamos sobre pedido con 7-10 días de anticipación y pedido mínimo de 5 metros." },
+  { question: "¿Las alfombras funcionan en exteriores?", answer: "Sí. Nuestras alfombras premium están fabricadas con <strong>fibra sintética resistente a humedad</strong> y cuentan con base antiderrapante de doble cara que se adhiere a superficies lisas y rugosas. Funcionan perfectamente en jardines, terrazas y explanadas. En caso de lluvia ligera, la fibra no absorbe agua y se seca rápidamente. Para eventos en pasto o tierra, recomendamos agregar una capa de protección base que proporcionamos sin costo adicional." },
+  { question: "¿La instalación está incluida en la renta?", answer: "Sí, <strong>todas nuestras rentas incluyen transporte, instalación y desmontaje</strong> dentro de la CDMX y área metropolitana. Nuestro equipo llega con anticipación para fijar la alfombra con cinta profesional de doble cara, garantizando que quede completamente plana y segura. El proceso de instalación toma entre 15 y 45 minutos dependiendo del largo. Al finalizar tu evento, recogemos la alfombra sin costo adicional." },
+  { question: "¿Puedo combinar alfombras con postes separadores?", answer: 'Es la combinación más popular. Ofrecemos <strong>paquetes Red Carpet completos</strong> que incluyen alfombra roja del largo que necesites + postes separadores con cordón de terciopelo a ambos lados. El paquete estándar incluye alfombra de 10 metros + 8 postes cromados con cordón rojo. También disponible con postes dorados o negros. Consulta nuestros <a href="/servicios/accesorios/senalizacion-alfombras/postes-separadores/">postes separadores</a> para ver todas las opciones de acabado.' },
+];
+
+const specs = [
+  { label: "Largos estándar", value: "1, 3, 5, 8, 10 y 15 metros" },
+  { label: "Ancho", value: "1 metro estándar / custom hasta 2 m" },
+  { label: "Material", value: "Terciopelo sintético de alta densidad" },
+  { label: "Colores", value: "Rojo, Negro, Blanco, Azul, Dorado" },
+  { label: "Logo corporativo", value: "Impreso o bordado, 5-10 días producción" },
+  { label: "Base", value: "Antiderrapante doble cara" },
+  { label: "Grosor", value: "8 mm confort premium" },
+  { label: "Corte a medida", value: "Disponible en cualquier largo" },
+  { label: "Instalación", value: "Incluida con cinta de fijación" },
+  { label: "Limpieza", value: "Aspirado y tratamiento incluido" },
+];
+
+const sidebarNav = [
+  { name: "Alfombras Rojas y Premium", href: null, active: true },
+  { name: "Postes Separadores", href: "/servicios/accesorios/senalizacion-alfombras/postes-separadores/" },
+  { name: "Podiums y Atriles", href: "/servicios/accesorios/senalizacion-alfombras/podiums-atriles/" },
+  { name: "Backdrops y Señalética", href: "/servicios/accesorios/senalizacion-alfombras/backdrops-senaletica/" },
+];
+
+const sidebarRelated = [
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+  { name: "Iluminación Arquitectónica", href: "/servicios/iluminacion/arquitectonica/" },
+  { name: "Audiovisual Pantallas", href: "/servicios/audiovisual/pantallas-led/" },
+  { name: "Carpas para Eventos", href: "/servicios/carpas/" },
+  { name: "Mobiliario Barras", href: "/servicios/mobiliario/barras/" },
+];
+
+const reviews = [
+  { author: "Claudia Ramírez", text: "Rentamos una alfombra roja de 15 metros para nuestra gala corporativa anual en un hotel de Polanco. La calidad del terciopelo era impresionante, quedó perfectamente fijada al piso y le dio un toque de elegancia increíble a la entrada. Nuestros invitados se sintieron como estrellas de cine. El equipo de EVENTECH fue puntual y profesional.", rating: 5, date: "2025-11-20" },
+  { author: "Fernando Castillo", text: "Necesitábamos una alfombra negra con logo para la premiere de una serie en un foro de grabación. La impresión del logo quedó perfecta, colores vibrantes y alta definición. La producción tomó exactamente 7 días como nos prometieron. El montaje fue impecable y la alfombra resistió toda la noche de evento sin arrugarse.", rating: 5, date: "2025-10-12" },
+  { author: "Valentina Soto", text: "Para nuestra boda en un jardín de Coyoacán rentamos una alfombra blanca de 8 metros para la entrada de la ceremonia. Nos preocupaba que se ensuciara en el pasto, pero el equipo colocó una base protectora y quedó impecable toda la tarde. Las fotos quedaron espectaculares. Muy recomendable el servicio completo.", rating: 5, date: "2025-09-05" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Alfombras Rojas y Premium para Eventos en CDMX",
+    description: "Renta de alfombras rojas de 1 a 15 metros, alfombras custom con logo corporativo y opciones premium para recepciones VIP y galas. Desde $500.",
+    url: "/servicios/accesorios/senalizacion-alfombras/alfombras-premium/",
+    priceRange: { min: 500, max: 5000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 187,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Accesorios", url: "/servicios/accesorios/" },
+    { name: "Señalización y Alfombras", url: "/servicios/accesorios/senalizacion-alfombras/" },
+    { name: "Alfombras Rojas y Premium", url: "/servicios/accesorios/senalizacion-alfombras/alfombras-premium/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Alfombras Rojas y Premium para Eventos en CDMX | EVENTECH"
+  description="Renta de alfombras rojas de 1 a 15 metros, alfombras custom con logo corporativo y opciones premium para recepciones VIP y galas. Desde $500."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Red carpet para recepciones VIP"
+    title='Renta de <span class="highlight">Alfombras Rojas y Premium</span> para Eventos'
+    subtitle="Alfombras rojas profesionales de 1 a 15 metros en terciopelo de alta densidad. Colores custom, logo corporativo y opciones premium para entradas VIP, bodas y galas."
+    primaryCTA={{ label: "Cotiza tu alfombra", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar alfombras rojas y premium para mi evento` }}
+    cards={[
+      {
+        title: "Alfombras rojas de 1 a 15 metros en terciopelo profesional",
+        content: "<strong>Renta de alfombras rojas y premium</strong> para eventos en CDMX con el catálogo más completo. Alfombras rojas de 1, 3, 5, 8, 10 y 15 metros en ancho estándar de 1 metro. Colores custom disponibles: negro, blanco, azul, dorado. Opción de logo corporativo impreso o bordado en alta resolución para lanzamientos, premiaciones y eventos de marca. Fabricadas con terciopelo sintético de alta densidad que mantiene su color vibrante durante todo el evento.",
+      },
+      {
+        title: "Entrega, instalación y personalización completa incluida",
+        content: "<strong>Servicio integral de alfombras premium</strong> con entrega e instalación incluida en CDMX. Base antiderrapante de doble cara para uso seguro en interiores y exteriores. Corte a medida personalizado en cualquier largo y ancho hasta 2 metros. Servicio de alfombras con logo corporativo con producción de 5 a 10 días. Nuestro equipo instala con cinta de fijación profesional y recoge al finalizar tu evento sin costo adicional.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas una entrada VIP espectacular para tu evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con la alfombra ideal para tu espacio y ocasión"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Señalización y Alfombras</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas alfombras premium para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar alfombras rojas y premium para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Alfombras Rojas y Premium</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Alfombra Roja Clásica -->
+          <section class="section section--alt" aria-labelledby="alfombra-roja-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">La favorita para red carpets</span>
+                <h2 class="showcase__title" id="alfombra-roja-heading">Alfombra Roja Clásica</h2>
+                <p class="showcase__subtitle">El estándar de elegancia para entradas VIP, premiaciones y recepciones de gala.</p>
+                <p class="showcase__text">Nuestra <strong>alfombra roja clásica</strong> es la opción más solicitada para eventos de gala, premiaciones y red carpets en CDMX. Fabricada con <strong>terciopelo sintético de alta densidad de 8 mm</strong>, ofrece una textura suave al tacto y un color rojo vibrante que se mantiene impecable durante todo el evento. Disponible en largos de <strong>1, 3, 5, 8, 10 y 15 metros</strong> con ancho estándar de 1 metro, se adapta a cualquier espacio desde entradas de hotel hasta pasillos de salón de eventos.</p>
+                <p class="showcase__text">La base <strong>antiderrapante de doble cara</strong> garantiza seguridad total en pisos de mármol, madera, concreto y cerámica. Incluye instalación profesional con cinta de fijación invisible y aspirado previo al evento. Ideal para <strong>galas corporativas, premiaciones, estrenos de cine, bodas de gala y recepciones VIP</strong>. Combínala con nuestros <a href="/servicios/accesorios/senalizacion-alfombras/postes-separadores/">postes separadores</a> para crear el red carpet completo.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Rojo clásico</span>
+                  <span class="showcase__tag">1-15 metros</span>
+                  <span class="showcase__tag">8 mm grosor</span>
+                  <span class="showcase__tag">Antiderrapante</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Alfombra Roja
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Alfombra Roja Clásica</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Alfombra Negra Elegante -->
+          <section class="section section--alt" aria-labelledby="alfombra-negra-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Sofisticación en cada paso</span>
+                <h2 class="showcase__title" id="alfombra-negra-heading">Alfombra Negra Elegante</h2>
+                <p class="showcase__subtitle">Elegancia discreta y moderna para eventos corporativos y de alta gama.</p>
+                <p class="showcase__text">La <strong>alfombra negra elegante</strong> es la elección premium para eventos donde la sofisticación y el estilo moderno son protagonistas. El <strong>terciopelo negro de alta densidad</strong> ofrece un contraste dramático que realza cualquier decoración y funciona perfectamente con esquemas de color monocromáticos, dorado y plata. Disponible en largos de <strong>1 a 10 metros</strong> con el mismo grosor de 8 mm y base antiderrapante que nuestra línea roja.</p>
+                <p class="showcase__text">Perfecta para <strong>lanzamientos de producto de lujo, eventos de moda, premiaciones corporativas, galas de beneficencia y bodas de temática elegante</strong>. La alfombra negra disimula marcas de uso mejor que cualquier otro color, manteniéndose impecable durante eventos de alta afluencia. Combínala con nuestra <a href="/servicios/iluminacion/arquitectonica/">iluminación arquitectónica</a> en tonos cálidos para crear una entrada espectacular que tus invitados recordarán.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Negro elegante</span>
+                  <span class="showcase__tag">1-10 metros</span>
+                  <span class="showcase__tag">Alta durabilidad</span>
+                  <span class="showcase__tag">Eventos premium</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Alfombra Negra
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Alfombra Negra Elegante</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Alfombra con Logo Corporativo -->
+          <section class="section section--alt" aria-labelledby="alfombra-logo-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Tu marca en cada paso</span>
+                <h2 class="showcase__title" id="alfombra-logo-heading">Alfombra con Logo Corporativo</h2>
+                <p class="showcase__subtitle">Impresión de alta resolución con tu logotipo para eventos de marca y lanzamientos.</p>
+                <p class="showcase__text">Nuestras <strong>alfombras con logo corporativo</strong> son la herramienta perfecta de branding experiencial. Disponibles con <strong>impresión en sublimación de alta resolución o bordado</strong>, reproducen tu logotipo, patrón de marca o diseño personalizado con fidelidad de color exacta. La impresión cubre toda la superficie de la alfombra o puede concentrarse en zonas específicas — logos repetidos estilo step and repeat, logo central destacado o diseño de patrón continuo.</p>
+                <p class="showcase__text">El proceso de producción toma entre <strong>5 y 10 días hábiles</strong>. Necesitamos tu archivo de logo en formato vectorial (AI, EPS o PDF). Te enviamos prueba digital para aprobación antes de producción. Fabricadas sobre el mismo terciopelo de alta densidad con base antiderrapante. Ideales para <strong>lanzamientos de producto, convenciones, ferias comerciales, conferencias de prensa y eventos de patrocinio</strong>. Consulta nuestros <a href="/servicios/accesorios/senalizacion-alfombras/backdrops-senaletica/">backdrops step and repeat</a> para complementar tu branding visual.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Logo impreso/bordado</span>
+                  <span class="showcase__tag">5-10 días producción</span>
+                  <span class="showcase__tag">Alta resolución</span>
+                  <span class="showcase__tag">Cualquier medida</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Alfombra con Logo
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Alfombra con Logo</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Red Carpet VIP -->
+          <section class="section section--alt" aria-labelledby="kit-redcarpet-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Paquete completo listo para tu evento</span>
+                <h2 class="showcase__title" id="kit-redcarpet-heading">Kit Red Carpet VIP</h2>
+                <p class="showcase__subtitle">Todo incluido: alfombra + postes + instalación para la entrada perfecta.</p>
+                <p class="showcase__text">Nuestro <strong>Kit Red Carpet VIP</strong> es la solución completa para crear una entrada de gala sin complicaciones. El paquete estándar incluye <strong>alfombra roja de 10 metros + 8 postes cromados con cordón de terciopelo rojo</strong> a ambos lados, creando un pasillo de 10 metros de largo perfectamente delimitado. También disponible con alfombra de 15 metros + 12 postes para entradas de gran formato, o versiones compactas de 5 metros + 6 postes para eventos íntimos.</p>
+                <p class="showcase__text">El kit incluye <strong>transporte, instalación profesional, supervisión durante el evento y desmontaje</strong>. Nuestro equipo coordina la ubicación óptima de la alfombra y los postes según la entrada de tu venue. Disponible con postes en acabado <strong>cromado, dorado o negro</strong> y cordones en rojo, negro o dorado. Upgrades opcionales: alfombra con logo, postes retráctiles, iluminación de acento y <a href="/servicios/accesorios/senalizacion-alfombras/backdrops-senaletica/">backdrop para photo ops</a> al final del recorrido.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Alfombra + Postes</span>
+                  <span class="showcase__tag">Instalación incluida</span>
+                  <span class="showcase__tag">3 acabados</span>
+                  <span class="showcase__tag">Todo en uno</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Red Carpet
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Kit Red Carpet VIP</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Alfombras Premium"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu alfombra roja o premium, es natural tener preguntas sobre medidas, colores, personalización y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de alfombras premium resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre alfombras rojas y premium para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Señalización y Alfombras -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Señalización y Alfombras</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/accesorios/senalizacion-alfombras/" class="sidebar-nav__back">&uarr; Volver a Señalización y Alfombras</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/accesorios/" class="sidebar-nav__back">&uarr; Volver a Accesorios</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de alfombras:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas alfombras premium para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar alfombras rojas y premium para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Alfombra Roja o Premium"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea una alfombra roja de 5 metros para tu recepción o un kit red carpet completo para tu gala, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoAlfombra">
+                Tipo de alfombra
+              </label>
+              <select id="tipoAlfombra" name="tipoAlfombra" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de alfombra</option>
+                <option value="Alfombra Roja 5m">Alfombra Roja 5m</option>
+                <option value="Alfombra Roja 10m">Alfombra Roja 10m</option>
+                <option value="Alfombra Roja 15m">Alfombra Roja 15m</option>
+                <option value="Alfombra Negra">Alfombra Negra</option>
+                <option value="Alfombra con Logo">Alfombra con Logo</option>
+                <option value="Paquete Red Carpet Completo">Paquete Red Carpet Completo</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: largo de alfombra, color, si necesitas logo, tipo de venue (salón/jardín/hotel), número de invitados..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para recomendarte la alfombra ideal según el espacio y tipo de evento.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoAlfombra = document.getElementById('tipoAlfombra').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Alfombras Rojas y Premium*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoAlfombra) texto += `*Tipo de alfombra:* ${tipoAlfombra}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Accesorios para Eventos"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de accesorios y señalización para eventos en la Ciudad de México. Cada aliado cuenta con inventario certificado y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">A</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Accesorios Event MX</h3>
+            <p class="partner-card__tagline">Mantelería, textiles y accesorios premium para eventos en CDMX</p>
+            <p class="partner-card__text">Especialistas en alfombras premium, señalización y accesorios de decoración para eventos corporativos y sociales. Inventario propio con entrega inmediata en toda la CDMX y área metropolitana.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">RentaDecor CDMX</h3>
+            <p class="partner-card__tagline">Renta de mantelería, cubresillas y decoración textil profesional</p>
+            <p class="partner-card__text">Más de 8 años proporcionando accesorios y decoración de alta calidad para bodas, congresos y eventos sociales. Alfombras, postes separadores y señalización con servicio completo de instalación.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">T</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">TextilEvent</h3>
+            <p class="partner-card__tagline">Textiles de alta calidad con servicio de lavado y planchado incluido</p>
+            <p class="partner-card__text">Proveedores de alfombras premium, textiles decorativos y accesorios con estándares de calidad internacional. Servicio de lavado, tratamiento y mantenimiento incluido en cada renta.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventosPro Accesorios</h3>
+            <p class="partner-card__tagline">Complementos y accesorios integrales para todo tipo de evento</p>
+            <p class="partner-card__text">Servicio integral de renta de accesorios con logística profesional en toda la CDMX. Alfombras, señalización, podiums y backdrops con operadores técnicos certificados y montaje incluido.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Alfombras premium que transforman la entrada de tu evento"
+    subheadline="Más de 500 eventos con alfombras VIP nos respaldan. Cotiza hoy y recibe asesoría sin compromiso."
+    primaryCTA={{ label: "Cotizar alfombras premium", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar alfombras rojas y premium para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

@@ -1,6 +1,6 @@
 ---
 name: "Jardín Las Fuentes Tultitlán"
-slug: "jardin-las-fuentes"
+slug: "jardin-las-fuentes-tultitlan"
 description: "Jardín Las Fuentes es el venue de eventos más grande y mejor equipado del norte del Estado de México. Con 6,000 metros cuadrados de jardines cuidadosamente diseñados, cinco fuentes monumentales que dan nombre al lugar, y capacidad para hasta 1,200 invitados, este espacio ofrece la escala de un gran venue con precios accesibles que permiten invertir más en lo que realmente importa. A solo 25 minutos de Polanco por Periférico Norte, combina la conveniencia de la cercanía con la amplitud que solo un jardín de estas dimensiones puede ofrecer."
 shortDescription: "Jardín de 6,000 m² con cinco fuentes monumentales en Tultitlán. Capacidad hasta 1,200 personas con excelente relación precio-calidad."
 

@@ -1,197 +1,157 @@
 ---
 name: "Quinta Jardines del Edén"
 slug: "quinta-jardines-eden"
-description: "Quinta Jardines del Edén ha creado un pequeño paraíso en Coacalco: un espacio donde cascadas artificiales crean el soundtrack de tu celebración, donde puentes decorativos atraviesan arroyos serpenteantes, donde kioscos románticos emergen entre vegetación exuberante. Este venue familiar ofrece a las comunidades del norte del Estado de México la posibilidad de celebrar bodas y XV años con un toque de magia natural sin viajar horas ni gastar fortunas. Es el escape perfecto para familias que sueñan con un jardín de cuento pero viven la realidad del presupuesto."
-shortDescription: "Jardines con cascadas, puentes y kioscos románticos en Coacalco. Ambiente de cuento a precios familiares."
+description: "Quinta Jardines del Edén es un oasis de tranquilidad en medio de la zona metropolitana norte, ofreciendo jardines maduros con árboles frutales centenarios, fuentes de cantera, y un ambiente de quinta familiar que transporta a los invitados lejos del bullicio urbano. Con más de 40 años de tradición familiar atendiendo bodas, XV años y celebraciones, la quinta combina el encanto rústico de una propiedad de campo con la conveniencia de estar a solo 25 minutos de Polanco."
+shortDescription: "Quinta familiar con jardines centenarios y ambiente campestre a 25 minutos de Polanco."
 
 region: "estado-mexico"
 zone: "Coacalco"
 zoneSlug: "coacalco"
-address: "Av. José López Portillo 250, Coacalco Centro"
-neighborhood: "Coacalco Centro"
+address: "Av. López Portillo 890, San Francisco Coacalco"
+neighborhood: "San Francisco Coacalco"
 postalCode: "55700"
 coordinates:
-  lat: 19.6280
-  lng: -99.1020
-googleMapsUrl: "https://maps.google.com/?q=Quinta+Jardines+Eden+Coacalco"
+  lat: 19.6120
+  lng: -99.1150
+googleMapsUrl: "https://maps.google.com/?q=Quinta+Jardines+del+Eden+Coacalco"
 
 type: "quinta"
-subtype: "natural"
+subtype: "quinta-rustica"
 
 capacity:
-  min: 80
-  max: 400
-  cocktail: 550
+  min: 60
+  max: 350
+  cocktail: 450
   ceremony: 200
 
-priceRange: "$$"
+priceRange: "$"
 pricePerPerson:
-  min: 600
-  max: 1100
+  min: 480
+  max: 950
 
 amenities:
   - estacionamiento
   - jardin
-  - fuente
   - pista-baile
   - terraza
+  - capilla
+  - acceso-discapacitados
+  - generador-emergencia
+  - wifi
+  - vestidores
   - area-fotos
-  - cocina-industrial
+  - fuente
 
 servicesIncluded:
-  - banquete
-  - meseros
   - coordinador
   - mobiliario-basico
-  - manteleria
-  - montaje
-  - desmontaje
+  - iluminacion-basica
   - seguridad
   - limpieza
+  - montaje
+  - desmontaje
 
 eventTypes:
   - bodas
   - xv-anos
-  - bautizos
-  - comuniones
   - cumpleanos
+  - aniversarios
+  - bautizos
+  - primeras-comuniones
   - graduaciones
 
 schedule:
-  weekdays: "15:00 - 23:00"
-  weekends: "12:00 - 01:00"
+  weekdays: "15:00 - 00:00"
+  weekends: "12:00 - 02:00"
   minHours: 5
-  curfew: "01:00"
+  curfew: "02:00"
 
 contact:
-  phone: "55 5875 3456"
-  whatsapp: "55 6677 8899"
-  email: "reservaciones@jardineseden.mx"
-  instagram: "@quintajardineseden"
+  phone: "55 5875 2345"
+  whatsapp: "55 1234 5699"
+  email: "eventos@quintajardinesdeledenco.mx"
+  instagram: "@quintajardinesdeledenco"
 
-image: "/images/venues/jardines-eden-hero.jpg"
+image: "/images/venues/eden-hero.jpg"
 gallery:
-  - "/images/venues/jardines-eden-cascada.jpg"
-  - "/images/venues/jardines-eden-kiosco.jpg"
+  - "/images/venues/eden-jardin.jpg"
+  - "/images/venues/eden-capilla.jpg"
+  - "/images/venues/eden-fuente.jpg"
+  - "/images/venues/eden-salon.jpg"
 
 eventechServices:
   - "iluminacion"
   - "carpas"
+  - "audiovisual"
+  - "mobiliario"
 eventechPartner: true
+eventechDiscount: "10% en iluminación de jardín"
 
-rating: 4.4
-reviewCount: 276
+rating: 4.6
+reviewCount: 876
 
-seoTitle: "Quinta Jardines del Edén - Bodas con Cascadas"
-seoDescription: "Quinta con cascadas y jardines románticos en Coacalco. Ambiente de cuento para bodas y XV años hasta 400 personas."
+seoTitle: "Quinta Jardines del Edén - Bodas Campestres | Coacalco"
+seoDescription: "Celebra tu boda en Quinta Jardines del Edén. Jardines centenarios, capilla propia y ambiente de campo a minutos de CDMX."
 keywords:
-  - quinta bodas coacalco
-  - jardin eventos norte estado mexico
-  - salon xv anos coacalco
-  - bodas cascadas coacalco
+  - quinta eventos coacalco
+  - bodas campestres estado mexico
+  - jardin boda norte cdmx
+  - quinta con capilla
+  - eventos familiares coacalco
 
 featured: false
+premium: false
 verified: true
-order: 25
+order: 27
 publishedAt: 2025-03-01
 ---
 
-## Un Pequeño Paraíso en el Norte del Estado
+## Cuatro Décadas de Celebraciones Familiares
 
-El nombre no es exageración: cuando entras a Quinta Jardines del Edén, **el ruido de la ciudad desaparece reemplazado por el sonido del agua cayendo**. Cascadas artificiales de tres niveles crean un telón de fondo acústico que relaja a los invitados incluso antes de que comience la fiesta. Puentes de madera cruzan sobre arroyos serpenteantes. Kioscos emergen entre la vegetación como si hubieran crecido ahí naturalmente.
+Quinta Jardines del Edén ha sido propiedad de la familia Hernández desde 1952. Lo que comenzó como una huerta familiar se transformó en 1982 en un espacio de eventos, manteniendo siempre el **espíritu de quinta de campo** que distingue al lugar.
 
-Para las familias de Coacalco, Tultitlán y el norte del Estado de México, este venue representa algo especial: **la posibilidad de celebrar en un espacio mágico sin tener que viajar horas ni gastar lo que no tienen**. Es la democratización del jardín de ensueño.
+Los **naranjos, limoneros, y duraznos** que bordean los jardines tienen más de 50 años. La fuente central de cantera rosa fue traída de Querétaro en 1960. Y la pequeña capilla fue construida en 1985 para que la hija de Don Artemio pudiera casarse en casa.
 
-## Espacios Disponibles para Eventos
+## Espacios con Alma de Campo
 
-### Jardín de las Cascadas (Capacidad: 250-300 banquete / 450 cóctel)
+### Jardín de los Naranjos (Capacidad: 200-350 banquete / 450 cóctel)
 
-El espacio principal está dominado por un **sistema de cascadas de tres niveles** que caen sobre rocas naturales hacia un estanque con peces koi. El sonido del agua crea un ambiente de tranquilidad que contrasta hermosamente con la alegría de una fiesta. Iluminación LED integrada en las cascadas permite cambiar colores según el momento del evento.
+El **jardín principal de 3,500 metros cuadrados** está sombreado por naranjos y limoneros centenarios que perfuman el aire durante la primavera.
 
-El jardín tiene espacio suficiente para carpas de gran formato, con **conexiones eléctricas y superficies preparadas** para montajes profesionales.
+### Capilla de la Virgen de Guadalupe (Capacidad: 80 personas)
 
-**Ideal para:** Bodas al aire libre, XV años con ambiente romántico, bautizos familiares, eventos que buscan backdrop espectacular.
+La **capilla familiar** construida en piedra y con vitrales hechos a mano ofrece un espacio íntimo para ceremonias religiosas.
 
-### Kiosco del Amor (Capacidad: 100-120 ceremonia)
+### Terraza del Durazno (Capacidad: 60-120 personas)
 
-Un kiosco de estilo victoriano, rodeado de rosales y con vista a las cascadas, es el **escenario perfecto para ceremonias** civiles o religiosas. La estructura blanca crea contraste fotogénico contra el verde de la vegetación, y la elevación permite que todos los invitados vean claramente a los protagonistas.
+Una **terraza cubierta** bajo un antiguo árbol de durazno, con piso de barro y vista al jardín principal.
 
-**Ideal para:** Ceremonias de boda, entrega de última muñeca, intercambio de anillos, momentos ceremoniales.
+### Salón del Granero (Capacidad: 100-180 personas)
 
-### Puentes y Senderos (Capacidad: circulación y fotos)
+El **antiguo granero restaurado** conserva sus vigas de madera originales y muros de adobe, ahora con aire acondicionado.
 
-Tres puentes de madera cruzan el arroyo artificial, creando **puntos fotográficos únicos** y circulación escénica para los invitados. Estos elementos transforman el simple acto de caminar por el jardín en una experiencia de descubrimiento.
+## El Encanto de lo Auténtico
 
-**Ideal para:** Sesiones fotográficas, circulación de invitados, momentos románticos.
+- **Árboles Centenarios** - 50+ años de crecimiento natural
+- **Capilla Consagrada** - Donde la familia ha celebrado sus propios sacramentos
+- **Atención Familiar** - Los mismos dueños supervisan cada evento
+- **Ambiente de Campo Real** - Hueles los naranjos, escuchas los pájaros
 
-### Salón Techado (Capacidad: 200-250 banquete)
+## Paquetes Todo Incluido
 
-Para eventos en temporada de lluvias o que requieren clima controlado, un salón cubierto con **techo translúcido que mantiene la sensación de exterior** ofrece respaldo completo. El salón tiene vista directa a las cascadas a través de ventanales, preservando la magia del jardín incluso en interiores.
+### Paquete Edén ($480/persona)
+- Uso de jardín por 6 horas
+- Mesas, sillas y mantelería
+- Coordinador y estacionamiento
 
-**Ideal para:** Recepciones en temporada de lluvias, cenas de noche, eventos que requieren garantía climática.
+### Paquete Paraíso ($680/persona)
+Todo lo anterior más banquete 3 tiempos, bebidas y meseros.
 
-### Área Infantil Segura
+### Paquete Celestial ($850/persona)
+Todo lo anterior más open bar, DJ, pista e iluminación completa.
 
-Una zona dedicada con **juegos seguros y espacio de actividades** permite que los niños disfruten supervisados mientras los adultos celebran. La proximidad al salón permite supervisión fácil sin que los juegos interrumpan el evento principal.
+## Servicios de EVENTECH
 
-**Ideal para:** Eventos familiares con muchos niños, bodas con área de entretenimiento infantil.
-
-## La Magia de los Elementos Naturales
-
-### Agua que Relaja
-El sonido constante del agua cayendo tiene un **efecto psicológico comprobado de reducción del estrés**. Los invitados llegan tensos del tráfico y en minutos se relajan naturalmente.
-
-### Iluminación que Transforma
-Por la noche, el sistema de iluminación LED **transforma las cascadas en espectáculos de luz** que cambian según el momento del evento: suaves durante la cena, vibrantes durante el baile.
-
-### Fotografía que Impresiona
-Los múltiples elementos —cascadas, puentes, kiosco, vegetación— ofrecen **docenas de backdrops fotográficos diferentes** en un solo venue. Los fotógrafos aman trabajar aquí.
-
-## ¿Por Qué Elegir Jardines del Edén?
-
-### Ambiente Único en la Zona
-Ningún otro venue del norte del Estado de México ofrece **cascadas, puentes y elementos acuáticos** de esta calidad. Es un diferenciador visual inmediato.
-
-### Precio Accesible
-Para ser un espacio de esta singularidad, los precios son **significativamente menores** que venues con elementos similares en otras zonas. El valor es excepcional.
-
-### Ubicación Conveniente
-Sobre López Portillo en Coacalco, con **fácil acceso desde la autopista México-Pachuca** y las principales vías del norte del Estado.
-
-### Paquetes Familiares
-Los paquetes están diseñados para **presupuestos familiares reales**, con opciones de pago y menús que no requieren sacrificar la comida de meses para celebrar un evento.
-
-## Servicios Incluidos
-
-- **Banquete completo** con opciones de menú
-- **Meseros** capacitados (1 por cada 18 invitados)
-- **Coordinador del evento** el día
-- **Mobiliario**: mesas, sillas, mantelería
-- **Iluminación de jardín y cascadas**
-- **Montaje y desmontaje** completo
-- **Seguridad** en acceso y estacionamiento
-- **Limpieza** pre y post evento
-- **Estacionamiento** para 70 vehículos
-
-## La Experiencia de Celebrar en un Cuento
-
-Hay venues que ofrecen mesas y sillas. Y hay Jardines del Edén, que ofrece **la posibilidad de que tu boda o XV años se sienta como un cuento**: con el sonido del agua de fondo, con puentes que cruzar, con un kiosco donde pronunciar votos o recibir la última muñeca.
-
-Cuando tus invitados vean las cascadas iluminadas por primera vez, cuando crucen el puente hacia el jardín, cuando escuchen el agua mientras brindan por tu felicidad, entenderán que **no están en un salón cualquiera: están en un pequeño paraíso creado para celebrar**.
-
-## Servicios de EVENTECH para Jardines del Edén
-
-Como partner oficial de EVENTECH, ofrecemos soluciones que complementan la magia del espacio:
-
-- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** con fairy lights en puentes y vegetación
-- **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** para realzar cascadas y elementos acuáticos
-- **[Carpas estructurales](/servicios/carpas/estructurales/)** transparentes para ver las cascadas en temporada de lluvias
-
-## Venues Similares con Ambiente Único
-
-Si buscas espacios con elementos especiales en el norte del Estado de México:
-
-- **[Jardines Tlalnepantla](/directorio/estado-mexico/tlalnepantla/jardines-tlalnepantla/)** — Pérgolas de buganvilia, flexibilidad total
-- **[Quinta Real Atizapán](/directorio/estado-mexico/atizapan/quinta-real-atizapan/)** — Fuentes de cantera, capilla con vitrales
-- **[Jardín Los Arcos](/directorio/estado-mexico/atizapan/jardin-los-arcos/)** — Arcos de cantera icónicos, ambiente tradicional
-- **[Hacienda Santa Cecilia](/directorio/estado-mexico/huixquilucan/hacienda-santa-cecilia/)** — Lago con kiosco, escala monumental
+- **[Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/)** en los árboles
+- **[Carpas transparentes](/servicios/carpas/estructurales/)** para ver las estrellas
+- **[Pistas de madera](/servicios/pistas-baile/madera-clasica/)** rústicas

@@ -1,0 +1,730 @@
+---
+/**
+ * ─── Calefacción Industrial — Pagina de Producto (Nivel 4) ───
+ * Calentadores radiantes y de aire forzado para carpas, hangares
+ * y espacios de 50 a 500 m².
+ *
+ * Jerarquia: Servicios > Accesorios > Calefacción y Clima > Calefacción Industrial
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Accesorios", href: "/servicios/accesorios/" },
+  { label: "Calefacción y Clima", href: "/servicios/accesorios/calefaccion-clima/" },
+  { label: "Calefacción Industrial" },
+];
+
+const faqs = [
+  { question: "¿Cuál es la diferencia entre calefacción radiante y aire forzado?", answer: 'La <strong>calefacción radiante infrarroja</strong> emite calor directamente a las personas y objetos sin calentar el aire, similar a la sensación del sol. Se instala colgada del techo de la carpa y es ideal para espacios semi-abiertos de 50 a 200 m² porque funciona incluso con corrientes de aire. La <strong>calefacción de aire forzado</strong> calienta grandes volúmenes de aire y lo distribuye mediante ductos, ideal para espacios cerrados o semi-cerrados de 200 a 500 m² como hangares y naves. Para carpas con laterales cerrados, el aire forzado es más eficiente; para carpas con laterales abiertos, la radiante es mejor opción.' },
+  { question: "¿Cómo se calcula la carga térmica para mi espacio?", answer: 'Nuestro ingeniero de clima realiza un <strong>cálculo térmico profesional</strong> considerando: dimensiones del espacio (largo x ancho x alto), material de las paredes y techo (lona, cristal, metal), grado de hermeticidad (cerrado, semi-abierto, abierto), temperatura exterior esperada, número de personas y equipos que generan calor interno. Con estos datos calculamos los <strong>BTU necesarios</strong> y determinamos el número y tipo de equipos óptimos. Este servicio de evaluación es <strong>gratuito y sin compromiso</strong> como parte de nuestra cotización.' },
+  { question: "¿La calefacción industrial es compatible con todas las carpas?", answer: 'Sí, nuestros sistemas están diseñados para integrarse con todo tipo de carpas. Los <strong>radiantes infrarrojos</strong> se cuelgan de la estructura del techo de <a href="/servicios/carpas/carpas-arabes/">carpas árabes</a>, <a href="/servicios/carpas/estructurales/">carpas estructurales</a> y <a href="/servicios/carpas/hangar/">carpas hangar</a> con soportes certificados que no dañan la estructura. Los <strong>sistemas de aire forzado</strong> se instalan fuera de la carpa y solo los ductos ingresan al interior a través de aberturas controladas. Para maximizar la eficiencia, recomendamos carpas con paredes laterales cerradas y pisos aislantes.' },
+  { question: "¿Cuánto consume de combustible la calefacción industrial?", answer: 'El consumo depende del tipo y potencia del equipo. Un <strong>radiante infrarrojo de 75,000 BTU</strong> consume aproximadamente 2-3 kg de gas LP por hora. Un <strong>sistema de aire forzado de 200,000 BTU</strong> consume 5-7 kg/hora, y uno de <strong>500,000 BTU</strong> consume 12-15 kg/hora. Para un evento de 8 horas con calefacción de aire forzado mediano, se requieren aproximadamente 2 tanques de 45 kg. Proporcionamos <strong>tanques de respaldo</strong> y monitoreo de consumo en tiempo real. Los equipos eléctricos consumen entre 5 y 20 kW según capacidad.' },
+  { question: "¿Es segura la calefacción industrial dentro de carpas con invitados?", answer: 'Absolutamente. Todos nuestros equipos cuentan con <strong>certificaciones de seguridad</strong> y sistemas de protección múltiples: sensores de monóxido de carbono, válvulas de corte automático, termostatos de límite, extintores de respaldo y ductos de ventilación. Los <strong>radiantes infrarrojos</strong> se instalan a una altura mínima de 2.5 metros del piso, fuera del alcance de las personas. Los <strong>calentadores de aire forzado</strong> operan completamente en el exterior, solo el aire caliente limpio ingresa a la carpa. Nuestro técnico certificado supervisa toda la operación.' },
+  { question: "¿Se puede combinar calefacción industrial con otros sistemas de clima?", answer: 'Sí, las configuraciones combinadas son muy comunes en eventos grandes. Podemos instalar <strong>radiantes en las zonas de mesas y comedor</strong> (calor directo y silencioso) y <strong>aire forzado en las zonas de recepción y pasillos</strong> (calor ambiental uniforme). También combinamos con <a href="/servicios/accesorios/calefaccion-clima/calentadores-patio/">calentadores de patio</a> en las zonas exteriores como terrazas y áreas de fumadores. Diseñamos un plano de climatización por zonas para optimizar el confort y el consumo energético.' },
+];
+
+const specs = [
+  { label: "Tipos", value: "Radiante infrarrojo, Aire forzado con ductos" },
+  { label: "Cobertura", value: "50 – 500 m² según potencia" },
+  { label: "BTU radiante", value: "75,000 – 150,000 por unidad" },
+  { label: "BTU aire forzado", value: "200,000 – 500,000 por unidad" },
+  { label: "Combustible", value: "Gas LP o eléctrico 220V" },
+  { label: "Distribución", value: "Ductos de 20 – 40 cm diámetro" },
+  { label: "Termostato", value: "Digital con control remoto" },
+  { label: "Montaje radiante", value: "Colgado en estructura de carpa" },
+  { label: "Montaje aire forzado", value: "Exterior con ducto hacia interior" },
+  { label: "Técnico", value: "Instalador certificado incluido" },
+];
+
+const sidebarNav = [
+  { name: "Calentadores de Patio", href: "/servicios/accesorios/calefaccion-clima/calentadores-patio/" },
+  { name: "Calefacción Industrial", href: null, active: true },
+  { name: "Nebulización y Ventilación", href: "/servicios/accesorios/calefaccion-clima/nebulizacion-ventilacion/" },
+  { name: "Aire Acondicionado Portátil", href: "/servicios/accesorios/calefaccion-clima/ac-portatil/" },
+];
+
+const sidebarRelated = [
+  { name: "Carpas para Eventos", href: "/servicios/carpas/" },
+  { name: "Plantas de Energía", href: "/servicios/accesorios/plantas-energia/" },
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+  { name: "Mobiliario Salas Lounge", href: "/servicios/mobiliario/salas-lounge/" },
+];
+
+const reviews = [
+  { author: "Ricardo Mendoza", text: "Organizamos una boda en una carpa estructural de 300 m² en diciembre y la calefacción radiante de EVENTECH fue impresionante. Los invitados estaban en mangas cortas a pesar de que afuera hacía 5 grados. El técnico controló la temperatura toda la noche y el sistema era completamente silencioso. Servicio de primera.", rating: 5, date: "2025-12-18" },
+  { author: "Laura Gutiérrez", text: "Montamos una expo industrial en un hangar de 400 m² y necesitábamos calefacción para 3 días completos. El sistema de aire forzado con ductos mantuvo una temperatura constante de 22 grados. Los visitantes ni siquiera notaron que estaban en un hangar sin calefacción propia. El consumo de gas fue razonable y el equipo técnico fue muy profesional.", rating: 5, date: "2025-11-05" },
+  { author: "Andrés Velázquez", text: "Nuestro evento corporativo de fin de año fue en una terraza con carpa tipo hangar. El equipo de EVENTECH instaló calefacción radiante en la zona de cena y aire forzado en el área de conferencias. Cada zona tenía su propia temperatura y el sistema funcionó perfectamente durante las 10 horas del evento. Totalmente recomendados.", rating: 5, date: "2025-10-28" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Calefacción Industrial para Eventos en CDMX",
+    description: "Calentadores radiantes y de aire forzado para carpas, hangares y espacios de 50 a 500 m². Potencia industrial para grandes áreas. Desde $2,500.",
+    url: "/servicios/accesorios/calefaccion-clima/calefaccion-industrial/",
+    priceRange: { min: 2500, max: 12000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 143,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Accesorios", url: "/servicios/accesorios/" },
+    { name: "Calefacción y Clima", url: "/servicios/accesorios/calefaccion-clima/" },
+    { name: "Calefacción Industrial", url: "/servicios/accesorios/calefaccion-clima/calefaccion-industrial/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Calefacción Industrial para Eventos en CDMX | EVENTECH"
+  description="Renta de calentadores radiantes y de aire forzado para carpas, hangares y espacios de 50 a 500 m². Potencia industrial para grandes áreas. Desde $2,500."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Calefacción para espacios de 50 a 500 m²"
+    title='Renta de <span class="highlight">Calefacción Industrial</span> para Eventos'
+    subtitle="Calentadores radiantes infrarrojos para carpas y calentadores de aire forzado con ductos para hangares y espacios de gran formato. Termostato digital y técnico instalador certificado incluido."
+    primaryCTA={{ label: "Cotiza tu calefacción", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar calefacción industrial para mi evento` }}
+    cards={[
+      {
+        title: "Calentadores radiantes infrarrojos y de aire forzado",
+        content: "<strong>Renta de calefacción industrial</strong> con los equipos más potentes para eventos en CDMX. Calentadores radiantes infrarrojos para montaje en techo de carpas y calentadores de aire forzado con ductos de distribución para hangares y espacios de 50 a 500 m². Potencias desde 75,000 hasta 500,000 BTU según las dimensiones de tu espacio. Ideales para bodas en carpa durante invierno, expos en hangares, eventos corporativos en naves y cualquier espacio que requiera calefacción de alto rendimiento.",
+      },
+      {
+        title: "Termostato digital e instalación profesional certificada",
+        content: "<strong>Servicio técnico integral</strong> con termostato digital de control automático, instalación profesional con técnico certificado, gas LP o conexión eléctrica según modelo y distribución uniforme de calor con cálculo térmico previo. Nuestro ingeniero evalúa las dimensiones de tu venue, calcula la carga térmica necesaria, instala los equipos con conexiones certificadas y monitorea la temperatura durante todo el evento. Ductos de distribución, silenciadores y tanques de respaldo incluidos.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas climatizar un espacio grande para tu evento?"
+    subheadline="Cotiza sin compromiso — incluimos cálculo térmico y visita técnica gratuita para tu venue"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Calefacción y Clima para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas calefacción industrial para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar calefacción industrial para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Calefacción Industrial</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Radiante Infrarrojo para Carpas -->
+          <section class="section section--alt" aria-labelledby="radiante-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Calor silencioso desde el techo</span>
+                <h2 class="showcase__title" id="radiante-heading">Radiante Infrarrojo para Carpas</h2>
+                <p class="showcase__subtitle">Calentadores infrarrojos que se instalan en el techo de la carpa para distribución uniforme de calor sin corrientes de aire.</p>
+                <p class="showcase__text">Nuestros <strong>calentadores radiantes infrarrojos</strong> son la solución premium para climatizar carpas de eventos. Se instalan <strong>colgados del techo de la estructura</strong> a una altura mínima de 2.5 metros, emitiendo calor infrarrojo directo hacia las personas y el mobiliario sin calentar el aire intermedio. Esto los hace extremadamente eficientes incluso en <strong>carpas semi-abiertas con laterales abiertos</strong>, ya que el calor no se disipa con las corrientes de aire. Cada unidad genera entre <strong>75,000 y 150,000 BTU</strong> y cubre de 25 a 50 m².</p>
+                <p class="showcase__text">La operación es <strong>completamente silenciosa</strong> — ideal para bodas y cenas donde la música y las conversaciones son importantes. Los paneles radiantes se integran discretamente en la estructura del techo y no ocupan espacio en el piso. Incluyen <strong>soportes de montaje certificados</strong> que no dañan la estructura de la carpa, cableado oculto y control de intensidad. Perfectos para <a href="/servicios/carpas/carpas-arabes/">carpas árabes</a> y <a href="/servicios/carpas/estructurales/">carpas estructurales</a> de 50 a 200 m². Nuestro técnico calibra la altura y ángulo de cada panel para maximizar la cobertura.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Infrarrojo</span>
+                  <span class="showcase__tag">75,000-150,000 BTU</span>
+                  <span class="showcase__tag">Silencioso</span>
+                  <span class="showcase__tag">Montaje en techo</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Radiante Infrarrojo
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Radiante Infrarrojo para Carpas</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Aire Forzado con Ductos -->
+          <section class="section section--alt" aria-labelledby="aire-forzado-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Máxima potencia de calefacción</span>
+                <h2 class="showcase__title" id="aire-forzado-heading">Aire Forzado con Ductos</h2>
+                <p class="showcase__subtitle">Calentadores de aire forzado con ductos de distribución para hangares y espacios de 200 a 500 m².</p>
+                <p class="showcase__text">Los <strong>calentadores de aire forzado</strong> son la solución para espacios de gran formato donde se requiere calentar grandes volúmenes de aire. Cada unidad genera entre <strong>200,000 y 500,000 BTU</strong> y distribuye el aire caliente a través de <strong>ductos flexibles de 20 a 40 cm de diámetro</strong> con difusores estratégicos que garantizan una temperatura homogénea en todo el espacio. El equipo calentador se instala en el exterior y solo los ductos ingresan al recinto, eliminando ruido y emisiones del interior.</p>
+                <p class="showcase__text">Incluyen <strong>termostato digital de precisión</strong> con control remoto que mantiene la temperatura deseada de forma automática, arrancando y deteniendo el equipo según la demanda térmica. Los ductos textiles son desmontables y se instalan en el techo de la estructura sin ocupar espacio útil. Ideales para <strong>hangares de 200 a 500 m², naves industriales adaptadas para eventos, carpas de gran formato</strong> y salones temporales. Operan con gas LP o gas natural según disponibilidad del venue. Complementa con <a href="/servicios/accesorios/plantas-energia/">plantas de energía</a> si tu venue no tiene conexión eléctrica suficiente.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Aire Forzado</span>
+                  <span class="showcase__tag">200,000-500,000 BTU</span>
+                  <span class="showcase__tag">Ductos textiles</span>
+                  <span class="showcase__tag">200-500 m²</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Aire Forzado
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Aire Forzado con Ductos</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Calefacción para Hangar -->
+          <section class="section section--alt" aria-labelledby="hangar-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Espacios industriales</span>
+                <h2 class="showcase__title" id="hangar-heading">Calefacción para Hangar</h2>
+                <p class="showcase__subtitle">Soluciones de calefacción especializadas para hangares, naves y espacios industriales de gran altura.</p>
+                <p class="showcase__text">Los <strong>hangares y naves industriales</strong> presentan un desafío térmico único: techos altos de 6 a 12 metros, paredes metálicas con mínimo aislamiento y grandes puertas que generan corrientes de aire. Nuestra <strong>calefacción para hangar</strong> combina múltiples tecnologías para resolver estos retos: paneles radiantes de alta potencia (150,000 BTU) dirigidos a las zonas de permanencia, cortinas de aire caliente en las entradas principales y calentadores de aire forzado con ductos a nivel del piso para mantener la temperatura uniforme.</p>
+                <p class="showcase__text">Diseñamos un <strong>plano de climatización personalizado</strong> según las dimensiones exactas del hangar, la ubicación de las entradas, las zonas de actividad del evento y la temperatura exterior esperada. Incluimos <strong>destratificadores de techo</strong> que recirculan el aire caliente atrapado en la parte alta del hangar hacia la zona de los invitados, maximizando la eficiencia energética. Perfecto para <strong>expos industriales, conciertos, cenas de gala temáticas y eventos corporativos de gran formato</strong>. Complementa con nuestras <a href="/servicios/carpas/hangar/">carpas hangar</a> para crear espacios cerrados dentro de naves abiertas.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Hangares</span>
+                  <span class="showcase__tag">Naves industriales</span>
+                  <span class="showcase__tag">6-12 m altura</span>
+                  <span class="showcase__tag">Multi-tecnología</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Calefacción Hangar
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Calefacción para Hangar</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Calefacción Integral -->
+          <section class="section section--alt" aria-labelledby="kit-integral-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Solución completa</span>
+                <h2 class="showcase__title" id="kit-integral-heading">Kit Calefacción Integral</h2>
+                <p class="showcase__subtitle">Paquete completo con cálculo térmico, equipos combinados, ductos, tanques de gas y técnico dedicado.</p>
+                <p class="showcase__text">Nuestro <strong>Kit Calefacción Integral</strong> es la solución todo-en-uno para eventos que requieren climatización profesional sin complicaciones. Incluye <strong>visita técnica previa, cálculo de carga térmica, selección de equipos óptimos</strong> (radiante, aire forzado o combinación), ductos de distribución, tanques de gas LP con respaldo, conexiones eléctricas certificadas, termostatos digitales y técnico de operación dedicado durante todo el evento. Un solo paquete, un solo precio, sin sorpresas.</p>
+                <p class="showcase__text">El kit se personaliza según las necesidades específicas de tu evento. Para una <strong>boda en carpa de 200 m²</strong>, combinamos 4 radiantes de techo con cortinas de aire en las entradas. Para una <strong>expo en hangar de 500 m²</strong>, instalamos 2 unidades de aire forzado de 500,000 BTU con ductos perimetrales. Incluye <strong>monitoreo de temperatura en tiempo real</strong> con sensores distribuidos en diferentes zonas del espacio y ajuste automático de potencia. También disponemos de <a href="/servicios/accesorios/calefaccion-clima/ac-portatil/">aire acondicionado portátil</a> para eventos que requieren enfriamiento en vez de calefacción.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Todo incluido</span>
+                  <span class="showcase__tag">Cálculo térmico</span>
+                  <span class="showcase__tag">Técnico dedicado</span>
+                  <span class="showcase__tag">Monitoreo en tiempo real</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Integral
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Kit Calefacción Integral</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Calefacción Industrial"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar calefacción industrial, es natural tener preguntas sobre tipos de equipo, potencia y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor técnico te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de calefacción industrial resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre calefacción industrial para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Calefacción y Clima -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Calefacción y Clima para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/accesorios/calefaccion-clima/" class="sidebar-nav__back">&uarr; Volver a Calefacción y Clima</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/accesorios/" class="sidebar-nav__back">&uarr; Volver a Accesorios</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de calefacción:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas calefacción industrial para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar calefacción industrial para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Calefacción Industrial"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros ingenieros de clima te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un radiante para tu carpa o un sistema completo para tu hangar, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoCalefaccion">
+                Tipo de calefacción
+              </label>
+              <select id="tipoCalefaccion" name="tipoCalefaccion" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de calefacción</option>
+                <option value="Radiante Infrarrojo">Radiante Infrarrojo</option>
+                <option value="Aire Forzado Mediano">Aire Forzado Mediano</option>
+                <option value="Aire Forzado Industrial">Aire Forzado Industrial</option>
+                <option value="Kit Calefacción Carpa">Kit Calefacción Carpa</option>
+                <option value="Kit Calefacción Hangar">Kit Calefacción Hangar</option>
+                <option value="Paquete Calefacción Integral">Paquete Calefacción Integral</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: dimensiones del espacio, tipo de estructura (carpa/hangar/nave), número de invitados, temperatura deseada..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para calcular la carga térmica y diseñar la solución ideal.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría técnica personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoCalefaccion = document.getElementById('tipoCalefaccion').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Calefacción Industrial*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoCalefaccion) texto += `*Tipo de calefacción:* ${tipoCalefaccion}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Accesorios para Eventos"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de accesorios y complementos para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">A</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Accesorios Event MX</h3>
+            <p class="partner-card__tagline">Mantelería, textiles y accesorios premium para eventos en CDMX</p>
+            <p class="partner-card__text">Líder en renta de accesorios y complementos para eventos sociales y corporativos. Calefacción industrial, climatización de carpas y hangares con servicio integral y técnicos certificados.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">RentaDecor CDMX</h3>
+            <p class="partner-card__tagline">Renta de mantelería, cubresillas y decoración textil profesional</p>
+            <p class="partner-card__text">Especialistas en soluciones de climatización industrial para bodas en carpa, congresos y festivales. Radiantes infrarrojos, aire forzado y sistemas ducteados con ingenieros certificados.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">T</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">TextilEvent</h3>
+            <p class="partner-card__tagline">Textiles de alta calidad con servicio de lavado y planchado incluido</p>
+            <p class="partner-card__text">Más de 10 años proporcionando soluciones de climatización y accesorios para eventos en CDMX. Calefacción para carpas, hangares y naves con logística integral y monitoreo en tiempo real.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventosPro Accesorios</h3>
+            <p class="partner-card__tagline">Complementos y accesorios integrales para todo tipo de evento</p>
+            <p class="partner-card__text">Servicio integral de renta de equipos de calefacción con logística profesional en toda la CDMX. Cálculo térmico, instalación, operación y desmontaje con operadores certificados.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Calefacción industrial que garantiza confort en cualquier espacio"
+    subheadline="Más de 500 eventos climatizados nos respaldan. Cotiza hoy y recibe asesoría técnica sin compromiso."
+    primaryCTA={{ label: "Cotizar calefacción industrial", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar calefacción industrial para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

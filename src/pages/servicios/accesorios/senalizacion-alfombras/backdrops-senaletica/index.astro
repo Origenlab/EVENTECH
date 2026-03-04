@@ -1,0 +1,567 @@
+---
+/**
+ * ─── Backdrops y Señalética — Página de Producto (Nivel 4) ───
+ * Backdrops step and repeat para photo ops, paredes florales,
+ * marcos gigantes para selfies, totems LED y señalética
+ * profesional para eventos corporativos y sociales.
+ *
+ * Jerarquía: Servicios > Accesorios > Señalización y Alfombras > Backdrops y Señalética
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Accesorios", href: "/servicios/accesorios/" },
+  { label: "Señalización y Alfombras", href: "/servicios/accesorios/senalizacion-alfombras/" },
+  { label: "Backdrops y Señalética" },
+];
+
+const faqs = [
+  { question: "¿Cuánto tiempo toma producir un backdrop personalizado con mi logo?", answer: 'Los tiempos varían según el tipo de backdrop: <strong>lonas impresas en alta resolución se producen en 3-5 días hábiles</strong>, los backdrops de tela tensada en estructura de aluminio toman 5-7 días, y las paredes florales o con acabados especiales (espejo, acrílico, madera) requieren 7-10 días. Para todos los formatos, necesitamos tu archivo de diseño en alta resolución (mínimo 150 dpi a tamaño real) o tu logotipo en formato vectorial (AI, EPS, PDF). Te enviamos prueba digital a escala para aprobación antes de iniciar producción.' },
+  { question: "¿Qué tamaños de backdrop manejan?", answer: 'Nuestro inventario cubre desde <strong>marcos compactos de 2 × 2 metros para photo ops íntimos hasta estructuras modulares de 6 × 3 metros</strong> para eventos de gran formato. Las medidas estándar más solicitadas son: 2.4 × 2.4 m (photo booth), 3 × 2.4 m (step and repeat corporativo) y 4 × 2.5 m (escenarios y premiaciones). Para eventos como lanzamientos de producto o festivales, fabricamos estructuras <strong>modulares de hasta 10 metros de ancho</strong> con uniones invisibles. Cada backdrop incluye estructura de aluminio con base contrapesada que no requiere perforación ni anclaje permanente.' },
+  { question: "¿Los backdrops funcionan en exteriores?", answer: 'Sí. Contamos con <strong>lonas de PVC reforzado con tratamiento UV y resistencia al viento</strong> para uso en jardines, terrazas y explanadas. La estructura de aluminio incluye contrapesos de 15 kg por esquina y tirantes opcionales para ráfagas de hasta 40 km/h. Para eventos nocturnos al aire libre, recomendamos agregar nuestra <a href="/servicios/iluminacion/arquitectonica/wash-lights/">iluminación wash LED</a> para que tu backdrop se vea impecable en fotografías y video. En caso de lluvia, las lonas de PVC son 100% impermeables.' },
+  { question: "¿Ofrecen marcos gigantes para selfies y photo ops interactivos?", answer: 'Absolutamente. Nuestra línea de <strong>photo ops</strong> incluye marcos gigantes tipo Polaroid y redes sociales (Instagram, TikTok) en tamaños de 1.5 × 2 m y 2 × 2.5 m, marcos de madera vintage en acabado dorado, plateado o rústico, y marcos temáticos personalizados con la identidad de tu evento. Todos incluyen soporte de piso independiente y son <strong>autoportantes</strong> — no necesitan que alguien los sostenga. Complementa con nuestras <a href="/servicios/iluminacion/decorativa/letras-luminosas/">letras luminosas</a> para crear la estación de fotos perfecta.' },
+  { question: "¿Incluyen señalética direccional además de backdrops?", answer: 'Sí. Nuestro servicio integral de señalética incluye <strong>totems informativos LED de 1.80 m, señales direccionales autoportantes, identificadores de mesa</strong> (placas numeradas o con nombres), señalización de piso adhesiva, banners roll-up de 0.85 × 2 m y pendones colgantes. Todos los elementos se producen con tu identidad visual. Los totems LED son ideales para <strong>congresos y expos</strong> porque permiten cambiar el contenido digital en tiempo real. La señalización completa se cotiza como paquete con descuento progresivo según cantidad.' },
+  { question: "¿La instalación del backdrop está incluida?", answer: 'Cada renta incluye <strong>transporte, montaje profesional y desmontaje</strong> dentro de la CDMX y zona metropolitana. Nuestro equipo llega con 3 horas de anticipación para ensamblar la estructura de aluminio, tensar la lona o tela, nivelar las bases con contrapesos y verificar la alineación visual del diseño. Para backdrops con iluminación integrada, realizamos prueba de color e intensidad en sitio. Al finalizar tu evento, desmontamos y recogemos todo sin costo adicional. Para venues fuera de la zona metropolitana, cotizamos el costo logístico por separado.' },
+];
+
+const specs = [
+  { label: "Materiales", value: "Lona PVC, tela tensada, vinilo, acrílico, madera, floral artificial" },
+  { label: "Tamaños estándar", value: "2×2 m, 2.4×2.4 m, 3×2.4 m, 4×2.5 m" },
+  { label: "Tamaño máximo", value: "10 m ancho modular con uniones invisibles" },
+  { label: "Estructura", value: "Aluminio tubular con base contrapesada (no anclaje)" },
+  { label: "Impresión", value: "Sublimación o eco-solvente, 150-300 dpi" },
+  { label: "Resistencia exterior", value: "PVC: UV, lluvia, viento hasta 40 km/h" },
+  { label: "Photo ops", value: "Marcos gigantes Polaroid, redes sociales, vintage, custom" },
+  { label: "Señalética", value: "Totems LED, direccionales, identificadores, roll-ups" },
+  { label: "Producción", value: "3-10 días hábiles según tipo y acabado" },
+  { label: "Instalación", value: "Incluida con montaje, nivelación y desmontaje" },
+];
+
+const sidebarNav = [
+  { name: "Alfombras Premium", href: "/servicios/accesorios/senalizacion-alfombras/alfombras-premium/" },
+  { name: "Postes Separadores", href: "/servicios/accesorios/senalizacion-alfombras/postes-separadores/" },
+  { name: "Podiums y Atriles", href: "/servicios/accesorios/senalizacion-alfombras/podiums-atriles/" },
+  { name: "Backdrops y Señalética", href: null, active: true },
+];
+
+const sidebarRelated = [
+  { name: "Letras Luminosas", href: "/servicios/iluminacion/decorativa/letras-luminosas/" },
+  { name: "Iluminación Wash LED", href: "/servicios/iluminacion/arquitectonica/wash-lights/" },
+  { name: "Alfombras Premium", href: "/servicios/accesorios/senalizacion-alfombras/alfombras-premium/" },
+  { name: "Pantallas LED Pedestal", href: "/servicios/audiovisual/pantallas-led/pedestal/" },
+  { name: "Mobiliario Salas Lounge", href: "/servicios/mobiliario/salas-lounge/" },
+];
+
+const reviews = [
+  { author: "Diana Guerrero Solano", text: "Contratamos un backdrop step and repeat de 4 × 2.5 metros para el lanzamiento de nuestra nueva línea de productos en el Museo Soumaya. La impresión en tela tensada fue espectacular — colores vibrantes, cero arrugas y la tensión perfecta. El equipo de EVENTECH coordinó la instalación con el venue y todo estuvo listo 4 horas antes del evento. Las fotos de prensa quedaron increíbles con nuestro logo de fondo. Definitivamente repetiremos para nuestro siguiente lanzamiento.", rating: 5, date: "2025-11-22" },
+  { author: "Arq. Javier Domínguez Luna", text: "Para la expo de arquitectura sustentable necesitábamos 8 totems LED informativos y señalética direccional completa en 3 plantas del centro de convenciones. EVENTECH produjo todo con nuestra identidad visual en 5 días. Los totems permitieron actualizar el programa en tiempo real cuando hubo cambios de última hora en las ponencias. La señalización de piso fue un plus que facilitó el flujo de los 2,000 asistentes. Profesionalismo de primer nivel.", rating: 5, date: "2025-10-08" },
+  { author: "Paola Fernández Reyes", text: "Para mi boda en un jardín de Tepotzotlán rentamos una pared floral como backdrop para la mesa de honor y un marco gigante estilo Polaroid para la zona de fotos. La pared floral era absolutamente hermosa — flores artificiales de alta calidad que parecían reales en todas las fotos. El marco Polaroid fue un éxito total con los invitados, todos hacían fila para tomarse fotos. El montaje y desmontaje fueron impecables. Lo recomiendo al 100%.", rating: 5, date: "2025-09-15" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Backdrops y Señalética para Eventos en CDMX",
+    description: "Renta de backdrops step and repeat, paredes florales, marcos gigantes para selfies, totems LED y señalética profesional para eventos corporativos y sociales en CDMX. Desde $2,000.",
+    url: "/servicios/accesorios/senalizacion-alfombras/backdrops-senaletica/",
+    priceRange: { min: 2000, max: 25000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 196,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Accesorios", url: "/servicios/accesorios/" },
+    { name: "Señalización y Alfombras", url: "/servicios/accesorios/senalizacion-alfombras/" },
+    { name: "Backdrops y Señalética", url: "/servicios/accesorios/senalizacion-alfombras/backdrops-senaletica/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Backdrops y Señalética para Eventos en CDMX | EVENTECH"
+  description="Renta de backdrops step and repeat, paredes florales, marcos gigantes para selfies, totems LED y señalética profesional para eventos corporativos y sociales en CDMX. Desde $2,000."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Branding visual que transforma tu evento"
+    title='Renta de <span class="highlight">Backdrops y Señalética</span> Profesional'
+    subtitle="Backdrops step and repeat para photo ops, paredes florales, marcos gigantes para selfies, totems LED y señalética direccional. Producción personalizada con tu identidad visual e instalación incluida en CDMX."
+    primaryCTA={{ label: "Cotiza tu backdrop", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar backdrops y señalética para mi evento` }}
+    cards={[
+      {
+        title: "Backdrops personalizados, paredes florales y photo ops creativos",
+        content: "<strong>Renta de backdrops y señalética profesional</strong> para eventos en CDMX con el catálogo más versátil del mercado. Backdrops step and repeat en lona PVC o tela tensada de 2 a 10 metros de ancho. Paredes florales con flores artificiales premium de apariencia natural. Marcos gigantes tipo Polaroid, Instagram y TikTok autoportantes para zonas de fotos. Estructuras modulares de aluminio con base contrapesada que no requieren perforación ni anclaje permanente.",
+      },
+      {
+        title: "Señalética integral, totems LED y producción con tu identidad visual",
+        content: "<strong>Servicio completo de branding visual para eventos</strong> con producción personalizada en 3 a 10 días. Totems informativos LED de 1.80 m con contenido actualizable en tiempo real. Señalización direccional, identificadores de mesa, banners roll-up y señalética de piso adhesiva. Impresión en sublimación o eco-solvente de 150 a 300 dpi. Cada renta incluye transporte, montaje profesional con nivelación y desmontaje sin costo adicional.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas un backdrop impactante o señalética profesional?"
+    subheadline="Cotiza sin compromiso — diseñamos la solución visual perfecta para tu marca y tu evento"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Señalización y Alfombras</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas backdrops o señalética para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar backdrops y señalética para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Backdrops y Señalética</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Backdrop Step and Repeat -->
+          <section class="section section--alt" aria-labelledby="step-repeat-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">El estándar para photo ops corporativos</span>
+                <h2 class="showcase__title" id="step-repeat-heading">Backdrop Step and Repeat</h2>
+                <p class="showcase__subtitle">Tu logo repetido como telón de fondo para que cada foto sea branding puro.</p>
+                <p class="showcase__text">El <strong>backdrop step and repeat</strong> es la herramienta de branding más efectiva para conferencias de prensa, lanzamientos de producto y eventos corporativos. El diseño presenta tu logotipo y el de tus patrocinadores repetidos en patrón diagonal sobre fondo blanco, negro o del color que prefieras — exactamente como las alfombras rojas de premiaciones internacionales. La impresión en <strong>sublimación sobre tela tensada sin arrugas</strong> garantiza que cada fotografía muestre tu marca con nitidez y colores vibrantes.</p>
+                <p class="showcase__text">Disponible en medidas de <strong>2.4 × 2.4 m (estándar), 3 × 2.4 m (prensa) y 4 × 2.5 m (escenario)</strong>. La estructura de aluminio tubular con base contrapesada se instala sin perforaciones en el piso o paredes. Para eventos de gran formato, fabricamos configuraciones <strong>modulares de hasta 10 metros</strong> con uniones invisibles. Combínalo con nuestra <a href="/servicios/accesorios/senalizacion-alfombras/alfombras-premium/">alfombra roja</a> y <a href="/servicios/accesorios/senalizacion-alfombras/postes-separadores/">postes separadores</a> para crear la experiencia red carpet completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Tela tensada</span>
+                  <span class="showcase__tag">Sin arrugas</span>
+                  <span class="showcase__tag">Hasta 10 m</span>
+                  <span class="showcase__tag">Multi-logo</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">Cotizar Step and Repeat</a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                  <span>Step and Repeat</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Pared Floral -->
+          <section class="section section--alt" aria-labelledby="pared-floral-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Elegancia natural para bodas y eventos sociales</span>
+                <h2 class="showcase__title" id="pared-floral-heading">Pared Floral Premium</h2>
+                <p class="showcase__subtitle">Flores artificiales de alta calidad que crean el fondo perfecto para fotos memorables.</p>
+                <p class="showcase__text">Nuestras <strong>paredes florales premium</strong> transforman cualquier espacio en un escenario digno de revista. Fabricadas con <strong>flores artificiales de seda y polímero de alta calidad</strong> que son virtualmente indistinguibles de las naturales en fotografía y video, mantienen su apariencia impecable durante todo el evento sin marchitarse, sin aroma alérgeno y sin mantenimiento. Disponibles en paletas de color coordinadas: blanca nupcial, rosada romántica, verde botánico y multi-color festival.</p>
+                <p class="showcase__text">Las medidas estándar son <strong>2.4 × 2.4 m y 3 × 2.4 m</strong> en paneles modulares que se ensamblan sin juntas visibles. La estructura posterior de aluminio con sistema de clip permite montaje y desmontaje en menos de 45 minutos. Perfecta para <strong>bodas, XV años, baby showers, bridal showers y eventos de lujo</strong>. Complementa con <a href="/servicios/iluminacion/decorativa/fairy-lights/">fairy lights</a> entrelazadas para un efecto mágico en fotografías nocturnas y con nuestra <a href="/servicios/iluminacion/arquitectonica/uplighting/">iluminación uplighting</a> para resaltar la textura de las flores.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Flores premium</span>
+                  <span class="showcase__tag">4 paletas de color</span>
+                  <span class="showcase__tag">Modular</span>
+                  <span class="showcase__tag">Sin mantenimiento</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">Cotizar Pared Floral</a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                  <span>Pared Floral Premium</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Marcos Gigantes y Photo Ops -->
+          <section class="section section--alt" aria-labelledby="marcos-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Diversión garantizada en cada evento</span>
+                <h2 class="showcase__title" id="marcos-heading">Marcos Gigantes y Photo Ops</h2>
+                <p class="showcase__subtitle">Marcos tipo Polaroid, redes sociales y vintage que convierten a cada invitado en protagonista.</p>
+                <p class="showcase__text">Nuestros <strong>marcos gigantes para photo ops</strong> son el complemento perfecto para crear momentos compartibles en redes sociales. La colección incluye marcos tipo <strong>Polaroid clásico, Instagram Stories, TikTok y Twitter/X</strong> en tamaños de 1.5 × 2 m y 2 × 2.5 m con los iconos y tipografía actualizados de cada plataforma. También disponemos de marcos de <strong>madera vintage en acabado dorado, plateado, rústico y blanco</strong> para bodas y eventos elegantes.</p>
+                <p class="showcase__text">Todos los marcos son <strong>autoportantes con base de piso contrapesada</strong> — no necesitan que alguien los sostenga, permitiendo que los invitados se tomen fotos libremente. Personalizamos el hashtag del evento, la fecha y los nombres de los anfitriones directamente en el marco. Para una estación de fotos completa, combina con <a href="/servicios/iluminacion/decorativa/letras-luminosas/">letras luminosas</a>, <a href="/servicios/accesorios/senalizacion-alfombras/alfombras-premium/">alfombra temática</a> y props temáticos que proporcionamos como complemento.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Polaroid / Instagram</span>
+                  <span class="showcase__tag">Autoportantes</span>
+                  <span class="showcase__tag">Personalizables</span>
+                  <span class="showcase__tag">Props incluidos</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">Cotizar Marcos Gigantes</a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                  <span>Marcos Gigantes Photo Ops</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Totems LED y Señalética Integral -->
+          <section class="section section--alt" aria-labelledby="totems-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Comunicación visual profesional para congresos y expos</span>
+                <h2 class="showcase__title" id="totems-heading">Totems LED y Señalética Integral</h2>
+                <p class="showcase__subtitle">Señalización digital actualizable en tiempo real y señalética impresa con tu identidad corporativa.</p>
+                <p class="showcase__text">Nuestros <strong>totems informativos LED de 1.80 m</strong> son la solución definitiva para congresos, expos y eventos multi-sala. La pantalla digital de alta resolución permite mostrar <strong>programas de ponencias, mapas del venue, mensajes de patrocinadores y contenido dinámico</strong> que se actualiza en tiempo real desde cualquier dispositivo vía WiFi. La carcasa de aluminio anodizado con base contrapesada ofrece una presencia institucional impecable sin ocupar espacio excesivo.</p>
+                <p class="showcase__text">Complementamos los totems con <strong>señalización direccional autoportante, identificadores de mesa</strong> (numerados o con nombres), banners roll-up de 0.85 × 2 m, pendones colgantes y <strong>señalética adhesiva de piso</strong> con tratamiento antiderrapante. Cada elemento se produce con tu identidad visual corporativa manteniendo coherencia en tipografía, colores y estilo gráfico. Paquetes con descuento progresivo para <strong>congresos con 50+ señales</strong>. Complementa con <a href="/servicios/audiovisual/pantallas-led/pedestal/">pantallas LED de pedestal</a> para contenido multimedia en puntos estratégicos.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Totems 1.80 m</span>
+                  <span class="showcase__tag">Actualización WiFi</span>
+                  <span class="showcase__tag">Señalética integral</span>
+                  <span class="showcase__tag">Paquetes expo</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">Cotizar Señalética</a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                  <span>Totems LED y Señalética</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Backdrops y Señalética"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu backdrop o señalética, es natural tener preguntas sobre materiales, tiempos de producción, personalización y logística. Aquí encontrarás las respuestas más comunes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor te responderá al instante."
+              ]}
+            />
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer"><p set:html={faq.answer} /></div>
+                  </details>
+                ))}
+              </div>
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de branding visual resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre backdrops y señalética para mi evento`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">Escribir por WhatsApp</a>
+                </div>
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- DESKTOP SIDEBAR (sticky) -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Señalización y Alfombras</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item"><a href="/servicios/accesorios/senalizacion-alfombras/" class="sidebar-nav__back">&uarr; Volver a Señalización y Alfombras</a></li>
+              <li class="sidebar-nav__item"><a href="/servicios/accesorios/" class="sidebar-nav__back">&uarr; Volver a Accesorios</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu branding visual:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li><a href={item.href} class="sidebar-related__link"><span class="sidebar-related__arrow">&rarr;</span>{item.name}</a></li>
+              ))}
+            </ul>
+          </div>
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas backdrops o señalética para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar backdrops y señalética para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Backdrop o Señalética"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un backdrop step and repeat para tu lanzamiento o señalética completa para un congreso, estamos aquí para diseñar la solución visual ideal."
+        ]}
+      />
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">Nombre completo <span class="form-field__required">*</span></label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">Teléfono <span class="form-field__required">*</span></label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">Tipo de evento</label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Lanzamiento de Producto">Lanzamiento de Producto</option>
+                <option value="Congreso / Expo">Congreso / Expo</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Conferencia de Prensa">Conferencia de Prensa</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">Fecha del evento</label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoBackdrop">Tipo de backdrop / señalética</label>
+              <select id="tipoBackdrop" name="tipoBackdrop" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo</option>
+                <option value="Step and Repeat">Backdrop Step and Repeat</option>
+                <option value="Pared Floral">Pared Floral</option>
+                <option value="Marco Gigante">Marco Gigante / Photo Op</option>
+                <option value="Totem LED">Totems LED</option>
+                <option value="Señalética Completa">Señalética Integral</option>
+                <option value="Paquete Completo">Paquete Completo</option>
+              </select>
+            </div>
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">Mensaje <span class="form-field__required">*</span></label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Cuéntanos los detalles: medidas del backdrop, si necesitas branding con logo, tipo de venue, número de invitados, si necesitas señalética adicional..." rows="4" required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Prueba digital gratis</h3>
+            <p class="reserva-card__text">Te enviamos un render digital de tu backdrop con tu logo aplicado para que apruebes antes de producir.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría de diseño personalizada para tu presupuesto.</p>
+          </div>
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoBackdrop = document.getElementById('tipoBackdrop').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+      let texto = `*Backdrops y Señalética*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoBackdrop) texto += `*Tipo de backdrop:* ${tipoBackdrop}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() { this.classList.remove('form-field__input--error'); });
+    });
+  </script>
+
+  <!-- PROVEEDORES -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader id="proveedores-heading" title="Proveedores de Confianza en Branding Visual para Eventos" subtitle="Red de aliados profesionales" description={["Trabajamos con los proveedores más reconocidos de backdrops, señalética y branding visual en la Ciudad de México. Cada aliado cuenta con capacidad de producción certificada y trayectoria comprobada.", "Nuestra red nos permite garantizar tiempos de entrega, calidad de impresión y cobertura completa para eventos de cualquier escala."]} />
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header"><span class="partner-card__initial">A</span><div class="partner-card__badge">Aliado estratégico</div></div>
+          <div class="partner-card__content"><h3 class="partner-card__name">Accesorios Event MX</h3><p class="partner-card__tagline">Backdrops y branding visual premium para eventos en CDMX</p><p class="partner-card__text">Especialistas en backdrops step and repeat, paredes florales y señalética con producción propia. Impresión en sublimación y eco-solvente con entrega en toda la CDMX.</p></div>
+        </article>
+        <article class="partner-card">
+          <div class="partner-card__header"><span class="partner-card__initial">R</span><div class="partner-card__badge">Renta integral</div></div>
+          <div class="partner-card__content"><h3 class="partner-card__name">RentaDecor CDMX</h3><p class="partner-card__tagline">Renta de backdrops y decoración visual para todo tipo de evento</p><p class="partner-card__text">Más de 8 años proporcionando soluciones de branding visual para lanzamientos, bodas y congresos. Marcos gigantes, paredes florales y totems LED con montaje incluido.</p></div>
+        </article>
+        <article class="partner-card">
+          <div class="partner-card__header"><span class="partner-card__initial">T</span><div class="partner-card__badge">+10 años de experiencia</div></div>
+          <div class="partner-card__content"><h3 class="partner-card__name">TextilEvent</h3><p class="partner-card__tagline">Producción de backdrops y señalética con estándares internacionales</p><p class="partner-card__text">Proveedores de backdrops en tela tensada y lona PVC con impresión de alta resolución. Estructuras de aluminio certificadas y servicio de diseño incluido.</p></div>
+        </article>
+        <article class="partner-card">
+          <div class="partner-card__header"><span class="partner-card__initial">E</span><div class="partner-card__badge">Logística profesional</div></div>
+          <div class="partner-card__content"><h3 class="partner-card__name">EventosPro Accesorios</h3><p class="partner-card__tagline">Señalética integral y soluciones de comunicación visual</p><p class="partner-card__text">Servicio integral de señalética con logística en toda la CDMX. Totems LED, roll-ups, señalización direccional y branding corporativo con operadores certificados.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. CTA FINAL -->
+  <CTABanner
+    headline="Backdrops que hacen que tu marca sea protagonista en cada foto"
+    subheadline="Más de 350 eventos con branding visual nos respaldan. Cotiza hoy y recibe asesoría de diseño sin compromiso."
+    primaryCTA={{ label: "Cotizar backdrops y señalética", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar backdrops y señalética para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>
