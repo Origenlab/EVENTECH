@@ -1,0 +1,730 @@
+---
+/**
+ * ─── Bungee Run Inflable — Pagina de Producto (Nivel 4) ───
+ * Bungee run inflable con doble carril y arnes elastico para
+ * competencias en corporativos y fiestas.
+ *
+ * Jerarquia: Servicios > Inflables > Interactivos y Deportivos > Bungee Run
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Inflables", href: "/servicios/inflables/" },
+  { label: "Interactivos y Deportivos", href: "/servicios/inflables/interactivos-deportivos/" },
+  { label: "Bungee Run" },
+];
+
+const faqs = [
+  { question: "¿Cómo funciona el bungee run?", answer: "El bungee run es una competencia donde <strong>2 participantes corren simultáneamente</strong> en carriles paralelos de 12 metros, cada uno conectado a un arnés elástico profesional. El objetivo es correr lo más lejos posible y colocar un marcador de velcro en la pista antes de que la cuerda bungee te jale de regreso. Gana quien logre colocar su marcador más lejos. La pista inflable acolchada garantiza aterrizajes suaves y seguros." },
+  { question: "¿El arnés del bungee run es seguro?", answer: "Absolutamente. Nuestros <strong>arneses son profesionales de grado deportivo</strong>, fabricados con cintas de nylon reforzado y hebillas de acero inoxidable. Cada arnés es ajustable para adaptarse a diferentes tallas — desde niños de 10 años (30 kg mínimo) hasta adultos de hasta 120 kg. Las cuerdas bungee son de <strong>látex de alta resistencia</strong> con certificación de carga. Nuestro coordinador verifica cada arnés antes de cada ronda y supervisa la operación continuamente." },
+  { question: "¿Qué edades y peso soporta el bungee run?", answer: "El bungee run es apto para participantes desde <strong>10 años en adelante</strong> con un peso mínimo de 30 kg y máximo de 120 kg. El rango de peso es importante porque el arnés elástico necesita un peso mínimo para funcionar correctamente y tiene un límite máximo por seguridad. Las cuerdas bungee son ajustables en tensión para adaptarse al peso del participante — nuestro coordinador las calibra antes de cada ronda." },
+  { question: "¿Cuánto espacio necesito para el bungee run?", answer: "El bungee run requiere un espacio de al menos <strong>15x5 metros</strong>: 12 metros de largo para la pista, más 1.5 metros en cada extremo para acceso y zona de seguridad, y 5 metros de ancho para los dos carriles más espacio lateral. La altura mínima de techo para instalación en interiores es de <strong>3.5 metros</strong>. Se instala sobre pasto, concreto o piso de salón con protección." },
+  { question: "¿Se puede combinar el bungee run con otros juegos?", answer: "Sí, las combinaciones son nuestra opción más solicitada. El <strong>Kit Bungee + Velcro Wall</strong> es ideal para crear una zona de competencias. El <strong>Paquete Team Building</strong> combina bungee run con <a href=\"/servicios/inflables/interactivos-deportivos/juegos-destreza/\">juegos de destreza</a> para dinámicas corporativas completas. También puedes agregar <a href=\"/servicios/inflables/interactivos-deportivos/cancha-futbol/\">cancha de futbol</a> para una zona deportiva integral. Descuentos de hasta 20% en combos." },
+  { question: "¿El bungee run funciona en interiores y exteriores?", answer: "Sí, funciona en <strong>ambos entornos</strong>. En interiores necesitas un salón de al menos 15x5 metros con techo mínimo de 3.5 metros. En exteriores se instala sobre pasto o concreto con anclaje de estacas o contrapesos. La pista inflable tiene base acolchada que protege cualquier superficie. En caso de lluvia o viento fuerte se suspende por seguridad. Para eventos nocturnos en exteriores, ofrecemos la versión LED con iluminación perimetral." },
+];
+
+const specs = [
+  { label: "Pista", value: "12 metros doble carril" },
+  { label: "Arneses", value: "2 elásticos profesionales ajustables" },
+  { label: "Carriles", value: "2 paralelos con separación central" },
+  { label: "Capacidad", value: "2 competidores simultáneos" },
+  { label: "Edad mínima", value: "10 años" },
+  { label: "Peso rango", value: "30-120 kg ajustable" },
+  { label: "Material", value: "Lona vinílica 22 oz + foam lateral" },
+  { label: "Coordinador", value: "Incluido durante el evento" },
+  { label: "Marcadores", value: "Velcro de posición cada metro" },
+  { label: "Inflador", value: "Continuo 2 HP, 110V" },
+];
+
+const sidebarNav = [
+  { name: "Cancha Futbol Inflable", href: "/servicios/inflables/interactivos-deportivos/cancha-futbol/" },
+  { name: "Basquetbol Gigante", href: "/servicios/inflables/interactivos-deportivos/basquetbol-gigante/" },
+  { name: "Bungee Run", href: null, active: true },
+  { name: "Juegos de Destreza", href: "/servicios/inflables/interactivos-deportivos/juegos-destreza/" },
+];
+
+const sidebarRelated = [
+  { name: "Inflables para Adultos", href: "/servicios/inflables/adultos/" },
+  { name: "Juegos Infantiles", href: "/servicios/inflables/juegos-infantiles/" },
+  { name: "Pistas de Baile", href: "/servicios/pistas-baile/" },
+  { name: "Audiovisual y Sonido", href: "/servicios/audiovisual/sonido/" },
+  { name: "Carpas para Eventos", href: "/servicios/carpas/" },
+];
+
+const reviews = [
+  { author: "Ricardo López", text: "Contratamos el bungee run para nuestro evento de team building en una nave industrial de Naucalpan. Fue la atracción más popular del día. Los compañeros competían con toda la energía y las risas no paraban cuando la cuerda los jalaba de regreso. El coordinador organizó un torneo por departamentos que generó momentos memorables. Servicio impecable.", rating: 5, date: "2025-11-10" },
+  { author: "Daniela Moreno", text: "Lo rentamos para la fiesta de mi hermano de 16 años y fue un éxito total. Los adolescentes se divirtieron durante horas compitiendo entre ellos. El arnés se sentía muy seguro y el operador fue muy profesional explicando las reglas. La pista acolchada dio tranquilidad a todos los papás. Súper recomendado.", rating: 5, date: "2025-10-18" },
+  { author: "Alejandro Ruiz", text: "Usamos el bungee run en nuestro evento deportivo universitario con más de 200 estudiantes. La rotación fue rapidísima — cada competencia duraba 30 segundos — y todos pudieron participar. El equipo de EVENTECH fue muy puntual, la instalación rápida y el desmontaje eficiente. Excelente relación calidad-precio.", rating: 5, date: "2025-09-25" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Bungee Run Inflable para Eventos en CDMX",
+    description: "Renta de bungee run inflable con doble carril y arnés elástico para competencias. 2 participantes corren simultáneamente. Ideal para corporativos. Desde $2,500.",
+    url: "/servicios/inflables/interactivos-deportivos/bungee-run/",
+    priceRange: { min: 2500, max: 6000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 142,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Inflables", url: "/servicios/inflables/" },
+    { name: "Interactivos y Deportivos", url: "/servicios/inflables/interactivos-deportivos/" },
+    { name: "Bungee Run", url: "/servicios/inflables/interactivos-deportivos/bungee-run/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Bungee Run Inflable para Eventos en CDMX | EVENTECH"
+  description="Renta de bungee run inflable con doble carril y arnés elástico para competencias. 2 participantes corren simultáneamente. Ideal para corporativos. Desde $2,500."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Competencia elástica para 2 rivales"
+    title='Renta de <span class="highlight">Bungee Run</span> Inflable para Eventos'
+    subtitle="Pista doble carril de 12 metros con arneses elásticos profesionales y sistema de retracción controlada. 2 competidores corren simultáneamente con marcadores de velcro y coordinador de competencias incluido."
+    primaryCTA={{ label: "Cotiza tu bungee run", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar un bungee run inflable para mi evento` }}
+    cards={[
+      {
+        title: "Pista doble carril de 12 metros con arneses profesionales",
+        content: "<strong>Pista doble carril de 12 metros</strong> con arneses elásticos profesionales, velcro de fijación y sistema de retracción controlada. 2 competidores corren simultáneamente en carriles paralelos con separación central. Fabricada en lona vinílica de 22 oz con foam lateral de protección y base acolchada para aterrizajes seguros. Cuerdas bungee de látex de alta resistencia con tensión ajustable según peso.",
+      },
+      {
+        title: "Coordinador de competencias y sistema de eliminación",
+        content: "<strong>Coordinador de competencias incluido</strong>, cronómetro de distancia, marcadores de posición con velcro y sistema de eliminación por rondas. Nuestro staff organiza torneos con tabla de posiciones, semifinales y final. Incluye transporte, instalación con anclaje profesional, calibración de arneses y desmontaje sin costo adicional dentro de CDMX.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Quieres una competencia épica de bungee run en tu evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con el formato ideal para tu espacio y número de participantes"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Interactivos y Deportivos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas un bungee run para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar un bungee run inflable para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Bungee Run</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Bungee Run Clásico -->
+          <section class="section section--alt" aria-labelledby="clasico-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">La atracción más adictiva</span>
+                <h2 class="showcase__title" id="clasico-heading">Bungee Run Clásico</h2>
+                <p class="showcase__subtitle">Pista doble carril de 12 metros con arneses elásticos para competencias cara a cara llenas de adrenalina.</p>
+                <p class="showcase__text">Nuestro <strong>bungee run clásico</strong> es la versión estándar que genera las competencias más emocionantes y adictivas en cualquier evento. La pista inflable de <strong>12 metros de largo con doble carril</strong> permite que 2 competidores corran simultáneamente, cada uno conectado a un arnés elástico profesional. Los marcadores de velcro cada metro permiten medir con precisión quién llegó más lejos antes de ser retractado.</p>
+                <p class="showcase__text">La base completamente <strong>acolchada con foam de alta densidad</strong> garantiza aterrizajes suaves cuando la cuerda bungee retrae al competidor. Nuestro coordinador verifica cada arnés, calibra la tensión según el peso del participante y supervisa cada ronda. Perfecto para <strong>fiestas de cumpleaños, eventos sociales y kermeses</strong>. Cada competencia dura 20-30 segundos, permitiendo una rotación rápida de hasta 80 participantes por hora.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">12 metros</span>
+                  <span class="showcase__tag">Doble carril</span>
+                  <span class="showcase__tag">Arnés profesional</span>
+                  <span class="showcase__tag">Base acolchada</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Bungee Clásico
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 5 7 9 7 9s7-4 7-9a7 7 0 0 0-7-7z"/>
+                    <path d="M12 18v4"/><path d="M10 22h4"/>
+                  </svg>
+                  <span>Bungee Run Clásico</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Bungee Run Nocturno LED -->
+          <section class="section section--alt" aria-labelledby="nocturno-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Competencia nocturna espectacular</span>
+                <h2 class="showcase__title" id="nocturno-heading">Bungee Run Nocturno LED</h2>
+                <p class="showcase__subtitle">Versión premium con iluminación LED RGB perimetral para competencias nocturnas con ambiente espectacular.</p>
+                <p class="showcase__text">Nuestro <strong>bungee run nocturno LED</strong> transforma la competencia en un espectáculo visual. La pista cuenta con <strong>tiras LED RGB en los laterales</strong> que iluminan los carriles con colores vibrantes, marcadores de distancia luminosos y efectos de luz que cambian según la velocidad del competidor. Los reflectores LED en los extremos garantizan visibilidad total para espectadores y participantes.</p>
+                <p class="showcase__text">Ideal para <strong>eventos nocturnos, fiestas de fin de año, festivales y activaciones de marca</strong> donde el impacto visual es clave. La iluminación LED crea un ambiente de competencia digno de un show televisivo. Incluye todo el equipo del bungee clásico más el sistema LED con controlador DMX para efectos programados y bocina con efectos de sonido para inicio, conteo regresivo y victoria. Combínalo con nuestro <a href="/servicios/audiovisual/sonido/">equipo de sonido</a> para una producción completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Iluminación LED RGB</span>
+                  <span class="showcase__tag">Marcadores luminosos</span>
+                  <span class="showcase__tag">Efectos de sonido</span>
+                  <span class="showcase__tag">Eventos nocturnos</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Bungee Nocturno
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 5 7 9 7 9s7-4 7-9a7 7 0 0 0-7-7z"/>
+                    <path d="M12 18v4"/><path d="M10 22h4"/>
+                  </svg>
+                  <span>Bungee Run Nocturno LED</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Torneo Bungee por Equipos -->
+          <section class="section section--alt" aria-labelledby="torneo-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Team building competitivo</span>
+                <h2 class="showcase__title" id="torneo-heading">Torneo Bungee por Equipos</h2>
+                <p class="showcase__subtitle">Formato de torneo con equipos de 4-6 personas, eliminación por rondas y tabla de posiciones acumulada.</p>
+                <p class="showcase__text">Nuestro <strong>Torneo Bungee por Equipos</strong> convierte el bungee run en una actividad de team building estructurada y emocionante. Los participantes se dividen en equipos de 4-6 personas y cada integrante compite individualmente, <strong>acumulando metros para su equipo</strong>. El equipo con mayor distancia total gana la ronda. El formato de eliminación progresiva genera una tensión creciente hasta la gran final.</p>
+                <p class="showcase__text">Incluye <strong>tabla de posiciones visible</strong> actualizada en tiempo real, cronómetro para cada ronda, chalecos de colores por equipo y ceremonia de premiación con trofeos. Nuestro coordinador organiza toda la logística: sorteo de parejas en cada ronda, tiempos de descanso y dinámicas de motivación entre competencias. Perfecto para <strong>empresas de 20 a 80 participantes</strong>. Combínalo con nuestro <a href="/servicios/catering/">servicio de catering</a> para zona de hidratación entre rondas.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Equipos de 4-6</span>
+                  <span class="showcase__tag">Eliminación por rondas</span>
+                  <span class="showcase__tag">Tabla de posiciones</span>
+                  <span class="showcase__tag">Premiación incluida</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Torneo Bungee
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 5 7 9 7 9s7-4 7-9a7 7 0 0 0-7-7z"/>
+                    <path d="M12 18v4"/><path d="M10 22h4"/>
+                  </svg>
+                  <span>Torneo Bungee por Equipos</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Bungee + Velcro Wall -->
+          <section class="section section--alt" aria-labelledby="kit-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Combo de adrenalina</span>
+                <h2 class="showcase__title" id="kit-heading">Kit Bungee + Velcro Wall</h2>
+                <p class="showcase__subtitle">Paquete combinado con bungee run y velcro wall para crear una zona de competencias completa y variada.</p>
+                <p class="showcase__text">Nuestro <strong>Kit Bungee + Velcro Wall</strong> combina las dos atracciones más populares para eventos de adultos y adolescentes. El bungee run reta tu velocidad y fuerza, mientras el <strong>velcro wall</strong> de 4 metros te permite saltar contra una pared pegajosa usando un traje especial y quedar adherido en las posiciones más cómicas. Juntos crean una zona de competencias variada que mantiene a los participantes activos durante horas.</p>
+                <p class="showcase__text">El kit incluye ambas estructuras inflables, <strong>2 trajes de velcro</strong>, arneses bungee, coordinador dedicado para ambos juegos, sistema de puntuación combinado y equipo de seguridad completo. Perfecto para <strong>eventos corporativos, team building, fiestas de adultos y activaciones de marca</strong> donde la variedad de actividades es clave. Ofrecemos un <strong>descuento de 15%</strong> sobre el precio individual de cada juego. Combínalo con nuestras <a href="/servicios/carpas/">carpas</a> para zona de espectadores.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Bungee Run</span>
+                  <span class="showcase__tag">Velcro Wall</span>
+                  <span class="showcase__tag">15% descuento combo</span>
+                  <span class="showcase__tag">Coordinador dedicado</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Bungee + Velcro
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 5 7 9 7 9s7-4 7-9a7 7 0 0 0-7-7z"/>
+                    <path d="M12 18v4"/><path d="M10 22h4"/>
+                  </svg>
+                  <span>Kit Bungee + Velcro Wall</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Bungee Run"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu bungee run inflable, es natural tener preguntas sobre seguridad, capacidad y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de inflables deportivos resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre el bungee run inflable para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Interactivos y Deportivos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/inflables/interactivos-deportivos/" class="sidebar-nav__back">&uarr; Volver a Interactivos y Deportivos</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/inflables/" class="sidebar-nav__back">&uarr; Volver a Inflables</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu bungee run:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas un bungee run para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar un bungee run inflable para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Bungee Run Inflable"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un bungee clásico para tu fiesta o un paquete de torneo completo para tu empresa, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Team Building">Team Building</option>
+                <option value="Fiesta de Cumpleaños">Fiesta de Cumpleaños</option>
+                <option value="Festival / Feria">Festival / Feria</option>
+                <option value="Activación de Marca">Activación de Marca</option>
+                <option value="Evento Universitario">Evento Universitario</option>
+                <option value="Evento Escolar">Evento Escolar</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoBungee">
+                Tipo de bungee run
+              </label>
+              <select id="tipoBungee" name="tipoBungee" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo</option>
+                <option value="Bungee Run Clásico">Bungee Run Clásico</option>
+                <option value="Bungee Run Nocturno">Bungee Run Nocturno</option>
+                <option value="Torneo Bungee Equipos">Torneo Bungee Equipos</option>
+                <option value="Kit Bungee + Velcro Wall">Kit Bungee + Velcro Wall</option>
+                <option value="Paquete Team Building">Paquete Team Building</option>
+                <option value="Combo Bungee + Obstáculos">Combo Bungee + Obstáculos</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de participantes, edades, tipo de espacio (salón/jardín/nave), duración del evento..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu espacio sin costo para verificar dimensiones y puntos de anclaje disponibles.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para la competencia perfecta.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoBungee = document.getElementById('tipoBungee').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Bungee Run Inflable*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoBungee) texto += `*Tipo de bungee:* ${tipoBungee}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Inflables"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de inflables y juegos para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, personal capacitado y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">I</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Inflables Fiesta MX</h3>
+            <p class="partner-card__tagline">Brincolines y Juegos Inflables</p>
+            <p class="partner-card__text">Brincolines y juegos inflables certificados para fiestas infantiles en CDMX. Canchas deportivas inflables, bungee run y juegos interactivos con seguro de responsabilidad civil y operadores capacitados.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">J</span>
+            <div class="partner-card__badge">Eventos y ferias</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">JuegosEvent CDMX</h3>
+            <p class="partner-card__tagline">Inflables Profesionales para Eventos</p>
+            <p class="partner-card__text">Renta de inflables profesionales con monitores para eventos y ferias. Especialistas en canchas deportivas, juegos interactivos y circuitos de obstáculos para corporativos y festivales.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">I</span>
+            <div class="partner-card__badge">Alta calidad</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">InflaPro</h3>
+            <p class="partner-card__tagline">Juegos Inflables de Alta Calidad</p>
+            <p class="partner-card__text">Juegos inflables de alta calidad con seguro y operadores certificados. Canchas de futbol, basquetbol gigante y juegos de destreza fabricados con materiales premium y estándares internacionales.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">D</span>
+            <div class="partner-card__badge">Eventos familiares</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">DiversiónTotal</h3>
+            <p class="partner-card__tagline">Inflables Temáticos y Circuitos</p>
+            <p class="partner-card__text">Inflables temáticos y circuitos para eventos infantiles y familiares. Amplio catálogo de canchas deportivas, juegos interactivos y atracciones mecánicas con logística profesional en toda la CDMX.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="El bungee run que llevará la adrenalina de tu evento al máximo"
+    subheadline="Más de 250 eventos exitosos nos respaldan. Cotiza hoy y recibe asesoría sin compromiso."
+    primaryCTA={{ label: "Cotizar bungee run", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar un bungee run inflable para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

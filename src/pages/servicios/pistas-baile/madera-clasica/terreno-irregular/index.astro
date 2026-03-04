@@ -1,0 +1,734 @@
+---
+/**
+ * ─── Pista sobre Terreno Irregular — Pagina de Producto (Nivel 4) ───
+ * Pista de baile de madera con plataforma niveladora para jardines,
+ * pasto y terreno irregular en CDMX.
+ *
+ * Jerarquia: Servicios > Pistas de Baile > Madera Clásica > Terreno Irregular
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Pistas de Baile", href: "/servicios/pistas-baile/" },
+  { label: "Madera Clásica", href: "/servicios/pistas-baile/madera-clasica/" },
+  { label: "Terreno Irregular" },
+];
+
+const faqs = [
+  { question: "¿Cuánto desnivel puede compensar la plataforma niveladora?", answer: "Nuestra plataforma niveladora profesional compensa <strong>desniveles de hasta 30 cm</strong> gracias a sus patas de aluminio ajustables individualmente. Esto cubre la gran mayoría de jardines, terrazas con pendiente y terrenos naturales en la Ciudad de México y área metropolitana. Para desniveles superiores a 30 cm, diseñamos soluciones de ingeniería personalizada con estructura escalonada. Nuestro equipo realiza una <strong>visita técnica gratuita</strong> previa para medir el desnivel exacto y diseñar la solución perfecta." },
+  { question: "¿La plataforma daña el pasto o el jardín?", answer: "No, nuestro sistema está diseñado para <strong>proteger completamente el terreno</strong>. Antes de instalar la plataforma, colocamos geotextil de protección que distribuye el peso uniformemente y previene hundimientos. Las patas de aluminio tienen bases amplias que reducen la presión por punto de contacto. Al retirar la plataforma después del evento, el pasto puede mostrar un ligero aplastamiento temporal que se recupera naturalmente en <strong>3-5 días con riego normal</strong>. No dejamos marcas permanentes ni daño al terreno." },
+  { question: "¿La pista sobre terreno irregular se puede usar con lluvia?", answer: "La plataforma niveladora de aluminio es <strong>resistente a la humedad y lluvia ligera</strong>. Sin embargo, la superficie de duela o parquet no debe exponerse directamente a lluvia intensa. Para eventos en jardín, recomendamos encarecidamente instalar la pista <strong>bajo una carpa o toldo</strong> como protección. Si hay pronóstico de lluvia ligera, la pista funciona bien con protección lateral. Nuestro equipo puede coordinar con proveedores de <a href=\"/servicios/carpas/\">carpas estructurales</a> para garantizar una cobertura completa." },
+  { question: "¿La pista incluye rampa de acceso?", answer: "Sí, <strong>todas nuestras pistas sobre terreno irregular incluyen rampa de acceso perimetral</strong> sin costo adicional. La rampa facilita el acceso seguro a la pista, especialmente para invitados con tacones, personas mayores y sillas de ruedas. La rampa tiene una pendiente suave del 8-10% con superficie antiderrapante y se integra visualmente con el zóclo decorativo. Podemos instalar rampas en uno, dos o todos los lados según la configuración de tu espacio." },
+  { question: "¿Cuánto tarda el montaje de una pista sobre terreno irregular?", answer: "El montaje de una pista sobre terreno irregular requiere <strong>4-8 horas dependiendo del tamaño y la complejidad del terreno</strong>. Una pista de 3x3 metros sobre un jardín relativamente plano se instala en 4-5 horas. Pistas de 5x5 o 6x6 metros sobre terrenos con desniveles pronunciados pueden requerir 6-8 horas. El proceso incluye: evaluación del terreno, colocación de geotextil, armado de plataforma, nivelación de patas, instalación de piso, zóclo y rampas, y limpieza final. Recomendamos programar el montaje <strong>el día anterior al evento</strong>." },
+  { question: "¿Se puede combinar la pista sobre terreno irregular con una carpa?", answer: 'Sí, es una de las combinaciones más populares para <strong>bodas en jardín y eventos al aire libre</strong>. La plataforma niveladora se instala dentro de la carpa, creando un piso premium protegido de los elementos. Coordinamos la instalación con el proveedor de carpas para que la plataforma se ajuste perfectamente al espacio disponible. Nuestras <a href="/servicios/carpas/">carpas estructurales</a> ofrecen cobertura completa con paredes laterales opcionales. También podemos instalar la pista parcialmente dentro y fuera de la carpa si el diseño del evento lo requiere.' },
+];
+
+const specs = [
+  { label: "Plataforma", value: "Aluminio reforzado con patas ajustables" },
+  { label: "Nivelación", value: "Hasta 30 cm de desnivel compensado" },
+  { label: "Superficie", value: "Duela o parquet a elección" },
+  { label: "Patas", value: "Ajustables individualmente" },
+  { label: "Terrenos", value: "Jardín, pasto, tierra, arena, piedra" },
+  { label: "Medidas", value: "3x3 a 6x6 metros" },
+  { label: "Carga", value: "500 kg/m²" },
+  { label: "Rampa", value: "Acceso incluida en perímetro" },
+  { label: "Zóclo", value: "Perimetral decorativo incluido" },
+  { label: "Montaje", value: "Profesional, 4-8 horas según terreno" },
+];
+
+const sidebarNav = [
+  { name: "Duela Laminada", href: "/servicios/pistas-baile/madera-clasica/duela-laminada/" },
+  { name: "Parquet Modular", href: "/servicios/pistas-baile/madera-clasica/parquet-modular/" },
+  { name: "Marco Decorativo", href: "/servicios/pistas-baile/madera-clasica/marco-decorativo/" },
+  { name: "Terreno Irregular", href: null, active: true },
+];
+
+const sidebarRelated = [
+  { name: "Pistas LED", href: "/servicios/pistas-baile/pistas-led/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+  { name: "Mobiliario", href: "/servicios/mobiliario/" },
+  { name: "Carpas", href: "/servicios/carpas/" },
+  { name: "Sonido", href: "/servicios/audiovisual/sonido/" },
+];
+
+const reviews = [
+  { author: "Ana María Gutiérrez", text: "Nuestra boda fue en un jardín con bastante desnivel en una hacienda de Tlalpan. El equipo de EVENTECH hizo la visita técnica, midió todo el terreno y nos propuso una solución perfecta. La pista de duela en tono cerezo quedó completamente plana y estable sobre el jardín. Los invitados no podían creer que debajo había pasto irregular. El zóclo y las rampas le dieron un acabado impecable.", rating: 5, date: "2025-11-25" },
+  { author: "Miguel Ángel Flores", text: "Organizamos una recepción en una hacienda de Cuernavaca con un jardín muy irregular. La plataforma niveladora compensó un desnivel de casi 25 cm y la pista de parquet quedó perfectamente plana. El geotextil protegió completamente el pasto — a los 3 días del evento no había ni una marca. Servicio profesional de principio a fin.", rating: 5, date: "2025-10-12" },
+  { author: "Laura Jiménez", text: "Hicimos un evento de empresa en un terreno de arena cerca de la playa en Acapulco. Pensamos que sería imposible tener una pista de baile decente, pero EVENTECH instaló la plataforma sobre la arena y colocaron duela natural encima. La superficie quedó firme y estable, bailamos toda la noche sin problemas. El montaje tomó unas 6 horas pero valió completamente la pena.", rating: 5, date: "2025-09-08" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Pista de Baile para Terreno Irregular en CDMX",
+    description: "Renta de pista de baile de madera con plataforma niveladora para jardines, pasto y terreno irregular en CDMX. Estabilidad total. Desde $8,000.",
+    url: "/servicios/pistas-baile/madera-clasica/terreno-irregular/",
+    priceRange: { min: 8000, max: 40000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 156,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Pistas de Baile", url: "/servicios/pistas-baile/" },
+    { name: "Madera Clásica", url: "/servicios/pistas-baile/madera-clasica/" },
+    { name: "Terreno Irregular", url: "/servicios/pistas-baile/madera-clasica/terreno-irregular/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Pista de Baile para Terreno Irregular en CDMX"
+  description="Renta de pista de baile de madera con plataforma niveladora para jardines, pasto y terreno irregular en CDMX. Estabilidad total. Desde $8,000."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Pista perfecta sobre cualquier terreno"
+    title='Renta de <span class="highlight">Pista de Baile para Terreno Irregular</span> en CDMX'
+    subtitle="Plataforma niveladora profesional de aluminio con patas ajustables que compensa desniveles de hasta 30cm. Superficie de duela o parquet sobre jardín, pasto, tierra o arena con estabilidad total."
+    primaryCTA={{ label: "Cotiza tu pista", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar una pista de baile para terreno irregular` }}
+    cards={[
+      {
+        title: "Plataforma niveladora con compensación de hasta 30cm de desnivel",
+        content: "<strong>Renta de pista de baile con plataforma niveladora profesional</strong> de aluminio reforzado y patas ajustables individualmente que compensa desniveles de hasta 30 cm sobre jardín, pasto, tierra, arena o piedra. La estructura soporta una carga de 500 kg/m² para baile intenso con total seguridad. Geotextil de protección incluido para preservar el terreno sin daños. Medidas disponibles de 3x3 a 6x6 metros con módulos escalables según el tamaño de tu evento.",
+      },
+      {
+        title: "Superficie de duela o parquet con zóclo y rampa de acceso",
+        content: "<strong>Superficie premium a elegir</strong>: duela laminada de 12 mm en 4 tonos (natural, roble, nogal, cerezo) o parquet modular en 5 tonos (arce, haya, cerezo, wengué, roble). Acabado antiderrapante certificado sobre plataforma perfectamente plana y estable. Zóclo perimetral decorativo incluido que cubre la transición entre la estructura y el terreno. Rampa de acceso con superficie antiderrapante en todos los lados necesarios. Montaje profesional de 4-8 horas según complejidad del terreno.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Tu venue tiene terreno irregular? No es problema"
+    subheadline="Cotiza sin compromiso — instalamos pistas de madera sobre cualquier superficie con nivelación profesional"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Pistas de Madera para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas una pista sobre terreno irregular?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una pista de baile para terreno irregular`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h18"/><path d="M12 3v18"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Pista sobre Terreno Irregular</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Pista sobre Jardín -->
+          <section class="section section--alt" aria-labelledby="jardin-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">La más solicitada</span>
+                <h2 class="showcase__title" id="jardin-heading">Pista sobre Jardín</h2>
+                <p class="showcase__subtitle">Nivelación profesional sobre pasto y jardín para bodas al aire libre y eventos en haciendas.</p>
+                <p class="showcase__text">La instalación de <strong>pista de baile sobre jardín</strong> es nuestro servicio más solicitado para <strong>bodas al aire libre, recepciones en haciendas y fiestas en jardín</strong> en la Ciudad de México y área metropolitana. La plataforma niveladora de aluminio se ajusta a las irregularidades naturales del terreno, compensando los desniveles típicos de jardines residenciales y haciendas coloniales. El geotextil de protección preserva el pasto sin daños.</p>
+                <p class="showcase__text">La superficie de <strong>duela o parquet</strong> queda perfectamente plana y estable, creando una zona de baile premium que contrasta elegantemente con el entorno natural. Las rampas de acceso perimetrales garantizan comodidad para todos los invitados, incluyendo personas con movilidad reducida. El zóclo decorativo oculta la estructura y da un acabado profesional. Ideal para combinar con nuestra <a href="/servicios/iluminacion/decorativa/fairy-lights/">iluminación fairy lights</a> y <a href="/servicios/carpas/">carpas transparentes</a> para un ambiente de ensueño al aire libre.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Jardín / Pasto</span>
+                  <span class="showcase__tag">Geotextil</span>
+                  <span class="showcase__tag">Rampas incluidas</span>
+                  <span class="showcase__tag">Bodas al aire libre</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Pista en Jardín
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M3 12h18"/><path d="M12 3v18"/>
+                    <path d="M3 7.5h18"/><path d="M3 16.5h18"/>
+                    <path d="M7.5 3v18"/><path d="M16.5 3v18"/>
+                  </svg>
+                  <span>Pista sobre Jardín</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Pista sobre Pendiente -->
+          <section class="section section--alt" aria-labelledby="pendiente-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Compensación de desnivel</span>
+                <h2 class="showcase__title" id="pendiente-heading">Pista sobre Pendiente</h2>
+                <p class="showcase__subtitle">Compensación profesional de desniveles pronunciados para terrazas, laderas y terrenos inclinados.</p>
+                <p class="showcase__text">Nuestra <strong>plataforma para terrenos con pendiente</strong> está diseñada para los desafíos más complejos de instalación. Las <strong>patas ajustables individualmente</strong> compensan desniveles de hasta 30 cm, creando una superficie perfectamente horizontal sobre terrazas inclinadas, laderas de jardín, terrenos escalonados y venues con arquitectura colonial de varios niveles. Cada pata se calibra con nivel láser para garantizar precisión milimétrica.</p>
+                <p class="showcase__text">La estructura de aluminio reforzado distribuye la carga de <strong>500 kg/m² uniformemente</strong>, garantizando estabilidad total incluso en los puntos de mayor desnivel. El sistema de anclaje temporal asegura la plataforma al terreno sin perforaciones permanentes. Ideal para <strong>haciendas con terrazas escalonadas, jardines en pendiente y terrenos montañosos</strong> donde otros proveedores no pueden instalar. Nuestro equipo de ingeniería realiza una visita técnica previa para diseñar la solución estructural óptima.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Hasta 30 cm</span>
+                  <span class="showcase__tag">Nivel láser</span>
+                  <span class="showcase__tag">500 kg/m²</span>
+                  <span class="showcase__tag">Terrazas y laderas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Pista en Pendiente
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M3 12h18"/><path d="M12 3v18"/>
+                    <path d="M3 7.5h18"/><path d="M3 16.5h18"/>
+                    <path d="M7.5 3v18"/><path d="M16.5 3v18"/>
+                  </svg>
+                  <span>Pista sobre Pendiente</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Pista sobre Arena/Piedra -->
+          <section class="section section--alt" aria-labelledby="arena-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Terrenos especiales</span>
+                <h2 class="showcase__title" id="arena-heading">Pista sobre Arena / Piedra</h2>
+                <p class="showcase__subtitle">Soluciones especializadas para arena de playa, grava, adoquín y superficies de piedra.</p>
+                <p class="showcase__text">Nuestro sistema de <strong>plataforma para terrenos especiales</strong> permite instalar pistas de baile de madera sobre superficies que normalmente serían imposibles: <strong>arena de playa, grava suelta, adoquín irregular, piedra volcánica y terracería</strong>. Utilizamos bases de distribución ampliadas que previenen el hundimiento en arena, y adaptadores para superficies duras que eliminan el deslizamiento sobre piedra y adoquín.</p>
+                <p class="showcase__text">Para eventos en playa, instalamos <strong>placas de distribución bajo la arena</strong> que crean una base firme para la plataforma, asegurando estabilidad total incluso con arena fina. Para superficies de piedra y adoquín, utilizamos almohadillas de nivelación que absorben las irregularidades sin dañar la superficie original. Ideal para <strong>bodas destino en playa, eventos en jardines de piedra volcánica y celebraciones en patios coloniales</strong>. El resultado es una pista premium que desafía las limitaciones del terreno.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Arena / Playa</span>
+                  <span class="showcase__tag">Grava / Piedra</span>
+                  <span class="showcase__tag">Adoquín</span>
+                  <span class="showcase__tag">Anti-hundimiento</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Pista Especial
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M3 12h18"/><path d="M12 3v18"/>
+                    <path d="M3 7.5h18"/><path d="M3 16.5h18"/>
+                    <path d="M7.5 3v18"/><path d="M16.5 3v18"/>
+                  </svg>
+                  <span>Pista sobre Arena / Piedra</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Terreno Completo -->
+          <section class="section section--alt" aria-labelledby="kit-terreno-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Paquete todo incluido</span>
+                <h2 class="showcase__title" id="kit-terreno-heading">Kit Terreno Completo</h2>
+                <p class="showcase__subtitle">Plataforma niveladora + duela o parquet + zóclo decorativo + rampa de acceso en un solo paquete integral.</p>
+                <p class="showcase__text">Nuestro <strong>Kit Terreno Completo</strong> es la solución integral para eventos en exteriores donde el terreno presenta desafíos de nivelación. El paquete incluye <strong>plataforma niveladora de aluminio reforzado</strong> con patas ajustables, geotextil de protección, superficie de duela o parquet en el tono de tu elección, zóclo perimetral decorativo y rampas de acceso en todos los lados necesarios. Todo instalado y supervisado por nuestro equipo técnico profesional.</p>
+                <p class="showcase__text">El kit está diseñado para <strong>ofrecer la máxima tranquilidad</strong>: desde la visita técnica previa hasta el desmontaje post-evento, nuestro equipo se encarga de absolutamente todo. Incluye evaluación del terreno con nivel láser, diseño de la solución estructural, transporte de materiales, montaje completo, supervisión durante el evento y retiro sin dejar marcas en el terreno. Combinado con nuestras <a href="/servicios/carpas/">carpas</a> y <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a>, creas un espacio de celebración premium en cualquier lugar.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Todo incluido</span>
+                  <span class="showcase__tag">Visita técnica</span>
+                  <span class="showcase__tag">Geotextil</span>
+                  <span class="showcase__tag">Sin marcas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Completo
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M3 12h18"/><path d="M12 3v18"/>
+                    <path d="M3 7.5h18"/><path d="M3 16.5h18"/>
+                    <path d="M7.5 3v18"/><path d="M16.5 3v18"/>
+                  </svg>
+                  <span>Kit Terreno Completo</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Pista en Terreno Irregular"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu pista sobre terreno irregular, es natural tener preguntas sobre nivelación, protección del terreno y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de pistas para terreno irregular resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre pistas de baile para terreno irregular`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Pistas de Madera -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Pistas de Madera para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/pistas-baile/madera-clasica/" class="sidebar-nav__back">&uarr; Volver a Madera Clásica</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/pistas-baile/" class="sidebar-nav__back">&uarr; Volver a Pistas de Baile</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu pista de baile:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas una pista sobre terreno irregular?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una pista de baile para terreno irregular`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Pista para Terreno Irregular"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Incluimos visita técnica gratuita para evaluar tu terreno y diseñar la solución de nivelación perfecta."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoTerreno">
+                Tipo de terreno
+              </label>
+              <select id="tipoTerreno" name="tipoTerreno" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de terreno</option>
+                <option value="Terreno Jardín 3x3">Terreno Jardín 3x3</option>
+                <option value="Terreno Jardín 4x4">Terreno Jardín 4x4</option>
+                <option value="Terreno Pendiente 5x5">Terreno Pendiente 5x5</option>
+                <option value="Terreno Arena 4x4">Terreno Arena 4x4</option>
+                <option value="Kit Terreno Completo">Kit Terreno Completo</option>
+                <option value="Cotización Especial">Cotización Especial</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: tipo de terreno (jardín/pasto/arena/piedra), desnivel aproximado, número de invitados, si necesitas carpa..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu terreno sin costo para medir desniveles y diseñar la solución de nivelación perfecta.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría de ingeniería personalizada para tu terreno.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoTerreno = document.getElementById('tipoTerreno').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Pista sobre Terreno Irregular*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoTerreno) texto += `*Tipo de terreno:* ${tipoTerreno}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Pistas de Baile"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de pistas de baile para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, personal capacitado y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de acabados y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">P</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Pistas Premium MX</h3>
+            <p class="partner-card__tagline">Especialistas en Pistas de Madera</p>
+            <p class="partner-card__text">Especialistas en pistas de baile de madera para bodas y eventos. Duela laminada premium, parquet modular y acabados de la más alta calidad con instalación profesional en toda la CDMX.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">D</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">DanceFloor CDMX</h3>
+            <p class="partner-card__tagline">Pistas de Baile para Eventos</p>
+            <p class="partner-card__text">Renta integral de pistas de baile para eventos sociales y corporativos. Amplio catálogo de tonos de madera, marcos decorativos y plataformas niveladoras con logística profesional.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventFloor</h3>
+            <p class="partner-card__tagline">Pistas, Tarimas y Escenarios</p>
+            <p class="partner-card__text">Pistas de baile, tarimas y escenarios con instalación profesional. Más de 10 años equipando los eventos más importantes de la Ciudad de México con soluciones de piso de primera calidad.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">P</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">PistasPro</h3>
+            <p class="partner-card__tagline">Soluciones de Pistas de Baile</p>
+            <p class="partner-card__text">Soluciones de pistas de baile con logística y montaje en CDMX. Transporte, instalación, supervisión durante el evento y desmontaje incluidos. Cobertura en toda el área metropolitana.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Pista de baile premium sobre cualquier terreno — garantizado"
+    subheadline="Más de 150 instalaciones en terrenos irregulares nos respaldan. Cotiza hoy y recibe visita técnica gratuita."
+    primaryCTA={{ label: "Cotizar pista para terreno", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar una pista de baile para terreno irregular` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

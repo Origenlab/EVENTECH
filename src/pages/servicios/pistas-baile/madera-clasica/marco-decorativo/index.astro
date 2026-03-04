@@ -1,0 +1,734 @@
+---
+/**
+ * ─── Pista con Marco Decorativo — Pagina de Producto (Nivel 4) ───
+ * Pista de baile de madera con marco perimetral decorativo de aluminio
+ * o madera e iluminación LED contorno para eventos en CDMX.
+ *
+ * Jerarquia: Servicios > Pistas de Baile > Madera Clásica > Marco Decorativo
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Pistas de Baile", href: "/servicios/pistas-baile/" },
+  { label: "Madera Clásica", href: "/servicios/pistas-baile/madera-clasica/" },
+  { label: "Marco Decorativo" },
+];
+
+const faqs = [
+  { question: "¿Puedo elegir el tipo de piso y el material del marco por separado?", answer: "Sí, nuestro sistema de <strong>pista con marco decorativo es completamente personalizable</strong>. Puedes combinar cualquier tipo de piso (duela laminada en 4 tonos o parquet modular en 5 tonos) con cualquier material de marco (aluminio pulido en dorado/plateado/negro, madera barnizada en natural/nogal/cerezo, o acrílico transparente). También puedes agregar o no la iluminación LED perimetral según tu preferencia. Nuestro asesor te ayuda a diseñar la combinación perfecta para tu evento." },
+  { question: "¿La iluminación LED del marco se puede sincronizar con la música?", answer: "Sí, nuestra <strong>iluminación LED perimetral RGB es completamente programable y sincronizable</strong> con la música del evento. Utilizamos controladores DMX profesionales que permiten sincronización en tiempo real con el audio del DJ o la playlist. Puedes configurar efectos como cambio de color al ritmo, pulso con el beat, transiciones suaves o color fijo para momentos especiales como el primer baile. El técnico programa los efectos según tus preferencias antes del evento." },
+  { question: "¿Se puede usar la pista con marco pero sin LED?", answer: "Por supuesto. El <strong>marco decorativo funciona perfectamente sin iluminación LED</strong> como elemento puramente estético y funcional. Muchos clientes eligen el marco de aluminio dorado o madera natural sin LED para bodas clásicas y eventos donde la elegancia del marco por sí solo es suficiente. El marco delimita visualmente la pista, previene tropiezos en los bordes y le da un acabado premium al conjunto. Si después decides agregar LED, es posible instalarlo como accesorio adicional." },
+  { question: "¿Cuál es la diferencia de precio entre una pista normal y una con marco decorativo?", answer: "La pista con marco decorativo tiene un <strong>incremento aproximado del 30-50%</strong> sobre el precio de la pista sola, dependiendo del material del marco y si incluye LED. Un marco de aluminio estándar sin LED representa el menor incremento, mientras que un marco de madera tallada con LED RGB programable es la opción premium. El precio incluye la fabricación del marco a medida, instalación profesional y, si aplica, controlador DMX y técnico de iluminación. Cotiza tu configuración específica para un precio exacto." },
+  { question: "¿La pista con marco decorativo se puede instalar en jardín?", answer: 'Sí, instalamos pistas con marco decorativo sobre <strong>cualquier tipo de superficie</strong> incluyendo jardín, pasto, terrazas y salones. Para superficies irregulares, montamos la pista sobre nuestra plataforma niveladora profesional que compensa desniveles de hasta 30 cm. El marco se instala después sobre la pista ya nivelada, garantizando un acabado perfecto. Para terrenos especialmente irregulares, te recomendamos combinar con nuestra <a href="/servicios/pistas-baile/madera-clasica/terreno-irregular/">solución para terreno irregular</a>.' },
+  { question: "¿Con cuánta anticipación debo reservar la pista con marco decorativo?", answer: "Recomendamos reservar con <strong>3 a 4 semanas de anticipación</strong> para pistas con marco decorativo, ya que requieren preparación adicional del marco a medida y, si incluyen LED, programación de efectos. En temporada alta (noviembre a febrero), los marcos dorados y los kits con LED RGB son los más solicitados y se agotan primero. Para configuraciones especiales como marcos de madera tallada o diseños personalizados, lo ideal es apartar con <strong>4-6 semanas</strong>. También atendemos solicitudes de último momento con marcos estándar sujetas a disponibilidad." },
+];
+
+const specs = [
+  { label: "Marco", value: "Aluminio pulido, madera barnizada o acrílico" },
+  { label: "LED Perimetral", value: "RGB programable, sincronizable" },
+  { label: "Piso", value: "Duela o parquet a elección" },
+  { label: "Medidas", value: "3x3 a 5x5 metros" },
+  { label: "Ancho marco", value: "10-15 cm decorativo" },
+  { label: "Acabados marco", value: "Dorado, plateado, natural, negro" },
+  { label: "LED colores", value: "16 millones, DMX controlado" },
+  { label: "Altura marco", value: "3-5 cm sobre piso" },
+  { label: "Combinación", value: "Compatible con cualquier piso" },
+  { label: "Montaje", value: "Profesional, 4-6 horas" },
+];
+
+const sidebarNav = [
+  { name: "Duela Laminada", href: "/servicios/pistas-baile/madera-clasica/duela-laminada/" },
+  { name: "Parquet Modular", href: "/servicios/pistas-baile/madera-clasica/parquet-modular/" },
+  { name: "Marco Decorativo", href: null, active: true },
+  { name: "Terreno Irregular", href: "/servicios/pistas-baile/madera-clasica/terreno-irregular/" },
+];
+
+const sidebarRelated = [
+  { name: "Pistas LED", href: "/servicios/pistas-baile/pistas-led/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+  { name: "Mobiliario", href: "/servicios/mobiliario/" },
+  { name: "Carpas", href: "/servicios/carpas/" },
+  { name: "Sonido", href: "/servicios/audiovisual/sonido/" },
+];
+
+const reviews = [
+  { author: "Sofía Castillo", text: "Elegimos la pista con marco dorado y LED RGB para nuestra boda en una hacienda de Tlalpan. El efecto fue espectacular — durante el primer baile, el LED cambió a rosa suave sincronizado con nuestra canción y todos los invitados quedaron impresionados. El marco dorado le dio un toque de lujo increíble. Sin duda la mejor inversión de toda la boda.", rating: 5, date: "2025-12-01" },
+  { author: "Ricardo Navarro", text: "Contratamos la pista con marco plateado para un evento corporativo de fin de año en un hotel de Reforma. El acabado fue impecable, el marco delimitó perfectamente la zona de baile y la iluminación LED en tonos azul y blanco combinó con nuestros colores corporativos. El montaje fue rápido y profesional. Excelente servicio.", rating: 5, date: "2025-10-22" },
+  { author: "Diana Morales", text: "Para nuestra boda en una hacienda de Cuernavaca elegimos el marco de madera natural sin LED, combinado con duela en tono cerezo. El resultado fue hermoso, muy rústico-elegante, exactamente lo que buscábamos. El marco le dio ese toque especial que diferencia una pista común de una experiencia premium. El equipo de EVENTECH fue excepcional.", rating: 5, date: "2025-09-15" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Pista de Baile con Marco Decorativo para Eventos en CDMX",
+    description: "Renta de pista de baile de madera con marco perimetral decorativo de aluminio o madera e iluminación LED contorno para eventos en CDMX. Desde $8,000.",
+    url: "/servicios/pistas-baile/madera-clasica/marco-decorativo/",
+    priceRange: { min: 8000, max: 35000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 167,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Pistas de Baile", url: "/servicios/pistas-baile/" },
+    { name: "Madera Clásica", url: "/servicios/pistas-baile/madera-clasica/" },
+    { name: "Marco Decorativo", url: "/servicios/pistas-baile/madera-clasica/marco-decorativo/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Pista de Baile con Marco Decorativo para Eventos en CDMX"
+  description="Renta de pista de baile de madera con marco perimetral decorativo de aluminio o madera e iluminación LED contorno para eventos en CDMX. Desde $8,000."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="El detalle elegante que distingue tu evento"
+    title='Renta de <span class="highlight">Pista de Baile con Marco Decorativo</span> para Eventos en CDMX'
+    subtitle="Pista de baile de madera con marco perimetral decorativo de aluminio pulido, madera barnizada o acrílico. Opción de iluminación LED RGB programable y sincronizable con la música."
+    primaryCTA={{ label: "Cotiza tu pista", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar una pista de baile con marco decorativo para mi evento` }}
+    cards={[
+      {
+        title: "Marco perimetral decorativo en aluminio, madera o acrílico",
+        content: "<strong>Renta de pista de baile con marco perimetral decorativo</strong> que transforma una pista de madera estándar en una pieza central de diseño para tu evento. Marco disponible en aluminio pulido (dorado, plateado o negro), madera barnizada (natural, nogal o cerezo) o acrílico transparente. El marco de 10 a 15 cm enmarca la superficie de baile con elegancia, previene tropiezos en los bordes y ofrece un acabado de lujo. Opción de iluminación LED integrada en el contorno del marco.",
+      },
+      {
+        title: "LED perimetral RGB programable que sincroniza con la música",
+        content: "<strong>Iluminación LED perimetral RGB</strong> integrada en el marco decorativo con 16 millones de colores y control DMX profesional. Programación de efectos en tiempo real: color fijo para ambientación elegante, cambio gradual para transiciones suaves o sincronización completa con la música del DJ para momentos especiales como el primer baile o el vals. El controlador DMX permite gestionar la iluminación del marco de forma independiente o sincronizada con el resto de la iluminación del evento.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Quieres el detalle que haga única tu pista de baile?"
+    subheadline="Cotiza sin compromiso — marco decorativo con o sin LED para una pista espectacular"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Pistas de Madera para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas una pista con marco decorativo?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una pista con marco decorativo para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h18"/><path d="M12 3v18"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Pista con Marco Decorativo</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Marco Aluminio Dorado -->
+          <section class="section section--alt" aria-labelledby="marco-dorado-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Elegancia para bodas</span>
+                <h2 class="showcase__title" id="marco-dorado-heading">Marco Aluminio Dorado</h2>
+                <p class="showcase__subtitle">El acabado dorado que aporta elegancia y calidez a bodas y celebraciones de lujo.</p>
+                <p class="showcase__text">Nuestro <strong>marco de aluminio pulido en acabado dorado</strong> es la opción más solicitada para <strong>bodas, aniversarios y celebraciones de lujo</strong> en la Ciudad de México. El tono dorado cálido enmarca la pista de baile con una distinción que eleva instantáneamente la estética de cualquier espacio. El aluminio pulido refleja la iluminación ambiental de forma sutil, creando destellos que complementan la decoración sin competir con ella.</p>
+                <p class="showcase__text">El marco dorado combina especialmente bien con <strong>pistas de duela en tono natural o cerezo</strong> y decoraciones en blanco, crema, rosa y verde. Con LED perimetral integrado, el efecto se multiplica: un halo dorado con luz cálida que envuelve la pista de baile para momentos como el primer baile o el vals de padre e hija. Incluye instalación profesional de <strong>4-6 horas</strong> con técnico dedicado. Complementa con nuestra <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a> para una atmósfera envolvente.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Aluminio dorado</span>
+                  <span class="showcase__tag">Bodas</span>
+                  <span class="showcase__tag">LED opcional</span>
+                  <span class="showcase__tag">Acabado premium</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Marco Dorado
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M3 12h18"/><path d="M12 3v18"/>
+                    <path d="M3 7.5h18"/><path d="M3 16.5h18"/>
+                    <path d="M7.5 3v18"/><path d="M16.5 3v18"/>
+                  </svg>
+                  <span>Marco Aluminio Dorado</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Marco Aluminio Plateado -->
+          <section class="section section--alt" aria-labelledby="marco-plateado-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Moderno para corporativos</span>
+                <h2 class="showcase__title" id="marco-plateado-heading">Marco Aluminio Plateado</h2>
+                <p class="showcase__subtitle">El acabado contemporáneo ideal para eventos corporativos, lanzamientos y galas modernas.</p>
+                <p class="showcase__text">El <strong>marco de aluminio pulido en acabado plateado</strong> ofrece un look contemporáneo y sofisticado perfecto para <strong>eventos corporativos, lanzamientos de producto, galas de premiación y fiestas de fin de año</strong>. Su tono neutro y elegante se integra con cualquier paleta de colores corporativa y complementa especialmente bien los montajes en tonos fríos como azul, gris, blanco y negro.</p>
+                <p class="showcase__text">Combinado con <strong>pista de parquet en tono arce o wengué</strong>, el marco plateado crea un contraste moderno que destaca en cualquier espacio. La opción de LED perimetral en colores corporativos permite <strong>personalizar la experiencia visual</strong> y reforzar la identidad de marca durante el evento. El aluminio plateado es altamente resistente y mantiene su acabado impecable durante todo el evento sin mancharse ni rayarse. Ideal para combinar con nuestro <a href="/servicios/audiovisual/pantallas-led/">equipo audiovisual</a> para producciones corporativas completas.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Aluminio plateado</span>
+                  <span class="showcase__tag">Corporativos</span>
+                  <span class="showcase__tag">Contemporáneo</span>
+                  <span class="showcase__tag">Colores corporativos</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Marco Plateado
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M3 12h18"/><path d="M12 3v18"/>
+                    <path d="M3 7.5h18"/><path d="M3 16.5h18"/>
+                    <path d="M7.5 3v18"/><path d="M16.5 3v18"/>
+                  </svg>
+                  <span>Marco Aluminio Plateado</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Marco Madera Natural -->
+          <section class="section section--alt" aria-labelledby="marco-madera-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Rústico para haciendas</span>
+                <h2 class="showcase__title" id="marco-madera-heading">Marco Madera Natural</h2>
+                <p class="showcase__subtitle">El acabado rústico-elegante perfecto para haciendas, jardines y bodas al aire libre.</p>
+                <p class="showcase__text">Nuestro <strong>marco de madera barnizada en acabado natural</strong> es la elección ideal para <strong>bodas en haciendas, fiestas en jardín y eventos con temática rústica-elegante</strong>. La madera barnizada aporta calidez y autenticidad al conjunto, creando una transición orgánica entre la pista de baile y el entorno natural del venue. Disponible en tonos <strong>natural claro, nogal medio y cerezo oscuro</strong> para combinar con la pista de tu elección.</p>
+                <p class="showcase__text">El marco de madera es especialmente impactante en <strong>venues con arquitectura colonial, haciendas con arcos de piedra y jardines con árboles maduros</strong>. Sin LED, el marco ofrece una elegancia discreta y atemporal; con LED cálido, crea un halo sutil que realza la belleza natural de la madera. El barniz protector garantiza resistencia a la humedad ambiental y al uso durante todo el evento. Complementa con nuestra <a href="/servicios/iluminacion/decorativa/fairy-lights/">iluminación de fairy lights</a> para un ambiente mágico en exteriores.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Madera barnizada</span>
+                  <span class="showcase__tag">Haciendas</span>
+                  <span class="showcase__tag">Rústico-elegante</span>
+                  <span class="showcase__tag">Exteriores</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Marco Madera
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M3 12h18"/><path d="M12 3v18"/>
+                    <path d="M3 7.5h18"/><path d="M3 16.5h18"/>
+                    <path d="M7.5 3v18"/><path d="M16.5 3v18"/>
+                  </svg>
+                  <span>Marco Madera Natural</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Marco con LED RGB -->
+          <section class="section section--alt" aria-labelledby="marco-led-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Iluminación dinámica</span>
+                <h2 class="showcase__title" id="marco-led-heading">Marco con LED RGB</h2>
+                <p class="showcase__subtitle">Iluminación perimetral dinámica que transforma tu pista en el centro de atención del evento.</p>
+                <p class="showcase__text">Nuestro <strong>marco con LED RGB perimetral</strong> es la opción más espectacular para eventos donde la pista de baile es la protagonista. La tira LED profesional integrada en el marco ofrece <strong>16 millones de colores</strong> con control DMX que permite efectos dinámicos en tiempo real: color fijo para ambientación elegante, transiciones graduales entre colores, pulso sincronizado con el beat de la música y efectos personalizados para momentos clave como el primer baile.</p>
+                <p class="showcase__text">El sistema LED es compatible con <strong>cualquier material de marco</strong> (aluminio dorado/plateado/negro o madera natural) y con cualquier tipo de piso. El controlador DMX se opera desde la cabina del DJ o por nuestro técnico de iluminación dedicado. Para el primer baile, programamos secuencias especiales: un halo rosa suave para bodas románticas, azul profundo para galas corporativas o multicolor para fiestas de XV años. Combínala con nuestra <a href="/servicios/iluminacion/escenario/">iluminación de escenario</a> para una producción visual completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">LED RGB</span>
+                  <span class="showcase__tag">16M colores</span>
+                  <span class="showcase__tag">DMX controlado</span>
+                  <span class="showcase__tag">Sincronizable</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Marco con LED
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M3 12h18"/><path d="M12 3v18"/>
+                    <path d="M3 7.5h18"/><path d="M3 16.5h18"/>
+                    <path d="M7.5 3v18"/><path d="M16.5 3v18"/>
+                  </svg>
+                  <span>Marco con LED RGB</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Marco Decorativo"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu pista con marco decorativo, es natural tener preguntas sobre materiales, LED, combinaciones y precios. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de pistas con marco resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre pistas con marco decorativo para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Pistas de Madera -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Pistas de Madera para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/pistas-baile/madera-clasica/" class="sidebar-nav__back">&uarr; Volver a Madera Clásica</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/pistas-baile/" class="sidebar-nav__back">&uarr; Volver a Pistas de Baile</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu pista de baile:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas una pista con marco decorativo?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una pista con marco decorativo para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Pista con Marco Decorativo"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Configura tu pista ideal: elige el tipo de piso, el material del marco y si deseas iluminación LED perimetral."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoMarco">
+                Tipo de marco
+              </label>
+              <select id="tipoMarco" name="tipoMarco" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de marco</option>
+                <option value="Marco Dorado 3x3">Marco Dorado 3x3</option>
+                <option value="Marco Plateado 4x4">Marco Plateado 4x4</option>
+                <option value="Marco Madera 5x5">Marco Madera 5x5</option>
+                <option value="Marco con LED">Marco con LED</option>
+                <option value="Marco + Duela Premium">Marco + Duela Premium</option>
+                <option value="Kit Marco Completo">Kit Marco Completo</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de invitados, tipo de venue (salón/jardín/hacienda), material de marco preferido, si deseas LED..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para diseñar la combinación perfecta de piso, marco e iluminación.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para tu configuración ideal.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoMarco = document.getElementById('tipoMarco').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Pista con Marco Decorativo*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoMarco) texto += `*Tipo de marco:* ${tipoMarco}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Pistas de Baile"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de pistas de baile para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, personal capacitado y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de acabados y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">P</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Pistas Premium MX</h3>
+            <p class="partner-card__tagline">Especialistas en Pistas de Madera</p>
+            <p class="partner-card__text">Especialistas en pistas de baile de madera para bodas y eventos. Duela laminada premium, parquet modular y acabados de la más alta calidad con instalación profesional en toda la CDMX.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">D</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">DanceFloor CDMX</h3>
+            <p class="partner-card__tagline">Pistas de Baile para Eventos</p>
+            <p class="partner-card__text">Renta integral de pistas de baile para eventos sociales y corporativos. Amplio catálogo de tonos de madera, marcos decorativos y plataformas niveladoras con logística profesional.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventFloor</h3>
+            <p class="partner-card__tagline">Pistas, Tarimas y Escenarios</p>
+            <p class="partner-card__text">Pistas de baile, tarimas y escenarios con instalación profesional. Más de 10 años equipando los eventos más importantes de la Ciudad de México con soluciones de piso de primera calidad.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">P</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">PistasPro</h3>
+            <p class="partner-card__tagline">Soluciones de Pistas de Baile</p>
+            <p class="partner-card__text">Soluciones de pistas de baile con logística y montaje en CDMX. Transporte, instalación, supervisión durante el evento y desmontaje incluidos. Cobertura en toda el área metropolitana.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="El marco decorativo que transforma tu pista en una obra de arte"
+    subheadline="Más de 150 eventos con pistas enmarcadas nos respaldan. Cotiza hoy y diseña tu configuración perfecta."
+    primaryCTA={{ label: "Cotizar marco decorativo", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar una pista con marco decorativo para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

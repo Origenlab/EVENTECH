@@ -1,0 +1,730 @@
+---
+/**
+ * ─── Parrillas Industriales — Pagina de Producto (Nivel 4) ───
+ * Parrillas de gas y carbon de grado industrial para catering masivo
+ * y banquetes al aire libre en multiples tamanos y capacidades BTU.
+ *
+ * Jerarquia: Servicios > Catering > Cocina Movil > Parrillas Industriales
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Catering", href: "/servicios/catering/" },
+  { label: "Cocina Movil", href: "/servicios/catering/cocina-movil/" },
+  { label: "Parrillas Industriales" },
+];
+
+const faqs = [
+  { question: "¿Cuál es la diferencia entre las parrillas de gas y las de carbón?", answer: 'Las <strong>parrillas de gas LP</strong> ofrecen encendido inmediato, control preciso de temperatura por zona y menor generación de humo — ideales para eventos en espacios semi-cerrados o donde se requiere rapidez de servicio. Las <strong>parrillas de carbón</strong> proporcionan el sabor ahumado tradicional, mayor temperatura máxima y son preferidas para asados artesanales y eventos al aire libre. Las parrillas de gas calientan en 5-10 minutos, mientras que las de carbón requieren 20-30 minutos para alcanzar temperatura óptima. Nuestro asesor te recomienda la mejor opción según tu menú, venue y volumen de servicio.' },
+  { question: "¿Cuántas porciones por hora puede producir una parrilla industrial?", answer: "La capacidad varía según el tamaño de la parrilla. La <strong>parrilla de 60 cm</strong> produce entre 50 y 80 porciones por hora — ideal para eventos de hasta 100 personas. La <strong>parrilla de 90 cm</strong> alcanza 100-150 porciones/hora para eventos de 100-200 comensales. La <strong>parrilla de 120 cm</strong> produce 200-300 porciones/hora para banquetes de gran formato. Para eventos de más de 300 personas, recomendamos combinar 2 o más parrillas en estaciones paralelas de servicio." },
+  { question: "¿Qué espacio y ventilación necesito para instalar una parrilla?", answer: "Las parrillas de gas requieren un espacio mínimo de <strong>2 x 2 metros</strong> con ventilación natural o forzada. En interiores, es obligatorio contar con campana extractora o ventilación cruzada. En exteriores, basta con un área despejada alejada de materiales inflamables (mínimo 1.5 metros de separación). Las parrillas de carbón generan más humo y son exclusivas para <strong>espacios abiertos o carpas con laterales removibles</strong>. Nuestro equipo técnico evalúa tu venue y determina la ubicación óptima para seguridad y eficiencia." },
+  { question: "¿El tanque de gas está incluido en la renta?", answer: "Sí, todas nuestras parrillas de gas incluyen <strong>un tanque de gas LP de 20 kg</strong> con regulador de presión certificado y manguera de alta resistencia. Un tanque de 20 kg es suficiente para 6-8 horas de uso continuo en la mayoría de los modelos. Para eventos de mayor duración o múltiples parrillas, proporcionamos tanques adicionales con cargo mínimo. También ofrecemos conexión a tanque estacionario si tu venue cuenta con instalación de gas." },
+  { question: "¿Puedo combinar la parrilla con otro equipo de cocina móvil?", answer: 'Por supuesto, es la configuración más popular para catering de gran formato. Las combinaciones más solicitadas son: <strong>parrilla + plancha</strong> para estaciones de tacos y hamburguesas, <strong>parrilla + horno de convección</strong> para menús completos con guarniciones calientes, y <strong>parrilla + mesa de trabajo + tarja</strong> para una estación de preparación completa. Ofrecemos descuentos en paquetes combinados. Consulta nuestra página de <a href="/servicios/catering/cocina-movil/">cocina móvil</a> para ver todas las opciones.' },
+  { question: "¿Puedo usar una parrilla industrial en un salón interior?", answer: "Las <strong>parrillas de gas</strong> pueden utilizarse en interiores siempre que el espacio cuente con ventilación adecuada — campana extractora industrial o ventilación cruzada con apertura mínima de 2 m². Muchos salones y hoteles cuentan con áreas de cocina preparadas para equipo de gas. Las <strong>parrillas de carbón están restringidas a exteriores</strong> por la generación de humo y partículas. Nuestro equipo técnico verifica las condiciones de tu venue antes del evento y garantiza que la instalación cumpla con las normas de seguridad." },
+];
+
+const specs = [
+  { label: "Tipos", value: "Gas LP, Carbón, Mixta" },
+  { label: "Tamaños", value: "60, 90 y 120 cm de superficie" },
+  { label: "BTU", value: "30,000 a 80,000 según modelo" },
+  { label: "Material", value: "Acero inoxidable grado comercial 304" },
+  { label: "Quemadores", value: "2, 4 o 6 según tamaño" },
+  { label: "Capacidad", value: "50-300 porciones por hora" },
+  { label: "Gas", value: "Tanque LP incluido 20 kg" },
+  { label: "Encendido", value: "Electrónico con respaldo manual" },
+  { label: "Movilidad", value: "Ruedas industriales con freno" },
+  { label: "Accesorios", value: "Parrilla, plancha, asador incluidos" },
+];
+
+const sidebarNav = [
+  { name: "Parrillas Industriales", href: null, active: true },
+  { name: "Planchas y Freidoras", href: "/servicios/catering/cocina-movil/planchas-freidoras/" },
+  { name: "Hornos de Convección", href: "/servicios/catering/cocina-movil/hornos-conveccion/" },
+  { name: "Mesas de Trabajo Inoxidable", href: "/servicios/catering/cocina-movil/mesas-inoxidable/" },
+];
+
+const sidebarRelated = [
+  { name: "Estaciones de Servicio", href: "/servicios/catering/estaciones-servicio/" },
+  { name: "Vajilla y Cristalería", href: "/servicios/catering/vajilla-cristaleria/" },
+  { name: "Refrigeración", href: "/servicios/catering/refrigeracion/" },
+  { name: "Plantas de Energía", href: "/servicios/accesorios/plantas-energia/" },
+  { name: "Carpas para Eventos", href: "/servicios/carpas/" },
+];
+
+const reviews = [
+  { author: "Fernando Martínez", text: "Rentamos dos parrillas de 120 cm para un banquete de 200 personas en un jardín de Tlalpan. El equipo llegó impecable, el técnico instaló todo en 30 minutos y las parrillas funcionaron sin falla durante 6 horas de servicio continuo. El tanque de gas incluido alcanzó perfecto. Excelente servicio.", rating: 5, date: "2025-11-20" },
+  { author: "Mariana López", text: "Contratamos una parrilla de gas de 90 cm para nuestro evento corporativo outdoor en Santa Fe. La calidad del equipo es profesional, el acero inoxidable se veía impecable y el encendido electrónico funcionó al primer intento. Nuestro chef preparó cortes para 150 personas sin problema. Repetiremos seguro.", rating: 5, date: "2025-10-12" },
+  { author: "Carlos Ramírez", text: "Para un festival gastronómico en Coyoacán rentamos 4 parrillas de carbón premium y 2 de gas. El equipo de EVENTECH coordinó toda la logística, entregaron tanques extra de gas y las parrillas de carbón mantuvieron temperatura perfecta todo el día. Atendimos más de 500 comensales sin contratiempos.", rating: 5, date: "2025-09-28" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Parrillas Industriales para Eventos en CDMX",
+    description: "Renta de parrillas de gas y carbón de grado industrial para catering masivo y banquetes al aire libre. Múltiples tamaños y capacidades BTU. Desde $1,500.",
+    url: "/servicios/catering/cocina-movil/parrillas/",
+    priceRange: { min: 1500, max: 5000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 174,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Catering", url: "/servicios/catering/" },
+    { name: "Cocina Móvil", url: "/servicios/catering/cocina-movil/" },
+    { name: "Parrillas Industriales", url: "/servicios/catering/cocina-movil/parrillas/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Parrillas Industriales para Eventos en CDMX | EVENTECH"
+  description="Renta de parrillas de gas y carbón de grado industrial para catering masivo y banquetes al aire libre. Múltiples tamaños y capacidades BTU. Desde $1,500."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Parrillas de grado industrial"
+    title='Renta de <span class="highlight">Parrillas Industriales</span> para Eventos'
+    subtitle="Parrillas de gas LP y carbón en tamaños de 60, 90 y 120 cm con capacidad de 30,000 a 80,000 BTU. Acero inoxidable grado comercial con ruedas, encendido electrónico y técnico de operación incluido."
+    primaryCTA={{ label: "Cotiza tu parrilla", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar parrillas industriales para mi evento` }}
+    cards={[
+      {
+        title: "Parrillas de gas LP y carbón en grado comercial",
+        content: "<strong>Renta de parrillas industriales</strong> de gas LP y carbón en tamaños de 60, 90 y 120 cm con capacidad de 30,000 a 80,000 BTU. Acero inoxidable grado comercial con ruedas y freno. Fabricadas con quemadores de acero fundido, rejillas de hierro esmaltado y reguladores de presión certificados. Ideales para banquetes al aire libre, asados corporativos, festivales gastronómicos y catering de gran formato en la Ciudad de México.",
+      },
+      {
+        title: "Tanque de gas incluido y operación técnica",
+        content: "<strong>Servicio integral de parrillas industriales</strong> con tanque de gas incluido, encendido electrónico, termómetro integrado, montaje y operación técnica opcional para catering de gran formato. Transporte en vehículos especializados, instalación con verificación de seguridad, prueba de encendido y desmontaje incluidos. Cobertura completa en CDMX y zona metropolitana sin costo adicional.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas parrillas industriales para tu próximo evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con el tamaño y tipo de parrilla ideal para tu menú y número de comensales"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Cocina Móvil para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas parrillas industriales para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar parrillas industriales para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Parrillas Industriales</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Parrilla Gas 60cm Compacta -->
+          <section class="section section--alt" aria-labelledby="parrilla-60-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Compacta y eficiente</span>
+                <h2 class="showcase__title" id="parrilla-60-heading">Parrilla Gas 60cm Compacta</h2>
+                <p class="showcase__subtitle">La parrilla ideal para eventos íntimos y estaciones de asado para hasta 100 comensales.</p>
+                <p class="showcase__text">Nuestra <strong>parrilla industrial de gas de 60 cm</strong> es la opción más compacta de nuestro catálogo, diseñada para eventos de hasta 100 personas. Con <strong>2 quemadores de acero fundido</strong> y capacidad de 30,000 BTU, ofrece potencia suficiente para preparar cortes, hamburguesas, pollo y verduras a la parrilla con eficiencia profesional. Fabricada en <strong>acero inoxidable grado 304</strong> con rejilla de hierro esmaltado y termómetro integrado en la tapa. Ideal para <strong>reuniones corporativas, cenas privadas, asados familiares y estaciones de comida en eventos sociales</strong>.</p>
+                <p class="showcase__text">Incluye <strong>tanque de gas LP de 20 kg, encendido electrónico y ruedas industriales con freno</strong> para fácil reposicionamiento. Su tamaño compacto permite instalarla en espacios reducidos como terrazas, patios y áreas de servicio de salones. Combínala con nuestras <a href="/servicios/catering/cocina-movil/mesas-inoxidable/">mesas de trabajo inoxidable</a> para crear una estación de preparación completa y profesional.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">60 cm</span>
+                  <span class="showcase__tag">30,000 BTU</span>
+                  <span class="showcase__tag">2 quemadores</span>
+                  <span class="showcase__tag">Hasta 100 personas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Parrilla 60cm
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Parrilla Gas 60cm</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Parrilla Gas 90cm Estándar -->
+          <section class="section section--alt" aria-labelledby="parrilla-90-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">La más solicitada para banquetes</span>
+                <h2 class="showcase__title" id="parrilla-90-heading">Parrilla Gas 90cm Estándar</h2>
+                <p class="showcase__subtitle">El tamaño estándar para banquetes y eventos de 100 a 200 comensales con servicio continuo.</p>
+                <p class="showcase__text">La <strong>parrilla industrial de gas de 90 cm</strong> es nuestra opción más solicitada para <strong>banquetes de bodas, eventos corporativos y catering profesional</strong>. Con <strong>4 quemadores de acero fundido</strong> y capacidad de 50,000 BTU, produce entre 100 y 150 porciones por hora con distribución uniforme del calor en toda la superficie. La zona de cocción amplia permite preparar múltiples tipos de proteínas simultáneamente — cortes de res, pollo, cerdo y verduras sin mezclar sabores.</p>
+                <p class="showcase__text">Incluye <strong>tanque de gas LP de 20 kg, termómetro integrado, charola recolectora de grasa y set de utensilios profesionales</strong> (pinzas, espátula y tenedor de acero inoxidable). El diseño con ruedas industriales y freno permite reposicionar la parrilla según las necesidades del servicio. Perfecta para combinar con nuestras <a href="/servicios/catering/cocina-movil/planchas-freidoras/">planchas y freidoras</a> en estaciones de comida múltiples.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">90 cm</span>
+                  <span class="showcase__tag">50,000 BTU</span>
+                  <span class="showcase__tag">4 quemadores</span>
+                  <span class="showcase__tag">100-200 personas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Parrilla 90cm
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Parrilla Gas 90cm</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Parrilla Gas 120cm Industrial -->
+          <section class="section section--alt" aria-labelledby="parrilla-120-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Máxima capacidad de producción</span>
+                <h2 class="showcase__title" id="parrilla-120-heading">Parrilla Gas 120cm Industrial</h2>
+                <p class="showcase__subtitle">La parrilla más grande de nuestro catálogo: catering masivo para 200-300+ comensales.</p>
+                <p class="showcase__text">La <strong>parrilla industrial de gas de 120 cm</strong> es nuestro equipo de mayor capacidad, diseñada para <strong>catering masivo, festivales gastronómicos y banquetes de gran formato</strong>. Con <strong>6 quemadores de acero fundido</strong> y capacidad de 80,000 BTU, produce entre 200 y 300 porciones por hora. La superficie de cocción de 120 cm permite operar con hasta 3 zonas de temperatura independientes — zona alta para sellar, zona media para cocción y zona baja para mantener caliente.</p>
+                <p class="showcase__text">Incluye <strong>doble tanque de gas LP (40 kg total), sistema de encendido electrónico por zona, charola recolectora de grasa de alta capacidad y utensilios profesionales de acero inoxidable</strong>. Su estructura reforzada con ruedas industriales de 6 pulgadas soporta el peso y el uso intensivo durante jornadas completas de servicio. Ideal para combinar con nuestros <a href="/servicios/catering/cocina-movil/hornos-conveccion/">hornos de convección</a> para menús completos de catering profesional.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">120 cm</span>
+                  <span class="showcase__tag">80,000 BTU</span>
+                  <span class="showcase__tag">6 quemadores</span>
+                  <span class="showcase__tag">200-300+ personas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Parrilla 120cm
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Parrilla Gas 120cm</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Parrilla Carbón Premium -->
+          <section class="section section--alt" aria-labelledby="parrilla-carbon-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Sabor ahumado auténtico</span>
+                <h2 class="showcase__title" id="parrilla-carbon-heading">Parrilla Carbón Premium</h2>
+                <p class="showcase__subtitle">Parrilla de carbón artesanal para asados con sabor ahumado tradicional en eventos al aire libre.</p>
+                <p class="showcase__text">Nuestra <strong>parrilla de carbón premium</strong> es la elección favorita para quienes buscan el <strong>sabor ahumado auténtico</strong> en sus eventos al aire libre. Fabricada en acero inoxidable de alta resistencia con rejilla de hierro fundido de 90 cm, compartimento de cenizas extraíble y sistema de ventilación regulable para control preciso de temperatura. Alcanza temperaturas superiores a los 400°C para sellar cortes gruesos con exterior crujiente e interior jugoso — la técnica preferida de parrilleros profesionales.</p>
+                <p class="showcase__text">Incluye <strong>carbón vegetal premium de encino (15 kg), pastillas de encendido ecológicas, guantes térmicos y set de utensilios de acero inoxidable</strong>. Ideal para <strong>asados argentinos, texas BBQ, parrilladas mexicanas y eventos temáticos gastronómicos</strong>. Requiere espacio al aire libre con ventilación natural — perfecta para jardines, terrazas descubiertas y eventos bajo nuestras <a href="/servicios/carpas/">carpas con laterales removibles</a>. Tiempo de precalentamiento: 20-30 minutos para temperatura óptima.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Carbón premium</span>
+                  <span class="showcase__tag">Hierro fundido</span>
+                  <span class="showcase__tag">+400°C</span>
+                  <span class="showcase__tag">Solo exteriores</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Parrilla Carbón
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Parrilla Carbón Premium</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Parrillas Industriales"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu parrilla industrial, es natural tener preguntas sobre tipos de combustible, capacidades y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor técnico te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de cocina móvil resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre parrillas industriales para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Cocina Móvil -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Cocina Móvil para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/cocina-movil/" class="sidebar-nav__back">&uarr; Volver a Cocina Móvil</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/" class="sidebar-nav__back">&uarr; Volver a Catering</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de cocina:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas parrillas industriales para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar parrillas industriales para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Parrilla Industrial"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores técnicos te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea una parrilla compacta de 60 cm para tu reunión o un paquete de parrillas industriales para tu festival, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoParrilla">
+                Tipo de parrilla
+              </label>
+              <select id="tipoParrilla" name="tipoParrilla" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de parrilla</option>
+                <option value="Parrilla Gas 60cm">Parrilla Gas 60cm</option>
+                <option value="Parrilla Gas 90cm">Parrilla Gas 90cm</option>
+                <option value="Parrilla Gas 120cm">Parrilla Gas 120cm</option>
+                <option value="Parrilla Carbón Premium">Parrilla Carbón Premium</option>
+                <option value="Paquete Parrillada Completa">Paquete Parrillada Completa</option>
+                <option value="Combo Parrilla + Plancha">Combo Parrilla + Plancha</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de comensales, tipo de menú, venue (jardín/terraza/salón), tipo de parrilla que necesitas..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para recomendarte la parrilla ideal según espacio, ventilación y número de comensales.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría técnica personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoParrilla = document.getElementById('tipoParrilla').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Parrillas Industriales*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoParrilla) texto += `*Tipo de parrilla:* ${tipoParrilla}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Catering"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de equipo de catering y cocina móvil para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, personal capacitado y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Catering Pro MX</h3>
+            <p class="partner-card__tagline">Servicio Integral de Catering</p>
+            <p class="partner-card__text">Servicio integral de catering y estaciones gourmet para eventos en CDMX. Equipo de cocina profesional, parrillas industriales y montaje completo para banquetes de cualquier escala.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">G</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">GastroEventos CDMX</h3>
+            <p class="partner-card__tagline">Equipo de Cocina Profesional</p>
+            <p class="partner-card__text">Renta de equipo de cocina y estaciones de servicio profesional para eventos corporativos, bodas y festivales gastronómicos. Parrillas, planchas, hornos y mesas de trabajo certificadas.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">ChefMóvil</h3>
+            <p class="partner-card__tagline">Estaciones de Comida en Vivo</p>
+            <p class="partner-card__text">Estaciones de comida en vivo con chef y equipo profesional certificado. Parrillas industriales, planchas gourmet y montaje de cocina móvil completa para eventos premium.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">B</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">BanquetesPro</h3>
+            <p class="partner-card__tagline">Mobiliario y Equipo de Catering</p>
+            <p class="partner-card__text">Mobiliario y equipo de catering para bodas, corporativos y sociales. Servicio integral con transporte, montaje y operación técnica en toda la CDMX y zona metropolitana.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Parrillas industriales que potencian el catering de tu evento"
+    subheadline="Más de 500 eventos con equipo de cocina móvil nos respaldan. Cotiza hoy y recibe asesoría técnica sin compromiso."
+    primaryCTA={{ label: "Cotizar parrillas industriales", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar parrillas industriales para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

@@ -1,0 +1,726 @@
+---
+/**
+ * ─── Accesorios Estructurales — Pagina de Producto (Nivel 4) ───
+ * Accesorios profesionales para carpas: drenaje, pisos, climatización,
+ * iluminación integrada y cableado eléctrico.
+ *
+ * Jerarquia: Servicios > Carpas > Estructurales > Accesorios Estructurales
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Carpas", href: "/servicios/carpas/" },
+  { label: "Estructurales", href: "/servicios/carpas/estructurales/" },
+  { label: "Accesorios Estructurales" },
+];
+
+const faqs = [
+  { question: "¿Los accesorios se pueden instalar sin rentar la carpa?", answer: "Algunos accesorios como <strong>pisos elevados y sistemas de climatización</strong> pueden rentarse de forma independiente para venues techados, salones o espacios al aire libre sin carpa. Sin embargo, los <strong>sistemas de drenaje y cableado integrado</strong> están diseñados específicamente para nuestras carpas estructurales y solo se instalan como complemento. Los tableros de distribución eléctrica y generadores sí pueden contratarse de forma independiente. Contacta a nuestro asesor para evaluar la compatibilidad según tu necesidad específica." },
+  { question: "¿Los accesorios están incluidos con la renta de la carpa o son adicionales?", answer: "Los accesorios son <strong>complementos adicionales</strong> que se agregan a la renta base de la carpa. La renta básica incluye la estructura, lona y montaje profesional. Sin embargo, ofrecemos <strong>paquetes combinados con descuento</strong> que incluyen carpa + piso + iluminación + electricidad a precio preferencial. Si sabes que necesitas accesorios, te recomendamos solicitar el paquete completo al momento de cotizar para obtener el mejor precio. Nuestro asesor te presenta todas las opciones." },
+  { question: "¿Cuánta electricidad soporta el sistema eléctrico?", answer: "Nuestro sistema eléctrico profesional ofrece dos configuraciones. El <strong>tablero monofásico</strong> (127/220V) soporta hasta 30 kW, suficiente para iluminación, equipo de audio, carga de dispositivos y equipos de cocina básicos. El <strong>tablero trifásico</strong> (220/440V) soporta hasta 100 kW, necesario para eventos con producción completa (line array, pantallas LED, climatización y cocina industrial). Cada tablero incluye protección térmica y diferencial. Para eventos de alto consumo, combinamos con <a href=\"/servicios/accesorios/plantas-energia/\">plantas de energía</a> de 20 a 500 kW." },
+  { question: "¿La calefacción funciona bien en un jardín abierto?", answer: "Sí, pero la eficiencia depende de la configuración de la carpa. Con <strong>paredes sólidas cerradas</strong>, la calefacción mantiene una temperatura confortable incluso en noches de invierno en CDMX (5-10°C). Los <strong>radiadores infrarrojos</strong> calientan directamente a las personas sin necesidad de calentar todo el aire, funcionando incluso con lados abiertos. Los <strong>calefactores de gas</strong> son más potentes y calientan el volumen completo de la carpa. Para eventos en jardín con carpa abierta, recomendamos radiadores infrarrojos direccionados a las zonas de estar." },
+  { question: "¿El piso elevado se puede instalar sobre pasto?", answer: "Sí, los pisos elevados están <strong>diseñados específicamente para instalarse sobre pasto, tierra y terrenos irregulares</strong>. La estructura metálica modular se nivela con láser para crear una superficie perfectamente plana independientemente del terreno. La altura de elevación es de 10 a 15 cm, suficiente para aislar el piso del suelo húmedo y permitir ventilación inferior. Incluye rampa de acceso para sillas de ruedas. Disponible en acabado de madera (duela) o alfombra sobre base rígida según la estética de tu evento." },
+  { question: "¿Con cuánta anticipación debo reservar los accesorios?", answer: "Recomendamos reservar los accesorios <strong>al mismo tiempo que la carpa</strong>, idealmente con 3 a 6 semanas de anticipación. Los pisos elevados y sistemas eléctricos son los más solicitados y pueden agotarse en temporada alta. Para configuraciones complejas (piso + climatización + electricidad + drenaje) lo ideal es reservar con <strong>2 meses de anticipación</strong> para que nuestro equipo planifique la logística integral. La instalación de accesorios se programa el mismo día o día anterior al montaje de la carpa." },
+];
+
+const specs = [
+  { label: "Drenaje", value: "Canaletas perimetrales con desagüe" },
+  { label: "Pisos", value: "Elevados de madera o alfombra sobre tarima" },
+  { label: "Electricidad", value: "Tableros de distribución monofásico/trifásico" },
+  { label: "Iluminación", value: "LED de techo integrada con dimmer" },
+  { label: "Calefacción", value: "Radiadores infrarrojos o de gas" },
+  { label: "Enfriamiento", value: "Evaporativo o AC portátil" },
+  { label: "Cableado", value: "Canales ocultos bajo piso" },
+  { label: "Generador", value: "Plantas de energía opcionales" },
+  { label: "Extensiones", value: "Conectores y prolongaciones" },
+  { label: "Instalación", value: "Incluida con renta de carpa" },
+];
+
+const sidebarNav = [
+  { name: "Carpas Medianas", href: "/servicios/carpas/estructurales/medianas/" },
+  { name: "Carpas Grandes", href: "/servicios/carpas/estructurales/grandes/" },
+  { name: "Paredes Modulares", href: "/servicios/carpas/estructurales/paredes-modulares/" },
+  { name: "Accesorios Estructurales", href: null, active: true },
+];
+
+const sidebarRelated = [
+  { name: "Pisos y Complementos", href: "/servicios/carpas/pisos-complementos/" },
+  { name: "Carpas Árabes", href: "/servicios/carpas/carpas-arabes/" },
+  { name: "Mobiliario", href: "/servicios/mobiliario/" },
+  { name: "Iluminación", href: "/servicios/iluminacion/" },
+  { name: "Climatización", href: "/servicios/accesorios/calefaccion-clima/" },
+];
+
+const reviews = [
+  { author: "Ricardo Vázquez", text: "Rentamos piso elevado de madera para una boda en un jardín de Tlalpan. El terreno era irregular con desnivel de 30 cm y el equipo niveló todo perfectamente. La duela se veía elegante, la rampa de acceso fue un detalle muy profesional y el piso quedó firme toda la noche con 120 personas bailando. Impecable.", rating: 5, date: "2025-11-18" },
+  { author: "Paulina Aguilar", text: "Contratamos el kit eléctrico con climatización para un evento corporativo de invierno en una carpa 10x20. El tablero trifásico alimentó todo nuestro equipo de audio, pantallas LED y 4 calefactores de gas sin ningún problema. La temperatura dentro de la carpa fue perfecta a pesar de que afuera hacía 8 grados. Excelente servicio técnico.", rating: 5, date: "2025-10-25" },
+  { author: "Alejandro Ruiz", text: "Para nuestra expo de 3 días usamos el paquete completo: piso, electricidad, drenaje e iluminación LED. Llovió dos de los tres días y gracias al sistema de drenaje no tuvimos ningún problema. El cableado oculto bajo piso quedó impecable y cada stand tenía sus tomas de corriente. La logística fue perfecta de principio a fin.", rating: 5, date: "2025-09-08" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Accesorios para Carpas Estructurales en CDMX",
+    description: "Accesorios profesionales para carpas: sistemas de drenaje, pisos nivelados, climatización, iluminación integrada y cableado eléctrico. Complementa tu carpa en CDMX.",
+    url: "/servicios/carpas/estructurales/accesorios-estructurales/",
+    priceRange: { min: 3000, max: 25000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 145,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Carpas", url: "/servicios/carpas/" },
+    { name: "Estructurales", url: "/servicios/carpas/estructurales/" },
+    { name: "Accesorios Estructurales", url: "/servicios/carpas/estructurales/accesorios-estructurales/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Accesorios para Carpas Estructurales en CDMX"
+  description="Accesorios profesionales para carpas: sistemas de drenaje, pisos nivelados, climatización, iluminación integrada y cableado eléctrico. Complementa tu carpa en CDMX."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Complementos que elevan tu carpa"
+    title='Renta de <span class="highlight">Accesorios para Carpas Estructurales</span> en CDMX'
+    subtitle="Sistemas de drenaje profesional, pisos elevados nivelados, climatización integral, iluminación LED de techo y tableros de distribución eléctrica. Todo lo que necesitas para transformar tu carpa en un espacio de evento completo."
+    primaryCTA={{ label: "Cotiza tus accesorios", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar accesorios para carpas estructurales` }}
+    cards={[
+      {
+        title: "Drenaje profesional, pisos elevados y cableado eléctrico integrado",
+        content: "<strong>Accesorios estructurales profesionales</strong> que transforman una carpa básica en un espacio de evento completamente equipado. Sistema de <strong>drenaje con canaletas perimetrales</strong> y desagüe que dirige el agua lejos de la estructura. <strong>Pisos elevados de madera</strong> sobre estructura metálica con nivelación láser, ideales para terrenos irregulares y jardines — incluyen rampa de acceso y cubren toda la superficie o zonas específicas. <strong>Canales de cableado eléctrico ocultos</strong> bajo piso con tableros de distribución monofásico y trifásico.",
+      },
+      {
+        title: "Climatización integral e iluminación LED de techo",
+        content: "<strong>Sistemas de climatización profesional</strong> para mantener el confort en cualquier temporada. Calefacción con radiadores infrarrojos o de gas para eventos de invierno, y enfriamiento evaporativo o AC portátil para verano. <strong>Iluminación LED de techo integrada</strong> con control dimmer que se instala directamente en la estructura de la carpa sin soportes adicionales. Tableros de distribución eléctrica con protección térmica y diferencial. Opción de generadores de energía para eventos sin conexión a red eléctrica.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas equipar tu carpa con todo lo necesario?"
+    subheadline="Cotiza sin compromiso — te asesoramos sobre los accesorios ideales para tu evento y temporada"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Carpas Estructurales para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas accesorios para tu carpa estructural?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar accesorios para carpas estructurales`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 22h20L12 2z"/><path d="M12 2v20"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Accesorios Estructurales</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Sistema de Drenaje -->
+          <section class="section section--alt" aria-labelledby="drenaje-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Lluvia sin preocupaciones</span>
+                <h2 class="showcase__title" id="drenaje-heading">Sistema de Drenaje Profesional</h2>
+                <p class="showcase__subtitle">Canaletas perimetrales y bajantes que mantienen tu evento seco en cualquier temporada.</p>
+                <p class="showcase__text">Nuestro <strong>sistema de drenaje profesional</strong> se integra directamente a la estructura de la carpa para garantizar que el agua de lluvia se dirija lejos del área del evento. Incluye <strong>canaletas perimetrales de PVC</strong> instaladas en la base de la lona que recolectan el agua escurrida del techo, <strong>bajantes direccionales</strong> que la conducen a puntos de desagüe específicos, y <strong>canaletas de unión</strong> entre módulos cuando se conectan múltiples carpas.</p>
+                <p class="showcase__text">Para eventos en temporada de lluvias, el sistema de drenaje es <strong>esencial para evitar acumulaciones de agua</strong> alrededor de la carpa que pueden afectar el acceso y la estabilidad del terreno. Complementamos con <strong>zanjetas perimetrales</strong> que desvían el agua superficial del terreno y protegen el área de montaje. En terrenos con pendiente, instalamos drenaje francés temporal bajo el piso elevado. Combina con nuestro <a href="/servicios/carpas/pisos-complementos/">piso elevado</a> para aislar completamente a tus invitados del suelo húmedo.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Canaletas PVC</span>
+                  <span class="showcase__tag">Bajantes direccionales</span>
+                  <span class="showcase__tag">Unión de módulos</span>
+                  <span class="showcase__tag">Temporada de lluvias</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Sistema de Drenaje
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2L2 22h20L12 2z"/>
+                    <path d="M12 2v20"/>
+                  </svg>
+                  <span>Sistema de Drenaje</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Piso Elevado -->
+          <section class="section section--alt" aria-labelledby="piso-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Sobre cualquier terreno</span>
+                <h2 class="showcase__title" id="piso-heading">Piso Elevado Nivelado</h2>
+                <p class="showcase__subtitle">Superficie perfectamente plana sobre pasto, tierra o terrenos irregulares.</p>
+                <p class="showcase__text">Nuestro <strong>sistema de piso elevado</strong> crea una superficie perfectamente plana e impecable sobre cualquier terreno. La estructura modular de <strong>acero galvanizado con nivelación láser</strong> se eleva 10-15 cm del suelo, aislando completamente del pasto húmedo, tierra y desniveles. Disponible en dos acabados: <strong>duela de madera</strong> para un look elegante y cálido ideal para bodas y galas, o <strong>alfombra sobre base rígida</strong> para eventos corporativos y exposiciones con aspecto de salón profesional.</p>
+                <p class="showcase__text">Cada módulo de piso se ensambla con sistema de click que garantiza una superficie continua sin juntas visibles. Incluye <strong>rampa de acceso</strong> con superficie antiderrapante para sillas de ruedas y carritos de servicio. El espacio bajo el piso permite <strong>canalizar todo el cableado eléctrico de forma oculta</strong> — cables de iluminación, audio y tomas de corriente emergen limpiamente del piso donde se necesitan. Combina con nuestra <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a> para un acabado integral que impresione a tus invitados.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Nivelación láser</span>
+                  <span class="showcase__tag">Duela o alfombra</span>
+                  <span class="showcase__tag">Rampa de acceso</span>
+                  <span class="showcase__tag">Cableado oculto</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Piso Elevado
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2L2 22h20L12 2z"/>
+                    <path d="M12 2v20"/>
+                  </svg>
+                  <span>Piso Elevado Nivelado</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Climatización -->
+          <section class="section section--alt" aria-labelledby="clima-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Confort en cualquier temporada</span>
+                <h2 class="showcase__title" id="clima-heading">Climatización Integral</h2>
+                <p class="showcase__subtitle">Calefacción para invierno y enfriamiento para verano dentro de tu carpa.</p>
+                <p class="showcase__text">Nuestro <strong>sistema de climatización integral</strong> mantiene la temperatura ideal dentro de tu carpa independientemente del clima exterior. Para <strong>eventos de invierno</strong> (noviembre a febrero en CDMX), ofrecemos radiadores infrarrojos que calientan directamente a las personas, calefactores de gas de alto BTU para volúmenes grandes, y sistemas de calefacción por conductos para distribución uniforme del calor.</p>
+                <p class="showcase__text">Para <strong>eventos de verano</strong> (abril a septiembre), disponemos de enfriadores evaporativos industriales que bajan la temperatura 8-12°C, aires acondicionados portátiles para carpas cerradas con paredes, y ventiladores industriales de alta potencia para circulación de aire. Todos los sistemas se instalan de forma discreta dentro de la estructura de la carpa. Para calcular la climatización necesaria consideramos el <strong>volumen de la carpa, número de personas, orientación solar y tipo de paredes</strong>. Complementa con nuestra <a href="/servicios/accesorios/calefaccion-clima/">gama completa de climatización</a>.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Radiadores infrarrojos</span>
+                  <span class="showcase__tag">Calefactores gas</span>
+                  <span class="showcase__tag">Enfriamiento evaporativo</span>
+                  <span class="showcase__tag">AC portátil</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Climatización
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2L2 22h20L12 2z"/>
+                    <path d="M12 2v20"/>
+                  </svg>
+                  <span>Climatización Integral</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Eléctrico -->
+          <section class="section section--alt" aria-labelledby="electrico-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Energía profesional</span>
+                <h2 class="showcase__title" id="electrico-heading">Kit Eléctrico Completo</h2>
+                <p class="showcase__subtitle">Tableros de distribución, cableado oculto y tomas de corriente profesionales.</p>
+                <p class="showcase__text">Nuestro <strong>Kit Eléctrico Completo</strong> proporciona toda la infraestructura eléctrica que tu evento necesita bajo la carpa. Incluye <strong>tablero de distribución principal</strong> con protección térmica y diferencial (monofásico 30 kW o trifásico 100 kW), cableado profesional canalizado bajo el piso o por las columnas de la estructura, y <strong>tomas de corriente distribuidas estratégicamente</strong> para equipo de audio, iluminación, cocina, carga de dispositivos y decoración.</p>
+                <p class="showcase__text">Todo el sistema cumple con <strong>normas NOM de seguridad eléctrica</strong> y es supervisado por un electricista certificado. Para eventos sin acceso a red eléctrica o con alto consumo, integramos <strong>plantas de energía</strong> de 20 a 500 kW que alimentan todo el sistema de forma autónoma. El kit incluye extensiones profesionales, multicontactos con supresor de picos y señalización de seguridad. Ideal para <strong>expos con múltiples stands, producciones con equipo audiovisual y eventos con cocina profesional</strong>. Complementa con nuestras <a href="/servicios/accesorios/plantas-energia/">plantas de energía</a> para total independencia eléctrica.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Tablero distribución</span>
+                  <span class="showcase__tag">Norma NOM</span>
+                  <span class="showcase__tag">Cableado oculto</span>
+                  <span class="showcase__tag">Electricista certificado</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Eléctrico
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2L2 22h20L12 2z"/>
+                    <path d="M12 2v20"/>
+                  </svg>
+                  <span>Kit Eléctrico Completo</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Accesorios Estructurales"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar accesorios para tu carpa estructural, es natural tener preguntas sobre compatibilidad, precios y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor técnico te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de carpas resolverá todas tus dudas sobre accesorios al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre accesorios para carpas estructurales`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Carpas Estructurales -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Carpas Estructurales para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/carpas/estructurales/" class="sidebar-nav__back">&uarr; Volver a Estructurales</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/carpas/" class="sidebar-nav__back">&uarr; Volver a Carpas</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de carpas:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas accesorios para tu carpa estructural?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar accesorios para carpas estructurales`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tus Accesorios Estructurales"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores técnicos te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un piso elevado para tu boda o un kit eléctrico completo para tu expo, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoAccesorio">
+                Tipo de accesorio
+              </label>
+              <select id="tipoAccesorio" name="tipoAccesorio" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de accesorio</option>
+                <option value="Sistema Drenaje">Sistema Drenaje</option>
+                <option value="Piso Elevado Madera">Piso Elevado Madera</option>
+                <option value="Piso Alfombra">Piso Alfombra</option>
+                <option value="Kit Eléctrico">Kit Eléctrico</option>
+                <option value="Climatización">Climatización</option>
+                <option value="Paquete Completo">Paquete Completo</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: tamaño de carpa, tipo de terreno, si necesitas electricidad, climatización, piso, qué equipo conectarás..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu terreno sin costo para recomendarte los accesorios ideales según las condiciones del venue.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría técnica personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoAccesorio = document.getElementById('tipoAccesorio').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Accesorios para Carpas Estructurales*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoAccesorio) texto += `*Tipo de accesorio:* ${tipoAccesorio}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Carpas Estructurales"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de carpas y accesorios estructurales para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de accesorios y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Carpas Elite MX</h3>
+            <p class="partner-card__tagline">Especialistas en Carpas Estructurales</p>
+            <p class="partner-card__text">Especialistas en carpas estructurales y accesorios profesionales para eventos. Pisos elevados, sistemas eléctricos y climatización con instalación certificada.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">T</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">ToldoEventos CDMX</h3>
+            <p class="partner-card__tagline">Carpas y Toldos para Corporativos</p>
+            <p class="partner-card__text">Renta integral de carpas y accesorios para eventos corporativos. Pisos, drenaje, climatización y electricidad con servicio técnico especializado.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Carpas & Más</h3>
+            <p class="partner-card__tagline">Cobertura Temporal para Eventos</p>
+            <p class="partner-card__text">Soluciones integrales de cobertura y equipamiento para eventos al aire libre en CDMX. Accesorios estructurales con asesoría técnica personalizada.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">L</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">LonasPro</h3>
+            <p class="partner-card__tagline">Carpas, Pisos y Complementos</p>
+            <p class="partner-card__text">Carpas, pisos y complementos con servicio de logística e instalación profesional. Cobertura en toda la CDMX y área metropolitana con garantía de satisfacción.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Accesorios profesionales que transforman tu carpa en un espacio completo"
+    subheadline="Más de 500 eventos con accesorios estructurales nos respaldan. Cotiza hoy y recibe asesoría técnica sin compromiso."
+    primaryCTA={{ label: "Cotizar accesorios", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar accesorios para carpas estructurales` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

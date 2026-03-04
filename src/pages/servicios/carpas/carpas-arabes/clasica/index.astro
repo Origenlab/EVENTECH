@@ -1,0 +1,726 @@
+---
+/**
+ * ─── Carpa Árabe Clásica — Pagina de Producto (Nivel 4) ───
+ * Techos tensados en pico con cortinas de chiffon blanco y marfil
+ * para bodas y eventos elegantes.
+ *
+ * Jerarquia: Servicios > Carpas > Carpas Árabes > Árabe Clásica
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Carpas", href: "/servicios/carpas/" },
+  { label: "Carpas Árabes", href: "/servicios/carpas/carpas-arabes/" },
+  { label: "Árabe Clásica" },
+];
+
+const faqs = [
+  { question: "¿Cuántas personas caben en cada tamaño de carpa árabe clásica?", answer: 'La capacidad depende de la configuración de tu evento. La carpa de <strong>6x6 metros</strong> acomoda 30-50 personas en formato coctel o 25-35 en banquete. La de <strong>10x10 metros</strong> recibe 80-100 personas en banquete. La de <strong>10x15 metros</strong> es ideal para 120-150 invitados, y la de <strong>15x30 metros</strong> alcanza 250-300 personas con espacio para pista de baile y barra. Nuestro equipo diseña la distribución óptima según tus necesidades.' },
+  { question: "¿Se puede instalar la carpa árabe clásica en cualquier tipo de jardín o terraza?", answer: 'Sí, nuestras carpas árabes clásicas se adaptan a prácticamente cualquier superficie. En <strong>jardines con pasto</strong> usamos estacas de acero de 80 cm para anclaje firme. En <strong>terrazas o pisos duros</strong> utilizamos lastres de concreto de 50-100 kg por apoyo. Realizamos una <strong>visita técnica gratuita</strong> a tu venue para evaluar el terreno, medir espacios y determinar el sistema de anclaje más seguro. También trabajamos en predios, estacionamientos y azoteas con acceso adecuado.' },
+  { question: "¿La carpa árabe clásica se puede usar bajo lluvia?", answer: 'Absolutamente. La lona PVC de <strong>650 g/m²</strong> es 100% impermeable y cuenta con protección UV. Los techos tensados en pico están diseñados con <strong>pendientes que canalizan el agua</strong> de lluvia hacia los laterales, evitando acumulación. Para eventos en temporada de lluvias, reforzamos la instalación con <strong>canaletas de desagüe y tensores adicionales</strong>. La estructura de aluminio serie 6000 resiste vientos de hasta 80 km/h. Tu evento estará protegido sin importar las condiciones climáticas.' },
+  { question: "¿Cuánto tiempo toma el montaje de una carpa árabe clásica?", answer: 'El tiempo de montaje depende del tamaño. Una carpa de <strong>6x6 metros</strong> se instala en 3-4 horas. Las de <strong>10x10 y 10x15 metros</strong> requieren 5-8 horas. La carpa grande de <strong>15x30 metros</strong> necesita 8-12 horas de instalación. Normalmente montamos entre <strong>24 y 48 horas antes</strong> del evento para garantizar que todo quede perfecto. El equipo de montaje incluye 4-8 técnicos según el tamaño, y el desmontaje se realiza al día siguiente sin costo adicional.' },
+  { question: "¿La renta de carpa árabe clásica incluye piso?", answer: 'El piso no está incluido en la renta básica de la carpa, pero ofrecemos <strong>paquetes completos con piso de duela o alfombra</strong> a precio preferencial. Puedes elegir entre <a href="/servicios/carpas/pisos-complementos/">piso de duela natural, alfombra industrial o piso modular</a>. El Kit Boda Romántica incluye carpa + forros interiores + iluminación fairy lights como paquete integral. Te recomendamos agregar piso especialmente en jardines con pasto irregular o terrenos de tierra.' },
+  { question: "¿Con cuánta anticipación debo reservar mi carpa árabe clásica?", answer: 'Recomendamos reservar con <strong>3 a 6 semanas de anticipación</strong> para garantizar disponibilidad del tamaño que necesitas. Las carpas de 10x15 y 15x30 metros son las más solicitadas y se agotan primero, especialmente en <strong>temporada de bodas (octubre a febrero)</strong>. Para eventos grandes que requieren configuración Doble Pico o Kit Boda Romántica, lo ideal es apartar con <strong>2 meses mínimo</strong>. También atendemos solicitudes de última hora sujetas a disponibilidad de inventario.' },
+];
+
+const specs = [
+  { label: "Estructura", value: "Aluminio reforzado serie 6000" },
+  { label: "Lona", value: "PVC 650 g/m² blanco o marfil" },
+  { label: "Cortinas", value: "Chiffon premium recogibles" },
+  { label: "Techos", value: "Tensados en pico tipo beduina" },
+  { label: "Medidas", value: "6x6 a 15x30 metros" },
+  { label: "Capacidad", value: "50 a 300 personas" },
+  { label: "Anclaje", value: "Estacas/lastre según terreno" },
+  { label: "Altura centro", value: "4.5 a 6 metros" },
+  { label: "Montaje", value: "Profesional, incluido en renta" },
+  { label: "Resistencia", value: "Viento hasta 80 km/h" },
+];
+
+const sidebarNav = [
+  { name: "Árabe Clásica", href: null, active: true },
+  { name: "Árabe con Forros", href: "/servicios/carpas/carpas-arabes/forros/" },
+  { name: "Árabe Transparente", href: "/servicios/carpas/carpas-arabes/transparente/" },
+  { name: "Árabe Beduina", href: "/servicios/carpas/carpas-arabes/beduina/" },
+];
+
+const sidebarRelated = [
+  { name: "Pisos y Complementos", href: "/servicios/carpas/pisos-complementos/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+  { name: "Mobiliario", href: "/servicios/mobiliario/" },
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+  { name: "Pistas de Baile", href: "/servicios/pistas-baile/" },
+];
+
+const reviews = [
+  { author: "Fernanda Gutiérrez", text: "Rentamos la carpa árabe clásica de 10x15 para nuestra boda en un jardín de Coyoacán con 200 invitados. El montaje fue impecable, las cortinas de chiffon blanco lucieron espectaculares al atardecer y la estructura resistió perfectamente una lluvia inesperada. Todos nuestros invitados comentaron lo hermoso del espacio. Servicio 10/10.", rating: 5, date: "2025-11-20" },
+  { author: "Daniela Moreno", text: "Usamos la carpa árabe clásica marfil para los XV años de mi hija en una terraza de Tlalpan. La altura del techo tensado en pico le dio una elegancia increíble al espacio. El equipo de EVENTECH fue muy profesional, montaron todo un día antes y nos ayudaron con la distribución de mesas. Superó nuestras expectativas.", rating: 5, date: "2025-10-12" },
+  { author: "Ricardo Sánchez", text: "Contratamos la carpa árabe clásica de 15x30 para una recepción de boda en una hacienda del Estado de México. El resultado fue espectacular — el espacio se sentía como un venue de lujo con las cortinas recogidas y la iluminación integrada. El servicio de montaje y desmontaje fue totalmente profesional.", rating: 5, date: "2025-09-05" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Carpa Árabe Clásica para Eventos en CDMX",
+    description: "Renta de carpa árabe clásica con techos tensados en pico y cortinas de chiffon blanco y marfil para bodas y eventos en CDMX. Montaje profesional incluido. Desde $8,000.",
+    url: "/servicios/carpas/carpas-arabes/clasica/",
+    priceRange: { min: 8000, max: 45000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 267,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Carpas", url: "/servicios/carpas/" },
+    { name: "Carpas Árabes", url: "/servicios/carpas/carpas-arabes/" },
+    { name: "Árabe Clásica", url: "/servicios/carpas/carpas-arabes/clasica/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Carpa Árabe Clásica para Eventos en CDMX"
+  description="Renta de carpa árabe clásica con techos tensados en pico y cortinas de chiffon blanco y marfil para bodas y eventos en CDMX. Montaje profesional incluido. Desde $8,000."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="La favorita para bodas románticas"
+    title='Renta de <span class="highlight">Carpa Árabe Clásica</span> para Eventos en CDMX'
+    subtitle="Carpas árabes clásicas con techos tensados en pico, cortinas de chiffon blanco y marfil, estructura de aluminio reforzado y montaje profesional incluido. La opción más elegante para bodas y eventos al aire libre."
+    primaryCTA={{ label: "Cotiza tu carpa", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar una carpa árabe clásica para mi evento` }}
+    cards={[
+      {
+        title: "Techos tensados en pico con estructura de aluminio reforzado",
+        content: "<strong>Renta de carpa árabe clásica</strong> con la estructura más resistente y elegante del mercado. Techos tensados en pico que alcanzan <strong>4.5 a 6 metros de altura</strong>, creando un efecto visual majestuoso. Estructura de <strong>aluminio reforzado serie 6000</strong> con lona PVC de 650 g/m² en blanco o marfil, cortinas laterales de chiffon premium recogibles y sistema de anclaje profesional. Capacidad de <strong>50 a 300 personas</strong> según configuración, ideal para bodas, XV años, recepciones y eventos sociales en jardines y terrazas de la Ciudad de México.",
+      },
+      {
+        title: "Montaje profesional completo con cortinas y opciones de iluminación",
+        content: "<strong>Servicio de montaje profesional incluido</strong> en cada renta. Nuestro equipo certificado se encarga del transporte, instalación con anclaje adaptado al terreno (estacas o lastre), tensado de lona y colocación de cortinas laterales de chiffon recogibles. Opción de <strong>iluminación integrada</strong> con fairy lights, candiles y spots LED para crear ambientes románticos al atardecer. Resistencia a vientos de hasta <strong>80 km/h</strong> y lona 100% impermeable. Desmontaje incluido sin costo adicional.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Buscas la carpa perfecta para tu boda o evento especial?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con el tamaño y configuración ideal para tu celebración"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Carpas Árabes para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas una carpa árabe clásica para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una carpa árabe clásica para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 22h20L12 2z"/><path d="M12 2v20"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Carpa Árabe Clásica</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Árabe Clásica Blanca -->
+          <section class="section section--alt" aria-labelledby="clasica-blanca-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">La más solicitada para bodas</span>
+                <h2 class="showcase__title" id="clasica-blanca-heading">Árabe Clásica Blanca</h2>
+                <p class="showcase__subtitle">Chiffon blanco puro para bodas románticas y recepciones elegantes en jardines de CDMX.</p>
+                <p class="showcase__text">La <strong>carpa árabe clásica blanca</strong> es nuestra opción más solicitada por wedding planners y novias en la Ciudad de México. El <strong>chiffon blanco puro</strong> en cortinas laterales crea un efecto etéreo y romántico que se ilumina de manera espectacular al atardecer. Los techos tensados en pico con lona PVC blanca de <strong>650 g/m²</strong> alcanzan alturas de 4.5 a 6 metros, proporcionando una sensación de amplitud y majestuosidad única.</p>
+                <p class="showcase__text">Disponible desde <strong>6x6 metros para ceremonias íntimas hasta 15x30 metros para recepciones de 300 personas</strong>. Las cortinas de chiffon son recogibles, permitiendo crear ambientes abiertos durante el coctel y cerrados durante la cena. Combina con nuestro <a href="/servicios/mobiliario/">mobiliario premium</a> — sillas Tiffany blancas y mesas redondas — para un montaje de boda integral y sofisticado.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Chiffon Blanco</span>
+                  <span class="showcase__tag">Bodas</span>
+                  <span class="showcase__tag">6x6 a 15x30m</span>
+                  <span class="showcase__tag">300 personas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Árabe Clásica Blanca
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2L2 22h20L12 2z"/>
+                    <path d="M12 2v20"/>
+                  </svg>
+                  <span>Árabe Clásica Blanca</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Árabe Clásica Marfil -->
+          <section class="section section--alt" aria-labelledby="clasica-marfil-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Tono cálido y sofisticado</span>
+                <h2 class="showcase__title" id="clasica-marfil-heading">Árabe Clásica Marfil</h2>
+                <p class="showcase__subtitle">Tono cálido marfil para recepciones elegantes con ambiente sofisticado y acogedor.</p>
+                <p class="showcase__text">La <strong>carpa árabe clásica marfil</strong> ofrece un tono cálido y sofisticado que se distingue del blanco puro por su <strong>matiz cremoso y acogedor</strong>. Es la elección preferida para recepciones de boda con decoración en tonos dorados, champagne y nude, creando una paleta armónica que se ve espectacular en fotografías. La lona PVC marfil de <strong>650 g/m²</strong> filtra la luz natural de manera suave, generando un ambiente íntimo y envolvente.</p>
+                <p class="showcase__text">Las cortinas laterales de <strong>chiffon marfil</strong> complementan perfectamente el tono del techo, creando una estética uniforme y elegante. Ideal para <strong>bodas de otoño e invierno, recepciones al atardecer y cenas de gala</strong> en haciendas y jardines. Combina con nuestra <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a> — fairy lights y candiles de cristal — para un efecto de lujo incomparable.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Tono Marfil</span>
+                  <span class="showcase__tag">Recepciones</span>
+                  <span class="showcase__tag">Cenas de Gala</span>
+                  <span class="showcase__tag">Fotografía Premium</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Árabe Clásica Marfil
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2L2 22h20L12 2z"/>
+                    <path d="M12 2v20"/>
+                  </svg>
+                  <span>Árabe Clásica Marfil</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Árabe Doble Pico -->
+          <section class="section section--alt" aria-labelledby="doble-pico-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Para eventos grandes</span>
+                <h2 class="showcase__title" id="doble-pico-heading">Árabe Doble Pico</h2>
+                <p class="showcase__subtitle">Dos módulos de carpa árabe conectados para eventos grandes con más de 200 invitados.</p>
+                <p class="showcase__text">La <strong>carpa árabe doble pico</strong> es la solución para eventos que requieren mayor superficie cubierta sin perder la elegancia del diseño árabe. Dos módulos de carpa se conectan mediante una <strong>sección de unión con canaleta de desagüe integrada</strong>, creando un espacio continuo que puede cubrir áreas de hasta <strong>30x30 metros</strong> con capacidad para 400+ personas. Los dos picos tensados en paralelo crean una silueta arquitectónica impresionante que se distingue desde cualquier punto del venue.</p>
+                <p class="showcase__text">Cada módulo mantiene su <strong>estructura independiente de aluminio serie 6000</strong>, lo que garantiza estabilidad y seguridad. Las cortinas laterales de chiffon se instalan perimetralmente y en la unión central, permitiendo crear zonas diferenciadas — ceremonia y recepción, coctel y banquete, o salón principal y área VIP. Complementa con nuestras <a href="/servicios/pistas-baile/">pistas de baile</a> para un montaje integral de boda o evento social.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Doble Módulo</span>
+                  <span class="showcase__tag">400+ Personas</span>
+                  <span class="showcase__tag">Hasta 30x30m</span>
+                  <span class="showcase__tag">Zonas Diferenciadas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Árabe Doble Pico
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2L2 22h20L12 2z"/>
+                    <path d="M12 2v20"/>
+                  </svg>
+                  <span>Árabe Doble Pico</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Boda Romántica -->
+          <section class="section section--alt" aria-labelledby="kit-boda-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Paquete todo incluido</span>
+                <h2 class="showcase__title" id="kit-boda-heading">Kit Boda Romántica</h2>
+                <p class="showcase__subtitle">Paquete integral: carpa árabe clásica + forros interiores + iluminación fairy lights para la boda perfecta.</p>
+                <p class="showcase__text">Nuestro <strong>Kit Boda Romántica</strong> es el paquete más popular para novias que buscan un montaje integral sin complicaciones. Incluye <strong>carpa árabe clásica</strong> en blanco o marfil, <strong>forros interiores de chiffon</strong> en el techo con drapeado decorativo tipo nube, e <strong>iluminación fairy lights</strong> entretejida entre los pliegues del techo que crea un efecto de cielo estrellado espectacular. Todo instalado por nuestro equipo profesional con acabado impecable.</p>
+                <p class="showcase__text">El kit está disponible en todos los tamaños, desde <strong>6x6 metros para ceremonias íntimas hasta 15x30 metros para recepciones grandes</strong>. Incluye visita técnica previa, diseño personalizado de la distribución del espacio, montaje completo 24-48 horas antes del evento y desmontaje posterior. Ahorra un <strong>15-20% respecto a contratar cada servicio por separado</strong>. Complementa con nuestro <a href="/servicios/mobiliario/sillas/">mobiliario Tiffany</a> y <a href="/servicios/accesorios/manteleria-textiles/">mantelería premium</a> para un montaje de ensueño.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Carpa + Forros</span>
+                  <span class="showcase__tag">Fairy Lights</span>
+                  <span class="showcase__tag">15-20% Ahorro</span>
+                  <span class="showcase__tag">Montaje Integral</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Boda Romántica
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2L2 22h20L12 2z"/>
+                    <path d="M12 2v20"/>
+                  </svg>
+                  <span>Kit Boda Romántica</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Carpa Árabe Clásica"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu carpa árabe clásica, es natural tener preguntas sobre tamaños, montaje y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de carpas árabes resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre la carpa árabe clásica para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Carpas Árabes -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Carpas Árabes para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/carpas/carpas-arabes/" class="sidebar-nav__back">&uarr; Volver a Carpas Árabes</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/carpas/" class="sidebar-nav__back">&uarr; Volver a Carpas</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de carpas:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas una carpa árabe clásica para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una carpa árabe clásica para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Carpa Árabe Clásica"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea una carpa de 6x6 para tu ceremonia o una de 15x30 para tu recepción de boda, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Bautizo / Primera Comunión">Bautizo / Primera Comunión</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Cena de Gala">Cena de Gala</option>
+                <option value="Festival / Temático">Festival / Temático</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoCarpa">
+                Tipo de carpa árabe clásica
+              </label>
+              <select id="tipoCarpa" name="tipoCarpa" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de carpa</option>
+                <option value="Árabe Clásica 6x6">Árabe Clásica 6x6</option>
+                <option value="Árabe Clásica 10x10">Árabe Clásica 10x10</option>
+                <option value="Árabe Clásica 10x15">Árabe Clásica 10x15</option>
+                <option value="Árabe Clásica 15x30">Árabe Clásica 15x30</option>
+                <option value="Doble Pico">Doble Pico</option>
+                <option value="Kit Boda Romántica">Kit Boda Romántica</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de invitados, ubicación del evento (jardín/terraza/hacienda), si necesitas piso, iluminación o complementos..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Visitamos tu venue sin costo para evaluar el terreno y diseñar la distribución ideal de tu carpa.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoCarpa = document.getElementById('tipoCarpa').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Carpa Árabe Clásica*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoCarpa) texto += `*Tipo de carpa:* ${tipoCarpa}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Carpas"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de carpas y estructuras temporales para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de estilos y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Carpas Elite MX</h3>
+            <p class="partner-card__tagline">Carpas Árabes y Estructurales</p>
+            <p class="partner-card__text">Especialistas en carpas árabes y estructurales para bodas y eventos sociales. Amplio inventario de carpas clásicas, con forros y transparentes en todos los tamaños con montaje profesional certificado.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">T</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">ToldoEventos CDMX</h3>
+            <p class="partner-card__tagline">Carpas y Toldos para Eventos</p>
+            <p class="partner-card__text">Renta integral de carpas y toldos para eventos corporativos y ferias. Soluciones de cobertura profesional con logística completa en CDMX y zona metropolitana.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Carpas & Más</h3>
+            <p class="partner-card__tagline">Cobertura Temporal para Eventos</p>
+            <p class="partner-card__text">Soluciones de cobertura temporal para eventos al aire libre en CDMX. Carpas árabes, estructurales y hangar con complementos de piso, iluminación y climatización.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">L</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">LonasPro</h3>
+            <p class="partner-card__tagline">Carpas, Pisos y Complementos</p>
+            <p class="partner-card__text">Carpas, pisos y complementos con servicio de logística e instalación profesional. Cobertura completa en Ciudad de México y área metropolitana con técnicos certificados.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="La elegancia clásica que tu evento merece, bajo la carpa perfecta"
+    subheadline="Más de 500 instalaciones exitosas nos respaldan. Cotiza hoy y recibe visita técnica gratuita a tu venue."
+    primaryCTA={{ label: "Cotizar carpa árabe clásica", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar una carpa árabe clásica para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

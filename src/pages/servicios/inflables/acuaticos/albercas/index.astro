@@ -1,0 +1,730 @@
+---
+/**
+ * ─── Albercas Inflables — Pagina de Producto (Nivel 4) ───
+ * Albercas inflables con sistema de filtración y bordes de seguridad
+ * reforzados para eventos al aire libre.
+ *
+ * Jerarquia: Servicios > Inflables > Acuáticos > Albercas Inflables
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Inflables", href: "/servicios/inflables/" },
+  { label: "Acuáticos", href: "/servicios/inflables/acuaticos/" },
+  { label: "Albercas Inflables" },
+];
+
+const faqs = [
+  { question: "¿Cómo funciona el llenado y vaciado de las albercas inflables?", answer: 'El <strong>llenado está incluido</strong> en el servicio. Conectamos una manguera estándar a la toma de agua de tu venue y llenamos la alberca antes del evento (el tiempo varía de 1 a 3 horas según el tamaño). Para el vaciado, utilizamos una <strong>bomba de desagüe</strong> que drena el agua hacia un área de drenaje natural o coladera. Si tu venue no tiene toma de agua cercana, llevamos <strong>tanques de almacenamiento</strong> con capacidad suficiente. Todo el proceso de llenado y vaciado está incluido sin costo adicional.' },
+  { question: "¿Se necesita supervisión constante para niños en las albercas?", answer: 'Sí, incluimos <strong>un monitor de seguridad</strong> durante todo el evento que supervisa el uso de la alberca. Sin embargo, para niños menores de 6 años es <strong>obligatorio que un adulto responsable</strong> esté dentro del agua o al borde de la alberca en todo momento. Proporcionamos <strong>chalecos salvavidas infantiles</strong> sin costo para niños de 1 a 5 años. El monitor controla la capacidad máxima, verifica el uso de equipo de seguridad y está entrenado en primeros auxilios acuáticos.' },
+  { question: "¿Qué tipo de terreno necesito para instalar una alberca inflable?", answer: 'El terreno ideal es <strong>pasto nivelado o tierra compactada</strong>. La superficie debe estar libre de piedras, ramas o cualquier objeto punzante que pueda dañar la lona. Para superficies duras (concreto, adoquín), colocamos una <strong>lona protectora de piso</strong> incluida en el servicio. Necesitamos un área con <strong>declive natural o coladera cercana</strong> para el desagüe. El terreno debe ser razonablemente plano — una inclinación de más de 5% requiere nivelación previa. Realizamos visita técnica sin costo para evaluar las condiciones.' },
+  { question: "¿Cómo se mantiene limpia el agua durante el evento?", answer: 'Cada alberca incluye un <strong>sistema de filtración portátil</strong> que mantiene el agua circulando y limpia durante todo el evento. Además, aplicamos <strong>productos para tratamiento del agua</strong> (cloro y balanceadores de pH) seguros para la piel y biodegradables. Para eventos de más de 4 horas, el monitor realiza verificaciones periódicas de la calidad del agua. También proporcionamos un <strong>kit de limpieza superficial</strong> (red para hojas y residuos) para mantener el agua cristalina, especialmente en eventos al aire libre.' },
+  { question: "¿En qué temporada están disponibles las albercas inflables?", answer: 'Las albercas inflables están disponibles <strong>todo el año</strong>. La temporada alta es de <strong>marzo a octubre</strong> cuando el clima en CDMX es más cálido. En temporada fría (noviembre a febrero) ofrecemos la opción de <strong>agua temperada con calentadores portátiles</strong> para mantener una temperatura agradable. En temporada de lluvias recomendamos combinar con nuestras <a href="/servicios/carpas/">carpas para eventos</a>. Los fines de semana de abril a agosto son las fechas más solicitadas — reserva con anticipación.' },
+  { question: "¿Puedo combinar albercas con toboganes de agua?", answer: 'Sí, es nuestra combinación más popular. El <strong>Combo Alberca + Tobogán</strong> incluye una alberca inflable y un tobogán de agua que puede conectarse directamente a la alberca o funcionar de forma independiente con su propia alberca splash. El <strong>Paquete Pool Party</strong> es nuestro más completo: alberca familiar, tobogán de 5 u 8 metros, resbaladilla splash y zona de aspersores. También puedes añadir <a href="/servicios/inflables/acuaticos/toboganes-agua/">toboganes de agua</a> de cualquier altura a tu alberca para crear la fiesta acuática perfecta.' },
+];
+
+const specs = [
+  { label: "Tamaños", value: "2x2, 3x3, 4x3, 6x4 metros" },
+  { label: "Material", value: "PVC reforzado triple capa" },
+  { label: "Profundidad", value: "30 cm infantil / 60 cm familiar" },
+  { label: "Capacidad agua", value: "500 a 8,000 litros" },
+  { label: "Filtración", value: "Sistema portátil incluido" },
+  { label: "Bordes", value: "Inflables reforzados antivuelco" },
+  { label: "Monitor", value: "Incluido durante todo el evento" },
+  { label: "Lona piso", value: "Protectora incluida" },
+  { label: "Llenado", value: "Incluido con servicio de agua" },
+  { label: "Drenaje", value: "Bomba de desagüe incluida" },
+];
+
+const sidebarNav = [
+  { name: "Toboganes de Agua", href: "/servicios/inflables/acuaticos/toboganes-agua/" },
+  { name: "Albercas Inflables", href: null, active: true },
+  { name: "Resbaladillas Splash", href: "/servicios/inflables/acuaticos/resbaladillas-splash/" },
+  { name: "Circuitos Acuáticos", href: "/servicios/inflables/acuaticos/circuitos-acuaticos/" },
+];
+
+const sidebarRelated = [
+  { name: "Juegos Infantiles", href: "/servicios/inflables/juegos-infantiles/" },
+  { name: "Inflables para Adultos", href: "/servicios/inflables/adultos/" },
+  { name: "Carpas para Eventos", href: "/servicios/carpas/" },
+  { name: "Plantas de Energía", href: "/servicios/accesorios/plantas-energia/" },
+  { name: "Catering y Alimentos", href: "/servicios/catering/" },
+];
+
+const reviews = [
+  { author: "Mariana López", text: "Rentamos la alberca familiar de 4x3 metros para una pool party infantil en Tlalpan. La alberca llegó impecable, el llenado fue rapidísimo y el monitor estuvo atento a los niños toda la fiesta. El sistema de filtración mantuvo el agua cristalina durante 5 horas. Los papás quedaron muy tranquilos con la seguridad.", rating: 5, date: "2025-06-28" },
+  { author: "Jorge Castillo", text: "Contratamos la mega alberca de 6x4 para un evento familiar de verano con 40 personas en un jardín de Coyoacán. Impresionante la calidad del PVC y los bordes reforzados. Los chalecos para los niños chiquitos fueron un plus increíble. El vaciado con bomba fue rápido y limpio. Excelente servicio.", rating: 5, date: "2025-07-15" },
+  { author: "Sofía Ramírez", text: "Usamos dos albercas infantiles de 2x2 para el cumpleaños de mi hija de 3 años. Con la profundidad de 30 cm me sentí muy segura dejando a los peques chapotear. La lona de piso protectora evitó que se resbalaran al salir. El monitor fue muy profesional y amable con los niños. Repetiré sin duda.", rating: 5, date: "2025-08-03" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Albercas Inflables para Eventos en CDMX",
+    description: "Renta de albercas inflables con sistema de filtración y bordes de seguridad reforzados. Desde albercas infantiles hasta familiares de 6x4 metros. Desde $1,500.",
+    url: "/servicios/inflables/acuaticos/albercas/",
+    priceRange: { min: 1500, max: 5000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 132,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Inflables", url: "/servicios/inflables/" },
+    { name: "Acuáticos", url: "/servicios/inflables/acuaticos/" },
+    { name: "Albercas Inflables", url: "/servicios/inflables/acuaticos/albercas/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Albercas Inflables para Eventos en CDMX | EVENTECH"
+  description="Renta de albercas inflables con sistema de filtración y bordes de seguridad reforzados. Desde albercas infantiles hasta familiares de 6x4 metros. Desde $1,500."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Frescura instantánea para tu evento"
+    title='Renta de <span class="highlight">Albercas Inflables</span> para Eventos'
+    subtitle="Albercas inflables de 2x2, 3x3, 4x3 y 6x4 metros con bordes de seguridad reforzados, sistema de filtración portátil y lona de piso protectora. Monitor de seguridad y llenado incluidos."
+    primaryCTA={{ label: "Cotiza tu alberca", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar albercas inflables para mi evento` }}
+    cards={[
+      {
+        title: "Albercas inflables de 2x2 a 6x4 metros con filtración incluida",
+        content: "<strong>Renta de albercas inflables</strong> con la más alta calidad y seguridad para eventos en CDMX. Cuatro tamaños disponibles — 2x2, 3x3, 4x3 y 6x4 metros — con bordes de seguridad reforzados antivuelco, sistema de filtración portátil incluido y lonas de piso protectoras. Fabricadas en PVC reforzado triple capa con profundidad de 30 cm para infantiles y 60 cm para familiares. Ideales para pool parties, fiestas infantiles, cumpleaños y eventos familiares en jardines y terrenos amplios.",
+      },
+      {
+        title: "Llenado, monitor de seguridad y equipamiento completo incluido",
+        content: "<strong>Servicio completo</strong> incluido en cada renta. Llenado y vaciado con bomba profesional, monitor de seguridad capacitado durante todo el evento, kit de limpieza superficial y productos para tratamiento del agua. Chalecos salvavidas infantiles, tapetes antiderrapantes perimetrales y escalerilla de acceso incluidos sin costo adicional. Transporte, instalación y desmontaje dentro de CDMX y área metropolitana.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Buscas frescura instantánea para tu evento al aire libre?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con la alberca ideal para tu espacio y número de invitados"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Inflables Acuáticos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas albercas inflables para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar albercas inflables para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 9 7 9s7-4 7-9a7 7 0 0 0-7-7z"/><path d="M12 18v4"/><path d="M10 22h4"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Albercas Inflables</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Alberca Infantil 2x2m -->
+          <section class="section section--alt" aria-labelledby="alberca-2x2-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Segura para los más pequeños</span>
+                <h2 class="showcase__title" id="alberca-2x2-heading">Alberca Infantil 2x2m</h2>
+                <p class="showcase__subtitle">La alberca perfecta para bebés y niños de 1 a 5 años con profundidad de solo 30 cm.</p>
+                <p class="showcase__text">Nuestra <strong>alberca infantil de 2x2 metros</strong> está diseñada especialmente para los más pequeños de la casa. Con una profundidad de solo <strong>30 cm y piso acolchonado</strong>, proporciona un ambiente acuático seguro y controlado para bebés desde 1 año y niños hasta 5 años. Los <strong>bordes inflables extra anchos</strong> de doble cámara de aire previenen caídas y proporcionan un apoyo suave y estable. Capacidad de 500 litros, ideal para 4-6 niños simultáneamente.</p>
+                <p class="showcase__text">Incluye <strong>lona de piso protectora, tapete antiderrapante perimetral</strong> y chalecos salvavidas infantiles. El sistema de filtración portátil mantiene el agua limpia y el monitor de seguridad supervisa a los pequeños en todo momento. Perfecta para <strong>baby showers acuáticos, cumpleaños de 1-3 años, fiestas de verano y eventos en guarderías</strong>. Combínala con otra alberca más grande para crear una zona acuática dividida por edades. Se instala en solo 30 minutos.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">2x2 metros</span>
+                  <span class="showcase__tag">30 cm profundidad</span>
+                  <span class="showcase__tag">Desde 1 año</span>
+                  <span class="showcase__tag">500 litros</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Alberca 2x2m
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 5 7 9 7 9s7-4 7-9a7 7 0 0 0-7-7z"/>
+                    <path d="M12 18v4"/><path d="M10 22h4"/>
+                  </svg>
+                  <span>Alberca Infantil 2x2m</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Alberca Mediana 3x3m -->
+          <section class="section section--alt" aria-labelledby="alberca-3x3-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">La más versátil</span>
+                <h2 class="showcase__title" id="alberca-3x3-heading">Alberca Mediana 3x3m</h2>
+                <p class="showcase__subtitle">Tamaño ideal para fiestas infantiles con capacidad para 6-10 niños simultáneamente.</p>
+                <p class="showcase__text">La <strong>alberca mediana de 3x3 metros</strong> es nuestra opción más versátil y popular para <strong>fiestas infantiles y eventos familiares</strong>. Con profundidad de <strong>40 cm</strong> y capacidad de 2,000 litros, ofrece espacio suficiente para que 6-10 niños jueguen cómodamente. Los bordes inflables reforzados de <strong>doble cámara antivuelco</strong> garantizan estabilidad total incluso con juegos activos dentro del agua.</p>
+                <p class="showcase__text">Incluye <strong>escalerilla de acceso, sistema de filtración portátil</strong> y tratamiento de agua durante todo el evento. El <strong>PVC reforzado triple capa</strong> resiste el uso intensivo de múltiples eventos. Perfecta para <strong>cumpleaños de 4-8 años, kermeses escolares, fiestas de verano y pool parties</strong> en jardines medianos. Se instala en 45 minutos y el llenado toma aproximadamente 1.5 horas con manguera estándar. Combínala con nuestras <a href="/servicios/inflables/acuaticos/resbaladillas-splash/">resbaladillas splash</a> para mayor diversión.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">3x3 metros</span>
+                  <span class="showcase__tag">40 cm profundidad</span>
+                  <span class="showcase__tag">2,000 litros</span>
+                  <span class="showcase__tag">6-10 niños</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Alberca 3x3m
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 5 7 9 7 9s7-4 7-9a7 7 0 0 0-7-7z"/>
+                    <path d="M12 18v4"/><path d="M10 22h4"/>
+                  </svg>
+                  <span>Alberca Mediana 3x3m</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Alberca Familiar 4x3m -->
+          <section class="section section--alt" aria-labelledby="alberca-4x3-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Para toda la familia</span>
+                <h2 class="showcase__title" id="alberca-4x3-heading">Alberca Familiar 4x3m</h2>
+                <p class="showcase__subtitle">Espacio amplio para niños y adultos con profundidad graduada y capacidad para 10-15 personas.</p>
+                <p class="showcase__text">La <strong>alberca familiar de 4x3 metros</strong> es la opción ideal para eventos donde tanto niños como adultos quieren disfrutar del agua. Con <strong>profundidad graduada de 40 a 60 cm</strong>, la zona menos profunda es segura para niños mayores de 4 años mientras que el área más profunda es cómoda para adolescentes y adultos. Capacidad de 5,000 litros con bordes reforzados que soportan el peso de personas apoyándose desde fuera.</p>
+                <p class="showcase__text">Equipada con <strong>sistema de filtración de mayor capacidad, escalerilla de acceso doble</strong> y tapete antiderrapante perimetral de 1.5 metros de ancho. El <strong>PVC reforzado triple capa con tratamiento UV</strong> resiste la exposición solar directa durante todo el día. Ideal para <strong>pool parties familiares, XV años, cumpleaños de adolescentes y eventos sociales de verano</strong>. Combínala con nuestros <a href="/servicios/inflables/acuaticos/toboganes-agua/">toboganes de agua</a> para crear una experiencia acuática completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">4x3 metros</span>
+                  <span class="showcase__tag">Profundidad graduada</span>
+                  <span class="showcase__tag">5,000 litros</span>
+                  <span class="showcase__tag">10-15 personas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Alberca 4x3m
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 5 7 9 7 9s7-4 7-9a7 7 0 0 0-7-7z"/>
+                    <path d="M12 18v4"/><path d="M10 22h4"/>
+                  </svg>
+                  <span>Alberca Familiar 4x3m</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Mega Alberca 6x4m -->
+          <section class="section section--alt" aria-labelledby="alberca-6x4-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">La más grande del catálogo</span>
+                <h2 class="showcase__title" id="alberca-6x4-heading">Mega Alberca 6x4m</h2>
+                <p class="showcase__subtitle">Nuestra alberca premium para eventos grandes con capacidad para 20+ personas simultáneamente.</p>
+                <p class="showcase__text">La <strong>Mega Alberca de 6x4 metros</strong> es la más grande de nuestro catálogo y la estrella de <strong>pool parties, festivales de verano y eventos corporativos al aire libre</strong>. Con una capacidad de <strong>8,000 litros</strong> y profundidad de 60 cm, ofrece espacio para que más de 20 personas disfruten del agua simultáneamente. Los <strong>bordes inflables reforzados de triple cámara</strong> con soportes laterales rígidos proporcionan la máxima estabilidad y seguridad.</p>
+                <p class="showcase__text">Equipada con <strong>sistema de filtración industrial, doble escalerilla de acceso con barandal</strong> y zona perimetral antiderrapante de 2 metros. Requiere un espacio plano de al menos 10x8 metros y toma de agua con presión mínima de 2 bar (el llenado toma aproximadamente 3 horas). Incluye <strong>monitor de seguridad dedicado</strong> y kit completo de tratamiento de agua. Perfecta para combinarse con <a href="/servicios/carpas/">carpas para eventos</a> que proporcionen sombra, zona de vestuarios y área de descanso junto a la alberca.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">6x4 metros</span>
+                  <span class="showcase__tag">8,000 litros</span>
+                  <span class="showcase__tag">20+ personas</span>
+                  <span class="showcase__tag">Premium</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Mega Alberca 6x4m
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 5 7 9 7 9s7-4 7-9a7 7 0 0 0-7-7z"/>
+                    <path d="M12 18v4"/><path d="M10 22h4"/>
+                  </svg>
+                  <span>Mega Alberca 6x4m</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Albercas Inflables"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu alberca inflable, es natural tener preguntas sobre llenado, seguridad y mantenimiento del agua. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de inflables acuáticos resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre albercas inflables para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Inflables Acuáticos -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Inflables Acuáticos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/inflables/acuaticos/" class="sidebar-nav__back">&uarr; Volver a Acuáticos</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/inflables/" class="sidebar-nav__back">&uarr; Volver a Inflables</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu pool party:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas albercas inflables para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar albercas inflables para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Alberca Inflable"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea una alberca infantil para un cumpleaños o una mega alberca para un festival, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Pool Party">Pool Party</option>
+                <option value="Fiesta Infantil">Fiesta Infantil</option>
+                <option value="Cumpleaños">Cumpleaños</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Familiar">Evento Familiar</option>
+                <option value="Festival / Feria">Festival / Feria</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoAlberca">
+                Tipo de alberca
+              </label>
+              <select id="tipoAlberca" name="tipoAlberca" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de alberca</option>
+                <option value="Alberca Infantil 2x2m">Alberca Infantil 2x2m</option>
+                <option value="Alberca Mediana 3x3m">Alberca Mediana 3x3m</option>
+                <option value="Alberca Familiar 4x3m">Alberca Familiar 4x3m</option>
+                <option value="Mega Alberca 6x4m">Mega Alberca 6x4m</option>
+                <option value="Combo Alberca + Tobogán">Combo Alberca + Tobogán</option>
+                <option value="Paquete Pool Party">Paquete Pool Party</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de asistentes, edades, tipo de terreno (pasto/concreto), acceso a toma de agua, dimensiones del espacio..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu terreno sin costo para verificar espacio, acceso a agua y drenaje.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para elegir la alberca ideal.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoAlberca = document.getElementById('tipoAlberca').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Albercas Inflables*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoAlberca) texto += `*Tipo de alberca:* ${tipoAlberca}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Inflables"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de inflables y juegos acuáticos para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, monitores capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipos y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">I</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Inflables Fiesta MX</h3>
+            <p class="partner-card__tagline">Brincolines y Juegos Inflables</p>
+            <p class="partner-card__text">Brincolines y juegos inflables certificados para fiestas infantiles en CDMX. Albercas inflables de todos los tamaños con sistema de filtración y monitores de seguridad incluidos.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">J</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">JuegosEvent CDMX</h3>
+            <p class="partner-card__tagline">Inflables Profesionales para Eventos</p>
+            <p class="partner-card__text">Renta de inflables profesionales con monitores para eventos y ferias. Especialistas en albercas inflables, toboganes acuáticos y juegos interactivos para todas las edades.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">I</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">InflaPro</h3>
+            <p class="partner-card__tagline">Juegos Inflables de Alta Calidad</p>
+            <p class="partner-card__text">Juegos inflables de alta calidad con seguro y operadores certificados. Más de 10 años proporcionando diversión segura para eventos infantiles, corporativos y festivales en CDMX.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">D</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">DiversiónTotal</h3>
+            <p class="partner-card__tagline">Inflables Temáticos y Circuitos</p>
+            <p class="partner-card__text">Inflables temáticos y circuitos para eventos infantiles y familiares. Servicio integral con transporte, instalación, monitores y desmontaje en toda la CDMX y área metropolitana.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Albercas inflables que transforman tu evento en una pool party inolvidable"
+    subheadline="Más de 300 eventos acuáticos nos respaldan. Cotiza hoy y recibe asesoría personalizada sin compromiso."
+    primaryCTA={{ label: "Cotizar albercas inflables", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar albercas inflables para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

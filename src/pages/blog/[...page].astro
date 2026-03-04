@@ -1,8 +1,9 @@
 ---
 /**
- * ─── Blog Index ───
- * Redesigned: HeroPage intro, category filters, featured posts, grid layout.
+ * ─── Blog Index with Pagination ───
+ * Paginated blog listing: HeroPage intro, category filters, posts grid, pagination.
  */
+import type { GetStaticPaths } from "astro";
 import PageLayout from "@layouts/PageLayout.astro";
 import HeroPage from "@components/HeroPage.astro";
 import SectionHeader from "@components/SectionHeader.astro";
@@ -12,11 +13,21 @@ import { getCollection } from "astro:content";
 import { breadcrumbJsonLd } from "@utils/seo";
 import "@styles/blog.css";
 
+export const getStaticPaths = (async ({ paginate }) => {
+  const allPosts = (await getCollection("blog", ({ data }) => !data.draft))
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+  // 6 posts per page
+  return paginate(allPosts, { pageSize: 6 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+const currentPage = page.currentPage;
+const totalPages = page.lastPage;
+
+// All posts for category counts (not just current page)
 const allPosts = (await getCollection("blog", ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-
-const featuredPosts = allPosts.filter(p => p.data.featured);
-const regularPosts = allPosts.filter(p => !p.data.featured);
 
 // Category definitions with counts
 const categoryDefs = [
@@ -44,47 +55,63 @@ const jsonLd = [
     { name: "Blog", url: "/blog/" },
   ]),
 ];
+
+const pageTitle = currentPage > 1
+  ? `Blog - Página ${currentPage} | EVENTECH`
+  : "Blog - Artículos y Guías sobre Eventos | EVENTECH";
 ---
 
 <PageLayout
-  title="Blog - Artículos y Guías sobre Eventos | EVENTECH"
+  title={pageTitle}
   description="Artículos, guías y tendencias sobre eventos, bodas, XV años y corporativos. Tips para organizar tu celebración perfecta en CDMX."
   jsonLd={jsonLd}
 >
   <!-- ═══════════════════════════════════════════════════════════════════════
-       HERO
+       HERO (solo en página 1)
        ═══════════════════════════════════════════════════════════════════════ -->
-  <HeroPage
-    badge="Recursos para tu evento"
-    title='El Blog de <span class="highlight">EVENTECH</span>'
-    subtitle="Guías prácticas, tendencias y consejos de expertos para organizar eventos memorables. Todo lo que necesitas saber sobre mobiliario, decoración, carpas, iluminación y más."
-    primaryCTA={{ label: "Explorar artículos", href: "#articulos" }}
-    secondaryCTA={{ label: "Cotizar equipo", href: "/cotizar/" }}
-    cards={[
-      {
-        title: "Aprende de los expertos",
-        content: "Más de <strong>10 años organizando eventos</strong> en CDMX nos han dado el conocimiento que compartimos contigo. Desde guías paso a paso para bodas hasta tips de montaje profesional."
-      },
-      {
-        title: "Contenido actualizado",
-        content: "Publicamos regularmente sobre <strong>tendencias 2026</strong>, nuevos productos disponibles para renta y casos de éxito de eventos reales que hemos equipado."
-      }
-    ]}
-  />
+  {currentPage === 1 && (
+    <HeroPage
+      badge="Recursos para tu evento"
+      title='El Blog de <span class="highlight">EVENTECH</span>'
+      subtitle="Guías prácticas, tendencias y consejos de expertos para organizar eventos memorables. Todo lo que necesitas saber sobre mobiliario, decoración, carpas, iluminación y más."
+      primaryCTA={{ label: "Explorar artículos", href: "#articulos" }}
+      secondaryCTA={{ label: "Cotizar equipo", href: "/cotizar/" }}
+      cards={[
+        {
+          title: "Aprende de los expertos",
+          content: "Más de <strong>10 años organizando eventos</strong> en CDMX nos han dado el conocimiento que compartimos contigo. Desde guías paso a paso para bodas hasta tips de montaje profesional."
+        },
+        {
+          title: "Contenido actualizado",
+          content: "Publicamos regularmente sobre <strong>tendencias actuales</strong>, nuevos productos disponibles para renta y casos de éxito de eventos reales que hemos equipado."
+        }
+      ]}
+    />
+  )}
 
   <!-- ═══════════════════════════════════════════════════════════════════════
        ARTICLES SECTION
        ═══════════════════════════════════════════════════════════════════════ -->
   <section class="section" id="articulos">
     <div class="container">
-      <SectionHeader
-        title="Artículos y Guías"
-        subtitle="Conocimiento para tu evento"
-        description={[
-          "Encuentra el contenido que necesitas organizado por tipo de evento o tema. Desde preparativos para bodas hasta consejos para eventos corporativos.",
-          "Todos nuestros artículos incluyen información práctica basada en nuestra experiencia real equipando cientos de eventos cada año."
-        ]}
-      />
+      {currentPage === 1 ? (
+        <SectionHeader
+          title="Artículos y Guías"
+          subtitle="Conocimiento para tu evento"
+          description={[
+            "Encuentra el contenido que necesitas organizado por tipo de evento o tema. Desde preparativos para bodas hasta consejos para eventos corporativos.",
+            "Todos nuestros artículos incluyen información práctica basada en nuestra experiencia real equipando cientos de eventos cada año."
+          ]}
+        />
+      ) : (
+        <SectionHeader
+          title={`Artículos - Página ${currentPage}`}
+          subtitle="Conocimiento para tu evento"
+          description={[
+            `Mostrando artículos ${page.start + 1} - ${page.end + 1} de ${page.total} publicados.`
+          ]}
+        />
+      )}
 
       <!-- Two-column layout: Posts + Sidebar -->
       <div class="blog-index-layout">
@@ -105,30 +132,10 @@ const jsonLd = [
             ))}
           </div>
 
-          <!-- Featured Posts -->
-          {featuredPosts.length > 0 && (
-            <div class="blog-featured">
-              {featuredPosts.slice(0, 3).map((post, i) => (
-                <BlogCard
-                  title={post.data.title}
-                  description={post.data.description}
-                  slug={post.slug}
-                  date={post.data.date}
-                  image={post.data.image}
-                  body={post.body}
-                  category={post.data.category}
-                  tags={post.data.tags}
-                  author={post.data.author}
-                  featured={i === 0}
-                />
-              ))}
-            </div>
-          )}
-
-          <!-- Regular Posts Grid -->
-          {regularPosts.length > 0 && (
+          <!-- Posts Grid -->
+          {page.data.length > 0 ? (
             <div class="grid grid--2">
-              {regularPosts.map((post) => (
+              {page.data.map((post, i) => (
                 <BlogCard
                   title={post.data.title}
                   description={post.data.description}
@@ -139,13 +146,62 @@ const jsonLd = [
                   category={post.data.category}
                   tags={post.data.tags}
                   author={post.data.author}
+                  featured={currentPage === 1 && i === 0}
                 />
               ))}
             </div>
+          ) : (
+            <p class="blog-empty">No hay artículos publicados todavía. Vuelve pronto.</p>
           )}
 
-          {allPosts.length === 0 && (
-            <p class="blog-empty">No hay artículos publicados todavía. Vuelve pronto.</p>
+          <!-- Pagination -->
+          {totalPages > 1 && (
+            <nav class="pagination" aria-label="Navegación del blog">
+              <div class="pagination__info">
+                Página {currentPage} de {totalPages} · {page.total} artículos
+              </div>
+              <div class="pagination__links">
+                {page.url.prev ? (
+                  <a href={page.url.prev} class="pagination__link pagination__link--prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                    Anterior
+                  </a>
+                ) : (
+                  <span class="pagination__link pagination__link--prev pagination__link--disabled">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                    Anterior
+                  </span>
+                )}
+
+                <div class="pagination__numbers">
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map((num) => {
+                    const url = num === 1 ? "/blog/" : `/blog/${num}/`;
+                    const isActive = num === currentPage;
+                    return (
+                      <a
+                        href={url}
+                        class:list={["pagination__number", { "pagination__number--active": isActive }]}
+                        aria-current={isActive ? "page" : undefined}
+                      >
+                        {num}
+                      </a>
+                    );
+                  })}
+                </div>
+
+                {page.url.next ? (
+                  <a href={page.url.next} class="pagination__link pagination__link--next">
+                    Siguiente
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                  </a>
+                ) : (
+                  <span class="pagination__link pagination__link--next pagination__link--disabled">
+                    Siguiente
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                  </span>
+                )}
+              </div>
+            </nav>
           )}
         </div>
 

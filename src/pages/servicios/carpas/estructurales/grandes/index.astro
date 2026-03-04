@@ -1,0 +1,726 @@
+---
+/**
+ * ─── Carpas Estructurales Grandes — Pagina de Producto (Nivel 4) ───
+ * Carpas estructurales de gran formato 10x15 a 15x30 metros
+ * para eventos de 150-400+ personas.
+ *
+ * Jerarquia: Servicios > Carpas > Estructurales > Grandes
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Carpas", href: "/servicios/carpas/" },
+  { label: "Estructurales", href: "/servicios/carpas/estructurales/" },
+  { label: "Carpas Grandes" },
+];
+
+const faqs = [
+  { question: "¿Cuántas personas caben en una carpa estructural grande?", answer: "La capacidad depende de la medida y la distribución del evento. Una carpa de <strong>10x15 metros (150 m²)</strong> acomoda 150 personas sentadas con mesas redondas o 200 de pie. La de <strong>10x20 (200 m²)</strong> cubre hasta 200 sentados. La <strong>15x20 (300 m²)</strong> alberga 300 personas y la <strong>15x30 (450 m²)</strong> hasta 400+ invitados. Para eventos tipo foro con sillas en hilera, la capacidad aumenta un 30-40%. Nuestro equipo diseña un layout personalizado con la distribución óptima para tu evento." },
+  { question: "¿Necesito permiso especial para instalar una carpa grande?", answer: "Depende de la ubicación. En <strong>venues privados</strong> (jardines, haciendas, hoteles) generalmente no se requiere permiso adicional, solo la autorización del propietario. En <strong>espacios públicos</strong> (parques, plazas, calles) sí se necesitan permisos de la alcaldía correspondiente. Para eventos de más de 300 personas se recomienda tener un <strong>dictamen de protección civil</strong>. Nosotros te asesoramos sobre los requisitos específicos según tu venue y podemos gestionar los trámites necesarios como parte del servicio." },
+  { question: "¿Se puede unir una carpa grande con otra para más espacio?", answer: "Sí, nuestro sistema modular permite <strong>unir múltiples carpas</strong> para crear superficies de cualquier dimensión. Podemos conectar dos carpas de 15x30 para crear un espacio de 30x30 metros (900 m²), o unir módulos en L, T o U para configuraciones creativas. Las uniones se realizan con <strong>canaletas de drenaje integradas</strong> que impiden filtraciones en el punto de conexión. Esta solución es ideal para <strong>ferias, expos y festivales</strong> que requieren áreas diferenciadas bajo un mismo techo continuo." },
+  { question: "¿La carpa grande incluye iluminación interior?", answer: 'La iluminación <strong>no está incluida por defecto</strong>, pero ofrecemos paquetes de iluminación profesional como complemento. Las opciones incluyen rieles LED de techo, spots direccionales, guirnaldas Edison decorativas y wash lights para ambientación. La estructura de aluminio reforzado soporta el peso de sistemas de iluminación profesional sin necesidad de soportes adicionales. Consulta nuestra sección de <a href="/servicios/iluminacion/">iluminación para eventos</a> para ver todas las opciones disponibles y combinarlas con tu carpa.' },
+  { question: "¿Cuánto tiempo toma el montaje de una carpa grande?", answer: "El montaje de carpas grandes toma entre <strong>8 y 16 horas</strong> dependiendo de la dimensión y los accesorios. Una carpa de 10x15 se monta en 8 horas, mientras que una de 15x30 requiere hasta 16 horas con equipo de montaje ampliado. Si agregas paredes modulares, piso elevado, climatización o instalación eléctrica, el tiempo puede extenderse 4-8 horas adicionales. Recomendamos programar el montaje <strong>1-2 días antes</strong> del evento para tener tiempo de pruebas y ajustes finales." },
+  { question: "¿Con cuánta anticipación debo reservar una carpa grande?", answer: "Para carpas de gran formato recomendamos reservar con <strong>4 a 8 semanas de anticipación</strong>. Las carpas de 10x20 y 15x30 son las más solicitadas y se agotan rápidamente en temporada alta (octubre a febrero). Para eventos con configuraciones especiales — unión de módulos, pisos, climatización, instalación eléctrica — lo ideal es apartar con <strong>2-3 meses de anticipación</strong> para garantizar disponibilidad y tiempo de planeación logística. También atendemos solicitudes urgentes sujetas a inventario disponible." },
+];
+
+const specs = [
+  { label: "Estructura", value: "Aluminio reforzado con certificación de carga" },
+  { label: "Lona", value: "PVC 900 g/m² doble capa" },
+  { label: "Medidas", value: "10x15, 10x20, 15x20, 15x30 metros" },
+  { label: "Capacidad", value: "150 a 400+ personas" },
+  { label: "Altura lateral", value: "3 metros" },
+  { label: "Altura centro", value: "5 a 6 metros" },
+  { label: "Anclaje", value: "Ingeniería de suelo + lastre certificado" },
+  { label: "Resistencia", value: "Viento hasta 100 km/h" },
+  { label: "Acceso", value: "Vehicular y peatonal modulable" },
+  { label: "Montaje", value: "Equipo profesional, 8-16 horas" },
+];
+
+const sidebarNav = [
+  { name: "Carpas Medianas", href: "/servicios/carpas/estructurales/medianas/" },
+  { name: "Carpas Grandes", href: null, active: true },
+  { name: "Paredes Modulares", href: "/servicios/carpas/estructurales/paredes-modulares/" },
+  { name: "Accesorios Estructurales", href: "/servicios/carpas/estructurales/accesorios-estructurales/" },
+];
+
+const sidebarRelated = [
+  { name: "Pisos y Complementos", href: "/servicios/carpas/pisos-complementos/" },
+  { name: "Carpas Árabes", href: "/servicios/carpas/carpas-arabes/" },
+  { name: "Mobiliario", href: "/servicios/mobiliario/" },
+  { name: "Iluminación", href: "/servicios/iluminacion/" },
+  { name: "Climatización", href: "/servicios/accesorios/calefaccion-clima/" },
+];
+
+const reviews = [
+  { author: "Carlos Mendoza", text: "Rentamos la carpa 15x20 para una boda de 300 personas en una hacienda de Tlalpan. La estructura era impresionante, la lona de doble capa no dejó pasar ni una gota durante un aguacero fuerte. El equipo de montaje llegó dos días antes y dejó todo perfecto. Nuestros invitados no podían creer que estaban bajo una carpa.", rating: 5, date: "2025-11-10" },
+  { author: "Laura Jiménez", text: "Contratamos la carpa 10x20 para una expo corporativa de 400 personas en Santa Fe. El acceso vehicular para montar los stands fue genial, la altura de 5 metros permitió colgar toda nuestra señalización y la resistencia al viento fue probada el segundo día con ráfagas fuertes. Cero problemas. Servicio excepcional.", rating: 5, date: "2025-10-22" },
+  { author: "Eduardo Ramírez", text: "Usamos la carpa 15x30 para un festival de tres días en Xochimilco. Unimos dos módulos para crear un espacio enorme y el resultado fue espectacular. La instalación eléctrica profesional que agregamos funcionó impecablemente con todo nuestro equipo de audio e iluminación. Definitivamente nuestro proveedor de carpas de cabecera.", rating: 5, date: "2025-09-15" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Carpas Estructurales Grandes para Eventos en CDMX",
+    description: "Renta de carpas estructurales de gran formato 10x15 a 15x30 para eventos de 150-400+ personas en CDMX. Aluminio reforzado certificado. Desde $18,000.",
+    url: "/servicios/carpas/estructurales/grandes/",
+    priceRange: { min: 18000, max: 85000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 234,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Carpas", url: "/servicios/carpas/" },
+    { name: "Estructurales", url: "/servicios/carpas/estructurales/" },
+    { name: "Carpas Grandes", url: "/servicios/carpas/estructurales/grandes/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Carpas Estructurales Grandes para Eventos en CDMX"
+  description="Renta de carpas estructurales de gran formato 10x15 a 15x30 para eventos de 150-400+ personas en CDMX. Aluminio reforzado certificado. Desde $18,000."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Gran formato para 150 a 400+ invitados"
+    title='Renta de <span class="highlight">Carpas Estructurales Grandes</span> para Eventos en CDMX'
+    subtitle="Carpas estructurales de gran formato de 10x15 a 15x30 metros con marcos de aluminio reforzado certificado y lona PVC de 900 g/m² doble capa. Resistencia a viento de 100 km/h y montaje profesional con ingeniería de suelo."
+    primaryCTA={{ label: "Cotiza tu carpa", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar carpas estructurales grandes para mi evento` }}
+    cards={[
+      {
+        title: "Marcos de aluminio reforzado certificado para gran formato",
+        content: "<strong>Renta de carpas estructurales grandes</strong> con la ingeniería más robusta para eventos de 150 a 400+ personas en CDMX. Cuatro medidas disponibles — 10x15, 10x20, 15x20 y 15x30 metros — con marcos de aluminio reforzado con certificación de carga y lona PVC de 900 g/m² doble capa con protección UV. Certificadas para vientos de hasta 100 km/h con sistema de anclaje profesional con ingeniería de suelo y lastre certificado. Altura lateral de 3 metros y cumbrera de 5 a 6 metros para montajes de gran escala.",
+      },
+      {
+        title: "Anclaje profesional con ingeniería de suelo incluida",
+        content: "<strong>Montaje profesional de gran formato</strong> con equipo técnico especializado y supervisión de ingeniería. Estudio previo de suelo para determinar el sistema de anclaje óptimo — estacas profundas, lastre de concreto o placas de distribución según el terreno. Acceso vehicular y peatonal modulable con puertas de doble hoja y rampas. Opción de paredes modulares — sólidas, con ventana, transparentes — para configurar el perímetro según clima y privacidad. Tiempo de montaje de 8 a 16 horas con equipo profesional dedicado.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas cubrir un evento de gran formato?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta técnica con la carpa ideal para tu evento de 150 a 400+ invitados"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Carpas Estructurales para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas carpas estructurales grandes para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar carpas estructurales grandes para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 22h20L12 2z"/><path d="M12 2v20"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Carpas Estructurales Grandes</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Carpa 10x15 -->
+          <section class="section section--alt" aria-labelledby="carpa-10x15-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Bodas de 150 personas</span>
+                <h2 class="showcase__title" id="carpa-10x15-heading">Carpa Estructural 10x15 Metros</h2>
+                <p class="showcase__subtitle">La entrada al gran formato: bodas elegantes y corporativos de hasta 150 personas.</p>
+                <p class="showcase__text">Nuestra <strong>carpa estructural de 10x15 metros</strong> ofrece 150 m² de superficie cubierta, el punto de entrada perfecto al gran formato. Ideal para <strong>bodas elegantes de 120-150 personas, galas corporativas, cenas de gala y premiaciones</strong>. La altura lateral de 3 metros y cumbrera de 5 metros crean un espacio majestuoso que permite colgar candelabros, guirnaldas y arreglos florales suspendidos. Caben 15 mesas redondas de 1.80m con pista de baile central y mesa de honor.</p>
+                <p class="showcase__text">Los marcos de aluminio reforzado con certificación de carga soportan sistemas de <strong>iluminación profesional, audio suspendido y decoración colgante</strong> sin necesidad de estructuras adicionales. La lona PVC de 900 g/m² doble capa ofrece aislamiento térmico superior y protección total contra lluvia. Combínala con <a href="/servicios/carpas/estructurales/paredes-modulares/">paredes modulares</a> transparentes para bodas en jardín con vista panorámica y protección climática completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">10x15 metros</span>
+                  <span class="showcase__tag">150 m²</span>
+                  <span class="showcase__tag">120-150 personas</span>
+                  <span class="showcase__tag">PVC 900 g/m²</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Carpa 10x15
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2L2 22h20L12 2z"/>
+                    <path d="M12 2v20"/>
+                  </svg>
+                  <span>Carpa Estructural 10x15</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Carpa 10x20 -->
+          <section class="section section--alt" aria-labelledby="carpa-10x20-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Corporativos de 200 personas</span>
+                <h2 class="showcase__title" id="carpa-10x20-heading">Carpa Estructural 10x20 Metros</h2>
+                <p class="showcase__subtitle">El formato favorito para eventos corporativos y convenciones de hasta 200 personas.</p>
+                <p class="showcase__text">La <strong>carpa estructural de 10x20 metros</strong> con 200 m² es nuestra más solicitada para <strong>eventos corporativos, convenciones empresariales, lanzamientos de producto y ferias comerciales</strong>. Su proporción rectangular permite distribuciones eficientes con escenario frontal, zona de exhibición, área de networking y comedor diferenciados. Capacidad para 200 personas sentadas en formato banquete o 250+ en formato auditorio con sillas en hilera.</p>
+                <p class="showcase__text">El <strong>acceso vehicular modulable</strong> permite la entrada de camionetas para montaje de stands, equipo audiovisual y catering sin desmontar la estructura. La altura de cumbrera de 5.5 metros facilita la instalación de pantallas LED, line arrays de sonido y truss de iluminación. Ideal para combinarse con nuestro <a href="/servicios/audiovisual/">equipo audiovisual profesional</a> — pantallas LED, sonido y microfonía — para producciones corporativas de primer nivel.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">10x20 metros</span>
+                  <span class="showcase__tag">200 m²</span>
+                  <span class="showcase__tag">Hasta 200 personas</span>
+                  <span class="showcase__tag">Acceso vehicular</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Carpa 10x20
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2L2 22h20L12 2z"/>
+                    <path d="M12 2v20"/>
+                  </svg>
+                  <span>Carpa Estructural 10x20</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Carpa 15x20 -->
+          <section class="section section--alt" aria-labelledby="carpa-15x20-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Ferias y expos</span>
+                <h2 class="showcase__title" id="carpa-15x20-heading">Carpa Estructural 15x20 Metros</h2>
+                <p class="showcase__subtitle">Gran formato para ferias, expos y eventos de hasta 300 personas.</p>
+                <p class="showcase__text">Nuestra <strong>carpa estructural de 15x20 metros</strong> con 300 m² de superficie es la elección ideal para <strong>ferias comerciales, expos de producto, bazares navideños y eventos multitudinarios</strong> de hasta 300 personas. Su ancho de 15 metros permite configuraciones de doble pasillo con stands laterales, escenario central y zonas de experiencia interactiva. La estructura reforzada con certificación de carga soporta montajes pesados de señalización, iluminación y decoración de gran formato.</p>
+                <p class="showcase__text">Es la carpa favorita para <strong>expos corporativas con múltiples stands</strong> donde cada expositor necesita un espacio definido con acceso independiente. El sistema de <strong>paredes modulares</strong> permite crear divisiones internas, zonas VIP y áreas de registro diferenciadas. Combínala con nuestro <a href="/servicios/carpas/estructurales/accesorios-estructurales/">kit eléctrico profesional</a> con tableros de distribución, tomas de corriente por stand y cableado oculto bajo piso para un montaje de nivel profesional.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">15x20 metros</span>
+                  <span class="showcase__tag">300 m²</span>
+                  <span class="showcase__tag">Hasta 300 personas</span>
+                  <span class="showcase__tag">Certificación de carga</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Carpa 15x20
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2L2 22h20L12 2z"/>
+                    <path d="M12 2v20"/>
+                  </svg>
+                  <span>Carpa Estructural 15x20</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Carpa 15x30 -->
+          <section class="section section--alt" aria-labelledby="carpa-15x30-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Eventos masivos</span>
+                <h2 class="showcase__title" id="carpa-15x30-heading">Carpa Estructural 15x30 Metros</h2>
+                <p class="showcase__subtitle">Nuestra carpa más grande: eventos masivos de 400+ personas con producción completa.</p>
+                <p class="showcase__text">La <strong>carpa estructural de 15x30 metros</strong> es la más grande de nuestro catálogo individual, con 450 m² de área cubierta para <strong>bodas monumentales, festivales, conciertos bajo techo y convenciones de gran escala</strong>. Capacidad para 400+ personas sentadas o 600+ de pie. La cumbrera de 6 metros permite montajes de producción profesional con truss, rigging de iluminación, line arrays de sonido y pantallas LED de gran formato sin comprometer la visibilidad.</p>
+                <p class="showcase__text">Es la estructura preferida para <strong>bodas de 400+ invitados en haciendas, festivales gastronómicos, ferias navideñas y eventos de fin de año empresariales</strong>. El acceso vehicular de doble hoja permite la entrada de camiones de producción y catering. El sistema modular permite <strong>unir con otra carpa</strong> para crear espacios de 900+ m² para mega-eventos. Complementa con nuestros <a href="/servicios/accesorios/plantas-energia/">generadores de energía</a> para alimentar toda la producción sin depender de la red eléctrica del venue.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">15x30 metros</span>
+                  <span class="showcase__tag">450 m²</span>
+                  <span class="showcase__tag">400+ personas</span>
+                  <span class="showcase__tag">Rigging y producción</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Carpa 15x30
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2L2 22h20L12 2z"/>
+                    <path d="M12 2v20"/>
+                  </svg>
+                  <span>Carpa Estructural 15x30</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Carpas Grandes"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu carpa estructural de gran formato, es natural tener preguntas sobre capacidad, permisos y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor técnico te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de carpas de gran formato resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre carpas estructurales grandes para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Carpas Estructurales -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Carpas Estructurales para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/carpas/estructurales/" class="sidebar-nav__back">&uarr; Volver a Estructurales</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/carpas/" class="sidebar-nav__back">&uarr; Volver a Carpas</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de carpas:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas carpas estructurales grandes para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar carpas estructurales grandes para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Carpa Estructural Grande"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores técnicos te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea una carpa de 10x15 para tu boda o una estructura de 15x30 para tu festival, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoCarpa">
+                Tipo de carpa
+              </label>
+              <select id="tipoCarpa" name="tipoCarpa" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de carpa</option>
+                <option value="Carpa 10x15">Carpa 10x15</option>
+                <option value="Carpa 10x20">Carpa 10x20</option>
+                <option value="Carpa 15x20">Carpa 15x20</option>
+                <option value="Carpa 15x30">Carpa 15x30</option>
+                <option value="Con Paredes Completas">Con Paredes Completas</option>
+                <option value="Kit Gran Formato">Kit Gran Formato</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de invitados, tipo de terreno, si necesitas paredes, piso, climatización, producción audiovisual..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu terreno sin costo para recomendarte el tamaño de carpa y tipo de anclaje ideal.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría técnica personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoCarpa = document.getElementById('tipoCarpa').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Carpas Estructurales Grandes*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoCarpa) texto += `*Tipo de carpa:* ${tipoCarpa}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Carpas Estructurales"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de carpas y estructuras temporales para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de medidas y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Carpas Elite MX</h3>
+            <p class="partner-card__tagline">Especialistas en Carpas Estructurales</p>
+            <p class="partner-card__text">Especialistas en carpas estructurales y de gran formato para eventos. Marcos de aluminio reforzado, lonas PVC de doble capa y equipo de montaje profesional con más de 15 años de experiencia en CDMX.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">T</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">ToldoEventos CDMX</h3>
+            <p class="partner-card__tagline">Carpas y Toldos para Corporativos</p>
+            <p class="partner-card__text">Renta integral de carpas y toldos para eventos corporativos y ferias. Estructuras de gran formato con paredes modulares, pisos elevados y climatización profesional incluida.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Carpas & Más</h3>
+            <p class="partner-card__tagline">Cobertura Temporal para Eventos</p>
+            <p class="partner-card__text">Soluciones de cobertura temporal para eventos al aire libre en CDMX. Carpas estructurales de gran formato con servicio de logística completa y asesoría técnica personalizada.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">L</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">LonasPro</h3>
+            <p class="partner-card__tagline">Carpas, Pisos y Complementos</p>
+            <p class="partner-card__text">Carpas, pisos y complementos con servicio de logística e instalación profesional. Cobertura en toda la CDMX y área metropolitana con equipo técnico certificado y garantía de satisfacción.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Carpas de gran formato que transforman cualquier espacio en tu venue ideal"
+    subheadline="Más de 500 eventos con carpas estructurales nos respaldan. Cotiza hoy y recibe asesoría técnica sin compromiso."
+    primaryCTA={{ label: "Cotizar carpas grandes", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar carpas estructurales grandes para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

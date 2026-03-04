@@ -1,0 +1,731 @@
+---
+/**
+ * ─── Refrigeradores Industriales — Pagina de Producto (Nivel 4) ───
+ * Refrigeradores verticales reach-in, congeladores de cofre y walk-in
+ * coolers portátiles para conservar alimentos en eventos masivos.
+ *
+ * Jerarquia: Servicios > Catering > Refrigeración > Refrigeradores Industriales
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Catering", href: "/servicios/catering/" },
+  { label: "Refrigeración", href: "/servicios/catering/refrigeracion/" },
+  { label: "Refrigeradores Industriales" },
+];
+
+const faqs = [
+  { question: "¿Qué requerimientos eléctricos necesitan los refrigeradores industriales?", answer: 'Los refrigeradores reach-in de 1 y 2 puertas operan con corriente estándar de <strong>110V y un circuito dedicado de 15 amperes</strong>. Los congeladores de cofre de 300L también funcionan con 110V. Para equipos de mayor capacidad como el congelador de 500L y los <strong>walk-in coolers portátiles se requiere conexión de 220V</strong> con circuito de 30 amperes. Siempre realizamos una evaluación previa de la instalación eléctrica de tu venue. Si no cuentas con acceso a corriente, ofrecemos <a href="/servicios/accesorios/plantas-energia/">plantas de energía</a> compatibles.' },
+  { question: "¿Qué temperatura garantizan los equipos durante el evento?", answer: "Todos nuestros refrigeradores cuentan con <strong>termostatos digitales de precisión</strong> que mantienen temperaturas constantes. Los reach-in operan entre 2°C y 8°C, ideales para bebidas, lácteos, ensaladas y carnes frías. Los congeladores de cofre mantienen entre -18°C y -22°C para helados, postres congelados y hielo. Cada equipo tiene <strong>alarma de temperatura integrada</strong> que alerta si la puerta queda abierta o si la temperatura sube del rango seguro." },
+  { question: "¿Cómo funciona la instalación de un walk-in cooler portátil?", answer: "Nuestros walk-in coolers portátiles son <strong>estructuras modulares de paneles aislados</strong> que armamos directamente en tu venue. El modelo de 3x2m requiere un espacio de al menos 4x3 metros y el de 4x3m necesita 5x4 metros. Llegamos <strong>6 horas antes del evento</strong> con camión de rampa hidráulica, armamos la estructura, conectamos el sistema de refrigeración a 220V y verificamos que alcance temperatura óptima. Incluye estantería de acero inoxidable, iluminación LED interior y piso antideslizante." },
+  { question: "¿Los refrigeradores funcionan bien en eventos al aire libre?", answer: "Sí, nuestros equipos están diseñados para operar en condiciones de calor ambiente de hasta <strong>43°C sin perder rendimiento</strong>. Para eventos en exterior recomendamos ubicar los equipos bajo sombra — carpas, toldos o zonas techadas — para optimizar la eficiencia energética y reducir el consumo eléctrico. Los walk-in coolers portátiles cuentan con <strong>paneles aislados de poliuretano de alta densidad</strong> que mantienen la temperatura interna incluso en días muy calurosos." },
+  { question: "¿Con cuánta anticipación entregan los equipos?", answer: "Entregamos e instalamos todos los equipos de refrigeración entre <strong>4 y 6 horas antes de tu evento</strong> para que alcancen su temperatura óptima de operación. Los refrigeradores reach-in alcanzan temperatura en 2-3 horas, mientras que los walk-in coolers requieren 4-5 horas de pre-enfriamiento. Para eventos que inician temprano, podemos entregar <strong>la noche anterior con cargo adicional mínimo</strong>. La recolección se realiza al finalizar tu evento sin costo extra." },
+  { question: "¿Puedo combinar varios equipos de refrigeración en un mismo evento?", answer: "Absolutamente, es la configuración más común en eventos grandes. Puedes combinar <strong>reach-in para bebidas + congelador para hielo + walk-in cooler para alimentos</strong> del banquete. Ofrecemos <strong>paquetes de refrigeración completa</strong> con descuento al combinar múltiples equipos. Nuestro asesor evalúa tu menú, número de asistentes y tipo de venue para recomendarte la combinación ideal. También puedes complementar con nuestras <a href=\"/servicios/catering/hieleras/\">hieleras profesionales</a> para las barras de bebidas." },
+];
+
+const specs = [
+  { label: "Reach-in 1 puerta", value: "500 litros, temperatura 2-8°C" },
+  { label: "Reach-in 2 puertas", value: "1,000 litros, temperatura 2-8°C" },
+  { label: "Congelador cofre 300L", value: "Temperatura -18 a -22°C" },
+  { label: "Congelador cofre 500L", value: "Temperatura -18 a -22°C" },
+  { label: "Walk-in cooler 3x2m", value: "2-8°C, capacidad 12m³" },
+  { label: "Walk-in cooler 4x3m", value: "2-8°C, capacidad 24m³" },
+  { label: "Energía", value: "110V estándar / 220V para walk-in" },
+  { label: "Termostato", value: "Digital de precisión con alarma" },
+  { label: "Compresor", value: "Hermético de alta eficiencia" },
+  { label: "Entrega", value: "Pre-enfriado 4-6 hrs antes del evento" },
+];
+
+const sidebarNav = [
+  { name: "Refrigeradores Industriales", href: null, active: true },
+  { name: "Hieleras Profesionales", href: "/servicios/catering/refrigeracion/hieleras/" },
+  { name: "Dispensadores de Bebidas", href: "/servicios/catering/refrigeracion/dispensadores-bebidas/" },
+  { name: "Fuentes y Conservación", href: "/servicios/catering/refrigeracion/fuentes-conservacion/" },
+];
+
+const sidebarRelated = [
+  { name: "Estaciones de Servicio", href: "/servicios/catering/estaciones-servicio/" },
+  { name: "Cocina Móvil", href: "/servicios/catering/cocina-movil/" },
+  { name: "Vajilla y Cristalería", href: "/servicios/catering/vajilla-cristaleria/" },
+  { name: "Plantas de Energía", href: "/servicios/accesorios/plantas-energia/" },
+  { name: "Carpas para Eventos", href: "/servicios/carpas/" },
+];
+
+const reviews = [
+  { author: "Marcos Villanueva", text: "Rentamos un walk-in cooler de 4x3m y dos refrigeradores reach-in para un festival gastronómico de 3 días en la Condesa. Todo el equipo llegó pre-enfriado, el técnico verificó temperaturas constantemente y no tuvimos ni un solo problema de conservación. Impresionante logística.", rating: 5, date: "2025-11-20" },
+  { author: "Daniela Reyes", text: "Para nuestra boda campestre de 400 personas en Valle de Bravo necesitábamos conservar todo el banquete. EVENTECH nos armó un paquete con refrigerador de 2 puertas, congelador y hieleras. Todo funcionó perfecto durante 12 horas de evento. La comida siempre fresca y las bebidas heladas.", rating: 5, date: "2025-10-05" },
+  { author: "Ing. Fernando López", text: "Organizamos una expo corporativa de 2 días con servicio de catering para 600 personas. Rentamos 3 refrigeradores industriales y un walk-in cooler. El equipo de EVENTECH fue muy profesional en la instalación y el monitoreo de temperatura. Cero incidentes, servicio de primera.", rating: 5, date: "2025-09-18" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Refrigeradores Industriales para Eventos en CDMX",
+    description: "Refrigeradores verticales reach-in, congeladores y walk-in coolers portátiles para conservar alimentos en eventos masivos. Desde $1,500 por día.",
+    url: "/servicios/catering/refrigeracion/refrigeradores/",
+    priceRange: { min: 1500, max: 8000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 187,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Catering", url: "/servicios/catering/" },
+    { name: "Refrigeración", url: "/servicios/catering/refrigeracion/" },
+    { name: "Refrigeradores Industriales", url: "/servicios/catering/refrigeracion/refrigeradores/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Refrigeradores Industriales para Eventos en CDMX | EVENTECH"
+  description="Renta de refrigeradores verticales reach-in, congeladores y walk-in coolers portátiles para conservar alimentos en eventos masivos. Desde $1,500 por día."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Conservación industrial para eventos"
+    title='Renta de <span class="highlight">Refrigeradores Industriales</span> para Eventos'
+    subtitle="Refrigeradores verticales reach-in de 1 y 2 puertas, congeladores de cofre y walk-in coolers portátiles con termostato digital y técnico de instalación incluido."
+    primaryCTA={{ label: "Cotiza tu refrigerador", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar refrigeradores industriales para mi evento` }}
+    cards={[
+      {
+        title: "Refrigeradores verticales reach-in y congeladores de cofre",
+        content: "<strong>Renta de refrigeradores industriales</strong> de grado comercial para eventos en CDMX. Refrigeradores verticales reach-in de 1 y 2 puertas con capacidad de 500 y 1,000 litros, congeladores de cofre de 300 y 500 litros, y walk-in coolers portátiles de 3x2 y 4x3 metros para eventos de gran escala. Cada equipo con termostato digital de precisión, estantes de acero inoxidable y compresor hermético de alta eficiencia para conservación segura de alimentos y bebidas.",
+      },
+      {
+        title: "Entrega pre-enfriada y técnico de instalación incluido",
+        content: "<strong>Servicio técnico completo</strong> incluido en cada renta. Termostato digital de precisión con alarma de temperatura, entrega con pre-enfriamiento de 4 a 6 horas antes del evento y técnico de instalación que verifica conexión eléctrica, calibración de temperatura y funcionamiento óptimo. Walk-in coolers con paneles modulares, iluminación LED interior y piso antideslizante. Recolección al finalizar el evento sin costo adicional dentro de CDMX.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas conservar alimentos en tu próximo evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con el refrigerador ideal para tu volumen de alimentos y número de asistentes"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Refrigeración para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas refrigeradores industriales para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar refrigeradores industriales para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Refrigeradores Industriales</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Refrigerador Reach-In 1 Puerta -->
+          <section class="section section--alt" aria-labelledby="reach-in-1-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Compacto y eficiente</span>
+                <h2 class="showcase__title" id="reach-in-1-heading">Refrigerador Reach-In 1 Puerta</h2>
+                <p class="showcase__subtitle">El refrigerador ideal para eventos medianos: 500 litros de capacidad con acceso rápido y temperatura constante.</p>
+                <p class="showcase__text">Nuestro <strong>refrigerador reach-in de 1 puerta</strong> es la solución compacta para eventos de hasta 150 personas. Con <strong>500 litros de capacidad</strong> y temperatura controlada entre 2°C y 8°C, conserva bebidas, lácteos, ensaladas, frutas y carnes frías con total seguridad. La puerta de vidrio templado permite visualizar el contenido sin abrirla, reduciendo la pérdida de frío. Estantes ajustables de acero inoxidable con capacidad para organizar charolas, bandejas y cajas de forma eficiente.</p>
+                <p class="showcase__text">El compresor hermético de alta eficiencia mantiene temperatura constante incluso con aperturas frecuentes durante el servicio. Incluye <strong>termostato digital con display LED, iluminación interior y sistema de drenaje automático</strong>. Opera con corriente estándar de 110V, compatible con cualquier venue. Ideal para <strong>bodas, bautizos, graduaciones y eventos corporativos</strong> donde necesitas conservación confiable sin ocupar mucho espacio. Combínalo con nuestras <a href="/servicios/catering/estaciones-servicio/">estaciones de servicio</a> para un montaje de catering profesional.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">500 litros</span>
+                  <span class="showcase__tag">2-8°C</span>
+                  <span class="showcase__tag">110V</span>
+                  <span class="showcase__tag">Hasta 150 personas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Reach-In 1 Puerta
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Refrigerador Reach-In 1 Puerta</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Refrigerador Reach-In 2 Puertas -->
+          <section class="section section--alt" aria-labelledby="reach-in-2-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Doble capacidad de almacenamiento</span>
+                <h2 class="showcase__title" id="reach-in-2-heading">Refrigerador Reach-In 2 Puertas</h2>
+                <p class="showcase__subtitle">1,000 litros de capacidad para banquetes grandes y eventos con servicio continuo de alimentos.</p>
+                <p class="showcase__text">El <strong>refrigerador reach-in de 2 puertas</strong> es nuestro equipo más solicitado para <strong>bodas de 200 a 400 personas y eventos corporativos de gran formato</strong>. Con <strong>1,000 litros de capacidad</strong>, ofrece espacio suficiente para conservar todo el menú de un banquete completo: entradas, ensaladas, carnes marinadas, postres, bebidas y complementos. Dos puertas independientes de vidrio templado permiten acceso simultáneo desde ambos lados, optimizando el flujo de trabajo del equipo de catering.</p>
+                <p class="showcase__text">El sistema de refrigeración por convección forzada distribuye el frío de manera uniforme en todos los niveles, eliminando puntos calientes. <strong>6 estantes ajustables de acero inoxidable</strong> permiten configurar alturas según el tipo de alimento. Incluye <strong>termostato digital dual, alarma de puerta abierta y registro de temperatura</strong> para cumplir con normas de inocuidad alimentaria. Opera con 110V estándar. Complementa con nuestro <a href="/servicios/catering/cocina-movil/">equipo de cocina móvil</a> para una operación gastronómica completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">1,000 litros</span>
+                  <span class="showcase__tag">2-8°C</span>
+                  <span class="showcase__tag">2 puertas</span>
+                  <span class="showcase__tag">200-400 personas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Reach-In 2 Puertas
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Refrigerador Reach-In 2 Puertas</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Congelador de Cofre Industrial -->
+          <section class="section section--alt" aria-labelledby="congelador-cofre-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Congelación garantizada</span>
+                <h2 class="showcase__title" id="congelador-cofre-heading">Congelador de Cofre Industrial</h2>
+                <p class="showcase__subtitle">Congeladores de 300 y 500 litros para hielo, helados y productos que requieren temperaturas bajo cero.</p>
+                <p class="showcase__text">Nuestros <strong>congeladores de cofre industriales</strong> mantienen temperaturas entre <strong>-18°C y -22°C</strong>, ideales para almacenamiento masivo de hielo, helados, postres congelados, mariscos y cualquier producto que requiera congelación. El modelo de <strong>300 litros</strong> es perfecto para barras de bebidas y estaciones de helado en eventos de hasta 200 personas. El modelo de <strong>500 litros</strong> cubre las necesidades de festivales gastronómicos, expos y eventos de más de 400 asistentes con servicio de hielo continuo.</p>
+                <p class="showcase__text">El aislamiento de poliuretano de alta densidad garantiza retención de temperatura superior, incluso con aperturas frecuentes. Incluyen <strong>canasta organizadora extraíble, termostato ajustable, luz indicadora de operación y cerradura de seguridad</strong>. Los congeladores de 300L operan con 110V estándar; el modelo de 500L requiere 220V. Ideales para complementar las <a href="/servicios/catering/refrigeracion/hieleras/">hieleras profesionales</a> en barras con servicio de hielo durante todo el evento.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">300L y 500L</span>
+                  <span class="showcase__tag">-18 a -22°C</span>
+                  <span class="showcase__tag">Aislamiento PU</span>
+                  <span class="showcase__tag">Cerradura seguridad</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Congelador de Cofre
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Congelador de Cofre Industrial</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Walk-In Cooler Portátil -->
+          <section class="section section--alt" aria-labelledby="walk-in-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Cámara fría para eventos masivos</span>
+                <h2 class="showcase__title" id="walk-in-heading">Walk-In Cooler Portátil</h2>
+                <p class="showcase__subtitle">Cámaras frigoríficas portátiles de 12 y 24 m³ para bodas de 300+ personas, festivales y eventos de gran escala.</p>
+                <p class="showcase__text">Nuestros <strong>walk-in coolers portátiles</strong> son cámaras frigoríficas modulares que instalamos directamente en tu venue para eventos de gran formato. El modelo de <strong>3x2 metros (12 m³)</strong> cubre bodas y banquetes de 300 a 500 personas, almacenando el menú completo del evento con espacio para charolas, cajas y recipientes de gran formato. El modelo de <strong>4x3 metros (24 m³)</strong> es la solución para festivales gastronómicos, expos culinarias y eventos masivos de más de 500 asistentes.</p>
+                <p class="showcase__text">Cada walk-in cooler incluye <strong>paneles de poliuretano de alta densidad con ensamble hermético, piso antideslizante de acero inoxidable, iluminación LED interior y estantería de 4 niveles</strong>. El sistema de refrigeración mantiene temperatura constante de 2°C a 8°C con compresor industrial de 220V. Instalamos la estructura completa en 3-4 horas, incluyendo prueba de temperatura y verificación de hermeticidad. Perfecto para combinar con <a href="/servicios/carpas/">carpas estructurales</a> que protejan el área de servicio completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">3x2m y 4x3m</span>
+                  <span class="showcase__tag">Paneles modulares</span>
+                  <span class="showcase__tag">Acero inoxidable</span>
+                  <span class="showcase__tag">300-500+ personas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Walk-In Cooler
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Walk-In Cooler Portátil</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Refrigeradores Industriales"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu refrigerador industrial, es natural tener preguntas sobre capacidad, requerimientos eléctricos y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor técnico te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de refrigeración resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre refrigeradores industriales para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Refrigeración -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Refrigeración para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/refrigeracion/" class="sidebar-nav__back">&uarr; Volver a Refrigeración</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/" class="sidebar-nav__back">&uarr; Volver a Catering</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de refrigeración:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas refrigeradores industriales para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar refrigeradores industriales para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Refrigerador Industrial"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un reach-in para tu boda o un walk-in cooler para tu festival, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoEquipo">
+                Tipo de refrigerador
+              </label>
+              <select id="tipoEquipo" name="tipoEquipo" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de refrigerador</option>
+                <option value="Reach-In 1 Puerta">Reach-In 1 Puerta</option>
+                <option value="Reach-In 2 Puertas">Reach-In 2 Puertas</option>
+                <option value="Congelador 300L">Congelador 300L</option>
+                <option value="Congelador 500L">Congelador 500L</option>
+                <option value="Walk-In Cooler 3x2m">Walk-In Cooler 3x2m</option>
+                <option value="Walk-In Cooler 4x3m">Walk-In Cooler 4x3m</option>
+                <option value="Paquete Refrigeración Completa">Paquete Refrigeración Completa</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de asistentes, tipo de venue (salón/jardín/terraza), alimentos a conservar, duración del evento..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Evaluación técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para recomendarte el refrigerador ideal según espacio y requerimientos eléctricos.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría técnica personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoEquipo = document.getElementById('tipoEquipo').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Refrigeradores Industriales para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoEquipo) texto += `*Tipo de refrigerador:* ${tipoEquipo}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Catering"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de equipo de catering y refrigeración para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Catering Pro MX</h3>
+            <p class="partner-card__tagline">Servicio Integral de Catering</p>
+            <p class="partner-card__text">Servicio integral de catering y estaciones gourmet para eventos en CDMX. Equipo de refrigeración industrial, cocina móvil y logística completa para bodas, corporativos y eventos sociales.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">G</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">GastroEventos CDMX</h3>
+            <p class="partner-card__tagline">Equipo de Cocina y Servicio</p>
+            <p class="partner-card__text">Renta de equipo de cocina y estaciones de servicio profesional. Refrigeradores industriales, congeladores, hieleras y equipo complementario para eventos de cualquier escala en CDMX.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">ChefMóvil</h3>
+            <p class="partner-card__tagline">Estaciones de Comida en Vivo</p>
+            <p class="partner-card__text">Estaciones de comida en vivo con chef y equipo profesional certificado. Cocina móvil, refrigeración portátil y servicio integral de alimentos para eventos exclusivos en CDMX.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">B</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">BanquetesPro</h3>
+            <p class="partner-card__tagline">Mobiliario y Equipo de Catering</p>
+            <p class="partner-card__text">Mobiliario y equipo de catering para bodas, corporativos y sociales. Refrigeración industrial, vajilla, cristalería y todo el equipamiento necesario para banquetes de primera.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Refrigeración industrial que protege la calidad de tu banquete"
+    subheadline="Más de 500 eventos con equipo de refrigeración nos respaldan. Cotiza hoy y recibe asesoría técnica sin compromiso."
+    primaryCTA={{ label: "Cotizar refrigeradores", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar refrigeradores industriales para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

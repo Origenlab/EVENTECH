@@ -1,0 +1,730 @@
+---
+/**
+ * ─── Barras de Bebidas — Pagina de Producto (Nivel 4) ───
+ * Barras moviles LED, estaciones de cocteleria, dispensadores de vino
+ * y cerveza, y barras de cafe barista para eventos.
+ *
+ * Jerarquia: Servicios > Catering > Estaciones de Servicio > Barras de Bebidas
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Catering", href: "/servicios/catering/" },
+  { label: "Estaciones de Servicio", href: "/servicios/catering/estaciones-servicio/" },
+  { label: "Barras de Bebidas" },
+];
+
+const faqs = [
+  { question: "¿Qué incluye la renta de una barra de bebidas?", answer: 'Cada renta incluye la <strong>estructura de la barra</strong> (LED, madera premium o acero inoxidable según modelo), backbar refrigerado, cristalería completa (copas, vasos highball, vasos old fashioned), hielera industrial, utensilios de coctelería profesional, iluminación integrada LED con control remoto, mantelería decorativa y montaje/desmontaje sin costo adicional. El servicio de bartender profesional y los insumos de bebidas se cotizan por separado o como <a href="/servicios/catering/estaciones-servicio/">paquete integral</a>.' },
+  { question: "¿Puedo contratar bartender profesional con la barra?", answer: "Sí, ofrecemos <strong>bartender profesional certificado</strong> como servicio adicional. Nuestros bartenders tienen experiencia en coctelería clásica, mixología molecular y flair bartending (show de botellas). Cada bartender atiende cómodamente de 100 a 150 invitados. Para eventos grandes recomendamos 2 o más bartenders. El servicio incluye carta de cocteles personalizada, preparación en vivo y atención premium a tus invitados durante todo el evento." },
+  { question: "¿Cuánto espacio necesito para instalar una barra?", answer: "Una barra estándar de 2.4 metros necesita un espacio mínimo de <strong>4 x 2.5 metros</strong> (incluyendo zona de servicio trasera y espacio de circulación frontal). Para barras dobles o en L, el requerimiento es de 6 x 3 metros. Realizamos una <strong>visita técnica gratuita</strong> a tu venue para evaluar el espacio disponible, accesos, conexiones eléctricas y proponer la mejor ubicación según el flujo de invitados." },
+  { question: "¿Se puede personalizar la barra con branding corporativo?", answer: "Sí, nuestras barras son <strong>100% personalizables</strong>. Ofrecemos viniles adhesivos con tu logo o diseño, impresión en gran formato para frontales de barra, iluminación LED programable con los colores de tu marca, menús impresos personalizados y elementos decorativos temáticos. Para eventos corporativos, el branding transforma la barra en una extensión de tu imagen empresarial. Envíanos tu logotipo y paleta de colores y te presentamos opciones de personalización." },
+  { question: "¿Qué tipos de barra ofrecen y cuál me conviene?", answer: "Ofrecemos 4 tipos principales: <strong>Barra LED Coctelería</strong> (iluminación RGB, ideal para bodas y fiestas nocturnas), <strong>Barra de Cerveza Artesanal</strong> (dispensadores de grifo, perfecta para eventos casuales y corporativos), <strong>Barra de Café Barista</strong> (máquina espresso profesional, ideal para congresos y eventos matutinos) y <strong>Barra Premium Mixología</strong> (setup completo de destilados, para eventos de alto nivel). Nuestro asesor te recomienda la mejor opción según tu tipo de evento y presupuesto." },
+  { question: "¿Puedo combinar la barra de bebidas con otras estaciones de servicio?", answer: 'Sí, es la combinación más popular. Una <strong>barra de bebidas con estación de tacos</strong> crea el combo perfecto para fiestas. Para bodas elegantes, la barra LED con una <a href="/servicios/catering/estaciones-servicio/postres/">estación de postres</a> es espectacular. Ofrecemos descuentos por paquetes de múltiples estaciones. Consulta nuestros combos y arma la experiencia gastronómica completa para tu evento.' },
+];
+
+const specs = [
+  { label: "Tipos", value: "Barra LED, Coctelería, Cerveza, Café Barista" },
+  { label: "Material", value: "Acrílico LED / Madera Premium / Acero Inoxidable" },
+  { label: "Capacidad servicio", value: "100-300 personas por barra" },
+  { label: "Iluminación", value: "LED RGB con 16 colores y control remoto" },
+  { label: "Dimensiones", value: "2.4 x 0.6 x 1.1 metros estándar" },
+  { label: "Bartender", value: "Profesional disponible como servicio adicional" },
+  { label: "Cristalería", value: "Incluida: copas, vasos, highball" },
+  { label: "Refrigeración", value: "Backbar refrigerado incluido" },
+  { label: "Montaje", value: "Incluido: 2 horas antes del evento" },
+  { label: "Personalización", value: "Branding con vinil o impresión disponible" },
+];
+
+const sidebarNav = [
+  { name: "Barras de Bebidas", href: null, active: true },
+  { name: "Tacos y Parrilla", href: "/servicios/catering/estaciones-servicio/tacos-parrilla/" },
+  { name: "Estaciones de Postres", href: "/servicios/catering/estaciones-servicio/postres/" },
+  { name: "Cocina en Vivo", href: "/servicios/catering/estaciones-servicio/cocina-vivo/" },
+];
+
+const sidebarRelated = [
+  { name: "Cocina Móvil", href: "/servicios/catering/cocina-movil/" },
+  { name: "Vajilla y Cristalería", href: "/servicios/catering/vajilla-cristaleria/" },
+  { name: "Refrigeración", href: "/servicios/catering/refrigeracion/" },
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+  { name: "Carpas para Eventos", href: "/servicios/carpas/" },
+];
+
+const reviews = [
+  { author: "Mariana López", text: "Rentamos la barra LED para nuestra boda en un jardín de Coyoacán con 200 invitados. La iluminación cambiaba de color y combinaba perfecto con nuestra decoración. El bartender preparó cocteles personalizados espectaculares y la cristalería incluida era de primera calidad. Todos nos preguntaron dónde contratamos el servicio.", rating: 5, date: "2025-11-20" },
+  { author: "Carlos Mendoza", text: "Contratamos una barra de cerveza artesanal para el lanzamiento de producto de nuestra empresa en un hotel de Polanco. Los dispensadores de grifo funcionaron perfecto toda la noche, la barra con branding corporativo se veía increíble y el equipo de EVENTECH fue muy profesional con el montaje y desmontaje.", rating: 5, date: "2025-10-12" },
+  { author: "Sofía Ramírez", text: "La barra de café barista fue el hit de nuestra fiesta de cumpleaños. El barista preparó cappuccinos y lattes con arte increíble, además de cocteles de café con licor. La máquina espresso profesional y toda la presentación superaron nuestras expectativas. Servicio puntual y excelente atención.", rating: 5, date: "2025-09-18" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Barras de Bebidas para Eventos en CDMX",
+    description: "Renta de barras móviles LED, estaciones de coctelería, dispensadores de vino y cerveza, y barras de café barista para bodas y corporativos. Desde $2,500.",
+    url: "/servicios/catering/estaciones-servicio/barras-bebidas/",
+    priceRange: { min: 2500, max: 8000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 185,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Catering", url: "/servicios/catering/" },
+    { name: "Estaciones de Servicio", url: "/servicios/catering/estaciones-servicio/" },
+    { name: "Barras de Bebidas", url: "/servicios/catering/estaciones-servicio/barras-bebidas/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Barras de Bebidas para Eventos en CDMX | EVENTECH"
+  description="Renta de barras móviles LED, estaciones de coctelería, dispensadores de vino y cerveza, y barras de café barista para bodas y corporativos. Desde $2,500."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Barras premium para cada tipo de evento"
+    title='Renta de <span class="highlight">Barras de Bebidas</span> para Eventos'
+    subtitle="Barras móviles LED con cambio de color, estaciones de coctelería profesional, dispensadores de cerveza artesanal y barras de café barista. Cristalería incluida y bartender profesional opcional."
+    primaryCTA={{ label: "Cotiza tu barra", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar barras de bebidas para mi evento` }}
+    cards={[
+      {
+        title: "Barras móviles LED con cristalería y refrigeración incluidas",
+        content: "<strong>Renta de barras de bebidas para eventos</strong> con el diseño más impactante de la Ciudad de México. Barras móviles LED con cambio de color RGB y 16 tonalidades programables, estaciones de coctelería profesional con backlit LED, dispensadores de vino y cerveza de barril con enfriadores integrados, y barras de café tipo barista con máquina espresso profesional. Estructura en acrílico iluminado, madera premium o acero inoxidable según tu estilo de evento. Cristalería completa incluida: copas, vasos highball y vasos old fashioned.",
+      },
+      {
+        title: "Bartender profesional opcional y montaje sin costo",
+        content: "<strong>Servicio completo de montaje</strong> incluido en cada renta de barra de bebidas. Nuestro equipo se encarga del transporte, instalación de la estructura, conexiones eléctricas, calibración de iluminación LED, enfriamiento del backbar y verificación de cristalería antes de tu evento. Bartender profesional disponible como servicio adicional: coctelería clásica, mixología molecular y flair bartending. Iluminación LED integrada con control remoto. Montaje y desmontaje sin costo adicional dentro de CDMX.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas la barra perfecta para tu próximo evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con el tipo de barra ideal para tu celebración"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Estaciones de Servicio</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas barras de bebidas para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar barras de bebidas para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Barras de Bebidas</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Barra LED Coctelería -->
+          <section class="section section--alt" aria-labelledby="barra-led-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">La estrella de la fiesta</span>
+                <h2 class="showcase__title" id="barra-led-heading">Barra LED Coctelería</h2>
+                <p class="showcase__subtitle">Iluminación RGB espectacular con 16 colores para crear el ambiente perfecto en bodas y fiestas.</p>
+                <p class="showcase__text">Nuestra <strong>barra LED de coctelería</strong> es la opción más impactante para bodas, fiestas y eventos nocturnos. La estructura de acrílico translúcido con <strong>iluminación LED RGB integrada</strong> permite cambiar entre 16 colores con control remoto, sincronizándose con la temática y decoración de tu evento. Equipada con backbar refrigerado, cristalería premium completa (copas flauta, martini, highball, old fashioned) y estación de preparación profesional con todos los utensilios de mixología.</p>
+                <p class="showcase__text">Ideal para <strong>bodas elegantes, recepciones de gala, fiestas de cumpleaños y eventos corporativos nocturnos</strong> donde la barra se convierte en el punto focal de la celebración. La iluminación cambia de color para resaltar momentos clave: brindis, primer baile, corte de pastel. Combínala con nuestra <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a> para un ambiente integral que tus invitados recordarán siempre.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">LED RGB</span>
+                  <span class="showcase__tag">16 colores</span>
+                  <span class="showcase__tag">Cristalería incluida</span>
+                  <span class="showcase__tag">Backbar refrigerado</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Barra LED
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Barra LED Coctelería</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Barra de Cerveza Artesanal -->
+          <section class="section section--alt" aria-labelledby="barra-cerveza-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Casual y sofisticada</span>
+                <h2 class="showcase__title" id="barra-cerveza-heading">Barra de Cerveza Artesanal</h2>
+                <p class="showcase__subtitle">Dispensadores de grifo profesionales con sistema de enfriamiento integrado para servir cerveza perfecta.</p>
+                <p class="showcase__text">Nuestra <strong>barra de cerveza artesanal</strong> transforma tu evento en una experiencia cervecera de primer nivel. Equipada con <strong>dispensadores de grifo profesionales</strong> de 2, 4 o 6 líneas, sistema de enfriamiento integrado que mantiene la cerveza a temperatura ideal (3-5°C) y torre de servicio de acero inoxidable con diseño industrial. La estructura de madera premium combina el estilo rústico artesanal con la funcionalidad profesional que necesitas.</p>
+                <p class="showcase__text">Perfecta para <strong>eventos corporativos casuales, after office, fiestas de cumpleaños, festivales y eventos deportivos</strong>. Cada línea de grifo puede servir una cerveza diferente, permitiendo ofrecer una variedad de estilos a tus invitados. Incluye vasos de cerveza especializados (pinta, tulipán, weizen) y pizarrones con menú de cervezas personalizable. Combínala con nuestra <a href="/servicios/catering/estaciones-servicio/tacos-parrilla/">estación de tacos y parrilla</a> para el combo perfecto de fiesta.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Dispensadores de grifo</span>
+                  <span class="showcase__tag">Enfriamiento integrado</span>
+                  <span class="showcase__tag">2-6 líneas</span>
+                  <span class="showcase__tag">Vasos especializados</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Barra Cerveza
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Barra de Cerveza Artesanal</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Barra de Café Barista -->
+          <section class="section section--alt" aria-labelledby="barra-cafe-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Aroma y sabor profesional</span>
+                <h2 class="showcase__title" id="barra-cafe-heading">Barra de Café Barista</h2>
+                <p class="showcase__subtitle">Máquina espresso profesional con barista certificado para cappuccinos, lattes y cocteles de café.</p>
+                <p class="showcase__text">Nuestra <strong>barra de café barista</strong> lleva la experiencia cafetera profesional directamente a tu evento. Equipada con <strong>máquina espresso de doble grupo</strong> de grado comercial, molinillo profesional con dosificación precisa, vaporizador de leche de alta presión y todos los accesorios para latte art. Servimos espressos, americanos, cappuccinos, lattes, mochas y especialidades con café de origen premium tostado artesanalmente.</p>
+                <p class="showcase__text">Ideal para <strong>congresos matutinos, desayunos corporativos, brunch de boda, baby showers y eventos donde el café es protagonista</strong>. Ofrecemos también preparación de <strong>cocteles de café</strong> (espresso martini, Irish coffee, café con Bailey's) para eventos nocturnos. El barista certificado prepara cada bebida con latte art personalizado y atención premium. Complementa con nuestra <a href="/servicios/catering/estaciones-servicio/postres/">estación de postres</a> para un maridaje dulce perfecto.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Espresso profesional</span>
+                  <span class="showcase__tag">Latte art</span>
+                  <span class="showcase__tag">Cocteles de café</span>
+                  <span class="showcase__tag">Café de origen</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Barra Café
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Barra de Café Barista</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Barra Premium Mixología -->
+          <section class="section section--alt" aria-labelledby="barra-premium-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Experiencia de alto nivel</span>
+                <h2 class="showcase__title" id="barra-premium-heading">Barra Premium Mixología</h2>
+                <p class="showcase__subtitle">Setup completo de destilados premium con bartender mixólogo para cocteles de autor y experiencias exclusivas.</p>
+                <p class="showcase__text">Nuestra <strong>barra premium de mixología</strong> es la experiencia más exclusiva de nuestro catálogo. Incluye un <strong>setup completo de destilados premium</strong> (whisky, vodka, gin, tequila, mezcal, ron) con cristalería especializada para cada tipo de coctel, estación de garnish con frutas frescas, hierbas aromáticas y elementos artesanales. La estructura combina madera noble con detalles de acero y mármol para una presentación de lujo que impresiona desde el primer momento.</p>
+                <p class="showcase__text">Diseñada para <strong>bodas de alto nivel, cenas de gala, eventos VIP y lanzamientos de producto premium</strong>. El bartender mixólogo certificado crea una carta de <strong>cocteles de autor</strong> personalizada para tu evento, con nombres y recetas exclusivas que sorprenden a cada invitado. Show de flair bartending disponible para momentos especiales. Combínala con nuestra <a href="/servicios/catering/estaciones-servicio/cocina-vivo/">estación de cocina en vivo</a> para una experiencia gastronómica completa de nivel gourmet.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Destilados premium</span>
+                  <span class="showcase__tag">Cocteles de autor</span>
+                  <span class="showcase__tag">Mixólogo certificado</span>
+                  <span class="showcase__tag">Flair bartending</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Barra Premium
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Barra Premium Mixología</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Barras de Bebidas"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu barra de bebidas, es natural tener preguntas sobre qué incluye, tipos disponibles y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de barras de bebidas resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre barras de bebidas para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Estaciones de Servicio -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Estaciones de Servicio</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/estaciones-servicio/" class="sidebar-nav__back">&uarr; Volver a Estaciones de Servicio</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/" class="sidebar-nav__back">&uarr; Volver a Catering</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de barras:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas barras de bebidas para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar barras de bebidas para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Barra de Bebidas"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea una barra LED para tu boda o un combo de barras para tu festival, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoBarra">
+                Tipo de barra
+              </label>
+              <select id="tipoBarra" name="tipoBarra" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de barra</option>
+                <option value="Barra LED Coctelería">Barra LED Coctelería</option>
+                <option value="Barra Cerveza Artesanal">Barra Cerveza Artesanal</option>
+                <option value="Barra Café Barista">Barra Café Barista</option>
+                <option value="Barra Premium Mixología">Barra Premium Mixología</option>
+                <option value="Paquete Boda Completa">Paquete Boda Completa</option>
+                <option value="Combo Doble Barra">Combo Doble Barra</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de invitados, tipo de venue (salón/jardín/terraza), si necesitas bartender, tipo de bebidas preferidas..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para recomendarte la barra ideal según el espacio y flujo de invitados.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoBarra = document.getElementById('tipoBarra').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Barras de Bebidas para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoBarra) texto += `*Tipo de barra:* ${tipoBarra}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Catering"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de equipo de catering para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, personal capacitado y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Catering Pro MX</h3>
+            <p class="partner-card__tagline">Catering y Estaciones Gourmet</p>
+            <p class="partner-card__text">Servicio integral de catering y estaciones gourmet para eventos en CDMX. Barras de bebidas, estaciones de comida en vivo y montaje profesional con equipo de primera calidad.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">G</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">GastroEventos CDMX</h3>
+            <p class="partner-card__tagline">Equipo de Cocina y Estaciones</p>
+            <p class="partner-card__text">Renta de equipo de cocina y estaciones de servicio profesional. Especialistas en barras de bebidas, planchas industriales y mobiliario de catering para todo tipo de evento.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">ChefMóvil</h3>
+            <p class="partner-card__tagline">Cocina en Vivo y Estaciones</p>
+            <p class="partner-card__text">Estaciones de comida en vivo con chef y equipo profesional certificado. Más de 10 años de experiencia en eventos corporativos, bodas y celebraciones sociales en CDMX.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">B</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">BanquetesPro</h3>
+            <p class="partner-card__tagline">Mobiliario y Equipo de Catering</p>
+            <p class="partner-card__text">Mobiliario y equipo de catering para bodas, corporativos y sociales. Barras de bebidas, mesas de servicio, equipo de cocina y logística profesional en toda la CDMX.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Barras de bebidas que transforman la experiencia de tu evento"
+    subheadline="Más de 500 eventos con barras de bebidas nos respaldan. Cotiza hoy y recibe asesoría personalizada sin compromiso."
+    primaryCTA={{ label: "Cotizar barras de bebidas", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar barras de bebidas para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

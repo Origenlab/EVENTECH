@@ -1,0 +1,734 @@
+---
+/**
+ * ─── Parquet Modular — Pagina de Producto (Nivel 4) ───
+ * Pista de baile parquet modular con ensamble rápido en múltiples
+ * tonos de madera para eventos en CDMX.
+ *
+ * Jerarquia: Servicios > Pistas de Baile > Madera Clásica > Parquet Modular
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Pistas de Baile", href: "/servicios/pistas-baile/" },
+  { label: "Madera Clásica", href: "/servicios/pistas-baile/madera-clasica/" },
+  { label: "Parquet Modular" },
+];
+
+const faqs = [
+  { question: "¿Cuál es la diferencia entre parquet modular y duela laminada?", answer: 'El <strong>parquet modular</strong> utiliza paneles de 60x60 cm con sistema de ensamble click que se instalan sin herramientas, ideal para montajes rápidos de 2-3 horas. La <strong>duela laminada</strong> son tablas más largas de 12 mm con ensamble machihembrado que requieren 3-5 horas de instalación. Ambos ofrecen acabado antiderrapante profesional. El parquet es más económico y ágil; la duela ofrece un acabado más tradicional y premium. Si necesitas duela, visita nuestra <a href="/servicios/pistas-baile/madera-clasica/duela-laminada/">página de duela laminada</a>.' },
+  { question: "¿Cuánto tarda el montaje del parquet modular?", answer: "El montaje del parquet modular es significativamente más rápido que otros tipos de pista. Una pista de <strong>3x3 metros se instala en 1.5-2 horas</strong>, una de 4x4 en 2-2.5 horas, y las más grandes de 5x5 o 6x6 metros en <strong>2.5-3 horas</strong>. El sistema de ensamble click no requiere herramientas ni tornillos, lo que agiliza enormemente el proceso. El desmontaje es igual de rápido y puede realizarse inmediatamente después del evento para no retrasar la entrega del venue." },
+  { question: "¿El parquet modular se puede usar en exteriores?", answer: "El parquet modular estándar está diseñado principalmente para <strong>uso en interiores y exteriores cubiertos</strong> (carpas, terrazas techadas). Sus paneles son resistentes a la humedad ambiental pero no deben exponerse directamente a lluvia. Para eventos en jardín abierto, montamos el parquet sobre una <strong>plataforma elevada con protección adicional</strong> y recomendamos tener una carpa o toldo como respaldo. Si tu evento es completamente al aire libre, consulta nuestra solución de <a href=\"/servicios/pistas-baile/madera-clasica/terreno-irregular/\">pista sobre terreno irregular</a>." },
+  { question: "¿El parquet modular resiste líquidos derramados?", answer: "Sí, nuestros paneles de parquet modular tienen un <strong>acabado laminado de alta presión</strong> que repele líquidos superficialmente. Derrames de bebidas, agua o refrescos se pueden limpiar fácilmente con un paño sin que penetren la superficie. Incluimos un <strong>kit de limpieza rápida</strong> con cada renta para atender derrames durante el evento. Sin embargo, no recomendamos exposición prolongada a líquidos estancados. Nuestro equipo puede asistir durante el evento si se requiere limpieza especial." },
+  { question: "¿Se puede combinar el parquet modular con otros tipos de piso?", answer: "Sí, es una configuración que realizamos con frecuencia. Puedes combinar <strong>parquet modular con alfombra</strong> en zonas de tránsito, con <strong>pista LED</strong> en el centro para el primer baile, o crear <strong>zonas de diferentes tonos</strong> usando paneles de arce, haya, cerezo y wengué en un mismo diseño. Los módulos de 60x60 cm son compatibles entre tonos y se ensamblan en el orden que prefieras. Nuestro equipo de diseño te ayuda a planificar la distribución ideal según tu concepto." },
+  { question: "¿Con cuánta anticipación debo reservar el parquet modular?", answer: "Recomendamos reservar con <strong>2 a 3 semanas de anticipación</strong> para asegurar disponibilidad del tono y la cantidad de módulos que necesitas. Los tonos cerezo y wengué son los más solicitados en temporada de bodas (noviembre-febrero) y suelen agotarse primero. Para eventos corporativos o de gran formato que requieren pistas de 5x5 o 6x6 metros, lo ideal es apartar con <strong>3 semanas de anticipación</strong>. También atendemos solicitudes de último momento sujetas a disponibilidad de inventario." },
+];
+
+const specs = [
+  { label: "Material", value: "Parquet laminado de alta presión" },
+  { label: "Sistema", value: "Ensamble click sin herramientas" },
+  { label: "Tonos", value: "Arce, haya, cerezo, wengué, roble" },
+  { label: "Módulos", value: "60x60 cm, intercambiables" },
+  { label: "Medidas", value: "3x3 a 6x6 metros" },
+  { label: "Grosor", value: "10 mm sobre base de 5 mm" },
+  { label: "Superficie", value: "Lisa uniforme sin juntas visibles" },
+  { label: "Portabilidad", value: "Ligero, fácil transporte" },
+  { label: "Montaje", value: "Rápido, 2-3 horas" },
+  { label: "Desmontaje", value: "Mismo día post-evento" },
+];
+
+const sidebarNav = [
+  { name: "Duela Laminada", href: "/servicios/pistas-baile/madera-clasica/duela-laminada/" },
+  { name: "Parquet Modular", href: null, active: true },
+  { name: "Marco Decorativo", href: "/servicios/pistas-baile/madera-clasica/marco-decorativo/" },
+  { name: "Terreno Irregular", href: "/servicios/pistas-baile/madera-clasica/terreno-irregular/" },
+];
+
+const sidebarRelated = [
+  { name: "Pistas LED", href: "/servicios/pistas-baile/pistas-led/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+  { name: "Mobiliario", href: "/servicios/mobiliario/" },
+  { name: "Carpas", href: "/servicios/carpas/" },
+  { name: "Sonido", href: "/servicios/audiovisual/sonido/" },
+];
+
+const reviews = [
+  { author: "Carlos Mendoza", text: "Usamos el parquet modular en tono arce para un evento corporativo de 200 personas en un salón de Santa Fe. El montaje fue increíblemente rápido, en menos de 3 horas ya estaba todo listo. La superficie quedó perfecta, sin juntas visibles, y los asistentes bailaron toda la noche sin problemas. Excelente relación calidad-precio.", rating: 5, date: "2025-11-10" },
+  { author: "Gabriela Ruiz", text: "Elegimos el parquet en tono cerezo para nuestra boda en un salón de Polanco y fue la decisión perfecta. El color rojizo cálido combinó hermosamente con nuestra decoración en tonos dorados. El equipo de EVENTECH fue muy profesional, montaron y desmontaron sin que nos diéramos cuenta. Totalmente recomendable.", rating: 5, date: "2025-10-15" },
+  { author: "Andrés Sánchez", text: "Contratamos parquet wengué para una feria de diseño en un centro de convenciones. Necesitábamos montaje rápido porque teníamos solo 4 horas para instalar todo el stand. El equipo llegó puntual y en 2.5 horas la pista de 5x5 estaba impecable. El tono oscuro del wengué le dio un look muy sofisticado a nuestro espacio.", rating: 5, date: "2025-09-28" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Pista de Baile Parquet Modular para Eventos en CDMX",
+    description: "Renta de pista de baile parquet modular con ensamble rápido en múltiples tonos de madera para eventos en CDMX. Montaje ágil. Desde $5,000.",
+    url: "/servicios/pistas-baile/madera-clasica/parquet-modular/",
+    priceRange: { min: 5000, max: 25000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 198,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Pistas de Baile", url: "/servicios/pistas-baile/" },
+    { name: "Madera Clásica", url: "/servicios/pistas-baile/madera-clasica/" },
+    { name: "Parquet Modular", url: "/servicios/pistas-baile/madera-clasica/parquet-modular/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Pista de Baile Parquet Modular para Eventos en CDMX"
+  description="Renta de pista de baile parquet modular con ensamble rápido en múltiples tonos de madera para eventos en CDMX. Montaje ágil. Desde $5,000."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Montaje ágil y superficie uniforme"
+    title='Renta de <span class="highlight">Pista de Baile Parquet Modular</span> para Eventos en CDMX'
+    subtitle="Pista de baile con paneles de parquet modular y ensamble rápido tipo click. Superficie uniforme sin juntas visibles en 5 tonos de madera. Montaje en 2-3 horas."
+    primaryCTA={{ label: "Cotiza tu pista", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar una pista de parquet modular para mi evento` }}
+    cards={[
+      {
+        title: "Paneles de parquet con ensamble rápido tipo click",
+        content: "<strong>Renta de pista de baile con parquet modular</strong> de alta presión y sistema de ensamble click sin herramientas. Paneles de 60x60 cm intercambiables que crean una superficie uniforme sin juntas visibles. Disponible en 5 tonos de madera: arce (claro natural), haya (miel cálido), cerezo (rojizo sofisticado), wengué (oscuro profundo) y roble (medio clásico). Grosor de 10 mm sobre base de 5 mm con acabado laminado resistente a líquidos y tráfico intenso.",
+      },
+      {
+        title: "Montaje ágil en 2-3 horas con desmontaje rápido",
+        content: "<strong>Instalación ultra-rápida</strong> ideal para eventos con tiempo limitado de montaje. El sistema click permite ensamblar una pista completa de 4x4 metros en apenas 2 horas sin tornillos ni herramientas especiales. Desmontaje igual de ágil que puede realizarse inmediatamente después del evento para no retrasar la entrega del venue. Módulos ligeros y fáciles de transportar. Equipo de montaje profesional incluido en cada renta con logística completa en toda la CDMX.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas una pista de baile con montaje rápido?"
+    subheadline="Cotiza sin compromiso — parquet modular listo en 2-3 horas con el tono perfecto para tu evento"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Pistas de Madera para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas parquet modular para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una pista de parquet modular para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h18"/><path d="M12 3v18"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Parquet Modular</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Parquet Arce -->
+          <section class="section section--alt" aria-labelledby="parquet-arce-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Tono claro natural</span>
+                <h2 class="showcase__title" id="parquet-arce-heading">Parquet Arce</h2>
+                <p class="showcase__subtitle">El tono más claro y luminoso de nuestro catálogo, ideal para ambientes frescos y modernos.</p>
+                <p class="showcase__text">Nuestro <strong>parquet modular en tono arce</strong> es la opción más luminosa del catálogo, con un color claro natural que amplifica la luz del espacio y crea un ambiente fresco, moderno y acogedor. Los paneles de 60x60 cm con sistema click se ensamblan en <strong>2-3 horas</strong> creando una superficie perfectamente uniforme sin juntas visibles. Ideal para <strong>eventos corporativos, showrooms, lanzamientos de producto y fiestas diurnas</strong> donde se busca un look contemporáneo y minimalista.</p>
+                <p class="showcase__text">El tono arce combina especialmente bien con <strong>decoraciones en blanco, gris, verde y tonos pastel</strong>. Su acabado laminado de alta presión resiste líquidos derramados, tacones y tráfico intenso sin perder su apariencia impecable. La base de 5 mm proporciona estabilidad y aislamiento acústico, reduciendo el ruido de pisadas para una experiencia más cómoda. Combínala con nuestro <a href="/servicios/mobiliario/">mobiliario contemporáneo</a> para un montaje moderno y sofisticado.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Tono arce</span>
+                  <span class="showcase__tag">Claro natural</span>
+                  <span class="showcase__tag">60x60 cm</span>
+                  <span class="showcase__tag">Eventos corporativos</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Parquet Arce
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M3 12h18"/><path d="M12 3v18"/>
+                    <path d="M3 7.5h18"/><path d="M3 16.5h18"/>
+                    <path d="M7.5 3v18"/><path d="M16.5 3v18"/>
+                  </svg>
+                  <span>Parquet Arce</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Parquet Haya -->
+          <section class="section section--alt" aria-labelledby="parquet-haya-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Tono miel cálido</span>
+                <h2 class="showcase__title" id="parquet-haya-heading">Parquet Haya</h2>
+                <p class="showcase__subtitle">El tono miel que transmite calidez y elegancia para cualquier tipo de celebración.</p>
+                <p class="showcase__text">El <strong>parquet modular en tono haya</strong> ofrece un color miel cálido que se adapta a prácticamente cualquier estilo decorativo. Es nuestro tono más versátil y el favorito para <strong>fiestas sociales, aniversarios y eventos familiares</strong> donde se busca un ambiente acogedor sin ser excesivamente formal. Los paneles de alta presión con acabado laminado crean una superficie <strong>resistente y uniforme</strong> que se mantiene impecable durante todo el evento.</p>
+                <p class="showcase__text">La tonalidad haya complementa decoraciones en <strong>tonos tierra, dorado, burdeos y verde olivo</strong>, siendo especialmente popular en celebraciones de estilo rústico-elegante y temáticas otoñales. El sistema de ensamble click permite <strong>montaje y desmontaje ultra-rápido</strong> sin dejar marcas en el piso del venue. Los módulos de 60x60 cm son intercambiables y se pueden combinar con otros tonos para crear diseños personalizados. Complementa con nuestra <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a> para una atmósfera envolvente.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Tono haya</span>
+                  <span class="showcase__tag">Miel cálido</span>
+                  <span class="showcase__tag">Versátil</span>
+                  <span class="showcase__tag">Rústico-elegante</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Parquet Haya
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M3 12h18"/><path d="M12 3v18"/>
+                    <path d="M3 7.5h18"/><path d="M3 16.5h18"/>
+                    <path d="M7.5 3v18"/><path d="M16.5 3v18"/>
+                  </svg>
+                  <span>Parquet Haya</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Parquet Cerezo -->
+          <section class="section section--alt" aria-labelledby="parquet-cerezo-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Tono rojizo sofisticado</span>
+                <h2 class="showcase__title" id="parquet-cerezo-heading">Parquet Cerezo</h2>
+                <p class="showcase__subtitle">El tono rojizo cálido que aporta carácter y distinción a bodas y eventos de gala.</p>
+                <p class="showcase__text">Nuestro <strong>parquet modular en tono cerezo</strong> es la elección favorita para <strong>bodas románticas, cenas de gala y celebraciones con temática cálida</strong>. Su color rojizo sofisticado aporta carácter y profundidad al espacio sin ser excesivamente oscuro, creando un equilibrio perfecto entre elegancia y calidez. Los paneles de alta presión mantienen su <strong>color vibrante y uniforme</strong> durante todo el evento sin decoloración ni variaciones.</p>
+                <p class="showcase__text">El tono cerezo combina de forma espectacular con <strong>decoraciones en blanco, crema, dorado y verde esmeralda</strong>. Es especialmente impactante bajo iluminación cálida de fairy lights y velas, creando reflejos sutiles que realzan la atmósfera romántica. La superficie laminada <strong>resiste tacones sin rayarse</strong> y repele líquidos derramados para mantener un acabado impecable. Ideal también para <a href="/servicios/carpas/">eventos bajo carpa</a> donde el tono cerezo crea un contraste elegante con las telas blancas.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Tono cerezo</span>
+                  <span class="showcase__tag">Rojizo cálido</span>
+                  <span class="showcase__tag">Bodas</span>
+                  <span class="showcase__tag">Galas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Parquet Cerezo
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M3 12h18"/><path d="M12 3v18"/>
+                    <path d="M3 7.5h18"/><path d="M3 16.5h18"/>
+                    <path d="M7.5 3v18"/><path d="M16.5 3v18"/>
+                  </svg>
+                  <span>Parquet Cerezo</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Parquet Wengué -->
+          <section class="section section--alt" aria-labelledby="parquet-wengue-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Tono oscuro profundo</span>
+                <h2 class="showcase__title" id="parquet-wengue-heading">Parquet Wengué</h2>
+                <p class="showcase__subtitle">El tono más oscuro y sofisticado para eventos de lujo, galas corporativas y ambientes exclusivos.</p>
+                <p class="showcase__text">El <strong>parquet modular en tono wengué</strong> representa la máxima sofisticación en nuestro catálogo de pisos de madera. Su color oscuro profundo con matices chocolate crea un <strong>ambiente de lujo y exclusividad</strong> que transforma cualquier espacio en un escenario premium. Es la elección predilecta para <strong>galas corporativas, premiaciones, cenas de lujo y eventos VIP</strong> donde cada detalle debe transmitir elegancia y distinción.</p>
+                <p class="showcase__text">El tono wengué es especialmente impactante con <strong>decoraciones en dorado, plateado, blanco y negro</strong>, creando contrastes dramáticos que elevan la experiencia visual del evento. Bajo iluminación puntual y decorativa, la superficie genera un <strong>brillo sutil y controlado</strong> que realza el ambiente sin reflejos excesivos. Los paneles de alta presión mantienen su acabado impecable incluso con uso intensivo. Combínalo con nuestras <a href="/servicios/pistas-baile/pistas-led/">pistas LED</a> para crear una zona central espectacular rodeada de parquet oscuro.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Tono wengué</span>
+                  <span class="showcase__tag">Oscuro profundo</span>
+                  <span class="showcase__tag">Lujo</span>
+                  <span class="showcase__tag">Eventos VIP</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Parquet Wengué
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M3 12h18"/><path d="M12 3v18"/>
+                    <path d="M3 7.5h18"/><path d="M3 16.5h18"/>
+                    <path d="M7.5 3v18"/><path d="M16.5 3v18"/>
+                  </svg>
+                  <span>Parquet Wengué</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Parquet Modular"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu pista de parquet modular, es natural tener preguntas sobre tonos, tiempos de montaje y resistencia. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de pistas de madera resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre pistas de parquet modular para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Pistas de Madera -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Pistas de Madera para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/pistas-baile/madera-clasica/" class="sidebar-nav__back">&uarr; Volver a Madera Clásica</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/pistas-baile/" class="sidebar-nav__back">&uarr; Volver a Pistas de Baile</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu pista de baile:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas parquet modular para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una pista de parquet modular para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Pista de Parquet Modular"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea parquet arce para tu corporativo o parquet cerezo para tu boda, encontramos el tono y la medida perfecta para ti."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoParquet">
+                Tipo de parquet
+              </label>
+              <select id="tipoParquet" name="tipoParquet" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de parquet</option>
+                <option value="Parquet Arce 3x3">Parquet Arce 3x3</option>
+                <option value="Parquet Haya 4x4">Parquet Haya 4x4</option>
+                <option value="Parquet Cerezo 5x5">Parquet Cerezo 5x5</option>
+                <option value="Parquet Wengué 6x6">Parquet Wengué 6x6</option>
+                <option value="Mix Tonos">Mix Tonos</option>
+                <option value="Cotización Personalizada">Cotización Personalizada</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de invitados, tipo de venue (salón/jardín/hacienda), tono de madera preferido, dimensiones deseadas..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para medir el espacio y verificar las condiciones de instalación.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para elegir el tono y la medida ideal.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoParquet = document.getElementById('tipoParquet').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Pista de Parquet Modular*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoParquet) texto += `*Tipo de parquet:* ${tipoParquet}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Pistas de Baile"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de pistas de baile para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, personal capacitado y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de acabados y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">P</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Pistas Premium MX</h3>
+            <p class="partner-card__tagline">Especialistas en Pistas de Madera</p>
+            <p class="partner-card__text">Especialistas en pistas de baile de madera para bodas y eventos. Duela laminada premium, parquet modular y acabados de la más alta calidad con instalación profesional en toda la CDMX.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">D</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">DanceFloor CDMX</h3>
+            <p class="partner-card__tagline">Pistas de Baile para Eventos</p>
+            <p class="partner-card__text">Renta integral de pistas de baile para eventos sociales y corporativos. Amplio catálogo de tonos de madera, marcos decorativos y plataformas niveladoras con logística profesional.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventFloor</h3>
+            <p class="partner-card__tagline">Pistas, Tarimas y Escenarios</p>
+            <p class="partner-card__text">Pistas de baile, tarimas y escenarios con instalación profesional. Más de 10 años equipando los eventos más importantes de la Ciudad de México con soluciones de piso de primera calidad.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">P</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">PistasPro</h3>
+            <p class="partner-card__tagline">Soluciones de Pistas de Baile</p>
+            <p class="partner-card__text">Soluciones de pistas de baile con logística y montaje en CDMX. Transporte, instalación, supervisión durante el evento y desmontaje incluidos. Cobertura en toda el área metropolitana.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Parquet modular: montaje ágil y acabado profesional para tu evento"
+    subheadline="Más de 200 eventos con parquet modular nos respaldan. Cotiza hoy y recibe asesoría personalizada sin compromiso."
+    primaryCTA={{ label: "Cotizar parquet modular", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar una pista de parquet modular para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

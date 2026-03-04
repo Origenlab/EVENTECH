@@ -1,0 +1,730 @@
+---
+/**
+ * ─── Tacos y Parrilla — Pagina de Producto (Nivel 4) ───
+ * Estaciones de taquiza gourmet con trompo de pastor, parrilla en vivo
+ * y carving station para eventos.
+ *
+ * Jerarquia: Servicios > Catering > Estaciones de Servicio > Tacos y Parrilla
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Catering", href: "/servicios/catering/" },
+  { label: "Estaciones de Servicio", href: "/servicios/catering/estaciones-servicio/" },
+  { label: "Tacos y Parrilla" },
+];
+
+const faqs = [
+  { question: "¿Qué incluye la renta de una estación de tacos y parrilla?", answer: 'Cada estación incluye el <strong>equipo profesional completo</strong>: trompo de gas con control de calor (para trompo de pastor), parrilla industrial de carbón o gas de 120x60 cm (para parrilla), mesa caliente con lámpara infrarroja (para carving station), o plancha y comal (para estación regional). Además incluye mesa de preparación, utensilios de servicio, tortillera, salseras, montaje con decoración rústica base y <strong>chef/taquero profesional</strong>. El tanque de gas LP está incluido. Los insumos alimenticios se cotizan por separado o como <a href="/servicios/catering/estaciones-servicio/">paquete integral</a>.' },
+  { question: "¿Los insumos alimenticios están incluidos en la renta?", answer: "La renta base incluye el <strong>equipo, chef y montaje</strong>. Los insumos alimenticios (carne, tortillas, salsas, guarniciones) se cotizan por separado según el número de invitados y el menú seleccionado. También ofrecemos <strong>paquetes todo incluido</strong> con alimentos premium: carne de primera calidad, tortillas artesanales hechas a mano, salsas caseras, guacamole, cebollitas asadas y complementos gourmet. Nuestro chef diseña un menú personalizado según tus preferencias y presupuesto." },
+  { question: "¿Qué espacio y ventilación necesitan las estaciones?", answer: "Las estaciones de tacos y parrilla requieren un espacio mínimo de <strong>5 x 3 metros</strong> por estación (incluyendo zona de preparación y servicio). Para estaciones con trompo o parrilla de carbón, es necesario un <strong>área ventilada o al aire libre</strong>. En interiores, incluimos campana de extracción portátil para manejar el humo. Realizamos una visita técnica previa a tu venue para evaluar ventilación, accesos y espacio disponible, garantizando que todo funcione de forma segura y sin molestias para tus invitados." },
+  { question: "¿Cuántas personas puede atender una estación?", answer: "Cada estación atiende cómodamente de <strong>150 a 500 personas</strong> dependiendo del tipo. El trompo de pastor profesional sirve hasta 300 personas con un taquero. La parrilla industrial atiende hasta 250 personas con un parrillero. El carving station sirve hasta 200 personas con un chef. Para eventos grandes, recomendamos <strong>combinar 2 o más estaciones</strong> para evitar filas largas y mantener un servicio fluido. Nuestro equipo de logística te ayuda a calcular la cantidad ideal según tus invitados." },
+  { question: "¿Puedo combinar diferentes estaciones de tacos y parrilla?", answer: 'Sí, las combinaciones son nuestra especialidad. Los paquetes más populares son: <strong>Trompo + Parrilla</strong> (el favorito para bodas campestres), <strong>Trompo + Carving + Regional</strong> (para eventos corporativos grandes) y <strong>Parrilla + Regional</strong> (para fiestas casuales). Ofrecemos <strong>descuentos por paquetes de múltiples estaciones</strong>. También puedes combinar con nuestras <a href="/servicios/catering/estaciones-servicio/barras-bebidas/">barras de bebidas</a> para el combo perfecto de fiesta.' },
+  { question: "¿Puedo personalizar el menú de la estación?", answer: "Absolutamente. Nuestro <strong>chef diseña un menú personalizado</strong> según tus preferencias, tema del evento y presupuesto. Para el trompo puedes elegir entre pastor tradicional, adobado especial o marinado gourmet. La parrilla ofrece opciones de cortes nacionales e importados, pollo, mariscos y opciones vegetarianas. El carving station permite elegir entre rib eye, prime rib, pierna de cordero o pavo. La estación regional se adapta a cualquier cocina mexicana: oaxaqueña, yucateca, norteña o del centro." },
+];
+
+const specs = [
+  { label: "Estaciones", value: "Trompo, Parrilla, Carving, Regional" },
+  { label: "Trompo", value: "Gas profesional con control de calor" },
+  { label: "Parrilla", value: "Carbón/gas industrial 120x60 cm" },
+  { label: "Carving", value: "Mesa caliente con lámpara infrarroja" },
+  { label: "Capacidad", value: "150-500 personas por estación" },
+  { label: "Chef", value: "Profesional incluido en la renta" },
+  { label: "Tortilladora", value: "Manual o automática según paquete" },
+  { label: "Servicio", value: "Desechable premium o vajilla opcional" },
+  { label: "Montaje", value: "Incluido con decoración rústica base" },
+  { label: "Gas", value: "Tanque LP incluido" },
+];
+
+const sidebarNav = [
+  { name: "Barras de Bebidas", href: "/servicios/catering/estaciones-servicio/barras-bebidas/" },
+  { name: "Tacos y Parrilla", href: null, active: true },
+  { name: "Estaciones de Postres", href: "/servicios/catering/estaciones-servicio/postres/" },
+  { name: "Cocina en Vivo", href: "/servicios/catering/estaciones-servicio/cocina-vivo/" },
+];
+
+const sidebarRelated = [
+  { name: "Cocina Móvil", href: "/servicios/catering/cocina-movil/" },
+  { name: "Vajilla y Cristalería", href: "/servicios/catering/vajilla-cristaleria/" },
+  { name: "Refrigeración", href: "/servicios/catering/refrigeracion/" },
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+  { name: "Carpas para Eventos", href: "/servicios/carpas/" },
+];
+
+const reviews = [
+  { author: "Fernando Gutiérrez", text: "Contratamos la estación de trompo de pastor y parrilla argentina para nuestra boda campestre en Valle de Bravo con 250 invitados. El taquero era un profesional, la carne del trompo estaba perfectamente marinada y la parrilla con cortes premium fue un éxito total. Todos los invitados repitieron varias veces. El montaje rústico quedó espectacular.", rating: 5, date: "2025-11-08" },
+  { author: "Laura Jiménez", text: "Para nuestro evento corporativo de fin de año con 300 personas rentamos el carving station con rib eye y la estación regional mexicana. El chef cortaba los cortes frente a los invitados y la presentación era impecable. Las quesadillas y tlacoyos de la estación regional fueron el complemento perfecto. Servicio profesional y puntual.", rating: 5, date: "2025-10-25" },
+  { author: "Miguel Sánchez", text: "La taquiza gourmet con trompo y tortillas hechas a mano fue el hit de mi fiesta de cumpleaños. El taquero tenía una sazón increíble, las salsas artesanales estaban deliciosas y la presentación con decoración rústica le dio un toque muy especial al evento. Mis invitados siguen hablando de lo buena que estuvo la comida.", rating: 5, date: "2025-09-14" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Estaciones de Tacos y Parrilla para Eventos en CDMX",
+    description: "Renta de estaciones de taquiza gourmet con trompo de pastor, parrilla en vivo y carving station para eventos en CDMX. Chef incluido. Desde $3,000.",
+    url: "/servicios/catering/estaciones-servicio/tacos-parrilla/",
+    priceRange: { min: 3000, max: 12000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 210,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Catering", url: "/servicios/catering/" },
+    { name: "Estaciones de Servicio", url: "/servicios/catering/estaciones-servicio/" },
+    { name: "Tacos y Parrilla", url: "/servicios/catering/estaciones-servicio/tacos-parrilla/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Estaciones de Tacos y Parrilla en CDMX | EVENTECH"
+  description="Renta de estaciones de taquiza gourmet con trompo de pastor, parrilla en vivo y carving station para eventos en CDMX. Chef incluido. Desde $3,000."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="El favorito de todos los invitados"
+    title='Renta de <span class="highlight">Estaciones de Tacos y Parrilla</span> para Eventos'
+    subtitle="Trompo de pastor profesional, parrilla de carbón y gas industrial, carving station con cortes premium y estaciones de cocina regional mexicana. Chef incluido en cada estación."
+    primaryCTA={{ label: "Cotiza tu estación", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar estaciones de tacos y parrilla para mi evento` }}
+    cards={[
+      {
+        title: "Trompo, parrilla, carving y cocina regional mexicana",
+        content: "<strong>Renta de estaciones de tacos y parrilla para eventos</strong> con el equipo profesional más completo de la Ciudad de México. Trompo de pastor profesional con control de calor para una cocción perfecta, parrilla de carbón y gas industrial de 120x60 cm para cortes premium, carving station con mesa caliente y lámpara infrarroja para servicio de alto nivel, y estación de cocina regional mexicana con tortillas hechas a mano. Cada estación diseñada para servir de 150 a 500 personas con la mejor sazón y presentación.",
+      },
+      {
+        title: "Chef profesional incluido y montaje completo",
+        content: "<strong>Servicio integral con chef profesional</strong> incluido en cada renta de estación. Nuestro taquero o chef asador se encarga de la preparación en vivo frente a tus invitados, creando un espectáculo gastronómico que entretiene y deleita. Montaje completo con decoración rústica base, mesa de preparación, utensilios de servicio, tortillera manual o automática, salseras artesanales y servicio desechable premium. Tanque de gas LP incluido. Insumos alimenticios opcionales con cotización personalizada.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Buscas la taquiza perfecta para tu evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con la estación ideal para tu celebración"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Estaciones de Servicio</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas estaciones de tacos para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar estaciones de tacos y parrilla para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Tacos y Parrilla</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Trompo de Pastor Gourmet -->
+          <section class="section section--alt" aria-labelledby="trompo-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">El clásico que nunca falla</span>
+                <h2 class="showcase__title" id="trompo-heading">Trompo de Pastor Gourmet</h2>
+                <p class="showcase__subtitle">Trompo de pastor profesional con carne marinada artesanalmente y tortillas hechas a mano.</p>
+                <p class="showcase__text">Nuestro <strong>trompo de pastor gourmet</strong> es la estrella garantizada de cualquier evento. Equipado con <strong>trompo de gas profesional</strong> con control de calor para una cocción uniforme y perfecta, preparamos hasta 300 tacos por hora con carne de cerdo marinada artesanalmente en adobo de chiles secos, achiote, especias y piña caramelizada. El taquero profesional corta la carne al momento con la técnica tradicional, creando el espectáculo visual que tus invitados esperan.</p>
+                <p class="showcase__text">Cada estación incluye <strong>tortillera manual con tortillas de maíz recién hechas</strong>, salsas artesanales (verde, roja, habanero y guacamole), cebolla, cilantro, piña y limones frescos. La presentación con decoración rústica mexicana y iluminación cálida transforma tu evento en una experiencia auténtica. Ideal para <strong>bodas campestres, fiestas de cumpleaños, eventos corporativos y celebraciones mexicanas</strong>. Complementa con nuestra <a href="/servicios/catering/estaciones-servicio/barras-bebidas/">barra de bebidas</a> para el maridaje perfecto.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Trompo profesional</span>
+                  <span class="showcase__tag">Tortillas a mano</span>
+                  <span class="showcase__tag">Salsas artesanales</span>
+                  <span class="showcase__tag">Hasta 300 personas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Trompo de Pastor
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Trompo de Pastor Gourmet</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Parrilla Argentina en Vivo -->
+          <section class="section section--alt" aria-labelledby="parrilla-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Fuego, sabor y espectáculo</span>
+                <h2 class="showcase__title" id="parrilla-heading">Parrilla Argentina en Vivo</h2>
+                <p class="showcase__subtitle">Parrilla industrial de carbón y gas con chef asador preparando cortes premium frente a los invitados.</p>
+                <p class="showcase__text">Nuestra <strong>parrilla argentina en vivo</strong> transforma tu evento en una experiencia gastronómica de primer nivel. La <strong>parrilla industrial de 120x60 cm</strong> con doble zona de cocción (carbón y gas) permite preparar simultáneamente diferentes cortes y proteínas. El chef asador profesional prepara frente a tus invitados: arrachera, rib eye, costillas BBQ, pollo marinado, brochetas de mariscos, vegetales a la plancha y hamburguesas gourmet con técnica de fuego directo.</p>
+                <p class="showcase__text">Incluye <strong>mesa de preparación profesional</strong> con tabla de corte, cuchillería especializada, pinzas, termómetro de cocción y todos los utensilios necesarios. Campana de extracción portátil para eventos en espacios semi-cerrados. Servicio con guarniciones: papas al horno, ensalada fresca, chimichurri argentino, provoleta y pan artesanal. Ideal para <strong>bodas al aire libre, fiestas privadas, asados corporativos y eventos deportivos</strong>. Combínala con nuestras <a href="/servicios/carpas/">carpas profesionales</a> para crear un espacio techado perfecto.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Parrilla 120x60 cm</span>
+                  <span class="showcase__tag">Carbón y gas</span>
+                  <span class="showcase__tag">Chef asador</span>
+                  <span class="showcase__tag">Cortes premium</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Parrilla Argentina
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Parrilla Argentina en Vivo</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Carving Station Premium -->
+          <section class="section section--alt" aria-labelledby="carving-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Elegancia gastronómica</span>
+                <h2 class="showcase__title" id="carving-heading">Carving Station Premium</h2>
+                <p class="showcase__subtitle">Chef cortando cortes premium al momento con mesa caliente y presentación de alto nivel.</p>
+                <p class="showcase__text">Nuestro <strong>carving station premium</strong> es la opción más elegante para eventos de alto nivel. La <strong>mesa caliente con lámpara infrarroja</strong> mantiene los cortes a temperatura perfecta mientras el chef los trincha al momento frente a cada invitado. Opciones de cortes: rib eye de primera, prime rib, pierna de cordero rostizada, pavo relleno, lomo de cerdo glaseado y pechuga de pato con salsa de frutos rojos. Cada plato se sirve con guarniciones gourmet seleccionadas.</p>
+                <p class="showcase__text">La presentación incluye <strong>estación decorada con elementos elegantes</strong>: tabla de madera noble, iluminación puntual, hierbas aromáticas decorativas y vajilla premium. El chef viste uniforme profesional y explica cada corte a los invitados, creando una experiencia interactiva y sofisticada. Ideal para <strong>bodas elegantes, cenas de gala, eventos corporativos de alto nivel y celebraciones formales</strong>. Combínala con nuestra <a href="/servicios/catering/vajilla-cristaleria/">vajilla y cristalería premium</a> para una mesa impecable.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Cortes premium</span>
+                  <span class="showcase__tag">Mesa caliente</span>
+                  <span class="showcase__tag">Chef profesional</span>
+                  <span class="showcase__tag">Presentación gourmet</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Carving Station
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Carving Station Premium</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Estación Regional Mexicana -->
+          <section class="section section--alt" aria-labelledby="regional-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Sabor auténtico mexicano</span>
+                <h2 class="showcase__title" id="regional-heading">Estación Regional Mexicana</h2>
+                <p class="showcase__subtitle">Cocina regional con tlacoyos, quesadillas, esquites y antojitos tradicionales preparados al momento.</p>
+                <p class="showcase__text">Nuestra <strong>estación regional mexicana</strong> lleva lo mejor de la cocina tradicional directamente a tu evento. El cocinero profesional prepara al momento <strong>tlacoyos de frijol y requesón</strong>, quesadillas de flor de calabaza, huitlacoche y chicharrón prensado, sopes con diferentes guisos, esquites y elotes preparados, gorditas de migajas y pambazos. Cada platillo se elabora con ingredientes frescos y técnicas artesanales que honran la gastronomía mexicana.</p>
+                <p class="showcase__text">La estación incluye <strong>comal de barro o plancha profesional</strong>, tortillera para tortillas recién hechas, olla de barro para guisos tradicionales, y mesa de servicio con decoración mexicana auténtica: mantel de colores, cazuelas de barro, flores y elementos artesanales. Opciones de cocina oaxaqueña, yucateca, norteña o del centro según la temática de tu evento. Ideal para <strong>bodas mexicanas, fiestas patrias, eventos temáticos y celebraciones culturales</strong>. Complementa con nuestra <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a> para ambientar el espacio.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Antojitos mexicanos</span>
+                  <span class="showcase__tag">Tortillas a mano</span>
+                  <span class="showcase__tag">Cocina regional</span>
+                  <span class="showcase__tag">Decoración auténtica</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Estación Regional
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Estación Regional Mexicana</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Tacos y Parrilla"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu estación de tacos y parrilla, es natural tener preguntas sobre qué incluye, insumos y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de estaciones de tacos resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre estaciones de tacos y parrilla para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Estaciones de Servicio -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Estaciones de Servicio</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/estaciones-servicio/" class="sidebar-nav__back">&uarr; Volver a Estaciones de Servicio</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/" class="sidebar-nav__back">&uarr; Volver a Catering</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu estación de tacos:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas estaciones de tacos para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar estaciones de tacos y parrilla para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Estación de Tacos y Parrilla"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un trompo de pastor para tu boda o un paquete completo de estaciones para tu evento corporativo, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoEstacion">
+                Tipo de estación
+              </label>
+              <select id="tipoEstacion" name="tipoEstacion" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de estación</option>
+                <option value="Trompo de Pastor">Trompo de Pastor</option>
+                <option value="Parrilla Argentina">Parrilla Argentina</option>
+                <option value="Carving Station">Carving Station</option>
+                <option value="Estación Regional">Estación Regional</option>
+                <option value="Paquete Taquiza Gourmet">Paquete Taquiza Gourmet</option>
+                <option value="Combo Doble Estación">Combo Doble Estación</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de invitados, tipo de venue (salón/jardín/terraza), si necesitas insumos alimenticios, preferencias de menú..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para planificar la ubicación ideal de las estaciones según ventilación y espacio.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoEstacion = document.getElementById('tipoEstacion').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Estaciones de Tacos y Parrilla*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoEstacion) texto += `*Tipo de estación:* ${tipoEstacion}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Catering"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de equipo de catering para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, personal capacitado y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Catering Pro MX</h3>
+            <p class="partner-card__tagline">Catering y Estaciones Gourmet</p>
+            <p class="partner-card__text">Servicio integral de catering y estaciones gourmet para eventos en CDMX. Barras de bebidas, estaciones de comida en vivo y montaje profesional con equipo de primera calidad.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">G</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">GastroEventos CDMX</h3>
+            <p class="partner-card__tagline">Equipo de Cocina y Estaciones</p>
+            <p class="partner-card__text">Renta de equipo de cocina y estaciones de servicio profesional. Especialistas en barras de bebidas, planchas industriales y mobiliario de catering para todo tipo de evento.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">ChefMóvil</h3>
+            <p class="partner-card__tagline">Cocina en Vivo y Estaciones</p>
+            <p class="partner-card__text">Estaciones de comida en vivo con chef y equipo profesional certificado. Más de 10 años de experiencia en eventos corporativos, bodas y celebraciones sociales en CDMX.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">B</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">BanquetesPro</h3>
+            <p class="partner-card__tagline">Mobiliario y Equipo de Catering</p>
+            <p class="partner-card__text">Mobiliario y equipo de catering para bodas, corporativos y sociales. Barras de bebidas, mesas de servicio, equipo de cocina y logística profesional en toda la CDMX.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Estaciones de tacos y parrilla que conquistan a todos los invitados"
+    subheadline="Más de 500 eventos con estaciones de tacos nos respaldan. Cotiza hoy y recibe asesoría personalizada sin compromiso."
+    primaryCTA={{ label: "Cotizar tacos y parrilla", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar estaciones de tacos y parrilla para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

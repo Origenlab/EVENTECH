@@ -1,0 +1,726 @@
+---
+/**
+ * ─── Piso de Duela — Pagina de Producto (Nivel 4) ───
+ * Duela laminada 12mm sobre estructura elevada de aluminio
+ * para bodas, galas y eventos premium.
+ *
+ * Jerarquia: Servicios > Carpas > Pisos y Complementos > Piso de Duela
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Carpas", href: "/servicios/carpas/" },
+  { label: "Pisos y Complementos", href: "/servicios/carpas/pisos-complementos/" },
+  { label: "Piso de Duela" },
+];
+
+const faqs = [
+  { question: "¿Se puede instalar piso de duela sobre pasto o jardín?", answer: 'Sí, es una de nuestras instalaciones más frecuentes. La <strong>estructura elevada de aluminio con patas ajustables</strong> se coloca directamente sobre pasto, tierra o jardín, elevando la duela entre 10 y 15 cm sobre el terreno natural. Esto protege completamente contra la humedad del suelo y permite compensar desniveles de hasta 40 cm. La base se ancla con estacas o contrapesos según el tipo de terreno, garantizando una superficie firme y estable durante todo el evento.' },
+  { question: "¿El piso de duela resiste tacones y sillas pesadas?", answer: 'Absolutamente. Nuestra <strong>duela laminada de 12mm</strong> está fabricada con un acabado semi-mate de alta resistencia al tráfico intenso. Soporta sin problema tacones de aguja, sillas Tiffany, mesas redondas con bases de hierro y el paso constante de cientos de invitados. La superficie cuenta con tratamiento <strong>anti-rayones y anti-deslizante</strong> que mantiene el aspecto impecable durante todo tu evento, incluso con pista de baile activa.' },
+  { question: "¿La nivelación del terreno está incluida en el precio?", answer: 'Sí, la <strong>nivelación profesional está incluida</strong> en cada renta de piso de duela. Nuestro equipo realiza una visita técnica previa gratuita para evaluar las condiciones del terreno y diseñar el plan de nivelación. Las patas ajustables de la estructura compensan desniveles, pendientes y superficies irregulares. El resultado es un piso perfectamente plano y estable sin importar las condiciones originales del terreno.' },
+  { question: "¿Cuánto tiempo tarda el montaje del piso de duela?", answer: 'El tiempo de montaje depende de la superficie a cubrir. Para áreas de <strong>50 a 100 m²</strong> (carpas medianas), el montaje tarda aproximadamente <strong>4 a 6 horas</strong>. Para superficies de <strong>100 a 200 m²</strong> (carpas grandes), el equipo completa la instalación en <strong>6 a 10 horas</strong>. Recomendamos programar el montaje un día antes del evento para garantizar tiempo de ajustes finales. El desmontaje toma aproximadamente la mitad del tiempo de instalación.' },
+  { question: "¿Cuánto cuesta el metro cuadrado de piso de duela?", answer: 'El precio por metro cuadrado varía según el acabado y la superficie total. La <strong>duela natural</strong> (tono claro) parte desde <strong>$150/m²</strong>. La duela en tonos <strong>roble y nogal</strong> desde <strong>$180/m²</strong>. El <strong>Kit Piso Completo</strong> (duela + nivelación + zoclo perimetral) desde <strong>$250/m²</strong>. A mayor superficie, mejor precio por metro cuadrado. Todos los precios incluyen instalación, nivelación y desmontaje. Cotiza tu superficie exacta para un precio personalizado.' },
+  { question: "¿Cuál es el mínimo de metros cuadrados para rentar?", answer: 'El <strong>mínimo de renta es de 20 m²</strong>, equivalente a una carpa pequeña o un área de recepción compacta. Sin embargo, la mayoría de nuestros clientes rentan entre 50 y 200 m², que cubre el área principal de carpas medianas a grandes. Para superficies menores a 20 m², te recomendamos nuestras <a href="/servicios/pistas-baile/">pistas de baile modulares</a> que ofrecen acabados similares en formatos más compactos.' },
+];
+
+const specs = [
+  { label: "Material", value: "Duela laminada 12mm" },
+  { label: "Acabado", value: "Semi-mate resistente a tráfico" },
+  { label: "Estructura", value: "Base elevada de aluminio" },
+  { label: "Altura", value: "10 a 15 cm sobre terreno" },
+  { label: "Nivelación", value: "Profesional en terreno irregular" },
+  { label: "Resistencia", value: "Tráfico intenso, tacones, sillas" },
+  { label: "Colores", value: "Natural, roble, nogal, gris" },
+  { label: "Dimensión módulo", value: "1.2 x 0.6 metros" },
+  { label: "Protección", value: "Anti-humedad y anti-deslizante" },
+  { label: "Montaje", value: "Incluido, equipo profesional" },
+];
+
+const sidebarNav = [
+  { name: "Piso de Duela", href: null, active: true },
+  { name: "Alfombra Profesional", href: "/servicios/carpas/pisos-complementos/alfombra/" },
+  { name: "Cortinas y Forros", href: "/servicios/carpas/pisos-complementos/cortinas-forros/" },
+  { name: "Clima Artificial", href: "/servicios/carpas/pisos-complementos/clima-artificial/" },
+];
+
+const sidebarRelated = [
+  { name: "Carpas Estructurales", href: "/servicios/carpas/estructurales/" },
+  { name: "Carpas Árabes", href: "/servicios/carpas/carpas-arabes/" },
+  { name: "Mobiliario", href: "/servicios/mobiliario/" },
+  { name: "Pistas de Baile", href: "/servicios/pistas-baile/" },
+  { name: "Iluminación", href: "/servicios/iluminacion/" },
+];
+
+const reviews = [
+  { author: "Mónica Villarreal", text: "Rentamos piso de duela natural para nuestra boda en un jardín de Coyoacán. La nivelación quedó perfecta sobre el pasto irregular y el acabado le dio un aspecto de salón de eventos a la carpa. Todos los invitados comentaron lo elegante que se veía. Servicio impecable de principio a fin.", rating: 5, date: "2025-11-20" },
+  { author: "Fernando Castillo", text: "Usamos duela nogal oscuro para una gala corporativa en un terreno de Santa Fe. El equipo de EVENTECH niveló una pendiente considerable y el resultado fue una superficie perfectamente plana. Los tacones de las invitadas no dejaron marca alguna. Excelente calidad.", rating: 5, date: "2025-10-05" },
+  { author: "Daniela Ortega", text: "Para los XV años de mi hija elegimos duela roble en una carpa de 120m². El montaje fue rápido, el acabado hermoso y la pista de baile funcionó perfecto sobre la duela. Muy recomendable para eventos donde quieres un piso premium.", rating: 5, date: "2025-09-18" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Piso de Duela para Eventos en CDMX",
+    description: "Renta de piso de duela laminada de 12mm sobre estructura elevada para carpas y eventos en CDMX. Nivelación profesional. Aspecto premium. Desde $150/m².",
+    url: "/servicios/carpas/pisos-complementos/duela/",
+    priceRange: { min: 150, max: 350 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 234,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Carpas", url: "/servicios/carpas/" },
+    { name: "Pisos y Complementos", url: "/servicios/carpas/pisos-complementos/" },
+    { name: "Piso de Duela", url: "/servicios/carpas/pisos-complementos/duela/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Piso de Duela para Eventos en CDMX"
+  description="Renta de piso de duela laminada de 12mm sobre estructura elevada para carpas y eventos en CDMX. Nivelación profesional. Aspecto premium. Desde $150/m²."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Aspecto premium sobre cualquier terreno"
+    title='Renta de <span class="highlight">Piso de Duela</span> para Eventos en CDMX'
+    subtitle="Duela laminada de 12mm con acabado semi-mate sobre estructura elevada de aluminio. Nivelación profesional en cualquier terreno, protección contra humedad y aspecto premium para bodas y galas."
+    primaryCTA={{ label: "Cotiza tu piso de duela", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar piso de duela para mi evento` }}
+    cards={[
+      {
+        title: "Duela laminada de 12mm con acabado premium",
+        content: "<strong>Renta de piso de duela laminada</strong> de 12mm con acabado semi-mate resistente al tráfico intenso sobre estructura elevada de aluminio. Protección completa contra humedad del terreno, superficie anti-deslizante y aspecto de madera natural que transforma cualquier carpa en un salón de eventos de primer nivel. Disponible en tonos natural, roble, nogal y gris. Módulos de 1.2 x 0.6 metros que se ensamblan sin juntas visibles para una superficie continua y elegante.",
+      },
+      {
+        title: "Nivelación profesional e instalación incluida",
+        content: "<strong>Nivelación profesional en cualquier terreno irregular</strong> — jardín, tierra, pasto o pendiente. La estructura elevada de aluminio con patas ajustables compensa desniveles de hasta 40 cm, creando una superficie perfectamente plana y estable. Incluye visita técnica previa gratuita, montaje por equipo profesional, zoclo perimetral opcional y desmontaje completo. Resistencia garantizada para tacones, sillas, mesas y tráfico intenso de invitados.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas un piso premium para tu carpa o evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con el acabado ideal para tu espacio y presupuesto"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Pisos y Complementos para Carpas</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas piso de duela para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar piso de duela para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="8" y1="6" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="18"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Piso de Duela</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Duela Natural -->
+          <section class="section section--alt" aria-labelledby="duela-natural-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Clásico para bodas</span>
+                <h2 class="showcase__title" id="duela-natural-heading">Duela Natural</h2>
+                <p class="showcase__subtitle">Tono madera clara que aporta luminosidad y calidez natural a tu carpa de bodas y eventos sociales.</p>
+                <p class="showcase__text">Nuestra <strong>duela natural en tono madera clara</strong> es la favorita para bodas al aire libre y eventos sociales en la Ciudad de México. Su acabado semi-mate con veta suave refleja la luz de manera natural, creando un ambiente luminoso y cálido dentro de la carpa. Montada sobre <strong>estructura elevada de aluminio</strong> con protección anti-humedad, es perfecta para jardines, haciendas y terrenos al aire libre donde el pasto o la tierra no permiten un piso firme.</p>
+                <p class="showcase__text">La duela natural combina armoniosamente con <strong>decoraciones en tonos blancos, pasteles, dorados y rústicos</strong>, convirtiéndola en la opción predilecta para bodas románticas y celebraciones elegantes. Cada módulo de 1.2 x 0.6 metros se ensambla sin tornillos visibles, logrando una superficie continua sin juntas perceptibles. Complementa con nuestra <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a> para un ambiente integral y fotografías espectaculares.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Tono claro</span>
+                  <span class="showcase__tag">Semi-mate</span>
+                  <span class="showcase__tag">Bodas</span>
+                  <span class="showcase__tag">Desde $150/m²</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Duela Natural
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2L2 22h20L12 2z"/>
+                    <path d="M12 2v20"/>
+                  </svg>
+                  <span>Duela Natural</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Duela Roble -->
+          <section class="section section--alt" aria-labelledby="duela-roble-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Versatilidad elegante</span>
+                <h2 class="showcase__title" id="duela-roble-heading">Duela Roble</h2>
+                <p class="showcase__subtitle">Tono medio cálido ideal para eventos elegantes, XV años y celebraciones con decoración sofisticada.</p>
+                <p class="showcase__text">La <strong>duela en tono roble</strong> ofrece un equilibrio perfecto entre calidez y elegancia. Su tono medio con vetas definidas aporta personalidad y distinción a cualquier espacio, siendo la opción más versátil de nuestro catálogo. Ideal para <strong>XV años, aniversarios, cenas de gala y eventos corporativos</strong> donde se busca un piso con carácter que complemente decoraciones en tonos neutros, dorados, burgundy y verdes.</p>
+                <p class="showcase__text">El acabado semi-mate de alta resistencia soporta <strong>tráfico intenso sin mostrar desgaste</strong>, incluyendo tacones, sillas pesadas y el paso continuo de invitados durante eventos de varias horas. La duela roble funciona excepcionalmente bien en carpas con <a href="/servicios/carpas/pisos-complementos/cortinas-forros/">forros de satín</a> en tonos ivory o champagne, creando un contraste elegante entre el piso cálido y las telas suaves del techo.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Tono medio</span>
+                  <span class="showcase__tag">Vetas definidas</span>
+                  <span class="showcase__tag">XV años</span>
+                  <span class="showcase__tag">Desde $180/m²</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Duela Roble
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2L2 22h20L12 2z"/>
+                    <path d="M12 2v20"/>
+                  </svg>
+                  <span>Duela Roble</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Duela Nogal Oscuro -->
+          <section class="section section--alt" aria-labelledby="duela-nogal-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Máxima sofisticación</span>
+                <h2 class="showcase__title" id="duela-nogal-heading">Duela Nogal Oscuro</h2>
+                <p class="showcase__subtitle">Tono oscuro premium para galas, eventos de lujo y celebraciones donde el impacto visual es prioridad.</p>
+                <p class="showcase__text">La <strong>duela nogal oscuro</strong> es nuestra opción más sofisticada, con un tono profundo y rico que evoca los salones de eventos más exclusivos. Su acabado semi-mate con vetas sutiles crea un efecto de profundidad y elegancia que transforma cualquier carpa en un espacio de lujo. Perfecta para <strong>galas corporativas, cenas de premiación, bodas de noche y eventos de alto perfil</strong> donde la imagen y la atmósfera son fundamentales.</p>
+                <p class="showcase__text">El contraste del piso oscuro con <strong>manteles blancos, arreglos florales y centros de mesa iluminados</strong> crea un efecto visual dramático y fotogénico que impresiona a cada invitado. La duela nogal es especialmente popular en combinación con nuestra <a href="/servicios/iluminacion/arquitectonica/">iluminación arquitectónica</a> y <a href="/servicios/iluminacion/decorativa/candiles/">candiles de cristal</a>, que proyectan reflejos elegantes sobre la superficie oscura del piso.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Tono oscuro</span>
+                  <span class="showcase__tag">Premium</span>
+                  <span class="showcase__tag">Galas</span>
+                  <span class="showcase__tag">Desde $200/m²</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Duela Nogal
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2L2 22h20L12 2z"/>
+                    <path d="M12 2v20"/>
+                  </svg>
+                  <span>Duela Nogal Oscuro</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Piso Completo -->
+          <section class="section section--alt" aria-labelledby="kit-piso-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Solución integral</span>
+                <h2 class="showcase__title" id="kit-piso-heading">Kit Piso Completo</h2>
+                <p class="showcase__subtitle">Paquete todo incluido: duela + nivelación profesional + zoclo perimetral para un acabado perfecto.</p>
+                <p class="showcase__text">Nuestro <strong>Kit Piso Completo</strong> es la solución integral para quienes buscan un acabado impecable de principio a fin. Incluye la <strong>duela laminada en el tono de tu elección</strong> (natural, roble, nogal o gris), estructura elevada de aluminio con nivelación profesional del terreno, y <strong>zoclo perimetral decorativo</strong> que oculta la unión entre el piso y las paredes de la carpa, creando un acabado limpio y profesional.</p>
+                <p class="showcase__text">El kit también incluye <strong>rampas de acceso</strong> para sillas de ruedas y carritos de servicio, membranas anti-humedad reforzadas y protecciones laterales contra filtraciones. Es la opción más solicitada para <strong>bodas de más de 150 invitados y eventos corporativos</strong> donde cada detalle cuenta. Complementa con nuestra <a href="/servicios/mobiliario/">selección de mobiliario</a> premium y <a href="/servicios/carpas/pisos-complementos/cortinas-forros/">cortinas y forros</a> para una transformación total de tu carpa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Todo incluido</span>
+                  <span class="showcase__tag">Zoclo perimetral</span>
+                  <span class="showcase__tag">Rampas</span>
+                  <span class="showcase__tag">Desde $250/m²</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Completo
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2L2 22h20L12 2z"/>
+                    <path d="M12 2v20"/>
+                  </svg>
+                  <span>Kit Piso Completo</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Piso de Duela"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu piso de duela, es natural tener preguntas sobre materiales, instalación y costos. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor técnico te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de pisos para eventos resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre piso de duela para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Pisos y Complementos para Carpas</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/carpas/pisos-complementos/" class="sidebar-nav__back">&uarr; Volver a Pisos y Complementos</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/carpas/" class="sidebar-nav__back">&uarr; Volver a Carpas</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de pisos:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas piso de duela para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar piso de duela para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Piso de Duela"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea duela natural para tu boda o un kit completo para tu gala corporativa, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoDuela">
+                Tipo de duela
+              </label>
+              <select id="tipoDuela" name="tipoDuela" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de duela</option>
+                <option value="Duela Natural">Duela Natural</option>
+                <option value="Duela Roble">Duela Roble</option>
+                <option value="Duela Nogal">Duela Nogal</option>
+                <option value="Duela Gris">Duela Gris</option>
+                <option value="Kit Piso Completo">Kit Piso Completo</option>
+                <option value="Cotización por m²">Cotización por m²</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: metros cuadrados, tipo de terreno (jardín/tierra/concreto), tono de duela preferido, dimensiones de la carpa..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu terreno sin costo para medir desniveles y diseñar la nivelación ideal.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoDuela = document.getElementById('tipoDuela').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Piso de Duela para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoDuela) texto += `*Tipo de duela:* ${tipoDuela}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Carpas y Pisos"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de carpas, pisos y complementos para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, instaladores capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de materiales y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Carpas Elite MX</h3>
+            <p class="partner-card__tagline">Especialistas en pisos y complementos para carpas y eventos</p>
+            <p class="partner-card__text">Líderes en instalación de pisos de duela, alfombra profesional y complementos para carpas en CDMX. Más de 10 años de experiencia en bodas, galas y eventos corporativos de alto nivel.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">T</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">ToldoEventos CDMX</h3>
+            <p class="partner-card__tagline">Renta integral de carpas, pisos y toldos para eventos</p>
+            <p class="partner-card__text">Servicio completo de renta de carpas con pisos, forros y clima artificial. Cobertura en toda la Ciudad de México y área metropolitana con logística profesional incluida.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Carpas & Más</h3>
+            <p class="partner-card__tagline">Soluciones de cobertura temporal y complementos para eventos en CDMX</p>
+            <p class="partner-card__text">Especialistas en soluciones integrales de carpas con pisos nivelados, cortinas decorativas y sistemas de climatización para eventos sociales y corporativos.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">L</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">LonasPro</h3>
+            <p class="partner-card__tagline">Carpas, pisos y complementos con servicio de logística e instalación profesional</p>
+            <p class="partner-card__text">Renta de carpas y complementos con servicio integral de logística, instalación y desmontaje profesional. Cobertura completa en CDMX y Estado de México.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Piso de duela que transforma tu carpa en un salón de eventos premium"
+    subheadline="Más de 800 eventos con pisos de duela nos respaldan. Cotiza hoy y recibe asesoría técnica sin compromiso."
+    primaryCTA={{ label: "Cotizar piso de duela", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar piso de duela para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

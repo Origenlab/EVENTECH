@@ -1,0 +1,730 @@
+---
+/**
+ * ─── Estaciones de Postres — Pagina de Producto (Nivel 4) ───
+ * Mesas de postres tematicas, candy bar, fuentes de chocolate
+ * y estaciones de waffles y crepas para eventos.
+ *
+ * Jerarquia: Servicios > Catering > Estaciones de Servicio > Postres
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Catering", href: "/servicios/catering/" },
+  { label: "Estaciones de Servicio", href: "/servicios/catering/estaciones-servicio/" },
+  { label: "Estaciones de Postres" },
+];
+
+const faqs = [
+  { question: "¿Qué incluye la renta de una estación de postres?", answer: 'Cada estación incluye el <strong>mobiliario de exhibición completo</strong>: estructura escalonada o mesa decorativa (según tipo), bases, bandejas, charolas, platos de exhibición, etiquetas, pinzas de servicio, servilletas y mantelería decorativa. La fuente de chocolate incluye la máquina de 3 o 5 niveles con chocolate belga incluido. Las estaciones de waffles y crepas incluyen plancha profesional y utensilios. La <strong>decoración temática base</strong> está incluida. Los dulces, postres e insumos alimenticios se cotizan por separado según el menú y número de invitados, o como <a href="/servicios/catering/estaciones-servicio/">paquete integral</a>.' },
+  { question: "¿Los dulces y postres están incluidos o debo llevarlos yo?", answer: "La renta base incluye el <strong>mobiliario, decoración y equipo</strong>. Los dulces y postres se cotizan por separado. Ofrecemos dos opciones: puedes <strong>traer tus propios postres</strong> (de tu pastelería favorita o hechos en casa) y nosotros los exhibimos de forma profesional en la estación, o podemos incluir un <strong>paquete de dulces y postres premium</strong> con macarons, cupcakes decorados, cake pops, galletas, chocolates artesanales, gomitas gourmet y todo lo necesario para una presentación espectacular." },
+  { question: "¿Se puede personalizar la temática y colores de la estación?", answer: "Absolutamente. Cada estación de postres se <strong>personaliza al 100%</strong> según la temática y paleta de colores de tu evento. Ofrecemos estilos: elegante clásico (blanco y dorado), rústico (madera y greenery), vintage (encaje y tonos pastel), tropical (colores vibrantes y flores), minimalista (líneas limpias y tonos neutros), bohemio (texturas naturales) y temáticas especiales (unicornio, princesas, Star Wars, etc.). Nuestro equipo de diseño crea un concepto visual personalizado que complementa tu decoración general." },
+  { question: "¿Cómo funciona la fuente de chocolate?", answer: "Nuestra <strong>fuente de chocolate profesional</strong> está disponible en 3 niveles (ideal para 50-100 personas) y 5 niveles (para 100-300 personas). Incluye <strong>chocolate belga premium</strong> (oscuro, con leche o blanco) preparado con la viscosidad perfecta para un flujo continuo y elegante. La estación incluye brochetas de frutas frescas (fresas, plátano, piña, uvas), marshmallows, churros, pretzels y galletas para sumergir. Un operador se encarga del funcionamiento, reposición y limpieza durante todo el evento." },
+  { question: "¿Cuánto espacio necesita una estación de postres?", answer: "Una mesa de postres estándar necesita un espacio de <strong>3 x 2 metros</strong> (incluyendo zona de circulación frontal). El candy bar requiere entre 2 y 4 metros lineales dependiendo de la cantidad de dulces. La fuente de chocolate necesita una mesa de 1.5 x 1 metro con espacio de circulación. Las estaciones de waffles y crepas requieren 2.5 x 2 metros. Para montajes múltiples, nuestro equipo planifica la distribución para optimizar el espacio y el flujo de invitados." },
+  { question: "¿Puedo combinar la estación de postres con otras estaciones?", answer: 'Sí, las combinaciones más populares son: <strong>Mesa de Postres + Fuente de Chocolate</strong> (el clásico para bodas), <strong>Candy Bar + Waffles y Crepas</strong> (para fiestas divertidas), y el <strong>Paquete Dulce Completo</strong> que incluye las 4 estaciones con un concepto visual unificado. También puedes combinar con nuestras <a href="/servicios/catering/estaciones-servicio/barras-bebidas/">barras de bebidas</a> (café barista + postres es un combo increíble) o con <a href="/servicios/catering/estaciones-servicio/cocina-vivo/">cocina en vivo</a> para una experiencia gastronómica completa.' },
+];
+
+const specs = [
+  { label: "Tipos", value: "Mesa Postres, Candy Bar, Fuente Chocolate, Waffles/Crepas" },
+  { label: "Mesa postres", value: "Estructura escalonada 2.4 x 1.2 m" },
+  { label: "Candy bar", value: "Dispensadores acrílico + decoración temática" },
+  { label: "Fuente chocolate", value: "3 o 5 niveles con chocolate belga" },
+  { label: "Waffles/Crepas", value: "Plancha profesional con chef en vivo" },
+  { label: "Capacidad", value: "80-300 personas según tipo" },
+  { label: "Decoración", value: "Incluida: temática o elegante" },
+  { label: "Insumos dulces", value: "Opcionales: cotización según menú" },
+  { label: "Iluminación", value: "LED decorativa para mesa incluida" },
+  { label: "Servicio", value: "Personal para estaciones en vivo incluido" },
+];
+
+const sidebarNav = [
+  { name: "Barras de Bebidas", href: "/servicios/catering/estaciones-servicio/barras-bebidas/" },
+  { name: "Tacos y Parrilla", href: "/servicios/catering/estaciones-servicio/tacos-parrilla/" },
+  { name: "Estaciones de Postres", href: null, active: true },
+  { name: "Cocina en Vivo", href: "/servicios/catering/estaciones-servicio/cocina-vivo/" },
+];
+
+const sidebarRelated = [
+  { name: "Cocina Móvil", href: "/servicios/catering/cocina-movil/" },
+  { name: "Vajilla y Cristalería", href: "/servicios/catering/vajilla-cristaleria/" },
+  { name: "Refrigeración", href: "/servicios/catering/refrigeracion/" },
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+  { name: "Carpas para Eventos", href: "/servicios/carpas/" },
+];
+
+const reviews = [
+  { author: "Ana Rodríguez", text: "La mesa de postres para nuestra boda fue absolutamente espectacular. El diseño en tonos blanco y dorado combinaba perfecto con nuestra decoración. La estructura escalonada lucía hermosa con los macarons, cupcakes y cake pops. La fuente de chocolate de 5 niveles fue un éxito total, todos los invitados la disfrutaron. Las fotos quedaron increíbles.", rating: 5, date: "2025-11-22" },
+  { author: "Daniela Moreno", text: "Contratamos el candy bar personalizado para los XV años de mi hija con temática de unicornio. Los dispensadores de dulces, la decoración y los colores fueron exactamente lo que pedimos. Además agregamos la estación de waffles con Nutella y frutas que fue el hit de la noche. Los adolescentes no paraban de ir por más. Servicio profesional y puntual.", rating: 5, date: "2025-10-18" },
+  { author: "Patricia Vega", text: "Para nuestro baby shower rentamos una mesa de postres en tonos pastel con fuente de chocolate. La presentación fue hermosa, cada detalle pensado con cuidado. El personal fue muy amable y mantuvo todo impecable durante las 4 horas del evento. Los dulces del paquete premium estaban deliciosos. Superaron todas mis expectativas.", rating: 5, date: "2025-09-05" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Estaciones de Postres para Eventos en CDMX",
+    description: "Renta de mesas de postres temáticas, candy bar, fuentes de chocolate y estaciones de waffles y crepas para bodas y fiestas. Desde $2,000.",
+    url: "/servicios/catering/estaciones-servicio/postres/",
+    priceRange: { min: 2000, max: 8000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 175,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Catering", url: "/servicios/catering/" },
+    { name: "Estaciones de Servicio", url: "/servicios/catering/estaciones-servicio/" },
+    { name: "Estaciones de Postres", url: "/servicios/catering/estaciones-servicio/postres/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Estaciones de Postres para Eventos en CDMX | EVENTECH"
+  description="Renta de mesas de postres temáticas, candy bar, fuentes de chocolate y estaciones de waffles y crepas para bodas y fiestas. Desde $2,000."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="El toque dulce que completa tu evento"
+    title='Renta de <span class="highlight">Estaciones de Postres</span> para Eventos'
+    subtitle="Mesas de postres temáticas con estructura escalonada, candy bar personalizado con dispensadores, fuentes de chocolate de 3 y 5 niveles, y estaciones de waffles y crepas en vivo."
+    primaryCTA={{ label: "Cotiza tu estación", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar estaciones de postres para mi evento` }}
+    cards={[
+      {
+        title: "Mesas de postres, candy bar, fuentes de chocolate y más",
+        content: "<strong>Renta de estaciones de postres para eventos</strong> con el diseño más espectacular de la Ciudad de México. Mesas de postres temáticas con estructura escalonada de 2.4 x 1.2 metros y presentación profesional de macarons, cupcakes, cake pops y galletas decoradas. Candy bar personalizado con dispensadores de acrílico y dulces gourmet. Fuentes de chocolate de 3 y 5 niveles con chocolate belga premium y estación de frutas para sumergir. Estaciones de waffles y crepas preparados al momento con toppings variados.",
+      },
+      {
+        title: "Diseño y decoración de mesa incluidos",
+        content: "<strong>Servicio de diseño y montaje profesional</strong> incluido en cada renta de estación de postres. Nuestro equipo de decoración crea un concepto visual personalizado según la temática y paleta de colores de tu evento. Incluye accesorios de exhibición premium (bases, bandejas, charolas, etiquetas), iluminación LED decorativa para resaltar la mesa, mantelería temática y personal de servicio para estaciones en vivo. Montaje y desmontaje sin costo adicional dentro de CDMX.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Buscas el toque dulce perfecto para tu evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con la estación de postres ideal para tu celebración"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Estaciones de Servicio</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas estaciones de postres para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar estaciones de postres para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Estaciones de Postres</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Mesa de Postres Elegante -->
+          <section class="section section--alt" aria-labelledby="mesa-postres-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Diseño que enamora</span>
+                <h2 class="showcase__title" id="mesa-postres-heading">Mesa de Postres Elegante</h2>
+                <p class="showcase__subtitle">Estructura escalonada con diseño personalizado que transforma tus postres en una obra de arte visual.</p>
+                <p class="showcase__text">Nuestra <strong>mesa de postres elegante</strong> es la pieza central que eleva la presentación de cualquier celebración. La <strong>estructura escalonada de 2.4 x 1.2 metros</strong> con 3 a 5 niveles de altura permite exhibir diferentes tipos de postres de forma visualmente impactante: macarons franceses, cupcakes decorados, cake pops, galletas artesanales, mini tartas, trufas de chocolate y éclairs. Cada nivel está diseñado para crear un efecto visual de cascada que impresiona desde el primer momento.</p>
+                <p class="showcase__text">La decoración se personaliza al 100% con tu <strong>paleta de colores y temática</strong>: blanco y dorado para bodas clásicas, tonos pastel para baby showers, colores vibrantes para XV años, o diseño minimalista para eventos corporativos. Incluye bases de acrílico, madera o cerámica, etiquetas personalizadas para cada postre, iluminación LED decorativa que resalta los colores, y mantelería premium. Combínala con nuestra <a href="/servicios/mobiliario/">mobiliario premium</a> para una presentación integral que tus invitados fotografiarán sin parar.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Estructura escalonada</span>
+                  <span class="showcase__tag">Diseño personalizado</span>
+                  <span class="showcase__tag">LED decorativo</span>
+                  <span class="showcase__tag">80-300 personas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Mesa de Postres
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Mesa de Postres Elegante</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Candy Bar Personalizado -->
+          <section class="section section--alt" aria-labelledby="candy-bar-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Dulzura a tu estilo</span>
+                <h2 class="showcase__title" id="candy-bar-heading">Candy Bar Personalizado</h2>
+                <p class="showcase__subtitle">Dispensadores de dulces gourmet con decoración temática completa y presentación premium.</p>
+                <p class="showcase__text">Nuestro <strong>candy bar personalizado</strong> es la estación interactiva que encanta a invitados de todas las edades. Incluye <strong>dispensadores de acrílico transparente</strong> de diferentes tamaños y formas para exhibir gomitas, chocolates, marshmallows, paletas, chicles, jelly beans, almendras confitadas y dulces artesanales. La presentación con etiquetas personalizadas, bolsitas de celofán y cucharas decorativas permite que cada invitado arme su propia selección de dulces para llevar.</p>
+                <p class="showcase__text">La decoración temática incluye <strong>backdrop personalizado</strong> con el nombre del evento o los festejados, banderines, flores, globos y elementos decorativos que complementan la paleta de colores de tu celebración. Disponible en estilos: vintage con frascos de cristal, moderno con dispensadores geométricos, rústico con canastas y madera, o temático infantil con personajes. Ideal para <strong>XV años, bodas, baby showers, despedidas de soltera y fiestas de cumpleaños</strong>. Complementa con nuestra <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a> para fotos perfectas.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Dispensadores acrílico</span>
+                  <span class="showcase__tag">Temática personalizada</span>
+                  <span class="showcase__tag">Backdrop incluido</span>
+                  <span class="showcase__tag">Bolsitas para llevar</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Candy Bar
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Candy Bar Personalizado</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Fuente de Chocolate -->
+          <section class="section section--alt" aria-labelledby="fuente-chocolate-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Chocolate belga premium</span>
+                <h2 class="showcase__title" id="fuente-chocolate-heading">Fuente de Chocolate</h2>
+                <p class="showcase__subtitle">Fuentes de 3 y 5 niveles con chocolate belga y estación completa de frutas y acompañamientos.</p>
+                <p class="showcase__text">Nuestra <strong>fuente de chocolate profesional</strong> es la atracción más irresistible de cualquier evento. Disponible en <strong>3 niveles</strong> (ideal para 50-100 invitados, altura 50 cm) y <strong>5 niveles</strong> (para 100-300 invitados, altura 80 cm), con cascada continua de chocolate belga premium que hipnotiza a todos los presentes. Tres opciones de chocolate: oscuro 70% cacao, con leche suave o blanco cremoso. La viscosidad se calibra profesionalmente para un flujo perfecto y constante.</p>
+                <p class="showcase__text">La estación incluye <strong>brochetas de frutas frescas</strong> preparadas artesanalmente (fresas, plátano, piña, uvas, kiwi), marshmallows de colores, churros recién hechos, pretzels, galletas, brownies en cubos y palitos de celery con crema de maní. Todo presentado en una <strong>mesa decorada con iluminación LED</strong> que resalta el brillo del chocolate. Un operador profesional se encarga del funcionamiento, reposición de acompañamientos y limpieza durante todo el evento. Combínala con nuestra <a href="/servicios/catering/estaciones-servicio/barras-bebidas/">barra de café barista</a> para un maridaje chocolatero perfecto.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Chocolate belga</span>
+                  <span class="showcase__tag">3 o 5 niveles</span>
+                  <span class="showcase__tag">Frutas frescas</span>
+                  <span class="showcase__tag">Operador incluido</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Fuente de Chocolate
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Fuente de Chocolate</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Estación de Waffles y Crepas -->
+          <section class="section section--alt" aria-labelledby="waffles-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Preparados al momento</span>
+                <h2 class="showcase__title" id="waffles-heading">Estación de Waffles y Crepas</h2>
+                <p class="showcase__subtitle">Waffles belgas y crepas francesas preparados en vivo con barra de toppings premium.</p>
+                <p class="showcase__text">Nuestra <strong>estación de waffles y crepas</strong> ofrece una experiencia interactiva donde cada invitado personaliza su postre. El chef prepara al momento <strong>waffles belgas crujientes</strong> en plancha profesional doble y <strong>crepas francesas</strong> en crepera de hierro fundido. Cada pieza se cocina frente al invitado con masa artesanal preparada con ingredientes premium: harina importada, huevos orgánicos, vainilla de Madagascar y mantequilla de primera.</p>
+                <p class="showcase__text">La barra de toppings incluye <strong>Nutella, dulce de leche, crema batida fresca, helado artesanal</strong> (3 sabores), frutas frescas de temporada (fresas, plátano, moras, frambuesas), chocolate derretido, miel de maple, caramelo, granola, nueces, coco rallado y chispas de colores. Presentación en <strong>mesa decorada con iluminación cálida</strong> y menú con opciones saladas disponibles (jamón y queso, espinacas, champiñones). Ideal para <strong>brunch de boda, baby showers, fiestas de cumpleaños y eventos matutinos</strong>. Complementa con nuestra <a href="/servicios/catering/estaciones-servicio/cocina-vivo/">cocina en vivo</a> para un show gastronómico completo.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Waffles belgas</span>
+                  <span class="showcase__tag">Crepas francesas</span>
+                  <span class="showcase__tag">Barra de toppings</span>
+                  <span class="showcase__tag">Chef en vivo</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Waffles y Crepas
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Estación de Waffles y Crepas</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Estaciones de Postres"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu estación de postres, es natural tener preguntas sobre qué incluye, personalización y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de estaciones de postres resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre estaciones de postres para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Estaciones de Servicio -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Estaciones de Servicio</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/estaciones-servicio/" class="sidebar-nav__back">&uarr; Volver a Estaciones de Servicio</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/" class="sidebar-nav__back">&uarr; Volver a Catering</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu estación de postres:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas estaciones de postres para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar estaciones de postres para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Estación de Postres"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea una mesa de postres elegante para tu boda o un candy bar para tu fiesta, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoEstacion">
+                Tipo de estación
+              </label>
+              <select id="tipoEstacion" name="tipoEstacion" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de estación</option>
+                <option value="Mesa Postres Elegante">Mesa Postres Elegante</option>
+                <option value="Candy Bar Personalizado">Candy Bar Personalizado</option>
+                <option value="Fuente Chocolate 3 Niveles">Fuente Chocolate 3 Niveles</option>
+                <option value="Fuente Chocolate 5 Niveles">Fuente Chocolate 5 Niveles</option>
+                <option value="Estación Waffles/Crepas">Estación Waffles/Crepas</option>
+                <option value="Paquete Dulce Completo">Paquete Dulce Completo</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de invitados, temática y colores del evento, si necesitas dulces/postres incluidos, preferencias especiales..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Diseño personalizado</h3>
+            <p class="reserva-card__text">Nuestro equipo de decoración crea un concepto visual único que combina con la temática de tu evento.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoEstacion = document.getElementById('tipoEstacion').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Estaciones de Postres para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoEstacion) texto += `*Tipo de estación:* ${tipoEstacion}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Catering"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de equipo de catering para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, personal capacitado y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Catering Pro MX</h3>
+            <p class="partner-card__tagline">Catering y Estaciones Gourmet</p>
+            <p class="partner-card__text">Servicio integral de catering y estaciones gourmet para eventos en CDMX. Barras de bebidas, estaciones de comida en vivo y montaje profesional con equipo de primera calidad.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">G</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">GastroEventos CDMX</h3>
+            <p class="partner-card__tagline">Equipo de Cocina y Estaciones</p>
+            <p class="partner-card__text">Renta de equipo de cocina y estaciones de servicio profesional. Especialistas en barras de bebidas, planchas industriales y mobiliario de catering para todo tipo de evento.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">ChefMóvil</h3>
+            <p class="partner-card__tagline">Cocina en Vivo y Estaciones</p>
+            <p class="partner-card__text">Estaciones de comida en vivo con chef y equipo profesional certificado. Más de 10 años de experiencia en eventos corporativos, bodas y celebraciones sociales en CDMX.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">B</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">BanquetesPro</h3>
+            <p class="partner-card__tagline">Mobiliario y Equipo de Catering</p>
+            <p class="partner-card__text">Mobiliario y equipo de catering para bodas, corporativos y sociales. Barras de bebidas, mesas de servicio, equipo de cocina y logística profesional en toda la CDMX.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Estaciones de postres que endulzan y deslumbran en tu evento"
+    subheadline="Más de 500 eventos con estaciones de postres nos respaldan. Cotiza hoy y recibe asesoría personalizada sin compromiso."
+    primaryCTA={{ label: "Cotizar estaciones de postres", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar estaciones de postres para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

@@ -1,0 +1,730 @@
+---
+/**
+ * ─── Hornos de Conveccion — Pagina de Producto (Nivel 4) ───
+ * Hornos de conveccion profesionales, gabinetes de conservacion caliente
+ * y mesas de vapor para mantener temperatura perfecta en eventos.
+ *
+ * Jerarquia: Servicios > Catering > Cocina Movil > Hornos de Conveccion
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Catering", href: "/servicios/catering/" },
+  { label: "Cocina Movil", href: "/servicios/catering/cocina-movil/" },
+  { label: "Hornos de Convección" },
+];
+
+const faqs = [
+  { question: "¿Cuál es la diferencia entre un horno de convección y uno convencional?", answer: "El <strong>horno de convección</strong> utiliza un sistema de ventilación forzada (ventilador interno) que circula el aire caliente uniformemente por toda la cámara de cocción. Esto ofrece tres ventajas principales: <strong>cocción 25-30% más rápida</strong> que un horno convencional, distribución uniforme del calor sin puntos fríos, y capacidad de cocinar múltiples charolas simultáneamente con resultados consistentes. Un horno convencional calienta por radiación directa, lo que genera zonas de diferente temperatura. Para catering de eventos donde se necesita preparar grandes volúmenes de comida con calidad uniforme, el horno de convección es indispensable." },
+  { question: "¿Cómo mantienen los gabinetes la temperatura de conservación?", answer: "Nuestros <strong>gabinetes de conservación caliente</strong> mantienen los alimentos en un rango de <strong>60°C a 85°C constante</strong> mediante resistencias eléctricas controladas por termostato digital y un sistema de humidificación que evita que los alimentos se resequen. La temperatura se distribuye uniformemente gracias a un ventilador interno de baja velocidad. Los gabinetes tienen capacidad de 12 a 20 charolas GN estándar y pueden mantener la comida en condiciones óptimas de servicio durante <strong>hasta 4 horas</strong> sin pérdida de calidad, textura ni sabor." },
+  { question: "¿Qué requerimientos eléctricos necesitan los hornos de convección?", answer: "Los requerimientos varían según el modelo. El <strong>horno de 5 charolas</strong> requiere conexión eléctrica de <strong>220V monofásico con circuito dedicado de 30A</strong>. El <strong>horno de 10 charolas</strong> necesita <strong>220V trifásico con circuito de 50A</strong>. Los gabinetes de conservación funcionan con <strong>110V estándar</strong>. Las mesas de vapor eléctricas requieren <strong>220V monofásico</strong>. Si tu venue no cuenta con la infraestructura eléctrica necesaria, podemos incluir una <a href='/servicios/accesorios/plantas-energia/'>planta de energía portátil</a> en tu paquete. También ofrecemos hornos de convección a gas LP como alternativa." },
+  { question: "¿Qué son los chafing dishes y cuándo los necesito?", answer: "Los <strong>chafing dishes</strong> son recipientes de acero inoxidable con tapa (roll-top o abatible) que mantienen los alimentos calientes mediante calentadores de gel o eléctricos. Son <strong>esenciales para buffets y servicio tipo self-service</strong> donde los comensales se sirven directamente. Cada chafing dish mantiene una bandeja GN estándar a temperatura de servicio (60-70°C) durante 2-3 horas con gel combustible o indefinidamente con calentador eléctrico. Son la opción más elegante y práctica para <strong>bodas, banquetes corporativos y eventos sociales</strong> con servicio de buffet." },
+  { question: "¿Cuánto espacio necesito para instalar el equipo de conservación?", answer: "El espacio necesario depende del equipo. Un <strong>horno de 5 charolas</strong> requiere 1 x 1 metro con espacio de ventilación posterior de 30 cm. Un <strong>horno de 10 charolas</strong> necesita 1.2 x 1 metro con ventilación. Un <strong>gabinete de conservación</strong> ocupa 0.8 x 0.7 metros. Una <strong>mesa de vapor</strong> de 4 insertos necesita 1.5 x 0.7 metros. Para un montaje completo de horno + gabinete + mesa de vapor, recomendamos un área de <strong>4 x 2 metros</strong>. El piso debe ser plano y la zona debe tener ventilación adecuada para la disipación de calor." },
+  { question: "¿Puedo combinar hornos con otro equipo de cocina móvil?", answer: 'Es la configuración más solicitada para banquetes completos. Las combinaciones más populares son: <strong>horno + gabinete de conservación</strong> para preparar y mantener platillos calientes durante el servicio, <strong>horno + parrilla</strong> para menús completos con proteínas a la parrilla y guarniciones horneadas, y <strong>horno + mesa de vapor + chafing dishes</strong> para buffets de servicio prolongado. Ofrecemos paquetes combinados con descuentos especiales. Visita nuestra página de <a href="/servicios/catering/cocina-movil/">cocina móvil</a> para ver todas las opciones disponibles.' },
+];
+
+const specs = [
+  { label: "Horno convección", value: "5 y 10 charolas, gas/eléctrico" },
+  { label: "Gabinete caliente", value: "12-20 charolas con humidificador" },
+  { label: "Mesa de vapor", value: "4-6 insertos GN con termostato" },
+  { label: "Chafing dish", value: "Acero inoxidable con roll-top" },
+  { label: "Temperatura horno", value: "50-300°C programable" },
+  { label: "Temperatura conservación", value: "60-85°C constante" },
+  { label: "Energía", value: "Gas LP o eléctrico 220V" },
+  { label: "Charolas", value: "GN estándar en acero inoxidable" },
+  { label: "Calentadores", value: "Gel combustible o eléctricos" },
+  { label: "Capacidad", value: "100-500 porciones en conservación" },
+];
+
+const sidebarNav = [
+  { name: "Parrillas Industriales", href: "/servicios/catering/cocina-movil/parrillas/" },
+  { name: "Planchas y Freidoras", href: "/servicios/catering/cocina-movil/planchas-freidoras/" },
+  { name: "Hornos de Convección", href: null, active: true },
+  { name: "Mesas de Trabajo Inoxidable", href: "/servicios/catering/cocina-movil/mesas-inoxidable/" },
+];
+
+const sidebarRelated = [
+  { name: "Estaciones de Servicio", href: "/servicios/catering/estaciones-servicio/" },
+  { name: "Vajilla y Cristalería", href: "/servicios/catering/vajilla-cristaleria/" },
+  { name: "Refrigeración", href: "/servicios/catering/refrigeracion/" },
+  { name: "Plantas de Energía", href: "/servicios/accesorios/plantas-energia/" },
+  { name: "Carpas para Eventos", href: "/servicios/carpas/" },
+];
+
+const reviews = [
+  { author: "Sofía Mendoza", text: "Rentamos un horno de convección de 10 charolas y 2 gabinetes de conservación para un banquete de boda de 250 personas en un jardín de San Ángel. Todo el equipo llegó impecable, el técnico conectó y verificó cada equipo, y pudimos mantener los platillos calientes durante 3 horas de servicio continuo. La calidad fue excepcional.", rating: 5, date: "2025-11-22" },
+  { author: "Ricardo Estrada", text: "Para un congreso empresarial de 3 días contratamos hornos, gabinetes y mesas de vapor completas. El equipo mantuvo temperatura perfecta durante todo el evento, los chafing dishes se veían elegantes en el buffet y el servicio de EVENTECH fue impecable. Atendimos coffee breaks y comidas para 400 personas sin contratiempos.", rating: 5, date: "2025-10-15" },
+  { author: "María José Villarreal", text: "Organizamos un evento social para 180 personas y el combo de horno + gabinete + chafing dishes fue perfecto. Los platillos se mantuvieron calientes y jugosos durante todo el servicio. El sistema de humidificación del gabinete realmente hace la diferencia para que la comida no se reseque. Muy profesional todo.", rating: 5, date: "2025-09-30" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Hornos de Convección para Eventos en CDMX",
+    description: "Renta de hornos de convección profesionales, gabinetes de conservación caliente y mesas de vapor para mantener temperatura perfecta. Desde $1,800.",
+    url: "/servicios/catering/cocina-movil/hornos-conveccion/",
+    priceRange: { min: 1800, max: 6000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 142,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Catering", url: "/servicios/catering/" },
+    { name: "Cocina Móvil", url: "/servicios/catering/cocina-movil/" },
+    { name: "Hornos de Convección", url: "/servicios/catering/cocina-movil/hornos-conveccion/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Hornos de Convección para Eventos en CDMX | EVENTECH"
+  description="Renta de hornos de convección profesionales, gabinetes de conservación caliente y mesas de vapor para mantener temperatura perfecta. Desde $1,800."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Temperatura perfecta en cada platillo"
+    title='Renta de <span class="highlight">Hornos de Convección</span> y Conservación para Eventos'
+    subtitle="Hornos de convección de 5 y 10 charolas, gabinetes de conservación caliente, mesas de vapor y chafing dishes profesionales. Mantén cada platillo en su punto perfecto durante todo el servicio."
+    primaryCTA={{ label: "Cotiza tu equipo", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar hornos de convección y equipo de conservación para mi evento` }}
+    cards={[
+      {
+        title: "Hornos de convección y equipo de conservación profesional",
+        content: "<strong>Renta de hornos de convección</strong> de 5 y 10 charolas con circulación de aire forzado, gabinetes de conservación caliente y mesas de vapor (baño maría) para servicio continuo. Control digital de temperatura de 50°C a 300°C, sistema de humidificación para evitar resecamiento y capacidad para mantener hasta 500 porciones en condiciones óptimas de servicio. Ideales para banquetes de boda, congresos corporativos y eventos sociales de alto volumen.",
+      },
+      {
+        title: "Chafing dishes y equipo de conservación para banquetes",
+        content: "<strong>Servicio completo de conservación caliente</strong> con chafing dishes profesionales en acero inoxidable, bandejas GN estándar, calentadores de gel y equipo de conservación para banquetes de alto volumen. Incluye transporte, instalación con conexión eléctrica o de gas, verificación de temperatura y soporte técnico. Desmontaje y recolección incluidos sin costo adicional en toda la CDMX.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas mantener tus platillos en temperatura perfecta?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con el equipo de conservación ideal para tu volumen de servicio"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Cocina Móvil para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas hornos y equipo de conservación para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar hornos de convección para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Hornos de Convección</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Horno Convección 5 Charolas -->
+          <section class="section section--alt" aria-labelledby="horno-5-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Compacto y eficiente</span>
+                <h2 class="showcase__title" id="horno-5-heading">Horno Convección 5 Charolas</h2>
+                <p class="showcase__subtitle">El horno ideal para eventos medianos de hasta 150 personas con cocción uniforme y programable.</p>
+                <p class="showcase__text">Nuestro <strong>horno de convección de 5 charolas</strong> es la opción perfecta para catering de eventos medianos. Con <strong>ventilación forzada de alta eficiencia</strong>, distribuye el calor uniformemente en las 5 charolas GN estándar, permitiendo cocinar diferentes preparaciones simultáneamente con resultados consistentes. Control digital de temperatura de <strong>50°C a 300°C</strong> con temporizador programable y señal acústica. Cocina <strong>25-30% más rápido</strong> que un horno convencional.</p>
+                <p class="showcase__text">Incluye <strong>5 charolas GN de acero inoxidable, rejillas de enfriamiento y guantes térmicos industriales</strong>. Disponible en versiones gas LP y eléctrica 220V monofásico. Ideal para <strong>preparación de guarniciones, gratinados, pan, postres y recalentamiento de platillos principales</strong>. Combínalo con nuestros <a href="/servicios/catering/cocina-movil/parrillas/">asadores para parrilladas</a> para un menú completo con proteínas a la parrilla y guarniciones horneadas.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">5 charolas GN</span>
+                  <span class="showcase__tag">50-300°C</span>
+                  <span class="showcase__tag">Gas / Eléctrico</span>
+                  <span class="showcase__tag">Hasta 150 personas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Horno 5 Charolas
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Horno Convección 5 Charolas</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Horno Convección 10 Charolas -->
+          <section class="section section--alt" aria-labelledby="horno-10-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Máxima capacidad de producción</span>
+                <h2 class="showcase__title" id="horno-10-heading">Horno Convección 10 Charolas</h2>
+                <p class="showcase__subtitle">El horno de mayor capacidad para banquetes de 200-500 personas con producción continua.</p>
+                <p class="showcase__text">El <strong>horno de convección de 10 charolas</strong> es nuestro equipo de mayor capacidad para <strong>banquetes de gran formato, congresos y eventos corporativos</strong>. Con <strong>doble ventilador de convección</strong> para distribución perfecta del calor en las 10 charolas GN, permite preparar hasta <strong>200 porciones por ciclo de cocción</strong>. Control digital avanzado con programas preestablecidos para diferentes preparaciones — gratinados, carnes, pan, postres y recalentamiento. Temperatura programable de 50°C a 300°C con inversión automática del flujo de aire.</p>
+                <p class="showcase__text">Incluye <strong>10 charolas GN de acero inoxidable, sonda de temperatura interna para control preciso de cocción, sistema de vapor inyectado y rejillas ajustables</strong>. La sonda de temperatura permite cocinar proteínas al punto exacto sin abrir el horno. Disponible en gas LP y eléctrico 220V trifásico. Ideal para combinar con nuestros <a href="/servicios/catering/estaciones-servicio/">servicios de estaciones</a> para crear un servicio de banquete profesional completo.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">10 charolas GN</span>
+                  <span class="showcase__tag">Doble ventilador</span>
+                  <span class="showcase__tag">Sonda interna</span>
+                  <span class="showcase__tag">200-500 personas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Horno 10 Charolas
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Horno Convección 10 Charolas</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Gabinete de Conservación Caliente -->
+          <section class="section section--alt" aria-labelledby="gabinete-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Conservación profesional</span>
+                <h2 class="showcase__title" id="gabinete-heading">Gabinete de Conservación Caliente</h2>
+                <p class="showcase__subtitle">Mantén hasta 20 charolas de alimentos en temperatura perfecta de servicio durante horas.</p>
+                <p class="showcase__text">Nuestros <strong>gabinetes de conservación caliente</strong> son esenciales para mantener los alimentos en condiciones óptimas de servicio durante buffets prolongados y banquetes de gran formato. Con capacidad de <strong>12 a 20 charolas GN estándar</strong>, mantienen temperatura constante de <strong>60°C a 85°C</strong> con variación máxima de 2°C. El sistema de <strong>humidificación integrado</strong> evita que los alimentos se resequen — sopas, arroces, guisados y proteínas mantienen su textura y jugosidad durante todo el servicio.</p>
+                <p class="showcase__text">Incluye <strong>termostato digital con display LED, indicador de temperatura real vs. programada, ruedas con freno y charolas GN de acero inoxidable</strong>. El gabinete funciona con <strong>110V estándar</strong> (no requiere instalación especial). Ideal para <strong>buffets de boda, coffee breaks corporativos, servicio de comida en congresos y cualquier evento con servicio prolongado</strong>. Complementa con nuestras <a href="/servicios/catering/vajilla-cristaleria/">vajillas y cristalería</a> para una presentación impecable del buffet.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">12-20 charolas</span>
+                  <span class="showcase__tag">60-85°C constante</span>
+                  <span class="showcase__tag">Humidificación</span>
+                  <span class="showcase__tag">110V estándar</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Gabinete Conservación
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Gabinete Conservación</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Mesa de Vapor Baño María -->
+          <section class="section section--alt" aria-labelledby="vapor-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Servicio de buffet elegante</span>
+                <h2 class="showcase__title" id="vapor-heading">Mesa de Vapor Baño María</h2>
+                <p class="showcase__subtitle">Mesas de vapor con 4-6 insertos GN y chafing dishes profesionales para buffets elegantes.</p>
+                <p class="showcase__text">Nuestras <strong>mesas de vapor (baño maría)</strong> son la solución elegante para servicio de buffet en bodas, eventos corporativos y sociales. Con <strong>4 a 6 insertos GN con termostato individual</strong>, permiten mantener diferentes platillos a temperaturas específicas simultáneamente — sopas a 80°C, guisados a 70°C y guarniciones a 65°C. El sistema de baño maría garantiza calentamiento suave y uniforme sin quemar ni resecar los alimentos.</p>
+                <p class="showcase__text">Complementamos las mesas de vapor con <strong>chafing dishes profesionales en acero inoxidable</strong> con tapa roll-top o abatible, calentadores de gel combustible o eléctricos, y bandejas GN estándar en múltiples profundidades. Los chafing dishes ofrecen una <strong>presentación elegante</strong> ideal para buffets de boda y eventos de gala. Incluyen cucharones de servicio, pinzas y accesorios de montaje. Combina con nuestras <a href="/servicios/catering/cocina-movil/planchas-freidoras/">planchas y freidoras</a> para estaciones de comida en vivo con servicio de buffet.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">4-6 insertos GN</span>
+                  <span class="showcase__tag">Termostato individual</span>
+                  <span class="showcase__tag">Chafing dishes</span>
+                  <span class="showcase__tag">Buffet elegante</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Mesa de Vapor
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Mesa de Vapor Baño María</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Hornos de Convección"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu equipo de cocción y conservación, es natural tener preguntas sobre capacidades, requerimientos y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor técnico te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de cocina móvil resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre hornos de convección para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Cocina Móvil -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Cocina Móvil para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/cocina-movil/" class="sidebar-nav__back">&uarr; Volver a Cocina Móvil</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/" class="sidebar-nav__back">&uarr; Volver a Catering</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de cocina:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas hornos y equipo de conservación para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar hornos de convección para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Equipo de Hornos y Conservación"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores técnicos te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un horno compacto de 5 charolas para tu reunión o un paquete completo de conservación para tu banquete, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoEquipo">
+                Tipo de equipo
+              </label>
+              <select id="tipoEquipo" name="tipoEquipo" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de equipo</option>
+                <option value="Horno 5 Charolas">Horno 5 Charolas</option>
+                <option value="Horno 10 Charolas">Horno 10 Charolas</option>
+                <option value="Gabinete Conservación">Gabinete Conservación</option>
+                <option value="Mesa Vapor">Mesa Vapor</option>
+                <option value="Paquete Conservación Completa">Paquete Conservación Completa</option>
+                <option value="Combo Horno + Gabinete">Combo Horno + Gabinete</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de comensales, tipo de menú, venue (salón/jardín/terraza), equipo específico que necesitas..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para verificar conexiones eléctricas y recomendar el equipo ideal.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría técnica personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoEquipo = document.getElementById('tipoEquipo').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Hornos de Convección y Conservación*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoEquipo) texto += `*Tipo de equipo:* ${tipoEquipo}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Catering"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de equipo de catering y cocina móvil para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, personal capacitado y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Catering Pro MX</h3>
+            <p class="partner-card__tagline">Servicio Integral de Catering</p>
+            <p class="partner-card__text">Servicio integral de catering y estaciones gourmet para eventos en CDMX. Hornos de convección, gabinetes de conservación y montaje completo para banquetes de cualquier escala.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">G</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">GastroEventos CDMX</h3>
+            <p class="partner-card__tagline">Equipo de Cocina Profesional</p>
+            <p class="partner-card__text">Renta de equipo de cocina y estaciones de servicio profesional para eventos corporativos, bodas y festivales gastronómicos. Hornos, gabinetes, mesas de vapor y chafing dishes certificados.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">ChefMóvil</h3>
+            <p class="partner-card__tagline">Estaciones de Comida en Vivo</p>
+            <p class="partner-card__text">Estaciones de comida en vivo con chef y equipo profesional certificado. Hornos de convección, equipos de conservación y montaje de cocina móvil completa para eventos premium.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">B</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">BanquetesPro</h3>
+            <p class="partner-card__tagline">Mobiliario y Equipo de Catering</p>
+            <p class="partner-card__text">Mobiliario y equipo de catering para bodas, corporativos y sociales. Servicio integral con transporte, montaje y operación técnica en toda la CDMX y zona metropolitana.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Hornos y equipo de conservación que garantizan la calidad de tu banquete"
+    subheadline="Más de 500 eventos con equipo de cocina móvil nos respaldan. Cotiza hoy y recibe asesoría técnica sin compromiso."
+    primaryCTA={{ label: "Cotizar hornos y conservación", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar hornos de convección para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

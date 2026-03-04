@@ -1,0 +1,730 @@
+---
+/**
+ * ─── Juegos de Destreza Inflables — Pagina de Producto (Nivel 4) ───
+ * Velcro wall, wrecking ball, human whack-a-mole y retos de habilidad
+ * inflables para corporativos y eventos.
+ *
+ * Jerarquia: Servicios > Inflables > Interactivos y Deportivos > Juegos de Destreza
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Inflables", href: "/servicios/inflables/" },
+  { label: "Interactivos y Deportivos", href: "/servicios/inflables/interactivos-deportivos/" },
+  { label: "Juegos de Destreza" },
+];
+
+const faqs = [
+  { question: "¿Qué incluye cada juego de destreza inflable?", answer: "Cada juego incluye la <strong>estructura inflable completa</strong>, equipo de seguridad específico y coordinador de operación. El <strong>velcro wall</strong> incluye 2 trajes de velcro, colchoneta de aterrizaje y trampolín de impulso. El <strong>wrecking ball</strong> incluye bola demoledora acolchada, 4 pedestales inflables y cascos protectores. El <strong>human whack-a-mole</strong> incluye 6 cascos acolchados y mazo de espuma. Todos incluyen inflador continuo, anclaje profesional y supervisión durante el evento." },
+  { question: "¿Qué tan seguros son los juegos de destreza?", answer: "La seguridad es nuestra prioridad. Todas las estructuras inflables están fabricadas con <strong>lona vinílica de 18 oz con costuras termoselladas</strong>. El velcro wall tiene colchoneta de aterrizaje de espuma de alta densidad. El wrecking ball cuenta con pedestales acolchados y cascos protectores. El whack-a-mole usa mazos de espuma suave. Nuestro coordinador supervisa cada juego, verifica el equipo antes de cada ronda y aplica las reglas de seguridad estrictamente." },
+  { question: "¿Qué edades y peso soportan los juegos de destreza?", answer: "Los juegos de destreza son aptos para participantes desde <strong>8 años en adelante</strong> con un peso máximo de 100 kg con equipo puesto. El velcro wall requiere mínimo 10 años por el traje especial. El wrecking ball es apto desde 8 años con casco. El whack-a-mole acepta desde 6 años. Para eventos con rango de edades amplio, nuestro coordinador organiza turnos separados por categorías de edad." },
+  { question: "¿Cuánto espacio necesito para los juegos de destreza?", answer: "Cada juego requiere un área diferente: el <strong>velcro wall</strong> necesita 5x5 metros con 5 metros de altura mínima de techo. El <strong>wrecking ball</strong> requiere 6x6 metros con 3.5 metros de techo. El <strong>whack-a-mole</strong> necesita 5x5 metros con 3 metros de techo. Para el <strong>Kit Destreza Completo</strong> con los 3 juegos, recomendamos un espacio mínimo de 20x6 metros. Evaluamos tu espacio sin costo antes del evento." },
+  { question: "¿Se pueden combinar varios juegos de destreza en un solo evento?", answer: "Sí, y es nuestra opción más recomendada. El <strong>Kit Destreza Completo</strong> incluye velcro wall + wrecking ball + human whack-a-mole con un <strong>20% de descuento</strong> sobre los precios individuales. También puedes agregar <a href=\"/servicios/inflables/interactivos-deportivos/bungee-run/\">bungee run</a> para el <strong>Combo Destreza + Bungee</strong>. Un coordinador dedicado organiza rotación entre juegos y dinámicas de competencia inter-equipos." },
+  { question: "¿Los juegos de destreza son aptos para eventos corporativos?", answer: "Absolutamente. Los juegos de destreza son <strong>ideales para team building, activaciones de marca y eventos corporativos</strong>. El velcro wall genera las fotos más divertidas del evento. El wrecking ball fomenta la competencia sana entre departamentos. El whack-a-mole es perfecto para romper el hielo. Nuestro <strong>Paquete Corporativo</strong> incluye los 3 juegos con coordinador de dinámicas empresariales, sistema de puntuación por equipos y premiación con trofeos corporativos." },
+];
+
+const specs = [
+  { label: "Velcro Wall", value: "4 metros de altura con traje" },
+  { label: "Wrecking Ball", value: "Plataformas para 4 jugadores" },
+  { label: "Whack-a-Mole", value: "6 posiciones con cascos" },
+  { label: "Área por juego", value: "5x5 a 6x6 metros" },
+  { label: "Edad mínima", value: "8 años" },
+  { label: "Peso máximo", value: "100 kg con equipo" },
+  { label: "Material", value: "Lona vinílica 18 oz + foam seguridad" },
+  { label: "Coordinador", value: "Incluido con dinámicas" },
+  { label: "Trajes/Equipo", value: "Incluidos para cada juego" },
+  { label: "Infladores", value: "1.5 HP por juego" },
+];
+
+const sidebarNav = [
+  { name: "Cancha Futbol Inflable", href: "/servicios/inflables/interactivos-deportivos/cancha-futbol/" },
+  { name: "Basquetbol Gigante", href: "/servicios/inflables/interactivos-deportivos/basquetbol-gigante/" },
+  { name: "Bungee Run", href: "/servicios/inflables/interactivos-deportivos/bungee-run/" },
+  { name: "Juegos de Destreza", href: null, active: true },
+];
+
+const sidebarRelated = [
+  { name: "Inflables para Adultos", href: "/servicios/inflables/adultos/" },
+  { name: "Juegos Infantiles", href: "/servicios/inflables/juegos-infantiles/" },
+  { name: "Pistas de Baile", href: "/servicios/pistas-baile/" },
+  { name: "Audiovisual y Sonido", href: "/servicios/audiovisual/sonido/" },
+  { name: "Carpas para Eventos", href: "/servicios/carpas/" },
+];
+
+const reviews = [
+  { author: "Gabriela Hernández", text: "Contratamos el Kit Destreza Completo para nuestro evento de team building con 80 personas en una nave de Santa Fe. Velcro wall, wrecking ball y whack-a-mole fueron un éxito rotundo. Las risas no pararon durante 4 horas. El coordinador organizó un torneo inter-departamentos que generó momentos memorables. Las fotos del velcro wall son las mejores del evento.", rating: 5, date: "2025-11-22" },
+  { author: "Pablo Jiménez", text: "Rentamos el wrecking ball y el velcro wall para una fiesta de adultos en un jardín de Coyoacán. La atracción fue increíble — todos querían participar. El equipo se veía profesional y seguro, los cascos y trajes estaban en perfecto estado. El operador fue muy amable y mantuvo el orden. Lo recomiendo al 100%.", rating: 5, date: "2025-10-15" },
+  { author: "Mariana Torres", text: "Usamos los juegos de destreza para nuestro evento universitario de bienvenida con más de 300 estudiantes. La rotación fue eficiente y todos pudieron participar en al menos 2 juegos. El equipo de EVENTECH fue puntual, profesional y el desmontaje fue rapidísimo. Excelente servicio y precio justo.", rating: 5, date: "2025-09-30" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Juegos de Destreza Inflables para Eventos en CDMX",
+    description: "Renta de velcro wall, wrecking ball, human whack-a-mole y retos de habilidad inflables. Combinan fuerza, velocidad y estrategia. Desde $2,000.",
+    url: "/servicios/inflables/interactivos-deportivos/juegos-destreza/",
+    priceRange: { min: 2000, max: 8000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 128,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Inflables", url: "/servicios/inflables/" },
+    { name: "Interactivos y Deportivos", url: "/servicios/inflables/interactivos-deportivos/" },
+    { name: "Juegos de Destreza", url: "/servicios/inflables/interactivos-deportivos/juegos-destreza/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Juegos de Destreza Inflables en CDMX | EVENTECH"
+  description="Renta de velcro wall, wrecking ball, human whack-a-mole y retos de habilidad inflables. Combinan fuerza, velocidad y estrategia. Desde $2,000."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Fuerza, velocidad y estrategia"
+    title='Renta de <span class="highlight">Juegos de Destreza</span> Inflables para Eventos'
+    subtitle="Velcro wall de 4 metros, wrecking ball para 4 jugadores, human whack-a-mole y retos de habilidad con estructuras inflables certificadas. Coordinador de dinámicas y equipo de seguridad completo incluido."
+    primaryCTA={{ label: "Cotiza tus juegos", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar juegos de destreza inflables para mi evento` }}
+    cards={[
+      {
+        title: "Velcro wall, wrecking ball y whack-a-mole inflables",
+        content: "<strong>Velcro wall de 4 metros</strong>, wrecking ball para 4 jugadores, human whack-a-mole y retos de habilidad con estructuras inflables certificadas y equipo de seguridad completo. Cada juego fabricado con lona vinílica de 18 oz, foam de protección lateral y costuras termoselladas. Incluye trajes de velcro, cascos protectores, mazos de espuma y todo el equipo necesario para cada atracción.",
+      },
+      {
+        title: "Coordinador de dinámicas y equipo especializado",
+        content: "<strong>Coordinador de dinámicas incluido</strong>, sistema de retos por rondas, trajes especiales para velcro wall y cascos protectores para wrecking ball. Nuestro staff organiza torneos inter-equipos, dinámicas de team building y rotación de participantes. Incluye transporte, instalación con anclaje profesional, inflado continuo y desmontaje sin costo adicional dentro de CDMX.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Quieres retos de destreza que todos recordarán?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con los juegos ideales para tu espacio y audiencia"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Interactivos y Deportivos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas juegos de destreza para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar juegos de destreza inflables para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Juegos de Destreza</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Velcro Wall -->
+          <section class="section section--alt" aria-labelledby="velcro-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Las fotos más épicas del evento</span>
+                <h2 class="showcase__title" id="velcro-heading">Velcro Wall</h2>
+                <p class="showcase__subtitle">Muro adhesivo de 4 metros donde los participantes quedan pegados en las posiciones más divertidas.</p>
+                <p class="showcase__text">Nuestro <strong>velcro wall</strong> (muro de velcro) es una de las atracciones más fotografiadas en eventos. La estructura inflable de <strong>4 metros de altura</strong> cuenta con una superficie cubierta de velcro industrial. Los participantes se ponen un <strong>traje especial de velcro</strong>, toman impulso en un trampolín y se lanzan contra el muro, quedando adheridos en las posiciones más cómicas y creativas. Una colchoneta de aterrizaje de foam protege cada salto.</p>
+                <p class="showcase__text">Incluye <strong>2 trajes de velcro</strong> (tallas ajustables para adolescentes y adultos), trampolín de impulso certificado, colchoneta de aterrizaje de alta densidad y coordinador dedicado que supervisa cada salto. El velcro wall genera contenido viral para redes sociales y es perfecto como activación de marca con <strong>branding personalizado</strong> en el muro. Ideal para <strong>fiestas corporativas, eventos universitarios y activaciones de marca</strong>.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">4 metros de altura</span>
+                  <span class="showcase__tag">2 trajes velcro</span>
+                  <span class="showcase__tag">Trampolín incluido</span>
+                  <span class="showcase__tag">Colchoneta seguridad</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Velcro Wall
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 5 7 9 7 9s7-4 7-9a7 7 0 0 0-7-7z"/>
+                    <path d="M12 18v4"/><path d="M10 22h4"/>
+                  </svg>
+                  <span>Velcro Wall</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Wrecking Ball -->
+          <section class="section section--alt" aria-labelledby="wrecking-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Competencia de equilibrio</span>
+                <h2 class="showcase__title" id="wrecking-heading">Wrecking Ball</h2>
+                <p class="showcase__subtitle">4 jugadores sobre pedestales inflables intentan derribarse mutuamente con una bola demoledora acolchada.</p>
+                <p class="showcase__text">Nuestro <strong>wrecking ball</strong> (bola demoledora) enfrenta a <strong>4 jugadores simultáneamente</strong> sobre pedestales inflables circulares. Cada participante se sube a un pedestal y debe mantener el equilibrio mientras intenta golpear a los demás con una <strong>bola demoledora acolchada</strong> colgante. El último en mantenerse de pie gana la ronda. Los caídos aterrizan en la base inflable completamente acolchada.</p>
+                <p class="showcase__text">Incluye <strong>4 pedestales inflables</strong>, bola demoledora de foam de alta densidad con cuerda de nylon, cascos protectores para todos los participantes y base inflable de aterrizaje. El formato de 4 jugadores permite rotación rápida — cada ronda dura 1-2 minutos. Perfecto para <strong>team building corporativo, fiestas de adultos y eventos deportivos</strong>. Nuestro coordinador organiza torneos de eliminación con tabla de posiciones y premiación.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">4 jugadores</span>
+                  <span class="showcase__tag">Pedestales inflables</span>
+                  <span class="showcase__tag">Cascos protectores</span>
+                  <span class="showcase__tag">Base acolchada</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Wrecking Ball
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 5 7 9 7 9s7-4 7-9a7 7 0 0 0-7-7z"/>
+                    <path d="M12 18v4"/><path d="M10 22h4"/>
+                  </svg>
+                  <span>Wrecking Ball</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Human Whack-a-Mole -->
+          <section class="section section--alt" aria-labelledby="whack-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">El clásico arcade a tamaño real</span>
+                <h2 class="showcase__title" id="whack-heading">Human Whack-a-Mole</h2>
+                <p class="showcase__subtitle">6 participantes asoman la cabeza por agujeros inflables mientras un jugador intenta tocarlos con un mazo de espuma.</p>
+                <p class="showcase__text">Nuestro <strong>human whack-a-mole</strong> recrea el clásico juego de arcade a tamaño real con una estructura inflable de <strong>6 posiciones</strong>. Los participantes se meten debajo de la estructura y asoman la cabeza por agujeros acolchados, mientras un jugador armado con un <strong>mazo gigante de espuma</strong> intenta tocarlos antes de que se escondan. Los cascos acolchados protegen a todos los participantes.</p>
+                <p class="showcase__text">Es el juego que genera más <strong>risas y momentos virales</strong> en cualquier evento. El formato permite 7 participantes simultáneos (6 topos + 1 golpeador) con rotación rápida. Ideal para <strong>fiestas familiares, eventos corporativos para romper el hielo y kermeses escolares</strong>. Nuestro coordinador lleva el puntaje y organiza rondas cronometradas donde el golpeador intenta tocar la mayor cantidad de topos en 60 segundos. Combínalo con nuestro <a href="/servicios/audiovisual/">equipo audiovisual</a> para efectos de sonido que potencien la diversión.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">6 posiciones</span>
+                  <span class="showcase__tag">Mazo de espuma</span>
+                  <span class="showcase__tag">Cascos acolchados</span>
+                  <span class="showcase__tag">7 participantes</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Whack-a-Mole
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 5 7 9 7 9s7-4 7-9a7 7 0 0 0-7-7z"/>
+                    <path d="M12 18v4"/><path d="M10 22h4"/>
+                  </svg>
+                  <span>Human Whack-a-Mole</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Destreza Completo -->
+          <section class="section section--alt" aria-labelledby="kit-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Paquete todo incluido</span>
+                <h2 class="showcase__title" id="kit-heading">Kit Destreza Completo</h2>
+                <p class="showcase__subtitle">Los 3 juegos de destreza con coordinador dedicado, sistema de puntuación y 20% de descuento.</p>
+                <p class="showcase__text">Nuestro <strong>Kit Destreza Completo</strong> reúne los 3 juegos de destreza más populares en un solo paquete con <strong>20% de descuento</strong>: velcro wall, wrecking ball y human whack-a-mole. Incluye todas las estructuras inflables, equipo de seguridad completo (trajes, cascos, mazos), <strong>coordinador dedicado</strong> para los 3 juegos y sistema de puntuación unificado para crear una competencia inter-juegos donde los participantes acumulan puntos en cada atracción.</p>
+                <p class="showcase__text">El kit contempla <strong>logística integrada</strong>: un solo equipo de montaje, un coordinador que gestiona la rotación entre juegos y un sistema de puntuación visible que mantiene la emoción competitiva. Perfecto para <strong>eventos corporativos de 50-200 personas, fiestas de fin de año, día de la familia y festivales</strong>. Al rentar el kit completo, nuestro coordinador organiza dinámicas de team building con objetivos de integración y comunicación. Combínalo con nuestras <a href="/servicios/carpas/">carpas</a> para crear zonas de descanso y espectadores.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">3 juegos incluidos</span>
+                  <span class="showcase__tag">20% descuento</span>
+                  <span class="showcase__tag">Coordinador dedicado</span>
+                  <span class="showcase__tag">50-200 personas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Completo
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 5 7 9 7 9s7-4 7-9a7 7 0 0 0-7-7z"/>
+                    <path d="M12 18v4"/><path d="M10 22h4"/>
+                  </svg>
+                  <span>Kit Destreza Completo</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Juegos de Destreza"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tus juegos de destreza inflables, es natural tener preguntas sobre seguridad, capacidad y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de inflables deportivos resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre juegos de destreza inflables para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Interactivos y Deportivos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/inflables/interactivos-deportivos/" class="sidebar-nav__back">&uarr; Volver a Interactivos y Deportivos</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/inflables/" class="sidebar-nav__back">&uarr; Volver a Inflables</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tus juegos de destreza:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas juegos de destreza para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar juegos de destreza inflables para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tus Juegos de Destreza"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un velcro wall para tu fiesta o el kit completo de destreza para tu empresa, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Team Building">Team Building</option>
+                <option value="Fiesta de Cumpleaños">Fiesta de Cumpleaños</option>
+                <option value="Festival / Feria">Festival / Feria</option>
+                <option value="Activación de Marca">Activación de Marca</option>
+                <option value="Evento Universitario">Evento Universitario</option>
+                <option value="Evento Escolar">Evento Escolar</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoDestreza">
+                Tipo de juego
+              </label>
+              <select id="tipoDestreza" name="tipoDestreza" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de juego</option>
+                <option value="Velcro Wall">Velcro Wall</option>
+                <option value="Wrecking Ball">Wrecking Ball</option>
+                <option value="Human Whack-a-Mole">Human Whack-a-Mole</option>
+                <option value="Kit Destreza Completo">Kit Destreza Completo</option>
+                <option value="Paquete Corporativo">Paquete Corporativo</option>
+                <option value="Combo Destreza + Bungee">Combo Destreza + Bungee</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de participantes, edades, tipo de espacio (salón/jardín/nave), duración del evento, si necesitas varios juegos..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu espacio sin costo para recomendarte los juegos ideales según dimensiones y altura disponible.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para armar el paquete perfecto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoDestreza = document.getElementById('tipoDestreza').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Juegos de Destreza Inflables*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoDestreza) texto += `*Tipo de juego:* ${tipoDestreza}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Inflables"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de inflables y juegos para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, personal capacitado y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">I</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Inflables Fiesta MX</h3>
+            <p class="partner-card__tagline">Brincolines y Juegos Inflables</p>
+            <p class="partner-card__text">Brincolines y juegos inflables certificados para fiestas infantiles en CDMX. Canchas deportivas inflables, bungee run y juegos interactivos con seguro de responsabilidad civil y operadores capacitados.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">J</span>
+            <div class="partner-card__badge">Eventos y ferias</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">JuegosEvent CDMX</h3>
+            <p class="partner-card__tagline">Inflables Profesionales para Eventos</p>
+            <p class="partner-card__text">Renta de inflables profesionales con monitores para eventos y ferias. Especialistas en canchas deportivas, juegos interactivos y circuitos de obstáculos para corporativos y festivales.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">I</span>
+            <div class="partner-card__badge">Alta calidad</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">InflaPro</h3>
+            <p class="partner-card__tagline">Juegos Inflables de Alta Calidad</p>
+            <p class="partner-card__text">Juegos inflables de alta calidad con seguro y operadores certificados. Canchas de futbol, basquetbol gigante y juegos de destreza fabricados con materiales premium y estándares internacionales.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">D</span>
+            <div class="partner-card__badge">Eventos familiares</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">DiversiónTotal</h3>
+            <p class="partner-card__tagline">Inflables Temáticos y Circuitos</p>
+            <p class="partner-card__text">Inflables temáticos y circuitos para eventos infantiles y familiares. Amplio catálogo de canchas deportivas, juegos interactivos y atracciones mecánicas con logística profesional en toda la CDMX.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Los juegos de destreza que harán inolvidable tu evento"
+    subheadline="Más de 200 eventos exitosos nos respaldan. Cotiza hoy y recibe asesoría sin compromiso."
+    primaryCTA={{ label: "Cotizar juegos de destreza", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar juegos de destreza inflables para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

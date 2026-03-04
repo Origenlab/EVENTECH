@@ -1,0 +1,690 @@
+---
+/**
+ * ─── Plataformas Niveladas — Pagina de Producto (Nivel 4) ───
+ * Plataformas con patas ajustables para jardines, pendientes
+ * y terrenos irregulares. Superficie perfectamente nivelada.
+ *
+ * Jerarquia: Servicios > Pistas de Baile > Tarimas y Escenarios > Plataformas Niveladas
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Pistas de Baile", href: "/servicios/pistas-baile/" },
+  { label: "Tarimas y Escenarios", href: "/servicios/pistas-baile/tarimas-escenarios/" },
+  { label: "Plataformas Niveladas" },
+];
+
+const faqs = [
+  { question: "¿Cuánto desnivel pueden compensar las plataformas?", answer: 'Nuestras plataformas niveladas compensan desniveles de hasta <strong>40 cm por módulo</strong> gracias a sus patas telescópicas con ajuste individual. Para terrenos con pendientes más pronunciadas, combinamos módulos con diferentes alturas de pata para crear una transición suave y segura. Hemos instalado exitosamente en jardines con pendientes de hasta 15 grados, laderas de haciendas, terrenos de playa con arena y azoteas con desnivel. Antes de cada instalación, realizamos una <strong>medición con láser del terreno</strong> para planificar la configuración óptima.' },
+  { question: "¿Las plataformas dañan el césped o el terreno?", answer: 'No. Nuestras plataformas utilizan <strong>bases de distribución de peso</strong> que reparten la carga en una superficie amplia, evitando hundimientos y marcas en el césped. Las bases están fabricadas en polietileno de alta densidad que no daña la vegetación. Después de desmontar, el césped puede quedar ligeramente aplastado pero se recupera completamente en 3-5 días con riego normal. Para eventos de varios días, recomendamos protección adicional con geotextil bajo las bases.' },
+  { question: "¿Se puede colocar una pista de baile encima de la plataforma?", answer: 'Sí, es una de las combinaciones más populares. La plataforma nivelada crea la <strong>base perfecta para instalar una pista de baile</strong> en jardines o terrenos irregulares donde sería imposible colocar la pista directamente en el suelo. Combinamos con nuestras <a href="/servicios/pistas-baile/pistas-led/">pistas LED</a> o <a href="/servicios/pistas-baile/madera-clasica/">pistas de madera clásica</a> que se montan sobre la superficie nivelada. El resultado es una pista de baile perfectamente horizontal y segura en cualquier terreno.' },
+  { question: "¿Las plataformas incluyen rampa de acceso?", answer: 'Sí, <strong>todas nuestras plataformas incluyen rampa de acceso perimetral</strong> sin costo adicional. La rampa permite el acceso seguro de personas con movilidad reducida, sillas de ruedas, carritos de servicio y equipo pesado. También incluimos zóclo decorativo perimetral que oculta la estructura de patas y crea un acabado limpio y profesional. El zóclo está disponible en colores blanco, negro y natural.' },
+  { question: "¿Cuánto tiempo toma el montaje de una plataforma nivelada?", answer: 'El tiempo de montaje depende de la dimensión y la complejidad del terreno. Una plataforma de <strong>3x3 metros se instala en 2-3 horas</strong>, una de 5x5 metros requiere de 3-4 horas, y una de 6x6 metros o mayor necesita de 4-6 horas. El proceso incluye medición láser del terreno, ajuste individual de cada pata, verificación de nivelación con nivel de burbuja y láser, instalación de zóclo y rampa. Nuestro equipo de 4-6 técnicos garantiza un resultado impecable.' },
+  { question: "¿Con cuánta anticipación debo reservar plataformas niveladas?", answer: 'Recomendamos reservar con <strong>3 a 4 semanas de anticipación</strong> para garantizar disponibilidad de las dimensiones que necesitas. Las plataformas son especialmente solicitadas en temporada de bodas en jardín (marzo a junio y septiembre a noviembre). Para eventos de gran formato o configuraciones especiales, lo ideal es apartar con <strong>6 semanas de anticipación</strong>. También ofrecemos visita técnica gratuita para evaluar el terreno y diseñar la solución óptima de nivelación.' },
+];
+
+const specs = [
+  { label: "Estructura", value: "Aluminio con patas telescópicas" },
+  { label: "Nivelación", value: "Hasta 40 cm de desnivel" },
+  { label: "Superficie", value: "Madera contrachapada o alfombra" },
+  { label: "Patas", value: "Ajustables individualmente con seguro" },
+  { label: "Terrenos", value: "Jardín, pasto, tierra, arena, pendiente" },
+  { label: "Módulos", value: "2x1 y 2x2 metros" },
+  { label: "Carga", value: "500 kg/m²" },
+  { label: "Rampa", value: "Acceso perimetral incluida" },
+  { label: "Zóclo", value: "Decorativo incluido" },
+  { label: "Montaje", value: "Profesional, 3-6 horas" },
+];
+
+const sidebarNav = [
+  { name: "Tarimas Modulares", href: "/servicios/pistas-baile/tarimas-escenarios/modulares/" },
+  { name: "Escenarios con Techo", href: "/servicios/pistas-baile/tarimas-escenarios/con-techo/" },
+  { name: "Pasarelas y Runways", href: "/servicios/pistas-baile/tarimas-escenarios/pasarelas/" },
+  { name: "Plataformas Niveladas", href: null, active: true },
+];
+
+const sidebarRelated = [
+  { name: "Sonido Profesional", href: "/servicios/audiovisual/sonido/" },
+  { name: "Iluminación Escenario", href: "/servicios/iluminacion/escenario/" },
+  { name: "Pantallas LED", href: "/servicios/audiovisual/pantallas-led/" },
+  { name: "Carpas", href: "/servicios/carpas/" },
+  { name: "Mobiliario", href: "/servicios/mobiliario/" },
+];
+
+const reviews = [
+  { author: "Sofía Hernández", text: "Nuestra boda fue en un jardín de Coyoacán con pendiente bastante pronunciada. Las plataformas niveladas de EVENTECH crearon un piso perfecto para la pista de baile y las mesas de invitados. El césped no sufrió ningún daño y la rampa de acceso fue muy práctica. Servicio impecable y puntual.", rating: 5, date: "2025-11-22" },
+  { author: "Javier Ramírez", text: "Organizamos un evento en una hacienda en Estado de México donde el terreno era todo pasto irregular. Las plataformas niveladas nos permitieron crear una zona de comedor para 200 personas perfectamente horizontal. La nivelación con láser fue impresionante. Los invitados no podían creer que estuvieran sobre pasto.", rating: 5, date: "2025-10-18" },
+  { author: "Ana Luisa Torres", text: "Contratamos plataformas niveladas para un evento corporativo en una terraza con desnivel en Polanco. El equipo de EVENTECH evaluó el terreno, ajustó cada pata individualmente y el resultado fue una superficie completamente plana. El zóclo decorativo le dio un acabado muy profesional. Totalmente recomendable.", rating: 5, date: "2025-09-25" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Plataformas Niveladas para Eventos en CDMX",
+    description: "Renta de plataformas con patas ajustables para jardines, pendientes y terrenos irregulares en CDMX. Superficie perfectamente nivelada garantizada. Desde $4,000.",
+    url: "/servicios/pistas-baile/tarimas-escenarios/plataformas-niveladas/",
+    priceRange: { min: 4000, max: 25000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 178,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Pistas de Baile", url: "/servicios/pistas-baile/" },
+    { name: "Tarimas y Escenarios", url: "/servicios/pistas-baile/tarimas-escenarios/" },
+    { name: "Plataformas Niveladas", url: "/servicios/pistas-baile/tarimas-escenarios/plataformas-niveladas/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Plataformas Niveladas para Eventos en CDMX"
+  description="Renta de plataformas con patas ajustables para jardines, pendientes y terrenos irregulares en CDMX. Superficie perfectamente nivelada garantizada. Desde $4,000."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Superficie perfecta en cualquier terreno"
+    title='Renta de <span class="highlight">Plataformas Niveladas</span> para Eventos en CDMX'
+    subtitle="Plataformas con patas telescópicas ajustables individualmente que compensan desniveles de hasta 40 cm en jardines, pendientes y terrenos irregulares. Superficie perfectamente horizontal garantizada con nivelación láser."
+    primaryCTA={{ label: "Cotiza tu plataforma", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar plataformas niveladas para mi evento` }}
+    cards={[
+      {
+        title: "Patas ajustables que compensan desniveles de hasta 40 cm",
+        content: "<strong>Renta de plataformas niveladas</strong> con la tecnología más avanzada para eventos en terrenos irregulares en CDMX. Patas de altura ajustable individualmente que compensan desniveles de hasta 40 cm en jardines, pendientes, pasto, tierra, arena y terrenos mixtos. Módulos de 2x1 y 2x2 metros con estructura de aluminio reforzado y capacidad de carga de 500 kg/m². Nivelación con láser de precisión que garantiza una superficie perfectamente horizontal.",
+      },
+      {
+        title: "Superficie nivelada con zóclo decorativo y rampa de acceso",
+        content: "<strong>Acabado profesional garantizado</strong> con superficie de madera contrachapada o alfombra antideslizante según las necesidades de tu evento. Zóclo decorativo perimetral incluido que oculta la estructura de patas y crea un acabado limpio y elegante. Rampa de acceso perimetral incluida para personas con movilidad reducida y equipo de servicio. Bases de distribución de peso que protegen el césped sin causar daños permanentes. Montaje profesional de 3 a 6 horas con equipo técnico especializado.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Tu evento es en un terreno irregular?"
+    subheadline="Cotiza sin compromiso — evaluamos tu terreno gratis y diseñamos la solución de nivelación perfecta"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Tarimas y Escenarios para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas plataformas niveladas para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar plataformas niveladas para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="12" width="20" height="8" rx="1"/><path d="M4 12V8a2 2 0 012-2h12a2 2 0 012 2v4"/><path d="M12 6V2"/><path d="M8 6V4"/><path d="M16 6V4"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Plataformas Niveladas</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Plataforma Jardín -->
+          <section class="section section--alt" aria-labelledby="jardin-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Bodas en jardín</span>
+                <h2 class="showcase__title" id="jardin-heading">Plataforma Jardín</h2>
+                <p class="showcase__subtitle">Nivelación perfecta sobre césped para pistas de baile, comedores y zonas de ceremonia en jardines.</p>
+                <p class="showcase__text">La <strong>plataforma para jardín</strong> es nuestra solución más solicitada para bodas y eventos sociales en espacios verdes de CDMX. Las patas telescópicas se ajustan individualmente para compensar las irregularidades naturales del césped, creando una <strong>superficie perfectamente horizontal</strong> donde puedes instalar pistas de baile, mesas de comedor, escenarios y mobiliario con total estabilidad. Las bases de distribución de peso protegen el césped sin causar daños permanentes.</p>
+                <p class="showcase__text">La superficie de <strong>madera contrachapada con acabado antideslizante</strong> permite caminar con tacones, zapatos de vestir y trajes largos sin riesgo de tropezar con irregularidades del terreno. El zóclo decorativo perimetral en blanco o natural oculta las patas y crea un acabado elegante que se integra con la vegetación del jardín. Ideal para <strong>bodas en jardín, quinceañeras al aire libre, cenas de gala en haciendas y eventos sociales en casas con jardín</strong>. Combínala con nuestras <a href="/servicios/carpas/">carpas profesionales</a> para un espacio completo techado y nivelado.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Protege césped</span>
+                  <span class="showcase__tag">Antideslizante</span>
+                  <span class="showcase__tag">Zóclo decorativo</span>
+                  <span class="showcase__tag">Bodas en jardín</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Plataforma Jardín
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="2" y="12" width="20" height="8" rx="1"/>
+                    <path d="M4 12V8a2 2 0 012-2h12a2 2 0 012 2v4"/>
+                    <path d="M12 6V2"/>
+                    <path d="M8 6V4"/><path d="M16 6V4"/>
+                  </svg>
+                  <span>Plataforma Jardín</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Plataforma Pendiente -->
+          <section class="section section--alt" aria-labelledby="pendiente-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Terrenos con desnivel</span>
+                <h2 class="showcase__title" id="pendiente-heading">Plataforma Pendiente</h2>
+                <p class="showcase__subtitle">Compensación de desniveles pronunciados en laderas, haciendas y terrenos con pendiente natural.</p>
+                <p class="showcase__text">La <strong>plataforma para pendientes</strong> está diseñada para terrenos con desniveles pronunciados donde las plataformas estándar no alcanzan. Nuestro sistema telescópico compensa hasta <strong>40 cm de desnivel por módulo</strong>, y al combinar múltiples módulos con diferentes alturas de pata, podemos nivelar pendientes de hasta 15 grados. El resultado es una superficie perfectamente horizontal que desafía la topografía natural del terreno.</p>
+                <p class="showcase__text">Antes de cada instalación, nuestro equipo realiza una <strong>medición topográfica con láser</strong> del terreno para diseñar la configuración óptima de nivelación. Cada pata se ancla individualmente con bases de distribución de peso que previenen deslizamientos en terrenos inclinados. Ideal para <strong>eventos en haciendas coloniales con patios irregulares, fincas en laderas, jardines en lomas, terrenos rústicos y venues con topografía accidentada</strong>. Combínala con nuestro <a href="/servicios/mobiliario/">mobiliario premium</a> para crear zonas de comedor perfectamente estables en cualquier terreno.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Hasta 40 cm desnivel</span>
+                  <span class="showcase__tag">Medición láser</span>
+                  <span class="showcase__tag">Anti-deslizamiento</span>
+                  <span class="showcase__tag">Haciendas y fincas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Plataforma Pendiente
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="2" y="12" width="20" height="8" rx="1"/>
+                    <path d="M4 12V8a2 2 0 012-2h12a2 2 0 012 2v4"/>
+                    <path d="M12 6V2"/>
+                    <path d="M8 6V4"/><path d="M16 6V4"/>
+                  </svg>
+                  <span>Plataforma Pendiente</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Plataforma para Pista -->
+          <section class="section section--alt" aria-labelledby="pista-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Base para pistas de baile</span>
+                <h2 class="showcase__title" id="pista-heading">Plataforma para Pista de Baile</h2>
+                <p class="showcase__subtitle">Base nivelada perfecta para instalar pistas de baile LED o de madera sobre cualquier terreno.</p>
+                <p class="showcase__text">La <strong>plataforma para pista de baile</strong> es la combinación perfecta cuando quieres una pista de baile espectacular en un terreno que no es apto para instalación directa. La plataforma nivelada crea una <strong>base sólida y perfectamente horizontal</strong> sobre la cual se monta nuestra <a href="/servicios/pistas-baile/pistas-led/">pista de baile LED</a> o <a href="/servicios/pistas-baile/madera-clasica/">pista de madera clásica</a>. El resultado es una superficie de baile profesional en jardines, patios de hacienda, playas y cualquier terreno irregular.</p>
+                <p class="showcase__text">La plataforma soporta <strong>500 kg/m²</strong>, más que suficiente para el peso de la pista de baile y decenas de personas bailando simultáneamente. La rampa de acceso perimetral permite que los invitados suban a la pista de baile con naturalidad, sin escalones ni desniveles. El zóclo decorativo se integra con la estética de la pista creando un acabado continuo y elegante. Nuestro equipo coordina la instalación de <strong>plataforma + pista en una sola visita</strong> para optimizar tiempos y costos. Ideal para <strong>bodas en jardín con pista LED, fiestas en hacienda con pista de madera y eventos al aire libre</strong>.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Base para pista</span>
+                  <span class="showcase__tag">500 kg/m²</span>
+                  <span class="showcase__tag">Rampa incluida</span>
+                  <span class="showcase__tag">Instalación conjunta</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Plataforma + Pista
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="2" y="12" width="20" height="8" rx="1"/>
+                    <path d="M4 12V8a2 2 0 012-2h12a2 2 0 012 2v4"/>
+                    <path d="M12 6V2"/>
+                    <path d="M8 6V4"/><path d="M16 6V4"/>
+                  </svg>
+                  <span>Plataforma para Pista</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Nivelación Completa -->
+          <section class="section section--alt" aria-labelledby="kit-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Solución integral</span>
+                <h2 class="showcase__title" id="kit-heading">Kit Nivelación Completa</h2>
+                <p class="showcase__subtitle">Plataforma nivelada + superficie premium + zóclo decorativo + rampa de acceso: todo en un paquete.</p>
+                <p class="showcase__text">Nuestro <strong>Kit Nivelación Completa</strong> incluye todo lo necesario para transformar cualquier terreno irregular en un espacio de evento perfecto. Plataforma nivelada en las dimensiones que necesites, <strong>superficie premium</strong> a elegir entre madera contrachapada natural, alfombra en el color de tu evento o acabado espejo para efectos visuales. Zóclo decorativo perimetral en blanco, negro o natural que oculta la estructura y crea un acabado impecable.</p>
+                <p class="showcase__text">El kit incluye <strong>rampa de acceso</strong> en uno o múltiples lados según el flujo de tu evento, evaluación topográfica previa con láser, transporte, montaje profesional con equipo de 4-6 técnicos, y desmontaje sin costo adicional dentro de CDMX. Es la opción favorita para <strong>coordinadores de bodas que necesitan una solución llave en mano</strong> en jardines, haciendas y venues outdoor sin pisos nivelados. Complementa con nuestras <a href="/servicios/carpas/">carpas profesionales</a> y <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a> para crear un ambiente completo y espectacular.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Todo incluido</span>
+                  <span class="showcase__tag">Superficie premium</span>
+                  <span class="showcase__tag">Evaluación láser</span>
+                  <span class="showcase__tag">Llave en mano</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Nivelación
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="2" y="12" width="20" height="8" rx="1"/>
+                    <path d="M4 12V8a2 2 0 012-2h12a2 2 0 012 2v4"/>
+                    <path d="M12 6V2"/>
+                    <path d="M8 6V4"/><path d="M16 6V4"/>
+                  </svg>
+                  <span>Kit Nivelación Completa</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Plataformas Niveladas"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu plataforma nivelada, es natural tener preguntas sobre desniveles, terrenos compatibles, daños al césped y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor técnico te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de plataformas niveladas resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre plataformas niveladas para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Tarimas y Escenarios para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/pistas-baile/tarimas-escenarios/" class="sidebar-nav__back">&uarr; Volver a Tarimas y Escenarios</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/pistas-baile/" class="sidebar-nav__back">&uarr; Volver a Pistas de Baile</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de plataformas:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas plataformas niveladas para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar plataformas niveladas para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Plataforma Nivelada"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores técnicos te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea una plataforma de 3x3 para tu ceremonia en jardín o un kit de nivelación completa para tu boda en hacienda, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">Nombre completo <span class="form-field__required">*</span></label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">Teléfono <span class="form-field__required">*</span></label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">Tipo de evento</label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">Fecha del evento</label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoPlataforma">Tipo de plataforma</label>
+              <select id="tipoPlataforma" name="tipoPlataforma" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de plataforma</option>
+                <option value="Plataforma 3x3">Plataforma 3x3</option>
+                <option value="Plataforma 4x4">Plataforma 4x4</option>
+                <option value="Plataforma 5x5">Plataforma 5x5</option>
+                <option value="Plataforma 6x6">Plataforma 6x6</option>
+                <option value="Con Pista de Baile">Con Pista de Baile</option>
+                <option value="Kit Nivelación Completa">Kit Nivelación Completa</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">Mensaje <span class="form-field__required">*</span></label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Cuéntanos los detalles: tipo de terreno (jardín, pasto, tierra, pendiente), dimensiones requeridas, si necesitas pista de baile encima, número de invitados..." rows="4" required></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu terreno sin costo con medición láser para diseñar la solución de nivelación perfecta.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría técnica personalizada para tu presupuesto.</p>
+          </div>
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoPlataforma = document.getElementById('tipoPlataforma').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Plataformas Niveladas*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoPlataforma) texto += `*Tipo de plataforma:* ${tipoPlataforma}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Plataformas Niveladas"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de plataformas y nivelación para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de soluciones y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">P</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Pistas Premium MX</h3>
+            <p class="partner-card__tagline">Especialistas en Tarimas y Escenarios</p>
+            <p class="partner-card__text">Especialistas en tarimas y escenarios para producciones y eventos. Plataformas niveladas con tecnología de ajuste telescópico para cualquier tipo de terreno.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">D</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">DanceFloor CDMX</h3>
+            <p class="partner-card__tagline">Tarimas, Escenarios y Pistas para Eventos</p>
+            <p class="partner-card__text">Renta integral de tarimas, escenarios y pistas para eventos. Cobertura completa en CDMX y área metropolitana con técnicos certificados y logística profesional.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventFloor</h3>
+            <p class="partner-card__tagline">Pistas, Tarimas y Escenarios Profesionales</p>
+            <p class="partner-card__text">Pistas de baile, tarimas y escenarios con instalación profesional. Más de 10 años proporcionando estructuras de alta calidad para eventos corporativos y sociales en CDMX.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">P</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">PistasPro</h3>
+            <p class="partner-card__tagline">Tarimas y Escenarios con Logística</p>
+            <p class="partner-card__text">Soluciones de tarimas y escenarios con logística y montaje en CDMX. Servicio integral desde la evaluación del terreno hasta el desmontaje posterior al evento.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Plataformas niveladas que hacen posible tu evento en cualquier terreno"
+    subheadline="Más de 500 eventos con plataformas niveladas nos respaldan. Cotiza hoy y recibe evaluación de terreno gratuita."
+    primaryCTA={{ label: "Cotizar plataformas niveladas", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar plataformas niveladas para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

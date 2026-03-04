@@ -1,0 +1,730 @@
+---
+/**
+ * ─── Platos y Vajilla — Pagina de Producto (Nivel 4) ───
+ * Vajilla de porcelana blanca, borde dorado y charger plates
+ * para banquetes formales y bodas.
+ *
+ * Jerarquia: Servicios > Catering > Vajilla y Cristalería > Platos y Vajilla
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Catering", href: "/servicios/catering/" },
+  { label: "Vajilla y Cristalería", href: "/servicios/catering/vajilla-cristaleria/" },
+  { label: "Platos y Vajilla" },
+];
+
+const faqs = [
+  { question: "¿Cuál es el pedido mínimo de platos y vajilla?", answer: 'Nuestro pedido mínimo es de <strong>50 servicios</strong> (50 personas). Cada servicio incluye plato trinche, plato ensalada, plato pan y plato postre. Para eventos más pequeños podemos hacer excepciones según disponibilidad. Contamos con inventario para banquetes de hasta <strong>2,000 personas</strong> en un solo evento.' },
+  { question: "¿Qué incluye un servicio completo de vajilla?", answer: 'Un servicio completo incluye <strong>4 platos por persona</strong>: plato trinche (27 cm), plato ensalada (21 cm), plato pan (16 cm) y plato postre (19 cm). Opcionalmente puedes agregar charger plates como base decorativa. Cada pieza se entrega lavada industrialmente a 82°C, sanitizada y pulida a mano lista para colocar directamente en las mesas.' },
+  { question: "¿Qué pasa si se rompe o daña algún plato durante el evento?", answer: 'Incluimos un <strong>margen de tolerancia del 2%</strong> sobre el total de piezas rentadas sin cargo adicional. Las piezas que excedan ese margen se cobran a precio de reposición: platos de porcelana desde $180, charger plates desde $250. Recomendamos contratar nuestro <strong>seguro de protección por $500</strong> que cubre hasta el 10% del inventario rentado.' },
+  { question: "¿Cómo funciona la entrega y recolección?", answer: 'Entregamos la vajilla <strong>un día antes del evento</strong> o el mismo día por la mañana, según tu preferencia. Llega en cajas de transporte especializadas con divisores acolchados. Incluimos un inventario detallado que firmamos en conjunto. La <strong>recolección se realiza al día siguiente</strong>. Solo pedimos que las piezas estén enjuagadas y organizadas en las mismas cajas. Transporte dentro de CDMX incluido.' },
+  { question: "¿Puedo combinar diferentes estilos de vajilla?", answer: 'Por supuesto, la mezcla de estilos es una <strong>tendencia muy popular en bodas</strong> y eventos de diseño. Puedes combinar platos de porcelana blanca con charger plates dorados, o vajilla borde dorado con base plateada. Nuestro equipo de asesoría te ayuda a crear la combinación perfecta y te enviamos fotos de montajes previos para que visualices el resultado.' },
+  { question: "¿Tienen vajilla especial para eventos temáticos?", answer: 'Además de nuestras líneas clásicas (porcelana blanca y borde dorado), ofrecemos <strong>charger plates en acabados especiales</strong>: dorado martillado, plateado antiguo, rose gold, cristal transparente y acrílico con diseño. Para bodas rústicas disponemos de platos de cerámica artesanal. Consulta disponibilidad con anticipación ya que los estilos especiales tienen inventario limitado.' },
+];
+
+const specs = [
+  { label: "Líneas disponibles", value: "Porcelana Blanca, Borde Dorado, Charger Plates" },
+  { label: "Plato trinche", value: "27 cm porcelana premium" },
+  { label: "Plato ensalada", value: "21 cm a juego" },
+  { label: "Plato pan", value: "16 cm a juego" },
+  { label: "Plato postre", value: "19 cm a juego" },
+  { label: "Charger plates", value: "33 cm dorado / plateado / rose gold" },
+  { label: "Pedido mínimo", value: "50 servicios" },
+  { label: "Capacidad inventario", value: "Hasta 2,000 servicios" },
+  { label: "Entrega", value: "Lavada, sanitizada y pulida" },
+  { label: "Seguro", value: "Protección opcional por $500" },
+];
+
+const sidebarNav = [
+  { name: "Platos y Vajilla", href: null, active: true },
+  { name: "Copas y Cristalería", href: "/servicios/catering/vajilla-cristaleria/copas-cristaleria/" },
+  { name: "Cubiertos y Charolas", href: "/servicios/catering/vajilla-cristaleria/cubiertos-charolas/" },
+  { name: "Equipo de Servicio", href: "/servicios/catering/vajilla-cristaleria/equipo-servicio/" },
+];
+
+const sidebarRelated = [
+  { name: "Estaciones de Servicio", href: "/servicios/catering/estaciones-servicio/" },
+  { name: "Cocina Móvil", href: "/servicios/catering/cocina-movil/" },
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+  { name: "Mobiliario Mesas", href: "/servicios/mobiliario/mesas/" },
+  { name: "Refrigeración", href: "/servicios/catering/refrigeracion/" },
+];
+
+const reviews = [
+  { author: "Carolina Méndez", text: "Rentamos vajilla de porcelana blanca con charger plates dorados para nuestra boda de 200 personas en un jardín de San Ángel. La vajilla llegó impecable, cada plato perfectamente pulido y sin una sola mancha. El montaje de mesa quedó espectacular. Servicio de entrega y recolección puntual y profesional.", rating: 5, date: "2025-11-20" },
+  { author: "Fernando Ruiz", text: "Organizamos una cena de gala corporativa para 150 ejecutivos en un hotel de Polanco. La vajilla borde dorado le dio un toque de elegancia extraordinario a cada mesa. Todo llegó sanitizado y listo para usar. El inventario coincidió pieza por pieza. Definitivamente los volveremos a contratar.", rating: 5, date: "2025-10-15" },
+  { author: "Embajada de Francia en México", text: "Para nuestra recepción diplomática necesitábamos vajilla de la más alta calidad para 120 comensales. Los charger plates en acabado plateado y la porcelana blanca fueron perfectos. El equipo de EVENTECH coordinó la entrega con nuestro protocolo de seguridad sin ningún problema. Excelente servicio.", rating: 5, date: "2025-09-08" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Platos y Vajilla para Eventos en CDMX",
+    description: "Renta de vajilla de porcelana blanca, borde dorado y charger plates para banquetes formales y bodas. Platos trinche, ensalada, pan y postre. Desde $18 por servicio.",
+    url: "/servicios/catering/vajilla-cristaleria/platos-vajilla/",
+    priceRange: { min: 18, max: 85 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 187,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Catering", url: "/servicios/catering/" },
+    { name: "Vajilla y Cristalería", url: "/servicios/catering/vajilla-cristaleria/" },
+    { name: "Platos y Vajilla", url: "/servicios/catering/vajilla-cristaleria/platos-vajilla/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Platos y Vajilla para Eventos en CDMX | EVENTECH"
+  description="Renta de vajilla de porcelana blanca, borde dorado y charger plates para banquetes formales y bodas. Platos trinche, ensalada, pan y postre. Desde $18 por servicio."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Vajilla premium para banquetes formales"
+    title='Renta de <span class="highlight">Platos y Vajilla</span> para Eventos'
+    subtitle="Vajilla de porcelana blanca, línea borde dorado y charger plates en acabados dorado, plateado y rose gold. Platos trinche, ensalada, pan y postre para banquetes de 50 a 2,000 personas."
+    primaryCTA={{ label: "Cotiza tu vajilla", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar platos y vajilla para mi evento` }}
+    cards={[
+      {
+        title: "Vajilla de porcelana blanca, borde dorado y charger plates",
+        content: "<strong>Renta de vajilla de porcelana premium</strong> para eventos en CDMX. Vajilla de porcelana blanca, línea borde dorado y charger plates en acabados dorado, plateado y rose gold. Platos trinche, ensalada, pan y postre en juegos completos de 4 piezas por servicio. Porcelana de alta resistencia con certificación alimentaria, acabado brillante y bordes suaves. Ideal para <strong>bodas, banquetes corporativos, cenas de gala y celebraciones formales</strong> donde cada detalle de la mesa cuenta.",
+      },
+      {
+        title: "Entrega sanitizada con inventario para 2,000 personas",
+        content: "<strong>Entrega lavada y pulida</strong> con proceso de lavado industrial a 82°C, secado con aire caliente y pulido manual pieza por pieza. Inventario para hasta 2,000 personas en un solo evento, seguro de protección opcional por $500 que cubre hasta el 10% del inventario, y servicio de recolección con lavado incluido al día siguiente. Transporte en cajas especializadas con divisores acolchados dentro de CDMX sin costo adicional.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas vajilla impecable para tu banquete?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con la vajilla ideal para tu estilo de evento y número de invitados"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Vajilla y Cristalería</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas platos y vajilla para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar platos y vajilla para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Platos y Vajilla</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Vajilla Porcelana Blanca -->
+          <section class="section section--alt" aria-labelledby="porcelana-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">La base de un montaje impecable</span>
+                <h2 class="showcase__title" id="porcelana-heading">Vajilla Porcelana Blanca</h2>
+                <p class="showcase__subtitle">Porcelana premium de alta resistencia para banquetes elegantes de cualquier escala.</p>
+                <p class="showcase__text">Nuestra <strong>vajilla de porcelana blanca</strong> es la opción más versátil y solicitada para bodas, banquetes corporativos y celebraciones formales en CDMX. Fabricada en porcelana de alta resistencia con certificación alimentaria, cada pieza presenta un <strong>acabado brillante con bordes suaves y superficie completamente lisa</strong>. El juego completo incluye plato trinche de 27 cm, plato ensalada de 21 cm, plato pan de 16 cm y plato postre de 19 cm, todos perfectamente uniformes para un montaje de mesa consistente.</p>
+                <p class="showcase__text">Ideal para eventos donde la elegancia clásica es protagonista: <strong>bodas de jardín, cenas de gala, banquetes de empresa y recepciones diplomáticas</strong>. El blanco puro permite que la presentación de los alimentos luzca al máximo y combina con cualquier estilo de mantelería y decoración. Contamos con inventario para hasta 2,000 servicios simultáneos. Combínala con nuestra <a href="/servicios/accesorios/manteleria-textiles/">mantelería premium</a> para un montaje de mesa completo y coordinado.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Porcelana premium</span>
+                  <span class="showcase__tag">4 platos por servicio</span>
+                  <span class="showcase__tag">Certificación alimentaria</span>
+                  <span class="showcase__tag">Hasta 2,000 personas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Vajilla Porcelana
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Vajilla Porcelana Blanca</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Vajilla Borde Dorado -->
+          <section class="section section--alt" aria-labelledby="dorado-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Lujo en cada plato</span>
+                <h2 class="showcase__title" id="dorado-heading">Vajilla Borde Dorado</h2>
+                <p class="showcase__subtitle">Porcelana con filete dorado de 24K para eventos de alta categoría.</p>
+                <p class="showcase__text">Nuestra <strong>vajilla con borde dorado</strong> eleva cualquier banquete a un nivel de lujo incomparable. Cada plato presenta un <strong>filete dorado de 24K</strong> aplicado a mano sobre porcelana de primera calidad, creando un contraste elegante que realza la presentación de cada platillo. Disponible en el juego completo de 4 piezas: trinche, ensalada, pan y postre, todos con el mismo acabado dorado consistente.</p>
+                <p class="showcase__text">La línea dorada es la <strong>favorita para bodas de lujo, cenas de gala y eventos diplomáticos</strong> donde cada detalle debe transmitir sofisticación. El dorado complementa perfectamente con <strong>cubiertos silver-plated, servilletas de tela y centros de mesa florales</strong>. Cada plato es inspeccionado individualmente para garantizar que el filete dorado esté intacto y uniforme. Complementa con nuestros <a href="/servicios/catering/vajilla-cristaleria/copas-cristaleria/">copas de cristal fino</a> para una mesa de ensueño.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Filete dorado 24K</span>
+                  <span class="showcase__tag">Porcelana premium</span>
+                  <span class="showcase__tag">Bodas de lujo</span>
+                  <span class="showcase__tag">Inspección individual</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Vajilla Borde Dorado
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Vajilla Borde Dorado</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Charger Plates Premium -->
+          <section class="section section--alt" aria-labelledby="charger-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">El toque que transforma tu mesa</span>
+                <h2 class="showcase__title" id="charger-heading">Charger Plates Premium</h2>
+                <p class="showcase__subtitle">Platos base decorativos en dorado, plateado y rose gold para montajes espectaculares.</p>
+                <p class="showcase__text">Los <strong>charger plates (platos base)</strong> son el elemento decorativo que transforma una mesa bonita en una mesa espectacular. Con un diámetro de <strong>33 cm</strong>, se colocan debajo del plato trinche como base decorativa visible, enmarcando cada servicio con un toque de color y textura. Disponibles en tres acabados premium: <strong>dorado brillante, plateado clásico y rose gold tendencia</strong>, con opciones de superficie lisa, martillada o con diseño geométrico.</p>
+                <p class="showcase__text">Los charger plates son <strong>imprescindibles en bodas elegantes, XV años y cenas de gala</strong> donde el diseño de mesa es protagonista. Se combinan tanto con vajilla blanca como con la línea borde dorado para crear contrastes visuales impactantes. Nuestro equipo de asesoría te ayuda a elegir la combinación perfecta según tu paleta de colores y estilo de evento. Complementa con nuestra <a href="/servicios/accesorios/manteleria-textiles/">mantelería y overlays</a> para un montaje de revista.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">33 cm diámetro</span>
+                  <span class="showcase__tag">Dorado / Plateado / Rose Gold</span>
+                  <span class="showcase__tag">Lisa / Martillada</span>
+                  <span class="showcase__tag">Base decorativa</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Charger Plates
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Charger Plates Premium</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Banquete Formal Completo -->
+          <section class="section section--alt" aria-labelledby="kit-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Todo incluido para tu banquete</span>
+                <h2 class="showcase__title" id="kit-heading">Kit Banquete Formal Completo</h2>
+                <p class="showcase__subtitle">Paquete integral de vajilla con los 4 platos, charger plate y servicio completo de entrega.</p>
+                <p class="showcase__text">Nuestro <strong>Kit Banquete Formal Completo</strong> es la solución todo-en-uno para eventos que requieren un montaje de mesa impecable sin complicaciones. Cada kit por persona incluye: <strong>plato trinche (27 cm), plato ensalada (21 cm), plato pan (16 cm), plato postre (19 cm) y charger plate (33 cm)</strong> en el acabado de tu elección. Todo entregado en cajas especializadas con inventario detallado, sanitizado y pulido listo para colocar directamente en las mesas.</p>
+                <p class="showcase__text">El kit incluye <strong>servicio logístico completo</strong>: entrega un día antes o el mismo día por la mañana, distribución de cajas en el área de montaje, inventario firmado en conjunto y recolección al día siguiente con lavado incluido. Para eventos de más de 200 personas, asignamos un coordinador de logística dedicado. Disponible desde 50 hasta 2,000 servicios. Complementa con nuestros <a href="/servicios/catering/vajilla-cristaleria/cubiertos-charolas/">cubiertos y charolas</a> para un servicio de mesa completo.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">5 piezas por servicio</span>
+                  <span class="showcase__tag">Logística incluida</span>
+                  <span class="showcase__tag">50-2,000 personas</span>
+                  <span class="showcase__tag">Coordinador dedicado</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Banquete Completo
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Kit Banquete Formal Completo</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Platos y Vajilla"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu vajilla de porcelana, es natural tener preguntas sobre cantidades, estilos y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de vajilla resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre platos y vajilla para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Vajilla y Cristalería -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Vajilla y Cristalería</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/vajilla-cristaleria/" class="sidebar-nav__back">&uarr; Volver a Vajilla y Cristalería</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/" class="sidebar-nav__back">&uarr; Volver a Catering</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de mesa:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas platos y vajilla para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar platos y vajilla para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Vajilla de Porcelana"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada de platos y vajilla. Sin compromiso, sin costos ocultos.",
+          "Ya sea vajilla para 50 personas o un banquete formal para 2,000 invitados, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoVajilla">
+                Tipo de vajilla
+              </label>
+              <select id="tipoVajilla" name="tipoVajilla" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de vajilla</option>
+                <option value="Porcelana Blanca">Porcelana Blanca</option>
+                <option value="Borde Dorado">Borde Dorado</option>
+                <option value="Charger Plate Dorado">Charger Plate Dorado</option>
+                <option value="Charger Plate Plateado">Charger Plate Plateado</option>
+                <option value="Charger Plate Rose Gold">Charger Plate Rose Gold</option>
+                <option value="Paquete Banquete Completo">Paquete Banquete Completo</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de invitados, tipo de banquete (formal/informal), estilo de vajilla, si necesitas charger plates..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Vajilla sanitizada</h3>
+            <p class="reserva-card__text">Toda la vajilla se entrega lavada industrialmente a 82°C, pulida a mano y lista para colocar en tus mesas.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para elegir la vajilla ideal según tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoVajilla = document.getElementById('tipoVajilla').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Platos y Vajilla para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoVajilla) texto += `*Tipo de vajilla:* ${tipoVajilla}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Catering"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de equipo de catering y vajilla para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de estilos y cobertura completa para banquetes de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Catering Pro MX</h3>
+            <p class="partner-card__tagline">Servicio Integral de Catering</p>
+            <p class="partner-card__text">Servicio integral de catering y estaciones gourmet para eventos en CDMX. Vajilla premium, cristalería fina y montaje de mesa profesional para bodas, corporativos y eventos sociales de primer nivel.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">G</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">GastroEventos CDMX</h3>
+            <p class="partner-card__tagline">Equipo de Cocina y Servicio</p>
+            <p class="partner-card__text">Renta de equipo de cocina y estaciones de servicio profesional. Vajilla de porcelana, cristalería templada y cubiertos de acero inoxidable para eventos de 50 a 2,000 personas en toda la CDMX.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">ChefMóvil</h3>
+            <p class="partner-card__tagline">Estaciones de Comida en Vivo</p>
+            <p class="partner-card__text">Estaciones de comida en vivo con chef y equipo profesional certificado. Vajilla artesanal, montaje temático y servicio de mesa completo para eventos gastronómicos únicos en la Ciudad de México.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">B</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">BanquetesPro</h3>
+            <p class="partner-card__tagline">Mobiliario y Equipo de Catering</p>
+            <p class="partner-card__text">Mobiliario y equipo de catering para bodas, corporativos y sociales. Vajilla, cristalería, cubiertos y equipo de servicio con logística profesional en toda la CDMX y área metropolitana.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="La vajilla perfecta para el banquete perfecto"
+    subheadline="Más de 500 eventos con nuestra vajilla nos respaldan. Cotiza hoy y recibe asesoría personalizada sin compromiso."
+    primaryCTA={{ label: "Cotizar platos y vajilla", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar platos y vajilla para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

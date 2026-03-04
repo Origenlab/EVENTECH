@@ -1,0 +1,730 @@
+---
+/**
+ * ─── Toboganes Inflables — Pagina de Producto (Nivel 4) ───
+ * Toboganes inflables secos de 4, 6 y 8 metros de altura con aterrizaje
+ * acolchado y monitores de seguridad para fiestas y eventos.
+ *
+ * Jerarquia: Servicios > Inflables > Juegos Infantiles > Toboganes
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Inflables", href: "/servicios/inflables/" },
+  { label: "Juegos Infantiles", href: "/servicios/inflables/juegos-infantiles/" },
+  { label: "Toboganes Inflables" },
+];
+
+const faqs = [
+  { question: "¿Qué medidas de seguridad tienen los toboganes inflables?", answer: 'Cada tobogán cuenta con <strong>escalera antiderrapante con barandales laterales</strong> en ambos lados, paredes inflables de 1.5 metros de altura en toda la pista de deslizamiento, y una <strong>zona de aterrizaje con colchón inflable de absorción de impacto</strong> extra grueso. Incluimos <strong>2 monitores de seguridad</strong>: uno en la cima que controla el acceso y distancia los descensos, y otro en la base que asiste el aterrizaje. Material de lona vinílica de 22 oz certificada ASTM con costuras triples reforzadas y anclaje de 6 puntos al piso.' },
+  { question: "¿Para qué edades y peso están diseñados los toboganes?", answer: 'Nuestros toboganes inflables están diseñados para niños de <strong>5 a 14 años</strong> con un peso máximo de <strong>60 kg por persona</strong>. El tobogán de 4 metros es ideal para niños de 5 a 8 años, el de 6 metros para niños de 7 a 12 años, y el de 8 metros para niños de 9 a 14 años. Solo se permite <strong>1 a 2 niños por deslizamiento</strong> con un intervalo de seguridad entre cada descenso. El monitor de la cima verifica edad y peso antes de cada turno.' },
+  { question: "¿Cuánto espacio necesito para instalar un tobogán inflable?", answer: 'El espacio requerido depende de la altura del tobogán. El de <strong>4 metros necesita 10x5 metros</strong> libres (incluyendo zona de aterrizaje), el de <strong>6 metros requiere 12x5 metros</strong>, y el de <strong>8 metros necesita 14x6 metros</strong> mínimo. El Tobogán Doble Carril requiere 14x8 metros. Se necesita una superficie plana (pasto, concreto o piso firme) y acceso a una toma de corriente de 110V a no más de 25 metros. Realizamos evaluación previa del espacio sin costo.' },
+  { question: "¿Los toboganes funcionan en exteriores?", answer: 'Sí, los toboganes inflables están diseñados principalmente para <strong>uso en exteriores</strong>: jardines, parques, canchas y explanadas. El material de lona vinílica es resistente a la intemperie y rayos UV. En caso de lluvia ligera pueden seguir operando, pero detenemos la operación con lluvia fuerte, tormenta eléctrica o vientos superiores a 40 km/h. También pueden instalarse en interiores si el espacio cuenta con <strong>altura mínima de 6 metros</strong> (para el modelo de 4m) hasta 10 metros (para el de 8m).' },
+  { question: "¿Cuánto tiempo toma la instalación de un tobogán?", answer: 'El tiempo de instalación varía según el tamaño. El tobogán de <strong>4 metros se instala en 30-40 minutos</strong>, el de 6 metros en 45-60 minutos, y el de 8 metros Extreme en aproximadamente <strong>60-90 minutos</strong>. El Doble Carril requiere unos 90 minutos. Llegamos con <strong>1.5 a 2 horas de anticipación</strong> al inicio del evento para tener todo inflado, anclado y probado. El desmontaje toma aproximadamente la mitad del tiempo de instalación.' },
+  { question: "¿Puedo combinar el tobogán con brincolines u otros inflables?", answer: 'Por supuesto, es una de las combinaciones más populares. Ofrecemos <strong>combos de tobogán + brincolín</strong> con descuento especial y un <strong>Paquete Festival</strong> que incluye tobogán, brincolín y circuito de obstáculos para eventos grandes. Cada inflable viene con su propio monitor de seguridad e inflador independiente. También puedes complementar con nuestros <a href="/servicios/inflables/juegos-infantiles/circuitos-obstaculos/">circuitos de obstáculos</a> para crear una zona de juegos completa que mantenga a los niños entretenidos durante horas.' },
+];
+
+const specs = [
+  { label: "Alturas disponibles", value: "4, 6 y 8 metros" },
+  { label: "Material", value: "Lona vinílica 22 oz reforzada" },
+  { label: "Capacidad", value: "1-2 niños por deslizamiento" },
+  { label: "Rango de edad", value: "5 a 14 años" },
+  { label: "Peso máximo", value: "60 kg por persona" },
+  { label: "Largo total", value: "8 a 14 metros según altura" },
+  { label: "Escalera", value: "Antiderrapante con barandales laterales" },
+  { label: "Monitores", value: "2 incluidos: arriba y aterrizaje" },
+  { label: "Inflador", value: "Continuo 2 HP, 110V" },
+  { label: "Aterrizaje", value: "Colchón inflable de absorción" },
+];
+
+const sidebarNav = [
+  { name: "Brincolines y Castillos", href: "/servicios/inflables/juegos-infantiles/brincolines/" },
+  { name: "Toboganes Inflables", href: null, active: true },
+  { name: "Circuitos de Obstáculos", href: "/servicios/inflables/juegos-infantiles/circuitos-obstaculos/" },
+  { name: "Inflables Temáticos", href: "/servicios/inflables/juegos-infantiles/tematicos/" },
+];
+
+const sidebarRelated = [
+  { name: "Inflables Acuáticos", href: "/servicios/inflables/acuaticos/" },
+  { name: "Inflables para Adultos", href: "/servicios/inflables/adultos/" },
+  { name: "Carpas para Eventos", href: "/servicios/carpas/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+  { name: "Catering y Alimentos", href: "/servicios/catering/" },
+];
+
+const reviews = [
+  { author: "Fernando López", text: "Rentamos el tobogán de 6 metros para la fiesta de cumpleaños en nuestro jardín grande en Pedregal. Los niños estaban emocionadísimos, hacían fila para subir una y otra vez. Los 2 monitores fueron muy profesionales, controlaron todo perfectamente y el aterrizaje acolchado les dio mucha confianza a los papás. Excelente servicio.", rating: 5, date: "2025-11-10" },
+  { author: "Mariana Ruiz", text: "Contratamos el tobogán de 8 metros Extreme para un evento deportivo infantil en un parque de Tlalpan. Fue la atracción estrella del día — más de 80 niños disfrutaron durante 5 horas sin ningún problema. El equipo de EVENTECH llegó temprano, instaló todo impecable y los monitores fueron increíbles. Totalmente recomendados.", rating: 5, date: "2025-10-22" },
+  { author: "José Antonio Vega", text: "Para el festival comunitario del Día del Niño rentamos el Tobogán Doble Carril y fue espectacular. Las competencias entre niños generaron mucha emoción y los papás también se divirtieron viendo las carreras. La instalación fue profesional y el servicio de principio a fin fue impecable. Definitivamente repetiremos.", rating: 5, date: "2025-09-15" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Toboganes Inflables para Eventos en CDMX",
+    description: "Renta de toboganes inflables secos de 4, 6 y 8 metros de altura con aterrizaje acolchado y monitores de seguridad. La atracción estrella para fiestas infantiles. Desde $1,200.",
+    url: "/servicios/inflables/juegos-infantiles/toboganes/",
+    priceRange: { min: 1200, max: 4500 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 187,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Inflables", url: "/servicios/inflables/" },
+    { name: "Juegos Infantiles", url: "/servicios/inflables/juegos-infantiles/" },
+    { name: "Toboganes Inflables", url: "/servicios/inflables/juegos-infantiles/toboganes/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Toboganes Inflables para Eventos en CDMX | EVENTECH"
+  description="Renta de toboganes inflables secos de 4, 6 y 8 metros de altura con aterrizaje acolchado y monitores de seguridad. La atracción estrella para fiestas infantiles. Desde $1,200."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="La atracción más emocionante"
+    title='Renta de <span class="highlight">Toboganes Inflables</span> para Eventos'
+    subtitle="Toboganes inflables secos de 4, 6 y 8 metros de altura con escalera antiderrapante, zona de aterrizaje acolchada y 2 monitores de seguridad incluidos. La atracción estrella para fiestas infantiles y eventos familiares."
+    primaryCTA={{ label: "Cotiza tu tobogán", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar toboganes inflables para mi evento` }}
+    cards={[
+      {
+        title: "Toboganes de 4, 6 y 8 metros con seguridad certificada",
+        content: "<strong>Renta de toboganes inflables secos</strong> con la máxima seguridad para eventos en CDMX. Toboganes de 4, 6 y 8 metros de altura con escalera antiderrapante con barandales laterales, pista de deslizamiento con paredes inflables de 1.5 metros y zona de aterrizaje con colchón inflable de absorción de impacto. Materiales de lona vinílica de 22 oz certificados ASTM con costuras triples reforzadas. Ideales para fiestas de cumpleaños, eventos escolares, kermeses y festivales familiares.",
+      },
+      {
+        title: "2 monitores de seguridad y aterrizaje de impacto absorbente",
+        content: "<strong>Servicio profesional con doble supervisión</strong> incluido en cada renta de toboganes. 2 monitores de seguridad capacitados: uno en la cima controlando acceso y distanciando descensos, otro en la base asistiendo el aterrizaje. Sistema de anclaje reforzado de 6 puntos, inflador continuo de 2 HP y zona de aterrizaje extra acolchada para máxima diversión segura. Transporte, instalación profesional y desmontaje incluidos sin costo adicional dentro de CDMX.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Quieres la atracción más emocionante para tu evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con el tobogán ideal para tu espacio y tipo de evento"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Juegos Infantiles Inflables</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas toboganes inflables para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar toboganes inflables para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 9 7 9s7-4 7-9a7 7 0 0 0-7-7z"/><path d="M12 18v4"/><path d="M10 22h4"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Toboganes Inflables</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Tobogán 4 metros -->
+          <section class="section section--alt" aria-labelledby="tobogan-4m-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Perfecto para los más pequeños</span>
+                <h2 class="showcase__title" id="tobogan-4m-heading">Tobogán 4 Metros</h2>
+                <p class="showcase__subtitle">El tobogán ideal para introducir a los niños a la emoción del deslizamiento con máxima seguridad.</p>
+                <p class="showcase__text">Nuestro <strong>tobogán inflable de 4 metros de altura</strong> es la opción perfecta para niños de 5 a 8 años que buscan su primera experiencia de tobogán inflable. Con un largo total de <strong>8 metros</strong> (incluyendo escalera y zona de aterrizaje), ofrece una pista de deslizamiento con la inclinación ideal para generar velocidad divertida sin ser intimidante para los más pequeños. La escalera antiderrapante con <strong>barandales laterales acolchados</strong> facilita el ascenso seguro.</p>
+                <p class="showcase__text">El <strong>colchón de aterrizaje extra grueso</strong> absorbe cada llegada suavemente, eliminando cualquier riesgo de impacto. Las paredes laterales inflables de 1.5 metros de altura mantienen a los niños dentro de la pista en todo momento. Ideal para <strong>fiestas de cumpleaños en jardines medianos, eventos escolares y celebraciones familiares</strong>. Incluye 2 monitores de seguridad e inflador continuo de 2 HP. Combínalo con un <a href="/servicios/inflables/juegos-infantiles/brincolines/">brincolín</a> para crear una zona de juegos completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">4 metros de altura</span>
+                  <span class="showcase__tag">8m largo total</span>
+                  <span class="showcase__tag">5-8 años</span>
+                  <span class="showcase__tag">Desde $1,200</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Tobogán 4m
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 5 7 9 7 9s7-4 7-9a7 7 0 0 0-7-7z"/>
+                    <path d="M12 18v4"/><path d="M10 22h4"/>
+                  </svg>
+                  <span>Tobogán 4 Metros</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Tobogán 6 metros -->
+          <section class="section section--alt" aria-labelledby="tobogan-6m-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">El más popular para fiestas</span>
+                <h2 class="showcase__title" id="tobogan-6m-heading">Tobogán 6 Metros</h2>
+                <p class="showcase__subtitle">El tobogán más solicitado para fiestas infantiles: altura emocionante con seguridad comprobada.</p>
+                <p class="showcase__text">El <strong>tobogán inflable de 6 metros</strong> es nuestro modelo más solicitado para <strong>fiestas de cumpleaños y eventos infantiles</strong>. Con un largo total de <strong>11 metros</strong> y pista de deslizamiento de alta velocidad, ofrece la combinación perfecta de emoción y seguridad para niños de 7 a 12 años. La altura imponente lo convierte en el centro de atención de cualquier fiesta, generando filas de niños ansiosos por subir una y otra vez.</p>
+                <p class="showcase__text">Cuenta con <strong>escalera de doble ancho con pasamanos acolchados</strong>, pista de deslizamiento con superficie pulida de baja fricción y <strong>zona de aterrizaje extra larga</strong> con colchón de absorción de impacto. Los 2 monitores de seguridad coordinan los descensos para mantener intervalos seguros entre cada niño. Perfecto para <strong>jardines grandes, parques, explanadas y campos deportivos</strong>. Complementa la diversión con nuestros <a href="/servicios/catering/">servicios de catering</a> para mantener a los niños hidratados y con energía.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">6 metros de altura</span>
+                  <span class="showcase__tag">11m largo total</span>
+                  <span class="showcase__tag">7-12 años</span>
+                  <span class="showcase__tag">El más popular</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Tobogán 6m
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 5 7 9 7 9s7-4 7-9a7 7 0 0 0-7-7z"/>
+                    <path d="M12 18v4"/><path d="M10 22h4"/>
+                  </svg>
+                  <span>Tobogán 6 Metros</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Tobogán 8 metros Extreme -->
+          <section class="section section--alt" aria-labelledby="tobogan-8m-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Máxima adrenalina inflable</span>
+                <h2 class="showcase__title" id="tobogan-8m-heading">Tobogán 8 Metros Extreme</h2>
+                <p class="showcase__subtitle">El tobogán inflable más alto de nuestro catálogo: 8 metros de pura emoción para eventos grandes.</p>
+                <p class="showcase__text">El <strong>tobogán inflable de 8 metros Extreme</strong> es la atracción más impresionante de nuestro catálogo de inflables infantiles. Con un largo total de <strong>14 metros</strong> y la pista de deslizamiento más rápida disponible, genera una experiencia de adrenalina que los niños de 9 a 14 años nunca olvidan. Su presencia imponente se ve desde cualquier punto del venue, convirtiéndose en el <strong>ícono visual de tu evento</strong>.</p>
+                <p class="showcase__text">Fabricado con <strong>lona vinílica de 22 oz extra reforzada</strong> con costuras triples y sistema de anclaje de 8 puntos para estabilidad máxima. La escalera de ascenso cuenta con <strong>3 descansos intermedios</strong> para que los niños recuperen el aliento antes de llegar a la cima. La zona de aterrizaje es la más amplia de nuestro catálogo con colchón de doble capa de absorción. Perfecto para <strong>festivales comunitarios, eventos deportivos, kermeses grandes y celebraciones del Día del Niño</strong>. Requiere inflador de 2 HP y espacio mínimo de 14x6 metros.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">8 metros de altura</span>
+                  <span class="showcase__tag">14m largo total</span>
+                  <span class="showcase__tag">9-14 años</span>
+                  <span class="showcase__tag">Máxima emoción</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Tobogán 8m Extreme
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 5 7 9 7 9s7-4 7-9a7 7 0 0 0-7-7z"/>
+                    <path d="M12 18v4"/><path d="M10 22h4"/>
+                  </svg>
+                  <span>Tobogán 8m Extreme</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Tobogán Doble Carril -->
+          <section class="section section--alt" aria-labelledby="tobogan-doble-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Carreras cara a cara</span>
+                <h2 class="showcase__title" id="tobogan-doble-heading">Tobogán Doble Carril</h2>
+                <p class="showcase__subtitle">Dos pistas de deslizamiento paralelas para competencias y carreras entre amigos.</p>
+                <p class="showcase__text">El <strong>Tobogán Doble Carril</strong> lleva la diversión al siguiente nivel con <strong>dos pistas de deslizamiento paralelas</strong> que permiten carreras cara a cara entre amigos. Con 6 metros de altura y dos escaleras independientes, los niños suben por lados separados y se deslizan simultáneamente para descubrir quién llega primero a la base. La competencia amistosa genera emoción constante y mantiene a los niños entretenidos durante horas con torneos eliminatorios.</p>
+                <p class="showcase__text">Cada carril cuenta con su propia <strong>zona de aterrizaje independiente</strong> y barreras de separación en la cima para evitar colisiones. Los <strong>2 monitores de seguridad</strong> coordinan las salidas simultáneas y supervisan ambas zonas de aterrizaje. El ancho total es de 6 metros con largo de 12 metros, requiriendo un espacio libre de 14x8 metros. Ideal para <strong>eventos escolares, competencias deportivas infantiles, festivales y fiestas con muchos niños</strong>. Combínalo con nuestro <a href="/servicios/audiovisual/">equipo de sonido</a> para animar las carreras.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Doble carril</span>
+                  <span class="showcase__tag">6m de altura</span>
+                  <span class="showcase__tag">Competencias</span>
+                  <span class="showcase__tag">Torneos</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Tobogán Doble Carril
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 5 7 9 7 9s7-4 7-9a7 7 0 0 0-7-7z"/>
+                    <path d="M12 18v4"/><path d="M10 22h4"/>
+                  </svg>
+                  <span>Tobogán Doble Carril</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Toboganes Inflables"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu tobogán inflable, es natural tener preguntas sobre seguridad, edades, espacio y logística. Aquí encontrarás las respuestas más comunes de padres y organizadores de eventos.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de inflables resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre toboganes inflables para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Juegos Infantiles -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Juegos Infantiles Inflables</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/inflables/juegos-infantiles/" class="sidebar-nav__back">&uarr; Volver a Juegos Infantiles</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/inflables/" class="sidebar-nav__back">&uarr; Volver a Inflables</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu fiesta infantil:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas toboganes inflables para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar toboganes inflables para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Tobogán Inflable"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un tobogán de 4 metros para una fiesta íntima o el Extreme de 8 metros para un festival, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Fiesta de Cumpleaños">Fiesta de Cumpleaños</option>
+                <option value="Bautizo">Bautizo</option>
+                <option value="Primera Comunión">Primera Comunión</option>
+                <option value="Día del Niño">Día del Niño</option>
+                <option value="Evento Escolar">Evento Escolar</option>
+                <option value="Kermés">Kermés</option>
+                <option value="Festival Familiar">Festival Familiar</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoTobogan">
+                Tipo de tobogán
+              </label>
+              <select id="tipoTobogan" name="tipoTobogan" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de tobogán</option>
+                <option value="Tobogán 4m">Tobogán 4m</option>
+                <option value="Tobogán 6m">Tobogán 6m</option>
+                <option value="Tobogán 8m Extreme">Tobogán 8m Extreme</option>
+                <option value="Tobogán Doble Carril">Tobogán Doble Carril</option>
+                <option value="Combo Tobogán + Brincolín">Combo Tobogán + Brincolín</option>
+                <option value="Paquete Festival">Paquete Festival</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: edad de los niños, número de invitados, tipo de espacio (jardín/parque/explanada), si necesitas combo con brincolines..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Evaluación de espacio gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu espacio sin costo para recomendarte el tobogán ideal según dimensiones y superficie.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para elegir el tobogán perfecto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoTobogan = document.getElementById('tipoTobogan').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Toboganes Inflables*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoTobogan) texto += `*Tipo de tobogán:* ${tipoTobogan}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Inflables"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de inflables infantiles para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, monitores capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de inflables y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">I</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Inflables Fiesta MX</h3>
+            <p class="partner-card__tagline">Brincolines y Juegos Inflables Certificados</p>
+            <p class="partner-card__text">Brincolines y juegos inflables certificados para fiestas infantiles en CDMX. Inventario de más de 50 inflables con certificación ASTM, monitores capacitados y seguro de responsabilidad civil incluido.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">J</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">JuegosEvent CDMX</h3>
+            <p class="partner-card__tagline">Inflables Profesionales con Monitores</p>
+            <p class="partner-card__text">Renta de inflables profesionales con monitores para eventos y ferias. Brincolines, toboganes y circuitos de obstáculos con equipo de última generación y servicio de instalación completo.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">I</span>
+            <div class="partner-card__badge">+8 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">InflaPro</h3>
+            <p class="partner-card__tagline">Inflables de Alta Calidad</p>
+            <p class="partner-card__text">Juegos inflables de alta calidad con seguro y operadores certificados. Más de 8 años de experiencia en renta de inflables para fiestas infantiles, eventos escolares y festivales en toda la CDMX.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">D</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">DiversiónTotal</h3>
+            <p class="partner-card__tagline">Inflables Temáticos y Circuitos</p>
+            <p class="partner-card__text">Inflables temáticos y circuitos para eventos infantiles y familiares. Especialistas en castillos de princesas, superhéroes y dinosaurios con personalización y logística profesional en CDMX.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="La atracción que hará tu evento verdaderamente inolvidable"
+    subheadline="Más de 200 eventos exitosos con toboganes inflables nos respaldan. Cotiza hoy y recibe asesoría personalizada sin compromiso."
+    primaryCTA={{ label: "Cotizar toboganes", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar toboganes inflables para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

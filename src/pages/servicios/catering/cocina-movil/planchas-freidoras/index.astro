@@ -1,0 +1,730 @@
+---
+/**
+ * ─── Planchas y Freidoras Industriales — Pagina de Producto (Nivel 4) ───
+ * Planchas flat-top y freidoras de doble canasta industriales para eventos.
+ * Opciones gas y electricas con versatilidad culinaria total.
+ *
+ * Jerarquia: Servicios > Catering > Cocina Movil > Planchas y Freidoras
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Catering", href: "/servicios/catering/" },
+  { label: "Cocina Movil", href: "/servicios/catering/cocina-movil/" },
+  { label: "Planchas y Freidoras" },
+];
+
+const faqs = [
+  { question: "¿Cuál es mejor para mi evento, una plancha de gas o eléctrica?", answer: "Depende de tu venue y necesidades. Las <strong>planchas de gas LP</strong> son ideales para eventos al aire libre o venues sin infraestructura eléctrica de alto amperaje — calientan más rápido y ofrecen mayor potencia térmica. Las <strong>planchas eléctricas de 220V</strong> proporcionan control de temperatura más preciso por zonas, generan menos calor residual y son preferidas en salones con buena instalación eléctrica. Para eventos en jardines o carpas, recomendamos gas. Para hoteles y salones, eléctrica. Nuestro asesor evalúa tu espacio y recomienda la mejor opción." },
+  { question: "¿Cuántas porciones por hora puede producir el equipo?", answer: "La capacidad varía según el equipo. La <strong>plancha de 60 cm</strong> produce entre 80 y 120 porciones/hora — ideal para estaciones de tacos o hamburguesas en eventos de hasta 150 personas. La <strong>plancha de 90 cm</strong> alcanza 150-200 porciones/hora para banquetes grandes. Las <strong>freidoras de 15 litros</strong> producen 50-80 porciones/hora y las de <strong>30 litros</strong> alcanzan 100-150 porciones/hora. Para eventos de más de 300 comensales, recomendamos combinar plancha + freidora en estaciones paralelas." },
+  { question: "¿El aceite para las freidoras está incluido en la renta?", answer: "No, el aceite de fritura <strong>no está incluido</strong> en la renta estándar por razones de higiene y frescura — cada evento requiere aceite nuevo y limpio. Sin embargo, ofrecemos un <strong>complemento de aceite premium</strong> (aceite de canola de alta estabilidad térmica) con cargo adicional: 15 litros por $350 o 30 litros por $600. Tu equipo de catering también puede traer su propio aceite. Nuestro técnico se encarga del llenado, calentamiento controlado y drenaje seguro al finalizar el evento." },
+  { question: "¿Cuánto espacio necesito para instalar plancha y freidora?", answer: "Para una <strong>plancha de 60 cm</strong> necesitas un espacio mínimo de 1.5 x 1.5 metros. Para la <strong>plancha de 90 cm</strong>, mínimo 2 x 1.5 metros. Las <strong>freidoras</strong> requieren 1 x 1 metro adicional con separación de al menos 50 cm de otros equipos por seguridad. Para un combo plancha + freidora, recomendamos un área de <strong>3 x 2 metros</strong>. El piso debe ser plano y resistente al calor (no césped directo). Nuestras <a href='/servicios/catering/cocina-movil/mesas-inoxidable/'>mesas de trabajo inoxidable</a> complementan perfectamente la estación." },
+  { question: "¿Qué medidas de seguridad incluye el equipo?", answer: "Todas nuestras planchas y freidoras incluyen múltiples sistemas de seguridad: <strong>termostato de seguridad con corte automático</strong> por sobrecalentamiento, cubiertas antisalpicaduras de acero inoxidable, bases antideslizantes, mangueras de gas certificadas NOM con regulador de presión y válvula de cierre rápido. Las freidoras cuentan con <strong>tapa de seguridad, sistema de drenaje frío</strong> y canastas con mangos aislados térmicamente. Nuestro técnico verifica todos los sistemas de seguridad antes de la operación." },
+  { question: "¿Puedo combinar planchas y freidoras con otro equipo de cocina?", answer: 'Es la configuración más popular para catering versátil. Las combinaciones más solicitadas son: <strong>plancha + freidora</strong> para estaciones de hamburguesas con papas fritas, <strong>plancha + parrilla</strong> para menús de carnes y tacos, y <strong>freidora + horno</strong> para menús completos con guarniciones. Ofrecemos paquetes combinados con descuentos especiales. Consulta nuestra página de <a href="/servicios/catering/cocina-movil/">cocina móvil</a> para ver todas las opciones disponibles y armar tu paquete ideal.' },
+];
+
+const specs = [
+  { label: "Plancha flat-top", value: "60 y 90 cm, acero inoxidable" },
+  { label: "Freidora", value: "Doble canasta, 15 y 30 litros" },
+  { label: "Combustible", value: "Gas LP o eléctrica 220V" },
+  { label: "Temperatura plancha", value: "Hasta 300°C con control por zonas" },
+  { label: "Temperatura freidora", value: "Termostato digital 150-190°C" },
+  { label: "Material", value: "Acero inoxidable grado 304" },
+  { label: "Capacidad plancha", value: "80-200 porciones/hora" },
+  { label: "Capacidad freidora", value: "50-150 porciones/hora" },
+  { label: "Gas", value: "Tanque LP incluido" },
+  { label: "Accesorios", value: "Espátulas, pinzas, canastas incluidas" },
+];
+
+const sidebarNav = [
+  { name: "Parrillas Industriales", href: "/servicios/catering/cocina-movil/parrillas/" },
+  { name: "Planchas y Freidoras", href: null, active: true },
+  { name: "Hornos de Convección", href: "/servicios/catering/cocina-movil/hornos-conveccion/" },
+  { name: "Mesas de Trabajo Inoxidable", href: "/servicios/catering/cocina-movil/mesas-inoxidable/" },
+];
+
+const sidebarRelated = [
+  { name: "Estaciones de Servicio", href: "/servicios/catering/estaciones-servicio/" },
+  { name: "Vajilla y Cristalería", href: "/servicios/catering/vajilla-cristaleria/" },
+  { name: "Refrigeración", href: "/servicios/catering/refrigeracion/" },
+  { name: "Plantas de Energía", href: "/servicios/accesorios/plantas-energia/" },
+  { name: "Carpas para Eventos", href: "/servicios/carpas/" },
+];
+
+const reviews = [
+  { author: "Ana Gabriela Ruiz", text: "Rentamos una plancha de 90 cm y una freidora de 30 litros para una taquiza gourmet en un evento corporativo en Polanco. La plancha calentó perfectamente en minutos y la freidora mantuvo temperatura constante durante 4 horas de servicio. El técnico fue muy profesional y nos ayudó con la instalación. Excelente calidad de equipo.", rating: 5, date: "2025-11-18" },
+  { author: "Diego Hernández", text: "Organizamos un evento de street food para 200 personas y rentamos 2 planchas y 2 freidoras. Todo el equipo llegó impecable, el gas incluido alcanzó para todo el evento y los utensilios profesionales hicieron la diferencia. Nuestro chef quedó encantado con la calidad del acero inoxidable. Muy recomendable.", rating: 5, date: "2025-10-05" },
+  { author: "Laura Méndez", text: "Para una feria gastronómica en Coyoacán rentamos el combo completo de plancha + freidora + mesa de trabajo. El montaje fue rapidísimo, todo conectado y funcionando en 20 minutos. Las freidoras con termostato digital son una maravilla para mantener la temperatura exacta. Atendimos más de 300 personas sin problema.", rating: 5, date: "2025-09-15" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Planchas y Freidoras Industriales en CDMX",
+    description: "Renta de planchas flat-top y freidoras de doble canasta industriales para eventos. Opciones gas y eléctricas. Versatilidad culinaria total. Desde $1,200.",
+    url: "/servicios/catering/cocina-movil/planchas-freidoras/",
+    priceRange: { min: 1200, max: 4000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 156,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Catering", url: "/servicios/catering/" },
+    { name: "Cocina Móvil", url: "/servicios/catering/cocina-movil/" },
+    { name: "Planchas y Freidoras", url: "/servicios/catering/cocina-movil/planchas-freidoras/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Planchas y Freidoras Industriales en CDMX | EVENTECH"
+  description="Renta de planchas flat-top y freidoras de doble canasta industriales para eventos. Opciones gas y eléctricas. Versatilidad culinaria total. Desde $1,200."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Versatilidad culinaria para cualquier menú"
+    title='Renta de <span class="highlight">Planchas y Freidoras</span> Industriales para Eventos'
+    subtitle="Planchas flat-top de 60 y 90 cm con control de temperatura por zonas y freidoras de doble canasta de 15 y 30 litros con termostato digital. Opciones gas LP y eléctricas con montaje técnico incluido."
+    primaryCTA={{ label: "Cotiza tu equipo", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar planchas y freidoras industriales para mi evento` }}
+    cards={[
+      {
+        title: "Planchas flat-top y freidoras de doble canasta",
+        content: "<strong>Renta de planchas y freidoras industriales</strong> para eventos en CDMX. Planchas flat-top de 60 y 90 cm en acero inoxidable con control de temperatura por zonas y freidoras de doble canasta de 15 y 30 litros con termostato digital. Superficie de cocción continua de acero laminado en caliente con grosor de 12 mm para distribución uniforme del calor. Ideales para estaciones de tacos, hamburguesas gourmet, alitas y cualquier preparación que requiera plancha o fritura.",
+      },
+      {
+        title: "Opciones gas y eléctricas con montaje profesional",
+        content: "<strong>Servicio completo de planchas y freidoras</strong> con opciones gas LP y eléctricas 220V, tanque o conexión incluida, accesorios de cocina profesional y montaje técnico para operación segura. Incluye espátulas, pinzas, canastas de fritura, cubiertas antisalpicaduras y termómetros industriales. Transporte, instalación con verificación de seguridad y desmontaje incluidos en toda la CDMX.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas planchas y freidoras para tu próximo evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con el equipo ideal para tu menú y número de comensales"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Cocina Móvil para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas planchas y freidoras para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar planchas y freidoras industriales para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Planchas y Freidoras</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Plancha Flat-Top 60cm -->
+          <section class="section section--alt" aria-labelledby="plancha-60-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Compacta y versátil</span>
+                <h2 class="showcase__title" id="plancha-60-heading">Plancha Flat-Top 60cm</h2>
+                <p class="showcase__subtitle">La plancha perfecta para estaciones de tacos, quesadillas y hamburguesas en eventos de hasta 150 personas.</p>
+                <p class="showcase__text">Nuestra <strong>plancha flat-top de 60 cm</strong> es la opción más compacta y versátil del catálogo. Con superficie de cocción continua de <strong>acero laminado en caliente de 12 mm de grosor</strong>, ofrece distribución uniforme del calor y una zona fría incorporada para mantener ingredientes a temperatura. Control de temperatura de hasta <strong>300°C</strong> con regulador de precisión. Produce entre 80 y 120 porciones por hora — ideal para <strong>estaciones de tacos, quesadillas, hamburguesas gourmet y desayunos</strong>.</p>
+                <p class="showcase__text">Incluye <strong>cubierta antisalpicaduras, espátulas profesionales de acero inoxidable y charola recolectora de grasa</strong>. Disponible en versiones de gas LP y eléctrica 220V. Su tamaño compacto permite instalarla en espacios reducidos como food trucks, terrazas y áreas de servicio de salones. Combínala con nuestras <a href="/servicios/catering/cocina-movil/mesas-inoxidable/">mesas de trabajo inoxidable</a> para crear una estación de preparación completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">60 cm</span>
+                  <span class="showcase__tag">Hasta 300°C</span>
+                  <span class="showcase__tag">Gas / Eléctrica</span>
+                  <span class="showcase__tag">80-120 porciones/hr</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Plancha 60cm
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Plancha Flat-Top 60cm</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Plancha Flat-Top 90cm Industrial -->
+          <section class="section section--alt" aria-labelledby="plancha-90-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">La más solicitada para catering</span>
+                <h2 class="showcase__title" id="plancha-90-heading">Plancha Flat-Top 90cm Industrial</h2>
+                <p class="showcase__subtitle">La plancha industrial estándar para catering de alto volumen y banquetes de 150 a 300 comensales.</p>
+                <p class="showcase__text">La <strong>plancha flat-top industrial de 90 cm</strong> es nuestra opción más solicitada para <strong>catering profesional de alto volumen</strong>. Con superficie de cocción de acero laminado de 12 mm y <strong>control de temperatura por zonas independientes</strong>, permite cocinar diferentes preparaciones simultáneamente — zona alta para sellar proteínas, zona media para cocción y zona baja para mantener caliente. Produce entre <strong>150 y 200 porciones por hora</strong> con eficiencia profesional.</p>
+                <p class="showcase__text">Incluye <strong>cubierta antisalpicaduras doble, set completo de espátulas y pinzas profesionales, termómetro industrial y charola de grasa de alta capacidad</strong>. Ideal para estaciones de <strong>street food gourmet, teppanyaki, fajitas, hamburguesas y desayunos masivos</strong>. El diseño con ruedas y freno permite reposicionar la plancha durante el servicio. Perfecta para combinar con nuestras <a href="/servicios/catering/cocina-movil/parrillas/">parrillas industriales</a> en montajes de cocina móvil completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">90 cm</span>
+                  <span class="showcase__tag">Control por zonas</span>
+                  <span class="showcase__tag">Gas / Eléctrica</span>
+                  <span class="showcase__tag">150-200 porciones/hr</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Plancha 90cm
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Plancha Flat-Top 90cm</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Freidora Doble Canasta 15L -->
+          <section class="section section--alt" aria-labelledby="freidora-15-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Fritura profesional compacta</span>
+                <h2 class="showcase__title" id="freidora-15-heading">Freidora Doble Canasta 15L</h2>
+                <p class="showcase__subtitle">Freidora compacta de doble canasta para eventos de hasta 150 personas con termostato digital de precisión.</p>
+                <p class="showcase__text">Nuestra <strong>freidora de doble canasta de 15 litros</strong> es la opción perfecta para eventos medianos que requieren fritura profesional. Con <strong>termostato digital de precisión (150-190°C)</strong>, permite controlar la temperatura al grado exacto para cada preparación — papas fritas crujientes a 175°C, alitas doradas a 180°C, churros perfectos a 185°C. Las <strong>dos canastas independientes</strong> permiten freír diferentes productos simultáneamente sin mezclar sabores ni tiempos de cocción.</p>
+                <p class="showcase__text">Incluye <strong>tapa de seguridad, sistema de drenaje frío para cambio de aceite seguro, canastas con mangos aislados térmicamente y filtro de residuos</strong>. Fabricada en acero inoxidable grado 304 con base antideslizante. Disponible en versiones gas LP y eléctrica 220V. Produce entre 50 y 80 porciones por hora. Ideal para combinar con nuestras <a href="/servicios/catering/estaciones-servicio/">estaciones de servicio</a> para un buffet completo con opciones fritas.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">15 litros</span>
+                  <span class="showcase__tag">Doble canasta</span>
+                  <span class="showcase__tag">Termostato digital</span>
+                  <span class="showcase__tag">50-80 porciones/hr</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Freidora 15L
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Freidora 15L</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Freidora Industrial 30L -->
+          <section class="section section--alt" aria-labelledby="freidora-30-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Máxima capacidad de fritura</span>
+                <h2 class="showcase__title" id="freidora-30-heading">Freidora Industrial 30L</h2>
+                <p class="showcase__subtitle">La freidora de mayor capacidad para catering masivo: festivales, ferias y banquetes de 200+ comensales.</p>
+                <p class="showcase__text">La <strong>freidora industrial de 30 litros</strong> es nuestro equipo de mayor capacidad para fritura profesional en eventos de gran formato. Con <strong>doble canasta extra profunda</strong> y termostato digital de precisión, produce entre <strong>100 y 150 porciones por hora</strong>. Su tanque de 30 litros permite fritura continua durante horas sin necesidad de rellenar aceite. El sistema de calentamiento rápido alcanza temperatura óptima en menos de 10 minutos — esencial para servicio ininterrumpido en <strong>festivales gastronómicos, ferias de comida y banquetes masivos</strong>.</p>
+                <p class="showcase__text">Incluye <strong>sistema de filtrado de aceite incorporado, drenaje frío con válvula de seguridad, canastas con mangos extensibles y cubierta de acero inoxidable</strong>. El sistema de filtrado extiende la vida útil del aceite y mantiene la calidad de fritura constante durante todo el evento. Disponible en gas LP con tanque incluido y eléctrica 220V con circuito dedicado. Complementa con nuestros <a href="/servicios/catering/cocina-movil/hornos-conveccion/">hornos de convección</a> para menús completos de catering profesional.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">30 litros</span>
+                  <span class="showcase__tag">Doble canasta profunda</span>
+                  <span class="showcase__tag">Filtrado incorporado</span>
+                  <span class="showcase__tag">100-150 porciones/hr</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Freidora 30L
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Freidora Industrial 30L</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Planchas y Freidoras"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tus planchas y freidoras, es natural tener preguntas sobre tipos de combustible, capacidades y seguridad. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor técnico te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de cocina móvil resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre planchas y freidoras industriales para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Cocina Móvil -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Cocina Móvil para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/cocina-movil/" class="sidebar-nav__back">&uarr; Volver a Cocina Móvil</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/" class="sidebar-nav__back">&uarr; Volver a Catering</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de cocina:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas planchas y freidoras para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar planchas y freidoras industriales para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tus Planchas y Freidoras"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores técnicos te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea una plancha compacta para tu estación de tacos o un combo completo de planchas y freidoras para tu festival, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoEquipo">
+                Tipo de equipo
+              </label>
+              <select id="tipoEquipo" name="tipoEquipo" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de equipo</option>
+                <option value="Plancha 60cm">Plancha 60cm</option>
+                <option value="Plancha 90cm">Plancha 90cm</option>
+                <option value="Freidora 15L">Freidora 15L</option>
+                <option value="Freidora 30L">Freidora 30L</option>
+                <option value="Paquete Plancha + Freidora">Paquete Plancha + Freidora</option>
+                <option value="Combo Cocina Completa">Combo Cocina Completa</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de comensales, tipo de menú, venue (jardín/terraza/salón), equipo específico que necesitas..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para recomendarte el equipo ideal según espacio, conexiones y volumen de servicio.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría técnica personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoEquipo = document.getElementById('tipoEquipo').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Planchas y Freidoras Industriales*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoEquipo) texto += `*Tipo de equipo:* ${tipoEquipo}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Catering"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de equipo de catering y cocina móvil para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, personal capacitado y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Catering Pro MX</h3>
+            <p class="partner-card__tagline">Servicio Integral de Catering</p>
+            <p class="partner-card__text">Servicio integral de catering y estaciones gourmet para eventos en CDMX. Equipo de cocina profesional, planchas industriales y montaje completo para banquetes de cualquier escala.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">G</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">GastroEventos CDMX</h3>
+            <p class="partner-card__tagline">Equipo de Cocina Profesional</p>
+            <p class="partner-card__text">Renta de equipo de cocina y estaciones de servicio profesional para eventos corporativos, bodas y festivales gastronómicos. Planchas, freidoras, hornos y mesas certificadas.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">ChefMóvil</h3>
+            <p class="partner-card__tagline">Estaciones de Comida en Vivo</p>
+            <p class="partner-card__text">Estaciones de comida en vivo con chef y equipo profesional certificado. Planchas flat-top, freidoras industriales y montaje de cocina móvil completa para eventos premium.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">B</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">BanquetesPro</h3>
+            <p class="partner-card__tagline">Mobiliario y Equipo de Catering</p>
+            <p class="partner-card__text">Mobiliario y equipo de catering para bodas, corporativos y sociales. Servicio integral con transporte, montaje y operación técnica en toda la CDMX y zona metropolitana.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Planchas y freidoras que potencian el catering de tu evento"
+    subheadline="Más de 500 eventos con equipo de cocina móvil nos respaldan. Cotiza hoy y recibe asesoría técnica sin compromiso."
+    primaryCTA={{ label: "Cotizar planchas y freidoras", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar planchas y freidoras industriales para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

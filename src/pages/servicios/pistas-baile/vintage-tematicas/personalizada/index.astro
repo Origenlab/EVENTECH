@@ -1,0 +1,734 @@
+---
+/**
+ * ─── Pista Personalizada — Pagina de Producto (Nivel 4) ───
+ * Vinil custom con logo, monograma o diseño sobre pista de baile
+ * para bodas, marcas, lanzamientos y eventos temáticos en CDMX.
+ *
+ * Jerarquia: Servicios > Pistas de Baile > Vintage y Temáticas > Personalizada
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Pistas de Baile", href: "/servicios/pistas-baile/" },
+  { label: "Vintage y Temáticas", href: "/servicios/pistas-baile/vintage-tematicas/" },
+  { label: "Personalizada" },
+];
+
+const faqs = [
+  { question: "¿Cuánto tiempo tarda el proceso de diseño e impresión del vinil?", answer: 'El proceso completo toma entre <strong>7 y 14 días hábiles</strong> dependiendo de la complejidad del diseño. Para monogramas sencillos de boda (iniciales de la pareja), el diseño y producción toman 7 días. Para logos corporativos con colores Pantone específicos, necesitamos 10 días. Diseños temáticos complejos con arte original o fotografías de alta resolución requieren 14 días. Incluimos <strong>1 ronda de revisión de arte sin costo</strong>. Si necesitas revisiones adicionales, cada una toma 2-3 días extras. Recomendamos enviar tu diseño o idea con la mayor anticipación posible.' },
+  { question: "¿Puedo enviar mi propio diseño o logo para la pista?", answer: 'Sí, aceptamos archivos de diseño en múltiples formatos: <strong>AI, PSD, PDF, PNG (alta resolución 300 DPI mínimo), SVG y EPS</strong>. Si tu logo tiene colores Pantone específicos, envíanos la referencia exacta para reproducción fiel. También aceptamos archivos de branding corporativo (brand book) para respetar lineamientos de marca. Si no tienes un diseño terminado, nuestro equipo de <strong>diseño gráfico profesional</strong> puede crear propuestas basadas en tus ideas, temática del evento y preferencias de estilo. El servicio de diseño está incluido sin costo adicional.' },
+  { question: "¿El vinil personalizado se puede usar sobre una pista LED?", answer: 'Sí, nuestro <strong>vinil personalizado es compatible con pistas LED</strong>. Utilizamos un vinil semitransparente especial que permite que la luz LED se filtre a través del diseño, creando un efecto único donde el logo o monograma brilla desde abajo. El resultado es particularmente impresionante con fondos oscuros y elementos de diseño en colores claros. También ofrecemos vinil opaco para <a href="/servicios/pistas-baile/pistas-led/">pistas LED</a> donde quieres que el diseño sea completamente visible sin transparencia. Consulta con nuestro equipo la mejor opción según tu diseño.' },
+  { question: "¿El vinil resiste toda una noche de baile intenso?", answer: 'Absolutamente. Nuestro vinil de alta resolución cuenta con un <strong>laminado anti-desgaste de grado comercial</strong> que protege la impresión durante todo el evento. El laminado es transparente, anti-deslizante y resiste tacones altos, zapatos de vestir y tráfico intenso. Hemos probado nuestro vinil en eventos de <strong>más de 500 personas bailando continuamente durante 8+ horas</strong> sin deterioro visible. La superficie mantiene sus colores vibrantes y nitidez de impresión de principio a fin del evento.' },
+  { question: "¿El vinil se puede reutilizar en otro evento?", answer: 'El vinil personalizado está diseñado para <strong>uso en un evento</strong> (single-use) debido a que se adhiere a la superficie de la pista y el proceso de remoción puede dañar la impresión. Sin embargo, para clientes corporativos que necesitan el mismo diseño en múltiples eventos, ofrecemos <strong>impresiones adicionales con descuento</strong> ya que conservamos el archivo de diseño. Para eventos recurrentes (convenciones anuales, ferias), producimos vinilos nuevos para cada fecha con calidad consistente.' },
+  { question: "¿Con cuánta anticipación debo reservar una pista personalizada?", answer: 'Recomendamos reservar con un <strong>mínimo de 3 semanas de anticipación</strong> para garantizar tiempo suficiente para diseño, producción, instalación y cualquier ajuste. Para diseños simples como monogramas de boda, <strong>2 semanas</strong> pueden ser suficientes en casos urgentes. Para proyectos corporativos con lineamientos de marca estrictos o diseños artísticos complejos, lo ideal son <strong>4 semanas</strong>. En temporada alta (noviembre a febrero), recomendamos la mayor anticipación posible ya que la capacidad de producción es limitada.' },
+];
+
+const specs = [
+  { label: "Vinil", value: "Alta resolución, laminado anti-desgaste" },
+  { label: "Diseño", value: "Logo, monograma, colores, imagen personalizada" },
+  { label: "Impresión", value: "Full color, resolución fotográfica" },
+  { label: "Base", value: "Sobre madera, acrílico o piso existente" },
+  { label: "Medidas", value: "3x3 a 6x6 metros" },
+  { label: "Superficie", value: "Anti-deslizante laminado" },
+  { label: "Diseño incluido", value: "1 revisión de arte incluida" },
+  { label: "Entrega", value: "Diseño final 5 días antes del evento" },
+  { label: "Removible", value: "Sin daño a superficie base" },
+  { label: "Montaje", value: "Profesional, 2-4 horas" },
+];
+
+const sidebarNav = [
+  { name: "Disco con Espejos", href: "/servicios/pistas-baile/vintage-tematicas/disco/" },
+  { name: "Damero Blanco y Negro", href: "/servicios/pistas-baile/vintage-tematicas/damero/" },
+  { name: "Acrílico Transparente", href: "/servicios/pistas-baile/vintage-tematicas/acrilico/" },
+  { name: "Personalizada", href: null, active: true },
+];
+
+const sidebarRelated = [
+  { name: "Pistas LED", href: "/servicios/pistas-baile/pistas-led/" },
+  { name: "Iluminación Efectos", href: "/servicios/iluminacion/efectos-especiales/" },
+  { name: "Equipo DJ", href: "/servicios/audiovisual/microfonos-dj/" },
+  { name: "Sonido", href: "/servicios/audiovisual/sonido/" },
+  { name: "Mobiliario", href: "/servicios/mobiliario/" },
+];
+
+const reviews = [
+  { author: "Paulina Méndez", text: "Mandamos hacer la pista personalizada con nuestro monograma dorado para la boda en un jardín de San Ángel. El diseño quedó perfecto: las iniciales con tipografía elegante sobre fondo blanco se veían espectaculares. El equipo de diseño captó exactamente lo que queríamos y la impresión era nítida. Todos los invitados comentaron lo hermosa que era la pista.", rating: 5, date: "2025-12-01" },
+  { author: "Carlos Mendoza", text: "Usamos la pista personalizada con el logo de nuestra empresa para un lanzamiento de producto en un hotel de Polanco. Los colores corporativos quedaron exactos según nuestro brand book, la resolución era fotográfica y resistió más de 300 personas durante todo el evento. El impacto de marca fue tremendo. Ya apartamos para el próximo lanzamiento.", rating: 5, date: "2025-10-18" },
+  { author: "Liliana Torres", text: "Contratamos la pista personalizada para los XV años de mi hija con un diseño temático de mariposas en tonos rosa y dorado. El resultado fue mágico: la pista era literalmente una obra de arte. El equipo de diseño nos presentó 3 propuestas y la elegida superó nuestras expectativas. El vinil resistió toda la fiesta sin un solo desperfecto. Totalmente recomendable.", rating: 5, date: "2025-09-25" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Pista de Baile Personalizada para Eventos en CDMX",
+    description: "Renta de pista de baile personalizada con vinil custom: logo, monograma, colores corporativos o diseño temático para eventos en CDMX. Desde $8,000.",
+    url: "/servicios/pistas-baile/vintage-tematicas/personalizada/",
+    priceRange: { min: 8000, max: 35000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 167,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Pistas de Baile", url: "/servicios/pistas-baile/" },
+    { name: "Vintage y Temáticas", url: "/servicios/pistas-baile/vintage-tematicas/" },
+    { name: "Personalizada", url: "/servicios/pistas-baile/vintage-tematicas/personalizada/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Pista de Baile Personalizada para Eventos en CDMX"
+  description="Renta de pista de baile personalizada con vinil custom: logo, monograma, colores corporativos o diseño temático para eventos en CDMX. Desde $8,000."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Tu diseño único en la pista"
+    title='Renta de <span class="highlight">Pista de Baile Personalizada</span> para Eventos en CDMX'
+    subtitle="Vinil personalizado de alta resolución con tu diseño, logo, monograma o colores corporativos sobre pista de baile. Diseño gráfico incluido y montaje profesional."
+    primaryCTA={{ label: "Cotiza tu pista personalizada", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar una pista de baile personalizada para mi evento` }}
+    cards={[
+      {
+        title: "Vinil personalizado de alta resolución sobre pista de baile",
+        content: "<strong>Renta de pista personalizada con vinil custom</strong> de alta resolución impreso en full color con resolución fotográfica y laminado anti-desgaste. Tu diseño, logo, monograma o colores corporativos sobre la pista de baile con calidad de impresión profesional. Compatible con tintas UV resistentes y laminado antiderrapante transparente. Diseño gráfico incluido con 1 ronda de revisión de arte. Disponible en dimensiones de 3x3 a 6x6 metros.",
+      },
+      {
+        title: "Compatible con cualquier superficie y temática",
+        content: "<strong>Se adapta a cualquier superficie</strong>: madera, acrílico o LED. El vinil se aplica profesionalmente sin burbujas ni imperfecciones y se remueve sin daño a la superficie base. Ideal para bodas con monograma de la pareja, eventos corporativos con logo de marca, lanzamientos de producto, XV años con diseño temático y cualquier celebración que merezca un toque único. Entrega del diseño final 5 días antes del evento. Montaje profesional de 2 a 4 horas con desmontaje incluido dentro de CDMX.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Tu evento merece una pista única e irrepetible?"
+    subheadline="Cotiza sin compromiso — envíanos tu diseño o idea y te presentamos una propuesta profesional"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Pistas Vintage y Temáticas</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas una pista personalizada para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una pista de baile personalizada para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h18"/><path d="M12 3v18"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Pista Personalizada</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Monograma de Pareja -->
+          <section class="section section--alt" aria-labelledby="monograma-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Favorito para bodas</span>
+                <h2 class="showcase__title" id="monograma-heading">Monograma de Pareja</h2>
+                <p class="showcase__subtitle">Las iniciales de los novios en la pista de baile: el detalle romántico que hace única tu boda.</p>
+                <p class="showcase__text">Nuestro <strong>Monograma de Pareja</strong> es el diseño más solicitado para bodas y el detalle que transforma la pista de baile en un elemento personalizado e inolvidable. Diseñamos las <strong>iniciales de los novios con tipografía elegante</strong> — desde fuentes clásicas serif hasta scripts románticos — en el color de tu elección: dorado, plateado, rose gold, blanco o cualquier tono de tu paleta de boda. El monograma se imprime en vinil de alta resolución con acabado brillante o mate.</p>
+                <p class="showcase__text">El monograma puede ocupar <strong>el centro de la pista como elemento focal</strong> o repetirse como patrón en toda la superficie. También ofrecemos diseños que incluyen la fecha de la boda, un marco decorativo alrededor de las iniciales y elementos ornamentales como ramas de olivo, flores o bordes geométricos. Nuestro equipo de diseño te presenta <strong>3 propuestas de monograma</strong> basadas en tu estilo de boda. Complementa con nuestra <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a> para resaltar el monograma con luces dirigidas.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Iniciales novios</span>
+                  <span class="showcase__tag">Tipografía elegante</span>
+                  <span class="showcase__tag">Dorado/Rose gold</span>
+                  <span class="showcase__tag">Bodas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Monograma
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M3 12h18"/><path d="M12 3v18"/>
+                    <path d="M3 7.5h18"/><path d="M3 16.5h18"/>
+                    <path d="M7.5 3v18"/><path d="M16.5 3v18"/>
+                  </svg>
+                  <span>Monograma de Pareja</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Logo Corporativo -->
+          <section class="section section--alt" aria-labelledby="logo-corp-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Branding de impacto</span>
+                <h2 class="showcase__title" id="logo-corp-heading">Logo Corporativo</h2>
+                <p class="showcase__subtitle">Tu marca en la pista de baile: impacto visual máximo para lanzamientos, convenciones y eventos de marca.</p>
+                <p class="showcase__text">Nuestra <strong>pista con Logo Corporativo</strong> convierte el piso de baile en una poderosa herramienta de branding. Reproducimos tu <strong>logo empresarial con colores Pantone exactos</strong>, resolución fotográfica y el nivel de detalle que tu marca exige. Ideal para lanzamientos de producto donde cada superficie cuenta, convenciones donde quieres reforzar la identidad de marca, ferias comerciales con stand de alto impacto y eventos corporativos de fin de año que celebran los logros del equipo.</p>
+                <p class="showcase__text">Trabajamos directamente con tu <strong>departamento de marketing o agencia de branding</strong> para respetar lineamientos de marca: colores exactos, proporciones del logo, zona de protección y tipografías corporativas. También ofrecemos diseños que combinan el logo con elementos temáticos del evento (hashtags, claims, productos). El vinil <strong>full color de resolución fotográfica</strong> garantiza que cada detalle de tu logo se reproduzca con fidelidad. Complementa con <a href="/servicios/accesorios/senalizacion-alfombras/">backdrops y señalización</a> coordinados.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Logo Pantone</span>
+                  <span class="showcase__tag">Resolución foto</span>
+                  <span class="showcase__tag">Brand guidelines</span>
+                  <span class="showcase__tag">Corporativos</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Logo Corporativo
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M3 12h18"/><path d="M12 3v18"/>
+                    <path d="M3 7.5h18"/><path d="M3 16.5h18"/>
+                    <path d="M7.5 3v18"/><path d="M16.5 3v18"/>
+                  </svg>
+                  <span>Logo Corporativo</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Diseño Temático -->
+          <section class="section section--alt" aria-labelledby="diseno-tematico-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Creatividad sin límites</span>
+                <h2 class="showcase__title" id="diseno-tematico-heading">Diseño Temático</h2>
+                <p class="showcase__subtitle">Personalización total según la temática de tu evento: desde XV años hasta festivales, sin límite creativo.</p>
+                <p class="showcase__text">Nuestra <strong>pista con Diseño Temático</strong> es la opción para quienes quieren una pista de baile que sea una verdadera obra de arte. Creamos <strong>diseños originales y personalizados</strong> que se adaptan a cualquier temática: mariposas y flores para XV años, motivos tropicales para fiestas hawaianas, art déco para galas vintage, galaxias y estrellas para eventos futuristas, o cualquier concepto que imagines. Nuestro equipo de diseño gráfico traduce tu visión en arte impreso de alta resolución.</p>
+                <p class="showcase__text">El proceso creativo incluye una <strong>consulta de diseño personalizada</strong> donde entendemos la temática, paleta de colores y estilo visual de tu evento. Te presentamos propuestas de diseño con mockups realistas de cómo se verá la pista en tu espacio. El vinil se imprime en <strong>full color con tintas UV resistentes</strong> y se lamina con acabado anti-deslizante. Ideal para <strong>XV años, fiestas temáticas, festivales, Halloween, Navidad y cualquier celebración especial</strong>. Complementa con <a href="/servicios/iluminacion/decorativa/letras-luminosas/">letras luminosas</a> para una decoración temática completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Arte original</span>
+                  <span class="showcase__tag">Full color UV</span>
+                  <span class="showcase__tag">Mockups incluidos</span>
+                  <span class="showcase__tag">Sin límite creativo</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Diseño Temático
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M3 12h18"/><path d="M12 3v18"/>
+                    <path d="M3 7.5h18"/><path d="M3 16.5h18"/>
+                    <path d="M7.5 3v18"/><path d="M16.5 3v18"/>
+                  </svg>
+                  <span>Diseño Temático</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Personalización Completa -->
+          <section class="section section--alt" aria-labelledby="kit-personalizacion-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Paquete todo incluido</span>
+                <h2 class="showcase__title" id="kit-personalizacion-heading">Kit Personalización Completa</h2>
+                <p class="showcase__subtitle">Pista personalizada con vinil, iluminación coordinada a juego y elementos decorativos temáticos.</p>
+                <p class="showcase__text">Nuestro <strong>Kit Personalización Completa</strong> es la experiencia más integral que ofrecemos para pistas de baile personalizadas. Incluye la <strong>pista con vinil custom en el tamaño de tu elección</strong> más iluminación perimetral coordinada con los colores de tu diseño. El kit incorpora <strong>uplighting RGB programado</strong> para que las paredes y el entorno de la pista complementen los colores del vinil, creando una experiencia visual cohesiva desde el piso hasta el techo.</p>
+                <p class="showcase__text">Además del vinil en la pista, el kit incluye <strong>elementos decorativos coordinados</strong>: backdrop personalizado con el mismo diseño o diseño complementario, alfombra de entrada temática, señalización de mesa con la misma estética y, opcionalmente, servilletas o manteles con elementos del diseño. Nuestro equipo de producción coordina todos los elementos para que cada detalle visual de tu evento sea coherente. Perfecto para <strong>bodas integrales, lanzamientos de marca 360°, experiencias inmersivas y eventos donde cada detalle importa</strong>. Complementa con nuestro <a href="/servicios/audiovisual/">equipo audiovisual</a>.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Pista + iluminación</span>
+                  <span class="showcase__tag">Backdrop coordinado</span>
+                  <span class="showcase__tag">Diseño integral</span>
+                  <span class="showcase__tag">Todo incluido</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Completo
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M3 12h18"/><path d="M12 3v18"/>
+                    <path d="M3 7.5h18"/><path d="M3 16.5h18"/>
+                    <path d="M7.5 3v18"/><path d="M16.5 3v18"/>
+                  </svg>
+                  <span>Kit Personalización Completa</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Pista Personalizada"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu pista personalizada, es natural tener preguntas sobre diseño, tiempos de producción, materiales y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de pistas personalizadas resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre pistas de baile personalizadas para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Pistas Vintage -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Pistas Vintage y Temáticas</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/pistas-baile/vintage-tematicas/" class="sidebar-nav__back">&uarr; Volver a Vintage y Temáticas</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/pistas-baile/" class="sidebar-nav__back">&uarr; Volver a Pistas de Baile</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu pista personalizada:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas una pista personalizada para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una pista de baile personalizada para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Pista de Baile Personalizada"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un monograma para tu boda o un logo corporativo para tu lanzamiento, estamos aquí para hacerlo realidad."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Lanzamiento de Marca">Lanzamiento de Marca</option>
+                <option value="Convención / Feria">Convención / Feria</option>
+                <option value="Fiesta Temática">Fiesta Temática</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoPistaPersonalizada">
+                Tipo de personalización
+              </label>
+              <select id="tipoPistaPersonalizada" name="tipoPistaPersonalizada" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de personalización</option>
+                <option value="Monograma Pareja">Monograma Pareja</option>
+                <option value="Logo Corporativo">Logo Corporativo</option>
+                <option value="Diseño Temático">Diseño Temático</option>
+                <option value="Full Color">Full Color</option>
+                <option value="Kit Personalización">Kit Personalización</option>
+                <option value="Cotización Especial">Cotización Especial</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: tipo de diseño, colores, dimensiones deseadas, si tienes archivo de logo/diseño, tipo de venue..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Diseño incluido</h3>
+            <p class="reserva-card__text">Nuestro equipo de diseño gráfico crea tu propuesta personalizada sin costo adicional.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe mockups de cómo se verá tu pista personalizada.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoPistaPersonalizada = document.getElementById('tipoPistaPersonalizada').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Pista de Baile Personalizada*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoPistaPersonalizada) texto += `*Tipo de personalización:* ${tipoPistaPersonalizada}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Pistas de Baile"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de pistas de baile para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de diseños y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">P</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Pistas Premium MX</h3>
+            <p class="partner-card__tagline">Especialistas en Pistas Temáticas y Vintage</p>
+            <p class="partner-card__text">Especialistas en pistas de baile temáticas y vintage para eventos. Pistas disco con espejos, damero, acrílico transparente y diseños personalizados con instalación profesional en toda la CDMX.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">D</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">DanceFloor CDMX</h3>
+            <p class="partner-card__tagline">Renta Integral de Pistas de Baile</p>
+            <p class="partner-card__text">Renta integral de pistas de baile para eventos sociales y corporativos. Amplio catálogo de pistas vintage, LED, madera clásica y temáticas con técnicos certificados y logística profesional.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventFloor</h3>
+            <p class="partner-card__tagline">Pistas, Tarimas y Escenarios</p>
+            <p class="partner-card__text">Pistas de baile, tarimas y escenarios con instalación profesional. Más de 10 años proporcionando soluciones de piso para eventos de todos los tamaños en la Ciudad de México y área metropolitana.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">P</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">PistasPro</h3>
+            <p class="partner-card__tagline">Soluciones de Pistas con Logística</p>
+            <p class="partner-card__text">Soluciones de pistas de baile con logística y montaje profesional en CDMX. Servicio integral desde el diseño hasta la instalación, con operadores técnicos certificados y garantía de satisfacción.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Tu diseño único en la pista de baile de tu evento"
+    subheadline="Más de 160 eventos con pistas personalizadas nos respaldan. Cotiza hoy y recibe una propuesta de diseño sin compromiso."
+    primaryCTA={{ label: "Cotizar pista personalizada", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar una pista de baile personalizada para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

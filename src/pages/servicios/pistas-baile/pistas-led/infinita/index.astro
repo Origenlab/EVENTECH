@@ -1,0 +1,734 @@
+---
+/**
+ * ─── Pista LED Infinita — Pagina de Producto (Nivel 4) ───
+ * Pista de baile LED infinita con efecto espejo 3D, ilusion de
+ * profundidad y efectos de estrellas y tuneles para eventos en CDMX.
+ *
+ * Jerarquia: Servicios > Pistas de Baile > Pistas LED > LED Infinita
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Pistas de Baile", href: "/servicios/pistas-baile/" },
+  { label: "Pistas LED", href: "/servicios/pistas-baile/pistas-led/" },
+  { label: "LED Infinita" },
+];
+
+const faqs = [
+  { question: "¿Es seguro caminar y bailar sobre el vidrio de la pista infinita?", answer: 'Absolutamente. La pista LED Infinita utiliza <strong>vidrio templado de seguridad de 10 mm</strong>, el mismo tipo de vidrio utilizado en pisos de observatorios y pasarelas comerciales. Está diseñado para soportar impactos, peso concentrado y uso intensivo. La superficie cuenta con un <strong>acabado antideslizante</strong> que garantiza tracción segura incluso con tacones altos. En más de 500 eventos no hemos tenido un solo incidente de seguridad. Es completamente seguro para personas de todas las edades.' },
+  { question: "¿Cuánto peso soporta la pista LED Infinita?", answer: 'Cada panel de la pista LED Infinita soporta hasta <strong>500 kg por metro cuadrado</strong>, lo que equivale al peso de 6-7 personas adultas concentradas en un solo metro cuadrado. En una pista de 4x4 metros (16 m²), pueden bailar cómodamente más de 100 personas simultáneamente sin ningún riesgo estructural. La estructura interna de <strong>aluminio de aviación</strong> distribuye el peso uniformemente y las juntas entre paneles están diseñadas para mantener integridad estructural bajo carga máxima.' },
+  { question: "¿Se puede usar la pista infinita con tacones altos?", answer: 'Sí, la superficie de <strong>vidrio templado antideslizante</strong> está diseñada específicamente para resistir tacones altos, tacones de aguja y todo tipo de calzado de fiesta. El acabado texturizado proporciona tracción sin comprometer la transparencia del efecto espejo infinito. Hemos atendido cientos de bodas y XV años donde las invitadas bailan con tacones toda la noche sin ningún problema. El vidrio no se raya ni se marca con el uso normal de calzado.' },
+  { question: "¿Cuál es la diferencia entre la pista infinita y la RGB?", answer: 'La diferencia principal está en el efecto visual. La <strong>pista RGB clásica</strong> ilumina paneles de colores sólidos desde la superficie — colores vibrantes, sincronización musical y transiciones programables. La <strong>pista Infinita</strong> utiliza un sistema de espejos semitransparentes con LEDs entre capas que crea una ilusión óptica de <strong>profundidad 3D infinita</strong>. Es como mirar dentro de un pozo sin fondo de luces. El efecto WOW de la infinita es incomparable — tus invitados sienten que bailan sobre un abismo de estrellas.' },
+  { question: "¿Se puede usar la pista infinita en exteriores?", answer: 'Nuestra pista LED Infinita estándar está diseñada para <strong>uso en interiores</strong> — salones de banquetes, jardines techados y terrazas cubiertas. Los componentes de espejo y la electrónica requieren protección contra lluvia y humedad extrema. Para eventos al aire libre nocturnos sin riesgo de lluvia, puede funcionar en áreas protegidas. Si necesitas una pista para exteriores, te recomendamos nuestra <a href="/servicios/pistas-baile/pistas-led/exterior/">pista LED Exterior con certificación IP65</a>.' },
+  { question: "¿Con cuánta anticipación debo reservar la pista infinita?", answer: 'Recomendamos reservar con <strong>4 a 8 semanas de anticipación</strong>. La pista LED Infinita es equipo premium con inventario limitado y es la más solicitada para bodas de alto perfil y XV años especiales. En temporada alta (noviembre a febrero y abril a junio), puede agotarse con meses de anticipación para fines de semana. Si tu fecha es flexible, tenemos mayor disponibilidad entre semana. Un <strong>anticipo del 30%</strong> asegura tu fecha y configuración. También atendemos solicitudes de último momento sujetas a disponibilidad.' },
+];
+
+const specs = [
+  { label: "Efecto", value: "Espejo infinito con profundidad 3D" },
+  { label: "Vidrio", value: "Templado de seguridad 10mm" },
+  { label: "LEDs", value: "RGB entre capas de espejo" },
+  { label: "Efectos", value: "Estrellas, túneles, galaxias, ondas" },
+  { label: "Programas", value: "20+ pre-programados + personalizables" },
+  { label: "Medidas", value: "3x3 a 5x5 metros" },
+  { label: "Control", value: "DMX con sincronización musical" },
+  { label: "Superficie", value: "Vidrio anti-deslizante reforzado" },
+  { label: "Peso soportado", value: "500 kg/m²" },
+  { label: "Técnico", value: "Operador DMX incluido" },
+];
+
+const sidebarNav = [
+  { name: "LED RGB Clásica", href: "/servicios/pistas-baile/pistas-led/rgb/" },
+  { name: "LED Pixel", href: "/servicios/pistas-baile/pistas-led/pixel/" },
+  { name: "LED Infinita", href: null, active: true },
+  { name: "LED Exterior", href: "/servicios/pistas-baile/pistas-led/exterior/" },
+];
+
+const sidebarRelated = [
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+  { name: "Sonido Profesional", href: "/servicios/audiovisual/sonido/" },
+  { name: "Equipo DJ", href: "/servicios/audiovisual/microfonos-dj/" },
+  { name: "Efectos Especiales", href: "/servicios/iluminacion/efectos-especiales/" },
+  { name: "Mobiliario", href: "/servicios/mobiliario/" },
+];
+
+const reviews = [
+  { author: "Sofía Ramírez", text: "La pista LED Infinita fue lo más espectacular de nuestra boda. El efecto de estrellas durante el primer baile nos dejó sin palabras. Parecía que bailábamos sobre el universo. Todos los invitados estaban fascinados tomando fotos y videos. Las fotos del fotógrafo con la pista quedaron de revista. Sin duda la mejor decisión.", rating: 5, date: "2025-11-30" },
+  { author: "Valentina Torres", text: "Para los XV años de mi hija elegimos la pista infinita con efecto de túnel y fue una locura. Cuando apagaron las luces del salón y encendieron la pista, los invitados literalmente gritaron de la impresión. El vals sobre la pista infinita fue un momento mágico que ninguno de nosotros va a olvidar.", rating: 5, date: "2025-10-18" },
+  { author: "Miguel Ángel Herrera", text: "Usamos la pista infinita con efecto galaxia para un evento corporativo de premiación. El impacto visual fue exactamente lo que buscábamos: sofisticado, moderno y memorable. El equipo técnico de EVENTECH fue súper profesional. Definitivamente la recomiendo para eventos donde quieres impresionar.", rating: 5, date: "2025-09-05" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Pista de Baile LED Infinita para Eventos en CDMX",
+    description: "Renta de pista de baile LED infinita con efecto espejo 3D, ilusión de profundidad y efectos de estrellas y túneles para eventos en CDMX. Desde $12,000.",
+    url: "/servicios/pistas-baile/pistas-led/infinita/",
+    priceRange: { min: 12000, max: 45000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 234,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Pistas de Baile", url: "/servicios/pistas-baile/" },
+    { name: "Pistas LED", url: "/servicios/pistas-baile/pistas-led/" },
+    { name: "LED Infinita", url: "/servicios/pistas-baile/pistas-led/infinita/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Pista de Baile LED Infinita para Eventos en CDMX"
+  description="Renta de pista de baile LED infinita con efecto espejo 3D, ilusión de profundidad y efectos de estrellas y túneles para eventos en CDMX. Desde $12,000."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="El factor WOW garantizado"
+    title='Renta de <span class="highlight">Pista de Baile LED Infinita</span> para Eventos en CDMX'
+    subtitle="Pista de baile LED infinita con efecto espejo 3D que crea una ilusión de profundidad impresionante. Efectos de estrellas, túneles y galaxias con vidrio templado antideslizante y control DMX para bodas y eventos."
+    primaryCTA={{ label: "Cotiza tu pista infinita", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar una pista de baile LED infinita para mi evento` }}
+    cards={[
+      {
+        title: "Efecto espejo infinito con ilusión de profundidad 3D",
+        content: "<strong>Renta de pista de baile LED infinita</strong> con la tecnología de espejo más impactante para eventos en CDMX. Cada panel combina LEDs RGB con un sistema de espejos semitransparentes que genera un efecto de profundidad 3D aparentemente sin fin. Efectos de estrellas titilantes, túneles de luz envolventes y galaxias cósmicas que deslumbran a tus invitados. El factor WOW más impactante para bodas, XV años y eventos de alto perfil.",
+      },
+      {
+        title: "Vidrio templado de seguridad con 20+ programas",
+        content: "<strong>Paneles de vidrio templado de seguridad de 10mm</strong> con acabado antideslizante que soportan hasta 500 kg/m². Controlador DMX profesional con más de 20 programas pre-cargados más secuencias personalizables para cada momento de tu evento. Sincronización musical en tiempo real para que los efectos de luz reaccionen al ritmo de cada canción. Técnico de operación dedicado incluido durante todo el evento.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Quieres que tus invitados bailen sobre un universo de luces?"
+    subheadline="Cotiza sin compromiso — la pista infinita es la experiencia visual más impactante para tu evento"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Pistas LED para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas una pista LED infinita para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una pista de baile LED infinita para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h18"/><path d="M12 3v18"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Pista LED Infinita</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Infinita Estrellas -->
+          <section class="section section--alt" aria-labelledby="infinita-estrellas-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Romántica y mágica</span>
+                <h2 class="showcase__title" id="infinita-estrellas-heading">Pista Infinita Efecto Estrellas</h2>
+                <p class="showcase__subtitle">Efecto de cielo nocturno estrellado con profundidad 3D infinita — la favorita para primeros bailes de boda.</p>
+                <p class="showcase__text">El <strong>efecto de estrellas</strong> en la pista LED Infinita crea la ilusión de bailar sobre un cielo nocturno infinito. Miles de puntos de luz titilan a diferentes intensidades y velocidades, simulando un manto de <strong>estrellas que se extiende hacia la profundidad sin fin del espejo infinito</strong>. Para bodas, este efecto es el más solicitado para el primer baile: las luces del salón se atenúan, la pista se enciende con estrellas suaves y la pareja baila sobre un universo privado de luces.</p>
+                <p class="showcase__text">Los colores de las estrellas se personalizan según tu evento: <strong>blanco cálido para bodas románticas</strong>, azul y plata para galas elegantes, dorado y champán para aniversarios, y multicolor para fiestas de XV años. El controlador DMX permite variar la velocidad de parpadeo — desde estrellas lentas y soñadoras hasta un destello rápido que genera energía de fiesta. Combínala con nuestro <a href="/servicios/iluminacion/efectos-especiales/humo-bajo/">humo bajo</a> para un efecto de nubes y estrellas que dejará a todos sin aliento.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Cielo estrellado</span>
+                  <span class="showcase__tag">Profundidad 3D</span>
+                  <span class="showcase__tag">Primer baile</span>
+                  <span class="showcase__tag">Colores personalizables</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Infinita Estrellas
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M3 12h18"/><path d="M12 3v18"/>
+                    <path d="M3 7.5h18"/><path d="M3 16.5h18"/>
+                    <path d="M7.5 3v18"/><path d="M16.5 3v18"/>
+                  </svg>
+                  <span>Pista Infinita Estrellas</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Infinita Túnel -->
+          <section class="section section--alt" aria-labelledby="infinita-tunel-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Ilusión óptica hipnótica</span>
+                <h2 class="showcase__title" id="infinita-tunel-heading">Pista Infinita Efecto Túnel</h2>
+                <p class="showcase__subtitle">Ilusión de profundidad con anillos de luz que se alejan hacia el infinito — el efecto más impactante para XV años.</p>
+                <p class="showcase__text">El <strong>efecto de túnel</strong> crea anillos concéntricos de luz que parecen alejarse hacia las profundidades del espejo infinito, generando una <strong>ilusión óptica hipnótica de caer dentro de un túnel sin fin</strong>. Los anillos de luz cambian de color y velocidad al ritmo de la música, creando un efecto de inmersión total que cautiva a todos los que observan. Es el programa más solicitado para <strong>fiestas de XV años y eventos de alta energía</strong> donde el impacto visual es prioridad.</p>
+                <p class="showcase__text">El controlador DMX programa los anillos en secuencias de <strong>expansión, contracción, rotación y pulsación</strong> que se sincronizan con los beats de la música. Los colores transicionan suavemente de un anillo al siguiente, creando degradados envolventes que llenan el campo visual. Para XV años, programamos secuencias especiales para el vals: anillos suaves en rosa y dorado que acompañan la coreografía. Complementa con nuestra <a href="/servicios/iluminacion/escenario/">iluminación de escenario</a> como moving heads y barras LED para una producción visual completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Efecto túnel</span>
+                  <span class="showcase__tag">Anillos de luz</span>
+                  <span class="showcase__tag">Sincronización DMX</span>
+                  <span class="showcase__tag">Alta energía</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Infinita Túnel
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M3 12h18"/><path d="M12 3v18"/>
+                    <path d="M3 7.5h18"/><path d="M3 16.5h18"/>
+                    <path d="M7.5 3v18"/><path d="M16.5 3v18"/>
+                  </svg>
+                  <span>Pista Infinita Túnel</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Infinita Galaxia -->
+          <section class="section section--alt" aria-labelledby="infinita-galaxia-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Colores cósmicos inmersivos</span>
+                <h2 class="showcase__title" id="infinita-galaxia-heading">Pista Infinita Efecto Galaxia</h2>
+                <p class="showcase__subtitle">Colores cósmicos con nebulosas, auroras boreales y efectos de galaxia para eventos premium y corporativos elegantes.</p>
+                <p class="showcase__text">El <strong>efecto galaxia</strong> transforma la pista infinita en un viaje cósmico con <strong>nebulosas de color, auroras boreales y remolinos estelares</strong> que fluyen con movimiento orgánico por toda la superficie. A diferencia de los efectos geométricos del túnel, el efecto galaxia utiliza transiciones fluidas y orgánicas que crean la ilusión de mirar dentro de una nebulosa cósmica. Los colores profundos — púrpura, azul cobalto, cian y magenta — se mezclan como pinturas cósmicas en movimiento constante.</p>
+                <p class="showcase__text">Es la opción favorita para <strong>eventos corporativos de premiación, galas de caridad, lanzamientos de marca premium y cenas de gala</strong> donde la sofisticación visual es esencial. El efecto galaxia comunica modernidad, elegancia y visión. El controlador DMX permite ajustar la paleta de colores para alinearse con la <strong>identidad visual de tu marca o la temática de tu evento</strong>. Combínala con nuestro <a href="/servicios/mobiliario/salas-lounge/">mobiliario lounge</a> y barras iluminadas para crear un ambiente cohesivo y futurista.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Efecto galaxia</span>
+                  <span class="showcase__tag">Nebulosas y auroras</span>
+                  <span class="showcase__tag">Colores cósmicos</span>
+                  <span class="showcase__tag">Eventos premium</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Infinita Galaxia
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M3 12h18"/><path d="M12 3v18"/>
+                    <path d="M3 7.5h18"/><path d="M3 16.5h18"/>
+                    <path d="M7.5 3v18"/><path d="M16.5 3v18"/>
+                  </svg>
+                  <span>Pista Infinita Galaxia</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Infinita Premium -->
+          <section class="section section--alt" aria-labelledby="infinita-premium-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Experiencia completa</span>
+                <h2 class="showcase__title" id="infinita-premium-heading">Kit Infinita Premium</h2>
+                <p class="showcase__subtitle">Pista infinita combinada con iluminación ambiental y humo bajo para la experiencia WOW definitiva.</p>
+                <p class="showcase__text">El <strong>Kit Infinita Premium</strong> es nuestra propuesta más impactante para bodas y eventos donde el momento del baile debe ser absolutamente inolvidable. Combina la pista LED Infinita con <strong>iluminación ambiental coordinada</strong> (uplighting perimetral que baña las paredes del salón con los mismos colores de la pista) y <strong>humo bajo de hielo seco</strong> que cubre la superficie creando la ilusión de bailar sobre nubes dentro de un universo de luces infinitas.</p>
+                <p class="showcase__text">El resultado es una <strong>experiencia multisensorial envolvente</strong>: las luces de las paredes, la profundidad infinita de la pista y las nubes de humo bajo se combinan para transportar a la pareja y sus invitados a otro mundo. Nuestro técnico coordina la iluminación ambiental, la pista y el humo bajo en una sola programación sincronizada con la música. Incluye <strong>ensayo de la secuencia del primer baile</strong> antes del evento para asegurar que cada detalle sea perfecto. La producción visual que tu celebración merece.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Pista infinita</span>
+                  <span class="showcase__tag">Iluminación ambiental</span>
+                  <span class="showcase__tag">Humo bajo</span>
+                  <span class="showcase__tag">Producción completa</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Infinita Premium
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M3 12h18"/><path d="M12 3v18"/>
+                    <path d="M3 7.5h18"/><path d="M3 16.5h18"/>
+                    <path d="M7.5 3v18"/><path d="M16.5 3v18"/>
+                  </svg>
+                  <span>Kit Infinita Premium</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Pista LED Infinita"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu pista de baile LED Infinita, es natural tener preguntas sobre seguridad, efectos y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor técnico te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de pistas LED resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre pistas de baile LED infinita para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Pistas LED -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Pistas LED para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/pistas-baile/pistas-led/" class="sidebar-nav__back">&uarr; Volver a Pistas LED</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/pistas-baile/" class="sidebar-nav__back">&uarr; Volver a Pistas de Baile</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu pista de baile LED:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas una pista LED infinita para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una pista de baile LED infinita para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Pista de Baile LED Infinita"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores técnicos te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea una pista infinita con efecto estrellas para tu boda o con efecto galaxia para tu gala corporativa, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoPista">
+                Tipo de pista
+              </label>
+              <select id="tipoPista" name="tipoPista" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de pista</option>
+                <option value="Infinita 3x3">Infinita 3x3</option>
+                <option value="Infinita 4x4">Infinita 4x4</option>
+                <option value="Infinita 5x5">Infinita 5x5</option>
+                <option value="Con Efecto Estrellas">Con Efecto Estrellas</option>
+                <option value="Con Humo Bajo">Con Humo Bajo</option>
+                <option value="Kit Infinita Premium">Kit Infinita Premium</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de invitados, tipo de venue (salón/jardín/terraza), efecto preferido (estrellas, túnel, galaxia), si necesitas humo bajo o iluminación adicional..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para recomendarte el tamaño de pista y efectos ideales para tu espacio.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría técnica personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoPista = document.getElementById('tipoPista').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Pista de Baile LED Infinita*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoPista) texto += `*Tipo de pista:* ${tipoPista}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Pistas de Baile"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de pistas de baile para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">P</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Pistas Premium MX</h3>
+            <p class="partner-card__tagline">Especialistas en Pistas LED</p>
+            <p class="partner-card__text">Especialistas en pistas de baile LED e iluminadas para bodas y eventos. Inventario de pistas RGB, Pixel e Infinita con tecnología de última generación y servicio técnico certificado en toda la CDMX.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">D</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">DanceFloor CDMX</h3>
+            <p class="partner-card__tagline">Pistas de Baile para Eventos</p>
+            <p class="partner-card__text">Renta integral de pistas de baile para eventos sociales y corporativos. Servicio completo de transporte, instalación, programación DMX y operación técnica durante todo el evento.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventFloor</h3>
+            <p class="partner-card__tagline">Pistas, Tarimas y Escenarios</p>
+            <p class="partner-card__text">Pistas de baile, tarimas y escenarios con instalación profesional. Más de 10 años de experiencia en montajes para bodas, XV años, corporativos y festivales en CDMX y área metropolitana.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">P</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">PistasPro</h3>
+            <p class="partner-card__tagline">Soluciones de Pistas de Baile</p>
+            <p class="partner-card__text">Soluciones de pistas de baile con logística y montaje en CDMX y área metropolitana. Flota de transporte propia, equipo de instalación certificado y soporte técnico 24/7 para eventos de cualquier escala.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="La pista LED Infinita que transformará tu celebración en una experiencia mágica"
+    subheadline="Más de 500 eventos con pistas LED nos respaldan. Cotiza hoy y recibe asesoría técnica sin compromiso."
+    primaryCTA={{ label: "Cotizar pista LED infinita", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar una pista de baile LED infinita para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

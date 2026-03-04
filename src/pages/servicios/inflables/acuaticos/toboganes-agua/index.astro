@@ -1,0 +1,730 @@
+---
+/**
+ * ─── Toboganes de Agua — Pagina de Producto (Nivel 4) ───
+ * Toboganes inflables acuáticos de 5, 8 y 10 metros con sistema
+ * de flujo de agua continuo y alberca splash.
+ *
+ * Jerarquia: Servicios > Inflables > Acuáticos > Toboganes de Agua
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Inflables", href: "/servicios/inflables/" },
+  { label: "Acuáticos", href: "/servicios/inflables/acuaticos/" },
+  { label: "Toboganes de Agua" },
+];
+
+const faqs = [
+  { question: "¿Qué suministro de agua necesitan los toboganes inflables?", answer: 'Necesitamos acceso a una toma de agua estándar (manguera de jardín) dentro de un radio de 30 metros del área de instalación. El tobogán de 5 metros consume aproximadamente <strong>500 litros por hora</strong>, el de 8 metros unos 1,000 L/h y el de 10 metros hasta 1,500 L/h. Cada tobogán incluye una <strong>bomba de recirculación</strong> que reutiliza el agua de la alberca splash, reduciendo el consumo real. Si tu venue no tiene toma cercana, llevamos tanques de almacenamiento de 2,500 litros.' },
+  { question: "¿Qué edades y peso máximo soportan los toboganes de agua?", answer: 'El tobogán de 5 metros es apto para <strong>niños desde 4 años</strong> con peso máximo de 50 kg. El de 8 metros es para <strong>mayores de 6 años</strong> con peso máximo de 60 kg. El tobogán de 10 metros Extreme es para <strong>mayores de 8 años y adultos</strong> con peso máximo de 70 kg por persona. El tobogán doble carril permite <strong>1-2 personas por deslizamiento</strong>. Siempre proporcionamos señalización clara con las restricciones en cada atracción y nuestros monitores verifican el cumplimiento.' },
+  { question: "¿Qué espacio y terreno necesito para instalar un tobogán de agua?", answer: 'El espacio mínimo depende del tamaño: el de 5 m requiere <strong>8x5 metros</strong>, el de 8 m necesita <strong>12x6 metros</strong> y el de 10 m requiere <strong>15x8 metros</strong>. El tobogán doble carril necesita <strong>15x10 metros</strong>. El terreno ideal es <strong>pasto o tierra</strong> que permite anclaje con estacas y absorbe el agua. En superficies duras usamos contrapesos y tapetes antiderrapantes. Necesitamos un área de drenaje para el desagüe. Realizamos visita técnica previa sin costo.' },
+  { question: "¿En qué temporada están disponibles los toboganes de agua?", answer: 'Nuestros toboganes de agua están disponibles <strong>todo el año</strong>, aunque la temporada alta es de <strong>marzo a octubre</strong>. En temporada de lluvias (junio a septiembre) recomendamos combinar con nuestras <a href="/servicios/carpas/">carpas para eventos</a> para proteger el área de acceso. Para eventos en temporada fría ofrecemos la opción de <strong>agua temperada</strong> con calentadores portátiles. Los fines de semana de abril a agosto son las fechas más solicitadas.' },
+  { question: "¿Qué medidas de seguridad incluyen los toboganes?", answer: 'Cada tobogán incluye <strong>2 monitores de seguridad</strong>: uno en la parte superior controlando el acceso y otro en la zona de aterrizaje. Los toboganes cuentan con <strong>escaleras con agarraderas antiderrapantes, paredes laterales reforzadas, malla de protección</strong> en la cima y alberca splash acolchonada. Proporcionamos <strong>chalecos salvavidas infantiles</strong> sin costo. Los monitores están entrenados en primeros auxilios y controlan los turnos de deslizamiento para evitar colisiones.' },
+  { question: "¿Puedo combinar toboganes con otros inflables acuáticos?", answer: 'Sí, es nuestra recomendación más popular. El <strong>Combo Tobogán + Alberca</strong> incluye un tobogán y una alberca inflable independiente para los más pequeños. El <strong>Paquete Fiesta Acuática</strong> combina tobogán, alberca, resbaladilla splash y zona de aspersores para crear un mini parque acuático en tu evento. También puedes añadir <a href="/servicios/inflables/acuaticos/circuitos-acuaticos/">circuitos acuáticos</a> para los adultos. Cada inflable adicional incluye su propio monitor de seguridad.' },
+];
+
+const specs = [
+  { label: "Alturas", value: "5, 8 y 10 metros" },
+  { label: "Material", value: "Lona vinílica 22 oz impermeable" },
+  { label: "Capacidad", value: "1-2 personas por deslizamiento" },
+  { label: "Rango de edad", value: "4 a 16 años según altura" },
+  { label: "Peso máximo", value: "70 kg por persona" },
+  { label: "Sistema agua", value: "Flujo continuo con bomba recirculación" },
+  { label: "Consumo agua", value: "500-1,500 L/hora" },
+  { label: "Alberca splash", value: "Integrada con drenaje controlado" },
+  { label: "Monitores", value: "2 incluidos: cima y aterrizaje" },
+  { label: "Anclaje", value: "Estacas reforzadas + contrapesos" },
+];
+
+const sidebarNav = [
+  { name: "Toboganes de Agua", href: null, active: true },
+  { name: "Albercas Inflables", href: "/servicios/inflables/acuaticos/albercas/" },
+  { name: "Resbaladillas Splash", href: "/servicios/inflables/acuaticos/resbaladillas-splash/" },
+  { name: "Circuitos Acuáticos", href: "/servicios/inflables/acuaticos/circuitos-acuaticos/" },
+];
+
+const sidebarRelated = [
+  { name: "Juegos Infantiles", href: "/servicios/inflables/juegos-infantiles/" },
+  { name: "Inflables para Adultos", href: "/servicios/inflables/adultos/" },
+  { name: "Carpas para Eventos", href: "/servicios/carpas/" },
+  { name: "Plantas de Energía", href: "/servicios/accesorios/plantas-energia/" },
+  { name: "Catering y Alimentos", href: "/servicios/catering/" },
+];
+
+const reviews = [
+  { author: "Carolina Méndez", text: "Rentamos el tobogán de 8 metros para la fiesta acuática de verano de mi hija en un jardín de Coyoacán. Los monitores fueron súper atentos con los niños, el sistema de agua funcionó perfecto y la alberca splash fue un éxito total. Todos los papás quedaron encantados con la seguridad del equipo.", rating: 5, date: "2025-07-20" },
+  { author: "Fernando Ruiz", text: "Contratamos el tobogán de 10 metros para un evento comunitario en Xochimilco con más de 80 niños y adolescentes. El equipo de EVENTECH llegó temprano, instaló todo impecablemente y los dos monitores controlaron los turnos durante 6 horas sin problema. Definitivamente lo más divertido del evento.", rating: 5, date: "2025-08-12" },
+  { author: "Laura Gutiérrez", text: "Usamos el tobogán doble carril splash para el cumpleaños de mis gemelos. Los niños no pararon de subir y bajar durante toda la fiesta. El agua se recirculaba así que no gastamos tanta como pensábamos. Los chalecos salvavidas para los más chiquitos fueron un detalle genial. Servicio excelente.", rating: 5, date: "2025-06-05" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Toboganes de Agua Inflables en CDMX",
+    description: "Renta de toboganes inflables acuáticos de 5, 8 y 10 metros con sistema de flujo de agua continuo y alberca splash. Monitores incluidos. Desde $2,000.",
+    url: "/servicios/inflables/acuaticos/toboganes-agua/",
+    priceRange: { min: 2000, max: 6000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 145,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Inflables", url: "/servicios/inflables/" },
+    { name: "Acuáticos", url: "/servicios/inflables/acuaticos/" },
+    { name: "Toboganes de Agua", url: "/servicios/inflables/acuaticos/toboganes-agua/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Toboganes de Agua Inflables en CDMX | EVENTECH"
+  description="Renta de toboganes inflables acuáticos de 5, 8 y 10 metros con sistema de flujo de agua continuo y alberca splash. Monitores incluidos. Desde $2,000."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="La atracción estrella de fiestas acuáticas"
+    title='Renta de <span class="highlight">Toboganes de Agua</span> Inflables para Eventos'
+    subtitle="Toboganes inflables acuáticos de 5, 8 y 10 metros con sistema de flujo de agua continuo, superficie deslizante profesional y alberca de aterrizaje splash. Monitores de seguridad y bomba de recirculación incluidos."
+    primaryCTA={{ label: "Cotiza tu tobogán", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar toboganes de agua inflables para mi evento` }}
+    cards={[
+      {
+        title: "Toboganes acuáticos de 5, 8 y 10 metros para cada evento",
+        content: "<strong>Renta de toboganes de agua inflables</strong> con la tecnología más segura y divertida para eventos en CDMX. Tres alturas disponibles — 5, 8 y 10 metros — con sistema de flujo de agua continuo, superficie deslizante profesional y alberca de aterrizaje splash integrada. Fabricados en lona vinílica de 22 oz impermeable con escaleras antiderrapantes, paredes laterales de seguridad y malla de protección. Ideales para fiestas infantiles, XV años, cumpleaños y eventos familiares en jardines y terrenos amplios.",
+      },
+      {
+        title: "Monitores de seguridad y equipamiento completo incluido",
+        content: "<strong>Servicio completo de seguridad</strong> incluido en cada renta. 2 monitores capacitados supervisan la cima y la zona de aterrizaje en todo momento. Bomba de recirculación de agua, conexión a manguera estándar y chalecos salvavidas infantiles incluidos sin costo adicional. Transporte, instalación con anclaje certificado, pruebas de funcionamiento y desmontaje incluidos dentro de CDMX y área metropolitana.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Buscas la atracción estrella para tu fiesta acuática?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con el tobogán ideal para tu espacio y número de invitados"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Inflables Acuáticos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas toboganes de agua para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar toboganes de agua inflables para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 9 7 9s7-4 7-9a7 7 0 0 0-7-7z"/><path d="M12 18v4"/><path d="M10 22h4"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Toboganes de Agua</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Tobogán Acuático 5m -->
+          <section class="section section--alt" aria-labelledby="tobogan-5m-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Ideal para fiestas infantiles</span>
+                <h2 class="showcase__title" id="tobogan-5m-heading">Tobogán Acuático 5m</h2>
+                <p class="showcase__subtitle">El tobogán perfecto para niños desde 4 años en fiestas de cumpleaños y eventos familiares.</p>
+                <p class="showcase__text">Nuestro <strong>tobogán acuático de 5 metros</strong> es la opción más accesible y segura para fiestas infantiles. Con una inclinación moderada y <strong>superficie deslizante de lona vinílica</strong>, ofrece deslizamientos suaves y controlados para niños desde 4 años. La <strong>alberca splash integrada</strong> de 2x2 metros amortigua la llegada con un chapoteo divertido que encanta a los pequeños. Escaleras con agarraderas antiderrapantes y paredes laterales de 60 cm de altura garantizan seguridad total.</p>
+                <p class="showcase__text">Incluye <strong>bomba de recirculación</strong> que mantiene el flujo de agua constante consumiendo solo 500 litros por hora. Se conecta a manguera estándar de jardín y funciona con contacto de 110V normal. Dos monitores supervisan el acceso y la zona de aterrizaje. Perfecto para <strong>fiestas de cumpleaños, kermeses, eventos escolares y celebraciones familiares</strong> en jardines de CDMX. Combínalo con nuestras <a href="/servicios/inflables/acuaticos/albercas/">albercas inflables</a> para crear una zona acuática completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">5 metros</span>
+                  <span class="showcase__tag">Desde 4 años</span>
+                  <span class="showcase__tag">500 L/h</span>
+                  <span class="showcase__tag">Alberca splash</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Tobogán 5m
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 5 7 9 7 9s7-4 7-9a7 7 0 0 0-7-7z"/>
+                    <path d="M12 18v4"/><path d="M10 22h4"/>
+                  </svg>
+                  <span>Tobogán Acuático 5m</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Tobogán Acuático 8m -->
+          <section class="section section--alt" aria-labelledby="tobogan-8m-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">El más solicitado para fiestas</span>
+                <h2 class="showcase__title" id="tobogan-8m-heading">Tobogán Acuático 8m</h2>
+                <p class="showcase__subtitle">La altura ideal para máxima emoción con seguridad total en eventos de 30 a 80 personas.</p>
+                <p class="showcase__text">El <strong>tobogán acuático de 8 metros</strong> es nuestro modelo más popular y el favorito para <strong>XV años, fiestas de cumpleaños y eventos familiares grandes</strong>. Con una pendiente emocionante y <strong>sistema de flujo de agua continuo</strong> de 1,000 litros por hora, ofrece deslizamientos rápidos y refrescantes que entusiasman tanto a niños mayores de 6 años como a adolescentes. La alberca splash de 3x2.5 metros con profundidad de 40 cm proporciona un aterrizaje seguro y divertido.</p>
+                <p class="showcase__text">Cuenta con <strong>doble carril de escalera</strong> con agarraderas ergonómicas, paredes laterales reforzadas de 80 cm y <strong>malla de protección</strong> en la plataforma superior. La lona vinílica de 22 oz impermeable con tratamiento UV resiste el uso intensivo durante todo el evento. Incluye <strong>2 monitores profesionales</strong> que controlan el flujo de participantes y garantizan la seguridad. Ideal para jardines de 12x6 metros. Combínalo con nuestras <a href="/servicios/carpas/">carpas para eventos</a> para crear zonas de sombra y descanso.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">8 metros</span>
+                  <span class="showcase__tag">Desde 6 años</span>
+                  <span class="showcase__tag">1,000 L/h</span>
+                  <span class="showcase__tag">El más popular</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Tobogán 8m
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 5 7 9 7 9s7-4 7-9a7 7 0 0 0-7-7z"/>
+                    <path d="M12 18v4"/><path d="M10 22h4"/>
+                  </svg>
+                  <span>Tobogán Acuático 8m</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Tobogán Acuático 10m Extreme -->
+          <section class="section section--alt" aria-labelledby="tobogan-10m-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Máxima adrenalina acuática</span>
+                <h2 class="showcase__title" id="tobogan-10m-heading">Tobogán Acuático 10m Extreme</h2>
+                <p class="showcase__subtitle">El tobogán más alto y emocionante: la atracción principal de eventos grandes y festivales acuáticos.</p>
+                <p class="showcase__text">El <strong>tobogán acuático de 10 metros Extreme</strong> es nuestra atracción premium y la estrella de <strong>festivales, eventos comunitarios y fiestas de gran formato</strong>. Con la mayor pendiente de nuestro catálogo y un sistema de flujo de agua de 1,500 litros por hora, ofrece la experiencia de deslizamiento más emocionante disponible en inflables portátiles. Apto para <strong>mayores de 8 años y adultos</strong> con peso máximo de 70 kg, combina adrenalina con seguridad certificada.</p>
+                <p class="showcase__text">Equipado con <strong>plataforma superior con barandal completo, triple carril de escalera con descanso intermedio</strong> y paredes laterales de 1 metro de altura. La alberca splash de 4x3 metros con profundidad de 50 cm proporciona un aterrizaje amplio y seguro. Incluye <strong>2 monitores dedicados</strong>, uno en la plataforma superior y otro en la zona de aterrizaje, más chalecos salvavidas para menores. Requiere un espacio de 15x8 metros. Perfecto para <a href="/servicios/inflables/acuaticos/circuitos-acuaticos/">combinarlo con circuitos acuáticos</a> y crear un parque acuático temporal.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">10 metros</span>
+                  <span class="showcase__tag">Desde 8 años</span>
+                  <span class="showcase__tag">1,500 L/h</span>
+                  <span class="showcase__tag">Extreme</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Tobogán 10m Extreme
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 5 7 9 7 9s7-4 7-9a7 7 0 0 0-7-7z"/>
+                    <path d="M12 18v4"/><path d="M10 22h4"/>
+                  </svg>
+                  <span>Tobogán 10m Extreme</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Tobogán Doble Carril Splash -->
+          <section class="section section--alt" aria-labelledby="tobogan-doble-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Carreras acuáticas lado a lado</span>
+                <h2 class="showcase__title" id="tobogan-doble-heading">Tobogán Doble Carril Splash</h2>
+                <p class="showcase__subtitle">Dos carriles paralelos para competencias y carreras simultáneas entre amigos y familia.</p>
+                <p class="showcase__text">El <strong>tobogán doble carril splash</strong> es nuestra opción más divertida para eventos donde la competencia y la diversión van de la mano. Con <strong>dos carriles paralelos de 8 metros de altura</strong>, permite que dos personas se deslicen simultáneamente en carreras acuáticas emocionantes. Cada carril cuenta con su propio <strong>sistema de flujo de agua independiente</strong> y alberca splash compartida de 5x3 metros que crea un gran chapuzón al final.</p>
+                <p class="showcase__text">Ideal para <strong>fiestas de cumpleaños competitivas, eventos de team building acuático, festivales y kermeses</strong> donde las carreras cronometradas generan emoción y risas. Incluye <strong>bandera de inicio, cronómetro digital visible y pizarra de resultados</strong> para competencias organizadas. Ambos carriles comparten una escalera central amplia con capacidad para dos personas subiendo simultáneamente. Los <strong>2 monitores</strong> coordinan las salidas y supervisan los aterrizajes. Combínalo con nuestro <a href="/servicios/audiovisual/">equipo audiovisual</a> para ambientar las competencias con música y narración.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Doble carril</span>
+                  <span class="showcase__tag">Carreras simultáneas</span>
+                  <span class="showcase__tag">Cronómetro</span>
+                  <span class="showcase__tag">8 metros</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Tobogán Doble Splash
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2a7 7 0 0 0-7 7c0 5 7 9 7 9s7-4 7-9a7 7 0 0 0-7-7z"/>
+                    <path d="M12 18v4"/><path d="M10 22h4"/>
+                  </svg>
+                  <span>Tobogán Doble Carril Splash</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Toboganes de Agua"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu tobogán de agua inflable, es natural tener preguntas sobre suministro de agua, seguridad y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de inflables acuáticos resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre toboganes de agua inflables para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Inflables Acuáticos -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Inflables Acuáticos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/inflables/acuaticos/" class="sidebar-nav__back">&uarr; Volver a Acuáticos</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/inflables/" class="sidebar-nav__back">&uarr; Volver a Inflables</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu fiesta acuática:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas toboganes de agua para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar toboganes de agua inflables para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Tobogán de Agua Inflable"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un tobogán de 5 metros para una fiesta infantil o un paquete acuático completo, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Fiesta Infantil">Fiesta Infantil</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Cumpleaños">Cumpleaños</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Festival / Feria">Festival / Feria</option>
+                <option value="Evento Comunitario">Evento Comunitario</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoTobogan">
+                Tipo de tobogán
+              </label>
+              <select id="tipoTobogan" name="tipoTobogan" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de tobogán</option>
+                <option value="Tobogán Agua 5m">Tobogán Agua 5m</option>
+                <option value="Tobogán Agua 8m">Tobogán Agua 8m</option>
+                <option value="Tobogán Agua 10m Extreme">Tobogán Agua 10m Extreme</option>
+                <option value="Tobogán Doble Splash">Tobogán Doble Splash</option>
+                <option value="Combo Tobogán + Alberca">Combo Tobogán + Alberca</option>
+                <option value="Paquete Fiesta Acuática">Paquete Fiesta Acuática</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de asistentes, edades, tipo de terreno (pasto/concreto), acceso a toma de agua, dimensiones del espacio..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu terreno sin costo para verificar espacio, acceso a agua y condiciones de anclaje.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para elegir el tobogán ideal.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoTobogan = document.getElementById('tipoTobogan').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Toboganes de Agua Inflables*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoTobogan) texto += `*Tipo de tobogán:* ${tipoTobogan}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Inflables"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de inflables y juegos acuáticos para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, monitores capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipos y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">I</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Inflables Fiesta MX</h3>
+            <p class="partner-card__tagline">Brincolines y Juegos Inflables</p>
+            <p class="partner-card__text">Brincolines y juegos inflables certificados para fiestas infantiles en CDMX. Toboganes acuáticos de 5 a 10 metros con monitores de seguridad y equipo de protección incluido.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">J</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">JuegosEvent CDMX</h3>
+            <p class="partner-card__tagline">Inflables Profesionales para Eventos</p>
+            <p class="partner-card__text">Renta de inflables profesionales con monitores para eventos y ferias. Especialistas en toboganes acuáticos, circuitos de obstáculos y juegos interactivos para todas las edades.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">I</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">InflaPro</h3>
+            <p class="partner-card__tagline">Juegos Inflables de Alta Calidad</p>
+            <p class="partner-card__text">Juegos inflables de alta calidad con seguro y operadores certificados. Más de 10 años proporcionando diversión segura para eventos infantiles, corporativos y festivales en CDMX.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">D</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">DiversiónTotal</h3>
+            <p class="partner-card__tagline">Inflables Temáticos y Circuitos</p>
+            <p class="partner-card__text">Inflables temáticos y circuitos para eventos infantiles y familiares. Servicio integral con transporte, instalación, monitores y desmontaje en toda la CDMX y área metropolitana.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Toboganes de agua que transforman tu evento en una fiesta acuática inolvidable"
+    subheadline="Más de 300 eventos acuáticos nos respaldan. Cotiza hoy y recibe asesoría personalizada sin compromiso."
+    primaryCTA={{ label: "Cotizar toboganes de agua", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar toboganes de agua inflables para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

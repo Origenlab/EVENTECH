@@ -1,0 +1,700 @@
+---
+/**
+ * ─── Hangar Claro 30m — Pagina de Producto (Nivel 4) ───
+ * Máxima escala para conciertos y expos masivas,
+ * claro libre 30m, capacidad 2,000-5,000+ personas.
+ *
+ * Jerarquia: Servicios > Carpas > Hangar > Hangar 30m
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Carpas", href: "/servicios/carpas/" },
+  { label: "Hangar", href: "/servicios/carpas/hangar/" },
+  { label: "Hangar 30m" },
+];
+
+const faqs = [
+  { question: "¿Cuál es la diferencia entre el hangar de 20m y el de 30m?", answer: 'La diferencia principal es la <strong>escala y capacidad</strong>. El hangar de 20 metros aloja de 500 a 2,000 personas y es ideal para expos y bodas masivas. El hangar de 30 metros ofrece un claro libre 50% más ancho, capacidad de <strong>2,000 a 5,000+ personas</strong>, altura de hasta 10 metros en el centro y estructura de acero reforzado con certificación de carga para soportar rigging pesado. El de 30m es la elección para <strong>conciertos, festivales, expos internacionales y eventos deportivos</strong> donde se necesita un espacio verdaderamente monumental.' },
+  { question: "¿Se requiere permiso municipal para instalar un hangar de 30m?", answer: 'Sí, para estructuras de este tamaño generalmente se requieren <strong>permisos de la alcaldía correspondiente</strong>. Nuestro equipo te asesora sobre los trámites específicos: dictamen de protección civil, permiso de vía pública (si aplica), constancia de seguridad estructural y póliza de responsabilidad civil. Entregamos toda la <strong>documentación técnica, memorias de cálculo y planos estructurales</strong> necesarios para facilitar la obtención de permisos. En la mayoría de los casos, el trámite toma de 5 a 10 días hábiles.' },
+  { question: "¿El hangar de 30m se puede climatizar?", answer: 'Sí, ofrecemos sistemas de <strong>clima artificial diseñados específicamente para hangares de gran formato</strong>. Para climatización en verano utilizamos unidades de aire acondicionado industrial de 30 a 60 toneladas con ductos de distribución que garantizan temperatura uniforme en todo el espacio. Para temporada de frío, contamos con <a href="/servicios/accesorios/calefaccion-clima/">calentadores industriales y sistemas de calefacción</a> de alto rendimiento. El consumo eléctrico del sistema de clima se contempla en el dimensionamiento de la acometida eléctrica o planta de energía.' },
+  { question: "¿El hangar de 30m soporta rigging profesional?", answer: 'Sí, nuestro hangar de 30 metros cuenta con estructura de <strong>acero reforzado con certificación de carga</strong> que soporta puntos de rigging distribuidos a lo largo de toda la estructura. Para producciones con requerimientos intensivos de rigging (line arrays, parrillas de iluminación, pantallas LED suspendidas), recomendamos nuestro <a href="/servicios/carpas/hangar/rigging/">hangar con rigging certificado</a> que incluye puntos de 500 kg, truss integrado y rigger profesional. Cada configuración de carga se valida con un cálculo estructural específico.' },
+  { question: "¿El hangar incluye instalación eléctrica?", answer: 'La estructura base del hangar de 30m incluye <strong>iluminación de trabajo y puntos de energía básicos</strong>. Para eventos que requieren una acometida eléctrica completa con tableros de distribución, circuitos dedicados para sonido e iluminación, y capacidad trifásica, ofrecemos el servicio de instalación eléctrica profesional como complemento. También proporcionamos <a href="/servicios/accesorios/plantas-energia/">plantas de energía</a> de 50 a 500 kW para eventos en predios sin acometida suficiente. Toda la instalación cumple con la NOM-001-SEDE vigente.' },
+  { question: "¿Con cuánta anticipación debo reservar un hangar de 30m?", answer: 'Para hangares de 30 metros recomendamos reservar con <strong>6 a 8 semanas de anticipación</strong> como mínimo. Estas estructuras requieren logística especializada de transporte (2-3 tráileres), equipo de montaje de 12-16 operarios y 3-7 días de instalación. En <strong>temporada alta (septiembre a febrero)</strong>, la demanda es muy alta y conviene apartar con 3 meses de anticipación. El anticipo para confirmar es del 30% del total. Para eventos con producción integral (rigging, piso, electricidad, clima), recomendamos iniciar la planeación con al menos 2 meses de antelación.' },
+];
+
+const specs = [
+  { label: "Estructura", value: "Acero reforzado con certificación de carga" },
+  { label: "Claro libre", value: "30 metros sin columnas" },
+  { label: "Largo", value: "Modulable: 30 a 150+ metros" },
+  { label: "Capacidad", value: "2,000 a 5,000+ personas" },
+  { label: "Lona", value: "PVC 900 g/m² doble refuerzo" },
+  { label: "Altura lateral", value: "5 metros" },
+  { label: "Altura centro", value: "8 a 10 metros" },
+  { label: "Acceso", value: "Vehicular amplio, carga pesada" },
+  { label: "Anclaje", value: "Ingeniería estructural + cimentación temporal" },
+  { label: "Montaje", value: "Equipo especializado, 3-7 días" },
+];
+
+const sidebarNav = [
+  { name: "Hangar 20m", href: "/servicios/carpas/hangar/hangar-20m/" },
+  { name: "Hangar 30m", href: null, active: true },
+  { name: "Hangar con Rigging", href: "/servicios/carpas/hangar/rigging/" },
+  { name: "Hangar Industrial", href: "/servicios/carpas/hangar/industrial/" },
+];
+
+const sidebarRelated = [
+  { name: "Pisos y Complementos", href: "/servicios/carpas/pisos-complementos/" },
+  { name: "Sonido Profesional", href: "/servicios/audiovisual/sonido/" },
+  { name: "Iluminación Escenario", href: "/servicios/iluminacion/escenario/" },
+  { name: "Plantas de Energía", href: "/servicios/accesorios/plantas-energia/" },
+  { name: "Tarimas y Escenarios", href: "/servicios/pistas-baile/tarimas-escenarios/" },
+];
+
+const reviews = [
+  { author: "Alejandro Vega", text: "Contratamos un hangar de 30x50 para un concierto de 3,000 personas en un predio de Tlalpan. La estructura fue impresionante: 10 metros de altura en el centro permitieron colgar el line array y toda la parrilla de iluminación sin problema. El montaje tomó 5 días y el equipo de EVENTECH fue sumamente profesional.", rating: 5, date: "2025-11-10" },
+  { author: "Mariana Castillo", text: "Organizamos una expo industrial en un hangar de 30x50 metros en Santa Fe. El espacio diáfano nos permitió distribuir 40 stands con acceso vehicular para descarga. La estructura soportó lluvia intensa durante los 3 días del evento sin ningún problema. Excelente calidad y servicio.", rating: 5, date: "2025-10-05" },
+  { author: "Daniel Herrera", text: "Usamos el hangar de 30x80 para un festival multidía de 4 jornadas. La logística fue impecable: accesos dobles, planta de energía integrada y clima artificial que mantuvo el espacio confortable. El equipo de producción de EVENTECH coordinó todo con los proveedores de sonido e iluminación. Totalmente recomendable.", rating: 5, date: "2025-09-18" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Carpa Hangar 30m para Eventos en CDMX",
+    description: "Renta de carpa tipo hangar con claro libre de 30 metros para conciertos, expos y eventos de 2,000-5,000+ personas en CDMX. Capacidad industrial. Desde $65,000.",
+    url: "/servicios/carpas/hangar/hangar-30m/",
+    priceRange: { min: 65000, max: 350000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 134,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Carpas", url: "/servicios/carpas/" },
+    { name: "Hangar", url: "/servicios/carpas/hangar/" },
+    { name: "Hangar 30m", url: "/servicios/carpas/hangar/hangar-30m/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Carpa Hangar 30m para Eventos en CDMX"
+  description="Renta de carpa tipo hangar con claro libre de 30 metros para conciertos, expos y eventos de 2,000-5,000+ personas en CDMX. Capacidad industrial. Desde $65,000."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Máxima escala: 2,000 a 5,000+ personas"
+    title='Renta de <span class="highlight">Carpa Hangar 30m</span> para Eventos en CDMX'
+    subtitle="Estructura de acero reforzado con claro libre de 30 metros completamente diáfano. Capacidad de 2,000 a 5,000+ personas para conciertos, festivales, expos masivas y eventos deportivos de gran escala."
+    primaryCTA={{ label: "Cotiza tu hangar 30m", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar una carpa hangar de 30 metros para mi evento` }}
+    cards={[
+      {
+        title: "Claro libre de 30 metros sin columnas con certificación de carga",
+        content: "<strong>Renta de carpa hangar de 30 metros</strong> con la estructura más grande y robusta disponible para eventos en CDMX. Claro libre de 30 metros completamente diáfano — sin columnas intermedias — con capacidad de <strong>2,000 a 5,000+ personas</strong> en configuraciones de concierto, expo, convención o evento deportivo. Acero reforzado con certificación de carga para soportar rigging profesional, lona PVC de 900 g/m² con doble refuerzo, protección UV e impermeabilidad certificada. Largo modulable desde 30 hasta más de 150 metros.",
+      },
+      {
+        title: "Espacio diáfano para producciones de gran escala",
+        content: "<strong>Espacio completamente diáfano</strong> para escenarios, tribunas y producciones de gran escala. Altura de 8 a 10 metros en el centro para montar tarimas de concierto, pantallas LED gigantes, estructuras de truss y escenografías de gran formato. Acceso vehicular amplio para carga pesada con puertas de hasta 6 metros de altura. Sistema de anclaje con ingeniería estructural y cimentación temporal certificada. Montaje con equipo especializado de 12-16 operarios en 3 a 7 días según configuración.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Tu evento necesita la máxima escala? Tenemos la estructura"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta técnica con ingeniería estructural para tu evento masivo"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Carpas Hangar para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas un hangar de 30 metros para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una carpa hangar de 30 metros para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 22h20L12 2z"/><path d="M12 2v20"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Hangar Claro 30m</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Hangar 30x30 -->
+          <section class="section section--alt" aria-labelledby="hangar-30x30-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Expos masivas 2,000 personas</span>
+                <h2 class="showcase__title" id="hangar-30x30-heading">Hangar 30x30 Metros</h2>
+                <p class="showcase__subtitle">900 m² de espacio diáfano para expos masivas, ferias internacionales y convenciones de hasta 2,000 personas.</p>
+                <p class="showcase__text">Nuestro <strong>hangar de 30x30 metros</strong> ofrece 900 m² de espacio completamente libre de columnas, la configuración ideal para <strong>expos masivas, ferias internacionales, convenciones corporativas y presentaciones de producto de gran escala</strong>. El claro de 30 metros permite distribuir hasta 60 stands de exhibición en formato isla o perímetro sin obstrucciones visuales. La altura de 8-10 metros permite stands de doble piso, escenografías de gran formato y elementos suspendidos.</p>
+                <p class="showcase__text">Incluye <strong>accesos vehiculares amplios para carga pesada</strong>, permitiendo la entrada de tráileres, montacargas y vehículos de exhibición de gran tamaño. La lona PVC de 900 g/m² con doble refuerzo garantiza protección total contra lluvia, sol y viento. Complementa con nuestro <a href="/servicios/audiovisual/">equipo audiovisual profesional</a> y <a href="/servicios/iluminacion/">iluminación</a> para crear un ambiente de expo de nivel internacional. Montaje en 3-4 días con equipo de 12 operarios.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">30x30 metros</span>
+                  <span class="showcase__tag">900 m²</span>
+                  <span class="showcase__tag">2,000 personas</span>
+                  <span class="showcase__tag">Montaje 3-4 días</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Hangar 30x30
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2L2 22h20L12 2z"/>
+                    <path d="M12 2v20"/>
+                  </svg>
+                  <span>Hangar 30x30</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Hangar 30x50 -->
+          <section class="section section--alt" aria-labelledby="hangar-30x50-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Conciertos y festivales 3,000+</span>
+                <h2 class="showcase__title" id="hangar-30x50-heading">Hangar 30x50 Metros</h2>
+                <p class="showcase__subtitle">1,500 m² para conciertos, festivales de música y producciones de entretenimiento de 3,000+ personas.</p>
+                <p class="showcase__text">El <strong>hangar de 30x50 metros</strong> proporciona 1,500 m² de espacio diáfano, la configuración más solicitada para <strong>conciertos, festivales de música, premiaciones de gran escala y producciones de entretenimiento</strong>. Con capacidad para más de 3,000 personas en configuración tipo concierto, ofrece el espacio para montar escenarios de 15+ metros de boca, áreas VIP, zonas generales de pie y backstage completo con camerinos y zona de producción.</p>
+                <p class="showcase__text">La altura de 10 metros en el centro permite <strong>colgar line arrays de sonido, parrillas de iluminación profesional y pantallas LED gigantes</strong> con total seguridad. Los accesos vehiculares dobles permiten carga y descarga simultánea de equipo de producción. Complementa con nuestro <a href="/servicios/carpas/hangar/rigging/">sistema de rigging certificado</a> y <a href="/servicios/audiovisual/sonido/">sonido line array profesional</a> para una producción de nivel internacional. Montaje en 4-5 días.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">30x50 metros</span>
+                  <span class="showcase__tag">1,500 m²</span>
+                  <span class="showcase__tag">3,000+ personas</span>
+                  <span class="showcase__tag">Montaje 4-5 días</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Hangar 30x50
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2L2 22h20L12 2z"/>
+                    <path d="M12 2v20"/>
+                  </svg>
+                  <span>Hangar 30x50</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Hangar 30x80 -->
+          <section class="section section--alt" aria-labelledby="hangar-30x80-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Eventos deportivos y convenciones</span>
+                <h2 class="showcase__title" id="hangar-30x80-heading">Hangar 30x80 Metros</h2>
+                <p class="showcase__subtitle">2,400 m² para eventos deportivos, convenciones internacionales y producciones que requieren espacios monumentales.</p>
+                <p class="showcase__text">El <strong>hangar de 30x80 metros</strong> ofrece 2,400 m² de espacio monumental, la estructura más grande de nuestro catálogo para <strong>eventos deportivos, convenciones internacionales, ferias de escala industrial y producciones cinematográficas</strong>. Con capacidad para más de 5,000 personas, ofrece el espacio para montar canchas deportivas completas, pistas de exhibición, zonas de competencia y tribunas con graderías.</p>
+                <p class="showcase__text">La estructura de <strong>acero reforzado con certificación de carga</strong> soporta rigging intensivo en toda su extensión. Los accesos vehiculares de 6 metros de altura permiten la entrada de tráileres completos y vehículos de gran tamaño. Incluye canaletas de desagüe industriales para precipitaciones extremas y sistema de ventilación natural con paneles laterales abatibles. Complementa con <a href="/servicios/accesorios/plantas-energia/">plantas de energía</a> de alta capacidad y <a href="/servicios/accesorios/calefaccion-clima/">sistemas de clima</a> para un venue autosuficiente. Montaje en 5-7 días.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">30x80 metros</span>
+                  <span class="showcase__tag">2,400 m²</span>
+                  <span class="showcase__tag">5,000+ personas</span>
+                  <span class="showcase__tag">Montaje 5-7 días</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Hangar 30x80
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2L2 22h20L12 2z"/>
+                    <path d="M12 2v20"/>
+                  </svg>
+                  <span>Hangar 30x80</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Producción Completa -->
+          <section class="section section--alt" aria-labelledby="kit-produccion-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Producción integral llave en mano</span>
+                <h2 class="showcase__title" id="kit-produccion-heading">Kit Producción Completa</h2>
+                <p class="showcase__subtitle">Hangar de 30 metros con rigging, sonido, iluminación y todo lo necesario para una producción de nivel profesional.</p>
+                <p class="showcase__text">Nuestro <strong>Kit Producción Completa</strong> integra el hangar de 30 metros con todos los servicios técnicos necesarios para una producción de gran escala. Incluye la estructura en el largo que necesites, <strong>sistema de rigging certificado con truss y motores chain, sonido line array profesional, parrilla de iluminación de escenario y pantallas LED</strong>. Todo coordinado por nuestro equipo de producción técnica de principio a fin.</p>
+                <p class="showcase__text">El kit es la solución para <strong>productores de eventos, agencias de entretenimiento y organizadores de festivales</strong> que necesitan un venue completamente equipado con un solo proveedor. Incluye piso industrial, instalación eléctrica trifásica con <a href="/servicios/accesorios/plantas-energia/">planta de energía</a>, clima artificial y señalización de emergencia. Nuestro director técnico coordina con tus proveedores de sonido, video y escenografía para garantizar una producción impecable. Una sola cotización, un solo responsable.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Hangar + Rigging</span>
+                  <span class="showcase__tag">Sonido Line Array</span>
+                  <span class="showcase__tag">Iluminación</span>
+                  <span class="showcase__tag">Llave en Mano</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Producción
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M12 2L2 22h20L12 2z"/>
+                    <path d="M12 2v20"/>
+                  </svg>
+                  <span>Kit Producción Completa</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Hangar 30m"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu hangar de 30 metros, es natural tener preguntas sobre capacidad, permisos, rigging y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor técnico te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de carpas hangar resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre el hangar de 30 metros para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Carpas Hangar -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Carpas Hangar para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/carpas/hangar/" class="sidebar-nav__back">&uarr; Volver a Hangar</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/carpas/" class="sidebar-nav__back">&uarr; Volver a Carpas</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de hangar:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas un hangar de 30 metros para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una carpa hangar de 30 metros para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Hangar de 30 Metros"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores técnicos te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un hangar de 30x30 para tu expo o un kit de producción completa para tu concierto, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Concierto / Festival">Concierto / Festival</option>
+                <option value="Expo / Feria">Expo / Feria</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Convención">Congreso / Convención</option>
+                <option value="Evento Deportivo">Evento Deportivo</option>
+                <option value="Producción Televisiva">Producción Televisiva</option>
+                <option value="Feria Automotriz">Feria Automotriz</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoHangar">
+                Configuración de hangar
+              </label>
+              <select id="tipoHangar" name="tipoHangar" class="form-field__input form-field__select">
+                <option value="">Selecciona la configuración</option>
+                <option value="Hangar 30x30">Hangar 30x30</option>
+                <option value="Hangar 30x50">Hangar 30x50</option>
+                <option value="Hangar 30x80">Hangar 30x80</option>
+                <option value="Hangar 30x100">Hangar 30x100</option>
+                <option value="Con Rigging Integrado">Con Rigging Integrado</option>
+                <option value="Kit Producción Completa">Kit Producción Completa</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Cuéntanos los detalles: número de asistentes, ubicación del evento, requerimientos de producción, rigging, sonido, iluminación..." rows="4" required></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu predio o explanada sin costo para diseñar la configuración ideal del hangar de 30 metros.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría técnica con ingeniería estructural incluida.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoHangar = document.getElementById('tipoHangar').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Hangar Claro 30m*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoHangar) texto += `*Configuración:* ${tipoHangar}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Carpas Hangar"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de carpas y estructuras temporales para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, operarios capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de estructuras y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Carpas Elite MX</h3>
+            <p class="partner-card__tagline">Especialistas en Carpas Hangar</p>
+            <p class="partner-card__text">Especialistas en carpas hangar y de gran formato para eventos masivos. Estructuras de acero galvanizado con claros de 20 y 30 metros, rigging certificado y montaje profesional en toda la CDMX.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">T</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">ToldoEventos CDMX</h3>
+            <p class="partner-card__tagline">Carpas y Toldos para Eventos</p>
+            <p class="partner-card__text">Renta integral de carpas y toldos para eventos corporativos y ferias. Hangares de gran formato, carpas árabes, estructurales y complementos con logística profesional.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">+15 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Carpas & Más</h3>
+            <p class="partner-card__tagline">Cobertura Temporal para Eventos</p>
+            <p class="partner-card__text">Soluciones de cobertura temporal para eventos al aire libre en CDMX. Hangares, carpas estructurales, pisos modulares y sistemas de clima con instalación profesional certificada.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">L</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">LonasPro</h3>
+            <p class="partner-card__tagline">Carpas, Pisos y Complementos</p>
+            <p class="partner-card__text">Carpas, pisos y complementos con servicio de logística e instalación profesional. Hangares industriales, pisos modulares, instalación eléctrica y clima artificial para eventos de cualquier escala.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="La estructura de máxima escala para tu evento masivo"
+    subheadline="Más de 134 hangares de 30 metros instalados exitosamente en CDMX nos respaldan. Cotiza hoy y recibe visita técnica gratuita."
+    primaryCTA={{ label: "Cotizar hangar 30m", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar una carpa hangar de 30 metros para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

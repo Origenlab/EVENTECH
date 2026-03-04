@@ -1,0 +1,730 @@
+---
+/**
+ * ─── Copas y Cristalería — Pagina de Producto (Nivel 4) ───
+ * Copas de vino, champagne, vasos highball, copas de coctelería
+ * y cristalería premium para bodas y eventos.
+ *
+ * Jerarquia: Servicios > Catering > Vajilla y Cristalería > Copas y Cristalería
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Catering", href: "/servicios/catering/" },
+  { label: "Vajilla y Cristalería", href: "/servicios/catering/vajilla-cristaleria/" },
+  { label: "Copas y Cristalería" },
+];
+
+const faqs = [
+  { question: "¿Qué tipos de copas y cristalería tienen disponibles?", answer: 'Contamos con un catálogo completo de cristalería: <strong>copas de vino tinto (450 ml), vino blanco (350 ml), flautas de champagne (200 ml), copas de agua (300 ml)</strong>, vasos highball (350 ml), old fashioned (300 ml), copas martini (250 ml), margarita (350 ml), caballitos tequileros (60 ml) y tarros cerveceros (500 ml). Disponibles en cristal premium y vidrio templado según tu presupuesto y tipo de evento.' },
+  { question: "¿Cuál es el pedido mínimo de copas?", answer: 'El pedido mínimo es de <strong>50 piezas por tipo</strong>. Puedes combinar diferentes tipos de copas en un mismo pedido. Por ejemplo, 50 copas de vino tinto + 50 flautas de champagne + 50 vasos highball. Para eventos grandes, contamos con inventario para <strong>más de 2,000 piezas por tipo</strong>.' },
+  { question: "¿Qué pasa si se rompe una copa durante el evento?", answer: 'Incluimos un <strong>margen de tolerancia del 3%</strong> sobre el total de piezas rentadas sin cargo adicional. Las piezas que excedan ese margen se cobran a precio de reposición: copas de cristal premium desde $120, vidrio templado desde $65. Recomendamos nuestro <strong>seguro de protección por $400</strong> que cubre hasta el 10% del inventario.' },
+  { question: "¿Las copas se entregan pulidas y sin manchas?", answer: 'Sí, cada copa y vaso pasa por un <strong>proceso de lavado industrial a 82°C</strong>, secado con aire caliente controlado y <strong>pulido manual individual</strong> para eliminar cualquier mancha de agua o huella. Las copas de cristal premium reciben una inspección adicional contra la luz para garantizar transparencia perfecta. Llegan listas para colocar directamente en las mesas.' },
+  { question: "¿Puedo combinar diferentes tipos de copas en un pedido?", answer: 'Por supuesto. Lo más común es combinar <strong>copas de vino + flautas de champagne + copas de agua</strong> para servicio de mesa formal, y agregar <strong>vasos highball + copas de coctelería</strong> para la barra de bebidas. Nuestro asesor te ayuda a calcular las cantidades exactas según tu menú de bebidas y número de invitados.' },
+  { question: "¿Cuál es la diferencia entre cristal premium y vidrio templado?", answer: 'El <strong>cristal premium</strong> es más ligero, transparente y con mejor brillo — ideal para bodas elegantes y cenas de gala donde la presentación es clave. El <strong>vidrio templado</strong> es más grueso, resistente a golpes y económico — perfecto para eventos masivos, festivales, fiestas sociales y barras de servicio rápido. Ambas opciones se entregan pulidas y sanitizadas.' },
+];
+
+const specs = [
+  { label: "Copa vino tinto", value: "450 ml cristal templado" },
+  { label: "Copa vino blanco", value: "350 ml cristal templado" },
+  { label: "Flauta champagne", value: "200 ml estilo clásico" },
+  { label: "Vaso highball", value: "350 ml vidrio grueso" },
+  { label: "Vaso old fashioned", value: "300 ml base pesada" },
+  { label: "Copa martini", value: "250 ml cristal" },
+  { label: "Copa margarita", value: "350 ml cristal" },
+  { label: "Caballito tequilero", value: "60 ml vidrio" },
+  { label: "Tarro cervecero", value: "500 ml vidrio grueso" },
+  { label: "Pedido mínimo", value: "50 piezas por tipo" },
+];
+
+const sidebarNav = [
+  { name: "Platos y Vajilla", href: "/servicios/catering/vajilla-cristaleria/platos-vajilla/" },
+  { name: "Copas y Cristalería", href: null, active: true },
+  { name: "Cubiertos y Charolas", href: "/servicios/catering/vajilla-cristaleria/cubiertos-charolas/" },
+  { name: "Equipo de Servicio", href: "/servicios/catering/vajilla-cristaleria/equipo-servicio/" },
+];
+
+const sidebarRelated = [
+  { name: "Estaciones de Servicio", href: "/servicios/catering/estaciones-servicio/" },
+  { name: "Cocina Móvil", href: "/servicios/catering/cocina-movil/" },
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+  { name: "Mobiliario Mesas", href: "/servicios/mobiliario/mesas/" },
+  { name: "Refrigeración", href: "/servicios/catering/refrigeracion/" },
+];
+
+const reviews = [
+  { author: "Mariana López", text: "Rentamos copas de vino y flautas de champagne para nuestra boda de 180 personas en Hacienda de los Morales. Cada copa llegó perfectamente pulida, sin una sola mancha. El brindis fue mágico con las flautas de cristal brillando bajo la iluminación. Servicio de primera calidad.", rating: 5, date: "2025-11-12" },
+  { author: "Grupo Diageo México", text: "Organizamos un evento de degustación de vinos para 100 invitados VIP y necesitábamos cristalería impecable. Las copas de vino tinto y blanco eran de excelente calidad, y los vasos old fashioned para la estación de whisky quedaron perfectos. El equipo de EVENTECH fue muy profesional.", rating: 5, date: "2025-10-05" },
+  { author: "Andrea Sánchez", text: "Para nuestro cóctel corporativo de 250 personas necesitábamos variedad de cristalería: copas martini, highball, old fashioned y flautas. Todo llegó impecable y a tiempo. La reposición de piezas fue inmediata cuando necesitamos más vasos highball. Excelente logística.", rating: 5, date: "2025-09-18" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Copas y Cristalería para Eventos en CDMX",
+    description: "Renta de copas de vino, champagne, vasos highball, copas de coctelería y cristalería premium para bodas y eventos. Desde $12 por pieza.",
+    url: "/servicios/catering/vajilla-cristaleria/copas-cristaleria/",
+    priceRange: { min: 12, max: 45 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 203,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Catering", url: "/servicios/catering/" },
+    { name: "Vajilla y Cristalería", url: "/servicios/catering/vajilla-cristaleria/" },
+    { name: "Copas y Cristalería", url: "/servicios/catering/vajilla-cristaleria/copas-cristaleria/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Copas y Cristalería para Eventos en CDMX | EVENTECH"
+  description="Renta de copas de vino, champagne, vasos highball, copas de coctelería y cristalería premium para bodas y eventos. Desde $12 por pieza."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Cristalería para cada tipo de bebida"
+    title='Renta de <span class="highlight">Copas y Cristalería</span> para Eventos'
+    subtitle="Copas de vino tinto y blanco, flautas de champagne, vasos highball y old fashioned, copas de coctelería martini y margarita, caballitos y tarros cerveceros. Cristal templado de alta resistencia."
+    primaryCTA={{ label: "Cotiza tu cristalería", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar copas y cristalería para mi evento` }}
+    cards={[
+      {
+        title: "Copas y cristalería profesional para cada tipo de bebida",
+        content: "<strong>Renta de copas y cristalería premium</strong> para eventos en CDMX. Copas de vino tinto y blanco, flautas de champagne, vasos highball y old fashioned, copas de coctelería martini y margarita, caballitos y tarros cerveceros. Cristal transparente con tallo elegante y base estable en dos líneas de calidad: <strong>cristal premium</strong> para bodas y cenas de gala, y <strong>vidrio templado</strong> resistente para eventos masivos y fiestas sociales.",
+      },
+      {
+        title: "Entrega pulida sin manchas e inventario para 2,000+ personas",
+        content: "<strong>Cristal templado de alta resistencia</strong>, entrega pulida sin manchas con proceso de lavado industrial a 82°C y pulido manual individual. Inventario para 2,000+ personas con reposición inmediata en caso de faltantes. Cada copa inspeccionada contra la luz para garantizar transparencia perfecta. Transporte en cajas con divisores especializados y recolección incluida dentro de CDMX.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas cristalería impecable para tu próximo evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con la cristalería ideal para tu menú de bebidas y número de invitados"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Vajilla y Cristalería</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas copas y cristalería para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar copas y cristalería para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Copas y Cristalería</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Set Copas de Vino -->
+          <section class="section section--alt" aria-labelledby="vino-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Las más solicitadas para bodas</span>
+                <h2 class="showcase__title" id="vino-heading">Set Copas de Vino</h2>
+                <p class="showcase__subtitle">Copas de vino tinto, blanco, champagne y agua en cristal fino para servicio de mesa formal.</p>
+                <p class="showcase__text">Nuestras <strong>copas de vino</strong> son el pilar de cualquier servicio de mesa formal para bodas y cenas de gala. La <strong>copa de vino tinto (450 ml)</strong> con bowl amplio permite que el vino respire y desarrolle sus aromas. La <strong>copa de vino blanco (350 ml)</strong> con bowl más estrecho mantiene la temperatura fría. La <strong>flauta de champagne (200 ml)</strong> con su forma alargada preserva las burbujas y la <strong>copa de agua (300 ml)</strong> completa el set de mesa.</p>
+                <p class="showcase__text">Cada copa se fabrica en <strong>cristal templado de alta transparencia</strong> con tallo elegante y base estable que resiste el uso en banquetes. El cristal premium ofrece un brillo excepcional bajo la iluminación del evento, haciendo que cada brindis sea fotogénico. Disponibles en sets completos de 4 copas por persona o por tipo individual. Complementa con nuestra <a href="/servicios/catering/vajilla-cristaleria/platos-vajilla/">vajilla de porcelana</a> para un montaje de mesa completo.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Copa vino tinto 450 ml</span>
+                  <span class="showcase__tag">Copa vino blanco 350 ml</span>
+                  <span class="showcase__tag">Flauta champagne</span>
+                  <span class="showcase__tag">Cristal premium</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Copas de Vino
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Set Copas de Vino</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Cristalería de Coctelería -->
+          <section class="section section--alt" aria-labelledby="cocteleria-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Para barras de servicio profesional</span>
+                <h2 class="showcase__title" id="cocteleria-heading">Cristalería de Coctelería</h2>
+                <p class="showcase__subtitle">Copas martini, margarita, coupe y cristalería especializada para barras de cócteles.</p>
+                <p class="showcase__text">Nuestra <strong>cristalería de coctelería</strong> transforma cualquier barra de bebidas en una experiencia profesional. La <strong>copa martini (250 ml)</strong> con su icónica forma cónica es perfecta para martinis, cosmopolitans y cócteles clásicos. La <strong>copa margarita (350 ml)</strong> con borde amplio para sal o azúcar. La <strong>copa coupe (200 ml)</strong> vintage ideal para champagne cócteles y daiquiris. Cada pieza en cristal transparente con acabado impecable.</p>
+                <p class="showcase__text">Ideal para <strong>bodas con barra de cócteles, eventos corporativos con estación de mixología, XV años con servicio de mocktails y fiestas temáticas</strong>. Nuestro catálogo de coctelería también incluye <strong>copas de cognac, vasos de shot, jiggers de medición y mixing glasses</strong>. Combina la cristalería de coctelería con nuestras <a href="/servicios/catering/estaciones-servicio/">estaciones de servicio</a> para una barra profesional completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Copa martini 250 ml</span>
+                  <span class="showcase__tag">Copa margarita 350 ml</span>
+                  <span class="showcase__tag">Copa coupe</span>
+                  <span class="showcase__tag">Barra profesional</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Cristalería Coctelería
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Cristalería de Coctelería</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Vasos Highball y Old Fashioned -->
+          <section class="section section--alt" aria-labelledby="vasos-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Resistencia y estilo</span>
+                <h2 class="showcase__title" id="vasos-heading">Vasos Highball y Old Fashioned</h2>
+                <p class="showcase__subtitle">Vasos de vidrio grueso para cócteles largos, whisky on the rocks y bebidas con hielo.</p>
+                <p class="showcase__text">Nuestros <strong>vasos highball (350 ml)</strong> son la elección ideal para cócteles largos como cuba libre, gin tonic, mojito y paloma. Fabricados en <strong>vidrio grueso de alta resistencia</strong> con paredes rectas y base pesada que evita volcaduras accidentales. Los <strong>vasos old fashioned (300 ml)</strong> con su perfil bajo y ancho son perfectos para whisky on the rocks, negroni, mezcal y cócteles cortos con hielo.</p>
+                <p class="showcase__text">Ambos modelos son los más <strong>resistentes de nuestro catálogo</strong>, diseñados para soportar el uso intensivo en barras abiertas, fiestas sociales y eventos masivos. El vidrio grueso mantiene las bebidas frías por más tiempo y ofrece una sensación premium al tacto. También disponemos de <strong>caballitos tequileros (60 ml) y tarros cerveceros (500 ml)</strong> para estaciones de tequila y cerveza artesanal. Complementa con nuestras <a href="/servicios/mobiliario/barras/">barras de bebidas</a> para un servicio completo.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Highball 350 ml</span>
+                  <span class="showcase__tag">Old Fashioned 300 ml</span>
+                  <span class="showcase__tag">Vidrio grueso</span>
+                  <span class="showcase__tag">Alta resistencia</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Vasos Highball
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Vasos Highball y Old Fashioned</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Cristalería Completa -->
+          <section class="section section--alt" aria-labelledby="kit-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Todo en un solo paquete</span>
+                <h2 class="showcase__title" id="kit-heading">Kit Cristalería Completa</h2>
+                <p class="showcase__subtitle">Paquete integral con copas de mesa y cristalería de barra para cubrir todas las necesidades de bebidas.</p>
+                <p class="showcase__text">Nuestro <strong>Kit Cristalería Completa</strong> es la solución todo-en-uno para eventos que requieren servicio de bebidas profesional en mesa y barra. Cada kit por persona incluye: <strong>copa de vino tinto, copa de vino blanco, flauta de champagne y copa de agua</strong> para el servicio de mesa, más un set de <strong>vasos highball y old fashioned</strong> para la barra de bebidas. Perfecto para bodas con recepción, cócteles corporativos y eventos sociales con servicio completo.</p>
+                <p class="showcase__text">El kit incluye <strong>cálculo personalizado de cantidades</strong> según tu menú de bebidas, número de invitados y duración del evento. Nuestro asesor te recomienda cuántas copas de cada tipo necesitas considerando reposición durante la noche. Disponible desde 50 hasta 2,000 personas con <strong>entrega pulida, inventario detallado y recolección incluida</strong>. Complementa con nuestros <a href="/servicios/catering/vajilla-cristaleria/cubiertos-charolas/">cubiertos y charolas</a> para un servicio de mesa integral.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">6 tipos de copas</span>
+                  <span class="showcase__tag">Mesa + Barra</span>
+                  <span class="showcase__tag">Cálculo personalizado</span>
+                  <span class="showcase__tag">50-2,000 personas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Cristalería Completa
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Kit Cristalería Completa</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Copas y Cristalería"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu cristalería, es natural tener preguntas sobre tipos, cantidades y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de cristalería resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre copas y cristalería para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Vajilla y Cristalería -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Vajilla y Cristalería</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/vajilla-cristaleria/" class="sidebar-nav__back">&uarr; Volver a Vajilla y Cristalería</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/" class="sidebar-nav__back">&uarr; Volver a Catering</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu servicio de bebidas:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas copas y cristalería para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar copas y cristalería para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Cristalería para Eventos"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada de copas y cristalería. Sin compromiso, sin costos ocultos.",
+          "Ya sea cristalería para 50 personas o un evento de 2,000 invitados, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoCristaleria">
+                Tipo de cristalería
+              </label>
+              <select id="tipoCristaleria" name="tipoCristaleria" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de cristalería</option>
+                <option value="Copas Vino">Copas Vino</option>
+                <option value="Flautas Champagne">Flautas Champagne</option>
+                <option value="Vasos Highball">Vasos Highball</option>
+                <option value="Copas Coctelería">Copas Coctelería</option>
+                <option value="Tarros Cerveceros">Tarros Cerveceros</option>
+                <option value="Paquete Cristalería Completa">Paquete Cristalería Completa</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de invitados, menú de bebidas, si necesitas cristalería de mesa y/o barra, preferencia de cristal o vidrio..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Cristalería pulida</h3>
+            <p class="reserva-card__text">Cada copa se entrega pulida individualmente, sin manchas de agua ni huellas, lista para colocar en las mesas.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para elegir la cristalería ideal según tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoCristaleria = document.getElementById('tipoCristaleria').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Copas y Cristalería para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoCristaleria) texto += `*Tipo de cristalería:* ${tipoCristaleria}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Catering"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de equipo de catering y cristalería para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de estilos y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Catering Pro MX</h3>
+            <p class="partner-card__tagline">Servicio Integral de Catering</p>
+            <p class="partner-card__text">Servicio integral de catering y estaciones gourmet para eventos en CDMX. Vajilla premium, cristalería fina y montaje de mesa profesional para bodas, corporativos y eventos sociales de primer nivel.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">G</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">GastroEventos CDMX</h3>
+            <p class="partner-card__tagline">Equipo de Cocina y Servicio</p>
+            <p class="partner-card__text">Renta de equipo de cocina y estaciones de servicio profesional. Vajilla de porcelana, cristalería templada y cubiertos de acero inoxidable para eventos de 50 a 2,000 personas en toda la CDMX.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">ChefMóvil</h3>
+            <p class="partner-card__tagline">Estaciones de Comida en Vivo</p>
+            <p class="partner-card__text">Estaciones de comida en vivo con chef y equipo profesional certificado. Vajilla artesanal, montaje temático y servicio de mesa completo para eventos gastronómicos únicos en la Ciudad de México.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">B</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">BanquetesPro</h3>
+            <p class="partner-card__tagline">Mobiliario y Equipo de Catering</p>
+            <p class="partner-card__text">Mobiliario y equipo de catering para bodas, corporativos y sociales. Vajilla, cristalería, cubiertos y equipo de servicio con logística profesional en toda la CDMX y área metropolitana.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="La cristalería perfecta para brindar en grande"
+    subheadline="Más de 500 eventos con nuestra cristalería nos respaldan. Cotiza hoy y recibe asesoría personalizada sin compromiso."
+    primaryCTA={{ label: "Cotizar copas y cristalería", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar copas y cristalería para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

@@ -1,0 +1,690 @@
+---
+/**
+ * ─── Pasarelas y Runways — Pagina de Producto (Nivel 4) ───
+ * Pasarelas elevadas con alfombra antideslizante e iluminación
+ * LED perimetral para desfiles de moda y premiaciones.
+ *
+ * Jerarquia: Servicios > Pistas de Baile > Tarimas y Escenarios > Pasarelas
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Pistas de Baile", href: "/servicios/pistas-baile/" },
+  { label: "Tarimas y Escenarios", href: "/servicios/pistas-baile/tarimas-escenarios/" },
+  { label: "Pasarelas y Runways" },
+];
+
+const faqs = [
+  { question: "¿Cuánto mide de ancho la pasarela?", answer: 'Nuestras pasarelas están disponibles en anchos de <strong>1.2 a 2.5 metros</strong>. El ancho de 1.2 m es ideal para desfiles de moda con modelos individuales. El de 1.8 m permite el paso de parejas o vestidos amplios. El de 2.5 m es perfecto para premiaciones donde presentadores y premiados caminan juntos. Nuestro asesor te recomienda el ancho ideal según el tipo de evento, el número de modelos y el espacio disponible en tu venue.' },
+  { question: "¿Se puede hacer una pasarela con curva o forma circular?", answer: 'Sí, nuestro sistema modular permite crear <strong>configuraciones rectas, en T, en L, en U e incluso circulares</strong>. Las curvas se logran con módulos angulados especiales que mantienen una superficie continua y segura. Las configuraciones más populares son la pasarela en T (máxima visibilidad del modelo desde tres ángulos) y la recta clásica. Las formas circulares y en U son ideales para eventos de moda y presentaciones de producto donde se busca una experiencia inmersiva de 360 grados.' },
+  { question: "¿La pasarela incluye alfombra?", answer: 'Sí, <strong>todas nuestras pasarelas incluyen alfombra antideslizante premium</strong> en el color de tu elección. Contamos con más de 15 colores disponibles: blanco, negro, rojo, gris, azul marino, dorado, rosa y más. La alfombra se adhiere firmemente a la superficie de la pasarela para evitar arrugas o deslizamientos. También ofrecemos alfombra con acabado espejo o brillante para efectos visuales especiales. El cambio de alfombra entre eventos se realiza en menos de una hora.' },
+  { question: "¿La pasarela incluye iluminación LED perimetral?", answer: 'Sí, nuestras pasarelas cuentan con <strong>iluminación LED perimetral RGB programable</strong> integrada en los bordes laterales. El sistema LED permite cambio de colores sincronizado con la música, efectos de persecución, fade y secuencias personalizadas. La iluminación perimetral define visualmente el runway y crea un efecto espectacular en fotografías y video. La programación de colores y secuencias está incluida en el servicio — solo necesitas indicarnos la paleta de colores de tu evento.' },
+  { question: "¿Se puede instalar la pasarela en exteriores?", answer: 'Sí, nuestras pasarelas se instalan tanto en interiores como en exteriores. Para instalaciones outdoor, utilizamos <strong>bases de distribución de peso</strong> que protegen el césped y evitan hundimientos. La estructura de aluminio resiste la intemperie y la alfombra es resistente a la humedad. Para eventos de noche al aire libre, la iluminación LED perimetral tiene un impacto visual extraordinario. Recomendamos complementar con una <a href="/servicios/carpas/">carpa</a> si hay posibilidad de lluvia.' },
+  { question: "¿Con cuánta anticipación debo reservar mi pasarela?", answer: 'Recomendamos reservar con <strong>3 a 4 semanas de anticipación</strong> para garantizar disponibilidad de la longitud y configuración que necesitas. Las pasarelas en T de 15-20 metros son las más solicitadas para fashion shows y se agotan rápidamente en temporada alta. Para eventos de gran formato o configuraciones especiales (circular, U), lo ideal es apartar con <strong>6 semanas de anticipación</strong>. El montaje requiere de 3 a 6 horas según la longitud.' },
+];
+
+const specs = [
+  { label: "Estructura", value: "Aluminio reforzado modular" },
+  { label: "Ancho", value: "1.2 a 2.5 metros" },
+  { label: "Largo", value: "5 a 30+ metros modulable" },
+  { label: "Altura", value: "40 a 80 cm" },
+  { label: "Superficie", value: "Alfombra antideslizante en 15+ colores" },
+  { label: "LED", value: "Perimetral RGB programable" },
+  { label: "Configuraciones", value: "Recta, T, L, U, circular" },
+  { label: "Acceso", value: "Escalones o rampa en extremos" },
+  { label: "Barandales", value: "Transparentes opcionales" },
+  { label: "Montaje", value: "Profesional, 3-6 horas" },
+];
+
+const sidebarNav = [
+  { name: "Tarimas Modulares", href: "/servicios/pistas-baile/tarimas-escenarios/modulares/" },
+  { name: "Escenarios con Techo", href: "/servicios/pistas-baile/tarimas-escenarios/con-techo/" },
+  { name: "Pasarelas y Runways", href: null, active: true },
+  { name: "Plataformas Niveladas", href: "/servicios/pistas-baile/tarimas-escenarios/plataformas-niveladas/" },
+];
+
+const sidebarRelated = [
+  { name: "Sonido Profesional", href: "/servicios/audiovisual/sonido/" },
+  { name: "Iluminación Escenario", href: "/servicios/iluminacion/escenario/" },
+  { name: "Pantallas LED", href: "/servicios/audiovisual/pantallas-led/" },
+  { name: "Carpas", href: "/servicios/carpas/" },
+  { name: "Mobiliario", href: "/servicios/mobiliario/" },
+];
+
+const reviews = [
+  { author: "Valentina Morales", text: "Rentamos una pasarela en T de 15 metros para un desfile de moda en un salón de Polanco. La alfombra blanca quedó impecable y la iluminación LED perimetral hizo que cada modelo brillara espectacularmente. Las fotos quedaron increíbles. El montaje fue rápido y profesional.", rating: 5, date: "2025-11-18" },
+  { author: "Ricardo Navarro", text: "Contratamos una pasarela recta de 12 metros con alfombra roja para una premiación corporativa en un hotel de Santa Fe. Los ejecutivos caminaron con toda seguridad gracias a la superficie antideslizante. La iluminación LED en color dorado le dio un toque muy elegante. Excelente servicio.", rating: 5, date: "2025-10-05" },
+  { author: "Camila Estrada", text: "Organizamos un fashion week privado y rentamos una pasarela en T de 20 metros con LED programable. El equipo de EVENTECH sincronizó los colores de la iluminación con la música de cada diseñador. El resultado fue espectacular y todos los asistentes quedaron impresionados. Totalmente recomendable.", rating: 5, date: "2025-09-15" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Pasarelas y Runways para Eventos en CDMX",
+    description: "Renta de pasarelas elevadas con alfombra antideslizante e iluminación LED perimetral para desfiles de moda y premiaciones en CDMX. Desde $8,000.",
+    url: "/servicios/pistas-baile/tarimas-escenarios/pasarelas/",
+    priceRange: { min: 8000, max: 45000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 145,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Pistas de Baile", url: "/servicios/pistas-baile/" },
+    { name: "Tarimas y Escenarios", url: "/servicios/pistas-baile/tarimas-escenarios/" },
+    { name: "Pasarelas y Runways", url: "/servicios/pistas-baile/tarimas-escenarios/pasarelas/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Pasarelas y Runways para Eventos en CDMX"
+  description="Renta de pasarelas elevadas con alfombra antideslizante e iluminación LED perimetral para desfiles de moda y premiaciones en CDMX. Desde $8,000."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="El runway perfecto para tu evento"
+    title='Renta de <span class="highlight">Pasarelas y Runways</span> para Eventos en CDMX'
+    subtitle="Pasarelas elevadas de aluminio con alfombra antideslizante en 15+ colores e iluminación LED perimetral RGB programable. Configuraciones en T, L, recta, U o circular para desfiles de moda y premiaciones."
+    primaryCTA={{ label: "Cotiza tu pasarela", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar una pasarela para mi evento` }}
+    cards={[
+      {
+        title: "Pasarelas elevadas con alfombra antideslizante y configuraciones versátiles",
+        content: "<strong>Renta de pasarelas y runways profesionales</strong> con estructura de aluminio reforzado modular para eventos en CDMX. Pasarelas elevadas de 40 a 80 cm de altura con alfombra antideslizante premium disponible en más de 15 colores. Anchos de 1.2 a 2.5 metros y longitudes modulables de 5 a 30+ metros. Configuraciones en T, L, recta, U o circular para desfiles de moda, premiaciones, presentaciones de producto y eventos especiales.",
+      },
+      {
+        title: "Iluminación LED perimetral programable y acceso seguro",
+        content: "<strong>Iluminación LED perimetral RGB programable</strong> integrada en los bordes laterales de la pasarela. Sistema de cambio de colores sincronizado con la música, efectos de persecución y secuencias personalizadas. Barandales transparentes opcionales para máxima seguridad sin obstruir la visual. Acceso por escalones o rampa en ambos extremos. Montaje profesional de 3 a 6 horas con equipo técnico especializado. Desmontaje y recolección incluidos sin costo adicional dentro de CDMX.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas una pasarela profesional para tu evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con la configuración y longitud ideales para tu espacio"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Tarimas y Escenarios para Eventos</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas una pasarela para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una pasarela para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="12" width="20" height="8" rx="1"/><path d="M4 12V8a2 2 0 012-2h12a2 2 0 012 2v4"/><path d="M12 6V2"/><path d="M8 6V4"/><path d="M16 6V4"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Pasarelas y Runways</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Pasarela Recta -->
+          <section class="section section--alt" aria-labelledby="recta-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Desfiles clásicos</span>
+                <h2 class="showcase__title" id="recta-heading">Pasarela Recta</h2>
+                <p class="showcase__subtitle">La configuración clásica para desfiles de moda con recorrido lineal y máximo impacto visual.</p>
+                <p class="showcase__text">La <strong>pasarela recta</strong> es la configuración clásica e infalible para desfiles de moda profesionales. Disponible en longitudes de <strong>5 a 30+ metros</strong> con anchos de 1.2 a 2.5 metros, permite un recorrido lineal que maximiza la atención del público en cada modelo. La superficie con <strong>alfombra antideslizante premium</strong> garantiza pasos seguros con tacones de cualquier altura, mientras que la iluminación LED perimetral enmarca cada pasada con un efecto visual espectacular.</p>
+                <p class="showcase__text">Ideal para <strong>desfiles de moda en salones, lanzamientos de colección, presentaciones de diseñadores independientes y eventos de marca</strong>. La altura de 40 a 60 cm eleva a los modelos lo suficiente para que cada detalle de la ropa sea visible desde las primeras filas. Incluye escalones en ambos extremos y espacio backstage en la zona trasera. Combínala con nuestra <a href="/servicios/iluminacion/escenario/">iluminación de escenario</a> y <a href="/servicios/audiovisual/sonido/">sonido profesional</a> para una producción de pasarela completa.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">5-30+ metros</span>
+                  <span class="showcase__tag">Alfombra premium</span>
+                  <span class="showcase__tag">LED perimetral</span>
+                  <span class="showcase__tag">Desfiles de moda</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Pasarela Recta
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="2" y="12" width="20" height="8" rx="1"/>
+                    <path d="M4 12V8a2 2 0 012-2h12a2 2 0 012 2v4"/>
+                    <path d="M12 6V2"/>
+                    <path d="M8 6V4"/><path d="M16 6V4"/>
+                  </svg>
+                  <span>Pasarela Recta</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Pasarela en T -->
+          <section class="section section--alt" aria-labelledby="pasarela-t-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Máxima visibilidad</span>
+                <h2 class="showcase__title" id="pasarela-t-heading">Pasarela en T</h2>
+                <p class="showcase__subtitle">Configuración en T que permite al modelo ser visto desde tres ángulos diferentes por toda la audiencia.</p>
+                <p class="showcase__text">La <strong>pasarela en T</strong> es la configuración favorita de los diseñadores profesionales por su capacidad de ofrecer <strong>visibilidad desde tres ángulos</strong>: frente, izquierda y derecha. El modelo recorre el tramo largo y al llegar al cruce en T, gira hacia ambos lados permitiendo que la audiencia aprecie cada detalle de la prenda desde diferentes perspectivas. Longitud total de <strong>12 a 20 metros</strong> con el tramo transversal de 4 a 8 metros.</p>
+                <p class="showcase__text">La iluminación LED perimetral RGB marca el contorno de toda la T con colores programables que cambian con cada diseñador o colección. Los puntos de pausa en los extremos de la T y en el cruce central son los momentos clave para fotógrafos y camarógrafos. Ideal para <strong>fashion shows profesionales, fashion weeks, presentaciones de marca y eventos donde la prenda necesita ser apreciada en detalle</strong>. Incluye zona backstage con cortina y espejo de cuerpo completo. Complementa con nuestro <a href="/servicios/audiovisual/">equipo audiovisual</a> para un show de primer nivel.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Forma en T</span>
+                  <span class="showcase__tag">3 ángulos de vista</span>
+                  <span class="showcase__tag">12-20 metros</span>
+                  <span class="showcase__tag">Fashion shows</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Pasarela en T
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="2" y="12" width="20" height="8" rx="1"/>
+                    <path d="M4 12V8a2 2 0 012-2h12a2 2 0 012 2v4"/>
+                    <path d="M12 6V2"/>
+                    <path d="M8 6V4"/><path d="M16 6V4"/>
+                  </svg>
+                  <span>Pasarela en T</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Pasarela con LED -->
+          <section class="section section--alt" aria-labelledby="led-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Espectáculo visual</span>
+                <h2 class="showcase__title" id="led-heading">Pasarela con LED Dinámico</h2>
+                <p class="showcase__subtitle">Iluminación LED perimetral con efectos dinámicos sincronizados con la música para un impacto visual máximo.</p>
+                <p class="showcase__text">Nuestra <strong>pasarela con LED dinámico</strong> lleva la experiencia visual a otro nivel con un sistema de <strong>iluminación LED perimetral RGB de alta densidad</strong> que permite efectos de persecución, fade, strobo, arcoíris y secuencias personalizadas. Cada LED se controla individualmente mediante un sistema DMX profesional que sincroniza los efectos con la música de tu evento, creando una experiencia inmersiva que cautiva a la audiencia.</p>
+                <p class="showcase__text">El sistema LED incluye <strong>programación personalizada</strong> por diseñador o segmento del show: colores cálidos para colecciones de otoño, fríos para invierno, pastel para primavera. Los efectos de persecución siguen el ritmo del modelo creando la sensación de que la pasarela cobra vida. Ideal para <strong>eventos nocturnos, fashion shows premium, lanzamientos de producto con marca fuerte y fiestas de alto perfil</strong>. El operador de iluminación permanece durante todo el evento controlando los efectos en tiempo real. Complementa con <a href="/servicios/iluminacion/efectos-especiales/">efectos especiales</a> para un show inolvidable.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">LED RGB dinámico</span>
+                  <span class="showcase__tag">DMX profesional</span>
+                  <span class="showcase__tag">Sincronizado</span>
+                  <span class="showcase__tag">Eventos nocturnos</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Pasarela LED
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="2" y="12" width="20" height="8" rx="1"/>
+                    <path d="M4 12V8a2 2 0 012-2h12a2 2 0 012 2v4"/>
+                    <path d="M12 6V2"/>
+                    <path d="M8 6V4"/><path d="M16 6V4"/>
+                  </svg>
+                  <span>Pasarela con LED Dinámico</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Kit Desfile Completo -->
+          <section class="section section--alt" aria-labelledby="kit-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Producción integral</span>
+                <h2 class="showcase__title" id="kit-heading">Kit Desfile Completo</h2>
+                <p class="showcase__subtitle">Pasarela + iluminación + sonido + backdrop: todo lo que necesitas para un desfile profesional llave en mano.</p>
+                <p class="showcase__text">Nuestro <strong>Kit Desfile Completo</strong> es la solución integral para fashion shows y premiaciones que requieren una producción profesional sin coordinar múltiples proveedores. Incluye pasarela en la configuración y longitud que necesites (recta, T o L), <strong>alfombra premium en el color de tu elección</strong>, iluminación LED perimetral programable, sistema de <strong>iluminación escénica</strong> (par LED y follow spots para los modelos) y <strong>sonido profesional</strong> con mezcla dedicada para música de pasarela.</p>
+                <p class="showcase__text">El kit también incluye <strong>backdrop profesional</strong> en la zona backstage con cortina, espejo de cuerpo completo e iluminación de preparación. Un director técnico coordina toda la producción: iluminación, sonido, secuencia de modelos y efectos especiales. Ideal para <strong>fashion weeks, presentaciones de diseñadores, lanzamientos de marca, premiaciones de gala y eventos corporativos de lujo</strong>. Complementa con nuestras <a href="/servicios/audiovisual/pantallas-led/">pantallas LED</a> laterales para video en vivo y branding visual.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Todo incluido</span>
+                  <span class="showcase__tag">Iluminación + Sonido</span>
+                  <span class="showcase__tag">Backdrop</span>
+                  <span class="showcase__tag">Director técnico</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Kit Desfile
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="2" y="12" width="20" height="8" rx="1"/>
+                    <path d="M4 12V8a2 2 0 012-2h12a2 2 0 012 2v4"/>
+                    <path d="M12 6V2"/>
+                    <path d="M8 6V4"/><path d="M16 6V4"/>
+                  </svg>
+                  <span>Kit Desfile Completo</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Pasarelas y Runways"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu pasarela, es natural tener preguntas sobre dimensiones, alfombras, iluminación LED y configuraciones. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor técnico te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de pasarelas resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre pasarelas para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Tarimas y Escenarios para Eventos</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/pistas-baile/tarimas-escenarios/" class="sidebar-nav__back">&uarr; Volver a Tarimas y Escenarios</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/pistas-baile/" class="sidebar-nav__back">&uarr; Volver a Pistas de Baile</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de pasarela:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas una pasarela para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una pasarela para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Pasarela"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores técnicos te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea una pasarela recta de 10 metros o un kit desfile completo con iluminación y sonido, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">Nombre completo <span class="form-field__required">*</span></label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">Teléfono <span class="form-field__required">*</span></label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">Tipo de evento</label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">Fecha del evento</label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoPasarela">Tipo de pasarela</label>
+              <select id="tipoPasarela" name="tipoPasarela" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de pasarela</option>
+                <option value="Pasarela Recta 10m">Pasarela Recta 10m</option>
+                <option value="Pasarela Recta 20m">Pasarela Recta 20m</option>
+                <option value="Pasarela T 15m">Pasarela T 15m</option>
+                <option value="Pasarela L">Pasarela L</option>
+                <option value="Con LED Perimetral">Con LED Perimetral</option>
+                <option value="Kit Desfile Completo">Kit Desfile Completo</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">Mensaje <span class="form-field__required">*</span></label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Cuéntanos los detalles: tipo de desfile, número de modelos, color de alfombra preferido, si necesitas iluminación LED, dimensiones del espacio..." rows="4" required></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para medir dimensiones y planificar la configuración ideal de tu pasarela.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría técnica personalizada para tu presupuesto.</p>
+          </div>
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoPasarela = document.getElementById('tipoPasarela').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Pasarelas y Runways*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoPasarela) texto += `*Tipo de pasarela:* ${tipoPasarela}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Pasarelas y Runways"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de pasarelas y runways para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de configuraciones y cobertura completa para desfiles y premiaciones de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">P</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Pistas Premium MX</h3>
+            <p class="partner-card__tagline">Especialistas en Tarimas y Escenarios</p>
+            <p class="partner-card__text">Especialistas en tarimas y escenarios para producciones y eventos. Pasarelas modulares con alfombra premium e iluminación LED integrada para fashion shows profesionales.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">D</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">DanceFloor CDMX</h3>
+            <p class="partner-card__tagline">Tarimas, Escenarios y Pistas para Eventos</p>
+            <p class="partner-card__text">Renta integral de tarimas, escenarios y pistas para eventos. Cobertura completa en CDMX y área metropolitana con técnicos certificados y logística profesional.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventFloor</h3>
+            <p class="partner-card__tagline">Pistas, Tarimas y Escenarios Profesionales</p>
+            <p class="partner-card__text">Pistas de baile, tarimas y escenarios con instalación profesional. Más de 10 años proporcionando estructuras de alta calidad para eventos corporativos y sociales en CDMX.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">P</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">PistasPro</h3>
+            <p class="partner-card__tagline">Tarimas y Escenarios con Logística</p>
+            <p class="partner-card__text">Soluciones de tarimas y escenarios con logística y montaje en CDMX. Servicio integral desde la evaluación del terreno hasta el desmontaje posterior al evento.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Pasarelas que transforman tu evento en un espectáculo"
+    subheadline="Más de 500 eventos con pasarelas y runways nos respaldan. Cotiza hoy y recibe asesoría técnica sin compromiso."
+    primaryCTA={{ label: "Cotizar pasarela", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar una pasarela para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>
