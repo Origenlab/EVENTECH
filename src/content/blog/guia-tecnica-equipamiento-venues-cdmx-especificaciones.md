@@ -2,21 +2,24 @@
 title: "Guía Técnica: Equipamiento por Tipo de Venue en CDMX"
 seoTitle: "Equipamiento Técnico para Venues CDMX | Especificaciones"
 description: "Análisis técnico de 10 venues premium con especificaciones de equipamiento, cálculos de potencia y matrices de decisión profesional."
-date: 2026-03-03
+date: 2025-01-01
 category: "guias"
-image: "/images/blog/guia-tecnica-equipamiento-venues.jpg"
+image: "/images/mobiliario/salon-mesas-redondas-banquete-montaje.avif"
 author: "Equipo EVENTECH"
 tags:
   - equipamiento técnico
   - especificaciones venues
   - análisis profesional
   - sonido iluminación
+  - configuración técnica
 keywords:
   - equipamiento eventos CDMX
   - especificaciones técnicas venues
   - cálculo potencia sonido
   - iluminación profesional eventos
   - matriz decisión equipamiento
+  - dimensionamiento técnico eventos
+  - requisitos eléctricos eventos
 relatedServices:
   - iluminacion
   - audiovisual

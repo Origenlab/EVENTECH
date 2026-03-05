@@ -2,7 +2,7 @@
 title: "PALED: Renta de Pantallas LED para Eventos en CDMX — Guía Profesional"
 seoTitle: "PALED: Renta de Pantallas LED para Eventos en CDMX"
 description: "Guía completa sobre PALED, empresa líder con 30 años en renta y venta de pantallas LED para bodas, eventos corporativos y conciertos en México."
-date: 2025-03-01
+date: 2025-01-01
 category: "casos-exito"
 image: "/images/iluminacion-arquitectonica/banadores-led-pixel-mapping-columnas.avif"
 author: "Equipo EVENTECH"

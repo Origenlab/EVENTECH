@@ -2,9 +2,9 @@
 title: "Guía Definitiva de Carpas para Eventos: Árabes, Estructurales y Hangar"
 seoTitle: "Carpas para Eventos CDMX | Árabes, Estructurales, Hangar"
 description: "Carpas para eventos al exterior: árabes, estructurales y hangar. Capacidades, cálculos, pisos y complementos. Guía profesional CDMX."
-date: 2026-03-01
+date: 2025-01-01
 category: "guias"
-image: "/images/blog/guia-carpas-eventos.jpg"
+image: "/images/guirnaldas/guirnaldas-400m-feria-navidad-cdmx.avif"
 author: "Equipo EVENTECH"
 tags:
   - carpas eventos
@@ -12,6 +12,7 @@ tags:
   - carpas estructurales
   - eventos al aire libre
   - toldos para fiestas
+  - carpas hangar
 keywords:
   - renta carpas eventos CDMX
   - carpas árabes bodas
@@ -19,6 +20,8 @@ keywords:
   - carpas tipo hangar
   - pisos para carpas
   - eventos jardín CDMX
+  - carpas transparentes CDMX
+  - toldos eventos exteriores
 relatedServices:
   - carpas
 relatedEvents:

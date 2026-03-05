@@ -2,9 +2,9 @@
 title: "XV Años en CDMX: Guía Profesional de Planificación"
 seoTitle: "XV Años CDMX | Guía Profesional de Planificación Completa"
 description: "Guía profesional para planificar XV años perfectos en CDMX. Venues, presupuestos, cronograma, protocolo y equipamiento técnico."
-date: 2026-03-03
+date: 2025-01-01
 category: "xv-anos"
-image: "/images/blog/xv-anos-cdmx-guia.jpg"
+image: "/images/moviliario-para-eventos/boda-mesas-redondas-decoracion-flores-05.avif"
 author: "Equipo EVENTECH"
 tags:
   - XV años CDMX
@@ -12,6 +12,7 @@ tags:
   - fiesta quince años
   - vals quinceañera
   - chambelanes
+  - quinceaños CDMX
 keywords:
   - XV años CDMX
   - quinceañera Ciudad México
@@ -21,6 +22,7 @@ keywords:
   - chambelanes XV años
   - vestido quinceañera
   - presupuesto XV años
+  - decoración XV años
 relatedServices:
   - iluminacion
   - pistas-baile

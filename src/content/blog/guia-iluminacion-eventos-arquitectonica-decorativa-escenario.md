@@ -2,9 +2,9 @@
 title: "Guía Maestra de Iluminación para Eventos: De Arquitectónica a Efectos"
 seoTitle: "Iluminación Eventos CDMX | Arquitectónica, Decorativa, LED"
 description: "Iluminación profesional para eventos: arquitectónica, decorativa, escenario y efectos especiales. Diseño, posicionamiento y control DMX."
-date: 2026-02-28
+date: 2025-01-01
 category: "guias"
-image: "/images/blog/guia-iluminacion-eventos.jpg"
+image: "/images/iluminacion-arquitectonica/uplighting-led-renta-eventos-cdmx.avif"
 author: "Equipo EVENTECH"
 tags:
   - iluminación eventos
@@ -12,6 +12,7 @@ tags:
   - fairy lights
   - moving heads
   - efectos especiales
+  - uplighting bodas
 keywords:
   - renta iluminación eventos CDMX
   - luces LED bodas
@@ -19,6 +20,8 @@ keywords:
   - fairy lights renta
   - humo bajo bodas
   - láser eventos
+  - uplighting CDMX
+  - wash lights eventos
 relatedServices:
   - iluminacion
 relatedEvents:

@@ -2,9 +2,9 @@
 title: "Eventos Corporativos en CDMX: Guía Profesional Completa"
 seoTitle: "Eventos Corporativos CDMX | Guía Profesional para Empresas"
 description: "Guía profesional para organizar eventos corporativos exitosos en CDMX. Venues, equipamiento técnico, presupuestos y mejores prácticas."
-date: 2026-03-03
+date: 2025-01-01
 category: "corporativos"
-image: "/images/blog/eventos-corporativos-cdmx.jpg"
+image: "/images/mobiliario/mesas-cocktail-negras-networking-vista.avif"
 author: "Equipo EVENTECH"
 tags:
   - eventos corporativos
@@ -12,6 +12,7 @@ tags:
   - convenciones empresariales
   - team building
   - lanzamientos
+  - networking empresarial
 keywords:
   - eventos corporativos CDMX
   - venues corporativos Ciudad México
@@ -21,6 +22,7 @@ keywords:
   - lanzamientos de producto CDMX
   - reuniones ejecutivas CDMX
   - centros de convenciones CDMX
+  - networking empresarial CDMX
 relatedServices:
   - audiovisual
   - mobiliario

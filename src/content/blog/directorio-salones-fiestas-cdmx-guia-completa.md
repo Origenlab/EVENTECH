@@ -2,9 +2,9 @@
 title: "Directorio de Salones para Fiestas en CDMX — Guía"
 seoTitle: "Directorio Salones para Fiestas CDMX | +35 Venues Verificados"
 description: "Encuentra el salón perfecto para tu evento en CDMX. +35 venues verificados con filtros por zona, capacidad y tipo de evento."
-date: 2026-03-03
+date: 2025-01-01
 category: "guias"
-image: "/images/blog/directorio-salones-cdmx.jpg"
+image: "/images/moviliario-para-eventos/boda-mesas-redondas-sillas-doradas-elegancia-47.avif"
 author: "Equipo EVENTECH"
 tags:
   - directorio venues
@@ -30,7 +30,7 @@ keywords:
   - terrazas para eventos CDMX
   - hoteles para bodas CDMX
   - salones económicos CDMX
-  - mejores venues CDMX 2025
+  - mejores venues CDMX
 relatedServices:
   - mobiliario
   - carpas

@@ -1,16 +1,19 @@
 ---
-title: "Guía Completa de Mobiliario para Bodas 2025"
+title: "Guía Completa de Mobiliario para Bodas"
+seoTitle: "Guía de Mobiliario para Bodas CDMX | Sillas, Mesas, Decoración"
 description: "Todo lo que necesitas saber sobre sillas, mesas y decoración para tu boda. Tendencias, consejos y precios actualizados."
-date: 2025-01-15
+date: 2025-01-01
 category: "bodas"
 image: "/images/iluminacion-arquitectonica/uplighting-rgbwa-boda-salon-dorado.avif"
 author: "Equipo EVENTECH"
-tags: ["bodas", "mobiliario", "tendencias", "guía"]
+tags: ["bodas", "mobiliario", "tendencias", "guía", "sillas bodas", "mesas eventos"]
 keywords:
   - mobiliario para bodas
   - sillas para boda
   - mesas para boda
   - decoración boda
+  - sillas Tiffany CDMX
+  - crossback bodas
 relatedServices:
   - "mobiliario"
   - "sillas-tiffany"

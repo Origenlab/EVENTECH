@@ -1,9 +1,9 @@
 ---
 title: "Mobiliario e Iluminación para Eventos de Lujo en CDMX"
 seoTitle: "Mobiliario e Iluminación para Eventos Lujo CDMX | EVENTECH"
-description: "Sillas Chiavari, mesas redondas, salas lounge, barras e iluminación arquitectónica: guía visual de EVENTECH para eventos de lujo en CDMX 2026."
-seoDescription: "Sillas Chiavari, mesas redondas, salas lounge, barras e iluminación arquitectónica: guía visual de EVENTECH para eventos de lujo en CDMX 2026."
-date: 2026-03-04
+description: "Sillas Chiavari, mesas redondas, salas lounge, barras e iluminación arquitectónica: guía visual de EVENTECH para eventos de lujo en CDMX."
+date: 2025-01-01
+seoDescription: "Sillas Chiavari, mesas redondas, salas lounge, barras e iluminación arquitectónica: guía visual de EVENTECH para eventos de lujo en CDMX."
 category: "guias"
 image: "/images/mobiliario/sillas-chiavari-doradas-boda-lujo.avif"
 imageAlt: "Sillas Chiavari doradas en boda de lujo en jardín de CDMX iluminado con guirnaldas Edison"
@@ -14,7 +14,7 @@ tags:
   - salas lounge
   - barras de postres
   - iluminación arquitectónica
-  - bodas 2026
+  - bodas lujo
   - eventos de lujo
 keywords:
   - mobiliario para eventos CDMX

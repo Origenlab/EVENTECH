@@ -1,0 +1,663 @@
+---
+/**
+ * ─── Mesa de Dulces (Candy Bar) — Página de Producto (Nivel 5) ───
+ * El clásico candy bar que nunca falla: gomitas, chocolates, malvaviscos y dulces variados.
+ * Color accent: Amber #e17055 (nivel 4/5). Layout con sidebar de interlinking.
+ *
+ * Jerarquía: Servicios > Mobiliario > Barras > Postres > Mesa de Dulces
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Barras", href: "/servicios/mobiliario/barras/" },
+  { label: "Postres", href: "/servicios/mobiliario/barras/postres/" },
+  { label: "Mesa de Dulces" },
+];
+
+const faqs = [
+  { question: "¿Qué incluye la renta de una mesa de dulces (candy bar)?", answer: 'La renta incluye la <strong>estructura de exhibición escalonada</strong> (3-5 niveles según el paquete), <strong>frascos de cristal con tapa</strong> para los dulces (10-20 piezas), <strong>pinzas y cucharas</strong> para servir, <strong>bolsitas de celofán y etiquetas</strong> para que los invitados se lleven dulces, y <strong>mantelería coordinada</strong>. Los dulces NO están incluidos — tú los compras o los proveemos con costo adicional a través de nuestros aliados de dulcerías mayoristas.' },
+  { question: "¿Para cuántas personas alcanza un candy bar estándar?", answer: 'Nuestro <strong>paquete estándar</strong> está diseñado para eventos de <strong>80 a 150 personas</strong> con aproximadamente 15 frascos de dulces variados. Para eventos más pequeños (50-80 personas) ofrecemos el paquete íntimo con 10 frascos, y para bodas grandes (150-300 personas) el paquete premium con 20-25 frascos y estructura doble. Calculamos aproximadamente 150-200 gramos de dulces por persona.' },
+  { question: "¿Puedo elegir los dulces que van en el candy bar?", answer: 'Sí, la selección de dulces es <strong>100% personalizable</strong>. Puedes traer tus propios dulces (nosotros solo rentamos la estructura y frascos) o elegir de nuestra carta de dulcerías aliadas. Ofrecemos temáticas prediseñadas: <strong>Clásico Mexicano</strong> (mazapanes, tamarindos, obleas), <strong>Internacional</strong> (gomitas Haribo, M&Ms, Jelly Beans), <strong>Premium</strong> (chocolates finos, macarons mini, trufas), y <strong>Infantil</strong> (paletas, chiclosos, bombones).' },
+  { question: "¿Con cuánta anticipación debo reservar el candy bar?", answer: 'Recomendamos reservar con <strong>2 a 4 semanas de anticipación</strong>, especialmente en temporada alta (noviembre-febrero). Si necesitas que nosotros proveamos los dulces a través de nuestros aliados, lo ideal es confirmar con 3 semanas para garantizar disponibilidad. La estructura y frascos se apartan con un anticipo del 30%.' },
+  { question: "¿El candy bar incluye montaje y desmontaje?", answer: 'Sí, <strong>incluimos montaje completo y desmontaje</strong> sin costo adicional dentro de CDMX. Nuestro equipo llega 2-3 horas antes del evento para armar la estructura, colocar los frascos, distribuir los dulces (si los proveemos) y decorar con la mantelería. Al finalizar, recogemos todo — solo necesitas un área de 2x1.5 metros cerca de una toma eléctrica si llevas iluminación adicional.' },
+  { question: "¿Puedo agregar iluminación al candy bar?", answer: 'Por supuesto. Ofrecemos complementos de iluminación que transforman el candy bar en una pieza focal del evento: <strong>retroiluminación LED RGB</strong> para la estructura, <strong>guirnaldas Edison</strong> enmarcando el área, <strong>letrero luminoso</strong> con la palabra "DULCES" o personalizado. Estos complementos se cotizan por separado y se montan junto con la estructura. Consulta nuestra sección de <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a>.' },
+];
+
+const specs = [
+  { label: "Estructura", value: "Madera barnizada / Acrílico transparente" },
+  { label: "Niveles de exhibición", value: "3-5 niveles (según paquete)" },
+  { label: "Frascos incluidos", value: "10-25 frascos de cristal con tapa" },
+  { label: "Capacidad recomendada", value: "50-300 personas (según paquete)" },
+  { label: "Accesorios", value: "Pinzas, cucharas, bolsitas, etiquetas" },
+  { label: "Mantelería", value: "Mantel y camino coordinado incluido" },
+  { label: "Dimensiones aproximadas", value: "2.0 x 1.5 metros" },
+  { label: "Montaje", value: "2-3 horas antes del evento" },
+  { label: "Dulces", value: "No incluidos (opción con aliados)" },
+  { label: "Iluminación", value: "Opcional (LED RGB, Edison, letrero)" },
+];
+
+const sidebarNav = [
+  { name: "Mesa de Dulces (Candy Bar)", href: null, active: true },
+  { name: "Mesa de Frutas", href: "/servicios/mobiliario/barras/postres/mesa-frutas/" },
+  { name: "Postres Gourmet", href: "/servicios/mobiliario/barras/postres/postres-gourmet/" },
+  { name: "Quesos y Embutidos", href: "/servicios/mobiliario/barras/postres/quesos-embutidos/" },
+  { name: "Mesa de Snacks", href: "/servicios/mobiliario/barras/postres/mesa-snacks/" },
+  { name: "Mesa de Botanas", href: "/servicios/mobiliario/barras/postres/mesa-botanas/" },
+  { name: "Dulces Tradicionales", href: "/servicios/mobiliario/barras/postres/dulces-tradicionales/" },
+  { name: "Donas y Cupcakes", href: "/servicios/mobiliario/barras/postres/donas-cupcakes/" },
+];
+
+const sidebarRelated = [
+  { name: "Barras de Bebidas", href: "/servicios/mobiliario/barras/barras-bebidas/" },
+  { name: "Periqueras y Bancos", href: "/servicios/mobiliario/barras/periqueras/" },
+  { name: "Accesorios Decorativos", href: "/servicios/mobiliario/barras/accesorios-decorativos/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+  { name: "Mesas de Banquete", href: "/servicios/mobiliario/mesas/" },
+];
+
+const reviews = [
+  { author: "Daniela Martínez", text: "Rentamos el candy bar premium para la boda de mi hermana (180 invitados) y fue un éxito total. Los frascos de cristal eran preciosos, la estructura de madera combinó perfecto con la decoración rústica, y el equipo dejó todo impecable. Los invitados se llevaron sus bolsitas de dulces como recuerdo. 100% recomendado.", rating: 5, date: "2025-11-15" },
+  { author: "Patricia Sánchez", text: "Usamos la mesa de dulces para los XV años de mi hija con temática rosa y dorado. El equipo de Eventech nos asesoró para elegir dulces que combinaran con los colores y el resultado fue hermoso. La iluminación LED que agregamos hizo que todas las fotos salieran increíbles.", rating: 5, date: "2025-10-22" },
+  { author: "Roberto Guzmán", text: "Para nuestro evento corporativo de fin de año queríamos algo diferente y el candy bar fue perfecto. Profesional, limpio, y los empleados lo disfrutaron muchísimo. El montaje fue rápido y el desmontaje ni lo sentimos.", rating: 5, date: "2025-09-08" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Mesa de Dulces (Candy Bar) para Eventos en CDMX",
+    description: "Renta de candy bar con estructura escalonada, frascos de cristal, accesorios de servicio y mantelería. Ideal para bodas, XV años y eventos corporativos. Montaje incluido en CDMX.",
+    url: "/servicios/mobiliario/barras/postres/mesa-dulces/",
+    priceRange: { min: 2500, max: 8000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 3,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Barras", url: "/servicios/mobiliario/barras/" },
+    { name: "Postres", url: "/servicios/mobiliario/barras/postres/" },
+    { name: "Mesa de Dulces", url: "/servicios/mobiliario/barras/postres/mesa-dulces/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Mesa de Dulces (Candy Bar) — Renta para Eventos CDMX"
+  description="Renta de candy bar con estructura escalonada, frascos de cristal y accesorios de servicio. Ideal para bodas, XV años y eventos. Montaje incluido en CDMX. Cotiza hoy."
+  jsonLd={jsonLd}
+>
+  <!-- BREADCRUMBS -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- 1. HERO -->
+  <HeroPage
+    badge="El clásico que nunca falla"
+    title='Renta de <span class="highlight">Mesa de Dulces</span> (Candy Bar) para Eventos'
+    subtitle="El candy bar es el rincón favorito de todos los invitados. Estructura escalonada de madera o acrílico, frascos de cristal elegantes, pinzas, bolsitas y mantelería incluida. Tú pones los dulces, nosotros la magia."
+    primaryCTA={{ label: "Cotiza tu Candy Bar", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar una mesa de dulces (candy bar) para mi evento` }}
+    cards={[
+      {
+        title: "Estructura elegante con frascos de cristal profesionales",
+        content: "<strong>Mesa de dulces profesional</strong> con estructura escalonada de 3 a 5 niveles en madera barnizada natural o acrílico transparente. Incluye de 10 a 25 frascos de cristal con tapa hermética para conservar los dulces frescos, pinzas y cucharas de servicio coordinadas, bolsitas de celofán con etiquetas personalizables para que los invitados se lleven su selección, y mantelería completa (mantel base + camino decorativo). Dimensiones aproximadas de 2.0 x 1.5 metros — el tamaño perfecto para ser la pieza focal sin abrumar el espacio.",
+      },
+      {
+        title: "Montaje profesional y asesoría de presentación incluida",
+        content: "<strong>Servicio completo de candy bar</strong> con montaje profesional 2-3 horas antes del evento. Nuestro equipo arma la estructura, coloca los frascos en distribución visual óptima, prepara los accesorios de servicio y decora con la mantelería coordinada. Te asesoramos sobre cantidades de dulces según número de invitados (~150-200g por persona), combinaciones de colores que funcionen con tu temática, y distribución de alturas para impacto visual. Desmontaje incluido al finalizar — todo sin costo adicional en CDMX.",
+      },
+    ]}
+  />
+
+  <!-- 2. CTA BANNER -->
+  <CTABanner
+    headline="¿Quieres un candy bar inolvidable para tu evento?"
+    subheadline="Cotiza sin compromiso — estructura, frascos, accesorios y montaje incluidos. Los dulces los eliges tú."
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- MOBILE SIDEBAR -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Tipos de Mesas</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas un candy bar para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una mesa de dulces (candy bar)`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT + SIDEBAR -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- MAIN CONTENT -->
+        <div class="l4-main">
+
+          <!-- SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones — Mesa de Dulces</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- SHOWCASE: Estructura y Frascos -->
+          <section class="section section--alt" aria-labelledby="estructura-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Pieza focal del evento</span>
+                <h2 class="showcase__title" id="estructura-heading">Estructura Escalonada y Frascos de Cristal</h2>
+                <p class="showcase__subtitle">Madera barnizada o acrílico transparente con 10-25 frascos de cristal elegantes que exhiben los dulces como joyas.</p>
+                <p class="showcase__text">La <strong>estructura escalonada</strong> es el corazón del candy bar. Ofrecemos dos líneas: <strong>Madera Artesanal</strong> con acabado barnizado natural ideal para bodas rústicas, boho y campestres; y <strong>Acrílico Transparente</strong> con opción de retroiluminación LED perfecta para eventos nocturnos, XV años y fiestas modernas. Ambas líneas incluyen de 3 a 5 niveles de exhibición según el paquete seleccionado.</p>
+                <p class="showcase__text">Los <strong>frascos de cristal con tapa hermética</strong> conservan los dulces frescos y los presentan de forma elegante. Cada frasco tiene capacidad para 500g a 1kg de dulces según el tamaño. Incluimos frascos de diferentes alturas y formas para crear dinamismo visual. Los <strong>accesorios de servicio</strong> (pinzas, cucharas, bolsitas, etiquetas) complementan la experiencia para que los invitados armen su propia selección.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Madera o Acrílico</span>
+                  <span class="showcase__tag">3-5 niveles</span>
+                  <span class="showcase__tag">10-25 frascos</span>
+                  <span class="showcase__tag">Bolsitas incluidas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Estructura de Candy Bar
+                </a>
+              </div>
+              <div class="showcase__image">
+                <img src="/images/mobiliario/candy-bar-estructura-frascos-cristal.avif" alt="Estructura escalonada candy bar con frascos de cristal elegantes" width="1200" height="686" loading="lazy" />
+              </div>
+            </div>
+          </section>
+
+          <!-- SHOWCASE: Temáticas y Dulces -->
+          <section class="section section--alt" aria-labelledby="tematicas-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Personalización total</span>
+                <h2 class="showcase__title" id="tematicas-heading">Temáticas y Selección de Dulces</h2>
+                <p class="showcase__subtitle">Desde clásicos mexicanos hasta chocolates premium — personalizamos tu candy bar según la temática del evento.</p>
+                <p class="showcase__text">El candy bar se adapta a cualquier temática. <strong>Clásico Mexicano</strong> con mazapanes, tamarindos, obleas, cocadas y dulces de leche para eventos con identidad nacional. <strong>Internacional</strong> con gomitas Haribo, M&Ms, Jelly Beans y malvaviscos para fiestas coloridas y divertidas. <strong>Premium</strong> con chocolates finos, trufas artesanales y macarons mini para bodas de lujo. <strong>Infantil</strong> con paletas, chiclosos y bombones temáticos.</p>
+                <p class="showcase__text">Puedes <strong>traer tus propios dulces</strong> (nosotros solo rentamos estructura y frascos) o te conectamos con nuestras <strong>dulcerías aliadas</strong> que ofrecen precios mayoristas y entrega coordinada. Calculamos ~150-200g de dulces por invitado. Para un evento de 100 personas, necesitarás aproximadamente 15-20 kg de dulces surtidos.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Mexicano</span>
+                  <span class="showcase__tag">Internacional</span>
+                  <span class="showcase__tag">Premium</span>
+                  <span class="showcase__tag">Infantil</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Personalizar mi Candy Bar
+                </a>
+              </div>
+              <div class="showcase__image">
+                <img src="/images/mobiliario/candy-bar-tematicas-dulces-colores.avif" alt="Candy bar con temáticas de dulces coloridos personalizados" width="1200" height="686" loading="lazy" />
+              </div>
+            </div>
+          </section>
+
+          <!-- SHOWCASE: Montaje e Iluminación -->
+          <section class="section section--alt" aria-labelledby="montaje-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Servicio completo</span>
+                <h2 class="showcase__title" id="montaje-heading">Montaje Profesional e Iluminación Opcional</h2>
+                <p class="showcase__subtitle">Llegamos 2-3 horas antes, armamos todo y te asesoramos para una presentación de revista.</p>
+                <p class="showcase__text">El <strong>montaje profesional</strong> incluye armado de la estructura, distribución visual de los frascos (los más vistosos al centro, variedad de alturas), colocación de los dulces si los proveemos, preparación de accesorios de servicio y decoración con mantelería. Nuestro equipo cuida cada detalle: nivelación perfecta, frascos limpios y brillantes, etiquetas alineadas.</p>
+                <p class="showcase__text">Para eventos nocturnos o con poca luz natural, recomendamos agregar <strong>iluminación decorativa</strong>: retroiluminación LED RGB para la estructura (cambia de color según el momento), <a href="/servicios/iluminacion/decorativa/fairy-lights/">guirnaldas Edison</a> enmarcando el área, o un <a href="/servicios/iluminacion/decorativa/letras-luminosas/">letrero luminoso</a> con "DULCES" o personalizado. La iluminación transforma el candy bar en la pieza focal más fotografiada del evento.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Montaje 2-3h</span>
+                  <span class="showcase__tag">LED RGB opcional</span>
+                  <span class="showcase__tag">Guirnaldas Edison</span>
+                  <span class="showcase__tag">Letrero luminoso</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar con Iluminación
+                </a>
+              </div>
+              <div class="showcase__image">
+                <img src="/images/mobiliario/candy-bar-montaje-iluminacion-led.avif" alt="Montaje profesional de candy bar con iluminación LED decorativa" width="1200" height="686" loading="lazy" />
+              </div>
+            </div>
+          </section>
+
+          <!-- GALERÍA -->
+          <section class="section" aria-labelledby="galeria-heading">
+            <div class="container">
+              <h2 class="section-header__title" id="galeria-heading">Galería — Mesas de Dulces para Eventos</h2>
+              <p class="section-header__description">Proyectos reales de candy bars: bodas, XV años, eventos corporativos y fiestas temáticas en CDMX.</p>
+              <div class="galeria-grid">
+                <img src="/images/mobiliario/candy-bar-boda-rustica-madera.avif" alt="Candy bar boda rústica con estructura de madera" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/candy-bar-xv-anos-rosa-dorado.avif" alt="Candy bar XV años rosa y dorado" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/candy-bar-corporativo-elegante.avif" alt="Candy bar corporativo elegante" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/candy-bar-infantil-colores.avif" alt="Candy bar infantil colorido" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/candy-bar-acrilico-led-noche.avif" alt="Candy bar acrílico con LED de noche" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/candy-bar-mexicano-tradicional.avif" alt="Candy bar mexicano tradicional" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/candy-bar-frascos-cristal-variados.avif" alt="Frascos de cristal variados para candy bar" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/candy-bar-montaje-profesional.avif" alt="Montaje profesional de candy bar" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/candy-bar-boda-elegante-blanco.avif" alt="Candy bar boda elegante en blanco" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/candy-bar-tema-unicornio.avif" alt="Candy bar temático unicornio" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/candy-bar-gomitas-colores.avif" alt="Candy bar con gomitas de colores" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/candy-bar-chocolates-premium.avif" alt="Candy bar con chocolates premium" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/candy-bar-jardin-exterior.avif" alt="Candy bar en jardín exterior" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/candy-bar-iluminacion-noche.avif" alt="Candy bar con iluminación nocturna" width="600" height="343" loading="lazy" />
+              </div>
+            </div>
+          </section>
+
+          <!-- FAQ -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes — Mesa de Dulces"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Todo lo que necesitas saber antes de rentar tu candy bar: qué incluye, cantidades, temáticas y logística.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un especialista te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en mesas de dulces resolverá tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre la renta de mesas de dulces (candy bar)`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- DESKTOP SIDEBAR -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Tipos de Mesas</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/barras/postres/" class="sidebar-nav__back">&uarr; Volver a Mesas de Postres</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/barras/" class="sidebar-nav__back">&uarr; Volver a Barras</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu candy bar:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas un candy bar para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una mesa de dulces (candy bar)`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESERVA FORM -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza tu Mesa de Dulces (Candy Bar)"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros especialistas te responderá por WhatsApp con una cotización personalizada.",
+          "Sin compromiso, sin costos ocultos. Montaje y desmontaje incluidos."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Fiesta Infantil">Fiesta Infantil</option>
+                <option value="Baby Shower">Baby Shower</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="paquete">
+                Paquete de interés
+              </label>
+              <select id="paquete" name="paquete" class="form-field__input form-field__select">
+                <option value="Candy Bar Íntimo (50-80 pers)">Candy Bar Íntimo (50-80 personas)</option>
+                <option value="Candy Bar Estándar (80-150 pers)" selected>Candy Bar Estándar (80-150 personas)</option>
+                <option value="Candy Bar Premium (150-300 pers)">Candy Bar Premium (150-300 personas)</option>
+                <option value="Candy Bar + Iluminación">Candy Bar + Iluminación LED</option>
+                <option value="No estoy seguro">No estoy seguro / Necesito asesoría</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Cuéntanos los detalles: número de invitados, temática/colores, si necesitas que proveamos los dulces, preferencias de estructura (madera/acrílico)..." rows="4" required></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Asesoría de dulces</h3>
+            <p class="reserva-card__text">Te ayudamos a calcular cantidades y elegir dulces que combinen con tu temática.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para tu presupuesto.</p>
+          </div>
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const paquete = document.getElementById('paquete').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Mesa de Dulces (Candy Bar) para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (paquete) texto += `*Paquete:* ${paquete}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Mesas de Dulces"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de mesas de dulces y candy bars para eventos en la Ciudad de México.",
+          "Nuestra red de aliados nos permite garantizar disponibilidad, calidad premium y cobertura completa en toda la CDMX y área metropolitana."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Socio comercial</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MEDEDUL</h3>
+            <p class="partner-card__tagline">Mesas de Dulces Profesionales</p>
+            <p class="partner-card__text">Líder en renta de mesas de dulces, candy bars y exhibiciones gastronómicas para bodas y eventos sociales en CDMX y Estado de México. Estructuras elegantes con montaje profesional incluido.</p>
+          </div>
+          <a href="https://mesas-de-dulces.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Especialistas</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Mobiliario Premium MX</h3>
+            <p class="partner-card__tagline">Mesas y Exhibidores de Lujo</p>
+            <p class="partner-card__text">Especialistas en mobiliario premium para eventos sociales. Estructuras de madera artesanal, acrílico y metal para candy bars y estaciones gastronómicas.</p>
+          </div>
+          <span class="partner-card__btn partner-card__btn--disabled">
+            Aliado verificado
+          </span>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">+10 años</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Rent All CDMX</h3>
+            <p class="partner-card__tagline">Renta Integral para Eventos</p>
+            <p class="partner-card__text">Más de 10 años proveyendo equipo completo para eventos: mesas de exhibición, cristalería, mantelería premium y accesorios decorativos.</p>
+          </div>
+          <span class="partner-card__btn partner-card__btn--disabled">
+            Aliado verificado
+          </span>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">Candy Bars</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventMob</h3>
+            <p class="partner-card__tagline">Mobiliario Moderno y Clásico</p>
+            <p class="partner-card__text">Catálogo extenso de mobiliario para eventos: desde estructuras minimalistas modernas hasta piezas vintage para bodas rústicas y boho.</p>
+          </div>
+          <span class="partner-card__btn partner-card__btn--disabled">
+            Aliado verificado
+          </span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CTA FINAL
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="El candy bar que todos tus invitados recordarán"
+    subheadline="Estructura elegante, frascos de cristal, montaje profesional. Cotiza hoy y crea el rincón más dulce de tu evento."
+    primaryCTA={{ label: "Cotizar Candy Bar", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa una mesa de dulces (candy bar) para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- AMBER COLOR OVERRIDE -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

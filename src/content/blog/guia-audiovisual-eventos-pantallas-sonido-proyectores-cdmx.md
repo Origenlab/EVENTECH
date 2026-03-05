@@ -2,9 +2,9 @@
 title: "Guía de Audiovisual para Eventos: Pantallas LED, Sonido y Proyección"
 seoTitle: "Audiovisual para Eventos CDMX | Pantallas LED, Sonido, Proyectores"
 description: "Todo sobre equipamiento audiovisual para eventos. Pantallas LED, sistemas de sonido Line Array, proyectores y micrófonos profesionales. Guía técnica completa."
-date: 2026-03-02
+date: 2025-01-01
 category: "guias"
-image: "/images/blog/guia-audiovisual-eventos.jpg"
+image: "/images/iluminacion-arquitectonica/wash-lights-led-renta-eventos-cdmx.avif"
 author: "Equipo EVENTECH"
 tags:
   - audiovisual eventos
@@ -12,12 +12,16 @@ tags:
   - sonido profesional
   - proyectores eventos
   - micrófonos inalámbricos
+  - videowall CDMX
 keywords:
   - renta audiovisual eventos CDMX
   - pantallas LED eventos
   - sonido Line Array renta
   - proyectores 4K eventos
   - equipo DJ bodas
+  - renta videowall CDMX
+  - pantallas corporativos
+  - sistemas PA eventos
 relatedServices:
   - audiovisual
 relatedEvents:

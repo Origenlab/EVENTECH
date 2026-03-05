@@ -2,9 +2,9 @@
 title: "Eventos Corporativos CDMX: Conferencias, Lanzamientos y Team Building"
 seoTitle: "Eventos Corporativos CDMX | Conferencias y Lanzamientos"
 description: "Guía completa de equipamiento para eventos corporativos: conferencias, lanzamientos, team building. Audiovisual, mobiliario, staging profesional CDMX."
-date: 2026-02-28
+date: 2025-01-01
 category: "guias"
-image: "/images/blog/guia-eventos-corporativos-cdmx.jpg"
+image: "/images/mobiliario/mesas-cocktail-corporativo-panoramica.avif"
 author: "Equipo EVENTECH"
 tags:
   - eventos corporativos
@@ -12,12 +12,15 @@ tags:
   - lanzamientos producto
   - team building
   - audiovisual corporativo
+  - convenciones empresariales
 keywords:
   - eventos empresariales CDMX
   - renta equipo corporativo
   - audiovisual conferencias
   - staging profesional
   - team building CDMX
+  - convenciones empresariales
+  - lanzamientos de producto CDMX
 relatedServices:
   - audiovisual
   - mobiliario

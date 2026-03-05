@@ -2,9 +2,9 @@
 title: "Guía Completa de Inflables y Juegos para Eventos: Infantiles y Adultos"
 seoTitle: "Inflables para Eventos CDMX | Infantiles, Acuáticos, Adultos"
 description: "Inflables y juegos para eventos: brincolines, toboganes, toro mecánico y más. Seguridad, edades, espacios requeridos. Guía CDMX."
-date: 2026-02-26
+date: 2025-01-01
 category: "guias"
-image: "/images/blog/guia-inflables-juegos-eventos.jpg"
+image: "/images/guirnaldas/guirnaldas-100m-decoracion-completa-evento.avif"
 author: "Equipo EVENTECH"
 tags:
   - inflables eventos
@@ -12,12 +12,15 @@ tags:
   - juegos infantiles
   - toro mecánico
   - juegos acuáticos
+  - fiestas infantiles CDMX
 keywords:
   - renta inflables CDMX
   - brincolines fiestas infantiles
   - toro mecánico eventos
   - juegos acuáticos renta
   - inflables para adultos
+  - toboganes inflables renta
+  - circuito obstáculos eventos
 relatedServices:
   - inflables
 relatedEvents:

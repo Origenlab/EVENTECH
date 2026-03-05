@@ -1,0 +1,438 @@
+---
+/**
+ * ─── Fuente de Chocolate — Página de Producto (Nivel 4) ───
+ * Fuentes de chocolate profesionales de 3 a 7 niveles para eventos.
+ * Servicio completo con chocolate belga premium y estación de dipping.
+ * Color accent: Amber #e17055 (nivel 4/5).
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Barras", href: "/servicios/mobiliario/barras/" },
+  { label: "Postres", href: "/servicios/mobiliario/barras/postres/" },
+  { label: "Fuente de Chocolate" },
+];
+
+const faqs = [
+  { question: "¿Qué tamaños de fuente de chocolate ofrecen?", answer: 'Ofrecemos <strong>tres tamaños profesionales</strong>: <strong>Fuente de 3 niveles</strong> (27" de altura, ideal para 50-80 invitados), <strong>Fuente de 5 niveles</strong> (34" de altura, perfecta para 80-200 invitados), y <strong>Fuente de 7 niveles</strong> (44" de altura, para eventos de 200-500 invitados). Todas son fuentes comerciales de grado profesional con sistema de calentamiento integrado y flujo continuo de chocolate.' },
+  { question: "¿Qué tipos de chocolate incluyen?", answer: 'Trabajamos exclusivamente con <strong>chocolate belga premium</strong> de Callebaut y Valrhona. Ofrecemos: <strong>Chocolate oscuro 70%</strong> (intenso, para paladares adultos), <strong>Chocolate con leche 40%</strong> (el favorito universal, cremoso y dulce), <strong>Chocolate blanco</strong> (suave, combina con frutos rojos), y <strong>Chocolate Ruby</strong> (el chocolate rosa, sin colorantes, sabor frutal). Puedes elegir uno o combinar varios — ofrecemos paquetes con hasta 3 tipos de chocolate simultáneo.' },
+  { question: "¿Qué frutas y elementos para mojar incluyen?", answer: 'Nuestros paquetes incluyen una <strong>estación de dipping completa</strong> con: frutas frescas de temporada (fresas, plátano, uvas, piña, manzana, kiwi), malvaviscos jumbo, churros recién hechos (opción premium), pretzels de sal y dulces, brownies en cubos, galletas de mantequilla, y cake pops. Todo presentado en exhibidores elegantes con palillos de bambú y servilletas personalizables. Adaptamos la selección según la temporada y tu presupuesto.' },
+  { question: "¿El servicio incluye personal atendiendo la fuente?", answer: 'Sí, <strong>todos nuestros paquetes incluyen un operador profesional</strong> durante la duración del servicio (típicamente 3-4 horas). El operador se encarga de: mantener el chocolate a temperatura óptima (45-48°C), reponer frutas y elementos de dipping, asegurar higiene y limpieza del área, asistir a invitados con necesidades especiales, y coordinar con el venue. Para eventos grandes (+200 invitados) asignamos 2 operadores.' },
+  { question: "¿Cuánto tiempo antes llegan a montar?", answer: 'Llegamos <strong>2-3 horas antes</strong> del inicio del evento para: armar la estructura de la fuente, calentar el chocolate a temperatura óptima (requiere 45-60 min), preparar la estación de dipping con las frutas frescas cortadas, coordinar ubicación con el venue (necesitamos toma eléctrica cercana), y realizar pruebas de flujo del chocolate. El montaje es completamente discreto y estamos listos antes de que lleguen los primeros invitados.' },
+  { question: "¿Qué pasa si hay invitados con alergias o restricciones?", answer: 'Tomamos las <strong>alergias muy en serio</strong>. El chocolate contiene leche y puede contener trazas de frutos secos (dependiendo de la marca). Para invitados con alergias severas, podemos: usar chocolate vegano certificado (sin lácteos), ofrecer una selección de frutas libre de alérgenos comunes, identificar claramente cada elemento con etiquetas. Necesitamos conocer las restricciones con 1 semana de anticipación para coordinar alternativas seguras.' },
+  { question: "¿La fuente funciona en eventos al aire libre?", answer: '<strong>Sí, con consideraciones especiales</strong>. Las fuentes funcionan perfectamente en jardines y terrazas siempre que: haya acceso a electricidad (120V estándar), la temperatura ambiente no sea extrema (funcionamos bien entre 15-30°C), el área esté protegida de viento directo y lluvia. Para eventos en exterior extremadamente caluroso (+32°C), ajustamos la mezcla del chocolate para mantener consistencia óptima. Incluimos carpa/toldo sobre la fuente si es necesario.' },
+  { question: "¿Cuánto chocolate necesito para mi evento?", answer: 'La regla general es <strong>100-150g de chocolate por persona</strong> para un servicio de 2-3 horas. Nuestros paquetes incluyen: <strong>Paquete Esencial (50-80 pers)</strong>: 8kg de chocolate, <strong>Paquete Estándar (80-150 pers)</strong>: 12kg de chocolate, <strong>Paquete Premium (150-250 pers)</strong>: 18kg de chocolate, <strong>Paquete Grand Gala (250-400 pers)</strong>: 25kg+ de chocolate. Siempre llevamos 20% extra como reserva sin costo adicional.' },
+];
+
+const specs = [
+  { label: "Fuentes disponibles", value: "3, 5 y 7 niveles (27-44 pulgadas)" },
+  { label: "Chocolate", value: "Belga premium Callebaut/Valrhona" },
+  { label: "Variedades", value: "Oscuro 70%, leche 40%, blanco, ruby" },
+  { label: "Capacidad", value: "50-400+ invitados (según paquete)" },
+  { label: "Flujo continuo", value: "Sí, sistema comercial profesional" },
+  { label: "Temperatura", value: "45-48°C controlada automáticamente" },
+  { label: "Dipping incluido", value: "Frutas, malvaviscos, pretzels, brownies" },
+  { label: "Operador", value: "Incluido (1-2 personas según evento)" },
+  { label: "Duración servicio", value: "3-4 horas estándar" },
+  { label: "Montaje", value: "2-3 horas antes del evento" },
+  { label: "Electricidad", value: "120V estándar (500-800W según tamaño)" },
+  { label: "Eventos exterior", value: "Sí, con protección de viento/lluvia" },
+];
+
+const sidebarNav = [
+  { name: "Fuente de Chocolate", href: null, active: true },
+  { name: "Mesa de Dulces (Candy Bar)", href: "/servicios/mobiliario/barras/postres/mesa-dulces/" },
+  { name: "Mesa de Frutas", href: "/servicios/mobiliario/barras/postres/mesa-frutas/" },
+  { name: "Postres Gourmet", href: "/servicios/mobiliario/barras/postres/postres-gourmet/" },
+  { name: "Quesos y Embutidos", href: "/servicios/mobiliario/barras/postres/quesos-embutidos/" },
+  { name: "Mesa de Snacks", href: "/servicios/mobiliario/barras/postres/mesa-snacks/" },
+  { name: "Dulces Tradicionales", href: "/servicios/mobiliario/barras/postres/dulces-tradicionales/" },
+  { name: "Donas y Cupcakes", href: "/servicios/mobiliario/barras/postres/donas-cupcakes/" },
+];
+
+const sidebarRelated = [
+  { name: "Mesa de Frutas", href: "/servicios/mobiliario/barras/postres/mesa-frutas/" },
+  { name: "Barras de Bebidas", href: "/servicios/mobiliario/barras/barras-bebidas/" },
+  { name: "Vajilla y Cristalería", href: "/servicios/catering/vajilla-cristaleria/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+  { name: "Fairy Lights", href: "/servicios/iluminacion/decorativa/fairy-lights/" },
+];
+
+const reviews = [
+  { author: "Patricia Mendoza", text: "La fuente de chocolate fue el hit de nuestra boda. Los invitados no paraban de regresar por más fresas con chocolate. El operador fue muy profesional, mantuvo todo impecable durante 4 horas. El chocolate oscuro 70% estaba delicioso — varios invitados preguntaron qué marca era. 100% recomendados.", rating: 5, date: "2025-12-08" },
+  { author: "Roberto Sánchez", text: "Contratamos la fuente de 5 niveles para los XV años de mi hija (180 invitados). Eligieron el combo de chocolate con leche y blanco — los dos sabores fueron un éxito. La estación de churros recién hechos fue el toque perfecto. El equipo llegó temprano y montó todo discretamente.", rating: 5, date: "2025-11-15" },
+  { author: "Carolina Vega", text: "Para nuestro evento corporativo de fin de año (250 personas) queríamos algo especial. La fuente de 7 niveles con chocolate oscuro fue espectacular — impresionó a todos nuestros clientes VIP. Los brownies con chocolate fueron increíbles. Muy profesionales y puntuales.", rating: 5, date: "2025-10-22" },
+  { author: "Diana López", text: "Fuente de chocolate ruby para el baby shower de mi hermana. ¡El color rosa natural del chocolate era perfecto para la temática! Las fresas con chocolate ruby son una combinación divina. El servicio fue excelente — reponían frutas constantemente.", rating: 5, date: "2025-09-18" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Fuente de Chocolate Profesional para Eventos en CDMX",
+    description: "Fuente de chocolate profesional de 3-7 niveles con chocolate belga premium. Estación de dipping con frutas frescas y churros. Operador incluido. Servicio para 50-400+ invitados en CDMX.",
+    url: "/servicios/mobiliario/barras/postres/fuente-chocolate/",
+    priceRange: { min: 4500, max: 28000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 4,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Barras", url: "/servicios/mobiliario/barras/" },
+    { name: "Postres", url: "/servicios/mobiliario/barras/postres/" },
+    { name: "Fuente de Chocolate", url: "/servicios/mobiliario/barras/postres/fuente-chocolate/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Fuente de Chocolate Profesional — Renta para Eventos CDMX"
+  description="Fuente de chocolate profesional de 3-7 niveles con chocolate belga premium. Frutas frescas, churros y malvaviscos. Operador incluido. Cotiza para tu evento en CDMX."
+  jsonLd={jsonLd}
+>
+  <div class="container"><Breadcrumbs items={breadcrumbItems} /></div>
+
+  <HeroPage
+    badge="Chocolate belga premium"
+    title='Renta de <span class="highlight">Fuente de Chocolate</span> Profesional para Eventos'
+    subtitle="Fuentes comerciales de 3 a 7 niveles con flujo continuo de chocolate belga. Estación de dipping completa con fresas, churros, malvaviscos y más. Operador profesional incluido durante todo el evento."
+    primaryCTA={{ label: "Cotiza tu Fuente de Chocolate", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar una fuente de chocolate profesional` }}
+    cards={[
+      {
+        title: "Fuentes profesionales con chocolate belga Callebaut y Valrhona",
+        content: "<strong>Fuentes de chocolate comerciales</strong> de 3, 5 y 7 niveles con flujo continuo y sistema de calentamiento integrado. Chocolate belga premium: <strong>oscuro 70%</strong> (intenso), <strong>leche 40%</strong> (cremoso), <strong>blanco</strong> (suave), y <strong>ruby</strong> (rosa natural, sabor frutal). Capacidad desde 50 hasta 400+ invitados. Temperatura controlada automáticamente (45-48°C) para consistencia perfecta durante todo el evento. Puedes elegir un tipo de chocolate o combinar hasta 3 variedades.",
+      },
+      {
+        title: "Estación de dipping completa con frutas frescas y churros",
+        content: "<strong>Estación de dipping premium</strong> incluida: fresas frescas de temporada, plátano, uvas, piña, kiwi, manzana. Malvaviscos jumbo, pretzels de sal y dulces, brownies en cubos, galletas de mantequilla. <strong>Opción premium</strong>: churros recién hechos con azúcar y canela. Todo presentado en exhibidores elegantes con palillos de bambú profesionales. <strong>Operador incluido</strong> que mantiene la estación impecable, repone frutas y asiste a los invitados durante 3-4 horas de servicio.",
+      },
+    ]}
+  />
+
+  <CTABanner headline="¿Buscas el elemento WOW para tu evento?" subheadline="Fuente de chocolate con chocolate belga y frutas frescas — cotiza sin compromiso" primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }} secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }} />
+
+  <!-- Mobile Navigation -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Tipos de Mesas</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (<li class="sidebar-nav__item">{item.active ? (<span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>) : (<a href={item.href} class="sidebar-nav__link">{item.name}</a>)}</li>))}
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Combina con</h3>
+          <ul class="sidebar-related">{sidebarRelated.map((item) => (<li><a href={item.href} class="sidebar-related__link"><span class="sidebar-related__arrow">&rarr;</span>{item.name}</a></li>))}</ul>
+        </div>
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">Fuente de chocolate belga</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una fuente de chocolate`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content with Sidebar -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <div class="l4-main">
+
+          <!-- Specifications Table -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones — Fuente de Chocolate</h2>
+              </div>
+              <div class="specs-table__body">{specs.map((spec) => (<div class="specs-table__row"><div class="specs-table__label">{spec.label}</div><div class="specs-table__value">{spec.value}</div></div>))}</div>
+            </div>
+          </section>
+
+          <!-- Showcase 1: Tipos de Chocolate -->
+          <section class="section section--alt" aria-labelledby="chocolate-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Chocolate belga premium</span>
+                <h2 class="showcase__title" id="chocolate-heading">4 Variedades de Chocolate Profesional</h2>
+                <p class="showcase__subtitle">Callebaut y Valrhona — las marcas de chocolate más prestigiosas del mundo.</p>
+                <p class="showcase__text">Trabajamos exclusivamente con <strong>chocolate belga de grado profesional</strong> que garantiza flujo perfecto, consistencia cremosa y sabor excepcional. <strong>Chocolate Oscuro 70%</strong>: intenso con notas de cacao puro, perfecto para paladares adultos y eventos elegantes. <strong>Chocolate con Leche 40%</strong>: el favorito universal, cremoso y dulce, ideal para bodas y eventos familiares. <strong>Chocolate Blanco</strong>: suave y mantecoso, combina perfectamente con frutos rojos como fresas y frambuesas.</p>
+                <p class="showcase__text"><strong>Chocolate Ruby</strong>: la innovación del mundo chocolatero — un chocolate naturalmente rosa (sin colorantes) con sabor frutal y acidez ligera. Perfecto para baby showers, XV años y eventos con temática rosa. Puedes elegir <strong>un tipo de chocolate o combinar hasta 3 variedades</strong> en fuentes separadas para crear una estación de degustación premium.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Oscuro 70%</span>
+                  <span class="showcase__tag">Leche 40%</span>
+                  <span class="showcase__tag">Blanco</span>
+                  <span class="showcase__tag">Ruby (rosa)</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">Cotizar Fuente</a>
+              </div>
+              <div class="showcase__image"><img src="/images/mobiliario/fuente-chocolate-variedades-belga.avif" alt="Variedades de chocolate belga para fuente: oscuro, leche, blanco y ruby" width="1200" height="686" loading="lazy" /></div>
+            </div>
+          </section>
+
+          <!-- Showcase 2: Tamaños de Fuente -->
+          <section class="section section--alt" aria-labelledby="tamanos-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">3 tamaños profesionales</span>
+                <h2 class="showcase__title" id="tamanos-heading">Fuentes de 3, 5 y 7 Niveles</h2>
+                <p class="showcase__subtitle">Desde eventos íntimos de 50 personas hasta galas de 400+ invitados.</p>
+                <p class="showcase__text"><strong>Fuente de 3 Niveles (27")</strong>: compacta pero impactante, ideal para bodas íntimas, baby showers y reuniones de 50-80 personas. Requiere 6-8kg de chocolate. <strong>Fuente de 5 Niveles (34")</strong>: nuestro tamaño más popular, perfecto para bodas medianas, XV años y eventos corporativos de 80-200 personas. Capacidad para 10-14kg de chocolate con flujo continuo espectacular.</p>
+                <p class="showcase__text"><strong>Fuente de 7 Niveles (44")</strong>: la pieza central definitiva para eventos de gran escala — bodas de lujo, galas corporativas y festivales con 200-500 invitados. Cascada de chocolate de casi un metro de altura que se convierte en el centro de todas las fotos. Capacidad para 18-25kg de chocolate. Todas nuestras fuentes son <strong>comerciales de grado profesional</strong> con sistema de calentamiento integrado, motor silencioso y control de temperatura automático (45-48°C).</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">3 niveles (50-80 pers)</span>
+                  <span class="showcase__tag">5 niveles (80-200 pers)</span>
+                  <span class="showcase__tag">7 niveles (200-500 pers)</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">Ver Paquetes</a>
+              </div>
+              <div class="showcase__image"><img src="/images/mobiliario/fuente-chocolate-tamanos-niveles.avif" alt="Fuentes de chocolate de 3, 5 y 7 niveles" width="1200" height="686" loading="lazy" /></div>
+            </div>
+          </section>
+
+          <!-- Showcase 3: Estación de Dipping -->
+          <section class="section section--alt" aria-labelledby="dipping-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Estación premium</span>
+                <h2 class="showcase__title" id="dipping-heading">Estación de Dipping con Frutas y Churros</h2>
+                <p class="showcase__subtitle">Todo para mojar en chocolate: frutas frescas, malvaviscos, pretzels y más.</p>
+                <p class="showcase__text">Nuestra <strong>estación de dipping</strong> incluye una selección curada de elementos para sumergir en chocolate: <strong>Frutas frescas de temporada</strong> — fresas grandes, plátano en rodajas, uvas sin semilla, piña en cubos, kiwi, manzana verde. <strong>Malvaviscos jumbo</strong> (el clásico que nunca falla). <strong>Pretzels</strong> de sal y dulces. <strong>Brownies</strong> en cubos del tamaño perfecto. <strong>Galletas de mantequilla</strong> tipo shortbread.</p>
+                <p class="showcase__text">Como <strong>opción premium</strong> ofrecemos <strong>churros recién hechos</strong> — servidos tibios con azúcar y canela, la combinación perfecta con chocolate. Todo presentado en <strong>exhibidores elegantes</strong> de acrílico o madera según tu estilo, con palillos de bambú profesionales, servilletas de calidad (personalizables con tu diseño), y platos pequeños para invitados. Nuestro operador repone continuamente durante el servicio.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Frutas frescas</span>
+                  <span class="showcase__tag">Malvaviscos</span>
+                  <span class="showcase__tag">Churros (premium)</span>
+                  <span class="showcase__tag">Pretzels</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">Cotizar Estación Completa</a>
+              </div>
+              <div class="showcase__image"><img src="/images/mobiliario/fuente-chocolate-estacion-dipping.avif" alt="Estación de dipping con frutas, malvaviscos y churros" width="1200" height="686" loading="lazy" /></div>
+            </div>
+          </section>
+
+          <!-- Showcase 4: Servicio Profesional -->
+          <section class="section section--alt" aria-labelledby="servicio-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Operador incluido</span>
+                <h2 class="showcase__title" id="servicio-heading">Servicio Profesional de 3-4 Horas</h2>
+                <p class="showcase__subtitle">Personal capacitado que mantiene tu estación impecable durante todo el evento.</p>
+                <p class="showcase__text"><strong>Todos nuestros paquetes incluyen operador profesional</strong> que se encarga de cada detalle: mantener el chocolate a temperatura óptima, verificar el flujo continuo sin interrupciones, reponer frutas y elementos de dipping conforme se consumen, mantener el área limpia y ordenada, asistir a invitados que necesiten ayuda, y coordinar con el personal del venue.</p>
+                <p class="showcase__text">Para <strong>eventos de más de 200 invitados</strong> asignamos 2 operadores para garantizar servicio fluido sin tiempos de espera. Nuestro equipo llega <strong>2-3 horas antes</strong> para montar todo discretamente: armado de la fuente, calentamiento del chocolate (45-60 min para temperatura óptima), preparación de la estación de dipping con frutas recién cortadas, y coordinación de ubicación con el venue. Necesitamos una toma eléctrica estándar (120V) a máximo 3 metros de distancia.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Operador incluido</span>
+                  <span class="showcase__tag">3-4 horas servicio</span>
+                  <span class="showcase__tag">Montaje 2-3h antes</span>
+                  <span class="showcase__tag">120V estándar</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">Reservar Servicio</a>
+              </div>
+              <div class="showcase__image"><img src="/images/mobiliario/fuente-chocolate-servicio-profesional.avif" alt="Operador profesional atendiendo fuente de chocolate en evento" width="1200" height="686" loading="lazy" /></div>
+            </div>
+          </section>
+
+          <!-- Gallery -->
+          <section class="section" aria-labelledby="galeria-heading">
+            <div class="container">
+              <h2 class="section-header__title" id="galeria-heading">Galería — Fuentes de Chocolate en Eventos</h2>
+              <p class="section-header__description">Bodas, XV años, corporativos y baby showers en CDMX y Estado de México.</p>
+              <div class="galeria-grid">
+                <img src="/images/mobiliario/fuente-chocolate-boda-elegante.avif" alt="Fuente de chocolate 5 niveles en boda elegante" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/fuente-chocolate-xv-anos.avif" alt="Fuente de chocolate en XV años" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/fuente-chocolate-corporativo.avif" alt="Fuente de chocolate evento corporativo" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/fuente-chocolate-baby-shower.avif" alt="Fuente chocolate ruby en baby shower" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/fuente-chocolate-7-niveles.avif" alt="Fuente de chocolate 7 niveles gala" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/fuente-chocolate-fresas-detalle.avif" alt="Detalle fresas con chocolate" width="600" height="343" loading="lazy" />
+              </div>
+            </div>
+          </section>
+
+          <!-- FAQ Section -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader id="faq-heading" title="Preguntas Frecuentes — Fuente de Chocolate" subtitle="Resolvemos tus dudas" description={["Todo sobre la fuente de chocolate: tamaños, variedades, dipping y servicio.", "Escríbenos por WhatsApp para información adicional."]} />
+            <div class="faq-layout">
+              <div class="faq-list">{faqs.map((faq) => (<details class="faq-item"><summary class="faq-item__question"><span>{faq.question}</span><svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary><div class="faq-item__answer"><p set:html={faq.answer} /></div></details>))}</div>
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent"><h3 class="faq-sidebar-card__title">¿Dudas sobre la fuente?</h3><p class="faq-sidebar-card__text">Escríbenos por WhatsApp.</p><a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo dudas sobre la fuente de chocolate`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">Escribir por WhatsApp</a></div>
+                <div class="faq-sidebar-card"><h3 class="faq-sidebar-card__title">Llámanos</h3><p class="faq-sidebar-card__text">Lun-Vie 9:00-19:00.</p><a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a></div>
+                <div class="faq-sidebar-card"><h3 class="faq-sidebar-card__title">Cotización express</h3><a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a></div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- Desktop Sidebar -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación">
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Tipos de Mesas</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (<li class="sidebar-nav__item">{item.active ? (<span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>) : (<a href={item.href} class="sidebar-nav__link">{item.name}</a>)}</li>))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item"><a href="/servicios/mobiliario/barras/postres/" class="sidebar-nav__back">&uarr; Volver a Postres</a></li>
+              <li class="sidebar-nav__item"><a href="/servicios/mobiliario/barras/" class="sidebar-nav__back">&uarr; Volver a Barras</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Combina con</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">La fuente es perfecta con:</p>
+            <ul class="sidebar-related">{sidebarRelated.map((item) => (<li><a href={item.href} class="sidebar-related__link"><span class="sidebar-related__arrow">&rarr;</span>{item.name}</a></li>))}</ul>
+          </div>
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">Fuente de chocolate belga</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una fuente de chocolate profesional`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">Formulario &darr;</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reservation Form -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader id="reserva-heading" title="Cotiza tu Fuente de Chocolate" subtitle="Cuéntanos sobre tu evento" description={["Completa el formulario para una cotización personalizada.", "Chocolate belga premium, operador y estación de dipping incluidos."]} />
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field"><label class="form-field__label" for="nombre">Nombre <span class="form-field__required">*</span></label><input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required /></div>
+            <div class="form-field"><label class="form-field__label" for="telefono">Teléfono <span class="form-field__required">*</span></label><input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required /></div>
+            <div class="form-field"><label class="form-field__label" for="tipoEvento">Tipo de evento</label><select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select"><option value="">Selecciona</option><option value="Boda">Boda</option><option value="XV Años">XV Años</option><option value="Baby Shower">Baby Shower</option><option value="Corporativo">Corporativo</option><option value="Fiesta Social">Fiesta Social</option><option value="Otro">Otro</option></select></div>
+            <div class="form-field"><label class="form-field__label" for="fecha">Fecha del evento</label><input type="date" id="fecha" name="fecha" class="form-field__input" /></div>
+            <div class="form-field"><label class="form-field__label" for="invitados">Número de invitados</label><select id="invitados" name="invitados" class="form-field__input form-field__select"><option value="">Selecciona</option><option value="50-80">50-80 personas</option><option value="80-150">80-150 personas</option><option value="150-250">150-250 personas</option><option value="250-400">250-400 personas</option><option value="400+">Más de 400</option></select></div>
+            <div class="form-field"><label class="form-field__label" for="chocolate">Tipo de chocolate</label><select id="chocolate" name="chocolate" class="form-field__input form-field__select"><option value="">Selecciona</option><option value="Oscuro 70%">Oscuro 70% (intenso)</option><option value="Leche 40%">Leche 40% (cremoso)</option><option value="Blanco">Blanco</option><option value="Ruby (rosa)">Ruby (rosa natural)</option><option value="Combinación">Combinar 2-3 tipos</option></select></div>
+            <div class="form-field form-field--full"><label class="form-field__label" for="extras">Extras y opciones</label><select id="extras" name="extras" class="form-field__input form-field__select"><option value="Estación estándar">Estación estándar (frutas, malvaviscos, pretzels)</option><option value="Con churros">+ Churros recién hechos</option><option value="Doble chocolate">Doble fuente (2 tipos chocolate)</option><option value="Triple chocolate">Triple fuente (3 tipos chocolate)</option></select></div>
+            <div class="form-field form-field--full"><label class="form-field__label" for="mensaje">Mensaje <span class="form-field__required">*</span></label><textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Cuéntanos: ubicación del evento, horario, restricciones alimentarias, preguntas adicionales..." rows="4" required></textarea></div>
+          </div>
+          <button type="submit" class="reserva-form__submit"><svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Enviar por WhatsApp</button>
+        </form>
+        <aside class="reserva-sidebar">
+          <div class="reserva-card"><h3 class="reserva-card__title">Respuesta inmediata</h3><p class="reserva-card__text">WhatsApp en menos de 30 min.</p></div>
+          <div class="reserva-card"><h3 class="reserva-card__title">Operador incluido</h3><p class="reserva-card__text">Personal profesional 3-4 horas.</p></div>
+          <div class="reserva-card"><h3 class="reserva-card__title">Chocolate belga</h3><p class="reserva-card__text">Callebaut y Valrhona premium.</p></div>
+          <div class="reserva-card reserva-card--highlight"><h3 class="reserva-card__title">Horario</h3><p class="reserva-card__text">Lun-Vie: 9:00-19:00<br/>Sáb: 9:00-14:00</p></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp Form Handler -->
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const invitados = document.getElementById('invitados').value;
+      const chocolate = document.getElementById('chocolate').value;
+      const extras = document.getElementById('extras').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+      if (!nombre || !telefono || !mensaje) { if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error'); if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error'); if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error'); return; }
+      let fechaTexto = 'No especificada'; if (fecha) { const d = new Date(fecha + 'T12:00:00'); fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }); }
+      let texto = `*Fuente de Chocolate Profesional*\n\n*Nombre:* ${nombre}\n*Teléfono:* ${telefono}\n`; if (tipoEvento) texto += `*Evento:* ${tipoEvento}\n`; texto += `*Fecha:* ${fechaTexto}\n`; if (invitados) texto += `*Invitados:* ${invitados}\n`; if (chocolate) texto += `*Chocolate:* ${chocolate}\n`; if (extras) texto += `*Extras:* ${extras}\n`; texto += `\n*Mensaje:*\n${mensaje}`;
+      window.open(`https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`, '_blank');
+    });
+    document.querySelectorAll('.form-field__input').forEach(input => input.addEventListener('input', function() { this.classList.remove('form-field__input--error'); }));
+  </script>
+
+  <!-- Partners Section -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Fuentes de Chocolate"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de fuentes de chocolate y estaciones de postres en la Ciudad de México.",
+          "Nuestra red de aliados garantiza chocolate premium, equipos profesionales y servicio impecable."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Socio comercial</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MEDEDUL</h3>
+            <p class="partner-card__tagline">Mesas de Dulces Profesionales</p>
+            <p class="partner-card__text">Líder en renta de fuentes de chocolate, mesas de dulces y exhibiciones gastronómicas para bodas y eventos sociales en CDMX. Chocolate belga premium con servicio profesional incluido.</p>
+          </div>
+          <a href="https://mesas-de-dulces.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">Chocolate premium</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">ChocolateEvents MX</h3>
+            <p class="partner-card__tagline">Especialistas en Fuentes</p>
+            <p class="partner-card__text">Fuentes comerciales de grado profesional con chocolate Callebaut y Valrhona. Servicio de operador especializado y estaciones de dipping premium.</p>
+          </div>
+          <span class="partner-card__btn partner-card__btn--disabled">Aliado verificado</span>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">+10 años</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Rent All CDMX</h3>
+            <p class="partner-card__tagline">Renta Integral para Eventos</p>
+            <p class="partner-card__text">Más de 10 años proveyendo fuentes de chocolate y equipo completo para eventos. Fuentes de 3, 5 y 7 niveles con accesorios y estaciones de servicio.</p>
+          </div>
+          <span class="partner-card__btn partner-card__btn--disabled">Aliado verificado</span>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">D</span>
+            <div class="partner-card__badge">Dipping stations</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">DulceEventos</h3>
+            <p class="partner-card__tagline">Estaciones Gastronómicas</p>
+            <p class="partner-card__text">Especialistas en estaciones de dipping con frutas frescas, churros artesanales y presentaciones elegantes para complementar fuentes de chocolate.</p>
+          </div>
+          <span class="partner-card__btn partner-card__btn--disabled">Aliado verificado</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <CTABanner headline="El elemento WOW que tu evento necesita" subheadline="Fuente de chocolate belga con frutas frescas y churros. Operador incluido. Cotiza hoy." primaryCTA={{ label: "Cotizar Fuente de Chocolate", href: "#reserva-heading" }} secondaryCTA={{ label: "Hablar con asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa la fuente de chocolate` }} variant="accent" />
+</PageLayout>
+
+<style is:global>
+  :root { --color-accent: #e17055; --color-accent-hover: #d35400; --color-accent-light: #f0856d; --color-accent-soft: rgba(225, 112, 85, 0.1); --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%); --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4); --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5); }
+</style>

@@ -1,9 +1,9 @@
 ---
 title: "Producción Integral de Eventos CDMX: Carpas, Sonido, Pistas y Catering"
 seoTitle: "Producción Integral Eventos CDMX: Carpas, Sonido, Pistas | EVENTECH"
-description: "Carpas estructurales, audiovisual profesional, pistas de baile LED, catering, inflables y accesorios: la guía de producción completa de EVENTECH para CDMX 2026."
-seoDescription: "Carpas estructurales, audiovisual profesional, pistas de baile LED, catering, inflables y accesorios: la guía de producción completa de EVENTECH para CDMX 2026."
-date: 2026-03-04
+description: "Carpas estructurales, audiovisual profesional, pistas de baile LED, catering, inflables y accesorios: la guía de producción completa de EVENTECH para CDMX."
+date: 2025-01-01
+seoDescription: "Carpas estructurales, audiovisual profesional, pistas de baile LED, catering, inflables y accesorios: la guía de producción completa de EVENTECH para CDMX."
 category: "guias"
 image: "/images/guirnaldas/guirnaldas-200m-evento-masivo-exterior.avif"
 imageAlt: "Evento masivo al aire libre en CDMX con producción completa de carpas, iluminación y ambientación EVENTECH"

@@ -8,11 +8,20 @@ import PageLayout from "./PageLayout.astro";
 import HeroPage from "@components/HeroPage.astro";
 import Breadcrumbs from "@components/Breadcrumbs.astro";
 import CTABanner from "@components/CTABanner.astro";
+import RelatedContent from "@components/RelatedContent.astro";
 import { readingTime } from "@utils/helpers";
 import { articleJsonLd, breadcrumbJsonLd, canonicalURL } from "@utils/seo";
+import {
+  findRelatedServices,
+  findRelatedEventTypes,
+  findRelatedVenueTypes,
+  POPULAR_VENUES,
+  CDMX_ZONES
+} from "@utils/interlinking";
 import { getCollection } from "astro:content";
 import { SITE } from "@data/site";
 import "@styles/blog.css";
+import "@styles/blog-components.css";
 
 type Props = {
   title: string;
@@ -69,6 +78,14 @@ if (relatedPosts && relatedPosts.length > 0) {
   const allPosts = await getCollection("blog", ({ data }) => !data.draft);
   relatedPostsData = allPosts.filter(p => relatedPosts.includes(p.slug)).slice(0, 4);
 }
+
+// Auto-detect related content for interlinking (SEO)
+const autoRelatedServices = findRelatedServices(body, title, tags || [], 4);
+const autoRelatedEvents = findRelatedEventTypes(body, title, category, 3);
+const autoRelatedVenueTypes = findRelatedVenueTypes(body, title, 3);
+
+// Get recommended venues based on content
+const recommendedVenues = POPULAR_VENUES.slice(0, 4);
 
 // Extract headings for TOC (## and ### level headings)
 const headingMatches = body.matchAll(/^(#{2,3})\s+(.+)$/gm);
@@ -285,6 +302,15 @@ const firstParagraph = paragraphs[0]?.replace(/\*\*/g, '').replace(/\[([^\]]+)\]
               </div>
             </div>
           </footer>
+
+          <!-- Related Content for SEO Interlinking -->
+          <RelatedContent
+            title="Explora Más Contenido"
+            services={autoRelatedServices}
+            venues={recommendedVenues}
+            events={autoRelatedEvents}
+            variant="grid"
+          />
         </article>
 
         <!-- Sidebar -->
@@ -345,6 +371,24 @@ const firstParagraph = paragraphs[0]?.replace(/\*\*/g, '').replace(/\[([^\]]+)\]
             </div>
             <a href="/servicios/" class="blog-sidebar__view-all">
               Ver todos los servicios →
+            </a>
+          </div>
+
+          <!-- Directorio Links -->
+          <div class="blog-sidebar-card">
+            <h3 class="blog-sidebar-card__title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Directorio de Venues
+            </h3>
+            <div class="blog-sidebar__zones">
+              {CDMX_ZONES.slice(0, 6).map(zone => (
+                <a href={zone.href} class="blog-sidebar__zone-link">
+                  {zone.label}
+                </a>
+              ))}
+            </div>
+            <a href="/directorio/" class="blog-sidebar__view-all">
+              Ver directorio completo →
             </a>
           </div>
 
@@ -711,6 +755,29 @@ const firstParagraph = paragraphs[0]?.replace(/\*\*/g, '').replace(/\[([^\]]+)\]
 
   .blog-sidebar__view-all:hover {
     text-decoration: underline;
+  }
+
+  /* Zone Links */
+  .blog-sidebar__zones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .blog-sidebar__zone-link {
+    padding: 0.35rem 0.65rem;
+    font-size: var(--text-xs);
+    font-weight: 500;
+    color: var(--color-text-light);
+    text-decoration: none;
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+  }
+
+  .blog-sidebar__zone-link:hover {
+    background: var(--color-accent);
+    color: white;
   }
 
   /* Related Post Card Enhanced */

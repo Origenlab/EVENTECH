@@ -2,9 +2,9 @@
 title: "Los Mejores Venues para Bodas en CDMX y Estado de México"
 seoTitle: "Mejores Venues Bodas CDMX | Haciendas, Jardines y Salones"
 description: "Descubre los mejores venues para bodas en CDMX. Haciendas, jardines, hoteles y salones con capacidad, precios y consejos de expertos."
-date: 2026-03-03
+date: 2025-01-01
 category: "guias"
-image: "/images/blog/venues-bodas-cdmx.jpg"
+image: "/images/moviliario-para-eventos/boda-jardin-mesas-rectangulares-sillas-crossback.avif"
 author: "Equipo EVENTECH"
 tags:
   - bodas CDMX
@@ -12,6 +12,7 @@ tags:
   - haciendas bodas
   - jardines bodas
   - wedding planner
+  - terrazas bodas
 keywords:
   - venues bodas CDMX
   - haciendas para bodas CDMX
@@ -21,6 +22,7 @@ keywords:
   - bodas al aire libre CDMX
   - bodas íntimas CDMX
   - bodas grandes CDMX
+  - terrazas bodas CDMX
 relatedServices:
   - mobiliario
   - carpas

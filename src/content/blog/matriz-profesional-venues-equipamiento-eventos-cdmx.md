@@ -2,21 +2,24 @@
 title: "Matriz Profesional: Venues + Equipamiento para Eventos en CDMX"
 seoTitle: "Guía Profesional Venues y Equipamiento Eventos CDMX"
 description: "Matriz de decisión profesional para seleccionar venues y equipamiento óptimo. Análisis técnico, configuraciones recomendadas y presupuestos por tipo de evento."
-date: 2026-03-03
+date: 2025-01-01
 category: "guias"
-image: "/images/blog/matriz-profesional-venues-equipamiento.jpg"
+image: "/images/moviliario-para-eventos/boda-mesas-redondas-sillas-chiavari-flores-26.avif"
 author: "Equipo EVENTECH"
 tags:
   - planificación profesional
   - venues CDMX
   - equipamiento eventos
   - matriz de decisión
+  - selección venues
 keywords:
   - planificación eventos profesional
   - venues equipamiento CDMX
   - matriz decisión eventos
   - configuración técnica eventos
   - salones fiestas equipamiento
+  - selección venue óptimo
+  - presupuesto equipamiento eventos
 relatedServices:
   - mobiliario
   - audiovisual

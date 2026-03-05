@@ -1,0 +1,318 @@
+---
+/**
+ * VenueComparisonTable Component
+ * Side-by-side comparison of multiple venues with key metrics.
+ *
+ * @example
+ * <VenueComparisonTable
+ *   title="Compara Venues en Polanco"
+ *   venues={[
+ *     { name: "Hacienda de los Morales", capacity: "50-1500", price: "$$$$", ... }
+ *   ]}
+ * />
+ */
+
+interface VenueCompare {
+  name: string;
+  href: string;
+  type: string;
+  capacity: string;
+  priceRange: string;
+  rating?: number;
+  amenities: string[];
+  highlight?: boolean;
+}
+
+interface Props {
+  venues: VenueCompare[];
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  venues,
+  title = "Comparar Venues",
+  subtitle
+} = Astro.props;
+
+const features = [
+  "Estacionamiento",
+  "Jardín",
+  "Capilla",
+  "Terraza",
+  "Pista de baile",
+  "Suite nupcial"
+];
+---
+
+<div class="venue-comparison">
+  {(title || subtitle) && (
+    <div class="venue-comparison__header">
+      {subtitle && <span class="venue-comparison__subtitle">{subtitle}</span>}
+      {title && <h3 class="venue-comparison__title">{title}</h3>}
+    </div>
+  )}
+
+  <div class="venue-comparison__wrapper">
+    <table class="venue-comparison__table">
+      <thead>
+        <tr>
+          <th class="venue-comparison__feature-header">Característica</th>
+          {venues.map((venue) => (
+            <th class={`venue-comparison__venue-header ${venue.highlight ? "venue-comparison__venue-header--highlight" : ""}`}>
+              <a href={venue.href} class="venue-comparison__venue-name">{venue.name}</a>
+              <span class="venue-comparison__venue-type">{venue.type}</span>
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="venue-comparison__feature">Capacidad</td>
+          {venues.map((venue) => (
+            <td class={venue.highlight ? "venue-comparison__cell--highlight" : ""}>
+              <strong>{venue.capacity}</strong> personas
+            </td>
+          ))}
+        </tr>
+        <tr>
+          <td class="venue-comparison__feature">Rango de precio</td>
+          {venues.map((venue) => (
+            <td class={venue.highlight ? "venue-comparison__cell--highlight" : ""}>
+              <span class="venue-comparison__price">{venue.priceRange}</span>
+            </td>
+          ))}
+        </tr>
+        {venues[0]?.rating && (
+          <tr>
+            <td class="venue-comparison__feature">Calificación</td>
+            {venues.map((venue) => (
+              <td class={venue.highlight ? "venue-comparison__cell--highlight" : ""}>
+                {venue.rating ? (
+                  <span class="venue-comparison__rating">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    {venue.rating}
+                  </span>
+                ) : "—"}
+              </td>
+            ))}
+          </tr>
+        )}
+        {features.map((feature) => {
+          const featureKey = feature.toLowerCase().replace(/\s+/g, "-").normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+          return (
+            <tr>
+              <td class="venue-comparison__feature">{feature}</td>
+              {venues.map((venue) => {
+                const hasFeature = venue.amenities.some(a =>
+                  a.toLowerCase().includes(featureKey.split("-")[0]) ||
+                  featureKey.includes(a.toLowerCase().split("-")[0])
+                );
+                return (
+                  <td class={venue.highlight ? "venue-comparison__cell--highlight" : ""}>
+                    {hasFeature ? (
+                      <span class="venue-comparison__check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                      </span>
+                    ) : (
+                      <span class="venue-comparison__x">—</span>
+                    )}
+                  </td>
+                );
+              })}
+            </tr>
+          );
+        })}
+      </tbody>
+      <tfoot>
+        <tr>
+          <td></td>
+          {venues.map((venue) => (
+            <td class={venue.highlight ? "venue-comparison__cell--highlight" : ""}>
+              <a href={venue.href} class="venue-comparison__cta">Ver venue</a>
+            </td>
+          ))}
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
+
+<style>
+  .venue-comparison {
+    margin: var(--space-2xl) 0;
+  }
+
+  .venue-comparison__header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+  }
+
+  .venue-comparison__subtitle {
+    display: inline-block;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-accent, #00b894);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-xs);
+  }
+
+  .venue-comparison__title {
+    font-size: var(--text-2xl);
+    font-weight: 800;
+    color: var(--color-primary);
+    margin: 0;
+  }
+
+  .venue-comparison__wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .venue-comparison__table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+
+  .venue-comparison__table thead {
+    background: var(--color-primary);
+    color: #fff;
+  }
+
+  .venue-comparison__table th,
+  .venue-comparison__table td {
+    padding: var(--space-md) var(--space-lg);
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .venue-comparison__feature-header {
+    text-align: left !important;
+    width: 180px;
+  }
+
+  .venue-comparison__venue-header {
+    min-width: 150px;
+  }
+
+  .venue-comparison__venue-header--highlight {
+    background: var(--color-accent, #00b894) !important;
+  }
+
+  .venue-comparison__venue-name {
+    display: block;
+    color: #fff;
+    font-weight: 700;
+    font-size: var(--text-base);
+    text-decoration: none;
+    margin-bottom: var(--space-xs);
+  }
+
+  .venue-comparison__venue-name:hover {
+    text-decoration: underline;
+  }
+
+  .venue-comparison__venue-type {
+    font-size: var(--text-xs);
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .venue-comparison__feature {
+    text-align: left !important;
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  .venue-comparison__table tbody tr:nth-child(even) {
+    background: var(--color-bg-alt);
+  }
+
+  .venue-comparison__table tbody tr:hover {
+    background: var(--color-accent-soft, rgba(0, 184, 148, 0.05));
+  }
+
+  .venue-comparison__cell--highlight {
+    background: rgba(0, 184, 148, 0.05) !important;
+  }
+
+  .venue-comparison__price {
+    font-weight: 700;
+    color: var(--color-accent, #00b894);
+  }
+
+  .venue-comparison__rating {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: #f1c40f;
+    font-weight: 700;
+  }
+
+  .venue-comparison__rating svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .venue-comparison__check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: rgba(0, 184, 148, 0.1);
+    color: var(--color-accent, #00b894);
+    border-radius: 50%;
+  }
+
+  .venue-comparison__check svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .venue-comparison__x {
+    color: var(--color-text-light);
+  }
+
+  .venue-comparison__table tfoot td {
+    border-bottom: none;
+    padding: var(--space-lg);
+  }
+
+  .venue-comparison__cta {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-md);
+    background: var(--color-accent, #00b894);
+    color: #fff;
+    font-weight: 600;
+    font-size: var(--text-sm);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: background 0.2s ease;
+  }
+
+  .venue-comparison__cta:hover {
+    background: #009d7a;
+  }
+
+  @media (max-width: 768px) {
+    .venue-comparison__table th,
+    .venue-comparison__table td {
+      padding: var(--space-sm);
+      font-size: var(--text-sm);
+    }
+
+    .venue-comparison__feature-header,
+    .venue-comparison__feature {
+      width: 120px;
+      min-width: 120px;
+    }
+  }
+</style>

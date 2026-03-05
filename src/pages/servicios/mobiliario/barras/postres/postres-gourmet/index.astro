@@ -1,0 +1,401 @@
+---
+/**
+ * ─── Mesa de Postres Gourmet — Página de Producto (Nivel 5) ───
+ * Macarons, éclairs, pays y creaciones de alta repostería.
+ * Color accent: Amber #e17055 (nivel 4/5).
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Barras", href: "/servicios/mobiliario/barras/" },
+  { label: "Postres", href: "/servicios/mobiliario/barras/postres/" },
+  { label: "Postres Gourmet" },
+];
+
+const faqs = [
+  { question: "¿Qué tipo de postres gourmet incluye la mesa?", answer: 'Ofrecemos postres de <strong>alta repostería francesa y contemporánea</strong>: macarons artesanales (6-8 sabores), mini éclairs (chocolate, café, frambuesa), petit fours, tartaletas (limón, frutos rojos, chocolate), mini cheesecakes, profiteroles, cakepops decorados, y mini pavlovas. Todos preparados por reposteros certificados con ingredientes premium.' },
+  { question: "¿Puedo personalizar los sabores y colores de los macarons?", answer: 'Sí, los macarons son <strong>100% personalizables</strong>. Ofrecemos más de 20 sabores (vainilla, chocolate, frambuesa, pistacho, lavanda, maracuyá, café, rosa, etc.) y los colores se adaptan a la paleta de tu evento. Para bodas, podemos hacer macarons con los colores exactos de tu decoración. Necesitamos confirmar sabores/colores con 2 semanas de anticipación.' },
+  { question: "¿La mesa incluye los postres o solo la estructura?", answer: 'Ofrecemos <strong>ambas opciones</strong>: puedes rentar solo la estructura y exhibidores (bandejas, campanas de cristal, bases) para usar con tu propio proveedor de postres, o contratar el paquete completo que incluye estructura + postres gourmet preparados por nuestros aliados reposteros. El paquete completo garantiza coordinación perfecta entre la presentación y los postres.' },
+  { question: "¿Para cuántas personas alcanza un paquete estándar?", answer: 'Nuestro <strong>paquete estándar gourmet</strong> incluye aproximadamente 150-200 piezas surtidas, ideal para <strong>80-120 personas</strong> (1.5-2 piezas por invitado como complemento del pastel principal). El paquete íntimo (60-100 piezas/50-70 personas) y el premium (250-350 piezas/150-200 personas) se ajustan a eventos de diferentes tamaños.' },
+  { question: "¿Cómo se conservan los postres durante el evento?", answer: 'Los postres gourmet son delicados y requieren <strong>condiciones controladas</strong>. Usamos vitrinas refrigeradas elegantes para piezas que lo requieren (cheesecakes, tartaletas con crema), campanas de cristal para proteger macarons y éclairs del ambiente, y bases con temperatura controlada. Nuestro equipo monitorea la presentación durante todo el evento.' },
+  { question: "¿Pueden incluir postres sin gluten o veganos?", answer: 'Sí, ofrecemos <strong>opciones para restricciones alimentarias</strong>: macarons sin gluten (naturalmente libres de gluten), postres veganos (sin lácteos ni huevo), y opciones sin azúcar refinada. Necesitamos conocer las restricciones con al menos 2 semanas de anticipación para coordinar con nuestros reposteros especializados. Incluimos etiquetas claras identificando cada opción.' },
+];
+
+const specs = [
+  { label: "Estructura", value: "Acrílico/cristal con bases doradas o plateadas" },
+  { label: "Exhibidores", value: "Bandejas, campanas, torres, vitrinas" },
+  { label: "Postres incluidos", value: "60-350 piezas (según paquete)" },
+  { label: "Variedades", value: "8-12 tipos de postres gourmet" },
+  { label: "Capacidad", value: "50-200 personas (según paquete)" },
+  { label: "Macarons", value: "6-8 sabores, colores personalizables" },
+  { label: "Conservación", value: "Vitrinas refrigeradas, campanas" },
+  { label: "Opciones especiales", value: "Sin gluten, vegano, sin azúcar" },
+  { label: "Montaje", value: "2-3 horas antes del evento" },
+  { label: "Dimensiones", value: "2.5 x 1.5 metros aproximadamente" },
+];
+
+const sidebarNav = [
+  { name: "Mesa de Dulces (Candy Bar)", href: "/servicios/mobiliario/barras/postres/mesa-dulces/" },
+  { name: "Mesa de Frutas", href: "/servicios/mobiliario/barras/postres/mesa-frutas/" },
+  { name: "Postres Gourmet", href: null, active: true },
+  { name: "Quesos y Embutidos", href: "/servicios/mobiliario/barras/postres/quesos-embutidos/" },
+  { name: "Mesa de Snacks", href: "/servicios/mobiliario/barras/postres/mesa-snacks/" },
+  { name: "Mesa de Botanas", href: "/servicios/mobiliario/barras/postres/mesa-botanas/" },
+  { name: "Dulces Tradicionales", href: "/servicios/mobiliario/barras/postres/dulces-tradicionales/" },
+  { name: "Donas y Cupcakes", href: "/servicios/mobiliario/barras/postres/donas-cupcakes/" },
+];
+
+const sidebarRelated = [
+  { name: "Barras de Bebidas", href: "/servicios/mobiliario/barras/barras-bebidas/" },
+  { name: "Vajilla y Cristalería", href: "/servicios/catering/vajilla-cristaleria/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+  { name: "Salas Lounge Elegante", href: "/servicios/mobiliario/salas-lounge/elegante/" },
+  { name: "Letras Luminosas", href: "/servicios/iluminacion/decorativa/letras-luminosas/" },
+];
+
+const reviews = [
+  { author: "Alejandra Vega", text: "La mesa de postres gourmet fue el centro de atención de nuestra boda. Los macarons en tonos blush y dorado combinaban perfecto con la decoración. Los éclairs de chocolate estaban divinos y la presentación era de revista. Todos los invitados comentaron lo elegante que se veía.", rating: 5, date: "2025-11-22" },
+  { author: "Marcela Ríos", text: "Contratamos el paquete premium para un evento corporativo de 150 personas. La variedad de postres era impresionante — desde mini tartaletas hasta macarons de lavanda. El equipo fue muy profesional y la vitrina refrigerada mantuvo todo perfecto durante las 5 horas del evento.", rating: 5, date: "2025-10-10" },
+  { author: "Luis Fernández", text: "Para los XV años de mi hija queríamos algo sofisticado. La mesa gourmet con torre de macarons fue espectacular. Nos ayudaron a elegir sabores y colores que combinaran con la temática. El resultado superó nuestras expectativas.", rating: 5, date: "2025-09-05" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Mesa de Postres Gourmet para Eventos en CDMX",
+    description: "Mesa de postres gourmet con macarons, éclairs, tartaletas y creaciones de alta repostería. Estructura elegante con vitrinas refrigeradas. Montaje incluido en CDMX.",
+    url: "/servicios/mobiliario/barras/postres/postres-gourmet/",
+    priceRange: { min: 5000, max: 25000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 3,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Barras", url: "/servicios/mobiliario/barras/" },
+    { name: "Postres", url: "/servicios/mobiliario/barras/postres/" },
+    { name: "Postres Gourmet", url: "/servicios/mobiliario/barras/postres/postres-gourmet/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Mesa de Postres Gourmet — Renta para Eventos CDMX"
+  description="Mesa de postres gourmet con macarons, éclairs y alta repostería. Estructura elegante con vitrinas refrigeradas. Montaje incluido en CDMX. Cotiza hoy."
+  jsonLd={jsonLd}
+>
+  <div class="container"><Breadcrumbs items={breadcrumbItems} /></div>
+
+  <HeroPage
+    badge="Alta repostería francesa"
+    title='Renta de <span class="highlight">Mesa de Postres Gourmet</span> para Eventos'
+    subtitle="Macarons artesanales, mini éclairs, tartaletas, petit fours y creaciones de alta repostería en una exhibición elegante con vitrinas refrigeradas y bases de cristal. La opción sofisticada para bodas de lujo y eventos premium."
+    primaryCTA={{ label: "Cotiza tu Mesa Gourmet", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar una mesa de postres gourmet` }}
+    cards={[
+      {
+        title: "Postres de alta repostería con sabores personalizables",
+        content: "<strong>Mesa de postres gourmet</strong> con 8-12 variedades de creaciones de alta repostería: macarons artesanales en 6-8 sabores (vainilla, chocolate, frambuesa, pistacho, lavanda, maracuyá), mini éclairs (chocolate, café, frambuesa), tartaletas de limón y frutos rojos, mini cheesecakes, profiteroles, cakepops decorados y petit fours. Colores 100% personalizables para coordinar con la paleta de tu evento. Opciones sin gluten y veganas disponibles.",
+      },
+      {
+        title: "Exhibición elegante con conservación profesional",
+        content: "<strong>Estructura premium</strong> en acrílico transparente o cristal con bases doradas o plateadas, torres de macarons, bandejas escalonadas, campanas de cristal protectoras y vitrinas refrigeradas discretas para postres que requieren temperatura controlada. El montaje crea una exhibición de galería de arte — cada postre presentado como una joya. Nuestro equipo monitorea la presentación durante todo el evento para garantizar frescura y estética impecables.",
+      },
+    ]}
+  />
+
+  <CTABanner headline="¿Buscas sofisticación en postres para tu evento?" subheadline="Mesa gourmet con macarons, éclairs y alta repostería — cotiza sin compromiso" primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }} secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }} />
+
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Tipos de Mesas</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (<li class="sidebar-nav__item">{item.active ? (<span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>) : (<a href={item.href} class="sidebar-nav__link">{item.name}</a>)}</li>))}
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">{sidebarRelated.map((item) => (<li><a href={item.href} class="sidebar-related__link"><span class="sidebar-related__arrow">&rarr;</span>{item.name}</a></li>))}</ul>
+        </div>
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas postres gourmet?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una mesa de postres gourmet`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <div class="l4-main">
+
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones — Postres Gourmet</h2>
+              </div>
+              <div class="specs-table__body">{specs.map((spec) => (<div class="specs-table__row"><div class="specs-table__label">{spec.label}</div><div class="specs-table__value">{spec.value}</div></div>))}</div>
+            </div>
+          </section>
+
+          <section class="section section--alt" aria-labelledby="macarons-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Estrella de la mesa</span>
+                <h2 class="showcase__title" id="macarons-heading">Macarons Artesanales Personalizables</h2>
+                <p class="showcase__subtitle">6-8 sabores en colores que combinan perfectamente con tu paleta de decoración.</p>
+                <p class="showcase__text">Los <strong>macarons artesanales</strong> son la joya de cualquier mesa gourmet. Preparados por reposteros certificados en técnica francesa, cada macaron tiene la textura perfecta: crujiente por fuera, suave por dentro. Ofrecemos más de <strong>20 sabores</strong>: clásicos (vainilla, chocolate, frambuesa, pistacho, café), florales (lavanda, rosa, violeta), cítricos (limón, maracuyá, naranja), y especiales (matcha, caramelo salado, champagne).</p>
+                <p class="showcase__text">Los <strong>colores son 100% personalizables</strong>. Para bodas, podemos crear macarons en los tonos exactos de tu decoración — blush, dorado, terracota, verde salvia, cualquier color. Presentamos los macarons en torres elegantes de acrílico (3-5 niveles) que se convierten en el punto focal de la mesa. Mínimo 2 semanas de anticipación para pedidos personalizados.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">20+ sabores</span>
+                  <span class="showcase__tag">Colores custom</span>
+                  <span class="showcase__tag">Torres elegantes</span>
+                  <span class="showcase__tag">Técnica francesa</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">Cotizar Macarons</a>
+              </div>
+              <div class="showcase__image"><img src="/images/mobiliario/postres-gourmet-macarons-torre.avif" alt="Torre de macarons artesanales con colores personalizados" width="1200" height="686" loading="lazy" /></div>
+            </div>
+          </section>
+
+          <section class="section section--alt" aria-labelledby="variedad-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Alta repostería</span>
+                <h2 class="showcase__title" id="variedad-heading">Variedad de Postres Gourmet</h2>
+                <p class="showcase__subtitle">Éclairs, tartaletas, profiteroles, mini cheesecakes y más creaciones de pastelería francesa.</p>
+                <p class="showcase__text">Más allá de los macarons, nuestra mesa gourmet incluye una <strong>selección de postres de alta repostería</strong>: <strong>Mini éclairs</strong> rellenos de crema pastelera (chocolate, café, vainilla) con glaseado brillante. <strong>Tartaletas</strong> con bases crujientes y rellenos de limón, frutos rojos o ganache de chocolate. <strong>Profiteroles</strong> con crema chantilly y salsa de chocolate caliente. <strong>Mini cheesecakes</strong> con diferentes toppings (frutos rojos, caramelo, oreo).</p>
+                <p class="showcase__text">También ofrecemos <strong>cakepops decorados</strong> (perfectos para eventos temáticos), <strong>petit fours</strong> glaseados, y <strong>mini pavlovas</strong> con merengue crujiente y frutas frescas. Cada pieza se prepara el día anterior al evento para garantizar frescura. Opciones <strong>sin gluten y veganas</strong> disponibles con anticipación.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Éclairs</span>
+                  <span class="showcase__tag">Tartaletas</span>
+                  <span class="showcase__tag">Cheesecakes</span>
+                  <span class="showcase__tag">Sin gluten</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">Ver Catálogo Completo</a>
+              </div>
+              <div class="showcase__image"><img src="/images/mobiliario/postres-gourmet-variedad-eclairs.avif" alt="Variedad de postres gourmet: éclairs, tartaletas y profiteroles" width="1200" height="686" loading="lazy" /></div>
+            </div>
+          </section>
+
+          <section class="section section--alt" aria-labelledby="exhibicion-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Presentación de galería</span>
+                <h2 class="showcase__title" id="exhibicion-heading">Exhibición Elegante con Vitrinas</h2>
+                <p class="showcase__subtitle">Bases de cristal, campanas protectoras y vitrinas refrigeradas para una presentación impecable.</p>
+                <p class="showcase__text">La <strong>exhibición de postres gourmet</strong> es tan importante como los postres mismos. Utilizamos <strong>bases de acrílico transparente y cristal</strong> con detalles dorados o plateados según tu estilo. Torres de macarons de 3-5 niveles como pieza central. <strong>Campanas de cristal</strong> protectoras que mantienen los éclairs y tartaletas perfectos mientras lucen elegantes.</p>
+                <p class="showcase__text">Para postres que requieren refrigeración (cheesecakes, tartaletas con crema), usamos <strong>vitrinas refrigeradas elegantes</strong> que parecen exhibidores de joyería — iluminación LED interior, temperatura controlada, presentación sofisticada. Nuestro equipo <strong>monitorea la presentación</strong> durante todo el evento, reponiendo piezas y asegurando que todo luzca impecable. Combinamos con <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a> para crear un efecto de vitrina de boutique.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Bases cristal</span>
+                  <span class="showcase__tag">Campanas</span>
+                  <span class="showcase__tag">Vitrinas frías</span>
+                  <span class="showcase__tag">LED interior</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">Cotizar Mesa Completa</a>
+              </div>
+              <div class="showcase__image"><img src="/images/mobiliario/postres-gourmet-exhibicion-vitrinas.avif" alt="Exhibición elegante de postres gourmet con vitrinas y campanas" width="1200" height="686" loading="lazy" /></div>
+            </div>
+          </section>
+
+          <section class="section" aria-labelledby="galeria-heading">
+            <div class="container">
+              <h2 class="section-header__title" id="galeria-heading">Galería — Mesas de Postres Gourmet</h2>
+              <p class="section-header__description">Bodas de lujo, XV años elegantes y eventos corporativos premium en CDMX.</p>
+              <div class="galeria-grid">
+                <img src="/images/mobiliario/postres-gourmet-boda-lujo.avif" alt="Mesa postres gourmet boda de lujo" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/postres-gourmet-xv-anos.avif" alt="Mesa postres gourmet XV años" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/postres-gourmet-corporativo.avif" alt="Mesa postres gourmet corporativo" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/postres-gourmet-torre-macarons.avif" alt="Torre de macarons gourmet" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/postres-gourmet-vitrina-elegante.avif" alt="Vitrina elegante postres gourmet" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/postres-gourmet-detalle-eclairs.avif" alt="Detalle éclairs gourmet" width="600" height="343" loading="lazy" />
+              </div>
+            </div>
+          </section>
+
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader id="faq-heading" title="Preguntas Frecuentes — Postres Gourmet" subtitle="Resolvemos tus dudas" description={["Todo sobre la mesa de postres gourmet: variedades, personalización y conservación.", "Escríbenos por WhatsApp para más información."]} />
+            <div class="faq-layout">
+              <div class="faq-list">{faqs.map((faq) => (<details class="faq-item"><summary class="faq-item__question"><span>{faq.question}</span><svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary><div class="faq-item__answer"><p set:html={faq.answer} /></div></details>))}</div>
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent"><h3 class="faq-sidebar-card__title">¿Dudas sobre postres gourmet?</h3><p class="faq-sidebar-card__text">Escríbenos por WhatsApp.</p><a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo dudas sobre postres gourmet`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">Escribir por WhatsApp</a></div>
+                <div class="faq-sidebar-card"><h3 class="faq-sidebar-card__title">Llámanos</h3><p class="faq-sidebar-card__text">Lun-Vie 9:00-19:00.</p><a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a></div>
+                <div class="faq-sidebar-card"><h3 class="faq-sidebar-card__title">Cotización express</h3><a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a></div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación">
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Tipos de Mesas</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (<li class="sidebar-nav__item">{item.active ? (<span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>) : (<a href={item.href} class="sidebar-nav__link">{item.name}</a>)}</li>))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item"><a href="/servicios/mobiliario/barras/postres/" class="sidebar-nav__back">&uarr; Volver a Postres</a></li>
+              <li class="sidebar-nav__item"><a href="/servicios/mobiliario/barras/" class="sidebar-nav__back">&uarr; Volver a Barras</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu mesa gourmet:</p>
+            <ul class="sidebar-related">{sidebarRelated.map((item) => (<li><a href={item.href} class="sidebar-related__link"><span class="sidebar-related__arrow">&rarr;</span>{item.name}</a></li>))}</ul>
+          </div>
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">Mesa de postres gourmet</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar postres gourmet`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">Formulario &darr;</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader id="reserva-heading" title="Cotiza tu Mesa de Postres Gourmet" subtitle="Cuéntanos sobre tu evento" description={["Completa el formulario para una cotización personalizada.", "Montaje e ingredientes premium incluidos."]} />
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field"><label class="form-field__label" for="nombre">Nombre <span class="form-field__required">*</span></label><input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required /></div>
+            <div class="form-field"><label class="form-field__label" for="telefono">Teléfono <span class="form-field__required">*</span></label><input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required /></div>
+            <div class="form-field"><label class="form-field__label" for="tipoEvento">Tipo de evento</label><select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select"><option value="">Selecciona</option><option value="Boda">Boda</option><option value="XV Años">XV Años</option><option value="Corporativo">Corporativo</option><option value="Fiesta Social">Fiesta Social</option><option value="Otro">Otro</option></select></div>
+            <div class="form-field"><label class="form-field__label" for="fecha">Fecha</label><input type="date" id="fecha" name="fecha" class="form-field__input" /></div>
+            <div class="form-field form-field--full"><label class="form-field__label" for="paquete">Paquete</label><select id="paquete" name="paquete" class="form-field__input form-field__select"><option value="Gourmet Íntimo (50-70 pers)">Íntimo (50-70 personas)</option><option value="Gourmet Estándar (80-120 pers)" selected>Estándar (80-120 personas)</option><option value="Gourmet Premium (150-200 pers)">Premium (150-200 personas)</option><option value="Solo estructura">Solo estructura (sin postres)</option></select></div>
+            <div class="form-field form-field--full"><label class="form-field__label" for="mensaje">Mensaje <span class="form-field__required">*</span></label><textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Cuéntanos: colores preferidos para macarons, restricciones alimentarias, estilo del evento..." rows="4" required></textarea></div>
+          </div>
+          <button type="submit" class="reserva-form__submit"><svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Enviar por WhatsApp</button>
+        </form>
+        <aside class="reserva-sidebar">
+          <div class="reserva-card"><h3 class="reserva-card__title">Respuesta inmediata</h3><p class="reserva-card__text">WhatsApp en menos de 30 min.</p></div>
+          <div class="reserva-card"><h3 class="reserva-card__title">Personalización</h3><p class="reserva-card__text">Colores y sabores a tu medida.</p></div>
+          <div class="reserva-card"><h3 class="reserva-card__title">Sin compromiso</h3><p class="reserva-card__text">Cotiza gratis.</p></div>
+          <div class="reserva-card reserva-card--highlight"><h3 class="reserva-card__title">Horario</h3><p class="reserva-card__text">Lun-Vie: 9:00-19:00<br/>Sáb: 9:00-14:00</p></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const paquete = document.getElementById('paquete').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+      if (!nombre || !telefono || !mensaje) { if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error'); if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error'); if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error'); return; }
+      let fechaTexto = 'No especificada'; if (fecha) { const d = new Date(fecha + 'T12:00:00'); fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }); }
+      let texto = `*Mesa de Postres Gourmet*\n\n*Nombre:* ${nombre}\n*Teléfono:* ${telefono}\n`; if (tipoEvento) texto += `*Evento:* ${tipoEvento}\n`; texto += `*Fecha:* ${fechaTexto}\n`; if (paquete) texto += `*Paquete:* ${paquete}\n`; texto += `\n*Mensaje:*\n${mensaje}`;
+      window.open(`https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`, '_blank');
+    });
+    document.querySelectorAll('.form-field__input').forEach(input => input.addEventListener('input', function() { this.classList.remove('form-field__input--error'); }));
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Mesas de Dulces"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de mesas de dulces y exhibición de postres gourmet en la Ciudad de México.",
+          "Nuestra red de aliados nos permite garantizar disponibilidad, calidad premium y cobertura completa en toda la CDMX."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Socio comercial</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MEDEDUL</h3>
+            <p class="partner-card__tagline">Mesas de Dulces Profesionales</p>
+            <p class="partner-card__text">Líder en renta de mesas de dulces, candy bars y exhibiciones de postres gourmet para bodas y eventos sociales en CDMX. Presentaciones elegantes con montaje profesional.</p>
+          </div>
+          <a href="https://mesas-de-dulces.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Exhibidores premium</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Mobiliario Premium MX</h3>
+            <p class="partner-card__tagline">Mesas y Exhibidores de Lujo</p>
+            <p class="partner-card__text">Especialistas en mobiliario premium para eventos sociales. Vitrinas refrigeradas, exhibidores de cristal y bases elegantes para postres gourmet.</p>
+          </div>
+          <span class="partner-card__btn partner-card__btn--disabled">Aliado verificado</span>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">+10 años</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Rent All CDMX</h3>
+            <p class="partner-card__tagline">Renta Integral para Eventos</p>
+            <p class="partner-card__text">Más de 10 años proveyendo equipo completo: exhibidores de postres, campanas de cristal, torres de macarons y accesorios decorativos.</p>
+          </div>
+          <span class="partner-card__btn partner-card__btn--disabled">Aliado verificado</span>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">Mobiliario elegante</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventMob</h3>
+            <p class="partner-card__tagline">Mobiliario Moderno y Clásico</p>
+            <p class="partner-card__text">Catálogo extenso de mobiliario para eventos: desde exhibidores minimalistas hasta piezas vintage para bodas elegantes.</p>
+          </div>
+          <span class="partner-card__btn partner-card__btn--disabled">Aliado verificado</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CTA FINAL
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner headline="Postres gourmet para eventos inolvidables" subheadline="Macarons, éclairs y alta repostería en exhibición elegante. Cotiza hoy." primaryCTA={{ label: "Cotizar Mesa Gourmet", href: "#reserva-heading" }} secondaryCTA={{ label: "Hablar con asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa postres gourmet` }} variant="accent" />
+</PageLayout>
+
+<style is:global>
+  :root { --color-accent: #e17055; --color-accent-hover: #d35400; --color-accent-light: #f0856d; --color-accent-soft: rgba(225, 112, 85, 0.1); --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%); --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4); --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5); }
+</style>

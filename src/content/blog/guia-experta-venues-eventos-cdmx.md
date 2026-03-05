@@ -2,9 +2,9 @@
 title: "Guía Experta: Cómo Elegir el Venue Perfecto en CDMX"
 seoTitle: "Elegir Venue Perfecto CDMX | Guía Profesional de Eventos"
 description: "Guía profesional para elegir venues en CDMX. Criterios técnicos, comparativas por zona y checklist de expertos para tu evento."
-date: 2026-03-03
+date: 2025-01-01
 category: "guias"
-image: "/images/blog/guia-experta-venues-cdmx.jpg"
+image: "/images/moviliario-para-eventos/boda-mesas-redondas-sillas-chiavari-doradas-08.avif"
 author: "Equipo EVENTECH"
 tags:
   - venues CDMX
@@ -23,6 +23,7 @@ keywords:
   - mejores venues CDMX
   - venues corporativos CDMX
   - checklist venue eventos
+  - comparativa venues CDMX
 relatedServices:
   - mobiliario
   - carpas

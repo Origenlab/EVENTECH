@@ -2,21 +2,26 @@
 title: "Casos de Estudio: 6 Eventos Ejecutados con Análisis Completo"
 seoTitle: "Casos de Estudio Eventos CDMX | Análisis Profesional"
 description: "Análisis detallado de 6 eventos reales: presupuestos, cronogramas, desafíos resueltos y lecciones aprendidas. Metodología profesional."
-date: 2026-03-03
+date: 2025-01-01
 category: "casos-exito"
-image: "/images/blog/casos-estudio-eventos-profesional.jpg"
+image: "/images/moviliario-para-eventos/boda-mesas-redondas-sillas-chiavari-elegancia-62.avif"
 author: "Equipo EVENTECH"
 tags:
   - casos de éxito
   - análisis eventos
   - presupuestos reales
   - planificación profesional
+  - eventos corporativos CDMX
+  - bodas exitosas
 keywords:
   - casos estudio eventos CDMX
   - presupuesto evento real
   - planificación eventos profesional
   - análisis post-evento
   - ROI eventos corporativos
+  - eventos exitosos CDMX
+  - mejores prácticas eventos
+  - lecciones aprendidas eventos
 relatedServices:
   - iluminacion
   - audiovisual

@@ -1,0 +1,132 @@
+---
+/**
+ * Callout Component
+ * Displays highlighted information boxes for tips, warnings, info, success, and pro content.
+ *
+ * @example
+ * <Callout type="tip" title="Pro Tip">
+ *   Las guirnaldas de 100m son ideales para bodas de 100-200 personas.
+ * </Callout>
+ */
+
+type CalloutType = "tip" | "warning" | "info" | "success" | "pro";
+
+interface Props {
+  type?: CalloutType;
+  title?: string;
+}
+
+const { type = "info", title } = Astro.props;
+
+const icons: Record<CalloutType, string> = {
+  tip: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>`,
+  warning: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`,
+  info: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>`,
+  success: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`,
+  pro: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`
+};
+
+const titles: Record<CalloutType, string> = {
+  tip: "Tip",
+  warning: "Advertencia",
+  info: "Información",
+  success: "Éxito",
+  pro: "Pro Tip"
+};
+---
+
+<aside class={`callout callout--${type}`} role="note">
+  <div class="callout__header">
+    <span class="callout__icon" set:html={icons[type]} />
+    <span class="callout__title">{title || titles[type]}</span>
+  </div>
+  <div class="callout__content">
+    <slot />
+  </div>
+</aside>
+
+<style>
+  .callout {
+    padding: var(--space-lg);
+    border-radius: var(--radius-md);
+    margin: var(--space-xl) 0;
+    border-left: 4px solid;
+  }
+
+  .callout__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+    font-weight: 700;
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .callout__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .callout__content {
+    font-size: var(--text-base);
+    line-height: 1.7;
+  }
+
+  .callout__content :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  /* Variants */
+  .callout--tip {
+    background: var(--color-accent-soft, rgba(0, 184, 148, 0.08));
+    border-color: var(--color-accent, #00b894);
+    color: var(--color-text);
+  }
+
+  .callout--tip .callout__header {
+    color: var(--color-accent, #00b894);
+  }
+
+  .callout--warning {
+    background: rgba(225, 112, 85, 0.08);
+    border-color: #e17055;
+    color: var(--color-text);
+  }
+
+  .callout--warning .callout__header {
+    color: #e17055;
+  }
+
+  .callout--info {
+    background: rgba(26, 26, 46, 0.05);
+    border-color: var(--color-primary, #1a1a2e);
+    color: var(--color-text);
+  }
+
+  .callout--info .callout__header {
+    color: var(--color-primary, #1a1a2e);
+  }
+
+  .callout--success {
+    background: rgba(39, 174, 96, 0.08);
+    border-color: #27ae60;
+    color: var(--color-text);
+  }
+
+  .callout--success .callout__header {
+    color: #27ae60;
+  }
+
+  .callout--pro {
+    background: linear-gradient(135deg, rgba(255, 234, 167, 0.3) 0%, rgba(253, 203, 110, 0.2) 100%);
+    border-color: #f1c40f;
+    color: var(--color-text);
+  }
+
+  .callout--pro .callout__header {
+    color: #d4a106;
+  }
+</style>

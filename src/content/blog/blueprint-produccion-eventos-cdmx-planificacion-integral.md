@@ -2,21 +2,26 @@
 title: "Blueprint de Producción: Planificación Integral de Eventos en CDMX"
 seoTitle: "Planificación Profesional de Eventos CDMX | Blueprint Completo"
 description: "Framework profesional para producción de eventos: selección de venue, dimensionamiento técnico, cronogramas de montaje y matrices de contingencia."
-date: 2026-03-03
+date: 2025-01-01
 category: "guias"
-image: "/images/blog/blueprint-produccion-eventos-cdmx.jpg"
+image: "/images/moviliario-para-eventos/boda-jardin-mesas-rectangulares-lounge-decoracion.avif"
 author: "Equipo EVENTECH"
 tags:
   - producción eventos
   - planificación profesional
   - venues CDMX
   - equipamiento técnico
+  - cronograma montaje
+  - producción eventos CDMX
 keywords:
   - producción eventos profesional
   - planificación eventos CDMX
   - blueprint eventos
   - coordinación técnica eventos
   - timeline producción eventos
+  - cronograma montaje eventos
+  - matriz contingencia eventos
+  - dimensionamiento técnico eventos
 relatedServices:
   - mobiliario
   - audiovisual

@@ -1,0 +1,396 @@
+---
+/**
+ * RelatedContent Component
+ * Displays related links organized by type (services, venues, blog, events).
+ * Used for SEO interlinking across all sections.
+ *
+ * @example
+ * <RelatedContent
+ *   services={[{ label: "Guirnaldas", href: "/servicios/iluminacion/decorativa/fairy-lights/" }]}
+ *   venues={[{ label: "Hacienda de los Morales", href: "/directorio/cdmx/polanco/hacienda-de-los-morales/" }]}
+ *   blogPosts={[{ title: "Guía de iluminación", href: "/blog/guia-iluminacion/" }]}
+ * />
+ */
+
+interface ServiceLink {
+  label: string;
+  href: string;
+  icon?: string;
+}
+
+interface VenueLink {
+  label: string;
+  href: string;
+  zone?: string;
+}
+
+interface BlogLink {
+  title: string;
+  href: string;
+  image?: string;
+  category?: string;
+}
+
+interface EventLink {
+  label: string;
+  href: string;
+  directoryHref?: string;
+}
+
+interface Props {
+  title?: string;
+  services?: ServiceLink[];
+  venues?: VenueLink[];
+  blogPosts?: BlogLink[];
+  events?: EventLink[];
+  variant?: "default" | "sidebar" | "compact" | "grid";
+  showIcons?: boolean;
+}
+
+const {
+  title = "Contenido Relacionado",
+  services = [],
+  venues = [],
+  blogPosts = [],
+  events = [],
+  variant = "default",
+  showIcons = true
+} = Astro.props;
+
+const hasContent = services.length > 0 || venues.length > 0 || blogPosts.length > 0 || events.length > 0;
+
+// Icon SVGs
+const icons: Record<string, string> = {
+  chair: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3"/><path d="M3 11v5a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v2H7v-2a2 2 0 0 0-4 0Z"/><path d="M5 18v2"/><path d="M19 18v2"/></svg>`,
+  speaker: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>`,
+  tent: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3.5 21L14 3"/><path d="M20.5 21L10 3"/><path d="M2 21h20"/><path d="M9 21v-4a3 3 0 0 1 6 0v4"/></svg>`,
+  lightbulb: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>`,
+  music: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>`,
+  balloon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z"/></svg>`,
+  utensils: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>`,
+  package: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>`,
+  building: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>`,
+  article: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>`,
+  calendar: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`,
+  arrow: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`,
+};
+
+const defaultIcon = icons.arrow;
+---
+
+{hasContent && (
+  <aside class={`related-content related-content--${variant}`}>
+    <h3 class="related-content__title">{title}</h3>
+
+    <div class="related-content__sections">
+      {/* Services Section */}
+      {services.length > 0 && (
+        <div class="related-content__section">
+          <h4 class="related-content__section-title">
+            <span class="related-content__section-icon" set:html={icons.package} />
+            Servicios Relacionados
+          </h4>
+          <ul class="related-content__list">
+            {services.map(service => (
+              <li class="related-content__item">
+                <a href={service.href} class="related-content__link">
+                  {showIcons && service.icon && (
+                    <span class="related-content__icon" set:html={icons[service.icon] || defaultIcon} />
+                  )}
+                  <span class="related-content__label">{service.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {/* Venues Section */}
+      {venues.length > 0 && (
+        <div class="related-content__section">
+          <h4 class="related-content__section-title">
+            <span class="related-content__section-icon" set:html={icons.building} />
+            Venues Recomendados
+          </h4>
+          <ul class="related-content__list">
+            {venues.map(venue => (
+              <li class="related-content__item">
+                <a href={venue.href} class="related-content__link">
+                  <span class="related-content__label">{venue.label}</span>
+                  {venue.zone && (
+                    <span class="related-content__meta">{venue.zone}</span>
+                  )}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a href="/directorio/" class="related-content__see-all">
+            Ver directorio completo
+            <span set:html={icons.arrow} />
+          </a>
+        </div>
+      )}
+
+      {/* Blog Posts Section */}
+      {blogPosts.length > 0 && (
+        <div class="related-content__section">
+          <h4 class="related-content__section-title">
+            <span class="related-content__section-icon" set:html={icons.article} />
+            Artículos Útiles
+          </h4>
+          <ul class="related-content__list related-content__list--blog">
+            {blogPosts.map(post => (
+              <li class="related-content__item related-content__item--blog">
+                <a href={post.href} class="related-content__link related-content__link--blog">
+                  {post.image && variant !== "compact" && (
+                    <img src={post.image} alt="" class="related-content__blog-image" loading="lazy" />
+                  )}
+                  <span class="related-content__blog-content">
+                    <span class="related-content__label">{post.title}</span>
+                    {post.category && (
+                      <span class="related-content__meta">{post.category}</span>
+                    )}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a href="/blog/" class="related-content__see-all">
+            Ver todos los artículos
+            <span set:html={icons.arrow} />
+          </a>
+        </div>
+      )}
+
+      {/* Events Section */}
+      {events.length > 0 && (
+        <div class="related-content__section">
+          <h4 class="related-content__section-title">
+            <span class="related-content__section-icon" set:html={icons.calendar} />
+            Tipos de Evento
+          </h4>
+          <ul class="related-content__list related-content__list--events">
+            {events.map(event => (
+              <li class="related-content__item">
+                <a href={event.directoryHref || event.href} class="related-content__link related-content__link--event">
+                  <span class="related-content__label">{event.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  </aside>
+)}
+
+<style>
+  .related-content {
+    background: var(--color-bg-alt, #f8f9fa);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    margin: var(--space-2xl) 0;
+  }
+
+  .related-content__title {
+    font-size: var(--text-xl);
+    font-weight: 800;
+    color: var(--color-primary);
+    margin: 0 0 var(--space-lg) 0;
+    padding-bottom: var(--space-md);
+    border-bottom: 2px solid var(--color-accent, #00b894);
+  }
+
+  .related-content__sections {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  .related-content__section-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 var(--space-md) 0;
+  }
+
+  .related-content__section-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--color-accent, #00b894);
+  }
+
+  .related-content__section-icon :global(svg) {
+    width: 100%;
+    height: 100%;
+  }
+
+  .related-content__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .related-content__item {
+    margin: 0;
+  }
+
+  .related-content__link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    background: #fff;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+  }
+
+  .related-content__link:hover {
+    border-color: var(--color-accent, #00b894);
+    transform: translateX(4px);
+  }
+
+  .related-content__icon {
+    width: 18px;
+    height: 18px;
+    color: var(--color-accent, #00b894);
+    flex-shrink: 0;
+  }
+
+  .related-content__icon :global(svg) {
+    width: 100%;
+    height: 100%;
+  }
+
+  .related-content__label {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-primary);
+    flex: 1;
+  }
+
+  .related-content__meta {
+    font-size: var(--text-xs);
+    color: var(--color-text-light);
+  }
+
+  .related-content__see-all {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-top: var(--space-sm);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-accent, #00b894);
+    text-decoration: none;
+  }
+
+  .related-content__see-all:hover {
+    text-decoration: underline;
+  }
+
+  .related-content__see-all :global(svg) {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.2s ease;
+  }
+
+  .related-content__see-all:hover :global(svg) {
+    transform: translateX(4px);
+  }
+
+  /* Blog post specific styles */
+  .related-content__link--blog {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  .related-content__blog-image {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+  }
+
+  .related-content__blog-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  /* Event tag style */
+  .related-content__list--events {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .related-content__link--event {
+    padding: var(--space-xs) var(--space-md);
+    background: var(--color-accent-soft, rgba(0, 184, 148, 0.1));
+    border-radius: var(--radius-full);
+  }
+
+  .related-content__link--event:hover {
+    background: var(--color-accent, #00b894);
+  }
+
+  .related-content__link--event:hover .related-content__label {
+    color: #fff;
+  }
+
+  /* Sidebar variant */
+  .related-content--sidebar {
+    padding: var(--space-lg);
+  }
+
+  .related-content--sidebar .related-content__title {
+    font-size: var(--text-lg);
+  }
+
+  .related-content--sidebar .related-content__sections {
+    gap: var(--space-lg);
+  }
+
+  /* Compact variant */
+  .related-content--compact {
+    padding: var(--space-md);
+    background: transparent;
+    border: 1px solid var(--color-border);
+  }
+
+  .related-content--compact .related-content__title {
+    font-size: var(--text-base);
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .related-content--compact .related-content__link {
+    padding: var(--space-xs) var(--space-sm);
+  }
+
+  /* Grid variant */
+  .related-content--grid .related-content__sections {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  @media (max-width: 768px) {
+    .related-content {
+      padding: var(--space-lg);
+    }
+
+    .related-content--grid .related-content__sections {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

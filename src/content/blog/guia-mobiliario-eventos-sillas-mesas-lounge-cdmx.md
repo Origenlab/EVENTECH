@@ -1,10 +1,10 @@
 ---
 title: "Guía Completa de Mobiliario para Eventos: Sillas, Mesas y Salas Lounge"
-seoTitle: "Mobiliario para Eventos CDMX | Sillas, Mesas, Lounge | Guía 2026"
+seoTitle: "Mobiliario para Eventos CDMX | Sillas, Mesas, Lounge"
 description: "Descubre cómo elegir el mobiliario perfecto para tu evento. Guía completa de sillas Tiffany, Chiavari, Ghost, mesas, salas lounge y barras para bodas y eventos."
-date: 2026-03-03
+date: 2025-01-01
 category: "guias"
-image: "/images/blog/guia-mobiliario-eventos.jpg"
+image: "/images/mobiliario/sillas-chiavari-terraza-vista-panoramica.avif"
 author: "Equipo EVENTECH"
 tags:
   - mobiliario eventos
@@ -12,6 +12,7 @@ tags:
   - mesas para banquetes
   - salas lounge
   - barras para eventos
+  - renta mobiliario CDMX
 keywords:
   - renta mobiliario eventos CDMX
   - sillas Tiffany renta
@@ -19,6 +20,8 @@ keywords:
   - mesas redondas eventos
   - salas lounge bodas
   - barras cocteleras renta
+  - sillas Ghost renta
+  - crossback eventos
 relatedServices:
   - mobiliario
 relatedEvents:

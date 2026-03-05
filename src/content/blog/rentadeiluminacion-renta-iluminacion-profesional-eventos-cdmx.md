@@ -2,7 +2,7 @@
 title: "Renta de Iluminación Profesional para Eventos en CDMX"
 seoTitle: "Renta de Iluminación Profesional para Eventos en CDMX | Guía"
 description: "Guía sobre renta de iluminación profesional para bodas, XV años y eventos en CDMX. Equipos, servicios y proveedores especializados."
-date: 2025-03-02
+date: 2025-01-01
 category: "guias"
 image: "/images/iluminacion-arquitectonica/wash-lights-led-truss-escenario-colores.avif"
 author: "Equipo EVENTECH"

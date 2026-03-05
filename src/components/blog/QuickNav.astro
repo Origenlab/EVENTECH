@@ -1,0 +1,164 @@
+---
+/**
+ * QuickNav Component
+ * Displays a quick navigation menu with icons for jumping to sections or related content.
+ *
+ * @example
+ * <QuickNav
+ *   title="En este artículo"
+ *   links={[
+ *     { label: "Tipos de guirnaldas", href: "#tipos", icon: "lightbulb" },
+ *     { label: "Precios", href: "#precios", icon: "tag" },
+ *     { label: "Instalación", href: "#instalacion", icon: "tool" }
+ *   ]}
+ * />
+ */
+
+interface NavLink {
+  label: string;
+  href: string;
+  icon?: string;
+}
+
+interface Props {
+  links: NavLink[];
+  title?: string;
+  variant?: "default" | "compact" | "horizontal";
+}
+
+const { links, title = "Navegación rápida", variant = "default" } = Astro.props;
+
+// Icon SVGs
+const icons: Record<string, string> = {
+  lightbulb: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/><path d="M9 12h6M12 9v6"/></svg>`,
+  tag: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><path d="M7 7h.01"/></svg>`,
+  tool: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z"/></svg>`,
+  star: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
+  check: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`,
+  info: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>`,
+  list: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>`,
+  arrow: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`,
+  book: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>`,
+  camera: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>`,
+  heart: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,
+  calendar: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`
+};
+
+const defaultIcon = icons.arrow;
+---
+
+<nav class={`quick-nav quick-nav--${variant}`}>
+  {title && <h4 class="quick-nav__title">{title}</h4>}
+  <ul class="quick-nav__list">
+    {links.map((link) => (
+      <li class="quick-nav__item">
+        <a href={link.href} class="quick-nav__link">
+          <span class="quick-nav__icon" set:html={link.icon && icons[link.icon] ? icons[link.icon] : defaultIcon} />
+          <span class="quick-nav__label">{link.label}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<style>
+  .quick-nav {
+    margin: var(--space-xl) 0;
+    padding: var(--space-lg);
+    background: var(--color-bg-alt, #f8f9fa);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+  }
+
+  .quick-nav__title {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .quick-nav__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .quick-nav__item {
+    margin: 0;
+  }
+
+  .quick-nav__link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    color: var(--color-text);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .quick-nav__link:hover {
+    background: var(--color-accent-soft, rgba(0, 184, 148, 0.1));
+    color: var(--color-accent, #00b894);
+  }
+
+  .quick-nav__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent, #00b894);
+    flex-shrink: 0;
+  }
+
+  .quick-nav__label {
+    font-size: var(--text-sm);
+    font-weight: 500;
+  }
+
+  /* Compact variant */
+  .quick-nav--compact {
+    padding: var(--space-md);
+  }
+
+  .quick-nav--compact .quick-nav__link {
+    padding: var(--space-xs) var(--space-sm);
+  }
+
+  .quick-nav--compact .quick-nav__label {
+    font-size: var(--text-xs);
+  }
+
+  /* Horizontal variant */
+  .quick-nav--horizontal {
+    text-align: center;
+  }
+
+  .quick-nav--horizontal .quick-nav__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm);
+  }
+
+  .quick-nav--horizontal .quick-nav__link {
+    padding: var(--space-xs) var(--space-md);
+    background: #fff;
+    border: 1px solid var(--color-border);
+  }
+
+  .quick-nav--horizontal .quick-nav__link:hover {
+    border-color: var(--color-accent, #00b894);
+  }
+
+  @media (max-width: 576px) {
+    .quick-nav--horizontal .quick-nav__list {
+      flex-direction: column;
+    }
+  }
+</style>

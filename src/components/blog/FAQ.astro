@@ -1,0 +1,176 @@
+---
+/**
+ * FAQ Component
+ * Displays frequently asked questions with accordion functionality.
+ * Optionally generates FAQPage JSON-LD schema for SEO.
+ *
+ * @example
+ * <FAQ
+ *   schema={true}
+ *   questions={[
+ *     { question: "¿Cuánto cuestan las guirnaldas?", answer: "Los precios varían según la longitud..." },
+ *     { question: "¿Incluye instalación?", answer: "Sí, incluye instalación profesional." }
+ *   ]}
+ * />
+ */
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  questions: FAQItem[];
+  schema?: boolean;
+  title?: string;
+}
+
+const { questions, schema = false, title = "Preguntas Frecuentes" } = Astro.props;
+
+// Generate FAQ schema JSON-LD
+const faqSchema = schema ? JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": questions.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+}) : null;
+---
+
+<section class="faq-section">
+  <h2 class="faq-section__title">{title}</h2>
+  <div class="faq-list">
+    {questions.map((faq, index) => (
+      <details class="faq-item" id={`faq-${index}`}>
+        <summary class="faq-item__question">
+          <span class="faq-item__question-text">{faq.question}</span>
+          <span class="faq-item__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="faq-item__answer">
+          <p>{faq.answer}</p>
+        </div>
+      </details>
+    ))}
+  </div>
+</section>
+
+{schema && faqSchema && (
+  <script type="application/ld+json" set:html={faqSchema} />
+)}
+
+<style>
+  .faq-section {
+    margin: var(--space-2xl) 0;
+  }
+
+  .faq-section__title {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-lg);
+    text-align: center;
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-sm);
+    overflow: hidden;
+    background: #fff;
+    transition: box-shadow 0.2s ease;
+  }
+
+  .faq-item:hover {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .faq-item[open] {
+    box-shadow: var(--shadow-md);
+  }
+
+  .faq-item__question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) var(--space-lg);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: var(--text-base);
+    color: var(--color-primary);
+    list-style: none;
+    user-select: none;
+  }
+
+  .faq-item__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item__question:hover {
+    color: var(--color-accent);
+  }
+
+  .faq-item__question-text {
+    flex: 1;
+    padding-right: var(--space-md);
+  }
+
+  .faq-item__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+    color: var(--color-accent);
+  }
+
+  .faq-item[open] .faq-item__icon {
+    transform: rotate(180deg);
+  }
+
+  .faq-item__answer {
+    padding: 0 var(--space-lg) var(--space-lg);
+    color: var(--color-text-light);
+    line-height: 1.7;
+    animation: fadeIn 0.2s ease;
+  }
+
+  .faq-item__answer p {
+    margin: 0;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .faq-item__question {
+      padding: var(--space-md);
+      font-size: var(--text-sm);
+    }
+
+    .faq-item__answer {
+      padding: 0 var(--space-md) var(--space-md);
+      font-size: var(--text-sm);
+    }
+  }
+</style>

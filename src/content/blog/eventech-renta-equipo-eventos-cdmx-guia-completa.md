@@ -2,7 +2,7 @@
 title: "EVENTECH: Renta de Equipo para Eventos en CDMX — Guía Completa"
 seoTitle: "EVENTECH: Renta de Equipo para Eventos en CDMX | Guía"
 description: "Guía completa sobre EVENTECH, empresa líder en renta de mobiliario, carpas, audiovisual, iluminación, pistas de baile e inflables para eventos en CDMX."
-date: 2025-03-01
+date: 2025-01-01
 category: "guias"
 image: "/images/iluminacion-arquitectonica/uplighting-led-salon-boda-elegante.avif"
 author: "Equipo EVENTECH"

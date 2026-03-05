@@ -2,15 +2,16 @@
 title: "Catálogo Completo de Servicios EVENTECH para Eventos en CDMX"
 seoTitle: "Renta de Equipo para Eventos CDMX | Catálogo EVENTECH"
 description: "Descubre nuestro catálogo completo de renta de equipo para eventos: mobiliario, audiovisual, carpas, iluminación, pistas de baile y más en CDMX."
-date: 2026-03-03
+date: 2025-01-01
 category: "guias"
-image: "/images/blog/catalogo-servicios-eventech.jpg"
+image: "/images/mobiliario/mesa-imperial-gala-candelabros-boda.avif"
 author: "Equipo EVENTECH"
 tags:
   - servicios eventos
   - renta equipo
   - catálogo EVENTECH
   - eventos CDMX
+  - proveedor integral
 keywords:
   - renta equipo eventos CDMX
   - servicios para eventos
@@ -21,6 +22,7 @@ keywords:
   - pistas de baile
   - inflables eventos
   - catering equipo
+  - catálogo servicios eventos
 relatedServices:
   - mobiliario
   - audiovisual

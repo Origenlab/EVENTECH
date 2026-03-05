@@ -2,7 +2,7 @@
 title: "RESOIL: Renta de Sonido Profesional para Eventos en CDMX"
 seoTitle: "RESOIL: Renta de Sonido Profesional para Eventos CDMX"
 description: "Guía completa sobre RESOIL, empresa líder en renta de sistemas de audio y sonido profesional para bodas, XV años, conciertos y eventos corporativos en CDMX."
-date: 2025-03-02
+date: 2025-01-01
 category: "casos-exito"
 image: "/images/iluminacion-arquitectonica/wash-lights-rgbw-haces-colores-evento.avif"
 author: "Equipo EVENTECH"

@@ -1,0 +1,347 @@
+---
+/**
+ * ─── Mesa de Quesos y Embutidos — Página de Producto (Nivel 5) ───
+ * Sofisticación europea: quesos artesanales, embutidos ibéricos y acompañamientos gourmet.
+ * Color accent: Amber #e17055 (nivel 4/5).
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Barras", href: "/servicios/mobiliario/barras/" },
+  { label: "Postres", href: "/servicios/mobiliario/barras/postres/" },
+  { label: "Quesos y Embutidos" },
+];
+
+const faqs = [
+  { question: "¿Qué tipos de quesos incluye la mesa?", answer: 'Ofrecemos una <strong>selección de quesos europeos y mexicanos</strong>: brie, camembert, gruyère, manchego curado, gouda, roquefort, queso de cabra, parmigiano reggiano, y quesos artesanales mexicanos (oaxaca, chihuahua, cotija añejo). La selección se adapta según el paquete y tus preferencias. Incluimos etiquetas elegantes identificando cada queso.' },
+  { question: "¿Qué embutidos se sirven?", answer: 'La selección de <strong>embutidos premium</strong> incluye: jamón serrano, salami italiano, prosciutto, chorizo español, coppa, mortadela con pistacho, y paté. Para eventos con presupuesto premium, ofrecemos <strong>jamón ibérico de bellota</strong> cortado al momento por cortador profesional. Los embutidos se sirven en porciones pre-cortadas para fácil consumo.' },
+  { question: "¿Qué acompañamientos incluye?", answer: 'Los <strong>acompañamientos gourmet</strong> complementan perfectamente quesos y embutidos: uvas frescas, higos, aceitunas (verdes y kalamata), nueces y almendras, mermeladas artesanales (higo, chabacano), miel de abeja, crackers y pan artesanal (baguette, pan de nuez, crostini). Todo se presenta en recipientes de cerámica y madera que combinan con la estética rústica-elegante.' },
+  { question: "¿La mesa incluye los productos o solo la estructura?", answer: 'Ofrecemos <strong>ambas opciones</strong>: renta de estructura solamente (tabla de madera, cuchillos, recipientes, etiquetas) para que uses tu propio proveedor, o paquete completo con estructura + productos de proveedores gourmet seleccionados. El paquete completo garantiza calidad consistente y presentación coordinada.' },
+  { question: "¿Cómo se conservan los quesos durante el evento?", answer: 'Los quesos requieren <strong>temperatura ambiente</strong> para desarrollar su sabor óptimo — no se refrigeran durante el evento. Utilizamos tablas de madera tratada que regulan temperatura naturalmente. Para eventos largos (+4 horas), rotamos productos de reserva refrigerada y nuestro personal mantiene la presentación impecable. Los embutidos se mantienen en óptimas condiciones con rotación periódica.' },
+  { question: "¿Incluyen cortador de jamón profesional?", answer: 'Sí, para paquetes premium ofrecemos <strong>cortador de jamón profesional</strong> que corta el jamón ibérico de bellota al momento frente a los invitados — una experiencia interactiva y gastronómica que eleva cualquier evento. El cortador trabaja durante 2-3 horas del evento, cortando lonchas finas que se sirven directamente. Incluye jamonero profesional y pata de jamón completa.' },
+];
+
+const specs = [
+  { label: "Estructura", value: "Tabla de madera rústica / Pizarra" },
+  { label: "Quesos incluidos", value: "6-10 variedades (según paquete)" },
+  { label: "Embutidos incluidos", value: "4-8 variedades (según paquete)" },
+  { label: "Capacidad", value: "50-250 personas (según paquete)" },
+  { label: "Acompañamientos", value: "Frutas, nueces, mermeladas, pan" },
+  { label: "Utensilios", value: "Cuchillos queseros, pinzas, tablas" },
+  { label: "Cortador jamón", value: "Opcional en paquete premium" },
+  { label: "Conservación", value: "Temperatura ambiente, rotación" },
+  { label: "Montaje", value: "2-3 horas antes del evento" },
+  { label: "Dimensiones", value: "2.5 x 1.2 metros aproximadamente" },
+];
+
+const sidebarNav = [
+  { name: "Mesa de Dulces (Candy Bar)", href: "/servicios/mobiliario/barras/postres/mesa-dulces/" },
+  { name: "Mesa de Frutas", href: "/servicios/mobiliario/barras/postres/mesa-frutas/" },
+  { name: "Postres Gourmet", href: "/servicios/mobiliario/barras/postres/postres-gourmet/" },
+  { name: "Quesos y Embutidos", href: null, active: true },
+  { name: "Mesa de Snacks", href: "/servicios/mobiliario/barras/postres/mesa-snacks/" },
+  { name: "Mesa de Botanas", href: "/servicios/mobiliario/barras/postres/mesa-botanas/" },
+  { name: "Dulces Tradicionales", href: "/servicios/mobiliario/barras/postres/dulces-tradicionales/" },
+  { name: "Donas y Cupcakes", href: "/servicios/mobiliario/barras/postres/donas-cupcakes/" },
+];
+
+const sidebarRelated = [
+  { name: "Barras de Bebidas", href: "/servicios/mobiliario/barras/barras-bebidas/" },
+  { name: "Copas y Cristalería", href: "/servicios/catering/vajilla-cristaleria/copas-cristaleria/" },
+  { name: "Torres Cerveceras", href: "/servicios/catering/refrigeracion/dispensadores-bebidas/" },
+  { name: "Salas Lounge Vintage", href: "/servicios/mobiliario/salas-lounge/vintage/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+];
+
+const reviews = [
+  { author: "Ricardo Mendoza", text: "La mesa de quesos y embutidos fue el punto focal de nuestra cena de compromiso. El cortador de jamón ibérico fue espectacular — los invitados no paraban de acercarse. La selección de quesos era excelente y la presentación rústica-elegante quedaba perfecta con nuestro venue.", rating: 5, date: "2025-11-18" },
+  { author: "Gabriela Núñez", text: "Para nuestro evento corporativo de vinos, la mesa de quesos fue el complemento perfecto. Contratamos el paquete premium con jamón ibérico y variedad de quesos europeos. El equipo de Eventech fue muy profesional y la presentación superó nuestras expectativas.", rating: 5, date: "2025-10-25" },
+  { author: "Andrés Villanueva", text: "Contratamos la mesa de quesos para una boda de 150 personas. La variedad era impresionante — desde brie hasta quesos mexicanos artesanales. Los acompañamientos (mermelada de higo, nueces, aceitunas) complementaban perfectamente. Muy recomendado.", rating: 5, date: "2025-09-12" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Mesa de Quesos y Embutidos para Eventos en CDMX",
+    description: "Mesa de quesos artesanales y embutidos premium con acompañamientos gourmet. Opción de cortador de jamón ibérico. Montaje incluido en CDMX.",
+    url: "/servicios/mobiliario/barras/postres/quesos-embutidos/",
+    priceRange: { min: 4000, max: 20000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 3,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Barras", url: "/servicios/mobiliario/barras/" },
+    { name: "Postres", url: "/servicios/mobiliario/barras/postres/" },
+    { name: "Quesos y Embutidos", url: "/servicios/mobiliario/barras/postres/quesos-embutidos/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Mesa de Quesos y Embutidos — Renta para Eventos CDMX"
+  description="Mesa de quesos artesanales y embutidos premium con acompañamientos gourmet. Cortador de jamón ibérico opcional. Montaje incluido en CDMX. Cotiza hoy."
+  jsonLd={jsonLd}
+>
+  <div class="container"><Breadcrumbs items={breadcrumbItems} /></div>
+
+  <HeroPage
+    badge="Sofisticación europea"
+    title='Renta de <span class="highlight">Mesa de Quesos y Embutidos</span> para Eventos'
+    subtitle="Quesos artesanales europeos y mexicanos, embutidos ibéricos premium, y acompañamientos gourmet en una presentación rústica-elegante. Opción de cortador de jamón ibérico en vivo para una experiencia gastronómica inolvidable."
+    primaryCTA={{ label: "Cotiza tu Mesa Gourmet", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar una mesa de quesos y embutidos` }}
+    cards={[
+      {
+        title: "Selección premium de quesos y embutidos artesanales",
+        content: "<strong>Mesa de quesos y embutidos</strong> con 6-10 variedades de quesos (brie, camembert, gruyère, manchego, gouda, roquefort, queso de cabra, parmigiano, quesos mexicanos artesanales) y 4-8 tipos de embutidos (jamón serrano, prosciutto, salami, chorizo español, coppa). Opción de <strong>jamón ibérico de bellota</strong> con cortador profesional en vivo. Todo presentado en tablas de madera rústica con etiquetas elegantes.",
+      },
+      {
+        title: "Acompañamientos gourmet y presentación impecable",
+        content: "<strong>Acompañamientos que complementan</strong> perfectamente: uvas frescas y deshidratadas, higos, aceitunas verdes y kalamata, nueces y almendras tostadas, mermeladas artesanales (higo, chabacano, membrillo), miel de abeja, crackers variados y pan artesanal (baguette, pan de nuez, crostini). Presentación en cerámica y madera que combina con cualquier estilo de evento. Montaje y mantenimiento durante el evento incluidos.",
+      },
+    ]}
+  />
+
+  <CTABanner headline="¿Buscas sofisticación gastronómica para tu evento?" subheadline="Mesa de quesos y embutidos premium — el complemento perfecto para cocteles y recepciones" primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }} secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }} />
+
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card"><h3 class="sidebar-card__title">Tipos de Mesas</h3><ul class="sidebar-nav">{sidebarNav.map((item) => (<li class="sidebar-nav__item">{item.active ? (<span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>) : (<a href={item.href} class="sidebar-nav__link">{item.name}</a>)}</li>))}</ul></div>
+        <div class="sidebar-card"><h3 class="sidebar-card__title">Servicios Relacionados</h3><ul class="sidebar-related">{sidebarRelated.map((item) => (<li><a href={item.href} class="sidebar-related__link"><span class="sidebar-related__arrow">&rarr;</span>{item.name}</a></li>))}</ul></div>
+        <div class="sidebar-card sidebar-card--cta"><h3 class="sidebar-card__title">Cotiza Ahora</h3><p class="sidebar-card--cta-text">Mesa de quesos gourmet</p><a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una mesa de quesos y embutidos`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a><a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a><a href="#reserva-heading" class="sidebar-cta__form-link">Formulario &darr;</a></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <div class="l4-main">
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><h2 class="specs-table__header-title" id="specs-heading">Especificaciones — Quesos y Embutidos</h2></div>
+              <div class="specs-table__body">{specs.map((spec) => (<div class="specs-table__row"><div class="specs-table__label">{spec.label}</div><div class="specs-table__value">{spec.value}</div></div>))}</div>
+            </div>
+          </section>
+
+          <section class="section section--alt" aria-labelledby="quesos-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Selección premium</span>
+                <h2 class="showcase__title" id="quesos-heading">Quesos Artesanales Europeos y Mexicanos</h2>
+                <p class="showcase__subtitle">6-10 variedades seleccionadas por sommelier para una experiencia gastronómica completa.</p>
+                <p class="showcase__text">Nuestra <strong>selección de quesos</strong> incluye lo mejor de Europa y México: <strong>Franceses</strong> (brie, camembert, roquefort), <strong>italianos</strong> (parmigiano reggiano, gorgonzola), <strong>españoles</strong> (manchego curado, idiazábal), <strong>suizos</strong> (gruyère, emmental), y <strong>mexicanos artesanales</strong> (oaxaca, chihuahua añejo, cotija). Cada queso se corta y presenta el día del evento.</p>
+                <p class="showcase__text">Los quesos se presentan en <strong>tablas de madera rústica o pizarra</strong> con etiquetas elegantes identificando cada variedad. Incluimos <strong>cuchillos queseros especializados</strong> para cada tipo (cuchillo de alambre para quesos blandos, cuchillo de pala para quesos duros). Combinamos quesos suaves, semi-curados y curados para ofrecer una experiencia de sabores progresiva.</p>
+                <div class="showcase__tags"><span class="showcase__tag">Europeos</span><span class="showcase__tag">Mexicanos</span><span class="showcase__tag">Artesanales</span><span class="showcase__tag">Etiquetados</span></div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">Cotizar Selección de Quesos</a>
+              </div>
+              <div class="showcase__image"><img src="/images/mobiliario/mesa-quesos-seleccion-premium.avif" alt="Selección premium de quesos artesanales europeos y mexicanos" width="1200" height="686" loading="lazy" /></div>
+            </div>
+          </section>
+
+          <section class="section section--alt" aria-labelledby="embutidos-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Embutidos ibéricos</span>
+                <h2 class="showcase__title" id="embutidos-heading">Embutidos Premium y Jamón Ibérico</h2>
+                <p class="showcase__subtitle">Jamón serrano, prosciutto, salami y opción de cortador de jamón ibérico en vivo.</p>
+                <p class="showcase__text">La <strong>selección de embutidos</strong> complementa perfectamente los quesos: <strong>Jamón serrano</strong> español de 18 meses, <strong>prosciutto di Parma</strong>, <strong>salami italiano</strong> (Milano, Napoli), <strong>chorizo español</strong> de bellota, <strong>coppa</strong>, y <strong>mortadela con pistacho</strong>. Todos cortados en lonchas finas listas para servir.</p>
+                <p class="showcase__text">Para eventos premium, ofrecemos <strong>jamón ibérico de bellota</strong> con cortador profesional que trabaja 2-3 horas cortando lonchas finas frente a los invitados. Es una <strong>experiencia interactiva</strong> que eleva cualquier recepción — los invitados reciben el jamón recién cortado, con su sabor y textura óptimos. Incluye jamonero profesional, pata de jamón completa (~8 kg) y cortador certificado.</p>
+                <div class="showcase__tags"><span class="showcase__tag">Jamón serrano</span><span class="showcase__tag">Prosciutto</span><span class="showcase__tag">Ibérico de bellota</span><span class="showcase__tag">Cortador en vivo</span></div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">Cotizar con Jamón Ibérico</a>
+              </div>
+              <div class="showcase__image"><img src="/images/mobiliario/mesa-embutidos-jamon-iberico.avif" alt="Embutidos premium con jamón ibérico y cortador profesional" width="1200" height="686" loading="lazy" /></div>
+            </div>
+          </section>
+
+          <section class="section section--alt" aria-labelledby="acompan-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Complementos perfectos</span>
+                <h2 class="showcase__title" id="acompan-heading">Acompañamientos Gourmet</h2>
+                <p class="showcase__subtitle">Frutas, nueces, mermeladas artesanales y pan que realzan cada queso y embutido.</p>
+                <p class="showcase__text">Los <strong>acompañamientos gourmet</strong> están pensados para maridar perfectamente: <strong>Frutas frescas</strong> (uvas verdes y rojas, higos frescos, rodajas de pera), <strong>frutas deshidratadas</strong> (chabacano, higo), <strong>aceitunas</strong> (verdes rellenas y kalamata negras), <strong>frutos secos</strong> (nueces, almendras tostadas, pistaches).</p>
+                <p class="showcase__text">Incluimos <strong>mermeladas artesanales</strong> que complementan quesos específicos: mermelada de higo para quesos azules, membrillo para manchego, chabacano para brie. <strong>Miel de abeja</strong> orgánica para quesos de cabra. <strong>Pan artesanal</strong> variado: baguette crujiente, pan de nuez, crostini tostados, crackers de agua. Todo presentado en <strong>cerámica y madera</strong> que mantiene la estética rústica-elegante.</p>
+                <div class="showcase__tags"><span class="showcase__tag">Frutas</span><span class="showcase__tag">Mermeladas</span><span class="showcase__tag">Pan artesanal</span><span class="showcase__tag">Aceitunas</span></div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">Cotizar Mesa Completa</a>
+              </div>
+              <div class="showcase__image"><img src="/images/mobiliario/mesa-quesos-acompañamientos-gourmet.avif" alt="Acompañamientos gourmet para mesa de quesos y embutidos" width="1200" height="686" loading="lazy" /></div>
+            </div>
+          </section>
+
+          <section class="section" aria-labelledby="galeria-heading">
+            <div class="container">
+              <h2 class="section-header__title" id="galeria-heading">Galería — Mesas de Quesos y Embutidos</h2>
+              <p class="section-header__description">Recepciones, catas de vino y eventos corporativos en CDMX.</p>
+              <div class="galeria-grid">
+                <img src="/images/mobiliario/mesa-quesos-boda-rustica.avif" alt="Mesa quesos boda rústica" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/mesa-quesos-cata-vinos.avif" alt="Mesa quesos cata de vinos" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/mesa-quesos-corporativo-networking.avif" alt="Mesa quesos corporativo" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/cortador-jamon-iberico-evento.avif" alt="Cortador jamón ibérico" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/mesa-quesos-detalle-variedad.avif" alt="Detalle variedad quesos" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/mesa-quesos-presentacion-elegante.avif" alt="Presentación elegante quesos" width="600" height="343" loading="lazy" />
+              </div>
+            </div>
+          </section>
+
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader id="faq-heading" title="Preguntas Frecuentes — Quesos y Embutidos" subtitle="Resolvemos tus dudas" description={["Todo sobre la mesa de quesos: selección, conservación y cortador de jamón.", "Escríbenos por WhatsApp para más información."]} />
+            <div class="faq-layout">
+              <div class="faq-list">{faqs.map((faq) => (<details class="faq-item"><summary class="faq-item__question"><span>{faq.question}</span><svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary><div class="faq-item__answer"><p set:html={faq.answer} /></div></details>))}</div>
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent"><h3 class="faq-sidebar-card__title">¿Dudas?</h3><p class="faq-sidebar-card__text">Escríbenos por WhatsApp.</p><a href={`https://wa.me/${SITE.contact.whatsapp}?text=Tengo dudas sobre mesa de quesos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">WhatsApp</a></div>
+                <div class="faq-sidebar-card"><h3 class="faq-sidebar-card__title">Llámanos</h3><a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a></div>
+                <div class="faq-sidebar-card"><h3 class="faq-sidebar-card__title">Cotización</h3><a href="#reserva-heading" class="faq-sidebar-card__link">Formulario &darr;</a></div>
+              </aside>
+            </div>
+          </section>
+        </div>
+
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación">
+          <div class="sidebar-card"><h3 class="sidebar-card__title">Tipos de Mesas</h3><ul class="sidebar-nav">{sidebarNav.map((item) => (<li class="sidebar-nav__item">{item.active ? (<span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>) : (<a href={item.href} class="sidebar-nav__link">{item.name}</a>)}</li>))}<li><div class="sidebar-nav__divider"></div></li><li class="sidebar-nav__item"><a href="/servicios/mobiliario/barras/postres/" class="sidebar-nav__back">&uarr; Postres</a></li><li class="sidebar-nav__item"><a href="/servicios/mobiliario/barras/" class="sidebar-nav__back">&uarr; Barras</a></li></ul></div>
+          <div class="sidebar-card"><h3 class="sidebar-card__title">Relacionados</h3><ul class="sidebar-related">{sidebarRelated.map((item) => (<li><a href={item.href} class="sidebar-related__link"><span class="sidebar-related__arrow">&rarr;</span>{item.name}</a></li>))}</ul></div>
+          <div class="sidebar-card sidebar-card--cta"><h3 class="sidebar-card__title">Cotiza</h3><a href={`https://wa.me/${SITE.contact.whatsapp}?text=Cotizar quesos y embutidos`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a><a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a></div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader id="reserva-heading" title="Cotiza tu Mesa de Quesos y Embutidos" subtitle="Sofisticación para tu evento" description={["Completa el formulario para una cotización personalizada.", "Incluye montaje y productos premium."]} />
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field"><label class="form-field__label" for="nombre">Nombre <span class="form-field__required">*</span></label><input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required /></div>
+            <div class="form-field"><label class="form-field__label" for="telefono">Teléfono <span class="form-field__required">*</span></label><input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required /></div>
+            <div class="form-field"><label class="form-field__label" for="tipoEvento">Evento</label><select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select"><option value="">Selecciona</option><option value="Cata de vinos">Cata de vinos</option><option value="Boda">Boda</option><option value="Corporativo">Corporativo</option><option value="Recepción">Recepción</option><option value="Otro">Otro</option></select></div>
+            <div class="form-field"><label class="form-field__label" for="fecha">Fecha</label><input type="date" id="fecha" name="fecha" class="form-field__input" /></div>
+            <div class="form-field form-field--full"><label class="form-field__label" for="paquete">Paquete</label><select id="paquete" name="paquete" class="form-field__input form-field__select"><option value="Quesos Íntimo (50-80 pers)">Íntimo (50-80)</option><option value="Quesos Estándar (80-150 pers)" selected>Estándar (80-150)</option><option value="Quesos Premium (150-250 pers)">Premium (150-250)</option><option value="Con cortador jamón ibérico">+ Cortador jamón ibérico</option></select></div>
+            <div class="form-field form-field--full"><label class="form-field__label" for="mensaje">Mensaje <span class="form-field__required">*</span></label><textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Cuéntanos: número de invitados, si necesitas cortador de jamón, preferencias de quesos..." rows="4" required></textarea></div>
+          </div>
+          <button type="submit" class="reserva-form__submit"><svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Enviar por WhatsApp</button>
+        </form>
+        <aside class="reserva-sidebar">
+          <div class="reserva-card"><h3 class="reserva-card__title">Respuesta rápida</h3><p class="reserva-card__text">WhatsApp en 30 min.</p></div>
+          <div class="reserva-card"><h3 class="reserva-card__title">Productos premium</h3><p class="reserva-card__text">Quesos y embutidos importados.</p></div>
+          <div class="reserva-card"><h3 class="reserva-card__title">Sin compromiso</h3><p class="reserva-card__text">Cotiza gratis.</p></div>
+          <div class="reserva-card reserva-card--highlight"><h3 class="reserva-card__title">Horario</h3><p class="reserva-card__text">Lun-Vie: 9-19h<br/>Sáb: 9-14h</p></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const paquete = document.getElementById('paquete').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+      if (!nombre || !telefono || !mensaje) { if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error'); if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error'); if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error'); return; }
+      let fechaTexto = 'No especificada'; if (fecha) { const d = new Date(fecha + 'T12:00:00'); fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }); }
+      let texto = `*Mesa de Quesos y Embutidos*\n\n*Nombre:* ${nombre}\n*Teléfono:* ${telefono}\n`; if (tipoEvento) texto += `*Evento:* ${tipoEvento}\n`; texto += `*Fecha:* ${fechaTexto}\n`; if (paquete) texto += `*Paquete:* ${paquete}\n`; texto += `\n*Mensaje:*\n${mensaje}`;
+      window.open(`https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`, '_blank');
+    });
+    document.querySelectorAll('.form-field__input').forEach(input => input.addEventListener('input', function() { this.classList.remove('form-field__input--error'); }));
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Mesas de Dulces"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de mesas de dulces y exhibiciones gastronómicas en la Ciudad de México.",
+          "Nuestra red de aliados nos permite garantizar disponibilidad, calidad premium y cobertura completa en toda la CDMX."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Socio comercial</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MEDEDUL</h3>
+            <p class="partner-card__tagline">Mesas de Dulces Profesionales</p>
+            <p class="partner-card__text">Especialistas en mesas de quesos y embutidos con presentación europea para bodas y eventos gourmet en CDMX y Estado de México. Montaje profesional incluido.</p>
+          </div>
+          <a href="https://mesas-de-dulces.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">+10 años</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Rent All CDMX</h3>
+            <p class="partner-card__tagline">Renta Integral para Eventos</p>
+            <p class="partner-card__text">Más de 10 años proveyendo equipo completo: tablas de corte, cuchillos queseros, cerámica rústica y accesorios gourmet.</p>
+          </div>
+          <span class="partner-card__btn partner-card__btn--disabled">Aliado verificado</span>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">Especialistas</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventMob</h3>
+            <p class="partner-card__tagline">Mobiliario Rústico y Elegante</p>
+            <p class="partner-card__text">Catálogo extenso de mobiliario para eventos: tablas de madera artesanal, estantes rústicos y exhibidores para catas de vino.</p>
+          </div>
+          <span class="partner-card__btn partner-card__btn--disabled">Aliado verificado</span>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Cobertura CDMX</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MesasyMás</h3>
+            <p class="partner-card__tagline">Soluciones de Exhibición</p>
+            <p class="partner-card__text">Expertos en mesas de exhibición gastronómica con estilo europeo y servicio de montaje incluido.</p>
+          </div>
+          <span class="partner-card__btn partner-card__btn--disabled">Aliado verificado</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CTA FINAL
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner headline="Sofisticación europea para tu evento" subheadline="Quesos artesanales, embutidos ibéricos y opción de cortador de jamón. Cotiza hoy." primaryCTA={{ label: "Cotizar Mesa Gourmet", href: "#reserva-heading" }} secondaryCTA={{ label: "Hablar con asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Quesos y embutidos` }} variant="accent" />
+</PageLayout>
+
+<style is:global>:root { --color-accent: #e17055; --color-accent-hover: #d35400; --color-accent-light: #f0856d; --color-accent-soft: rgba(225, 112, 85, 0.1); --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%); --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4); --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5); }</style>

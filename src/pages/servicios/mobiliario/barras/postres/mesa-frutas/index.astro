@@ -1,0 +1,529 @@
+---
+/**
+ * ─── Mesa de Frutas — Página de Producto (Nivel 5) ───
+ * Frescura y color en cada bocado: frutas de temporada cortadas artísticamente.
+ * Color accent: Amber #e17055 (nivel 4/5). Layout con sidebar de interlinking.
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Barras", href: "/servicios/mobiliario/barras/" },
+  { label: "Postres", href: "/servicios/mobiliario/barras/postres/" },
+  { label: "Mesa de Frutas" },
+];
+
+const faqs = [
+  { question: "¿Qué frutas se incluyen en la mesa de frutas?", answer: 'La selección depende de la <strong>temporada y disponibilidad</strong>. Típicamente incluimos: fresas, uvas (verdes y rojas), piña, melón, sandía, mango, papaya, kiwi y moras (frambuesas, zarzamoras, blueberries). Para eventos premium agregamos higos, lychees, carambola y fruta del dragón. Todas las frutas se cortan el mismo día del evento para máxima frescura.' },
+  { question: "¿La fruta viene ya cortada y lista para servir?", answer: 'Sí. Nuestro equipo de <strong>montaje incluye corte artístico</strong> de toda la fruta: cubos, esferas, rebanadas decorativas y figuras según la temática. Llegamos 3-4 horas antes del evento para preparar todo in situ — la fruta nunca se corta con anticipación para evitar oxidación. Incluimos brochetas, palillos y platos pequeños para que los invitados se sirvan fácilmente.' },
+  { question: "¿Incluyen dips y acompañamientos?", answer: 'Sí, ofrecemos <strong>dips y acompañamientos opcionales</strong>: crema chantilly, chocolate derretido (fuente de chocolate disponible por separado), yogurt griego con miel, chamoy (para eventos mexicanos), miel de maple, y granola. Los acompañamientos se sirven en recipientes de cristal que combinan con la estética de la mesa.' },
+  { question: "¿Para cuántas personas alcanza una mesa de frutas estándar?", answer: 'Nuestro <strong>paquete estándar</strong> está diseñado para <strong>80-150 personas</strong> con aproximadamente 8-10 kg de fruta variada. El paquete íntimo (50-80 personas) incluye 5-6 kg, y el premium (150-300 personas) incluye 15-20 kg con mayor variedad de frutas exóticas. Calculamos ~100g de fruta por persona como complemento del menú principal.' },
+  { question: "¿Cómo se mantiene la fruta fresca durante el evento?", answer: 'Utilizamos <strong>técnicas profesionales de conservación</strong>: bases refrigeradas discretas bajo la estructura, rociado periódico con agua fría (cada 45-60 min), y rotación de piezas. Para eventos largos (+4 horas) incluimos personal de apoyo que mantiene la presentación impecable. La fruta se exhibe sobre hielo picado decorativo cuando es necesario.' },
+  { question: "¿Puedo agregar una fuente de chocolate?", answer: 'Sí, la <strong>fuente de chocolate</strong> es el complemento perfecto para la mesa de frutas. Ofrecemos fuentes de 3 o 5 niveles con chocolate belga (oscuro, con leche o blanco). Incluye montaje, chocolate suficiente para el evento, y brochetas extra. Consulta nuestra sección de <a href="/servicios/catering/refrigeracion/">equipos de catering</a> para más opciones.' },
+];
+
+const specs = [
+  { label: "Estructura", value: "Madera escalonada / Acrílico con hielo" },
+  { label: "Niveles de exhibición", value: "3-5 niveles (según paquete)" },
+  { label: "Frutas de temporada", value: "8-12 variedades (según disponibilidad)" },
+  { label: "Capacidad recomendada", value: "50-300 personas (según paquete)" },
+  { label: "Corte artístico", value: "Cubos, esferas, rebanadas, figuras" },
+  { label: "Accesorios", value: "Brochetas, palillos, platos, pinzas" },
+  { label: "Dips opcionales", value: "Chocolate, chantilly, yogurt, miel" },
+  { label: "Montaje", value: "3-4 horas antes (corte in situ)" },
+  { label: "Conservación", value: "Bases refrigeradas, rociado periódico" },
+  { label: "Dimensiones", value: "2.0 x 1.2 metros aproximadamente" },
+];
+
+const sidebarNav = [
+  { name: "Mesa de Dulces (Candy Bar)", href: "/servicios/mobiliario/barras/postres/mesa-dulces/" },
+  { name: "Mesa de Frutas", href: null, active: true },
+  { name: "Postres Gourmet", href: "/servicios/mobiliario/barras/postres/postres-gourmet/" },
+  { name: "Quesos y Embutidos", href: "/servicios/mobiliario/barras/postres/quesos-embutidos/" },
+  { name: "Mesa de Snacks", href: "/servicios/mobiliario/barras/postres/mesa-snacks/" },
+  { name: "Mesa de Botanas", href: "/servicios/mobiliario/barras/postres/mesa-botanas/" },
+  { name: "Dulces Tradicionales", href: "/servicios/mobiliario/barras/postres/dulces-tradicionales/" },
+  { name: "Donas y Cupcakes", href: "/servicios/mobiliario/barras/postres/donas-cupcakes/" },
+];
+
+const sidebarRelated = [
+  { name: "Barras de Bebidas", href: "/servicios/mobiliario/barras/barras-bebidas/" },
+  { name: "Fuentes de Chocolate", href: "/servicios/catering/refrigeracion/" },
+  { name: "Vajilla y Cristalería", href: "/servicios/catering/vajilla-cristaleria/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+  { name: "Mesas de Banquete", href: "/servicios/mobiliario/mesas/" },
+];
+
+const reviews = [
+  { author: "Carolina Reyes", text: "La mesa de frutas fue el hit de nuestra boda. El corte artístico era impresionante — las rosas de sandía y las esferas de melón parecían esculturas. La fruta estaba perfectamente madura y fresca. El equipo llegó temprano y dejó todo impecable.", rating: 5, date: "2025-11-10" },
+  { author: "Fernando Aguilar", text: "Contratamos la mesa de frutas con fuente de chocolate para un baby shower de 60 personas. La combinación fue perfecta — los invitados no paraban de servirse. La fruta se mantuvo fresca durante las 4 horas del evento.", rating: 5, date: "2025-10-18" },
+  { author: "Mónica Herrera", text: "Para nuestro evento corporativo wellness queríamos opciones saludables. La mesa de frutas fue ideal — colorida, elegante y deliciosa. El personal de Eventech fue muy profesional y la presentación superó nuestras expectativas.", rating: 5, date: "2025-09-25" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Mesa de Frutas para Eventos en CDMX",
+    description: "Mesa de frutas frescas con corte artístico, estructura escalonada y dips opcionales. Ideal para bodas, eventos corporativos y celebraciones. Montaje incluido en CDMX.",
+    url: "/servicios/mobiliario/barras/postres/mesa-frutas/",
+    priceRange: { min: 3000, max: 12000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 3,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Barras", url: "/servicios/mobiliario/barras/" },
+    { name: "Postres", url: "/servicios/mobiliario/barras/postres/" },
+    { name: "Mesa de Frutas", url: "/servicios/mobiliario/barras/postres/mesa-frutas/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Mesa de Frutas — Renta para Eventos CDMX"
+  description="Renta de mesa de frutas frescas con corte artístico, estructura escalonada y dips opcionales. Ideal para bodas y eventos. Montaje incluido en CDMX. Cotiza hoy."
+  jsonLd={jsonLd}
+>
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <HeroPage
+    badge="Frescura y color natural"
+    title='Renta de <span class="highlight">Mesa de Frutas</span> para Eventos'
+    subtitle="Frutas de temporada cortadas artísticamente en estructura escalonada elegante. El complemento más fresco y colorido para tu evento — con dips de chocolate, chantilly y más. Corte in situ para máxima frescura."
+    primaryCTA={{ label: "Cotiza tu Mesa de Frutas", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar una mesa de frutas para mi evento` }}
+    cards={[
+      {
+        title: "Frutas de temporada con corte artístico profesional",
+        content: "<strong>Mesa de frutas frescas</strong> con 8-12 variedades de temporada: fresas, uvas, piña, melón, sandía, mango, papaya, kiwi, moras y frutas exóticas en paquetes premium. Todo se corta el mismo día del evento en el venue — cubos perfectos, esferas de melón, rosas de sandía, rebanadas decorativas. La fruta nunca se pre-corta para evitar oxidación y garantizar frescura absoluta.",
+      },
+      {
+        title: "Estructura elegante con sistema de conservación",
+        content: "<strong>Exhibición profesional</strong> en estructura escalonada de 3-5 niveles con bases refrigeradas discretas que mantienen la fruta a temperatura óptima durante todo el evento. Incluimos brochetas, palillos decorativos, platos pequeños y pinzas de servicio. Dips opcionales: chocolate derretido, crema chantilly, yogurt griego con miel, chamoy artesanal. El equipo de montaje cuida la presentación durante eventos largos.",
+      },
+    ]}
+  />
+
+  <CTABanner
+    headline="¿Quieres añadir frescura y color a tu evento?"
+    subheadline="Mesa de frutas con corte artístico y dips gourmet — cotiza sin compromiso"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Tipos de Mesas</h3>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li><a href={item.href} class="sidebar-related__link"><span class="sidebar-related__arrow">&rarr;</span>{item.name}</a></li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card sidebar-card--cta">
+          <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+          <p class="sidebar-card--cta-text">¿Necesitas una mesa de frutas?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una mesa de frutas`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <div class="l4-main">
+
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones — Mesa de Frutas</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section class="section section--alt" aria-labelledby="frutas-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Variedad de temporada</span>
+                <h2 class="showcase__title" id="frutas-heading">Frutas Frescas de Temporada</h2>
+                <p class="showcase__subtitle">8-12 variedades seleccionadas según la época del año para garantizar máxima frescura y sabor.</p>
+                <p class="showcase__text">Trabajamos con <strong>proveedores de la Central de Abasto</strong> que nos surten fruta seleccionada el mismo día del evento. Las variedades básicas incluyen: fresas, uvas (verdes y rojas), piña, melón chino y honeydew, sandía, mango manila, papaya maradol, kiwi y moras mixtas. En paquetes premium agregamos <strong>frutas exóticas</strong>: higos frescos, lychees, carambola (fruta estrella), pitahaya (fruta del dragón) y maracuyá.</p>
+                <p class="showcase__text">Todo se corta <strong>en el venue, 2-3 horas antes del evento</strong> — nunca transportamos fruta pre-cortada. Nuestro equipo trae tablas, cuchillos profesionales y el expertise para crear cortes artísticos: rosas de sandía, esferas de melón con sacabocados, cubos perfectos, rebanadas en abanico. El resultado es una exhibición que parece salida de revista gastronómica.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">8-12 variedades</span>
+                  <span class="showcase__tag">Corte in situ</span>
+                  <span class="showcase__tag">Frutas exóticas</span>
+                  <span class="showcase__tag">Máxima frescura</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">Cotizar Mesa de Frutas</a>
+              </div>
+              <div class="showcase__image">
+                <img src="/images/mobiliario/mesa-frutas-variedad-temporada.avif" alt="Mesa de frutas con variedad de temporada y corte artístico" width="1200" height="686" loading="lazy" />
+              </div>
+            </div>
+          </section>
+
+          <section class="section section--alt" aria-labelledby="dips-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Complementos gourmet</span>
+                <h2 class="showcase__title" id="dips-heading">Dips y Acompañamientos</h2>
+                <p class="showcase__subtitle">Chocolate, chantilly, yogurt y más — los complementos perfectos para una experiencia interactiva.</p>
+                <p class="showcase__text">Los <strong>dips opcionales</strong> transforman la mesa de frutas en una estación interactiva irresistible. <strong>Chocolate derretido</strong> (oscuro 70%, con leche o blanco) servido en fondue o fuente de chocolate de 3-5 niveles. <strong>Crema chantilly</strong> casera con vainilla natural. <strong>Yogurt griego</strong> con miel de abeja y granola artesanal. <strong>Chamoy artesanal</strong> para eventos con temática mexicana.</p>
+                <p class="showcase__text">Cada dip se sirve en <strong>recipientes de cristal</strong> que combinan con la estética de la mesa. Incluimos cucharas de servicio y etiquetas elegantes identificando cada acompañamiento. La <a href="/servicios/catering/refrigeracion/">fuente de chocolate</a> es el complemento más popular — crea una experiencia de fondue donde los invitados sumergen la fruta directamente.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Chocolate belga</span>
+                  <span class="showcase__tag">Chantilly casera</span>
+                  <span class="showcase__tag">Yogurt griego</span>
+                  <span class="showcase__tag">Fuente opcional</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">Cotizar con Dips</a>
+              </div>
+              <div class="showcase__image">
+                <img src="/images/mobiliario/mesa-frutas-dips-chocolate.avif" alt="Mesa de frutas con dips de chocolate y acompañamientos" width="1200" height="686" loading="lazy" />
+              </div>
+            </div>
+          </section>
+
+          <section class="section section--alt" aria-labelledby="conservacion-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Frescura garantizada</span>
+                <h2 class="showcase__title" id="conservacion-heading">Sistema de Conservación</h2>
+                <p class="showcase__subtitle">Bases refrigeradas y técnicas profesionales para mantener la fruta perfecta durante todo el evento.</p>
+                <p class="showcase__text">La fruta cortada requiere <strong>condiciones específicas</strong> para mantenerse fresca y apetitosa. Utilizamos <strong>bases refrigeradas discretas</strong> bajo la estructura que mantienen temperatura entre 4-8°C sin que los invitados las noten. Para piezas delicadas (fresas, moras), usamos hielo picado decorativo como cama de exhibición — se ve elegante y conserva perfectamente.</p>
+                <p class="showcase__text">En eventos largos (+4 horas), nuestro <strong>personal de apoyo</strong> realiza rociado periódico con agua fría cada 45-60 minutos, retira piezas que empiezan a oxidarse, y rota la fruta de reserva refrigerada. El resultado: una mesa que luce impecable desde el inicio hasta el final del evento. Incluimos ~20% de fruta extra como reserva para reposición.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Bases refrigeradas</span>
+                  <span class="showcase__tag">Hielo decorativo</span>
+                  <span class="showcase__tag">Personal de apoyo</span>
+                  <span class="showcase__tag">Reserva incluida</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">Cotizar Servicio Completo</a>
+              </div>
+              <div class="showcase__image">
+                <img src="/images/mobiliario/mesa-frutas-conservacion-hielo.avif" alt="Mesa de frutas con sistema de conservación y hielo decorativo" width="1200" height="686" loading="lazy" />
+              </div>
+            </div>
+          </section>
+
+          <section class="section" aria-labelledby="galeria-heading">
+            <div class="container">
+              <h2 class="section-header__title" id="galeria-heading">Galería — Mesas de Frutas para Eventos</h2>
+              <p class="section-header__description">Proyectos reales de mesas de frutas: bodas, baby showers, eventos corporativos y celebraciones en CDMX.</p>
+              <div class="galeria-grid">
+                <img src="/images/mobiliario/mesa-frutas-boda-elegante.avif" alt="Mesa de frutas para boda elegante" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/mesa-frutas-baby-shower.avif" alt="Mesa de frutas baby shower" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/mesa-frutas-corporativo-wellness.avif" alt="Mesa de frutas evento corporativo wellness" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/mesa-frutas-fuente-chocolate.avif" alt="Mesa de frutas con fuente de chocolate" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/mesa-frutas-tropical-exoticas.avif" alt="Mesa de frutas tropicales y exóticas" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/mesa-frutas-corte-artistico.avif" alt="Mesa de frutas con corte artístico" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/mesa-frutas-rosas-sandia.avif" alt="Mesa de frutas con rosas de sandía" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/mesa-frutas-esferas-melon.avif" alt="Mesa de frutas con esferas de melón" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/mesa-frutas-dips-variados.avif" alt="Mesa de frutas con dips variados" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/mesa-frutas-jardin-exterior.avif" alt="Mesa de frutas en jardín exterior" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/mesa-frutas-brunch-matutino.avif" alt="Mesa de frutas para brunch matutino" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/mesa-frutas-xv-anos-colorida.avif" alt="Mesa de frutas XV años colorida" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/mesa-frutas-hielo-decorativo.avif" alt="Mesa de frutas con hielo decorativo" width="600" height="343" loading="lazy" />
+                <img src="/images/mobiliario/mesa-frutas-estructura-madera.avif" alt="Mesa de frutas con estructura de madera" width="600" height="343" loading="lazy" />
+              </div>
+            </div>
+          </section>
+
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes — Mesa de Frutas"
+              subtitle="Resolvemos tus dudas"
+              description={["Todo sobre la mesa de frutas: variedades, corte, dips y conservación.", "Si no encuentras lo que buscas, escríbenos por WhatsApp."]}
+            />
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question"><span>{faq.question}</span><svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+                    <div class="faq-item__answer"><p set:html={faq.answer} /></div>
+                  </details>
+                ))}
+              </div>
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista te responderá.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre la mesa de frutas`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">Escribir por WhatsApp</a>
+                </div>
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">Atención de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario para una propuesta personalizada.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Tipos de Mesas</h3>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (<span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>) : (<a href={item.href} class="sidebar-nav__link">{item.name}</a>)}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item"><a href="/servicios/mobiliario/barras/postres/" class="sidebar-nav__back">&uarr; Volver a Mesas de Postres</a></li>
+              <li class="sidebar-nav__item"><a href="/servicios/mobiliario/barras/" class="sidebar-nav__back">&uarr; Volver a Barras</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h3 class="sidebar-card__title">Servicios Relacionados</h3>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu mesa de frutas:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (<li><a href={item.href} class="sidebar-related__link"><span class="sidebar-related__arrow">&rarr;</span>{item.name}</a></li>))}
+            </ul>
+          </div>
+          <div class="sidebar-card sidebar-card--cta">
+            <h3 class="sidebar-card__title">Cotiza Ahora</h3>
+            <p class="sidebar-card--cta-text">¿Necesitas una mesa de frutas?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una mesa de frutas`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader id="reserva-heading" title="Cotiza tu Mesa de Frutas" subtitle="Cuéntanos sobre tu evento" description={["Completa el formulario y recibe una cotización personalizada por WhatsApp.", "Sin compromiso. Montaje y corte artístico incluidos."]} />
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">Nombre completo <span class="form-field__required">*</span></label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">Teléfono <span class="form-field__required">*</span></label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">Tipo de evento</label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="Baby Shower">Baby Shower</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">Fecha del evento</label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="paquete">Paquete de interés</label>
+              <select id="paquete" name="paquete" class="form-field__input form-field__select">
+                <option value="Mesa Frutas Íntima (50-80 pers)">Íntima (50-80 personas)</option>
+                <option value="Mesa Frutas Estándar (80-150 pers)" selected>Estándar (80-150 personas)</option>
+                <option value="Mesa Frutas Premium (150-300 pers)">Premium (150-300 personas)</option>
+                <option value="Mesa Frutas + Fuente Chocolate">+ Fuente de Chocolate</option>
+              </select>
+            </div>
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">Mensaje <span class="form-field__required">*</span></label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Cuéntanos: número de invitados, si necesitas dips específicos, frutas preferidas..." rows="4" required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+        <aside class="reserva-sidebar">
+          <div class="reserva-card"><h3 class="reserva-card__title">Respuesta inmediata</h3><p class="reserva-card__text">Te respondemos en menos de 30 minutos.</p></div>
+          <div class="reserva-card"><h3 class="reserva-card__title">Corte in situ</h3><p class="reserva-card__text">Fruta cortada el día del evento para máxima frescura.</p></div>
+          <div class="reserva-card"><h3 class="reserva-card__title">Sin compromiso</h3><p class="reserva-card__text">Cotiza gratis sin presiones.</p></div>
+          <div class="reserva-card reserva-card--highlight"><h3 class="reserva-card__title">Horario</h3><p class="reserva-card__text">Lun-Vie: 9:00-19:00<br/>Sáb: 9:00-14:00</p></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const paquete = document.getElementById('paquete').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+      let fechaTexto = 'No especificada';
+      if (fecha) { const d = new Date(fecha + 'T12:00:00'); fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }); }
+      let texto = `*Mesa de Frutas para Eventos*\n\n*Nombre:* ${nombre}\n*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha:* ${fechaTexto}\n`;
+      if (paquete) texto += `*Paquete:* ${paquete}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+      window.open(`https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`, '_blank');
+    });
+    document.querySelectorAll('.form-field__input').forEach(input => input.addEventListener('input', function() { this.classList.remove('form-field__input--error'); }));
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Mesas de Dulces"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de mesas de dulces y exhibiciones gastronómicas en la Ciudad de México.",
+          "Nuestra red de aliados nos permite garantizar disponibilidad, calidad premium y cobertura completa en toda la CDMX y área metropolitana."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Socio comercial</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MEDEDUL</h3>
+            <p class="partner-card__tagline">Mesas de Dulces Profesionales</p>
+            <p class="partner-card__text">Especialistas en mesas de frutas frescas con corte artístico y estructuras elegantes para bodas y eventos sociales en CDMX y Estado de México. Montaje profesional incluido.</p>
+          </div>
+          <a href="https://mesas-de-dulces.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">+10 años</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Rent All CDMX</h3>
+            <p class="partner-card__tagline">Renta Integral para Eventos</p>
+            <p class="partner-card__text">Más de 10 años proveyendo equipo completo para eventos: mesas de exhibición, cristalería, mantelería premium y accesorios decorativos.</p>
+          </div>
+          <span class="partner-card__btn partner-card__btn--disabled">Aliado verificado</span>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">Especialistas</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventMob</h3>
+            <p class="partner-card__tagline">Mobiliario Moderno y Clásico</p>
+            <p class="partner-card__text">Catálogo extenso de mobiliario para eventos: desde estructuras minimalistas modernas hasta piezas vintage para bodas rústicas y boho.</p>
+          </div>
+          <span class="partner-card__btn partner-card__btn--disabled">Aliado verificado</span>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Cobertura CDMX</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MesasyMás</h3>
+            <p class="partner-card__tagline">Soluciones de Exhibición</p>
+            <p class="partner-card__text">Expertos en mesas de exhibición gastronómica: mesas de frutas, postres, estaciones de servicio y buffets con servicio de montaje incluido.</p>
+          </div>
+          <span class="partner-card__btn partner-card__btn--disabled">Aliado verificado</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CTA FINAL
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner headline="Frescura y color para tu evento" subheadline="Mesa de frutas con corte artístico y dips gourmet. Cotiza hoy." primaryCTA={{ label: "Cotizar Mesa de Frutas", href: "#reserva-heading" }} secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa una mesa de frutas` }} variant="accent" />
+</PageLayout>
+
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

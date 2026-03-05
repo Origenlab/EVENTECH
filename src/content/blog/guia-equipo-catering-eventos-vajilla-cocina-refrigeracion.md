@@ -2,9 +2,9 @@
 title: "Equipo de Catering para Eventos: Vajilla, Cocina y Refrigeración"
 seoTitle: "Equipo Catering Eventos CDMX | Vajilla, Cocina, Refrigeración"
 description: "Equipo de catering para eventos: estaciones de servicio, cocina móvil, vajilla premium y refrigeración. Cálculos por invitado. Guía CDMX."
-date: 2026-02-25
+date: 2025-01-01
 category: "guias"
-image: "/images/blog/guia-equipo-catering-eventos.jpg"
+image: "/images/mobiliario/barra-bebidas-bartender-madera-evento.avif"
 author: "Equipo EVENTECH"
 tags:
   - equipo catering
@@ -12,12 +12,15 @@ tags:
   - cocina móvil
   - refrigeración eventos
   - estaciones servicio
+  - banquetes CDMX
 keywords:
   - renta equipo catering CDMX
   - vajilla para eventos
   - cocina móvil renta
   - refrigeradores eventos
   - estaciones de comida
+  - chafing dishes renta
+  - cristalería eventos premium
 relatedServices:
   - catering
 relatedEvents:

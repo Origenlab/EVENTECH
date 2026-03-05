@@ -1,0 +1,193 @@
+---
+/**
+ * ─── Mesa de Dulces Tradicionales Mexicanos — Página de Producto (Nivel 5) ───
+ * Un viaje a la infancia mexicana: mazapanes, tamarindos, obleas, cocadas.
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Barras", href: "/servicios/mobiliario/barras/" },
+  { label: "Postres", href: "/servicios/mobiliario/barras/postres/" },
+  { label: "Dulces Tradicionales" },
+];
+
+const faqs = [
+  { question: "¿Qué dulces tradicionales mexicanos incluye la mesa?", answer: 'Nuestra selección incluye los <strong>clásicos de la dulcería mexicana</strong>: mazapanes de La Rosa, tamarindos (paletas, bolitas, rollos), obleas con cajeta, cocadas (blancas y rosas), alegrías de amaranto, palanquetas de cacahuate, jamoncillos, muéganos, dulces de leche, ate de membrillo, borrachitos, glorias, y pulparindos. Una explosión de nostalgia en cada bocado.' },
+  { question: "¿Se pueden personalizar los dulces por colores?", answer: 'Algunos dulces como las <strong>cocadas y alegrías</strong> están disponibles en diferentes colores que pueden combinarse con tu temática. Las cocadas vienen en blanco, rosa y colores especiales por encargo. También ofrecemos presentación en bolsitas de celofán con listón en el color de tu evento. Para personalización completa, necesitamos 2 semanas de anticipación.' },
+  { question: "¿Para cuántas personas alcanza el paquete estándar?", answer: 'El <strong>paquete estándar</strong> incluye aproximadamente 15-20 kg de dulces surtidos, ideal para <strong>80-150 personas</strong>. Calculamos 100-150g por invitado, pero los dulces mexicanos son tan populares que los invitados suelen repetir. El paquete íntimo (50-80 personas) y el premium (150-250 personas) ajustan cantidades proporcionalmente.' },
+  { question: "¿Los dulces son de marcas reconocidas o artesanales?", answer: 'Ofrecemos <strong>ambas opciones</strong>: marcas reconocidas como La Rosa (mazapanes), Pelon Pelo Rico, Lucas, Vero (paletas) para garantizar sabor consistente, y dulces <strong>artesanales de Michoacán y Puebla</strong> (ate, jamoncillo, cocadas) para quienes buscan autenticidad. Podemos mezclar ambos estilos según preferencia.' },
+  { question: "¿Incluyen bolsitas para que los invitados se lleven dulces?", answer: 'Sí, incluimos <strong>bolsitas de celofán con listón</strong> en el color de tu elección para que los invitados armen su selección y se lleven dulces como recuerdo. También ofrecemos bolsitas personalizadas impresas con nombre del evento, fecha o diseño especial. Las bolsitas personalizadas requieren 2 semanas de anticipación.' },
+  { question: "¿Combinan con eventos de temática mexicana?", answer: 'Son el <strong>complemento perfecto</strong> para eventos con temática mexicana: Día de Muertos, fiestas patrias, bodas mexicanas, y XV años tradicionales. Combinamos naturalmente con decoración de papel picado, flores de cempasúchil, y textiles típicos. También ofrecemos la opción de incluir dulces regionales específicos (Oaxaca, Yucatán, Michoacán) según la temática.' },
+];
+
+const specs = [
+  { label: "Estructura", value: "Madera rústica / Canastas de mimbre" },
+  { label: "Variedades de dulces", value: "15-25 tipos tradicionales" },
+  { label: "Capacidad", value: "50-250 personas (según paquete)" },
+  { label: "Dulces incluidos", value: "10-25 kg (según paquete)" },
+  { label: "Marcas", value: "Reconocidas + artesanales" },
+  { label: "Bolsitas", value: "Celofán con listón incluidas" },
+  { label: "Personalización", value: "Colores y bolsitas custom" },
+  { label: "Regiones", value: "Nacional + especialidades regionales" },
+  { label: "Montaje", value: "2-3 horas antes" },
+  { label: "Dimensiones", value: "2.5 x 1.2 metros aprox." },
+];
+
+const sidebarNav = [
+  { name: "Mesa de Dulces (Candy Bar)", href: "/servicios/mobiliario/barras/postres/mesa-dulces/" },
+  { name: "Mesa de Frutas", href: "/servicios/mobiliario/barras/postres/mesa-frutas/" },
+  { name: "Postres Gourmet", href: "/servicios/mobiliario/barras/postres/postres-gourmet/" },
+  { name: "Quesos y Embutidos", href: "/servicios/mobiliario/barras/postres/quesos-embutidos/" },
+  { name: "Mesa de Snacks", href: "/servicios/mobiliario/barras/postres/mesa-snacks/" },
+  { name: "Mesa de Botanas", href: "/servicios/mobiliario/barras/postres/mesa-botanas/" },
+  { name: "Dulces Tradicionales", href: null, active: true },
+  { name: "Donas y Cupcakes", href: "/servicios/mobiliario/barras/postres/donas-cupcakes/" },
+];
+
+const sidebarRelated = [
+  { name: "Candy Bar Internacional", href: "/servicios/mobiliario/barras/postres/mesa-dulces/" },
+  { name: "Barras de Bebidas", href: "/servicios/mobiliario/barras/barras-bebidas/" },
+  { name: "Accesorios Decorativos", href: "/servicios/mobiliario/barras/accesorios-decorativos/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+];
+
+const reviews = [
+  { author: "Guadalupe Moreno", text: "La mesa de dulces tradicionales fue perfecta para nuestra boda mexicana. Todos los invitados comentaban que era un viaje a la infancia. Los mazapanes, las obleas con cajeta y las cocadas desaparecieron en minutos. La presentación en canastas de mimbre quedaba hermosa con nuestra decoración.", rating: 5, date: "2025-09-16" },
+  { author: "Fernando Orozco", text: "Para la fiesta de Día de Muertos de nuestra empresa, la mesa de dulces tradicionales fue el hit. Los extranjeros que teníamos de invitados quedaron fascinados con la variedad. El equipo de Eventech nos ayudó a elegir los dulces más representativos de cada región.", rating: 5, date: "2025-11-02" },
+  { author: "Patricia Ávila", text: "Los XV años de mi hija tenían temática mexicana moderna y la mesa de dulces tradicionales fue el toque perfecto. Combinamos mazapanes con decoración contemporánea y el resultado fue increíble. Las bolsitas personalizadas con su nombre fueron un detalle que todos apreciaron.", rating: 5, date: "2025-10-08" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Mesa de Dulces Tradicionales Mexicanos en CDMX",
+    description: "Mesa de dulces tradicionales mexicanos: mazapanes, tamarindos, obleas, cocadas, alegrías y más. Ideal para bodas mexicanas, XV años y fiestas patrias. Montaje incluido en CDMX.",
+    url: "/servicios/mobiliario/barras/postres/dulces-tradicionales/",
+    priceRange: { min: 2500, max: 10000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 3,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Barras", url: "/servicios/mobiliario/barras/" },
+    { name: "Postres", url: "/servicios/mobiliario/barras/postres/" },
+    { name: "Dulces Tradicionales", url: "/servicios/mobiliario/barras/postres/dulces-tradicionales/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout title="Dulces Tradicionales Mexicanos — Renta para Eventos CDMX" description="Mesa de dulces tradicionales mexicanos: mazapanes, tamarindos, obleas, cocadas y más. Ideal para bodas mexicanas y XV años. Montaje incluido en CDMX. Cotiza hoy." jsonLd={jsonLd}>
+  <div class="container"><Breadcrumbs items={breadcrumbItems} /></div>
+
+  <HeroPage badge="Nostalgia mexicana" title='Renta de <span class="highlight">Dulces Tradicionales Mexicanos</span>' subtitle="Mazapanes, tamarindos, obleas con cajeta, cocadas, alegrías, palanquetas y todos los clásicos de la dulcería mexicana. Un viaje a la infancia que enamora a invitados de todas las edades. Perfecto para bodas mexicanas, XV años y fiestas patrias." primaryCTA={{ label: "Cotiza Dulces Tradicionales", href: "#reserva-heading" }} secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar dulces tradicionales mexicanos` }} cards={[{ title: "Los clásicos de la dulcería mexicana", content: "<strong>15-25 variedades de dulces tradicionales</strong>: mazapanes de La Rosa, tamarindos en todas sus formas (paletas, bolitas, rollos), obleas con cajeta, cocadas blancas y rosas, alegrías de amaranto, palanquetas de cacahuate, jamoncillos, muéganos, dulces de leche, ate de membrillo, borrachitos, glorias de Linares, pulparindos y más. Marcas reconocidas combinadas con dulces artesanales de Michoacán y Puebla." },{ title: "Presentación auténtica con bolsitas incluidas", content: "<strong>Exhibición en estructura rústica</strong> con canastas de mimbre, rebozos como mantelería, y etiquetas hechas a mano. Incluimos bolsitas de celofán con listón en el color de tu evento para que los invitados armen su selección y se lleven dulces como recuerdo. Opciones de bolsitas personalizadas con nombre/fecha disponibles. El complemento perfecto para eventos con <strong>temática mexicana</strong>: bodas, XV años, Día de Muertos, fiestas patrias." }]} />
+
+  <CTABanner headline="¿Evento con esencia mexicana?" subheadline="Dulces tradicionales que evocan nostalgia y celebran nuestras raíces" primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }} secondaryCTA={{ label: "Llamar", href: `tel:${SITE.contact.phoneRaw}` }} />
+
+  <section class="l4-mobile-nav" aria-label="Navegación"><div class="container"><div class="l4-sidebar--mobile"><div class="sidebar-card"><h3 class="sidebar-card__title">Tipos de Mesas</h3><ul class="sidebar-nav">{sidebarNav.map((item) => (<li class="sidebar-nav__item">{item.active ? (<span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>) : (<a href={item.href} class="sidebar-nav__link">{item.name}</a>)}</li>))}</ul></div><div class="sidebar-card"><h3 class="sidebar-card__title">Relacionados</h3><ul class="sidebar-related">{sidebarRelated.map((item) => (<li><a href={item.href} class="sidebar-related__link"><span class="sidebar-related__arrow">&rarr;</span>{item.name}</a></li>))}</ul></div><div class="sidebar-card sidebar-card--cta"><h3 class="sidebar-card__title">Cotiza</h3><a href={`https://wa.me/${SITE.contact.whatsapp}?text=Dulces tradicionales`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a><a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a></div></div></div></section>
+
+  <div class="l4-content-section"><div class="container"><div class="l4-layout">
+    <div class="l4-main">
+      <section aria-labelledby="specs-heading"><div class="specs-table"><div class="specs-table__header"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg><h2 class="specs-table__header-title" id="specs-heading">Especificaciones — Dulces Tradicionales</h2></div><div class="specs-table__body">{specs.map((spec) => (<div class="specs-table__row"><div class="specs-table__label">{spec.label}</div><div class="specs-table__value">{spec.value}</div></div>))}</div></div></section>
+
+      <section class="section section--alt" aria-labelledby="clasicos-heading"><div class="showcase"><div class="showcase__content"><span class="showcase__badge">Clásicos inmortales</span><h2 class="showcase__title" id="clasicos-heading">Mazapanes, Tamarindos y Obleas</h2><p class="showcase__subtitle">Los dulces que nos transportan a la tiendita de la esquina y a la infancia dorada.</p><p class="showcase__text">Los <strong>mazapanes de La Rosa</strong> son quizás el dulce mexicano más icónico — ese sabor a cacahuate que se deshace en la boca. Los <strong>tamarindos</strong> en todas sus formas: paletas de tamarindo con chile, bolitas enchiladas, rollos, y Pulparindo. Las <strong>obleas con cajeta</strong> artesanal de Celaya — crujientes discos de harina con cajeta dulce de leche de cabra.</p><p class="showcase__text">También incluimos <strong>glorias de Linares</strong> (leche quemada con nuez), <strong>borrachitos</strong> de varios sabores (rompope, jerez, licor de café), <strong>ate de membrillo</strong> de Morelia, y <strong>jamoncillos</strong> de leche con nuez. Cada dulce cuenta una historia de tradición mexicana que los invitados de todas las edades reconocen y aman.</p><div class="showcase__tags"><span class="showcase__tag">Mazapanes</span><span class="showcase__tag">Tamarindos</span><span class="showcase__tag">Obleas cajeta</span><span class="showcase__tag">Glorias</span></div><a href="#reserva-heading" class="btn btn--primary btn--lg">Cotizar Clásicos</a></div><div class="showcase__image"><img src="/images/mobiliario/dulces-tradicionales-mazapanes-tamarindos.avif" alt="Dulces tradicionales mexicanos: mazapanes, tamarindos, obleas" width="1200" height="686" loading="lazy" /></div></div></section>
+
+      <section class="section section--alt" aria-labelledby="artesanales-heading"><div class="showcase"><div class="showcase__content"><span class="showcase__badge">Hecho a mano</span><h2 class="showcase__title" id="artesanales-heading">Dulces Artesanales Regionales</h2><p class="showcase__subtitle">Cocadas, alegrías, palanquetas y tesoros de cada rincón de México.</p><p class="showcase__text">Complementamos las marcas clásicas con <strong>dulces artesanales</strong> de regiones específicas: <strong>Cocadas</strong> de Acapulco (blancas tradicionales y rosas para XV años), <strong>alegrías de amaranto</strong> de Tulyehualco decoradas con pasas y nuez, <strong>palanquetas de cacahuate</strong> crujientes, <strong>muéganos</strong> de Tlaxcala, y <strong>dulces de leche</strong> de Michoacán.</p><p class="showcase__text">Para eventos especiales, ofrecemos <strong>dulces regionales específicos</strong>: marquesitas y cochinita de dulce de Yucatán, nicuatole de Oaxaca, chongos zamoranos de Michoacán, o gaznates de Puebla. El sabor auténtico que solo la tradición artesanal puede ofrecer.</p><div class="showcase__tags"><span class="showcase__tag">Cocadas</span><span class="showcase__tag">Alegrías</span><span class="showcase__tag">Palanquetas</span><span class="showcase__tag">Regionales</span></div><a href="#reserva-heading" class="btn btn--primary btn--lg">Cotizar Artesanales</a></div><div class="showcase__image"><img src="/images/mobiliario/dulces-tradicionales-artesanales-cocadas.avif" alt="Dulces artesanales mexicanos: cocadas, alegrías, palanquetas" width="1200" height="686" loading="lazy" /></div></div></section>
+
+      <section class="section" aria-labelledby="galeria-heading"><div class="container"><h2 class="section-header__title" id="galeria-heading">Galería — Dulces Tradicionales</h2><p class="section-header__description">Bodas mexicanas, XV años y fiestas patrias en CDMX.</p><div class="galeria-grid"><img src="/images/mobiliario/dulces-tradicionales-boda-mexicana.avif" alt="Dulces tradicionales boda mexicana" width="600" height="343" loading="lazy" /><img src="/images/mobiliario/dulces-tradicionales-xv-anos.avif" alt="Dulces tradicionales XV años" width="600" height="343" loading="lazy" /><img src="/images/mobiliario/dulces-tradicionales-dia-muertos.avif" alt="Dulces tradicionales Día de Muertos" width="600" height="343" loading="lazy" /><img src="/images/mobiliario/dulces-tradicionales-canastas.avif" alt="Dulces tradicionales en canastas" width="600" height="343" loading="lazy" /></div></div></section>
+
+      <section class="section" aria-labelledby="faq-heading"><SectionHeader id="faq-heading" title="Preguntas Frecuentes — Dulces Tradicionales" subtitle="Resolvemos tus dudas" description={["Todo sobre dulces mexicanos tradicionales.", "Escríbenos por WhatsApp."]} /><div class="faq-layout"><div class="faq-list">{faqs.map((faq) => (<details class="faq-item"><summary class="faq-item__question"><span>{faq.question}</span><svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary><div class="faq-item__answer"><p set:html={faq.answer} /></div></details>))}</div><aside class="faq-sidebar"><div class="faq-sidebar-card faq-sidebar-card--accent"><h3 class="faq-sidebar-card__title">¿Dudas?</h3><a href={`https://wa.me/${SITE.contact.whatsapp}?text=Dudas dulces tradicionales`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">WhatsApp</a></div><div class="faq-sidebar-card"><h3 class="faq-sidebar-card__title">Llámanos</h3><a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a></div></aside></div></section>
+    </div>
+
+    <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación"><div class="sidebar-card"><h3 class="sidebar-card__title">Tipos de Mesas</h3><ul class="sidebar-nav">{sidebarNav.map((item) => (<li class="sidebar-nav__item">{item.active ? (<span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>) : (<a href={item.href} class="sidebar-nav__link">{item.name}</a>)}</li>))}<li><div class="sidebar-nav__divider"></div></li><li class="sidebar-nav__item"><a href="/servicios/mobiliario/barras/postres/" class="sidebar-nav__back">&uarr; Postres</a></li></ul></div><div class="sidebar-card"><h3 class="sidebar-card__title">Relacionados</h3><ul class="sidebar-related">{sidebarRelated.map((item) => (<li><a href={item.href} class="sidebar-related__link"><span class="sidebar-related__arrow">&rarr;</span>{item.name}</a></li>))}</ul></div><div class="sidebar-card sidebar-card--cta"><h3 class="sidebar-card__title">Cotiza</h3><a href={`https://wa.me/${SITE.contact.whatsapp}?text=Dulces tradicionales`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a><a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a></div></aside>
+  </div></div></div>
+
+  <section class="section section--alt" aria-labelledby="reserva-heading"><div class="container"><SectionHeader id="reserva-heading" title="Cotiza Dulces Tradicionales" subtitle="Esencia mexicana" description={["Mazapanes, tamarindos, cocadas y más.", "Montaje y bolsitas incluidas."]} /><div class="reserva-layout"><form class="reserva-form" id="reservaForm" novalidate><div class="reserva-form__grid"><div class="form-field"><label class="form-field__label" for="nombre">Nombre <span class="form-field__required">*</span></label><input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required /></div><div class="form-field"><label class="form-field__label" for="telefono">Teléfono <span class="form-field__required">*</span></label><input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required /></div><div class="form-field"><label class="form-field__label" for="tipoEvento">Evento</label><select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select"><option value="">Selecciona</option><option value="Boda Mexicana">Boda Mexicana</option><option value="XV Años">XV Años</option><option value="Fiesta Patrias">Fiesta Patrias</option><option value="Día de Muertos">Día de Muertos</option><option value="Corporativo">Corporativo</option><option value="Otro">Otro</option></select></div><div class="form-field"><label class="form-field__label" for="fecha">Fecha</label><input type="date" id="fecha" name="fecha" class="form-field__input" /></div><div class="form-field form-field--full"><label class="form-field__label" for="paquete">Paquete</label><select id="paquete" name="paquete" class="form-field__input form-field__select"><option value="Tradicional Básico (50-80)">Básico (50-80)</option><option value="Tradicional Estándar (80-150)" selected>Estándar (80-150)</option><option value="Tradicional Premium (150-250)">Premium (150-250)</option><option value="Con bolsitas personalizadas">+ Bolsitas personalizadas</option></select></div><div class="form-field form-field--full"><label class="form-field__label" for="mensaje">Mensaje <span class="form-field__required">*</span></label><textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Cuéntanos: temática del evento, dulces favoritos, colores..." rows="4" required></textarea></div></div><button type="submit" class="reserva-form__submit"><svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Enviar por WhatsApp</button></form><aside class="reserva-sidebar"><div class="reserva-card"><h3 class="reserva-card__title">Respuesta rápida</h3><p class="reserva-card__text">30 min WhatsApp.</p></div><div class="reserva-card"><h3 class="reserva-card__title">Bolsitas incluidas</h3><p class="reserva-card__text">Para que se lleven recuerdo.</p></div><div class="reserva-card reserva-card--highlight"><h3 class="reserva-card__title">Horario</h3><p class="reserva-card__text">Lun-Vie: 9-19h</p></div></aside></div></div></section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>document.getElementById('reservaForm').addEventListener('submit', function(e) { e.preventDefault(); const nombre = document.getElementById('nombre').value.trim(); const telefono = document.getElementById('telefono').value.trim(); const tipoEvento = document.getElementById('tipoEvento').value; const fecha = document.getElementById('fecha').value; const paquete = document.getElementById('paquete').value; const mensaje = document.getElementById('mensaje').value.trim(); if (!nombre || !telefono || !mensaje) { if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error'); if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error'); if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error'); return; } let fechaTexto = 'No especificada'; if (fecha) { const d = new Date(fecha + 'T12:00:00'); fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }); } let texto = `*Dulces Tradicionales Mexicanos*\n\n*Nombre:* ${nombre}\n*Teléfono:* ${telefono}\n`; if (tipoEvento) texto += `*Evento:* ${tipoEvento}\n`; texto += `*Fecha:* ${fechaTexto}\n`; if (paquete) texto += `*Paquete:* ${paquete}\n`; texto += `\n*Mensaje:*\n${mensaje}`; window.open(`https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`, '_blank'); }); document.querySelectorAll('.form-field__input').forEach(input => input.addEventListener('input', function() { this.classList.remove('form-field__input--error'); }));</script>
+
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Mesas de Dulces"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los mejores proveedores de mesas de dulces y exhibiciones gastronómicas en CDMX.",
+          "Cada pieza evoca la tradición artesanal de México con calidad premium.",
+        ]}
+      />
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Socio comercial</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MEDEDUL</h3>
+            <p class="partner-card__tagline">Mesas de Dulces Profesionales</p>
+            <p class="partner-card__text">Líder en renta de mesas de dulces, candy bars y exhibiciones gastronómicas para bodas y eventos sociales en CDMX. Especialistas en presentaciones de dulces tradicionales mexicanos.</p>
+          </div>
+          <a href="https://mesas-de-dulces.com/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
+            Visitar sitio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </article>
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Artesanía mexicana</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Mobiliario Premium MX</h3>
+            <p class="partner-card__tagline">Estructuras Rústicas</p>
+            <p class="partner-card__text">Especialistas en canastas de mimbre artesanales, rebozos para mantelería y estructuras de madera con acabado rústico mexicano.</p>
+          </div>
+          <span class="partner-card__btn partner-card__btn--disabled">Aliado verificado</span>
+        </article>
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Estilo tradicional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Rent All CDMX</h3>
+            <p class="partner-card__tagline">Muebles Mexicanos</p>
+            <p class="partner-card__text">Colección de muebles de estilo mexicano: cajas de madera envejecida, cestas tejidas y displays con temática tradicional.</p>
+          </div>
+          <span class="partner-card__btn partner-card__btn--disabled">Aliado verificado</span>
+        </article>
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">Temática mexicana</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventMob</h3>
+            <p class="partner-card__tagline">Eventos Tradicionales</p>
+            <p class="partner-card__text">Soluciones integrales para eventos con temática mexicana: mesas rústicas, bancas de madera y decoración de papel picado.</p>
+          </div>
+          <span class="partner-card__btn partner-card__btn--disabled">Aliado verificado</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner headline="Nostalgia mexicana para tu evento" subheadline="Los dulces de nuestra infancia. Cotiza hoy." primaryCTA={{ label: "Cotizar Tradicionales", href: "#reserva-heading" }} secondaryCTA={{ label: "WhatsApp", href: `https://wa.me/${SITE.contact.whatsapp}?text=Dulces tradicionales` }} variant="accent" />
+</PageLayout>
+
+<style is:global>:root { --color-accent: #e17055; --color-accent-hover: #d35400; --color-accent-light: #f0856d; --color-accent-soft: rgba(225, 112, 85, 0.1); --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%); --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4); --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5); }</style>

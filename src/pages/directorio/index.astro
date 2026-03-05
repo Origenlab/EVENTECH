@@ -9,8 +9,11 @@ import SectionHeader from "@components/SectionHeader.astro";
 import CTABanner from "@components/CTABanner.astro";
 import Breadcrumbs from "@components/Breadcrumbs.astro";
 import DirectorySearch from "@components/DirectorySearch.astro";
+import RelatedContent from "@components/RelatedContent.astro";
+import { DirectoryStatsBar, DirectoryFAQ, VenueShowcase, RegionCard } from "@components/directorio";
 import { getCollection } from "astro:content";
 import { breadcrumbJsonLd, itemListJsonLd, collectionPageJsonLd } from "@utils/seo";
+import { POPULAR_SERVICES } from "@utils/interlinking";
 import "@styles/directorio.css";
 
 const breadcrumbItems = [
@@ -40,6 +43,28 @@ const featuredList = allVenues
   .filter(v => v.data.featured)
   .sort((a, b) => (a.data.order || 0) - (b.data.order || 0))
   .slice(0, 6);
+
+// Fetch related blog articles (bodas, guides, venues-related content)
+const allBlogPosts = await getCollection("blog", ({ data }) => !data.draft);
+const relatedBlogPosts = allBlogPosts
+  .filter(post =>
+    post.data.category === "bodas" ||
+    post.data.category === "guias" ||
+    post.data.tags?.some(tag => ["venues", "salones", "haciendas", "jardines", "bodas"].includes(tag.toLowerCase()))
+  )
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 4);
+
+// Category labels for blog
+const CATEGORY_LABELS: Record<string, string> = {
+  "bodas": "Bodas",
+  "xv-anos": "XV Años",
+  "corporativos": "Corporativos",
+  "tendencias": "Tendencias",
+  "guias": "Guías",
+  "tips": "Tips",
+  "casos-exito": "Casos de Éxito",
+};
 
 // Venue type labels
 const venueTypeLabels: Record<string, string> = {
@@ -110,6 +135,20 @@ const jsonLd = [
       }
     ]}
   />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       STATS BAR
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <DirectoryStatsBar stats={[
+        { value: totalVenues, label: "Venues Registrados", icon: "building", suffix: "+" },
+        { value: totalZones, label: "Zonas Cubiertas", icon: "map" },
+        { value: featuredVenues, label: "Venues Destacados", icon: "star" },
+        { value: partnerVenues, label: "Partners EVENTECH", icon: "award" }
+      ]} />
+    </div>
+  </section>
 
   <!-- ═══════════════════════════════════════════════════════════════════════
        SEARCH SECTION
@@ -370,53 +409,76 @@ const jsonLd = [
           ]}
         />
 
-        <div class="dir-grid dir-grid--3">
-          {featuredList.map(venue => (
-            <article class="venue-card">
-              <a href={`/directorio/${venue.data.region}/${venue.data.zoneSlug}/${venue.id.split('/').pop()?.replace('.md', '')}/`} class="venue-card__link">
-                <div class="venue-card__image-wrapper">
-                  <img
-                    src={venue.data.image || "/images/placeholder-venue.jpg"}
-                    alt={venue.data.name}
-                    class="venue-card__image"
-                    loading="lazy"
-                    width="400"
-                    height="300"
-                  />
-                  <div class="venue-card__badges">
-                    {venue.data.premium && (
-                      <span class="venue-card__badge venue-card__badge--premium">Premium</span>
-                    )}
-                    {venue.data.verified && (
-                      <span class="venue-card__badge venue-card__badge--verified">Verificado</span>
-                    )}
+        {/* Featured venue showcase for the first venue */}
+        {featuredList[0] && (
+          <VenueShowcase
+            name={featuredList[0].data.name}
+            image={featuredList[0].data.image || "/images/placeholder-venue.jpg"}
+            type={venueTypeLabels[featuredList[0].data.type] || featuredList[0].data.type}
+            location={`${featuredList[0].data.zone}, ${featuredList[0].data.region === "cdmx" ? "CDMX" : "Edo. Méx."}`}
+            capacity={featuredList[0].data.capacity}
+            priceRange={featuredList[0].data.priceRange}
+            description={featuredList[0].data.shortDescription}
+            href={`/directorio/${featuredList[0].data.region}/${featuredList[0].data.zoneSlug}/${featuredList[0].id.split('/').pop()?.replace('.md', '')}/`}
+            badges={[
+              ...(featuredList[0].data.premium ? ["Premium"] : []),
+              ...(featuredList[0].data.eventechPartner ? ["Partner EVENTECH"] : [])
+            ]}
+            rating={featuredList[0].data.rating}
+            amenities={featuredList[0].data.amenities?.slice(0, 6) || []}
+          />
+        )}
+
+        {/* Rest of featured venues in cards */}
+        {featuredList.length > 1 && (
+          <div class="dir-grid dir-grid--3" style="margin-top: var(--space-xl);">
+            {featuredList.slice(1).map(venue => (
+              <article class="venue-card">
+                <a href={`/directorio/${venue.data.region}/${venue.data.zoneSlug}/${venue.id.split('/').pop()?.replace('.md', '')}/`} class="venue-card__link">
+                  <div class="venue-card__image-wrapper">
+                    <img
+                      src={venue.data.image || "/images/placeholder-venue.jpg"}
+                      alt={venue.data.name}
+                      class="venue-card__image"
+                      loading="lazy"
+                      width="400"
+                      height="300"
+                    />
+                    <div class="venue-card__badges">
+                      {venue.data.premium && (
+                        <span class="venue-card__badge venue-card__badge--premium">Premium</span>
+                      )}
+                      {venue.data.verified && (
+                        <span class="venue-card__badge venue-card__badge--verified">Verificado</span>
+                      )}
+                    </div>
+                    <span class="venue-card__price-badge">{venue.data.priceRange}</span>
                   </div>
-                  <span class="venue-card__price-badge">{venue.data.priceRange}</span>
-                </div>
-                <div class="venue-card__content">
-                  <span class="venue-card__type">{venueTypeLabels[venue.data.type] || venue.data.type}</span>
-                  <h3 class="venue-card__name">{venue.data.name}</h3>
-                  <p class="venue-card__location">
-                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    {venue.data.zone}, {venue.data.region === "cdmx" ? "CDMX" : "Edo. Méx."}
-                  </p>
-                  <p class="venue-card__description">{venue.data.shortDescription}</p>
-                  <div class="venue-card__meta">
-                    <span class="venue-card__capacity">
-                      <strong>{venue.data.capacity.min}-{venue.data.capacity.max}</strong> personas
-                    </span>
-                    {venue.data.rating && (
-                      <span class="venue-card__rating">
-                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        {venue.data.rating}
+                  <div class="venue-card__content">
+                    <span class="venue-card__type">{venueTypeLabels[venue.data.type] || venue.data.type}</span>
+                    <h3 class="venue-card__name">{venue.data.name}</h3>
+                    <p class="venue-card__location">
+                      <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      {venue.data.zone}, {venue.data.region === "cdmx" ? "CDMX" : "Edo. Méx."}
+                    </p>
+                    <p class="venue-card__description">{venue.data.shortDescription}</p>
+                    <div class="venue-card__meta">
+                      <span class="venue-card__capacity">
+                        <strong>{venue.data.capacity.min}-{venue.data.capacity.max}</strong> personas
                       </span>
-                    )}
+                      {venue.data.rating && (
+                        <span class="venue-card__rating">
+                          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                          {venue.data.rating}
+                        </span>
+                      )}
+                    </div>
                   </div>
-                </div>
-              </a>
-            </article>
-          ))}
-        </div>
+                </a>
+              </article>
+            ))}
+          </div>
+        )}
 
         <div style="text-align: center; margin-top: var(--space-2xl);">
           <a href="/directorio/cdmx/" class="btn btn--primary" style="margin-right: var(--space-md);">
@@ -474,6 +536,74 @@ const jsonLd = [
           <p class="card__content">Equipo de respaldo y técnicos en sitio durante tu evento para cualquier eventualidad.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       RELATED BLOG & SERVICES
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        title="Recursos para tu Evento"
+        subtitle="Guías y artículos"
+        description={[
+          "Artículos y guías para ayudarte a planear tu evento.",
+          "Descubre tendencias, tips y servicios complementarios."
+        ]}
+      />
+
+      <RelatedContent
+        title=""
+        services={POPULAR_SERVICES.slice(0, 4)}
+        blogPosts={relatedBlogPosts.map(post => ({
+          title: post.data.title,
+          href: `/blog/${post.slug}/`,
+          image: post.data.image,
+          category: CATEGORY_LABELS[post.data.category] || post.data.category
+        }))}
+        variant="grid"
+        showIcons={true}
+      />
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       FAQ SECTION
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt">
+    <div class="container">
+      <DirectoryFAQ
+        title="Preguntas Frecuentes sobre Venues"
+        subtitle="Resuelve tus dudas"
+        questions={[
+          {
+            question: "¿Cómo elijo el venue ideal para mi evento?",
+            answer: "Considera estos factores clave: <strong>capacidad</strong> (número de invitados + 10% extra), <strong>ubicación</strong> (accesibilidad para tus invitados), <strong>tipo de espacio</strong> (jardín, salón, hacienda), <strong>presupuesto</strong> (pregunta qué incluye el precio), y <strong>servicios incluidos</strong> (mobiliario, catering, coordinador). Te recomendamos visitar al menos 3 opciones antes de decidir."
+          },
+          {
+            question: "¿Qué preguntas debo hacer al visitar un venue?",
+            answer: "Preguntas esenciales: ¿Qué incluye el precio? ¿Puedo traer proveedores externos (catering, DJ, decoración)? ¿Hay límite de hora? ¿Cuánto cuesta la hora extra? ¿Tienen planta de luz de respaldo? ¿Hay estacionamiento y cuántos lugares? ¿Qué restricciones tienen (música, pirotecnia, confeti)? ¿Cuál es la política de cancelación?"
+          },
+          {
+            question: "¿Cuándo debo reservar mi venue?",
+            answer: "Para <strong>bodas y XV años</strong>: reserva con 8-12 meses de anticipación, especialmente si tu fecha es en temporada alta (mayo-noviembre). Para <strong>eventos corporativos</strong>: 2-4 meses es suficiente. Para <strong>fiestas y cumpleaños</strong>: 1-2 meses. Los venues más populares como Hacienda de los Morales o los jardines de Coyoacán se agotan rápido en fines de semana."
+          },
+          {
+            question: "¿Cuál es el rango de precios de los venues en CDMX?",
+            answer: "Los precios varían ampliamente: <strong>$</strong> (económico): $150-300 MXN por persona, incluye espacio y mobiliario básico. <strong>$$</strong> (moderado): $400-800 MXN, incluye banquete estándar. <strong>$$$</strong> (premium): $900-1,500 MXN, banquete completo y coordinación. <strong>$$$$</strong> (lujo): $1,800+ MXN, servicio todo incluido en venues exclusivos. Haciendas y hoteles 5 estrellas suelen estar en la categoría alta."
+          },
+          {
+            question: "¿EVENTECH trabaja con todos los venues del directorio?",
+            answer: "Sí, hemos llevado equipo a la mayoría de venues listados. Conocemos las especificaciones técnicas, accesos de carga, tomas eléctricas y logística de cada espacio. Esto nos permite asesorarte sobre qué equipo funciona mejor en cada venue: qué tipo de iluminación realza los jardines, cuántas bocinas necesitas según el salón, o si el espacio requiere pistas de baile especiales."
+          },
+          {
+            question: "¿Qué servicios adicionales puedo necesitar para mi venue?",
+            answer: "Depende del venue, pero comúnmente se requieren: <strong>Mobiliario adicional</strong> (sillas especiales, mesas, salas lounge), <strong>Iluminación</strong> (guirnaldas, uplighting, letras luminosas), <strong>Audio y video</strong> (sonido profesional, pantallas, proyectores), <strong>Carpas y toldos</strong> (si hay jardín), <strong>Pistas de baile</strong> (LED o madera sobre césped). En EVENTECH rentamos todo esto con entrega e instalación en tu venue."
+          }
+        ]}
+        schema={true}
+      />
     </div>
   </section>
 

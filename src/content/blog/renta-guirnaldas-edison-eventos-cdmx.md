@@ -2,8 +2,8 @@
 title: "Renta de Guirnaldas Edison para Eventos en CDMX"
 seoTitle: "Renta de Guirnaldas Edison para Eventos en CDMX | EVENTECH"
 description: "Guía profesional de renta de guirnaldas Edison LED para bodas y eventos en CDMX. Paquetes de 50m a 400m con instalación incluida. Cotiza hoy."
+date: 2025-01-01
 seoDescription: "Guía profesional de renta de guirnaldas Edison LED para bodas y eventos en CDMX. Paquetes de 50m a 400m con instalación incluida. Cotiza hoy."
-date: 2026-03-02
 category: "guias"
 image: "/images/guirnaldas/renta-guirnaldas-canopy-techo-boda.avif"
 imageAlt: "Guirnaldas Edison LED creando un techo de luces cálidas sobre recepción de boda al aire libre en CDMX"

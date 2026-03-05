@@ -2,9 +2,9 @@
 title: "Infraestructura de Eventos: Energía, Clima, Textiles y Señalización"
 seoTitle: "Accesorios Eventos CDMX | Energía, Clima, Mantelería, Señalización"
 description: "Guía completa de infraestructura para eventos: plantas de energía, climatización, mantelería premium y señalización. Cálculos y especificaciones CDMX."
-date: 2026-02-26
+date: 2025-01-01
 category: "guias"
-image: "/images/blog/guia-accesorios-infraestructura-eventos.jpg"
+image: "/images/mobiliario/tablon-crossback-jardin-string-lights.avif"
 author: "Equipo EVENTECH"
 tags:
   - infraestructura eventos
@@ -12,12 +12,16 @@ tags:
   - climatización eventos
   - mantelería eventos
   - señalización eventos
+  - renta generadores CDMX
 keywords:
   - renta plantas energía CDMX
   - clima eventos exteriores
   - mantelería premium renta
   - señalización eventos corporativos
   - accesorios eventos CDMX
+  - renta generadores eventos
+  - calefacción eventos exteriores
+  - nebulización eventos
 relatedServices:
   - accesorios
 relatedEvents:

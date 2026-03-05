@@ -1,0 +1,201 @@
+---
+/**
+ * ProductCard Component
+ * Displays a product/service card with image, features, and CTA.
+ *
+ * @example
+ * <ProductCard
+ *   name="Guirnaldas Edison 100m"
+ *   image="/images/guirnaldas/100m.avif"
+ *   price="Desde $2,500 MXN"
+ *   features={["200 focos LED", "Instalación incluida", "Cable negro discreto"]}
+ *   cta={{ label: "Cotizar", href: "/contacto/" }}
+ * />
+ */
+
+interface Props {
+  name: string;
+  image: string;
+  price?: string;
+  features: string[];
+  cta: {
+    label: string;
+    href: string;
+  };
+  badge?: string;
+  variant?: "default" | "featured" | "compact";
+}
+
+const { name, image, price, features, cta, badge, variant = "default" } = Astro.props;
+---
+
+<article class={`product-card product-card--${variant}`}>
+  <div class="product-card__image-wrapper">
+    <img
+      src={image}
+      alt={name}
+      loading="lazy"
+      decoding="async"
+      class="product-card__image"
+    />
+    {badge && <span class="product-card__badge">{badge}</span>}
+  </div>
+  <div class="product-card__content">
+    <h3 class="product-card__name">{name}</h3>
+    {price && <p class="product-card__price">{price}</p>}
+    <ul class="product-card__features">
+      {features.map((feature) => (
+        <li class="product-card__feature">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          <span>{feature}</span>
+        </li>
+      ))}
+    </ul>
+    <a href={cta.href} class="product-card__cta">
+      {cta.label}
+    </a>
+  </div>
+</article>
+
+<style>
+  .product-card {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .product-card__image-wrapper {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+  }
+
+  .product-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .product-card:hover .product-card__image {
+    transform: scale(1.05);
+  }
+
+  .product-card__badge {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    background: var(--color-accent, #00b894);
+    color: #fff;
+    padding: var(--space-xs) var(--space-sm);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: var(--radius-sm);
+  }
+
+  .product-card__content {
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .product-card__name {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-xs);
+    line-height: 1.3;
+  }
+
+  .product-card__price {
+    font-size: var(--text-xl);
+    font-weight: 800;
+    color: var(--color-accent, #00b894);
+    margin-bottom: var(--space-md);
+  }
+
+  .product-card__features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-lg) 0;
+    flex: 1;
+  }
+
+  .product-card__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-xs);
+    font-size: var(--text-sm);
+    color: var(--color-text-light);
+    margin-bottom: var(--space-xs);
+  }
+
+  .product-card__feature svg {
+    color: var(--color-accent, #00b894);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .product-card__cta {
+    display: block;
+    width: 100%;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--gradient-accent, linear-gradient(135deg, #00b894 0%, #00a884 100%));
+    color: #fff;
+    font-weight: 600;
+    font-size: var(--text-sm);
+    text-align: center;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    transition: opacity 0.2s ease;
+  }
+
+  .product-card__cta:hover {
+    opacity: 0.9;
+  }
+
+  /* Featured variant */
+  .product-card--featured {
+    border: 2px solid var(--color-accent, #00b894);
+  }
+
+  .product-card--featured .product-card__badge {
+    background: #f1c40f;
+    color: #333;
+  }
+
+  /* Compact variant */
+  .product-card--compact .product-card__image-wrapper {
+    aspect-ratio: 4 / 3;
+  }
+
+  .product-card--compact .product-card__content {
+    padding: var(--space-md);
+  }
+
+  .product-card--compact .product-card__name {
+    font-size: var(--text-base);
+  }
+
+  .product-card--compact .product-card__price {
+    font-size: var(--text-lg);
+  }
+
+  .product-card--compact .product-card__feature {
+    font-size: var(--text-xs);
+  }
+</style>

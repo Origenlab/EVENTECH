@@ -1,23 +1,25 @@
 ---
 title: "Guía Maestra de Bodas CDMX: Equipamiento Completo para Tu Día"
-seoTitle: "Bodas CDMX 2026 | Guía Equipamiento Completo | EVENTECH"
+seoTitle: "Bodas CDMX | Guía Equipamiento Completo | EVENTECH"
 description: "Guía definitiva para bodas en CDMX: mobiliario, audiovisual, carpas, iluminación, pistas, catering y más. Presupuestos, timelines y checklists profesionales."
-date: 2026-02-27
+date: 2025-01-01
 category: "guias"
-image: "/images/blog/guia-maestra-bodas-cdmx.jpg"
+image: "/images/moviliario-para-eventos/boda-mesas-rectangulares-sillas-chiavari-dorado-68.avif"
 author: "Equipo EVENTECH"
 tags:
   - bodas CDMX
   - equipamiento bodas
   - renta equipo bodas
   - wedding planning
-  - bodas 2026
+  - checklist bodas
 keywords:
-  - guia bodas CDMX 2026
+  - guia bodas CDMX
   - equipamiento completo bodas
   - renta mobiliario bodas
   - iluminación bodas
   - carpas para bodas
+  - checklist boda profesional
+  - presupuesto boda CDMX
 relatedServices:
   - mobiliario
   - iluminacion

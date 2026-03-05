@@ -2,9 +2,9 @@
 title: "Guía Experta de Pistas de Baile: LED, Madera, Vintage y Tarimas"
 seoTitle: "Pistas de Baile Eventos CDMX | LED, Madera, Tarimas"
 description: "Pistas de baile para eventos: LED RGB, madera clásica, vintage y tarimas. Tamaños, instalación en cualquier terreno. Guía técnica."
-date: 2026-02-27
+date: 2025-01-01
 category: "guias"
-image: "/images/blog/guia-pistas-baile-eventos.jpg"
+image: "/images/guirnaldas/guirnaldas-100m-iluminacion-pista-baile.avif"
 author: "Equipo EVENTECH"
 tags:
   - pistas de baile
@@ -12,12 +12,15 @@ tags:
   - pista de madera
   - tarimas eventos
   - escenarios
+  - primer baile bodas
 keywords:
   - renta pista de baile CDMX
   - pista LED bodas
   - pista de madera eventos
   - tarimas para eventos
   - escenarios modulares
+  - pista infinita renta
+  - pista disco vintage
 relatedServices:
   - pistas-baile
 relatedEvents:

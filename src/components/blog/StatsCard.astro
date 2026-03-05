@@ -1,0 +1,167 @@
+---
+/**
+ * StatsCard Component
+ * Displays key statistics in a visually appealing card format.
+ *
+ * @example
+ * <StatsCard
+ *   variant="accent"
+ *   stats={[
+ *     { value: "500+", label: "Eventos realizados", icon: "award" },
+ *     { value: "24hrs", label: "Tiempo de respuesta", icon: "clock" },
+ *     { value: "4.9/5", label: "Calificación", icon: "star" }
+ *   ]}
+ * />
+ */
+
+interface StatItem {
+  value: string;
+  label: string;
+  icon?: string;
+}
+
+interface Props {
+  stats: StatItem[];
+  variant?: "default" | "accent" | "dark";
+  title?: string;
+}
+
+const { stats, variant = "default", title } = Astro.props;
+
+// Icon SVGs
+const icons: Record<string, string> = {
+  award: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>`,
+  clock: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+  star: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
+  users: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+  check: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`,
+  heart: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,
+  truck: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>`,
+  shield: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+  zap: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
+  target: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`
+};
+---
+
+<div class={`stats-card stats-card--${variant}`}>
+  {title && <h3 class="stats-card__title">{title}</h3>}
+  <div class="stats-card__grid">
+    {stats.map((stat) => (
+      <div class="stats-card__item">
+        {stat.icon && icons[stat.icon] && (
+          <span class="stats-card__icon" set:html={icons[stat.icon]} />
+        )}
+        <span class="stats-card__value">{stat.value}</span>
+        <span class="stats-card__label">{stat.label}</span>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .stats-card {
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    margin: var(--space-xl) 0;
+  }
+
+  .stats-card__title {
+    text-align: center;
+    font-size: var(--text-lg);
+    font-weight: 700;
+    margin-bottom: var(--space-lg);
+  }
+
+  .stats-card__grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+  }
+
+  .stats-card__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 120px;
+    flex: 1;
+  }
+
+  .stats-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-sm);
+    opacity: 0.8;
+  }
+
+  .stats-card__value {
+    font-size: var(--text-3xl);
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  .stats-card__label {
+    font-size: var(--text-sm);
+    margin-top: var(--space-xs);
+    opacity: 0.8;
+  }
+
+  /* Variants */
+  .stats-card--default {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+  }
+
+  .stats-card--default .stats-card__value {
+    color: var(--color-primary);
+  }
+
+  .stats-card--accent {
+    background: linear-gradient(135deg, var(--color-accent-soft, rgba(0, 184, 148, 0.1)) 0%, rgba(0, 184, 148, 0.05) 100%);
+    border: 1px solid var(--color-accent, #00b894);
+  }
+
+  .stats-card--accent .stats-card__value {
+    color: var(--color-accent, #00b894);
+  }
+
+  .stats-card--accent .stats-card__icon {
+    color: var(--color-accent, #00b894);
+  }
+
+  .stats-card--dark {
+    background: var(--color-primary, #1a1a2e);
+    color: #fff;
+  }
+
+  .stats-card--dark .stats-card__value {
+    color: var(--color-accent, #00b894);
+  }
+
+  .stats-card--dark .stats-card__label {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .stats-card--dark .stats-card__icon {
+    color: var(--color-accent, #00b894);
+  }
+
+  @media (max-width: 576px) {
+    .stats-card__grid {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .stats-card__item {
+      width: 100%;
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .stats-card__item:last-child {
+      border-bottom: none;
+    }
+  }
+</style>

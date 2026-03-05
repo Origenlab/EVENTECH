@@ -2,7 +2,7 @@
 title: "REDEIL: Renta de Iluminación y Audio Profesional para Eventos en CDMX"
 seoTitle: "REDEIL: Renta de Iluminación Profesional para Eventos CDMX"
 description: "Guía completa sobre REDEIL, empresa líder en renta de iluminación, audio y efectos especiales para bodas, XV años y eventos corporativos en CDMX."
-date: 2025-03-01
+date: 2025-01-01
 category: "casos-exito"
 image: "/images/iluminacion-arquitectonica/hero-iluminacion-arquitectonica-eventos.avif"
 author: "Equipo EVENTECH"

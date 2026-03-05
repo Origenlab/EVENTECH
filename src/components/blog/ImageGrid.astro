@@ -1,0 +1,120 @@
+---
+/**
+ * ImageGrid Component
+ * Displays a responsive grid of images with optional captions.
+ *
+ * @example
+ * <ImageGrid
+ *   columns={3}
+ *   images={[
+ *     { src: "/images/guirnaldas/100m.avif", alt: "Guirnaldas 100m" },
+ *     { src: "/images/guirnaldas/200m.avif", alt: "Guirnaldas 200m", caption: "Para bodas grandes" }
+ *   ]}
+ * />
+ */
+
+interface ImageItem {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
+interface Props {
+  images: ImageItem[];
+  columns?: 2 | 3 | 4;
+  aspectRatio?: "1:1" | "4:3" | "16:9" | "3:2";
+  gap?: "sm" | "md" | "lg";
+}
+
+const {
+  images,
+  columns = 3,
+  aspectRatio = "4:3",
+  gap = "md"
+} = Astro.props;
+
+const aspectRatioMap = {
+  "1:1": "1 / 1",
+  "4:3": "4 / 3",
+  "16:9": "16 / 9",
+  "3:2": "3 / 2"
+};
+---
+
+<div class={`image-grid image-grid--${columns} image-grid--gap-${gap}`}>
+  {images.map((image) => (
+    <figure class="image-grid__item">
+      <div class="image-grid__image-wrapper" style={`aspect-ratio: ${aspectRatioMap[aspectRatio]}`}>
+        <img
+          src={image.src}
+          alt={image.alt}
+          loading="lazy"
+          decoding="async"
+          class="image-grid__image"
+        />
+      </div>
+      {image.caption && (
+        <figcaption class="image-grid__caption">{image.caption}</figcaption>
+      )}
+    </figure>
+  ))}
+</div>
+
+<style>
+  .image-grid {
+    display: grid;
+    margin: var(--space-xl) 0;
+  }
+
+  .image-grid--gap-sm { gap: var(--space-sm); }
+  .image-grid--gap-md { gap: var(--space-md); }
+  .image-grid--gap-lg { gap: var(--space-lg); }
+
+  .image-grid--2 { grid-template-columns: repeat(2, 1fr); }
+  .image-grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .image-grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+  @media (max-width: 992px) {
+    .image-grid--3,
+    .image-grid--4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .image-grid--2,
+    .image-grid--3,
+    .image-grid--4 {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .image-grid__item {
+    margin: 0;
+  }
+
+  .image-grid__image-wrapper {
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    background: var(--color-bg-alt);
+  }
+
+  .image-grid__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .image-grid__item:hover .image-grid__image {
+    transform: scale(1.05);
+  }
+
+  .image-grid__caption {
+    margin-top: var(--space-xs);
+    font-size: var(--text-sm);
+    color: var(--color-text-light);
+    text-align: center;
+    line-height: 1.4;
+  }
+</style>
