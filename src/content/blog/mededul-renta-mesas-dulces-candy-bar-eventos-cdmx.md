@@ -4,7 +4,7 @@ seoTitle: "MEDEDUL: Mesas de Dulces para Bodas y Eventos CDMX"
 description: "MEDEDUL: líder en renta de mesas de dulces, candy bars y exhibiciones gastronómicas para bodas y eventos en CDMX. Guía completa."
 date: 2025-01-01
 category: "casos-exito"
-image: "/images/mobiliario/mesa-dulces-candy-bar-boda-elegante.avif"
+image: "/images/mobiliario/barra-postres-candy-bar-boda-elegante.avif"
 author: "Equipo EVENTECH"
 tags: ["mesas de dulces", "candy bar", "bodas CDMX", "XV años", "eventos sociales", "MEDEDUL", "postres eventos", "exhibiciones gastronómicas", "grazing table", "donut wall"]
 keywords:

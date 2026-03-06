@@ -76,7 +76,7 @@ eventechPartner: true
 rating: 4.4
 reviewCount: 98
 
-seoTitle: "Loreto y Peña Pobre - Eventos en Fábrica Histórica | San Ángel CDMX"
+seoTitle: "Loreto y Peña Pobre - Eventos Fábrica Histórica CDMX"
 seoDescription: "Fábrica de papel de 1580 reconvertida para eventos. Arquitectura industrial, techos altos, naves históricas. Hasta 600 personas en San Ángel."
 keywords:
   - loreto eventos cdmx

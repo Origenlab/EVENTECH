@@ -86,7 +86,7 @@ eventechDiscount: "10% en carpas estructurales"
 rating: 4.6
 reviewCount: 187
 
-seoTitle: "Jardín del Pedregal - Bodas al Aire Libre en Roca Volcánica | CDMX Sur"
+seoTitle: "Jardín del Pedregal - Bodas al Aire Libre CDMX Sur"
 seoDescription: "Celebra tu boda en Jardín del Pedregal. Paisaje volcánico único, vegetación endémica y arquitectura orgánica en la zona más exclusiva del sur de CDMX."
 keywords:
   - jardin bodas pedregal

@@ -93,7 +93,7 @@ eventechDiscount: "12% en paquetes completos de producción"
 rating: 4.7
 reviewCount: 423
 
-seoTitle: "Bosques de Santa Fe - Bodas y Eventos en Jardín Premium | Huixquilucan"
+seoTitle: "Bosques de Santa Fe - Bodas y Eventos Huixquilucan"
 seoDescription: "Celebra tu boda en Bosques de Santa Fe. 15,000 m² de jardines, lagos y bosque natural con infraestructura premium a minutos de Santa Fe CDMX."
 keywords:
   - jardin eventos santa fe
