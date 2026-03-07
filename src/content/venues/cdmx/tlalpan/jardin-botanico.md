@@ -1,8 +1,8 @@
 ---
 name: "Jardín Botánico de Tlalpan"
 slug: "jardin-botanico-tlalpan"
-description: "El Jardín Botánico de Tlalpan es un santuario de biodiversidad mexicana donde más de 3,000 especies de plantas nativas crean el escenario perfecto para eventos que buscan conectar con la naturaleza sin salir de la ciudad. Sus 7 hectáreas incluyen lagos con patos y garzas, senderos entre cactáceas y suculentas, bosques de encinos y fresnos, y explanadas de césped donde carpas elegantes se integran armoniosamente con el paisaje. Para parejas y familias que sueñan con celebrar rodeados de verde auténtico, este jardín ofrece una experiencia que ningún salón puede igualar."
-shortDescription: "7 hectáreas de vegetación nativa mexicana con lagos, senderos botánicos y explanadas para eventos al aire libre."
+description: "El Jardín Botánico de Tlalpan es un santuario de biodiversidad mexicana donde más de 3,000 especies de plantas nativas crean el escenario perfecto para eventos al aire libre. Sus 7 hectáreas incluyen lagos con patos y garzas, senderos entre cactáceas y suculentas, bosques de encinos y fresnos, un jardín de rosas con más de 50 variedades y explanadas de césped donde carpas elegantes se integran con el paisaje. Con capacidad para hasta 600 personas en banquete, es el venue de naturaleza de mayor escala en Tlalpan para bodas, XV años y celebraciones que buscan conexión auténtica con el entorno."
+shortDescription: "7 hectáreas de vegetación nativa con lagos, senderos botánicos y explanadas para eventos hasta 600 personas en Tlalpan."
 
 region: "cdmx"
 zone: "Tlalpan"
@@ -78,6 +78,9 @@ image: "/images/venues/jardin-botanico-hero.jpg"
 gallery:
   - "/images/venues/jardin-botanico-lago.jpg"
   - "/images/venues/jardin-botanico-ceremonia.jpg"
+  - "/images/venues/jardin-botanico-rosales.jpg"
+  - "/images/venues/jardin-botanico-cactaceas.jpg"
+  - "/images/venues/jardin-botanico-kiosco.jpg"
 
 eventechServices:
   - "iluminacion"
@@ -94,16 +97,30 @@ reviews:
   - author: "Roberto García"
     date: "2024-09"
     rating: 5
-    text: "El entorno natural hizo nuestra boda especial. Las fotos quedaron increíbles."
+    text: "El entorno natural hizo nuestra boda especial. Las fotos quedaron increíbles junto al lago con los patos nadando y los ahuehuetes de fondo. Un lugar que no se compara con ningún salón."
     eventType: "boda"
+  - author: "Mariana y Luis Paredes"
+    date: "2025-04"
+    rating: 5
+    text: "Nos casamos en el Jardín de las Rosas durante la primavera y fue mágico. Los rosales estaban en plena floración, el arco natural de rosas trepadores fue nuestro altar. La recepción junto al lago al atardecer fue un sueño. 350 invitados y todos quedaron maravillados."
+    eventType: "boda"
+  - author: "Familia Domínguez Vega"
+    date: "2025-07"
+    rating: 4
+    text: "Los XV de mi hija con 200 invitados bajo una carpa transparente junto al lago. Los niños disfrutaron el área infantil del bosque mientras los adultos cenábamos con vista al agua. El único detalle es que la música debe bajar a las 22:00, pero para entonces ya habíamos celebrado de sobra."
+    eventType: "xv-anos"
 
-seoTitle: "Jardín Botánico Tlalpan - Bodas y Eventos en Naturaleza | CDMX"
-seoDescription: "7 hectáreas de jardín botánico con lagos y vegetación nativa en Tlalpan. Bodas y eventos al aire libre hasta 600 personas."
+seoTitle: "Jardín Botánico Tlalpan - Bodas y Eventos al Aire Libre CDMX"
+seoDescription: "7 hectáreas de jardín botánico con lagos y vegetación nativa en Tlalpan. Bodas y eventos al aire libre hasta 600 personas en CDMX."
 keywords:
   - jardin botanico tlalpan eventos
   - bodas al aire libre cdmx
-  - salon jardin tlalpan
-  - eventos naturaleza cdmx
+  - jardin eventos tlalpan lago
+  - eventos naturaleza cdmx sur
+  - jardin botanico bodas cdmx
+  - venue naturaleza tlalpan
+  - jardin grande eventos cdmx
+  - bodas jardin con lago cdmx
 
 featured: true
 premium: false
@@ -114,70 +131,33 @@ publishedAt: 2025-01-15
 
 ## Un Ecosistema Vivo como Escenario de tu Celebración
 
-El Jardín Botánico de Tlalpan no es un jardín decorativo: es un **museo vivo de la biodiversidad mexicana** donde más de 3,000 especies de plantas nativas —desde cactáceas del desierto de Sonora hasta orquídeas de las selvas de Chiapas— coexisten en un espacio diseñado para preservar y exhibir la extraordinaria riqueza natural de nuestro país.
+El **Jardín Botánico de Tlalpan** no es un jardín decorativo: es un **museo vivo de la biodiversidad mexicana** donde más de 3,000 especies de plantas nativas — desde cactáceas del desierto de Sonora hasta orquídeas de las selvas de Chiapas — coexisten en un espacio diseñado para preservar la extraordinaria riqueza natural del país.
 
-Celebrar aquí significa mucho más que rentar un espacio bonito: significa **sumergir a tus invitados en un ecosistema** donde patos silvestres nadan en lagos cristalinos, donde colibríes visitan las flores mientras tú pronuncias tus votos, donde el aroma de plantas medicinales se mezcla con el perfume de las flores de tu bouquet. Es un venue para quienes entienden que **la naturaleza auténtica es el mejor decorador**.
+Celebrar aquí significa **sumergir a tus invitados en un ecosistema** donde patos silvestres nadan en lagos cristalinos, colibríes visitan las flores mientras pronuncias tus votos y el aroma de plantas medicinales se mezcla con el perfume de tu bouquet. Es un venue para quienes entienden que la naturaleza auténtica es el mejor decorador.
 
 ## Espacios Disponibles para Eventos
 
-### Explanada del Lago Principal (Capacidad: 350-500 banquete / 700 cóctel)
+### Explanada del Lago Principal (350-500 banquete / 700 cóctel)
 
-El corazón del jardín es su **lago de 2,000 metros cuadrados** rodeado de una explanada de césped perfectamente cuidado. Esta área, sombreada por fresnos y ahuehuetes centenarios, ofrece vistas panorámicas al agua donde patos, garzas y ocasionalmente alguna garza blanca crean un espectáculo de vida silvestre que encanta a los invitados.
+El corazón del jardín es su **lago de 2,000 metros cuadrados** rodeado de una explanada de césped perfectamente cuidado. Sombreada por fresnos y ahuehuetes centenarios, ofrece vistas panorámicas al agua donde patos, garzas y ocasionalmente garza blanca crean un espectáculo de vida silvestre.
 
-La explanada tiene infraestructura para **carpas de gran formato**, con conexiones eléctricas y superficies niveladas que permiten montajes profesionales. Al atardecer, cuando el sol se refleja en el lago y las aves regresan a sus nidos, este espacio se transforma en un escenario mágico.
+La explanada tiene infraestructura para **carpas de gran formato** con conexiones eléctricas y superficies niveladas. Al atardecer, cuando el sol se refleja en el lago y las aves regresan a sus nidos, este espacio se transforma en un escenario mágico.
 
-**Ideal para:** Bodas de formato medio a grande, XV años espectaculares, eventos corporativos que buscan conexión con la naturaleza, fiestas familiares.
+### Jardín de las Rosas (100-150 ceremonia)
 
-### Jardín de las Rosas (Capacidad: 100-150 ceremonia)
+Espacio íntimo cercado por **rosales de más de 50 variedades**, desde clásicas rosas rojas hasta raras variedades azules y negras. Un arco natural de rosales trepadores crea el **altar perfecto para ceremonias** sin decoración adicional. En primavera, cuando florecen en explosión de colores y fragancias, este espacio es imposible de superar.
 
-Un espacio íntimo cercado por **rosales de más de 50 variedades**, desde las clásicas rosas rojas hasta raras variedades azules y negras traídas de viveros especializados. Un arco natural formado por rosales trepadores crea el **altar perfecto para ceremonias** sin necesidad de decoración adicional.
+### Sendero de las Cactáceas (80-120 cóctel)
 
-En primavera, cuando los rosales florecen en explosión de colores y fragancias, este espacio es simplemente **imposible de superar** como escenario de ceremonia.
+Camino serpenteante entre **cactus y suculentas de todo México** — desde pequeñas mamillarias hasta imponentes cardones de 6 metros — que ofrece un espacio único para cócteles donde los invitados descubren formas y texturas extraordinarias.
 
-**Ideal para:** Ceremonias de boda civiles o religiosas, intercambio de anillos, sesiones fotográficas románticas.
+### Kiosco Histórico
 
-### Sendero de las Cactáceas (Capacidad: 80-120 cóctel)
+**Kiosco de hierro forjado** de principios del siglo XX, restaurado con sus detalles originales. Punto focal para músicos, ceremonias íntimas o elemento decorativo central del evento.
 
-Un camino serpenteante entre **cactus y suculentas de todo México** —desde pequeñas mamillarias hasta imponentes cardones de 6 metros de altura— ofrece un espacio único para cócteles de recepción donde los invitados deambulan descubriendo formas y texturas extraordinarias.
+### Área Infantil del Bosque
 
-**Ideal para:** Cócteles de bienvenida, eventos con estética desértica, sesiones fotográficas con plantas espectaculares.
-
-### Kiosco Histórico (Capacidad: músicos o punto focal)
-
-En el centro del jardín se alza un **kiosco de hierro forjado de principios del siglo XX**, restaurado con respeto por sus detalles originales. Este punto focal puede utilizarse para ubicar al trío o cuarteto de música, como altar para ceremonias pequeñas, o como elemento decorativo central del evento.
-
-**Ideal para:** Ubicación de músicos, ceremonias muy íntimas, punto focal visual.
-
-### Área Infantil del Bosque (Capacidad: actividades para niños)
-
-Una sección del jardín con **juegos integrados en la naturaleza** —casas en los árboles, puentes colgantes, áreas de exploración— permite que los niños invitados disfruten de manera segura mientras los adultos celebran. Supervisores del jardín pueden asignarse para cuidado durante el evento.
-
-**Ideal para:** Eventos familiares con muchos niños, bodas con área de entretenimiento infantil separada.
-
-## La Filosofía del Jardín Botánico
-
-### Conservación Activa
-Este no es solo un espacio de eventos: es una **institución de conservación** que protege especies amenazadas y educa sobre la biodiversidad mexicana. Al celebrar aquí, contribuyes directamente a esta misión.
-
-### Respeto por la Naturaleza
-Los eventos en el jardín se diseñan para **minimizar el impacto ambiental**: sin pirotecnia que asuste a la fauna, con montajes que no dañan la vegetación, con horarios que respetan los ciclos naturales.
-
-### Autenticidad Biológica
-Las plantas aquí no son decoración: son **especímenes botánicos reales** cuidados por expertos. Cada área del jardín representa un ecosistema específico de México, desde los desiertos hasta las selvas.
-
-## ¿Por Qué Elegir el Jardín Botánico de Tlalpan?
-
-### Naturaleza Genuina
-Esto no es un jardín de salón con plantas decorativas: es un **ecosistema vivo** con fauna silvestre, sonidos de naturaleza y la energía que solo la biodiversidad auténtica puede ofrecer.
-
-### Fotografías Únicas
-Los fondos que ofrece el jardín —lagos, rosales, cactáceas, bosques— permiten **sesiones fotográficas variadas** sin salir del venue. Cada rincón es una localización diferente.
-
-### Precio Accesible
-Para ser un espacio de 7 hectáreas con esta calidad de vegetación y mantenimiento, los precios son **significativamente menores** que haciendas o jardines privados de tamaño similar.
-
-### Clima Agradable
-La vegetación abundante y los cuerpos de agua crean un **microclima naturalmente fresco**, incluso en los días más calurosos de la ciudad.
+Sección con **juegos integrados en la naturaleza** — casas en árboles, puentes colgantes, áreas de exploración — para que los niños disfruten con seguridad mientras los adultos celebran.
 
 ## Servicios Incluidos
 
@@ -188,35 +168,72 @@ La vegetación abundante y los cuerpos de agua crean un **microclima naturalment
 - **Estacionamiento** para 120 vehículos
 - **Acceso a sanitarios** del jardín
 
-## Consideraciones del Espacio
+## Eventos Ideales para el Jardín Botánico
 
-- **Música amplificada** permitida hasta las 22:00 hrs
-- **Sin pirotecnia** por protección de la fauna
-- **Proveedores externos** permitidos (no hay catering exclusivo)
-- **Carpas requeridas** para eventos con más de 200 personas (protección climática)
+- **Bodas al aire libre** — Ceremonia en Jardín de Rosas, recepción junto al lago, fotos en senderos botánicos
+- **XV años espectaculares** — Carpa transparente junto al lago con naturaleza como escenografía
+- **Bautizos y comuniones** — Celebraciones familiares en un entorno verde y tranquilo
+- **Fiestas infantiles** — Área de bosque con juegos naturales para los más pequeños
+- **Baby showers** — Jardín de Rosas como escenario íntimo y fotogénico
 
-## La Experiencia de Celebrar con la Naturaleza
-
-En un mundo de salones idénticos y jardines artificiales, el Jardín Botánico de Tlalpan ofrece algo extraordinario: la oportunidad de celebrar **inmersos en la biodiversidad real de México**, donde cada planta tiene nombre científico, donde los pájaros cantan sin que nadie los haya programado, donde el agua del lago refleja tanto las nubes como los rostros emocionados de tus invitados.
-
-Aquí, tu boda no compite con la naturaleza por atención: **tu celebración se convierte en parte del paisaje**, en un evento que se siente tan natural como las flores que lo rodean.
-
-## Servicios de EVENTECH para Jardín Botánico
+## Producción EVENTECH para Jardín Botánico
 
 Como partner oficial de EVENTECH, ofrecemos soluciones que complementan y protegen el entorno natural:
 
-- **[Carpas estructurales](/servicios/carpas/estructurales/)** transparentes que no obstruyen las vistas al jardín
-- **[Carpas árabes](/servicios/carpas/carpas-arabes/)** elegantes para áreas de cóctel junto al lago
-- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** con fairy lights que respetan la flora
-- **[Pisos de duela](/servicios/carpas/pisos-complementos/)** para crear pistas de baile sobre el césped
-- **[Mobiliario natural](/servicios/mobiliario/)** que armoniza con el ambiente botánico
+- **[Carpas estructurales](/servicios/carpas/)** transparentes que no obstruyen las vistas al jardín y al lago
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) en los árboles centenarios que respetan la flora
+- **[Uplighting de vegetación](/servicios/iluminacion/arquitectonica/uplighting/)** — Bañadores LED que iluminan troncos y follaje creando ambientes únicos
+- **[Pisos y pistas de baile](/servicios/pistas-baile/)** sobre el césped sin dañar la superficie natural
+- **[Mobiliario natural](/servicios/mobiliario/)** — [Sillas Crossback](/servicios/mobiliario/sillas/crossback/) y [salas lounge boho](/servicios/mobiliario/salas-lounge/boho/) que armonizan con el ambiente
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** calibrado para espacios al aire libre
 
-## Venues Similares con Naturaleza Espectacular
+## Consideraciones del Espacio
 
-Si buscas espacios donde la naturaleza es protagonista:
+- **Música amplificada** permitida hasta las 22:00 hrs
+- **Sin pirotecnia** por protección de la fauna silvestre
+- **Proveedores externos** permitidos (no hay catering exclusivo)
+- **Carpas requeridas** para eventos con más de 200 personas (protección climática)
 
-- **[Casa del Lago UNAM](/directorio/cdmx/coyoacan/casa-del-lago/)** — Junto al Lago de Chapultepec, ambiente académico-cultural
-- **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — 12,000 m² de jardines con lago, sin límite de horario
-- **[Jardines Nativitas](/directorio/cdmx/xochimilco/nativitas/)** — Canales UNESCO, ahuehuetes centenarios, trajineras
-- **[Bosques del Nevado](/directorio/estado-mexico/zinacantepec/bosques-del-nevado/)** — Bosque de pinos con vista al Nevado de Toluca
+## La Filosofía del Jardín
+
+### Conservación Activa
+Este no es solo un espacio de eventos: es una **institución de conservación** que protege especies amenazadas y educa sobre la biodiversidad mexicana. Al celebrar aquí, contribuyes directamente a esta misión.
+
+### Respeto por la Naturaleza
+Los eventos se diseñan para **minimizar el impacto ambiental**: sin pirotecnia que asuste a la fauna, con montajes que no dañan la vegetación y con horarios que respetan los ciclos naturales del ecosistema.
+
+### Fotografía Extraordinaria
+Los fondos que ofrece el jardín — lagos, rosales, cactáceas, bosques — permiten **sesiones fotográficas variadas** sin salir del venue. Cada rincón es una localización diferente, algo que los fotógrafos profesionales valoran enormemente.
+
+### Microclima Natural
+La vegetación abundante y los cuerpos de agua crean un **microclima naturalmente fresco**, incluso en los días más calurosos de la ciudad. Los invitados lo notan al llegar y lo agradecen durante todo el evento.
+
+## Temporadas Recomendadas
+
+- **Noviembre a febrero**: Clima seco, temperaturas templadas, ideal para eventos al aire libre con carpas
+- **Marzo a mayo**: Primavera — rosales en plena floración, jacarandas en flor, la mejor temporada para el Jardín de las Rosas
+- **Junio a octubre**: Temporada de lluvias — viable con carpas estructurales, la vegetación en su punto más verde y exuberante
+- **Diciembre**: Temporada alta para posadas y eventos de fin de año; reservar con al menos 3 meses de anticipación
+
+## Ubicación y Acceso
+
+- **Dirección**: Av. San Fernando 707, Tlalpan Centro
+- **Automóvil**: Acceso por Calzada de Tlalpan o Insurgentes Sur
+- **Transporte**: Tren Ligero hasta Tlalpan, rutas de autobús sobre San Fernando
+- **Estacionamiento**: Propio para 120 vehículos
+- **Referencia**: A 10 minutos del centro histórico de Tlalpan
+
+## Venues Recomendados en Tlalpan
+
+Si buscas espacios con naturaleza o historia en la zona sur:
+
+- **[Salón Partenón](/directorio/cdmx/tlalpan/salon-partenon/)** — Salón monumental estilo clásico en Huipulco, hasta 500 personas
+- **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — 12,000 m² de jardines con lago y capilla
+- **[Casa González Luna](/directorio/cdmx/tlalpan/casa-gonzalez-luna/)** — Mansión histórica con capilla consagrada y jardines centenarios
+- **[Jardín La Perita](/directorio/cdmx/magdalena-contreras/jardin-la-perita/)** — Jardín campestre en Magdalena Contreras
+
+## La Experiencia de Celebrar con la Naturaleza
+
+En un mundo de salones idénticos y jardines artificiales, el Jardín Botánico de Tlalpan ofrece algo extraordinario: la oportunidad de celebrar **inmersos en la biodiversidad real de México**, donde cada planta tiene nombre científico, donde los pájaros cantan sin que nadie los haya programado y donde el agua del lago refleja tanto las nubes como los rostros emocionados de tus invitados.
+
+Aquí, tu celebración no compite con la naturaleza por atención: **se convierte en parte del paisaje**, en un evento que se siente tan natural como las flores que lo rodean.

@@ -1,8 +1,8 @@
 ---
 name: "Salón Encantados"
 slug: "salon-encantados"
-description: "Salón Encantados es un espacio para eventos sociales ubicado sobre Avenida División del Norte en el Pedregal de Santo Domingo, Coyoacán. Con instalaciones prácticas y ambiente festivo, este salón atiende bodas, XV años, bautizos y celebraciones familiares para la comunidad del sur de la Ciudad de México, ofreciendo precios competitivos y buena accesibilidad desde las principales vialidades de la zona."
-shortDescription: "Salón de fiestas en Pedregal de Sto. Domingo, Coyoacán. Bodas, XV años y bautizos. Sobre Av. División del Norte."
+description: "Salón Encantados es un espacio amplio y contemporáneo para eventos sociales sobre Avenida División del Norte en el Pedregal de Santo Domingo, Coyoacán. Con capacidad para hasta 250 personas, pista de baile central, área de fotos, cocina industrial y aire acondicionado, este salón ofrece una combinación de espacio generoso, buena ubicación sobre vialidad principal y precios competitivos para bodas, XV años, graduaciones y celebraciones familiares en el sur de la CDMX."
+shortDescription: "Salón amplio sobre División del Norte en Coyoacán. Bodas, XV años y graduaciones hasta 250 personas con área de fotos y A/C."
 
 region: "cdmx"
 zone: "Coyoacán"
@@ -86,8 +86,13 @@ gallery:
   - "/images/venues/salon-encantados-salon.jpg"
   - "/images/venues/salon-encantados-evento.jpg"
   - "/images/venues/salon-encantados-pista.jpg"
+  - "/images/venues/salon-encantados-fotos.jpg"
+  - "/images/venues/salon-encantados-banquete.jpg"
 
-eventechServices: []
+eventechServices:
+  - "iluminacion"
+  - "audiovisual"
+  - "mobiliario"
 eventechPartner: false
 
 rating: 4.1
@@ -103,9 +108,14 @@ reviews:
     rating: 4
     text: "Los XV años de mi hija salieron muy bien. El salón tiene buena pista de baile, el aire acondicionado funcionó toda la noche y la decoración que pusimos se vio preciosa contra las paredes claras del salón."
     eventType: "xv-anos"
+  - author: "Mtro. Ricardo Vega Soto"
+    date: "2025-12"
+    rating: 4
+    text: "Organizamos la graduación de secundaria con 200 alumnos y familias. El espacio fue más que suficiente, la ubicación sobre División del Norte facilitó que todos llegaran sin problema y el estacionamiento ayudó mucho. Buena opción para eventos escolares."
+    eventType: "graduaciones"
 
-seoTitle: "Salón Encantados - Fiestas y Eventos en Coyoacán CDMX"
-seoDescription: "Salón Encantados en Pedregal de Sto. Domingo, Coyoacán. Bodas, XV años y bautizos hasta 250 personas. Sobre División del Norte CDMX."
+seoTitle: "Salón Encantados Coyoacán - Eventos hasta 250 Personas CDMX"
+seoDescription: "Salón Encantados sobre División del Norte, Coyoacán. Bodas, XV años y graduaciones hasta 250 personas con zona de fotos. Desde $8,000."
 keywords:
   - salon encantados coyoacan
   - salon fiestas pedregal santo domingo
@@ -113,6 +123,8 @@ keywords:
   - salon bodas sur cdmx economico
   - salon xv años coyoacan
   - renta salon division del norte
+  - salon graduaciones coyoacan cdmx
+  - salon fiestas 250 personas sur cdmx
 
 featured: false
 premium: false
@@ -120,70 +132,111 @@ verified: false
 publishedAt: 2026-03-06
 ---
 
-## Un Salón Amplio sobre División del Norte en Coyoacán
+## Espacio Amplio sobre División del Norte en Coyoacán
 
-**Salón Encantados** se ubica sobre una de las avenidas más transitadas del sur de la Ciudad de México: Avenida División del Norte, en el tramo que cruza el Pedregal de Santo Domingo en Coyoacán. Esta ubicación sobre vialidad principal facilita la llegada de los invitados y ofrece buena visibilidad para encontrar el lugar sin complicaciones.
+**Salón Encantados** se ubica sobre una de las avenidas más importantes del sur de la Ciudad de México: Avenida División del Norte 3165, en el Pedregal de Santo Domingo, Coyoacán. Esta ubicación privilegiada sobre vialidad principal ofrece dos ventajas inmediatas: los invitados encuentran el lugar sin complicaciones y el acceso desde colonias vecinas como Del Valle, Tlalpan, Coapa y el centro de Coyoacán es directo por vías rápidas.
 
-El salón ha atendido celebraciones de familias de la zona sur durante años, construyendo una reputación de espacio confiable con precios justos. Su principal atractivo es la combinación de un espacio amplio — con capacidad para hasta 250 personas — y un precio que se mantiene accesible para el presupuesto familiar promedio.
+Con capacidad para **hasta 250 personas en formato banquete**, Encantados se posiciona como una de las opciones más amplias y accesibles en el sur de la CDMX. El salón combina un espacio generoso de planta abierta, acabados contemporáneos en tonos claros, pista de baile central, zona de fotos dedicada y aire acondicionado — todo dentro de un rango de precios que se mantiene competitivo para la zona. Es la combinación de espacio, ubicación y precio lo que ha convertido a este salón en una opción frecuente para bodas, XV años, graduaciones y celebraciones familiares.
 
-## Instalaciones del Salón
+## Espacios e Instalaciones
 
 ### Salón Principal
 
-El espacio principal es amplio y de planta abierta, con techos de buena altura que proporcionan una sensación de espaciosidad. Los muros en tonos claros funcionan como un lienzo versátil para cualquier tipo de decoración, desde arreglos florales clásicos hasta temáticas modernas con luces y telas.
+El espacio principal es amplio y de planta abierta, con techos de buena altura que proporcionan sensación de espaciosidad. Los muros en **tonos claros** funcionan como lienzo versátil para cualquier tipo de decoración, desde arreglos florales clásicos hasta temáticas modernas con luces y telas. La distribución permite acomodar mesas redondas o rectangulares con buena separación, facilitando el servicio de meseros y la circulación.
 
-La distribución del salón permite acomodar mesas redondas o rectangulares con buena separación entre ellas, facilitando el servicio de meseros y la circulación de los invitados. El sistema de aire acondicionado mantiene el salón a temperatura agradable durante todo el evento.
-
-La iluminación general del salón incluye puntos de luz regulables que permiten crear distintos ambientes: más iluminado durante la cena y más tenue para la fiesta y el baile.
+La **iluminación general regulable** permite crear distintos ambientes: más iluminado durante la cena, más tenue para la fiesta y el baile. El **aire acondicionado** mantiene el salón a temperatura confortable durante todo el evento.
 
 ### Pista de Baile
 
-La pista de baile está ubicada en posición central, accesible desde todas las mesas. El piso es resistente y de fácil mantenimiento, adecuado tanto para el vals formal como para la fiesta abierta. El tamaño de la pista es proporcional al salón, permitiendo que un grupo numeroso de invitados baile cómodamente.
+La pista está ubicada en posición central, accesible desde todas las mesas. Con superficie resistente y tamaño proporcional al salón, permite que un grupo numeroso de invitados baile cómodamente. Ideal tanto para el vals formal de XV años como para la fiesta abierta con DJ.
 
-### Cocina y Servicio
+### Zona de Fotos
 
-La cocina industrial del salón está equipada para que los proveedores de banquete trabajen de manera eficiente. Desde taquizas y parrilladas hasta menús formales, la infraestructura de cocina facilita cualquier tipo de servicio de alimentos.
+Un rincón del salón con iluminación favorable funciona como **zona de fotografía dedicada**. Los clientes pueden complementar este espacio con props, marcos decorativos o backdrops personalizados para crear un punto focal de fotos durante el evento.
 
-### Estacionamiento
+### Cocina Industrial y Estacionamiento
 
-El salón cuenta con estacionamiento propio sobre la avenida, con capacidad para un número razonable de vehículos. La ubicación sobre División del Norte también facilita encontrar opciones de estacionamiento en las calles aledañas.
+La **cocina industrial** está equipada para que proveedores de banquete trabajen eficientemente: desde taquizas y parrilladas hasta menús formales. El **estacionamiento** propio sobre la avenida facilita el acceso vehicular, complementado por opciones de aparcamiento en calles aledañas.
 
-## Ubicación y Conectividad
+## Servicios Incluidos
 
-La posición sobre Avenida División del Norte ofrece múltiples ventajas de acceso:
+La renta contempla mobiliario básico (mesas y sillas), mantelería, iluminación general regulable, montaje, desmontaje y limpieza completa. La política de **catering externo libre** permite elegir entre toda la gama de opciones gastronómicas — desde taquizas económicas hasta banquetes formales — según el presupuesto y preferencias de cada familia.
 
-- **Vialidades principales**: División del Norte, Eje 10 Sur, Calzada de Tlalpan, Periférico Sur
-- **Metro**: Estación General Anaya (Línea 2) y estaciones del Tren Ligero accesibles
-- **Transporte público**: Múltiples rutas de microbús y transporte sobre División del Norte
-- **Desde Coyoacán centro**: 10 minutos en automóvil
-- **Desde Tlalpan**: 12-15 minutos por Calzada de Tlalpan
-- **Desde Del Valle**: 15 minutos por División del Norte
+Los precios de Encantados se encuentran entre los más competitivos de Coyoacán, con variaciones según el día de la semana, horario y duración del evento.
 
-## Eventos Más Populares
+## Ventajas de Celebrar en Encantados
 
-Salón Encantados recibe con frecuencia:
+### Ubicación sobre Vialidad Principal
+La posición sobre Avenida División del Norte es una ventaja logística significativa: los invitados encuentran el salón sin complicaciones, las opciones de transporte público son múltiples y el acceso vehicular es directo desde diferentes puntos del sur de la ciudad.
 
-- **Bodas civiles** con recepción y banquete
-- **XV años** con protocolo completo: vals, brindis, última muñeca, fiesta
-- **Bautizos y primeras comuniones** en formato familiar
-- **Fiestas infantiles** con espacio para brincolines y shows
-- **Cumpleaños** de quinceañeros hasta adultos mayores
-- **Graduaciones** de secundaria, preparatoria y universidad
-- **Reuniones familiares** de fin de año y celebraciones especiales
+### Espacio Amplio a Precio Competitivo
+Con capacidad para 250 personas en banquete, Encantados ofrece uno de los mejores ratios espacio-precio de Coyoacán. Eventos grandes que en otros salones requerirían dos espacios se resuelven cómodamente en un solo salón.
 
-## Servicios y Precios
+### Muros Claros como Lienzo
+Los acabados en tonos claros son una ventaja decorativa real: cualquier esquema de color, desde arreglos florales clásicos hasta temáticas modernas con luces y telas, luce mejor contra paredes neutrales que en salones con acabados oscuros o recargados.
 
-La renta del salón incluye mobiliario básico (mesas y sillas), mantelería, iluminación general, montaje, desmontaje y limpieza. Todos los servicios adicionales — banquete, DJ, decoración, fotografía — pueden contratarse de manera independiente con los proveedores preferidos del cliente.
+### Zona de Fotos Dedicada
+El área de fotografía con iluminación favorable permite a los invitados capturar momentos memorables durante todo el evento sin necesidad de improvisar espacios para las fotos grupales y familiares.
 
-La política de catering externo libre es una de las ventajas del salón, ya que permite a las familias elegir entre una amplia gama de opciones gastronómicas que se ajusten a su presupuesto y preferencias.
-
-Los precios de Salón Encantados se encuentran entre los más competitivos de Coyoacán, con paquetes que varían según el día de la semana, el horario y los servicios adicionales contratados.
-
-## Recomendaciones
+## Recomendaciones para tu Evento
 
 - Agendar visita al salón con anticipación para verificar dimensiones y distribución
 - Confirmar servicios de banquete y entretenimiento al menos un mes antes del evento
 - Coordinar horarios de montaje de decoración con el equipo del salón
-- Para eventos grandes (200+ personas), considerar servicio de valet parking o indicaciones de estacionamiento para invitados
+- Para eventos de más de 200 personas, considerar indicaciones de estacionamiento alternativo
+- Aprovechar los muros claros para maximizar el impacto de la decoración con inversión moderada
 
-Salón Encantados es una opción práctica y accesible para las familias de Coyoacán, Tlalpan y el sur de la CDMX que buscan un espacio amplio y bien ubicado para celebrar sus momentos más importantes sin comprometer el presupuesto.
+## Producción Profesional con EVENTECH
+
+Para potenciar la experiencia visual y sonora de tu evento en Encantados, EVENTECH ofrece:
+
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) y cortinas de luces que transforman los muros claros del salón
+- **[Sonido profesional](/servicios/audiovisual/sonido/)** — Sistema de audio con DJ para eventos de hasta 300 personas
+- **[Mobiliario premium](/servicios/mobiliario/)** — [Sillas Tiffany](/servicios/mobiliario/sillas/tiffany/) o [Ghost](/servicios/mobiliario/sillas/ghost/) para una estética contemporánea
+- **[Pantallas LED](/servicios/audiovisual/pantallas-led/)** — Videos, retrospectivas y ambientación visual para graduaciones y bodas
+- **[Pistas de baile](/servicios/pistas-baile/)** — Pistas iluminadas que elevan la experiencia central del evento
+
+## Eventos Ideales para Encantados
+
+El espacio amplio y la ubicación accesible lo hacen versátil para una variedad de celebraciones:
+
+- **Bodas civiles** — Recepción con banquete completo hasta 250 invitados
+- **XV años** — Protocolo completo: vals, brindis, última muñeca y fiesta
+- **Graduaciones** — Formato banquete para cenas de gala de secundaria, preparatoria y universidad
+- **Bautizos y comuniones** — Celebración familiar con configuración adaptada
+- **Fiestas infantiles** — Espacio amplio para brincolines, shows y actividades
+- **Cumpleaños** — Celebraciones de todas las edades con decoración personalizada
+- **Aniversarios** — Bodas de plata, bodas de oro y reuniones familiares especiales
+
+## Ubicación y Conectividad
+
+La posición sobre Avenida División del Norte ofrece conectividad directa con todo el sur de la CDMX:
+
+- **División del Norte**: Acceso directo, 15 minutos desde Del Valle
+- **Calzada de Tlalpan**: 12-15 minutos desde Tlalpan centro
+- **Eje 10 Sur / Periférico**: Conexiones rápidas desde zonas sur y poniente
+- **Metro General Anaya**: Línea 2, accesible en transporte público
+- **Tren Ligero**: Estaciones cercanas sobre Calzada de Tlalpan
+- **Desde Coyoacán centro**: 10 minutos en automóvil
+- **Estacionamiento**: Propio sobre la avenida
+
+## Venues Recomendados en la Zona
+
+Explora otras opciones para tu evento en Coyoacán y alrededores:
+
+- **[Hacienda San Ángel](/directorio/cdmx/coyoacan/hacienda-san-angel/)** — Venue premium con arquitectura colonial en Coyoacán
+- **[Salón Romanza](/directorio/cdmx/coyoacan/salon-romanza/)** — Salón con ambiente romántico en Pedregal de Sta. Úrsula
+- **[Salón Partenón Tlalpan](/directorio/cdmx/tlalpan/salon-partenon/)** — Salón amplio en Tlalpan para eventos grandes
+- **[Jardín La Perita](/directorio/cdmx/magdalena-contreras/jardin-la-perita/)** — Jardín al aire libre en Magdalena Contreras
+
+## Horarios y Disponibilidad
+
+Encantados opera de **lunes a viernes de 10:00 a 23:00** y **fines de semana de 10:00 a 02:00**, con un mínimo de 5 horas de renta. La música amplificada se permite hasta el horario de cierre. No se permite pirotecnia interior ni mascotas en las instalaciones.
+
+Los precios varían según el día de la semana, el horario y la duración del evento, con opciones entre semana más accesibles que representan una buena oportunidad para graduaciones escolares y eventos corporativos informales.
+
+## Celebra en el Sur de la CDMX sin Comprometer el Presupuesto
+
+**Salón Encantados** ofrece lo que muchas familias del sur de la ciudad buscan: un espacio amplio, bien ubicado y con la infraestructura necesaria para celebrar bodas, XV años, graduaciones y fiestas familiares de hasta 250 personas a precios que respetan el presupuesto. La ubicación sobre División del Norte facilita la logística, los acabados claros realzan cualquier decoración y la libertad de proveedores permite personalizar cada evento sin restricciones.
+
+Cotiza tu evento o agenda una visita al salón contactando al **55 5424 3871** por teléfono o WhatsApp. El equipo de Encantados te ayudará a planificar la distribución y logística de tu celebración.

@@ -132,6 +132,30 @@ Las paredes del salón en tonos claros permiten que cualquier esquema decorativo
 
 El salón dispone de espacio de estacionamiento para los invitados, lo cual resulta un beneficio significativo en la zona donde las opciones de aparcamiento en la calle pueden ser limitadas durante eventos de fin de semana. Este servicio se incluye sin costo adicional en la renta del espacio.
 
+## La Ventaja del Trato Personalizado
+
+En Salón Sarita, la diferencia está en las personas. Los propietarios participan activamente en cada etapa de la organización del evento:
+
+- **Asesoría de distribución** — Ayudan a definir la mejor disposición de mesas según el número de invitados y el tipo de evento, optimizando el flujo de circulación
+- **Recomendaciones de proveedores** — Comparten contactos de caterings, pastelerías, floristas y DJs de confianza que conocen el espacio y trabajan bien en él
+- **Flexibilidad en horarios** — Se adaptan a las necesidades específicas de cada cliente, con opciones de horario entre semana y fin de semana
+- **Coordinación el día del evento** — Están presentes para resolver cualquier imprevisto y asegurar que todo fluya con normalidad
+- **Visitas previas sin compromiso** — Permiten a las familias conocer el espacio, tomar medidas y planificar su decoración con anticipación
+
+Este nivel de involucramiento personal es algo que los clientes valoran enormemente y que se refleja en las recomendaciones que el salón recibe constantemente en la zona norte.
+
+## Precios y Cotización
+
+Salón Sarita se ubica en la categoría de precios accesibles ($), lo que lo convierte en una de las opciones más económicas de la alcaldía Gustavo A. Madero sin sacrificar la calidad del espacio. La política de precios es clara y transparente:
+
+- Cotización detallada desde la primera consulta
+- Sin cargos ocultos ni sorpresas al final del evento
+- Flexibilidad para ajustar servicios según presupuesto
+- Opciones de paquetes entre semana con tarifas reducidas
+- Posibilidad de contratar solo el espacio y traer proveedores propios
+
+Para solicitar cotización actualizada, contacta directamente al **55 3893 1893** por teléfono o WhatsApp.
+
 ## Servicios Incluidos en la Renta
 
 La renta de Salón Sarita incluye todo lo necesario para una celebración sin complicaciones:
@@ -171,7 +195,31 @@ Celebraciones religiosas en formato íntimo o mediano donde las familias pueden 
 
 ### Cumpleaños y Aniversarios
 
-Desde fiestas infantiles con temática y actividades hasta celebraciones de adultos como bodas de plata o bodas de oro. La versatilidad del salón permite adaptarse a cualquier rango de edad y estilo de festejo.
+Desde fiestas infantiles con temática y actividades hasta celebraciones de adultos como bodas de plata o bodas de oro. La versatilidad del salón permite adaptarse a cualquier rango de edad y estilo de festejo. Las fiestas infantiles se benefician de la pista de baile amplia y la posibilidad de instalar [inflables EVENTECH](/servicios/inflables/) dentro del espacio.
+
+### Posadas y Reuniones de Fin de Año
+
+Durante la temporada decembrina, Salón Sarita es una opción popular para posadas familiares, reuniones de fin de año y celebraciones del Día de las Madres. La capacidad para 180 personas permite reuniones de familias extendidas en un solo espacio.
+
+## Caterings y Proveedores
+
+Salón Sarita permite la contratación libre de proveedores externos, otorgando a los clientes la flexibilidad de elegir el servicio de alimentos y bebidas que mejor se adapte a su presupuesto y gusto:
+
+- **Cocina industrial equipada** con estufas, refrigeradores, mesas de preparación y lavavajillas para que el catering trabaje con comodidad
+- **Libertad total** para elegir entre caterings formales, taquerías, fondas o servicio de banquete tradicional
+- **Sin penalización** por traer proveedores propios de cualquier tipo
+- **Recomendaciones disponibles** — Los propietarios comparten contactos de caterings que ya conocen el espacio y trabajan bien en la cocina
+- **Opciones de bebidas** — Posibilidad de contratar servicio de barra libre o traer bebidas propias según el acuerdo de renta
+
+## Consejos para Planear tu Evento en Sarita
+
+El equipo de Salón Sarita recomienda a sus clientes considerar los siguientes puntos para maximizar la experiencia:
+
+- **Reserva con anticipación** — Los fines de semana de mayo, junio, septiembre y diciembre se agotan con meses de antelación
+- **Visita el espacio antes de reservar** — Conocer las dimensiones reales permite planificar mejor la distribución de mesas y la decoración
+- **Considera la producción EVENTECH** — Un sistema de [iluminación profesional](/servicios/iluminacion/decorativa/) y [audio con DJ](/servicios/audiovisual/sonido/) transforma completamente la experiencia en un salón sencillo
+- **Confirma tu catering con tiempo** — La cocina industrial está disponible para proveedores externos, pero es importante coordinarlo con anticipación
+- **Aprovecha la asesoría de los propietarios** — Su experiencia de más de una década organizando eventos en este espacio es un recurso valioso que pocos salones ofrecen
 
 ## Ubicación y Acceso
 
@@ -191,6 +239,15 @@ Si Salón Sarita no se ajusta a tus necesidades o buscas explorar otras opciones
 - **[Salón Sol](/directorio/cdmx/gustavo-a-madero/salon-sol/)** — Espacio funcional en Nueva Atzacoalco con precios transparentes y capacidad similar
 - **[Jardín Veralí](/directorio/cdmx/gustavo-a-madero/jardin-verali/)** — Para quienes prefieren celebrar al aire libre con vegetación natural en Acueducto de Guadalupe
 - **[Salón Castillo](/directorio/cdmx/azcapotzalco/salon-castillo/)** — Opción cercana en Azcapotzalco con estilo clásico y buena capacidad
+
+## Horarios y Disponibilidad
+
+Salón Sarita ofrece horarios flexibles que se adaptan a diferentes tipos de eventos:
+
+- **Entre semana** (lunes a viernes): 10:00 a 23:00 — Ideal para reuniones corporativas informales, cumpleaños entre semana con tarifas reducidas
+- **Fines de semana** (sábado y domingo): 10:00 a 02:00 — Horario extendido para fiestas y celebraciones
+- **Mínimo de horas**: 5 horas por evento
+- **Reservaciones**: Se recomienda reservar con al menos 4-6 semanas de anticipación, especialmente para fines de semana
 
 ## Un Salón que Se Gana la Confianza
 

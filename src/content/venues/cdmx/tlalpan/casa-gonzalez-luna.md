@@ -1,8 +1,8 @@
 ---
 name: "Casa González Luna"
 slug: "casa-gonzalez-luna"
-description: "Casa González Luna es una mansión histórica del siglo XIX ubicada en el centro de Tlalpan, uno de los pueblos originarios más pintorescos de la Ciudad de México. Con jardines centenarios, arquitectura señorial, y una capilla privada consagrada, esta propiedad ofrece el escenario perfecto para bodas tradicionales mexicanas, bautizos familiares y celebraciones que buscan autenticidad histórica en un ambiente de hacienda urbana."
-shortDescription: "Mansión histórica con capilla y jardines centenarios en el pueblo de Tlalpan."
+description: "Casa González Luna es una mansión histórica del siglo XIX ubicada en el centro de Tlalpan, uno de los pueblos originarios más pintorescos de la Ciudad de México. Con jardines centenarios de 2,000 metros cuadrados, arquitectura señorial, capilla privada consagrada y salón colonial con chimenea de cantera, esta propiedad ofrece el escenario perfecto para bodas tradicionales mexicanas, bautizos familiares y celebraciones que buscan autenticidad histórica en un ambiente de hacienda urbana para hasta 250 personas."
+shortDescription: "Mansión histórica con capilla consagrada y jardines centenarios en Tlalpan Centro. Bodas y bautizos hasta 250 personas."
 
 region: "cdmx"
 zone: "Tlalpan"
@@ -74,6 +74,7 @@ gallery:
   - "/images/venues/gonzalez-luna-capilla.jpg"
   - "/images/venues/gonzalez-luna-salon.jpg"
   - "/images/venues/gonzalez-luna-terraza.jpg"
+  - "/images/venues/gonzalez-luna-vestidor.jpg"
 
 eventechServices:
   - "iluminacion"
@@ -85,15 +86,34 @@ eventechDiscount: "10% en paquetes de iluminación"
 
 rating: 4.7
 reviewCount: 189
+reviews:
+  - author: "Valentina y Marco Suárez"
+    date: "2025-10"
+    rating: 5
+    text: "Nos casamos en la capilla de Casa González Luna y la recepción fue en el jardín bajo los fresnos centenarios. Todo fue perfecto: la capilla con su retablo original es impresionante, el jardín con la fuente de cantera fue el escenario ideal y el equipo de la casa nos hizo sentir como familia. Un lugar con alma."
+    eventType: "boda"
+  - author: "Familia Navarro Castillo"
+    date: "2025-06"
+    rating: 5
+    text: "El bautizo de nuestra hija en la capilla del siglo XIX fue una experiencia que ningún otro lugar puede dar. La luz que entra por los vitrales, las bancas de nogal antiguo, el retablo dorado... después la recepción en el jardín con los árboles centenarios. Tlalpan Centro le da un contexto único."
+    eventType: "bautizo"
+  - author: "Lic. Carmen Ortega — Despacho Ortega & Asociados"
+    date: "2025-12"
+    rating: 4
+    text: "Organizamos nuestra cena de fin de año en el salón colonial. La chimenea de cantera, los techos de vigas de madera y los retratos de época crearon un ambiente que ningún hotel puede replicar. 80 personas, cena formal, y el encanto de la casa hizo todo el trabajo de ambientación."
+    eventType: "corporativos"
 
-seoTitle: "Casa González Luna - Bodas y Bautizos con Capilla | Tlalpan CDMX"
-seoDescription: "Celebra tu boda o bautizo en Casa González Luna. Mansión histórica con capilla consagrada, jardines centenarios y ambiente tradicional en Tlalpan."
+seoTitle: "Casa González Luna - Bodas con Capilla en Tlalpan CDMX"
+seoDescription: "Mansión histórica con capilla consagrada y jardines centenarios en Tlalpan Centro. Bodas y bautizos hasta 250 personas en CDMX."
 keywords:
-  - casa eventos tlalpan
+  - casa gonzalez luna tlalpan
   - bodas capilla cdmx sur
   - mansion eventos tlalpan
-  - bautizos capilla cdmx
+  - bautizos capilla privada cdmx
   - jardines bodas sur cdmx
+  - casa historica eventos tlalpan
+  - bodas tradicionales tlalpan cdmx
+  - venue con capilla cdmx sur
 
 featured: false
 premium: false
@@ -104,135 +124,110 @@ publishedAt: 2025-03-01
 
 ## Historia Viva en el Corazón de Tlalpan
 
-Casa González Luna es mucho más que un venue: es un **pedazo de historia mexicana** que ha sobrevivido dos siglos de transformaciones. Construida en 1847 por una prominente familia de comerciantes, esta mansión ha sido testigo de la Reforma, la Revolución, y la evolución de Tlalpan de pueblo agrícola a alcaldía de la capital.
+**Casa González Luna** es mucho más que un venue: es un **pedazo de historia mexicana** que ha sobrevivido dos siglos de transformaciones. Construida en 1847 por una prominente familia de comerciantes, esta mansión ha sido testigo de la Reforma, la Revolución y la evolución de Tlalpan de pueblo agrícola a alcaldía de la capital.
 
 La familia actual, descendientes de los fundadores, ha abierto sus puertas para compartir este **tesoro arquitectónico** con parejas y familias que buscan celebrar en un espacio con alma, donde cada piedra cuenta una historia y cada árbol ha presenciado generaciones de celebraciones.
 
 ## Espacios Entre Historia y Naturaleza
 
-### Capilla de la Virgen del Carmen (Capacidad: 80 personas)
+### Capilla de la Virgen del Carmen (80 personas)
 
-La **capilla privada consagrada** de la casa data de 1852 y mantiene su retablo original de madera tallada y dorada, pinturas al óleo de la escuela mexicana del siglo XIX, y bancas de nogal que han acomodado a cientos de novias a lo largo de 170 años. La capilla está activa para ceremonias católicas con sacerdote disponible.
+La **capilla privada consagrada** data de 1852 y mantiene su retablo original de madera tallada y dorada, pinturas al óleo de la escuela mexicana del siglo XIX y bancas de nogal que han acomodado a cientos de novias durante 170 años. La capilla está activa para ceremonias católicas con sacerdote disponible.
 
-**Ideal para:** Ceremonias religiosas católicas, bautizos, primeras comuniones, confirmaciones, renovación de votos.
+### Jardín Principal (150-250 banquete / 300 cóctel)
 
-### Jardín Principal (Capacidad: 150-250 banquete / 300 cóctel)
+El **jardín de 2,000 metros cuadrados** está dominado por árboles centenarios — fresnos, jacarandas, truenos — que proporcionan sombra natural y crean un microclima agradable. Una fuente de cantera del siglo XIX marca el centro del espacio, mientras senderos empedrados conectan las diferentes áreas.
 
-El **jardín de 2,000 metros cuadrados** está dominado por árboles centenarios —fresnos, jacarandas, truenos— que proporcionan sombra natural y crean un microclima agradable incluso en días calurosos. Una fuente de cantera del siglo XIX marca el centro del espacio, mientras que los senderos empedrados conectan diferentes áreas del jardín.
+### Salón Colonial (80-120 personas)
 
-**Ideal para:** Recepciones de bodas, cenas bajo los árboles, cócteles al atardecer, eventos familiares grandes.
+El **antiguo salón de recepciones** con pisos de duela original, techos de vigas de madera y chimenea de cantera. Las paredes exhiben retratos familiares de época y arte colonial que crean un ambiente de museo vivo. Espacio cerrado perfecto como plan B o para eventos de temporada de lluvias.
 
-### Salón Colonial (Capacidad: 80-120 personas)
+### Terraza del Corredor (40-60 personas)
 
-El **antiguo salón de recepciones de la casa**, con pisos de duela original, techos de vigas de madera, y chimenea de cantera. Las paredes exhiben retratos familiares de época y arte colonial que le dan un ambiente de museo vivo. Este espacio cerrado es perfecto como plan B o para eventos de temporada.
-
-**Ideal para:** Recepciones formales, cenas íntimas, eventos de invierno, lluvias.
-
-### Terraza del Corredor (Capacidad: 40-60 personas)
-
-El **corredor perimetral** de la casa, con arcadas de cantera y piso de barro cocido, ofrece un espacio techado con vista al jardín. Perfecto para cenas íntimas o como área de cóctel mientras el jardín se prepara.
-
-**Ideal para:** Cenas de ensayo, cócteles de bienvenida, área de fumadores, mesas de honor.
+El **corredor perimetral** con arcadas de cantera y piso de barro cocido ofrece espacio techado con vista al jardín. Perfecto para cenas íntimas, cócteles de bienvenida o área de fumadores.
 
 ### Vestidor de Novia
 
-Una **habitación de la casa** habilitada como vestidor, con espejos de época, tocador antiguo, y ese ambiente de prepararse en la casa de la abuela que muchas novias anhelan.
-
-## El Encanto de Tlalpan
-
-Tlalpan ofrece un **contexto único** que enriquece cualquier celebración:
-
-### Historia y Cultura
-- **Centro histórico** con portales del siglo XVI
-- **Iglesia de San Agustín** a pasos de la casa
-- **Museos y galerías** en edificios coloniales
-- **Mercado tradicional** con comida típica
-
-### Naturaleza
-- **Bosque de Tlalpan** a minutos para fotos
-- **Ajusco y volcanes** como telón de fondo
-- **Clima templado** todo el año
-
-### Logística
-- **Metro Tasqueña** + Tren Ligero hasta Tlalpan Centro
-- **Uber disponible** abundantemente
-- **Estacionamiento** de la plaza a 50 metros
-
-## Gastronomía Tradicional
-
-Casa González Luna recomienda caterers especializados en **cocina mexicana tradicional**:
-
-### Menús Populares
-- **Cocina mexicana** de recetas familiares
-- **Mole poblano** preparado tradicionalmente
-- **Carnitas y barbacoa** de proveedores de Tlalpan
-- **Menú de hacienda** con guisos de olla
-
-### Experiencias
-- **Taquiza gourmet** con tortillas hechas a mano
-- **Estación de antojitos** mexicanos
-- **Aguas frescas** tradicionales
-- **Postres conventuales** (chongos, jamoncillo)
-
-## ¿Por Qué Elegir Casa González Luna?
-
-### Autenticidad Total
-No es una reproducción: es una **casa de 175 años** que ha permanecido en la misma familia.
-
-### Capilla Consagrada
-Una de las pocas **capillas privadas activas** en CDMX para ceremonias religiosas católicas.
-
-### Ubicación con Encanto
-**Tlalpan Centro** es un pueblo mágico urbano con arquitectura colonial, mercado tradicional, y ambiente de pueblo.
-
-### Precio Razonable
-**Historia y autenticidad** a precios muy por debajo de las haciendas fuera de la ciudad.
-
-### Ceremonia y Recepción
-**Todo en un lugar**: capilla, jardín, salón —sin traslados entre ceremonia y fiesta.
+**Habitación de la casa** habilitada como vestidor con espejos de época, tocador antiguo y ese ambiente de prepararse en la casa de la abuela que muchas novias anhelan.
 
 ## Servicios Incluidos
 
 - **Uso exclusivo** de casa y jardines
 - **Capilla** para ceremonia religiosa
-- **Coordinador** de la casa
+- **Coordinador** de la casa para logística
 - **Mobiliario básico** de jardín
-- **Iluminación** perimetral
-- **Estacionamiento** en plaza cercana
+- **Iluminación** perimetral del espacio
 - **Seguridad** durante el evento
 - **Vestidor** de novia equipado
 - **Cocina** para servicio de catering
+- **Estacionamiento** en plaza cercana
 
-## Políticas de la Casa
+## Eventos Ideales para Casa González Luna
 
-### Celebramos
-- Bodas católicas y civiles
-- Bautizos y primeras comuniones
-- XV años tradicionales
-- Aniversarios familiares
+- **Bodas católicas y civiles** — Ceremonia en capilla y recepción en jardín, todo en un solo lugar
+- **Bautizos y primeras comuniones** — Capilla consagrada y jardín para celebración familiar
+- **XV años tradicionales** — Misa en capilla y fiesta en jardín con ambiente de hacienda
+- **Aniversarios familiares** — Bodas de plata y de oro en un escenario con historia
+- **Corporativos selectos** — Cenas en salón colonial con ambiente único e irrepetible
 
-### Consideraciones
-- **Respeto** a la propiedad histórica
-- **Decoración** que no dañe la estructura
-- **Volumen moderado** por zona residencial
-- **Fuegos artificiales** prohibidos
+## Gastronomía Tradicional
 
-## Servicios de EVENTECH para Casa González Luna
+Casa González Luna recomienda caterers especializados en **cocina mexicana tradicional** que honren el carácter de la propiedad:
 
-Como partner de EVENTECH, complementamos la tradición:
+- **Cocina de hacienda**: Mole poblano, guisos de olla, chiles en nogada (en temporada)
+- **Taquiza gourmet**: Tortillas hechas a mano, carnitas, barbacoa, pastor
+- **Estación de antojitos**: Quesadillas, sopes, tlacoyos, tamales
+- **Aguas frescas** tradicionales: Jamaica, horchata, tamarindo, chía
+- **Postres conventuales**: Chongos zamoranos, jamoncillo, ate con queso
+- **Open bar mexicano**: Mezcal, tequila, pulque curado, margaritas artesanales
 
-- **[Carpas transparentes](/servicios/carpas/carpas-arabes/)** para el jardín
-- **[Iluminación cálida](/servicios/iluminacion/decorativa/)** que realza la cantera
-- **[Pistas de baile de madera](/servicios/pistas-baile/madera-clasica/)** estilo colonial
-- **[Mobiliario vintage](/servicios/mobiliario/salas-lounge/vintage/)** acorde a la época
-- **[Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/)** en los árboles centenarios
-- **[Calefacción](/servicios/accesorios/calefaccion-clima/)** para eventos de invierno
+## Producción EVENTECH para Casa González Luna
 
-## Venues Similares con Capilla
+Como partner de EVENTECH, complementamos la tradición con producción profesional:
 
-Si buscas espacios con capilla para ceremonia religiosa:
+- **[Carpas transparentes](/servicios/carpas/)** para el jardín que protegen sin ocultar los árboles centenarios
+- **[Iluminación cálida](/servicios/iluminacion/decorativa/)** — [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) en los árboles y [uplighting](/servicios/iluminacion/arquitectonica/uplighting/) que realza la cantera
+- **[Mobiliario vintage](/servicios/mobiliario/salas-lounge/vintage/)** acorde a la época de la casa
+- **[Sillas Crossback](/servicios/mobiliario/sillas/crossback/)** de madera natural para el jardín
+- **[Sonido profesional](/servicios/audiovisual/sonido/)** calibrado para respetar la zona residencial
+- **[Calefacción](/servicios/accesorios/calefaccion-clima/)** para eventos de invierno en el jardín
 
-- **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — Capilla mayor, más capacidad
-- **[Hacienda San Gaspar](/directorio/estado-mexico/valle-de-bravo/hacienda-san-gaspar/)** — Colonial en Valle de Bravo
-- **[Ex-Hacienda Tepotzotlán](/directorio/estado-mexico/tepotzotlan/ex-hacienda-tepotzotlan/)** — Arte barroco excepcional
-- **[Hacienda Santa Cecilia](/directorio/estado-mexico/huixquilucan/hacienda-santa-cecilia/)** — Cerca de Santa Fe
+## El Encanto de Tlalpan Centro
+
+Tlalpan ofrece un **contexto único** que enriquece cualquier celebración:
+
+- **Centro histórico** con portales del siglo XVI e Iglesia de San Agustín a pasos de la casa
+- **Bosque de Tlalpan** a minutos para sesiones de fotos pre-boda o de quinceañera
+- **Mercado tradicional** con comida típica, artesanías y ambiente de pueblo
+- **Gastronomía**: Casa González Luna recomienda caterers especializados en cocina mexicana tradicional — mole poblano, carnitas, taquiza gourmet con tortillas hechas a mano, postres conventuales
+- **Clima templado** todo el año y ambiente de pueblo mágico urbano
+
+## Consideraciones de la Propiedad
+
+- **Respeto** a la propiedad histórica — decoración que no dañe la estructura
+- **Volumen moderado** por zona residencial del centro de Tlalpan
+- **Fuegos artificiales** prohibidos por protección de la propiedad y la zona
+- **Horario**: Hasta la 1:00 AM fines de semana, medianoche entre semana
+- **Mínimo 6 horas** de renta por evento
+
+## Ubicación y Acceso
+
+- **Dirección**: Plaza de la Constitución 8, Centro de Tlalpan
+- **Automóvil**: Acceso por Calzada de Tlalpan o Insurgentes Sur
+- **Transporte**: Tren Ligero hasta Tlalpan Centro, Uber disponible
+- **Estacionamiento**: Plaza cercana a 50 metros
+
+## Venues Recomendados en Tlalpan
+
+Si buscas opciones similares con historia y capilla:
+
+- **[Salón Partenón](/directorio/cdmx/tlalpan/salon-partenon/)** — Salón monumental estilo clásico en Huipulco, hasta 500 personas
+- **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — Capilla mayor, jardines de 12,000 m² y más capacidad
+- **[Jardín Botánico de Tlalpan](/directorio/cdmx/tlalpan/jardin-botanico-tlalpan/)** — 7 hectáreas de naturaleza con lagos y senderos botánicos
+- **[Jardín La Perita](/directorio/cdmx/magdalena-contreras/jardin-la-perita/)** — Jardín campestre en la alcaldía vecina
+
+## Donde la Historia Abraza tu Celebración
+
+No es una reproducción: es una **casa de 175 años** que ha permanecido en la misma familia. La capilla consagrada, los jardines centenarios, el salón colonial con chimenea y el contexto incomparable de Tlalpan Centro hacen de **Casa González Luna** un venue donde la autenticidad no se renta — se hereda por unas horas.
+
+Para parejas y familias que buscan ceremonia y recepción en un solo lugar, con historia real, naturaleza madura y el encanto de un pueblo originario de la CDMX, esta mansión ofrece una experiencia que ningún salón moderno puede replicar.

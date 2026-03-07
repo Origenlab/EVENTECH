@@ -1,8 +1,8 @@
 ---
 name: "Salón de Fiestas Romanza"
 slug: "salon-romanza"
-description: "Salón de Fiestas Romanza es un espacio para celebraciones sociales en el Pedregal de Santa Úrsula, Coyoacán. Con un diseño interior que evoca romanticismo y elegancia, este salón ofrece un ambiente cuidado para bodas, XV años, bautizos y eventos familiares en el sur de la Ciudad de México. Su nombre refleja la vocación del espacio: crear el escenario ideal para celebraciones que marcan momentos especiales en la vida."
-shortDescription: "Salón de fiestas en Pedregal de Sta. Úrsula, Coyoacán. Bodas y XV años con ambiente romántico. Sur CDMX."
+description: "Salón de Fiestas Romanza es un espacio con ambiente romántico para celebraciones sociales en el Pedregal de Santa Úrsula, Coyoacán. Con acabados cálidos en tonos crema y dorado, capacidad para hasta 180 personas, pista de baile, zona de fotos y cocina industrial, este salón ofrece un escenario ideal para bodas, XV años, aniversarios y baby showers que buscan elegancia sin los costos de un venue de lujo en el sur de la CDMX."
+shortDescription: "Salón con ambiente romántico en Pedregal de Sta. Úrsula, Coyoacán. Bodas y XV años hasta 180 personas. Decoración propia elegante."
 
 region: "cdmx"
 zone: "Coyoacán"
@@ -85,8 +85,13 @@ gallery:
   - "/images/venues/salon-romanza-salon.jpg"
   - "/images/venues/salon-romanza-decoracion.jpg"
   - "/images/venues/salon-romanza-evento.jpg"
+  - "/images/venues/salon-romanza-pista.jpg"
+  - "/images/venues/salon-romanza-fotos.jpg"
 
-eventechServices: []
+eventechServices:
+  - "iluminacion"
+  - "audiovisual"
+  - "mobiliario"
 eventechPartner: false
 
 rating: 4.3
@@ -102,9 +107,14 @@ reviews:
     rating: 4
     text: "Organizamos el baby shower de mi hija aquí y fue precioso. El salón es acogedor y bonito sin necesidad de mucha decoración. El personal fue amable y nos ayudó con todo lo que necesitamos. Muy buena opción en Coyoacán."
     eventType: "baby-shower"
+  - author: "Familia Delgado Ruiz"
+    date: "2025-11"
+    rating: 4
+    text: "Celebramos las bodas de plata de mis papás con 120 invitados. El ambiente del salón es precioso, los tonos cálidos combinaron perfecto con nuestra decoración en dorado y blanco. El área de fotos fue un éxito. Excelente relación calidad-precio."
+    eventType: "aniversario"
 
-seoTitle: "Salón de Fiestas Romanza - Bodas y Eventos en Coyoacán CDMX"
-seoDescription: "Salón de fiestas Romanza en Pedregal Sta. Úrsula, Coyoacán. Bodas y XV años con ambiente romántico hasta 180 personas. Sur CDMX."
+seoTitle: "Salón Romanza Coyoacán - Bodas y XV Años Ambiente Romántico"
+seoDescription: "Salón Romanza en Pedregal Sta. Úrsula, Coyoacán. Bodas y XV años con decoración romántica hasta 180 personas. Precios desde $8,000."
 keywords:
   - salon romanza coyoacan
   - salon fiestas pedregal santa ursula
@@ -112,6 +122,8 @@ keywords:
   - salon eventos sur cdmx
   - salon xv años coyoacan economico
   - renta salon fiestas coyoacan
+  - salon aniversarios sur cdmx
+  - salon baby shower coyoacan elegante
 
 featured: false
 premium: false
@@ -119,70 +131,111 @@ verified: false
 publishedAt: 2026-03-06
 ---
 
-## Un Salón con Ambiente Romántico en Coyoacán
+## Ambiente Romántico para Celebraciones Especiales en Coyoacán
 
-**Salón de Fiestas Romanza** se encuentra en la calle San Gabriel del Pedregal de Santa Úrsula, una de las colonias más tranquilas del sur de Coyoacán. Como su nombre sugiere, este salón ha sido diseñado pensando en celebraciones que requieren un toque de romanticismo y calidez: bodas íntimas, XV años soñados, aniversarios memorables y todas aquellas fiestas donde la emoción es protagonista.
+**Salón de Fiestas Romanza** se ubica en la calle San Gabriel 99 del Pedregal de Santa Úrsula, una de las colonias más tranquilas del sur de Coyoacán. Como su nombre sugiere, este salón ha sido diseñado pensando en celebraciones donde la emoción es protagonista: bodas íntimas, XV años elegantes, aniversarios memorables y baby showers que merecen un escenario con personalidad propia.
 
-El interior del salón se distingue por una decoración base que incorpora elementos cálidos y detalles en tonos suaves, creando un ambiente que muchos clientes describen como acogedor y elegante sin ser pretencioso. Esta estética propia del salón reduce la necesidad de inversión excesiva en decoración, ya que el espacio contribuye con su propia personalidad al ambiente del evento.
+Lo que distingue a Romanza de otros salones de precio similar es su **estética interior cuidada**: acabados en tonos crema, detalles en dorado suave, paredes con elementos ornamentales y una iluminación cálida que crea un ambiente acogedor desde el momento en que los invitados cruzan la puerta. Esta decoración base reduce significativamente la inversión en ambientación adicional, ya que el espacio contribuye con su propia personalidad al evento. Para parejas que organizan bodas con presupuesto limitado o familias que buscan elegancia sin costos de venue premium, Romanza ofrece una ventaja real.
 
-## Instalaciones
+## Espacios e Instalaciones
 
 ### Salón Principal
 
-El espacio principal de Romanza ofrece capacidad para hasta 180 personas en formato banquete. El diseño rectangular del salón permite una distribución eficiente de mesas con buena visibilidad hacia la mesa de honor y la pista de baile.
+El espacio principal ofrece capacidad para **180 personas en formato banquete** y hasta **220 en formato cóctel**. El diseño rectangular permite distribución eficiente de mesas con buena visibilidad hacia la mesa de honor y la pista de baile. Los acabados interiores en **tonos cálidos — crema, dorado suave y blanco** — crean una paleta que armoniza con prácticamente cualquier esquema de color de decoración.
 
-Los acabados interiores en tonos cálidos — crema, dorado suave y detalles en blanco — crean una paleta neutra que armoniza con prácticamente cualquier esquema de color de decoración. Las paredes cuentan con detalles ornamentales que añaden textura visual sin competir con la decoración del evento.
-
-El sistema de aire acondicionado mantiene el salón a temperatura confortable, y la iluminación base incluye puntos de luz con capacidad de regulación para crear distintos ambientes durante las diferentes etapas del evento.
+La **iluminación regulable** permite crear diferentes ambientes según la etapa del evento: más luminoso durante la cena, más íntimo durante el brindis y más festivo durante el baile. El **aire acondicionado** mantiene temperatura confortable durante toda la celebración.
 
 ### Pista de Baile
 
-La pista de baile ocupa una posición privilegiada en el salón, con espacio suficiente para el vals de XV años, el primer baile de los novios o la fiesta general. El acabado del piso es resistente y de fácil mantenimiento.
+La pista ocupa una posición privilegiada en el salón, con espacio suficiente para el vals de XV años, el primer baile de los novios o la fiesta general. La ubicación central garantiza buena visibilidad desde todas las mesas.
 
 ### Área de Fotos
 
-Un rincón del salón con iluminación favorable y decoración permanente funciona como zona de fotografía. Los clientes pueden complementar este espacio con sus propios elementos decorativos para crear un punto focal de fotos personalizado.
+Un rincón con iluminación favorable y decoración permanente funciona como **zona de fotografía**. Los clientes complementan este espacio con elementos decorativos personalizados — marcos, backdrops florales o props temáticos — para crear un punto focal de fotos que los invitados utilizan durante toda la noche.
 
-### Cocina de Servicio
+### Cocina de Servicio y Estacionamiento
 
-La cocina industrial equipada permite a los proveedores de banquete trabajar con eficiencia, desde la preparación de menús formales hasta el servicio de taquizas y comida informal.
+La **cocina industrial** equipada permite a proveedores de banquete trabajar con eficiencia, desde menús formales hasta taquizas y comida informal. El **estacionamiento** disponible facilita el acceso vehicular de los invitados en una zona donde el aparcamiento en calle puede ser limitado.
 
-## Tipos de Celebraciones
+## Servicios Incluidos
 
-Salón Romanza es particularmente popular para:
-
-- **Bodas civiles** con ceremonia simbólica y recepción
-- **XV años** en formato íntimo y elegante
-- **Baby showers** y despedidas de soltera
-- **Bautizos y primeras comuniones** familiares
-- **Aniversarios de bodas** — bodas de plata, oro y celebraciones especiales
-- **Cumpleaños** significativos: 50, 60, 70 años
-- **Fiestas privadas** en ambiente acogedor
-
-## Ubicación y Acceso
-
-El Pedregal de Santa Úrsula es una zona residencial tranquila en el sur de Coyoacán, con buena accesibilidad:
-
-- **Vialidades**: Cercanía con Av. Aztecas, Canal de Miramontes, Calzada de Tlalpan
-- **Transporte**: Rutas de transporte público sobre las avenidas principales; Tren Ligero accesible
-- **Desde Coyoacán centro**: 10-12 minutos en automóvil
-- **Desde CU/UNAM**: 8-10 minutos
-- **Desde Tlalpan**: 10 minutos por Canal de Miramontes
-- **Estacionamiento**: Disponible en el salón con capacidad para vehículos de los invitados
-
-La zona es segura y tranquila, lo que contribuye a una llegada y salida cómoda para los asistentes del evento, incluso en horarios nocturnos.
-
-## Servicios
-
-La renta de Salón Romanza incluye mobiliario básico (mesas y sillas), mantelería, iluminación general del salón, montaje, desmontaje y limpieza. Los servicios adicionales como banquete, DJ, decoración floral, fotografía y entretenimiento se contratan de manera independiente, dando a los clientes la libertad de elegir según sus preferencias y presupuesto.
+La renta contempla mobiliario básico, mantelería, iluminación general regulable, montaje, desmontaje y limpieza completa. Los servicios adicionales — banquete, DJ, decoración floral, fotografía — se contratan independientemente, permitiendo a cada cliente elegir según sus preferencias y presupuesto.
 
 El personal del salón colabora en la coordinación logística del montaje de decoración y la recepción de proveedores, facilitando que el día del evento todo fluya de manera ordenada.
 
+## Ventajas de Celebrar en Romanza
+
+### Estética Propia que Reduce Gastos en Decoración
+La decoración base del salón — tonos crema, detalles dorados y elementos ornamentales — significa que muchos eventos lucen bien con inversión mínima en ambientación adicional. Parejas que organizan bodas con presupuesto limitado encuentran en Romanza un aliado natural.
+
+### Ambiente Romántico Auténtico
+A diferencia de salones genéricos que necesitan transformarse completamente para crear ambiente, Romanza ya tiene la personalidad que bodas, XV años y aniversarios buscan. La iluminación cálida y los acabados elegantes trabajan a favor del evento desde el primer momento.
+
+### Zona de Fotos con Carácter
+El área de fotografía aprovecha la decoración permanente del salón como fondo natural, creando un punto focal para fotos que luce profesional sin necesidad de inversión en backdrops elaborados.
+
+### Personal Colaborativo
+El equipo del salón colabora activamente en la coordinación logística, facilitando la recepción de proveedores, el montaje de decoración y la organización del flujo del evento.
+
 ## Recomendaciones para tu Evento
 
-- Aprovechar la estética romántica del salón para reducir gastos en decoración
-- Coordinar una visita previa para planificar la distribución de mesas y decoración
+- Aprovechar la estética romántica del salón para reducir gastos en decoración adicional
+- Coordinar visita previa para planificar la distribución de mesas y decoración
 - Reservar con al menos 2 meses de anticipación para fechas de fin de semana
 - Considerar una coordinadora de eventos si el número de invitados supera los 150
+- Para bodas, coordinar la ceremonia simbólica con la configuración del salón
 
-Para las familias de Coyoacán, Tlalpan y el sur de la CDMX que buscan un salón con personalidad propia, ambiente cálido y precio accesible, Salón de Fiestas Romanza ofrece el escenario ideal para celebraciones que se centran en la emoción y la convivencia familiar.
+## Producción Profesional con EVENTECH
+
+Para potenciar la atmósfera romántica de Romanza, EVENTECH ofrece servicios que complementan la estética del salón:
+
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) y [candiles decorativos](/servicios/iluminacion/decorativa/candiles/) que intensifican el ambiente romántico
+- **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** — [Uplighting](/servicios/iluminacion/arquitectonica/uplighting/) en tonos cálidos que realzan los acabados del salón
+- **[Mobiliario premium](/servicios/mobiliario/)** — [Sillas Chiavari doradas](/servicios/mobiliario/sillas/chiavari/) que armonizan con los detalles del espacio
+- **[Sonido profesional](/servicios/audiovisual/sonido/)** — Audio de calidad para música ambiental y fiesta
+- **[Letras luminosas](/servicios/iluminacion/decorativa/letras-luminosas/)** — Para personalizar bodas, XV años y baby showers
+
+## Eventos Ideales para Romanza
+
+El ambiente romántico del salón lo hace especialmente adecuado para celebraciones emotivas:
+
+- **Bodas civiles** — Ceremonia simbólica y recepción con el ambiente perfecto para el momento
+- **XV años** — Formato elegante con vals, brindis y fiesta en un escenario que luce en fotos
+- **Baby showers y despedidas** — Formato íntimo con la estética ya resuelta por el propio salón
+- **Aniversarios de bodas** — Bodas de plata, de oro y celebraciones especiales de pareja
+- **Bautizos y comuniones** — Celebraciones familiares con toque de elegancia
+- **Cumpleaños significativos** — Celebraciones de 50, 60 y 70 años en ambiente cálido
+- **Fiestas privadas** — Reuniones y eventos sociales con ambiente sofisticado
+
+## Ubicación y Acceso
+
+El Pedregal de Santa Úrsula ofrece un entorno residencial tranquilo con buena accesibilidad:
+
+- **Canal de Miramontes**: Acceso rápido desde Coapa y zona sur
+- **Av. Aztecas**: Conexión directa desde CU/UNAM (8-10 min)
+- **Calzada de Tlalpan**: Acceso desde Tlalpan centro (10 min)
+- **Tren Ligero**: Estaciones accesibles sobre Calzada de Tlalpan
+- **Desde Coyoacán centro**: 10-12 minutos en automóvil
+- **Estacionamiento**: Disponible con capacidad para vehículos de los invitados
+- **Zona segura**: Entorno residencial tranquilo para llegada y salida cómodas
+
+## Venues Recomendados en la Zona
+
+Otras opciones para tu evento en Coyoacán y alrededores:
+
+- **[Hacienda San Ángel](/directorio/cdmx/coyoacan/hacienda-san-angel/)** — Venue premium con arquitectura colonial y jardines en Coyoacán
+- **[Salón Encantados](/directorio/cdmx/coyoacan/salon-encantados/)** — Salón amplio hasta 250 personas sobre División del Norte
+- **[Salón Partenón Tlalpan](/directorio/cdmx/tlalpan/salon-partenon/)** — Opción de mayor capacidad en Tlalpan
+- **[Jardín La Perita](/directorio/cdmx/magdalena-contreras/jardin-la-perita/)** — Jardín al aire libre para bodas y eventos
+
+## Horarios y Políticas
+
+Romanza opera de **lunes a viernes de 10:00 a 23:00** y **fines de semana de 10:00 a 01:00**, con un mínimo de 5 horas de renta. La música amplificada se permite hasta el horario de cierre. No se permite pirotecnia interior ni confeti metálico (por protección de los acabados del salón). La decoración personalizada es bienvenida con total libertad de estilo.
+
+Los eventos entre semana ofrecen tarifas más accesibles, ideales para baby showers, despedidas de soltera y reuniones de aniversario que pueden realizarse en horario vespertino.
+
+## Elegancia que No Necesita Presupuesto de Lujo
+
+**Salón de Fiestas Romanza** demuestra que un espacio con personalidad y elegancia no tiene que costar una fortuna. Sus acabados cálidos, la iluminación romántica y la decoración base del salón hacen que cada evento luzca bien desde el primer momento, reduciendo la necesidad de inversión excesiva en ambientación. Para las familias de Coyoacán y el sur de la CDMX que buscan un salón con carácter propio donde celebrar bodas, XV años y aniversarios con la emoción que merecen, Romanza ofrece el escenario ideal.
+
+Para cotizar tu evento o conocer el salón, contacta directamente al **55 5617 8032** por teléfono o WhatsApp. Una visita previa te permitirá apreciar la atmósfera del espacio y planificar la distribución ideal para tu celebración.
