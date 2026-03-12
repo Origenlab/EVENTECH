@@ -2,7 +2,7 @@
 name: "Hacienda Cuajimalpa Eventos"
 slug: "hacienda-cuajimalpa-eventos"
 description: "Hacienda Cuajimalpa Eventos es un refugio de naturaleza y arquitectura colonial a solo 20 minutos de Santa Fe y 30 de Polanco, en la alcaldía verde más alta de la Ciudad de México. A 2,700 metros de altitud y rodeada de bosque de oyamel y pino, esta hacienda de finales del siglo XVIII ofrece un microclima único —temperaturas entre 10°C y 18°C todo el año— que hace de cada evento una experiencia sensorial diferente: el aroma a pino, el silencio del bosque y una arquitectura colonial perfectamente preservada. Con capilla colonial, jardines de 5,000m², dos salones interiores y capacidad para hasta 400 personas, es el destino para parejas que quieren una boda de hacienda sin salir de CDMX."
-shortDescription: "Hacienda colonial siglo XVIII rodeada de bosque en Cuajimalpa, CDMX. Capilla propia, jardines 5,000m². Hasta 400 personas. A 20 min de Santa Fe. Microcli..."
+shortDescription: "Hacienda s. XVIII en bosque de Cuajimalpa. Capilla, jardines 5,000m². Hasta 400 personas. A 20 min de Santa Fe."
 
 region: "cdmx"
 zone: "Cuajimalpa"

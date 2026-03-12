@@ -2,7 +2,7 @@
 name: "Terraza Perisur Eventos"
 slug: "terraza-perisur-eventos"
 description: "Terraza Perisur Eventos es un rooftop de diseño contemporáneo ubicado en la zona sur de la CDMX, a menos de 2 kilómetros del centro comercial Perisur. Con 1,500m² de terraza abierta y cubierta, ofrece vistas panorámicas hacia el sur de la ciudad y los volcanes Popocatépetl e Iztaccíhuatl en días despejados. Su infraestructura incluye barra de bar integrada, pista de madera de 100m², sistema de iluminación LED programable y cocina exterior equipada. El ambiente moderno y urbano la hace especialmente popular para bodas civiles, cumpleaños de adultos y eventos corporativos de lanzamiento de producto."
-shortDescription: "Rooftop contemporáneo cerca de Perisur, CDMX. 1,500m² con vistas panorámicas. Capacidad 250 personas. Bar integrado. Ideal para bodas y eventos corporati..."
+shortDescription: "Terraza 700m² con vista al Ajusco en zona Perisur. Hasta 200 personas. Menú de autor. Venue sofisticado sur CDMX."
 
 region: "cdmx"
 zone: "Coyoacán"

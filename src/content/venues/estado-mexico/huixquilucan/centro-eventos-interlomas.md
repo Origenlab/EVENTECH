@@ -100,7 +100,7 @@ eventechPartner: true
 rating: 4.5
 reviewCount: 156
 
-seoTitle: "Centro de Eventos Interlomas - Convenciones y Bodas en Huixquil..."
+seoTitle: "Centro de Eventos Interlomas - Convenciones Huixquilucan"
 seoDescription: "Centro de convenciones 2,400m² en Interlomas. Hasta 500 personas, 200 cajones de estacionamiento. Bodas y corporativos en Huixquilucan, Estado de México."
 keywords:
   - centro eventos interlomas

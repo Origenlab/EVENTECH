@@ -2,7 +2,7 @@
 name: "Jardín Santa Fe Eventos"
 slug: "jardin-santa-fe-eventos"
 description: "Jardín Santa Fe Eventos es uno de los pocos espacios al aire libre de alta gama en la zona corporativa más dinámica de la Ciudad de México. Rodeado de áreas verdes y con vista a las torres de Santa Fe, este jardín de 2,000 metros cuadrados combina naturaleza urbana con infraestructura profesional: carpa tensada permanente para resguardar hasta 350 personas, pista de madera de 120m², iluminación LED ambiental integrada en la vegetación y acceso directo desde Periférico. Ideal para bodas de jardín con toque contemporáneo, fiestas de empresa al aire libre y celebraciones familiares que buscan salir del salón convencional sin alejarse de la ciudad."
-shortDescription: "Jardín de 2,000m² con carpa permanente en Santa Fe, CDMX. Capacidad para 350 personas. Vistas a torres corporativas. Ideal para bodas y eventos al aire l..."
+shortDescription: "Jardín 2,000m² con carpa en Santa Fe. Hasta 350 personas. Vistas a torres corporativas. Bodas y eventos al aire libre."
 
 region: "cdmx"
 zone: "Álvaro Obregón"

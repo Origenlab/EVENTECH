@@ -2,7 +2,7 @@
 name: "Hacienda Contreras Eventos"
 slug: "hacienda-contreras-eventos"
 description: "Hacienda Contreras Eventos es una joya arquitectónica del siglo XVII enclavada en los bosques de la Magdalena Contreras, la alcaldía más verde y menos urbanizada de la Ciudad de México. A 2,550 metros de altitud, rodeada de bosque mixto de encinos y pinos, esta hacienda restaurada ofrece una experiencia de campo a solo 25 minutos de Santa Fe y 35 de Polanco: capilla colonial con retablo dorado, jardines de 6,000m² con árboles centenarios, dos salones de techos abovedados con chimenea y un silencio absoluto que los venues urbanos no pueden ofrecer. Con capacidad para hasta 350 personas y un microclima fresco todo el año (12-20°C), Hacienda Contreras es el secreto mejor guardado del sur-poniente de CDMX para bodas de ensueño, retiros corporativos y celebraciones que quieren escapar de la ciudad sin salir de ella."
-shortDescription: "Hacienda del siglo XVII en bosque de Magdalena Contreras. Capilla colonial, jardines 6,000m². Hasta 350 personas. A 25 min de Santa Fe. El secreto mejor ..."
+shortDescription: "Hacienda s. XVII en bosque de Magdalena Contreras. Capilla, jardines 6,000m². Hasta 350 personas. A 25 min de Santa Fe."
 
 region: "cdmx"
 zone: "Magdalena Contreras"
@@ -108,8 +108,8 @@ eventechDiscount: "15% en iluminación de bosque para bodas"
 rating: 4.8
 reviewCount: 176
 
-seoTitle: "Hacienda Contreras Eventos - Bodas en Hacienda Colonial con Bos..."
-seoDescription: "Hacienda siglo XVII en bosque de Magdalena Contreras. Capilla colonial, jardines 6,000m², hasta 350 personas. El venue hacienda más exclusivo del sur-pon..."
+seoTitle: "Hacienda Contreras Eventos - Bodas Hacienda Bosque CDMX"
+seoDescription: "Hacienda s. XVII en bosque de Magdalena Contreras. Capilla, jardines 6,000m². Hasta 350 personas. Venue exclusivo."
 keywords:
   - hacienda eventos magdalena contreras
   - bodas hacienda bosque cdmx

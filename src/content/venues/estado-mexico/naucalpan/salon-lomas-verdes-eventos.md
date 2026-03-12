@@ -2,7 +2,7 @@
 name: "Salón Lomas Verdes Eventos"
 slug: "salon-lomas-verdes-eventos"
 description: "Salón Lomas Verdes Eventos es el espacio de celebración más tradicional y querido de la colonia Lomas Verdes en Naucalpan, con más de 20 años organizando los momentos más importantes de las familias del norte del Estado de México. Sus 850 metros cuadrados interiores más 300m² de jardín anexo ofrecen una combinación que pocas familias de la zona pueden resistir: la comodidad de un salón climatizado de primera línea con la frescura de un jardín privado para el cóctel. Con capacidad para hasta 280 personas, precio competitivo y una reputación construida sobre miles de bodas, XV años y graduaciones exitosas, este salón es el sinónimo de celebración en Lomas Verdes."
-shortDescription: "Salón clásico 850m² con jardín 300m² en Lomas Verdes, Naucalpan. Hasta 280 personas. 20 años de trayectoria. El salón de confianza del norte del Estado d..."
+shortDescription: "Salón clásico 850m² con jardín en Lomas Verdes, Naucalpan. Hasta 280 personas. 20 años de trayectoria en eventos."
 
 region: "estado-mexico"
 zone: "Naucalpan"

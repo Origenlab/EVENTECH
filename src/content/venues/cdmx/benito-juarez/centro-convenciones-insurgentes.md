@@ -2,7 +2,7 @@
 name: "Centro de Convenciones Insurgentes"
 slug: "centro-convenciones-insurgentes"
 description: "Centro de Convenciones Insurgentes es el venue corporativo de referencia en el corredor empresarial de Insurgentes Sur, dentro de la alcaldía Benito Juárez, la de mayor densidad empresarial de la Ciudad de México. Sus 3,200 metros cuadrados distribuidos en salón plenario para 600 personas, cuatro salas de sesión simultáneas y área de exposición de 800m² lo convierten en la opción natural para congresos internacionales, convenciones corporativas de gran formato, lanzamientos de productos con prensa y eventos híbridos con transmisión en vivo. A una estación del Metro Insurgentes y en el mismo corredor que decenas de hoteles de negocios, la logística para invitados nacionales e internacionales está resuelta desde el primer día."
-shortDescription: "Centro de convenciones 3,200m² en corredor Insurgentes Sur. Sala plenaria 600 personas, 4 salas de sesión, área de exposición 800m². El venue corporativo..."
+shortDescription: "Centro de convenciones 3,200m² en Insurgentes Sur. Sala plenaria 600 personas, 4 salas de sesión. Benito Juárez."
 
 region: "cdmx"
 zone: "Benito Juárez"
@@ -96,7 +96,7 @@ rating: 4.6
 reviewCount: 142
 
 seoTitle: "Centro de Convenciones Insurgentes - Corporativos y Congresos CDMX"
-seoDescription: "Centro de convenciones en Insurgentes Sur. Sala plenaria 600 personas, 4 salas de sesión. Congresos, convenciones y eventos corporativos en Benito Juárez..."
+seoDescription: "Centro de convenciones en Insurgentes Sur. Sala plenaria 600 personas, 4 salas. Congresos y corporativos en CDMX."
 keywords:
   - centro convenciones insurgentes cdmx
   - congreso eventos insurgentes sur

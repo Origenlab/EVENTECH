@@ -2,7 +2,7 @@
 name: "Terraza La Condesa Eventos"
 slug: "terraza-condesa-eventos"
 description: "Terraza La Condesa Eventos es el rooftop más codiciado de la Colonia Condesa: 600 metros cuadrados en el último piso de un edificio art-déco de los años 40, con vista panorámica de 360° sobre la copa de los ahuehuetes del Parque México, el skyline del sur de CDMX y las antenas del Cerro de la Estrella en los días despejados. Con capacidad para hasta 180 personas en banquete o 250 en cóctel, esta terraza es el escenario ideal para bodas íntimas de alto diseño, fiestas de cumpleaños con personalidad, lanzamientos de productos creativos y eventos corporativos que quieren una vista para recordar. Sistema de climatización industrial integrado y cubierta retráctil de cristal la hacen funcional los 12 meses del año."
-shortDescription: "Rooftop art-déco 600m² con vista 360° al Parque México en La Condesa. Hasta 180 personas banquete. Cubierta retráctil. El rooftop más exclusivo de la Con..."
+shortDescription: "Rooftop art-déco 600m² con vista 360° al Parque México. Hasta 180 personas. Cubierta retráctil. Condesa, CDMX."
 
 region: "cdmx"
 zone: "Cuauhtémoc"

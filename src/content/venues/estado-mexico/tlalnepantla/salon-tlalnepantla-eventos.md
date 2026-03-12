@@ -2,7 +2,7 @@
 name: "Salón Tlalnepantla Eventos"
 slug: "salon-tlalnepantla-eventos"
 description: "Salón Tlalnepantla Eventos es el nuevo referente en bodas y eventos sociales del norte del Estado de México, inaugurado en 2022 con los más altos estándares de diseño y tecnología. Sus 1,000 metros cuadrados interiores climatizados, con pista de baile de vidrio iluminado de 130m², sistema de sonido Bose integrado y jardín de recepción de 400m², representan una propuesta diferente en Tlalnepantla: **elegancia contemporánea a precio accesible**. Con capacidad para hasta 350 personas y ubicación estratégica sobre Periférico Norte con acceso desde CDMX, Estado de México y el corredor Tlalnepantla-Naucalpan, este salón atrae a familias de todo el norte metropolitano."
-shortDescription: "Salón moderno 1,000m² inaugurado 2022 en Tlalnepantla. Pista de vidrio iluminado, jardín 400m². Hasta 350 personas. El salón más contemporáneo del norte ..."
+shortDescription: "Salón moderno 1,000m² inaugurado 2022 en Tlalnepantla. Pista de vidrio iluminado. Hasta 350 personas."
 
 region: "estado-mexico"
 zone: "Tlalnepantla"
@@ -98,8 +98,8 @@ eventechPartner: true
 rating: 4.5
 reviewCount: 87
 
-seoTitle: "Salón Tlalnepantla Eventos - Bodas y XV Años Contemporáneos Est..."
-seoDescription: "Salón moderno 2022 en Tlalnepantla. Pista de vidrio iluminado, jardín. Hasta 350 personas. Bodas y XV años con diseño contemporáneo en el norte del Estad..."
+seoTitle: "Salón Tlalnepantla Eventos - Bodas y XV Años Modernos"
+seoDescription: "Salón moderno 2022 en Tlalnepantla. Pista de vidrio iluminado. Hasta 350 personas. Bodas y XV años en Estado de México."
 keywords:
   - salon eventos tlalnepantla
   - bodas tlalnepantla estado mexico

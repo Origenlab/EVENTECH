@@ -2,7 +2,7 @@
 name: "Hacienda Tlalpan Eventos"
 slug: "hacienda-tlalpan-eventos"
 description: "Hacienda Tlalpan Eventos es un espacio colonial del siglo XIX restaurado con maestría en el pueblo mágico urbano de Tlalpan, al sur de la Ciudad de México. Sus 8,000 metros cuadrados de extensión incluyen jardines históricos con árboles centenarios, capilla privada con capacidad para 120 personas, dos salones coloniales de techos abovedados, fuentes originales de cantera y una arquitectura que transporta a los invitados a otro siglo sin necesitar decoración adicional. Con capacidad flexible entre 100 y 500 personas y acceso directo desde el Anillo Periférico, la Hacienda Tlalpan es el venue de bodas hacienda más completo del sur de CDMX."
-shortDescription: "Hacienda colonial del siglo XIX en Tlalpan con capilla, jardines históricos y árboles centenarios. Hasta 500 personas. El venue hacienda más completo del..."
+shortDescription: "Hacienda colonial s. XIX en Tlalpan. Capilla, jardines históricos. Hasta 500 personas. El venue hacienda del sur de CDMX."
 
 region: "cdmx"
 zone: "Tlalpan"
@@ -105,7 +105,7 @@ eventechDiscount: "15% en paquetes de iluminación para bodas hacienda"
 rating: 4.8
 reviewCount: 267
 
-seoTitle: "Hacienda Tlalpan Eventos - Bodas y XV Años en Hacienda Colonial..."
+seoTitle: "Hacienda Tlalpan Eventos - Bodas Hacienda Colonial CDMX"
 seoDescription: "Hacienda colonial siglo XIX en Tlalpan CDMX. Capilla propia, jardines históricos, hasta 500 personas. El venue hacienda más completo del sur de la ciudad."
 keywords:
   - hacienda bodas tlalpan

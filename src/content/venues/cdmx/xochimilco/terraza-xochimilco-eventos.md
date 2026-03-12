@@ -2,7 +2,7 @@
 name: "Terraza Xochimilco Eventos"
 slug: "terraza-xochimilco-eventos"
 description: "Terraza Xochimilco Eventos es el único venue con vista directa a los canales declarados Patrimonio de la Humanidad por la UNESCO en Xochimilco, Ciudad de México. Su terraza panorámica de 800 metros cuadrados sobre el Canal Nacional ofrece vistas irrepetibles: trajineras de colores navegando, chinampas en el horizonte y el verde exuberante de la vegetación lacustre que ha permanecido igual desde los tiempos aztecas. Con capacidad para hasta 220 personas y acceso en trajinera opcional directamente desde el embarcadero, este venue ofrece una experiencia que ningún salón convencional puede replicar. El escenario perfecto para bodas con sabor xochimilca, XV años con llegada en trajinera y eventos que quieren estar en un lugar verdaderamente único en el mundo."
-shortDescription: "Terraza 800m² con vista a canales UNESCO en Xochimilco, CDMX. Hasta 220 personas. Acceso opcional en trajinera. El único venue con vista a Xochimilco en ..."
+shortDescription: "Terraza 800m² con vista a canales UNESCO en Xochimilco. Hasta 220 personas. Acceso en trajinera opcional."
 
 region: "cdmx"
 zone: "Xochimilco"

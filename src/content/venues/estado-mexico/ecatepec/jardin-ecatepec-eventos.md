@@ -101,7 +101,7 @@ eventechPartner: false
 rating: 4.2
 reviewCount: 341
 
-seoTitle: "Jardín Ecatepec Eventos - Bodas y XV Años en Jardín Ecatepec Es..."
+seoTitle: "Jardín Ecatepec Eventos - Bodas y XV Años Estado de México"
 seoDescription: "Jardín 2,800m² con carpa permanente en Ecatepec. Hasta 300 personas. Bodas, XV años y bautizos al mejor precio en el norte del Estado de México."
 keywords:
   - jardin eventos ecatepec
