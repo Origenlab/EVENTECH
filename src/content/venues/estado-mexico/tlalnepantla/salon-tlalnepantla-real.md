@@ -80,7 +80,7 @@ eventechPartner: true
 rating: 4.3
 reviewCount: 245
 
-seoTitle: "Salón Tlalnepantla Real - Eventos de Gran Formato | Estado de México"
+seoTitle: "Salón Tlalnepantla Real - Eventos de Gran Formato | Estado de M..."
 seoDescription: "Salón de 800m² para eventos hasta 600 personas en Tlalnepantla. Acceso desde Periférico Norte. Bodas, XV años y convenciones."
 keywords:
   - salon bodas tlalnepantla

@@ -69,7 +69,7 @@ rating: 4.7
 reviewCount: 94
 
 seoTitle: "Casa Awolly - Eventos Boutique en Roma Norte | CDMX"
-seoDescription: "Venue boutique art déco en Roma Norte. Casa restaurada de 1932 con rooftop panorámico, patio tropical y diseño contemporáneo para eventos de hasta 180 personas."
+seoDescription: "Venue boutique art déco en Roma Norte. Casa restaurada de 1932 con rooftop panorámico, patio tropical y diseño contemporáneo para eventos de hasta 180 pe..."
 keywords:
   - casa eventos roma norte
   - venue boutique condesa

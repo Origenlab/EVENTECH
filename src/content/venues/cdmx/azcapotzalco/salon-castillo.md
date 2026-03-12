@@ -2,7 +2,7 @@
 name: "Salón Castillo"
 slug: "salon-castillo"
 description: "Salón Castillo es el único venue temático estilo medieval de la Ciudad de México: una experiencia inmersiva de 1,500 metros cuadrados donde la fachada de castillo con torres almenadas de 8 metros, el Gran Salón del Trono con arcos ojivales góticos de 6 metros de altura, la Escalinata de la Princesa de 12 escalones ceremoniales, y el Patio del Castillo con fuente medieval crean un universo de fantasía construido con arquitectura permanente que hace entre el 50% y 70% del trabajo decorativo de cada evento. Con más de 18 años de operación, 378 reseñas verificadas y una reputación como el escenario definitivo para bodas de cuento de hadas, XV años de princesa y fiestas infantiles de fantasía en la CDMX, Salón Castillo es socio premium de EVENTECH con acceso exclusivo a producción de iluminación gótica, neblina baja entre arcos, sparklers ceremoniales y efectos que transforman la arquitectura medieval en una experiencia cinematográfica que ningún otro venue puede replicar."
-shortDescription: "Salón temático castillo medieval en Azcapotzalco. Torres almenadas, arcos góticos, escalinata ceremonial. Eventos hasta 400 personas. Socio premium EVENTECH."
+shortDescription: "Salón temático castillo medieval en Azcapotzalco. Torres almenadas, arcos góticos, escalinata ceremonial. Eventos hasta 400 personas. Socio premium EVENT..."
 
 region: "cdmx"
 zone: "Azcapotzalco"

@@ -78,7 +78,7 @@ eventechPartner: false
 rating: 4.7
 reviewCount: 87
 
-seoTitle: "Ex-Hacienda Chapingo - Eventos con Murales de Diego Rivera | Texcoco"
+seoTitle: "Ex-Hacienda Chapingo - Eventos con Murales de Diego Rivera | Te..."
 seoDescription: "Hacienda histórica con murales de Diego Rivera. Patrimonio del siglo XVI para eventos hasta 600 personas en Texcoco."
 keywords:
   - hacienda chapingo eventos

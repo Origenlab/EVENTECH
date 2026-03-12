@@ -119,7 +119,7 @@ reviews:
     eventType: "xv-anos"
 
 seoTitle: "Quinta Los Volcanes - Venue Moderno Vista 4 Volcanes Tenango"
-seoDescription: "Venue de diseño vanguardista con vista panorámica al Nevado, Popocatépetl e Iztaccíhuatl. Arquitectura minimalista, terrazas escalonadas. Hasta 600 personas."
+seoDescription: "Venue de diseño vanguardista con vista panorámica al Nevado, Popocatépetl e Iztaccíhuatl. Arquitectura minimalista, terrazas escalonadas. Hasta 600 perso..."
 keywords:
   - quinta los volcanes bodas
   - venue contemporaneo estado mexico

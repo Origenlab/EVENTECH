@@ -86,7 +86,7 @@ reviews:
     text: "Un lugar mágico. Los claustros iluminados fueron el escenario perfecto para nuestra cena de gala."
     eventType: "corporativo"
 
-seoTitle: "Ex Hacienda Tepotzotlán - Eventos en Monumento Barroco del Virreinato"
+seoTitle: "Ex Hacienda Tepotzotlán - Eventos en Monumento Barroco del Virr..."
 seoDescription: "Eventos exclusivos en el Museo Nacional del Virreinato. Arquitectura barroca churrigueresca, claustros coloniales. Hasta 400 personas."
 keywords:
   - ex hacienda tepotzotlan eventos

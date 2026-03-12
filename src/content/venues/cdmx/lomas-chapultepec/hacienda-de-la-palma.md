@@ -97,7 +97,7 @@ reviews:
     text: "No puedo creer que esta hacienda exista en medio de Lomas. Nuestra boda fue mágica."
     eventType: "boda"
 
-seoTitle: "Hacienda de la Palma - Bodas en Hacienda Colonial | Lomas Chapultepec"
+seoTitle: "Hacienda de la Palma - Bodas en Hacienda Colonial | Lomas Chapu..."
 seoDescription: "Hacienda auténtica del siglo XVIII en Lomas de Chapultepec. Capilla consagrada, jardines centenarios. Bodas hasta 600 personas."
 keywords:
   - hacienda bodas lomas chapultepec

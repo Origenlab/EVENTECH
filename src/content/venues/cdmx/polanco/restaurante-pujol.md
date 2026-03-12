@@ -73,7 +73,7 @@ eventechPartner: false
 rating: 4.9
 reviewCount: 89
 
-seoTitle: "Pujol - Eventos Privados en Top 10 Restaurantes del Mundo | Polanco"
+seoTitle: "Pujol - Eventos Privados en Top 10 Restaurantes del Mundo | Pol..."
 seoDescription: "Eventos exclusivos en Pujol, top 10 mundial. Chef Enrique Olvera, Mole Madre, alta cocina mexicana. 20-60 personas en Polanco."
 keywords:
   - pujol eventos privados

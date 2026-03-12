@@ -95,7 +95,7 @@ rating: 4.7
 reviewCount: 289
 
 seoTitle: "JW Marriott Santa Fe - Convenciones y Eventos de Lujo | CDMX"
-seoDescription: "Celebra eventos corporativos y convenciones en JW Marriott Santa Fe. Salones panorámicos, tecnología de punta y servicio ejecutivo en el distrito financiero."
+seoDescription: "Celebra eventos corporativos y convenciones en JW Marriott Santa Fe. Salones panorámicos, tecnología de punta y servicio ejecutivo en el distrito financi..."
 keywords:
   - jw marriott santa fe eventos
   - convenciones santa fe cdmx

@@ -95,7 +95,7 @@ eventechDiscount: "10% en mobiliario lounge premium"
 rating: 4.8
 reviewCount: 428
 
-seoTitle: "Four Seasons Mexico City - Bodas y Eventos Elegantes | Reforma CDMX"
+seoTitle: "Four Seasons Mexico City - Bodas y Eventos Elegantes | Reforma ..."
 seoDescription: "Celebra tu boda o evento corporativo en Four Seasons Hotel Mexico City. Jardines interiores, servicio excepcional y gastronomía de autor en Reforma."
 keywords:
   - four seasons mexico bodas

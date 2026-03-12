@@ -77,7 +77,7 @@ eventechPartner: true
 rating: 4.6
 reviewCount: 167
 
-seoTitle: "Marriott Toluca - Convenciones y Eventos Corporativos de Primer Nivel"
+seoTitle: "Marriott Toluca - Convenciones y Eventos Corporativos de Primer..."
 seoDescription: "Hotel cinco estrellas para eventos corporativos en Toluca. Tecnología AV integrada, hospedaje y servicio Marriott hasta 500 personas."
 keywords:
   - hotel eventos toluca
