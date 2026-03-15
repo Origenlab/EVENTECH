@@ -110,33 +110,33 @@ const regionLabels: Record<string, string> = {
   window.__REGION_LABELS__ = regionLabels;
 </script>
 
-<script>
+<script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.getElementById('venue-search-input') as HTMLInputElement;
-    const clearBtn = document.getElementById('search-clear') as HTMLButtonElement;
-    const dropdown = document.getElementById('search-dropdown') as HTMLDivElement;
-    const resultsContainer = document.getElementById('search-results') as HTMLDivElement;
-    const filterRegion = document.getElementById('filter-region') as HTMLSelectElement;
-    const filterType = document.getElementById('filter-type') as HTMLSelectElement;
-    const filterCapacity = document.getElementById('filter-capacity') as HTMLSelectElement;
+    const searchInput = document.getElementById('venue-search-input');
+    const clearBtn = document.getElementById('search-clear');
+    const dropdown = document.getElementById('search-dropdown');
+    const resultsContainer = document.getElementById('search-results');
+    const filterRegion = document.getElementById('filter-region');
+    const filterType = document.getElementById('filter-type');
+    const filterCapacity = document.getElementById('filter-capacity');
 
-    const venues = (window as any).__VENUE_SEARCH_DATA__ || [];
-    const typeLabels = (window as any).__VENUE_TYPE_LABELS__ || {};
-    const regionLabels = (window as any).__REGION_LABELS__ || {};
+    var venues = window.__VENUE_SEARCH_DATA__ || [];
+    var typeLabels = window.__VENUE_TYPE_LABELS__ || {};
+    var regionLabels = window.__REGION_LABELS__ || {};
 
-    let debounceTimer: ReturnType<typeof setTimeout>;
+    var debounceTimer;
 
     // Search function
-    function searchVenues(query: string, region: string, type: string, capacity: string) {
-      const q = query.toLowerCase().trim();
+    function searchVenues(query, region, type, capacity) {
+      var q = query.toLowerCase().trim();
 
-      return venues.filter((venue: any) => {
+      return venues.filter(function(venue) {
         // Text search
         const matchesQuery = !q ||
           venue.name.toLowerCase().includes(q) ||
           venue.zone.toLowerCase().includes(q) ||
           venue.type.toLowerCase().includes(q) ||
-          (venue.eventTypes || []).some((et: string) => et.toLowerCase().includes(q));
+          (venue.eventTypes || []).some(function(et) { return et.toLowerCase().includes(q); });
 
         // Region filter
         const matchesRegion = !region || venue.region === region;
@@ -160,27 +160,14 @@ const regionLabels: Record<string, string> = {
     }
 
     // Render dropdown results (autocomplete)
-    function renderDropdown(results: any[]) {
+    function renderDropdown(results) {
       if (results.length === 0 || !searchInput.value.trim()) {
         dropdown.innerHTML = '';
         dropdown.classList.remove('dir-search__dropdown--visible');
         return;
       }
 
-      const items = results.slice(0, 6).map((venue: any) => `
-        <a href="${venue.url}" class="dir-search__dropdown-item">
-          <div class="dir-search__dropdown-item-image">
-            <img src="${venue.image || '/images/placeholder-venue.jpg'}" alt="${venue.name}" loading="lazy" />
-          </div>
-          <div class="dir-search__dropdown-item-content">
-            <span class="dir-search__dropdown-item-name">${venue.name}</span>
-            <span class="dir-search__dropdown-item-meta">
-              ${typeLabels[venue.type] || venue.type} · ${venue.zone} · ${venue.capacity.min}-${venue.capacity.max} pers.
-            </span>
-          </div>
-          ${venue.premium ? '<span class="dir-search__dropdown-item-badge">Premium</span>' : ''}
-        </a>
-      `).join('');
+      var items = results.slice(0, 6).map(function(venue) { return '<a href="' + venue.url + '" class="dir-search__dropdown-item"><div class="dir-search__dropdown-item-image"><img src="' + (venue.image || '/images/placeholder-venue.jpg') + '" alt="' + venue.name + '" loading="lazy" /></div><div class="dir-search__dropdown-item-content"><span class="dir-search__dropdown-item-name">' + venue.name + '</span><span class="dir-search__dropdown-item-meta">' + (typeLabels[venue.type] || venue.type) + ' · ' + venue.zone + ' · ' + venue.capacity.min + '-' + venue.capacity.max + ' pers.</span></div>' + (venue.premium ? '<span class="dir-search__dropdown-item-badge">Premium</span>' : '') + '</a>'; }).join('');
 
       const viewAllLink = results.length > 6 ? `
         <div class="dir-search__dropdown-footer">
@@ -193,7 +180,7 @@ const regionLabels: Record<string, string> = {
     }
 
     // Render full results grid
-    function renderResults(results: any[]) {
+    function renderResults(results) {
       if (results.length === 0) {
         resultsContainer.innerHTML = `
           <div class="dir-search__no-results">
@@ -213,7 +200,7 @@ const regionLabels: Record<string, string> = {
         return;
       }
 
-      const cards = results.slice(0, 12).map((venue: any) => `
+      var cards = results.slice(0, 12).map(function(venue) { return `
         <article class="venue-card">
           <a href="${venue.url}" class="venue-card__link">
             <div class="venue-card__image-wrapper">
@@ -245,9 +232,9 @@ const regionLabels: Record<string, string> = {
             </div>
           </a>
         </article>
-      `).join('');
+      `; }).join('');
 
-      const header = `
+      var header = `
         <div class="dir-search__results-header">
           <p><strong>${results.length}</strong> venues encontrados</p>
           ${results.length > 12 ? `<p class="dir-search__results-hint">Mostrando los primeros 12. <a href="/directorio/">Ver todos</a></p>` : ''}
@@ -299,7 +286,7 @@ const regionLabels: Record<string, string> = {
 
     // Close dropdown on outside click
     document.addEventListener('click', (e) => {
-      if (!(e.target as Element).closest('#directory-search')) {
+      if (!e.target.closest('#directory-search')) {
         dropdown.classList.remove('dir-search__dropdown--visible');
       }
     });

@@ -140,7 +140,6 @@ const pageTitle = currentPage > 1
                   title={post.data.title}
                   description={post.data.description}
                   slug={post.slug}
-                  date={post.data.date}
                   image={post.data.image}
                   body={post.body}
                   category={post.data.category}
@@ -303,31 +302,32 @@ const pageTitle = currentPage > 1
   />
 </PageLayout>
 
-<script>
-  // Client-side category filtering
-  const tabs = document.querySelectorAll<HTMLButtonElement>('.blog-filter-tab');
-  const cards = document.querySelectorAll<HTMLElement>('.blog-card');
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    var tabs = document.querySelectorAll('.blog-filter-tab');
+    var cards = document.querySelectorAll('.blog-card');
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const category = tab.dataset.category;
+    tabs.forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var category = tab.dataset.category;
 
-      // Update active tab
-      tabs.forEach(t => {
-        t.classList.remove('blog-filter-tab--active');
-        t.setAttribute('aria-selected', 'false');
-      });
-      tab.classList.add('blog-filter-tab--active');
-      tab.setAttribute('aria-selected', 'true');
+        // Update active tab
+        tabs.forEach(function(t) {
+          t.classList.remove('blog-filter-tab--active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('blog-filter-tab--active');
+        tab.setAttribute('aria-selected', 'true');
 
-      // Filter cards
-      cards.forEach(card => {
-        const cardCategory = card.dataset.category;
-        if (category === 'all' || cardCategory === category) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
+        // Filter cards
+        cards.forEach(function(card) {
+          var cardCategory = card.dataset.category;
+          if (category === 'all' || cardCategory === category) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
       });
     });
   });
