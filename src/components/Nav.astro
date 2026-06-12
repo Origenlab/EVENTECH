@@ -1,61 +1,709 @@
 ---
 /**
- * ─── Nav Component ───
- * Clean top-level navigation. Sub-items accessible via
- * section pages (/servicios/, /eventos/) and footer.
+ * ─── Nav Component — Mega-menú EVENTECH 2026 ───
+ * Desktop: mega-dropdown Servicios (8 cats), dropdowns Eventos y Directorio,
+ * links planos Nosotros/Blog, CTA Cotizar.
+ * Mobile: hamburger + panel con acordeón.
  */
-import { mainNav } from "@data/navigation";
+import { SERVICE_CATEGORIES } from "@data/site";
 
-const currentPath = Astro.url.pathname;
-
+const path = Astro.url.pathname;
 function isActive(href: string): boolean {
-  if (href === "/") return currentPath === "/";
-  return currentPath.startsWith(href);
+  if (href === "/") return path === "/";
+  return path.startsWith(href);
 }
 ---
 
-<nav class="nav" aria-label="Navegación principal">
-  <ul class="nav__list" role="list">
-    {mainNav.map((item) => (
-      <li class="nav__item">
-        <a
-          href={item.href}
-          class:list={["nav__link", { "nav__link--active": isActive(item.href) }]}
-          aria-current={isActive(item.href) ? "page" : undefined}
+<div class="mn">
+  <!-- Toggle mobile -->
+  <button
+    class="mn__toggle"
+    id="mn-toggle"
+    aria-expanded="false"
+    aria-controls="mn-panel"
+    aria-label="Abrir menú de navegación"
+  >
+    <svg class="mn__toggle-icon mn__toggle-icon--open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+    <svg class="mn__toggle-icon mn__toggle-icon--close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <line x1="18" y1="6" x2="6" y2="18"/>
+      <line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+
+  <!-- Nav panel -->
+  <div class="mn__panel" id="mn-panel" role="navigation" aria-label="Menú principal">
+    <ul class="mn__list" role="list">
+
+      <!-- ── SERVICIOS — mega-dropdown ── -->
+      <li class="mn__item mn__item--has-mega">
+        <button
+          class="mn__trigger"
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-controls="mega-servicios"
+          data-mn-target="mega-servicios"
         >
-          {item.label}
+          Servicios
+          <svg class="mn__caret" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+
+        <div class="mn__mega" id="mega-servicios" aria-hidden="true">
+          <div class="mega__wrap">
+            <div class="mega__head">
+              <p class="mega__label">Equipo para renta · CDMX y Zona Metropolitana</p>
+              <a class="mega__view-all" href="/servicios/">
+                Ver todos los servicios
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+            <div class="mega__grid">
+              {SERVICE_CATEGORIES.map((cat) => (
+                <div class="mega__col">
+                  <a class="mega__cat-link" href={cat.href}>{cat.name}</a>
+                  <ul class="mega__sub" role="list">
+                    {cat.subcategories.map((sub) => (
+                      <li>
+                        <a class="mega__sub-link" href={sub.href}>{sub.name}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- ── EVENTOS — dropdown ── -->
+      <li class="mn__item mn__item--has-drop">
+        <button
+          class="mn__trigger"
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-controls="drop-eventos"
+          data-mn-target="drop-eventos"
+        >
+          Eventos
+          <svg class="mn__caret" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+
+        <div class="mn__drop" id="drop-eventos" aria-hidden="true">
+          <div class="drop__inner">
+            <a class="drop__item" href="/eventos/bodas/">
+              <span class="drop__name">Bodas</span>
+              <span class="drop__desc">Mobiliario, carpas y ambientación nupcial</span>
+            </a>
+            <a class="drop__item" href="/eventos/xv-anos/">
+              <span class="drop__name">XV Años</span>
+              <span class="drop__desc">Equipamiento para quinceañeras</span>
+            </a>
+            <a class="drop__item" href="/eventos/corporativos/">
+              <span class="drop__name">Corporativos</span>
+              <span class="drop__desc">Congresos, conferencias y lanzamientos</span>
+            </a>
+            <a class="drop__item" href="/eventos/fiestas-infantiles/">
+              <span class="drop__name">Fiestas Infantiles</span>
+              <span class="drop__desc">Cumpleaños y eventos para niños</span>
+            </a>
+            <a class="drop__all" href="/eventos/">
+              Ver todos los eventos
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </li>
+
+      <!-- ── DIRECTORIO — dropdown ── -->
+      <li class="mn__item mn__item--has-drop">
+        <button
+          class="mn__trigger"
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-controls="drop-directorio"
+          data-mn-target="drop-directorio"
+        >
+          Salones
+          <svg class="mn__caret" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+
+        <div class="mn__drop mn__drop--sm" id="drop-directorio" aria-hidden="true">
+          <div class="drop__inner">
+            <a class="drop__item" href="/directorio/cdmx/">
+              <span class="drop__name">Salones CDMX</span>
+              <span class="drop__desc">Ciudad de México</span>
+            </a>
+            <a class="drop__item" href="/directorio/estado-mexico/">
+              <span class="drop__name">Salones Edomex</span>
+              <span class="drop__desc">Estado de México</span>
+            </a>
+            <a class="drop__all" href="/directorio/">
+              Ver directorio completo
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </li>
+
+      <!-- ── NOSOTROS ── -->
+      <li class="mn__item">
+        <a
+          class:list={["mn__link", { "mn__link--active": isActive("/nosotros/") }]}
+          href="/nosotros/"
+          aria-current={isActive("/nosotros/") ? "page" : undefined}
+        >Nosotros</a>
+      </li>
+
+      <!-- ── BLOG ── -->
+      <li class="mn__item">
+        <a
+          class:list={["mn__link", { "mn__link--active": isActive("/blog/") }]}
+          href="/blog/"
+          aria-current={isActive("/blog/") ? "page" : undefined}
+        >Blog</a>
+      </li>
+
+      <!-- ── COTIZAR — CTA ── -->
+      <li class="mn__item mn__item--cta">
+        <a class="mn__cta" href="/cotizar/">
+          Cotizar
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </li>
-    ))}
-  </ul>
-</nav>
+
+    </ul>
+  </div>
+</div>
+
+<script is:inline>
+(function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.getElementById("mn-toggle");
+    const panel = document.getElementById("mn-panel");
+
+    /* ── helpers ── */
+    function closeAll() {
+      document.querySelectorAll(".mn__trigger[data-mn-target]").forEach(function (btn) {
+        btn.setAttribute("aria-expanded", "false");
+        var targetId = btn.getAttribute("data-mn-target");
+        var target = document.getElementById(targetId);
+        if (target) {
+          target.setAttribute("aria-hidden", "true");
+          target.classList.remove("mn__mega--open", "mn__drop--open");
+        }
+      });
+    }
+
+    function closeMobile() {
+      if (toggle) toggle.setAttribute("aria-expanded", "false");
+      if (panel) panel.classList.remove("mn__panel--open");
+    }
+
+    /* ── mobile toggle ── */
+    if (toggle && panel) {
+      toggle.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var open = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!open));
+        panel.classList.toggle("mn__panel--open");
+        if (open) closeAll();
+      });
+    }
+
+    /* ── dropdown triggers ── */
+    document.querySelectorAll(".mn__trigger[data-mn-target]").forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var targetId = btn.getAttribute("data-mn-target");
+        var target = document.getElementById(targetId);
+        var wasOpen = btn.getAttribute("aria-expanded") === "true";
+
+        closeAll();
+
+        if (!wasOpen && target) {
+          btn.setAttribute("aria-expanded", "true");
+          target.setAttribute("aria-hidden", "false");
+          var isMega = target.classList.contains("mn__mega");
+          target.classList.add(isMega ? "mn__mega--open" : "mn__drop--open");
+        }
+      });
+    });
+
+    /* ── click outside → close ── */
+    document.addEventListener("click", function () {
+      closeAll();
+    });
+
+    /* ── Escape → close everything ── */
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        closeAll();
+        closeMobile();
+      }
+    });
+
+    /* ── nav links en mobile cierran el panel ── */
+    if (panel) {
+      panel.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          closeMobile();
+          closeAll();
+        });
+      });
+    }
+  });
+})();
+</script>
 
 <style>
-  .nav__list {
+  /* ═══════════════════════════════════════════════════════
+     VARIABLES INTERNAS
+     ═══════════════════════════════════════════════════════ */
+  .mn {
+    --mn-navy: var(--color-primary, #1a1a2e);
+    --mn-gold: var(--color-gold, #c2a24a);
+    --mn-gold-deep: var(--color-gold-deep, #a9883a);
+    --mn-ivory: var(--color-ivory-alt, #f3efe7);
+    --mn-text: var(--color-text, #2c2c3e);
+    --mn-muted: rgba(255, 255, 255, 0.58);
+    --mn-line: rgba(255, 255, 255, 0.1);
+    --mn-drop-top: calc(var(--topbar-height, 36px) + var(--header-height, 64px));
+
+    display: contents; /* .mn no genera caja propia — Nav es transparent wrapper */
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     TOGGLE MOBILE — oculto en desktop
+     ═══════════════════════════════════════════════════════ */
+  .mn__toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    min-width: 44px;
+    min-height: 44px;
+    color: var(--mn-navy);
+    border-radius: 6px;
+    transition: background 0.15s;
+  }
+  .mn__toggle:hover {
+    background: var(--mn-ivory);
+  }
+  .mn__toggle-icon--close { display: none; }
+  .mn__toggle[aria-expanded="true"] .mn__toggle-icon--open  { display: none; }
+  .mn__toggle[aria-expanded="true"] .mn__toggle-icon--close { display: block; }
+
+  /* ═══════════════════════════════════════════════════════
+     PANEL — contenedor de la lista de nav
+     ═══════════════════════════════════════════════════════ */
+  .mn__panel {
     display: flex;
-    gap: var(--space-lg);
+    align-items: center;
+  }
+  .mn__list {
+    display: flex;
+    align-items: center;
+    gap: 4px;
     list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .mn__item {
+    position: relative; /* base para los drops simples */
   }
 
-  .nav__link {
-    font-size: var(--text-sm);
+  /* ═══════════════════════════════════════════════════════
+     LINKS Y TRIGGERS — estado base
+     ═══════════════════════════════════════════════════════ */
+  .mn__link,
+  .mn__trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 13px;
+    font-size: 0.875rem;
     font-weight: 500;
-    color: var(--color-text);
+    letter-spacing: 0.01em;
+    color: var(--mn-text);
     text-decoration: none;
-    padding-block: var(--space-xs);
-    border-block-end: 2px solid transparent;
+    background: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.15s, background 0.15s;
+  }
+  .mn__link:hover,
+  .mn__trigger:hover,
+  .mn__trigger[aria-expanded="true"] {
+    color: var(--mn-gold-deep);
+    background: var(--mn-ivory);
+  }
+  .mn__link--active {
+    color: var(--mn-gold-deep);
+    font-weight: 600;
+  }
+  .mn__caret {
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  .mn__trigger[aria-expanded="true"] .mn__caret {
+    transform: rotate(180deg);
   }
 
-  .nav__link:hover,
-  .nav__link--active {
-    color: var(--color-accent);
-    border-color: var(--color-accent);
+  /* ── CTA Cotizar ── */
+  .mn__item--cta {
+    margin-left: 8px;
+  }
+  .mn__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 18px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #1c1607;
+    background: var(--mn-gold);
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: background 0.15s, box-shadow 0.15s;
+  }
+  .mn__cta:hover {
+    background: var(--mn-gold-deep);
+    box-shadow: 0 4px 14px rgba(194, 162, 74, 0.35);
   }
 
-  @media (max-width: 768px) {
-    .nav__list {
+  /* ═══════════════════════════════════════════════════════
+     SIMPLE DROPDOWN (Eventos, Directorio)
+     ═══════════════════════════════════════════════════════ */
+  .mn__drop {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    min-width: 280px;
+    background: #fff;
+    border-radius: 10px;
+    border-top: 3px solid var(--mn-gold);
+    box-shadow: 0 12px 40px rgba(26, 26, 46, 0.14), 0 2px 8px rgba(26, 26, 46, 0.08);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+    z-index: 1200;
+  }
+  .mn__drop--sm {
+    min-width: 240px;
+  }
+  .mn__drop.mn__drop--open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  .drop__inner {
+    padding: 10px 8px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .drop__item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 12px;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: background 0.13s;
+  }
+  .drop__item:hover {
+    background: var(--mn-ivory);
+  }
+  .drop__name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--mn-text);
+  }
+  .drop__desc {
+    font-size: 0.78rem;
+    color: #8a8a9a;
+    line-height: 1.4;
+  }
+  .drop__all {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 6px 12px 0;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--mn-gold-deep);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .drop__all:hover {
+    color: var(--mn-navy);
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     MEGA-MENU (Servicios)
+     ═══════════════════════════════════════════════════════ */
+  .mn__mega {
+    position: fixed;
+    top: var(--mn-drop-top);
+    left: 0;
+    right: 0;
+    background: var(--mn-navy);
+    border-top: 3px solid var(--mn-gold);
+    box-shadow: 0 16px 48px rgba(26, 26, 46, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    z-index: 1200;
+  }
+  .mn__mega.mn__mega--open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  .mega__wrap {
+    max-width: var(--container-max, 1280px);
+    margin-inline: auto;
+    padding-inline: var(--container-padding, clamp(1rem, 4%, 4.5rem));
+    padding-block: 28px 32px;
+  }
+  .mega__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 18px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--mn-line);
+  }
+  .mega__label {
+    margin: 0;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mn-gold);
+  }
+  .mega__view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .mega__view-all:hover {
+    color: var(--mn-gold);
+  }
+  /* 8 columnas (4×2 — 2 filas automáticas) */
+  .mega__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px 20px;
+  }
+  .mega__col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .mega__cat-link {
+    font-family: var(--font-display, "Cormorant Garamond", serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.15s;
+    line-height: 1.2;
+  }
+  .mega__cat-link:hover {
+    color: var(--mn-gold);
+  }
+  .mega__sub {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .mega__sub-link {
+    font-size: 0.8rem;
+    color: var(--mn-muted);
+    text-decoration: none;
+    transition: color 0.13s;
+    line-height: 1.4;
+  }
+  .mega__sub-link:hover {
+    color: var(--mn-gold);
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     RESPONSIVE — MOBILE ≤ 900px
+     ═══════════════════════════════════════════════════════ */
+  @media (max-width: 900px) {
+    /* Mostrar toggle */
+    .mn__toggle {
+      display: flex;
+    }
+
+    /* Panel: drawer desde arriba */
+    .mn__panel {
+      display: block;
+      position: fixed;
+      top: var(--mn-drop-top);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #fff;
+      overflow-y: auto;
+      transform: translateX(100%);
+      transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1100;
+      padding-bottom: env(safe-area-inset-bottom, 24px);
+    }
+    .mn__panel--open {
+      transform: translateX(0);
+    }
+
+    .mn__list {
       flex-direction: column;
-      gap: var(--space-sm);
+      align-items: stretch;
+      gap: 0;
+      padding: 8px 0 24px;
+    }
+    .mn__item {
+      position: static;
+      border-bottom: 1px solid #f0eee8;
+    }
+    .mn__item--cta {
+      margin-left: 0;
+      padding: 16px 20px 8px;
+      border-bottom: none;
+    }
+
+    .mn__link,
+    .mn__trigger {
+      width: 100%;
+      justify-content: space-between;
+      padding: 15px 20px;
+      border-radius: 0;
+      font-size: 1rem;
+    }
+    .mn__link:hover,
+    .mn__trigger:hover,
+    .mn__trigger[aria-expanded="true"] {
+      background: var(--mn-ivory);
+      color: var(--mn-navy);
+    }
+
+    /* CTA mobile */
+    .mn__cta {
+      width: 100%;
+      justify-content: center;
+      padding: 14px 20px;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    /* Mega y drops: estáticos, acordeón */
+    .mn__mega,
+    .mn__drop {
+      position: static;
+      transform: none;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      box-shadow: none;
+      border-radius: 0;
+      border-top: none;
+      display: none; /* hidden until --open */
+      transition: none;
+    }
+    .mn__mega.mn__mega--open,
+    .mn__drop.mn__drop--open {
+      display: block;
+    }
+
+    /* Mega en mobile: fondo ivory, no navy */
+    .mn__mega {
+      background: var(--mn-ivory);
+    }
+    .mega__wrap {
+      padding: 16px 20px 20px;
+    }
+    .mega__head {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      padding-bottom: 14px;
+      margin-bottom: 14px;
+    }
+    .mega__label {
+      color: var(--mn-gold-deep);
+    }
+    .mega__view-all {
+      color: var(--mn-navy);
+      font-size: 0.88rem;
+    }
+    .mega__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px 16px;
+    }
+    .mega__cat-link {
+      color: var(--mn-navy);
+      font-size: 1rem;
+    }
+    .mega__sub-link {
+      color: #6a6a7a;
+    }
+
+    /* Drop en mobile */
+    .drop__inner {
+      padding: 4px 16px 16px;
+      background: var(--mn-ivory);
+    }
+    .drop__name { color: var(--mn-navy); }
+  }
+
+  @media (max-width: 480px) {
+    .mega__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     MEGA 4 cols en ≥1100px, 4 cols en 901–1099px
+     ═══════════════════════════════════════════════════════ */
+  @media (min-width: 901px) and (max-width: 1099px) {
+    .mega__grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px 14px;
+    }
+    .mn__link,
+    .mn__trigger {
+      padding: 7px 10px;
+      font-size: 0.82rem;
+    }
+    .mn__cta {
+      padding: 8px 14px;
+      font-size: 0.82rem;
     }
   }
 </style>

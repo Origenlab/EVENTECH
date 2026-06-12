@@ -1,15 +1,16 @@
 ---
 /**
- * ─── Blog Index — Rediseño 2026 (homologado al home) ───
- * Mismo sistema visual del home (`hm-`): hero navy/gold, menú de secciones,
- * split heads, cards premium y sidebar. Estilos en `@styles/blog-2026.css`.
+ * ─── Blog Index — Elevado 2026 ───
+ * Hero navy con breadcrumb inline, grid 3 columnas, fechas visibles,
+ * sin hashtags SEO. Nav contextual por categoría editorial.
+ * Sistema visual: home-2026.css (hm-) + blog-2026.css (hm-bl-).
  */
 import type { GetStaticPaths, Page } from "astro";
 import PageLayout from "@layouts/PageLayout.astro";
 import BlogCard from "@components/BlogCard.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-import { breadcrumbJsonLd } from "@utils/seo";
+import { breadcrumbJsonLd, collectionPageJsonLd } from "@utils/seo";
 import "@styles/home-2026.css";
 import "@styles/blog-2026.css";
 
@@ -17,8 +18,8 @@ export const getStaticPaths = (async ({ paginate }) => {
   const allPosts = (await getCollection("blog", ({ data }: CollectionEntry<"blog">) => !data.draft))
     .sort((a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) => b.data.date.valueOf() - a.data.date.valueOf());
 
-  // 6 posts per page
-  return paginate(allPosts, { pageSize: 6 });
+  // 9 posts por página (grid 3×3)
+  return paginate(allPosts, { pageSize: 9 });
 }) satisfies GetStaticPaths;
 
 const { page } = Astro.props as { page: Page<CollectionEntry<"blog">> };
@@ -49,13 +50,14 @@ const categories = categoryDefs.map(cat => ({
     : allPosts.filter((p: CollectionEntry<"blog">) => p.data.category === cat.slug).length
 })).filter(cat => cat.count > 0 || cat.slug === "all");
 
+// Nav contextual del blog — categorías editoriales + accesos directos
 const sectionMenu = [
-  { label: "Servicios", href: "/servicios/" },
-  { label: "Eventos", href: "/eventos/" },
-  { label: "Salones", href: "/directorio/" },
-  { label: "Nosotros", href: "/nosotros/" },
-  { label: "Blog", href: "/blog/" },
-  { label: "Cotizar", href: "/cotizar/" },
+  { label: "Todos los artículos", href: "/blog/" },
+  { label: "Bodas", href: "/blog/?cat=bodas" },
+  { label: "XV Años", href: "/blog/?cat=xv-anos" },
+  { label: "Corporativos", href: "/blog/?cat=corporativos" },
+  { label: "Guías", href: "/blog/?cat=guias" },
+  { label: "Tips", href: "/blog/?cat=tips" },
 ];
 
 const jsonLd = [
@@ -63,17 +65,26 @@ const jsonLd = [
     { name: "Inicio", url: "/" },
     { name: "Blog", url: "/blog/" },
   ]),
+  // CollectionPage describe el blog como entidad para buscadores
+  ...(currentPage === 1 ? [collectionPageJsonLd({
+    name: "Blog EVENTECH — Guías y consejos para eventos en CDMX",
+    description: "Guías prácticas, tendencias y consejos de expertos para organizar bodas, XV años y eventos corporativos en CDMX. Experiencia directa de campo en cada artículo.",
+    url: "/blog/",
+    numberOfItems: allPosts.length,
+    areaServed: "Ciudad de México y Estado de México",
+  })] : []),
 ];
 
 const pageTitle = currentPage > 1
-  ? `Blog — Página ${currentPage}`
-  : "Blog — Artículos y Guías de Eventos";
+  ? `Blog EVENTECH — Guías de eventos · Página ${currentPage}`
+  : "Blog EVENTECH — Guías, tendencias y consejos para eventos en CDMX";
 
 ---
 
 <PageLayout
   title={pageTitle}
-  description="Artículos, guías y tendencias sobre eventos, bodas, XV años y corporativos. Tips para organizar tu celebración perfecta en CDMX."
+  rawTitle={true}
+  description="Guías prácticas, tendencias y consejos de expertos para organizar bodas, XV años y eventos corporativos en CDMX. 30 años de experiencia en cada artículo."
   jsonLd={jsonLd}
 >
   <div class="hm">
@@ -81,30 +92,50 @@ const pageTitle = currentPage > 1
     {currentPage === 1 && (
       <section class="hm-hero" aria-labelledby="blog-hero-heading">
         <div class="hm__wrap hm-hero__wrap">
+          <!-- Breadcrumb inline -->
+          <nav class="sv-breadcrumb" aria-label="Migas de pan">
+            <ol>
+              <li><a href="/">Inicio</a></li>
+              <li aria-hidden="true">›</li>
+              <li><span aria-current="page">Blog</span></li>
+            </ol>
+          </nav>
+
           <div class="hm-hero__grid">
             <div class="hm-hero__main">
               <p class="hm__eyebrow hm-hero__eyebrow">
-                Recursos para tu evento · CDMX y Estado de México
+                EVENTECH · Conocimiento desde el campo
               </p>
-              <h1 id="blog-hero-heading">El blog de <em>EVENTECH</em></h1>
+              <h1 id="blog-hero-heading">
+                Guías y consejos de quienes <em>montan los eventos</em>
+              </h1>
               <p class="hm-hero__lead">
-                Guías prácticas, tendencias y consejos de expertos para organizar
-                eventos memorables: mobiliario, carpas, iluminación y más.
+                Cada artículo nace de los salones que equipamos, las bodas que
+                montamos y los imprevistos que resolvemos. Contenido práctico,
+                sin teoría de agencia.
               </p>
+              <div class="hm-hero__actions">
+                <a href="#articulos" class="hm__btn hm__btn--gold">
+                  Explorar artículos
+                </a>
+                <a href="/cotizar/" class="hm__btn hm__btn--outline-light">
+                  Cotizar mi evento
+                </a>
+              </div>
             </div>
             <div class="hm-hero__seo">
               <p>
                 Con <strong>más de 30 años equipando eventos</strong> en la Ciudad de
-                México y el Estado de México, compartimos en este blog el conocimiento
-                que acumulamos montando bodas, XV años y eventos corporativos. Desde
-                guías paso a paso hasta tips de montaje profesional, cada artículo nace
-                de la experiencia real de nuestro equipo.
+                México y Estado de México, compartimos en este blog el conocimiento
+                acumulado montando bodas, XV años, corporativos y fiestas infantiles.
+                No escribimos lo que se supone que hay que decir — escribimos lo que
+                aprendimos en el campo.
               </p>
               <p>
-                Publicamos con regularidad sobre <strong>tendencias actuales</strong>,
-                nuevos productos disponibles para renta y casos de éxito de eventos que
-                hemos equipado, para que organices tu celebración con información práctica
-                y confiable.
+                Encuentra <strong>guías paso a paso</strong>, comparativas de
+                materiales, tendencias de decoración, tips de logística y casos reales
+                de eventos que equipamos. Todo organizado por tipo de evento para que
+                encuentres exactamente lo que necesitas.
               </p>
             </div>
           </div>
@@ -128,19 +159,21 @@ const pageTitle = currentPage > 1
       <div class="hm__wrap">
         <div class="hm__head hm__head--split">
           <div class="hm__head-title">
-            <p class="hm__eyebrow">Conocimiento para tu evento</p>
+            <p class="hm__eyebrow">
+              {currentPage === 1 ? `${allPosts.length} artículos publicados` : `Página ${currentPage} de ${totalPages}`}
+            </p>
             <h2 id="articulos-heading">
               {currentPage === 1 ? "Artículos y guías" : `Artículos · Página ${currentPage}`}
             </h2>
             <p class="hm__head-sub">
               {currentPage === 1
-                ? "Contenido organizado por tipo de evento y tema, basado en cientos de montajes reales."
-                : `Mostrando artículos ${page.start + 1}–${page.end + 1} de ${page.total} publicados.`}
+                ? "Usa los filtros para navegar por tipo de evento. El artículo destacado es el más reciente."
+                : `Artículos ${page.start + 1} al ${page.end + 1} de ${page.total} publicados.`}
             </p>
           </div>
           <div class="hm__head-copy">
-            <p>Encuentra el contenido que necesitas organizado por tipo de evento o tema: desde preparativos para bodas hasta consejos para eventos corporativos, todo con información aplicable a tu celebración.</p>
-            <p>Cada artículo incluye recomendaciones prácticas surgidas de nuestra experiencia equipando cientos de eventos cada año en CDMX y Estado de México.</p>
+            <p>Filtra por categoría para encontrar exactamente lo que necesitas: guías de boda, tips para XV años, logística corporativa o tendencias de decoración. Cada artículo está escrito por el equipo que opera los eventos, no por redactores externos.</p>
+            <p>Todos los contenidos son aplicables a eventos en <strong>CDMX y Estado de México</strong> y se actualizan con la experiencia de los montajes más recientes.</p>
           </div>
         </div>
 
@@ -170,10 +203,10 @@ const pageTitle = currentPage > 1
                     title={post.data.title}
                     description={post.data.description}
                     slug={post.slug}
+                    date={post.data.date}
                     image={post.data.image}
                     body={post.body}
                     category={post.data.category}
-                    tags={post.data.tags}
                     author={post.data.author}
                     featured={currentPage === 1 && i === 0}
                   />

@@ -1,35 +1,24 @@
 ---
 /**
- * ─── Mobiliario Category Page ───
- * Página de categoría: Renta de Mobiliario para Eventos en CDMX.
- * Sigue el layout de categoría principal aprobado.
+ * ─── Mobiliario — L3 Category Page (rediseño 2026) ───
+ * Homologado al sistema Home-2026: importa home-2026.css, usa clases `hm-`.
+ * Hero navy + sv-breadcrumb inline, hm-cat-grid, hm-feat zig-zag, stats,
+ * hm-why navy, FAQ + formulario WhatsApp, CTA final.
+ *
+ * Keyword primaria: "renta de mobiliario para eventos CDMX"
  */
 import PageLayout from "@layouts/PageLayout.astro";
-import ServiceShowcase from "@components/ServiceShowcase.astro";
-import HeroPage from "@components/HeroPage.astro";
-import Breadcrumbs from "@components/Breadcrumbs.astro";
-import CTABanner from "@components/CTABanner.astro";
-import SectionHeader from "@components/SectionHeader.astro";
-import Card from "@components/Card.astro";
-import CategoryCard from "@components/CategoryCard.astro";
-import { SITE } from "@data/site";
+import { SITE, FEATURES } from "@data/site";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
-import CtaBar from "@components/CtaBar.astro";
-import Gallery4x4 from "@components/Gallery4x4.astro";
-import FaqSection from "@components/FaqSection.astro";
-import '@styles/l3-shared.css';
-import '@styles/l4-shared.css';
+import "@styles/home-2026.css";
 
-const breadcrumbItems = [
-  { label: "Inicio", href: "/" },
-  { label: "Servicios", href: "/servicios/" },
-  { label: "Mobiliario" },
-];
-
+/* ── Subcategorías ─────────────────────────────────────────────────── */
 const SUB_SERVICES = [
   {
+    id: "sillas",
     name: "Sillas para Eventos",
-    excerpt: "Sillas Tiffany desde $15 MXN, Chiavari, Ghost y Crossback. Más de 12 modelos disponibles con cojín incluido.",
+    badge: "Lo más solicitado",
+    excerpt: "Tiffany desde $15 MXN, Chiavari, Ghost y Crossback. Más de 12 modelos con cojín incluido.",
     href: "/servicios/mobiliario/sillas/",
     image: "/images/mobiliario/sillas-chiavari-ghost-combinacion-estudio.avif",
     subcategories: [
@@ -40,8 +29,10 @@ const SUB_SERVICES = [
     ],
   },
   {
+    id: "mesas",
     name: "Mesas para Eventos",
-    excerpt: "Mesas redondas de 150 y 180 cm, imperiales de 240 cm, cocktail y tablones. Layout incluido en la cotización.",
+    badge: "Múltiples formatos",
+    excerpt: "Redondas 150/180 cm, imperiales 240 cm, cocktail y tablones. Layout incluido.",
     href: "/servicios/mobiliario/mesas/",
     image: "/images/mobiliario/mesa-redonda-overhead-chargers-boda.avif",
     subcategories: [
@@ -52,8 +43,10 @@ const SUB_SERVICES = [
     ],
   },
   {
+    id: "salas-lounge",
     name: "Salas Lounge",
-    excerpt: "Sets completos en Moderno, Vintage, Boho y Elegante. Instalados en tu venue en menos de 45 minutos.",
+    badge: "VIP en 45 minutos",
+    excerpt: "Sets completos en Moderno, Vintage, Boho y Elegante. Montaje express.",
     href: "/servicios/mobiliario/salas-lounge/",
     image: "/images/mobiliario/sala-lounge-boho-ratan-macrame-interior.avif",
     subcategories: [
@@ -64,8 +57,10 @@ const SUB_SERVICES = [
     ],
   },
   {
+    id: "barras",
     name: "Barras y Complementos",
-    excerpt: "Barras de bebidas en madera, acrílico iluminado o acero. Mesas de postres, periqueras y accesorios con montaje incluido.",
+    badge: "Montaje incluido",
+    excerpt: "Barras en madera, acrílico iluminado o acero. Candy bar, periqueras y accesorios.",
     href: "/servicios/mobiliario/barras/",
     image: "/images/mobiliario/barra-hexagonal-bartender-botanical.avif",
     subcategories: [
@@ -77,19 +72,57 @@ const SUB_SERVICES = [
   },
 ];
 
+/* ── FAQs ──────────────────────────────────────────────────────────── */
 const faqs = [
-  { question: "¿Qué tipos de sillas ofrecen para renta?", answer: "Tenemos Tiffany en cuatro acabados (dorada, plateada, blanca y transparente), Chiavari de aluminio, Ghost de acrílico, Crossback de madera, Avant Garde y plegables. Las Tiffany arrancan desde $15 MXN por pieza con cojín incluido. Si no estás seguro qué modelo va mejor con tu venue, mándanos fotos del salón por WhatsApp y te decimos al momento." },
-  { question: "¿Cuántas mesas necesito para mi evento?", answer: "Depende del tipo. Si usas mesas redondas de 150 cm, una mesa por cada 8 invitados. Con las de 180 cm llegas a 10 por mesa. Si prefieres la mesa imperial de 240 cm, calcula 10 personas por mesa con espacio holgado. Para bodas con buffet normalmente se agregan 2 o 3 tablones extra. Mándanos tu número de invitados y el plano del venue — te hacemos el layout en el día." },
-  { question: "¿Las salas lounge se pueden personalizar?", answer: "Sí, y es algo que hacemos seguido. Los sets prediseñados (Moderno, Vintage, Boho, Elegante) cubren el 90% de los eventos, pero si quieres mezclar piezas — por ejemplo, el sofá Chesterfield del Lounge Vintage con los sillones de ratán del Boho — lo armamos sin problema. También tenemos opciones de tapicería en colores específicos si tu evento tiene paleta definida." },
-  { question: "¿El montaje está incluido en el precio de renta?", answer: "Sí, dentro de las 16 alcaldías de CDMX el montaje y la recolección no tienen costo extra. Nuestro equipo llega antes del evento, instala todo según el layout que acordamos y regresa a recoger al terminar — tú no tienes que hacer nada. Para Naucalpan, Tlalnepantla o Ecatepec sí hay cargo por traslado, que te detallamos en la cotización desde el principio." },
-  { question: "¿Con cuánta anticipación debo reservar el mobiliario?", answer: "Para eventos de hasta 100 personas, con 2 semanas de anticipación es suficiente casi siempre. Para eventos grandes — 200 invitados o más — te recomendamos apartar con 4 a 6 semanas. En temporada alta (noviembre a febrero, que es cuando se concentran las bodas de fin de año) el inventario de sillas Tiffany doradas y salas lounge se agota rápido. Con un anticipo del 30% ya queda apartado." },
-  { question: "¿Puedo ver el mobiliario antes de rentarlo?", answer: "Claro. Tenemos showroom en CDMX donde puedes ver las piezas en persona — te recomendamos venir si estás entre dos modelos de silla y quieres ver el acabado real, no solo en foto. También mandamos catálogo digital con medidas exactas y fotos de montajes reales en eventos anteriores. Agenda tu visita por WhatsApp y confirmamos en menos de una hora." },
+  {
+    question: "¿Qué tipos de sillas ofrecen para renta?",
+    answer: "Tenemos Tiffany en cuatro acabados (dorada, plateada, blanca y transparente), Chiavari de aluminio, Ghost de acrílico, Crossback de madera, Avant Garde y plegables. Las Tiffany arrancan desde $15 MXN por pieza con cojín incluido. Si no estás seguro qué modelo va mejor con tu venue, mándanos fotos del salón por WhatsApp y te decimos al momento.",
+  },
+  {
+    question: "¿Cuántas mesas necesito para mi evento?",
+    answer: "Depende del tipo. Mesa redonda de 150 cm = 8 invitados; de 180 cm = 10. Mesa imperial de 240 cm = 10 personas con espacio holgado. Para bodas con buffet se agregan 2 o 3 tablones extra. Mándanos tu número de invitados y el plano del venue — te hacemos el layout en el día.",
+  },
+  {
+    question: "¿Las salas lounge se pueden personalizar?",
+    answer: "Sí, y es algo que hacemos seguido. Los sets prediseñados (Moderno, Vintage, Boho, Elegante) cubren el 90% de los eventos, pero si quieres mezclar piezas — por ejemplo, el sofá Chesterfield Vintage con los sillones de ratán Boho — lo armamos sin problema. También tenemos opciones de tapicería en colores específicos si tu evento tiene paleta definida.",
+  },
+  {
+    question: "¿El montaje está incluido en el precio de renta?",
+    answer: "Sí, dentro de las 16 alcaldías de CDMX el montaje y la recolección no tienen costo extra. Nuestro equipo llega antes del evento, instala todo según el layout acordado y regresa a recoger al terminar — tú no tienes que hacer nada. Para Naucalpan, Tlalnepantla o Ecatepec hay cargo por traslado que detallamos en la cotización desde el principio.",
+  },
+  {
+    question: "¿Con cuánta anticipación debo reservar el mobiliario?",
+    answer: "Para eventos de hasta 100 personas, 2 semanas es suficiente casi siempre. Para eventos grandes — 200 invitados o más — recomendamos apartar con 4 a 6 semanas. En temporada alta (noviembre a febrero) el inventario de sillas Tiffany doradas y salas lounge se agota rápido. Con un anticipo del 30% ya queda apartado.",
+  },
+  {
+    question: "¿Puedo ver el mobiliario antes de rentarlo?",
+    answer: "Claro. Tenemos showroom en CDMX donde puedes ver las piezas en persona — útil cuando estás entre dos modelos de silla y quieres ver el acabado real. También mandamos catálogo digital con medidas exactas y fotos de montajes reales. Agenda tu visita por WhatsApp y confirmamos en menos de una hora.",
+  },
 ];
 
+/* ── Por qué elegirnos (6 features) ────────────────────────────────── */
+const mobFeatures = [
+  { name: "Inventario propio y verificado", excerpt: "Cada pieza revisada y retapizada antes de cada montaje. Sin sorpresas el día del evento." },
+  { name: "Montaje profesional sin costo extra", excerpt: "Entregamos, instalamos y recogemos en las 16 alcaldías sin cargos ocultos." },
+  { name: "Layout incluido en la cotización", excerpt: "Calculamos disposición de mesas, aforos y flujos de circulación para que el salón respire." },
+  { name: "Cotización el mismo día", excerpt: "Respuesta por WhatsApp en menos de 30 minutos durante horario de atención." },
+  { name: "Showroom disponible en CDMX", excerpt: "Ven a ver el mobiliario en persona antes de confirmar. Sin cita previa requerida." },
+  { name: "+500 eventos realizados", excerpt: "Bodas, XV años, corporativos y celebraciones en haciendas, jardines y salones de lujo." },
+];
+
+/* ── Proceso (4 pasos) ──────────────────────────────────────────────── */
+const steps = [
+  { n: 1, t: "Cotiza", p: "Cuéntanos tu evento, venue y número de invitados. Respondemos con precio el mismo día." },
+  { n: 2, t: "Confirmamos", p: "Diseñamos el layout de mesas, ajustamos el inventario y apartamos la fecha con anticipo del 30%." },
+  { n: 3, t: "Montamos", p: "Llegamos antes del evento, instalamos todo según el plano aprobado y dejamos el venue listo." },
+  { n: 4, t: "Recogemos", p: "Al terminar, nuestro equipo desmonta y retira el equipo. Tú solo disfrutas." },
+];
+
+/* ── JSON-LD ────────────────────────────────────────────────────────── */
 const jsonLd = [
   serviceJsonLd({
     name: "Renta de Mobiliario para Eventos en CDMX",
-    description: "Sillas Tiffany, mesas, salas lounge y barras para bodas, XV años y corporativos. Entrega y montaje incluido.",
+    description: "Sillas Tiffany, mesas, salas lounge y barras para bodas, XV años y corporativos. Entrega y montaje incluido en 16 alcaldías.",
     url: "/servicios/mobiliario/",
     priceRange: { min: 15, max: 25000 },
   }),
@@ -103,448 +136,833 @@ const jsonLd = [
 ---
 
 <PageLayout
-  title="Renta de Mobiliario para Eventos"
-  description="Renta de mobiliario para eventos: sillas Tiffany y Chiavari, mesas, salas lounge y barras en CDMX y Estado de México. Entrega y montaje incluido. Cotiza en 24h."
+  title="Renta de Mobiliario para Eventos en CDMX | Equipo para eventos en México"
+  rawTitle={true}
+  description="Renta de mobiliario para eventos en CDMX: sillas Tiffany y Chiavari desde $15 MXN, mesas, salas lounge y barras. Entrega, montaje y layout incluidos. Cotización el mismo día."
   jsonLd={jsonLd}
 >
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       BREADCRUMBS
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <Breadcrumbs items={breadcrumbItems} />
+  <div class="hm">
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       HERO
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <HeroPage
-    badge="Más de 500 eventos realizados"
-    title='Renta de <span class="highlight">Mobiliario para Eventos</span> en CDMX'
-    subtitle="Sillas Tiffany desde $15 MXN, mesas, salas lounge y barras para eventos en CDMX. Entrega y montaje incluido en las 16 alcaldías. Cotización el mismo día."
-    primaryCTA={{ label: "Cotiza tu evento", href: "#reserva-heading" }}
-    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar mobiliario para mi evento` }}
-    cards={[
-      {
-        title: "Sillas desde $15 MXN, mesas, salas lounge y barras — todo en un solo proveedor",
-        content: "<strong>Renta de mobiliario para eventos en CDMX</strong> con más de 12 modelos de sillas distintos: Tiffany dorada, plateada, blanca y transparente; Chiavari, Ghost, Crossback y Avant Garde. Mesas redondas de 150 y 180 cm, rectangulares de 240 cm y cocktail de 110 cm. Salas lounge en cuatro estilos (Moderno, Vintage, Boho, Elegante) y barras de bebidas en madera, acrílico y acero. Hemos montado en venues como Salón Jardín Pedregal, Hacienda Tlalpan y salones del WTC CDMX.",
-      },
-      {
-        title: "Entrega y montaje en menos de 2 horas, sin costo adicional en 16 alcaldías",
-        content: "<strong>Cada renta de mobiliario incluye</strong> entrega puntual en tu venue, montaje profesional completo según el layout aprobado y recolección al término del evento — sin costos ocultos dentro de CDMX. Cubrimos las 16 alcaldías de la Ciudad de México y, con previo acuerdo, Naucalpan, Tlalnepantla y Ecatepec. Nuestro equipo llega con tiempo de sobra para instalar antes de que lleguen los invitados. En +500 eventos realizados, nunca hemos fallado a un cliente.",
-      },
-    ]}
-  />
+    <!-- ══════════════════════════════════════════════════════════════
+         HERO
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="hm-hero" aria-labelledby="mob-hero-heading">
+      <div class="hm__wrap hm-hero__wrap">
 
-  <CtaBar headline="¿Qué mobiliario necesitas?" items={[
-    { label: "Sillas", href: "/servicios/mobiliario/sillas/", icon: "mobiliario" },
-    { label: "Mesas", href: "/servicios/mobiliario/mesas/", icon: "mobiliario" },
-    { label: "Salas Lounge", href: "/servicios/mobiliario/salas-lounge/", icon: "mobiliario" },
-    { label: "Barras", href: "/servicios/mobiliario/barras/", icon: "mobiliario" },
-  ]} />
+        <nav class="sv-breadcrumb" aria-label="Migas de pan">
+          <ol>
+            <li><a href="/">Inicio</a></li>
+            <li aria-hidden="true">›</li>
+            <li><a href="/servicios/">Servicios</a></li>
+            <li aria-hidden="true">›</li>
+            <li><span aria-current="page">Mobiliario</span></li>
+          </ol>
+        </nav>
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       CTA BANNER
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <CTABanner
-    headline="Sillas desde $15 MXN. Mesas, salas lounge y barras con montaje incluido."
-    subheadline="Cotiza tu mobiliario para eventos en CDMX y recibe precio en el mismo día. Sin compromiso, sin costos ocultos."
-    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
-    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
-  />
+        <div class="hm-hero__grid">
+          <div class="hm-hero__main">
+            <p class="hm__eyebrow hm-hero__eyebrow">
+              Renta de mobiliario · CDMX y Estado de México
+            </p>
+            <h1 id="mob-hero-heading">
+              Sillas, mesas, lounges y barras para <em>cualquier evento</em>
+            </h1>
+            <p class="hm-hero__lead">
+              Tiffany desde $15 MXN, mesas en todos los formatos, salas lounge y barras de diseño —
+              entrega, montaje y layout incluidos en las 16 alcaldías.
+            </p>
+            <div class="sv-hero__ctas">
+              <a
+                class="hm__btn hm__btn--gold"
+                href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola,%20quiero%20cotizar%20mobiliario%20para%20mi%20evento`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
+                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.23 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z" />
+                </svg>
+                Cotizar mobiliario
+              </a>
+              <a class="hm__btn hm__btn--ghost" href="#catalogo">
+                Ver catálogo completo
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 5v14M5 12l7 7 7-7" />
+                </svg>
+              </a>
+            </div>
+          </div>
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       CATÁLOGO — Sub-servicios con Cards
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section" aria-labelledby="catalogo-heading">
-    <div class="container">
-      <SectionHeader
-        id="catalogo-heading"
-        title="¿Qué mobiliario para eventos puedes rentar con EVENTECH?"
-        subtitle="Sillas, mesas, salas lounge y barras — todo en un solo proveedor"
-        description={[
-          "Tenemos inventario propio para bodas de 50 personas hasta corporativos de 1,000 invitados. Sillas Tiffany desde $15 MXN por pieza, mesas redondas y rectangulares en todos los tamaños, salas lounge en cuatro estilos, y barras de bebidas con acabado en madera o acrílico iluminado.",
-          "Cada categoría tiene subcategorías específicas para que encuentres exactamente lo que buscas — sin perder tiempo en llamadas de ida y vuelta. Selecciona, cotiza y confirma en el mismo día."
-        ]}
-      />
+          <div class="hm-hero__seo">
+            <p>
+              <strong>Más de 500 eventos equipados en CDMX</strong> con mobiliario propio y verificado.
+              Sillas Tiffany doradas, plateadas, blancas y transparentes; Chiavari de aluminio;
+              Ghost y Crossback — más de 12 modelos disponibles con cojín incluido desde $15 MXN por pieza.
+            </p>
+            <p>
+              Mesas redondas de 150 y 180 cm, imperiales de 240 cm, cocktail y tablones.
+              Salas lounge en cuatro estilos (Moderno, Vintage, Boho, Elegante) y barras de bebidas
+              en madera, acrílico iluminado o acero. Hemos montado en Hacienda Tlalpan,
+              Salón Jardín Pedregal y salones del WTC CDMX. <strong>Entrega, montaje y layout sin costo
+              adicional dentro de las 16 alcaldías.</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <div class="grid grid--4">
-        {SUB_SERVICES.map((sub) => (
-          <CategoryCard
-            title={sub.name}
-            subtitle={sub.excerpt}
-            href={sub.href}
-            image={sub.image}
-            subcategories={sub.subcategories}
-          />
+    <!-- ══════════════════════════════════════════════════════════════
+         NAV DE SUBCATEGORÍAS
+         ══════════════════════════════════════════════════════════════ -->
+    <nav class="hm-menu" aria-label="Subcategorías de mobiliario">
+      <ul class="hm-menu__grid" style="grid-template-columns: repeat(5, 1fr);">
+        {SUB_SERVICES.map((s) => (
+          <li>
+            <a class="hm-menu__item" href={s.href}>{s.name}</a>
+          </li>
         ))}
+        <li>
+          <a
+            class="hm-menu__item hm-menu__item--cta"
+            href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola,%20quiero%20cotizar%20mobiliario%20para%20mi%20evento`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Cotizar ahora
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         CATÁLOGO — 4 subcategorías
+         ══════════════════════════════════════════════════════════════ -->
+    <section id="catalogo" class="hm__section" aria-labelledby="catalogo-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Todo en un solo proveedor</p>
+            <h2 id="catalogo-heading">¿Qué mobiliario puedes rentar?</h2>
+            <p class="hm__head-sub">4 categorías, inventario propio, montaje incluido.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Manejamos cada tipo de mobiliario que un evento requiere bajo un mismo contrato:
+              sillas en más de 12 modelos, mesas en todos los formatos, salas lounge modulares y
+              barras de diseño. Inventario propio, revisado pieza a pieza antes de cada montaje.
+            </p>
+            <p>
+              Eso elimina la logística de coordinar múltiples proveedores. Un solo pedido, un solo
+              equipo de montaje y un responsable que da seguimiento desde la cotización hasta que
+              el último invitado se va. Más de 500 eventos en CDMX nos respaldan.
+            </p>
+          </div>
+        </div>
+
+        <div class="hm-cat-grid">
+          {SUB_SERVICES.map((s) => (
+            <article class="hm-cat">
+              <a class="hm-cat__media" href={s.href} aria-label={`Ver ${s.name}`}>
+                <img
+                  class="hm-cat__img"
+                  src={s.image}
+                  alt={`Renta de ${s.name.toLowerCase()} para eventos en CDMX`}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="hm-cat__badge">{s.badge}</span>
+                <span class="hm-cat__name">{s.name}</span>
+              </a>
+              <div class="hm-cat__body">
+                <p class="hm-cat__sub">{s.excerpt}</p>
+                <ul class="hm-cat__menu">
+                  {s.subcategories.map((sc) => (
+                    <li>
+                      <a href={sc.href}>
+                        <span>{sc.name}</span>
+                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M9 18l6-6-6-6" />
+                        </svg>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <a class="hm-cat__cta" href={s.href}>
+                  Ver todo en {s.name}
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       SILLAS — Showcase section
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="sillas-heading">
-    <div class="container">
-      <ServiceShowcase
-    title="Sillas para Eventos en CDMX"
-    headingId="sillas-heading"
-    badge="Lo más solicitado"
-    subtitle="Las sillas Tiffany doradas son la opción número uno en bodas de CDMX. Desde $15 MXN por pieza con cojín incluido."
-    tags={["Tiffany", "Chiavari", "Ghost", "Crossback", "Avant Garde", "Plegables"]}
-    ctaHref="#reserva-heading"
-    ctaLabel="Cotizar Sillas"
-  >
-    <Fragment slot="body">
-      <p class="showcase__text">Las <strong>sillas Tiffany</strong> van desde $15 MXN en acabado dorado, plateado, blanco y transparente — las más solicitadas en bodas en Salón Pedregal, Hacienda Tlalpan y salones del sur de la ciudad. Las <strong>sillas Chiavari</strong>, con estructura de aluminio más ligero, son preferidas cuando el venue tiene escaleras o acceso complicado.</p>
-      <p class="showcase__text">Para bodas rústicas en haciendas y jardines, las <strong>sillas Crossback</strong> de madera natural son la elección clásica. Las <strong>sillas Ghost</strong> en acrílico transparente funcionan muy bien en eventos modernos donde quieres que la decoración del fondo sea el protagonista. Todas incluyen <strong>cojín acolchado</strong> en el color de tu elección. Combínalas con nuestra <a href="/servicios/iluminacion/">iluminación arquitectónica</a> para resaltar cada detalle.</p>
-    </Fragment>
-    <Fragment slot="media">
-      <img
-            src="/images/mobiliario/sillas-chiavari-doradas-boda-lujo.avif"
-            alt="Sillas Chiavari doradas en salón de lujo para bodas y eventos CDMX"
-            width="800" height="436"
-            loading="lazy" decoding="async"
-            class="showcase__img"
-          />
-          <div class="showcase__gallery">
-            <img src="/images/mobiliario/chiavari-jardin-noche-guirnaldas-exterior.avif" alt="Sillas Chiavari en jardín nocturno con guirnaldas de luz" class="showcase__gallery-img" width="640" height="384" loading="lazy" decoding="async" />
-            <img src="/images/mobiliario/chiavari-mesas-patio-arcos-iluminado.avif" alt="Mesas y sillas Chiavari en patio con arcos iluminados" class="showcase__gallery-img" width="640" height="384" loading="lazy" decoding="async" />
+    <!-- ══════════════════════════════════════════════════════════════
+         MÓDULOS DESTACADOS — Zig-zag por subcategoría
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="hm__section hm__section--ivory" aria-labelledby="detalle-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Cada categoría, a fondo</p>
+            <h2 id="detalle-heading">Mobiliario en detalle</h2>
+            <p class="hm__head-sub">Especificaciones, modelos y lo que incluye cada renta.</p>
           </div>
-    </Fragment>
-  </ServiceShowcase>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       MESAS — Showcase section
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="mesas-heading">
-    <div class="container">
-      <ServiceShowcase
-    title="Renta de Mesas para Bodas y Eventos"
-    headingId="mesas-heading"
-    badge="Configuraciones flexibles"
-    subtitle="Mesa redonda de 150 cm = 8 personas. Mesa imperial de 240 cm = 10 personas. Te ayudamos a calcular el layout exacto para tu venue."
-    tags={["Redondas 150cm", "Redondas 180cm", "Rectangulares", "Cocktail", "Tablones"]}
-    ctaHref="#reserva-heading"
-    ctaLabel="Cotizar Mesas"
-  >
-    <Fragment slot="body">
-      <p class="showcase__text">Las <strong>mesas redondas de 150 cm</strong> son las más rentadas para bodas y XV años — caben 8 invitados cómodamente con vajilla y centros de mesa. Las de <strong>180 cm</strong> aguantan hasta 10 personas y se usan cuando el salón tiene techos altos y espacio generoso, como en el Salón Jardín Pedregal o eventos en el WTC. Las <strong>mesas imperiales de 240 cm</strong> arman banquetes de gala lineales con un impacto visual enorme.</p>
-      <p class="showcase__text">Para recepciones de cóctel, las <strong>mesas periqueras de 110 cm</strong> funcionan sin sillas o con bancos altos — perfectas para la hora de bienvenida o áreas de bar. Los <strong>tablones plegables</strong> resuelven buffets, mesas de registro y candy bars. Incluimos <strong>manteles y fundas opcionales</strong> en más de 20 colores — consulta nuestra <a href="/servicios/accesorios/">mantelería premium</a> con más de 50 opciones.</p>
-    </Fragment>
-    <Fragment slot="media">
-      <img
-            src="/images/mobiliario/mesa-imperial-gala-candelabros-boda.avif"
-            alt="Mesa imperial con candelabros para gala y bodas de lujo en CDMX"
-            width="800" height="436"
-            loading="lazy" decoding="async"
-            class="showcase__img"
-          />
-          <div class="showcase__gallery">
-            <img src="/images/mobiliario/cena-gala-mesa-mirror-candelabros.avif" alt="Cena de gala con mesa espejo y candelabros de lujo" class="showcase__gallery-img" width="640" height="384" loading="lazy" decoding="async" />
-            <img src="/images/mobiliario/mesa-imperial-salon-barroco-chargers.avif" alt="Mesa imperial en salón barroco con chargers dorados" class="showcase__gallery-img" width="640" height="384" loading="lazy" decoding="async" />
+          <div class="hm__head-copy">
+            <p>
+              Detrás de cada categoría hay décadas de experiencia seleccionando el mobiliario correcto
+              para cada tipo de evento y venue. Conoce en detalle qué rentamos, cómo lo instalamos
+              y por qué concentrar todo en un solo proveedor simplifica toda la logística.
+            </p>
+            <p>
+              Cada módulo incluye los modelos disponibles, casos de uso más frecuentes y un enlace
+              directo a la subcategoría para que puedas explorar y cotizar sin dar vueltas.
+            </p>
           </div>
-    </Fragment>
-  </ServiceShowcase>
-    </div>
-  </section>
+        </div>
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       SALAS LOUNGE — Showcase section
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="salas-heading">
-    <div class="container">
-      <ServiceShowcase
-    title="Salas Lounge para Eventos en CDMX"
-    headingId="salas-heading"
-    badge="Área VIP lista en 45 minutos"
-    subtitle="Sets completos con sofá, sillones y mesas de centro. Cuatro estilos disponibles — instalados en tu venue en menos de una hora."
-    tags={["Moderno", "Vintage", "Boho", "Elegante", "Personalizado"]}
-    ctaHref="#reserva-heading"
-    ctaLabel="Cotizar Salas Lounge"
-  >
-    <Fragment slot="body">
-      <p class="showcase__text">El <strong>Lounge Boho</strong> con sillones de ratán, textiles artesanales y pampas grass es el más solicitado para bodas al aire libre en haciendas y jardines del sur de CDMX. El <strong>Lounge Moderno</strong> con cuero sintético en negro o gris funciona perfecto para eventos corporativos y lanzamientos de producto. El <strong>Lounge Vintage</strong> con sofás Chesterfield en terciopelo azul marino o verde botella le da carácter a bodas en espacios históricos.</p>
-      <p class="showcase__text">Cada set de <strong>salas lounge para eventos</strong> incluye sofá de 3 plazas, dos sillones individuales, mesa de centro y mesa lateral — todo instalado y nivelado por nuestro equipo. El <strong>Lounge Elegante</strong> en tonos champagne y oro es la opción para galas y premiaciones donde el área VIP tiene que verse como tal. Complementa con <a href="/servicios/iluminacion/">iluminación ambiental decorativa</a> para terminar el ambiente.</p>
-    </Fragment>
-    <Fragment slot="media">
-      <img
-            src="/images/mobiliario/sala-lounge-boho-ratan-jardin-evento.avif"
-            alt="Sala lounge boho con sillones de ratán y pampas grass para eventos al aire libre"
-            width="800" height="436"
-            loading="lazy" decoding="async"
-            class="showcase__img"
-          />
-          <div class="showcase__gallery">
-            <img src="/images/mobiliario/sala-lounge-chesterfield-neon-forever.avif" alt="Sala lounge elegante con sofás Chesterfield y letrero neon para boda" class="showcase__gallery-img" width="640" height="384" loading="lazy" decoding="async" />
-            <img src="/images/mobiliario/sala-lounge-boho-ratan-exterior-atardecer.avif" alt="Sala lounge boho con sillones de ratán en jardín al atardecer" class="showcase__gallery-img" width="640" height="384" loading="lazy" decoding="async" />
+        <!-- ── Sillas ── -->
+        <article class="hm-feat" aria-labelledby="feat-sillas">
+          <div class="hm-feat__text">
+            <p class="hm__eyebrow">Sillas para Eventos</p>
+            <h3 class="hm-feat__title" id="feat-sillas">
+              Más de 12 modelos de silla — para cada estilo de evento
+            </h3>
+            <p class="hm-feat__lead">
+              La silla define el tono del montaje antes de que el invitado se siente. Tiffany dorada para bodas de gala; Crossback de madera para haciendas; Ghost acrílico para espacios modernos.
+            </p>
+            <p>
+              Las <strong>sillas Tiffany</strong> van desde $15 MXN en acabado dorado, plateado, blanco
+              y transparente — las más solicitadas en bodas en Salón Pedregal, Hacienda Tlalpan y
+              salones del sur de la ciudad. Las <strong>sillas Chiavari</strong> de aluminio son
+              preferidas cuando el venue tiene escaleras o acceso complicado por su peso ligero.
+            </p>
+            <p>
+              Para bodas rústicas en haciendas y jardines, las <strong>sillas Crossback</strong> de
+              madera natural son la elección clásica. Las <strong>sillas Ghost</strong> en acrílico
+              transparente funcionan muy bien en eventos modernos donde quieres que la decoración
+              sea el protagonista. Todas incluyen <strong>cojín acolchado</strong> en el color
+              de tu elección. Complementa con nuestra
+              <a href="/servicios/iluminacion/">iluminación arquitectónica</a> para resaltar cada detalle.
+            </p>
+            <ul class="hm-feat__chips">
+              {[
+                { name: "Tiffany", href: "/servicios/mobiliario/sillas/tiffany/" },
+                { name: "Chiavari", href: "/servicios/mobiliario/sillas/chiavari/" },
+                { name: "Ghost", href: "/servicios/mobiliario/sillas/ghost/" },
+                { name: "Crossback", href: "/servicios/mobiliario/sillas/crossback/" },
+              ].map((sc) => (
+                <li>
+                  <a href={sc.href}>{sc.name}</a>
+                </li>
+              ))}
+            </ul>
+            <a class="hm-feat__cta" href="/servicios/mobiliario/sillas/">
+              Ver todas las sillas
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
           </div>
-    </Fragment>
-  </ServiceShowcase>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       BARRAS — Showcase section
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="barras-heading">
-    <div class="container">
-      <ServiceShowcase
-    title="Barras de Bebidas y Complementos para Eventos"
-    headingId="barras-heading"
-    badge="Montaje incluido"
-    subtitle="Barras en madera, acrílico iluminado o acero. Formatos de 2 y 3 metros. La barra define la zona de cóctel de tu evento."
-    tags={["Barras de Bebidas", "Candy Bar", "Periqueras", "Bancos Altos", "Accesorios"]}
-    ctaHref="#reserva-heading"
-    ctaLabel="Cotizar Barras"
-  >
-    <Fragment slot="body">
-      <p class="showcase__text">La <strong>barra de madera rústica</strong> de 2 metros es la más solicitada en bodas con estilo hacienda y jardín — se instala en 20 minutos y aguanta todo el equipo del bartender. La versión en <strong>acrílico iluminado</strong> es ideal para eventos nocturnos y corporativos donde quieres un efecto visual impactante. Ambas incluyen respaldo para botellas y espacio bajo la barra para hieleras y refacciones.</p>
-      <p class="showcase__text">Las <strong>mesas de postres y candy bar</strong> con estructura escalonada de madera presentan los dulces y pasteles a tres niveles — funcionan muy bien en XV años y bodas cuando el catering quiere lucir su trabajo. Complementa con <strong>periqueras y bancos altos</strong> en madera, metal o acrílico para crear el área de cóctel completa. Instálalos bajo nuestras <a href="/servicios/carpas/">carpas profesionales</a> para eventos al aire libre sin preocuparte por el clima.</p>
-    </Fragment>
-    <Fragment slot="media">
-      <img
-            src="/images/mobiliario/barra-bebidas-bartender-madera-evento.avif"
-            alt="Barra de bebidas de madera con bartender para eventos y bodas en CDMX"
-            width="800" height="436"
-            loading="lazy" decoding="async"
-            class="showcase__img"
-          />
-          <div class="showcase__gallery">
-            <img src="/images/mobiliario/barra-madera-dorada-bartender.avif" alt="Barra de madera dorada con bartender preparando cócteles" class="showcase__gallery-img" width="640" height="384" loading="lazy" decoding="async" />
-            <img src="/images/mobiliario/barra-premium-evento-celebracion.avif" alt="Barra premium con bartender en evento de celebración nocturno" class="showcase__gallery-img" width="640" height="384" loading="lazy" decoding="async" />
-          </div>
-    </Fragment>
-  </ServiceShowcase>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       GALERÍA
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section" aria-labelledby="galeria-heading">
-    <div class="container">
-      <h2 id="galeria-heading" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 2rem;">¿Cómo luce nuestro mobiliario para eventos?</h2>
-      <Gallery4x4 images={[
-        { src: "/images/mobiliario/silla-tiffany-dorada-boda-gala-01.avif", alt: "Silla Tiffany dorada boda de gala" },
-        { src: "/images/mobiliario/silla-chiavari-dorada-boda-cdmx-01.avif", alt: "Silla Chiavari dorada boda CDMX" },
-        { src: "/images/mobiliario/salon-mesas-redondas-banquete-montaje.avif", alt: "Salón mesas redondas banquete montaje" },
-        { src: "/images/mobiliario/barra-bebidas-bartender-madera-evento.avif", alt: "Barra bebidas bartender madera evento" },
-        { src: "/images/mobiliario/lounge-moderno-terciopelo-evento-premium.avif", alt: "Lounge moderno terciopelo evento premium" },
-        { src: "/images/mobiliario/silla-crossback-natural-hacienda-boda-01.avif", alt: "Silla Crossback natural hacienda" },
-        { src: "/images/mobiliario/silla-ghost-cristal-boda-exterior-01.avif", alt: "Silla Ghost cristal boda exterior" },
-        { src: "/images/mobiliario/barra-postres-candy-bar-boda-elegante.avif", alt: "Barra postres candy bar boda elegante" },
-      ]} />
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       PREGUNTAS FRECUENTES
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section" aria-labelledby="faq-heading">
-    <div class="container">
-      <h2 id="faq-heading" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 2rem;">Preguntas frecuentes sobre mobiliario para eventos</h2>
-    </div>
-    <FaqSection items={faqs} serviceName="mobiliario para eventos" />
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       RESERVA TU EVENTO - Formulario de contacto / WhatsApp
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="reserva-heading">
-    <div class="container">
-      <SectionHeader
-        id="reserva-heading"
-        title="Cotiza Tu Mobiliario para Eventos"
-        subtitle="Respuesta por WhatsApp en menos de 30 minutos"
-        description={[
-          "Llena el formulario con los detalles básicos de tu evento — tipo, fecha y número de invitados — y te mandamos precio por WhatsApp el mismo día. Sin compromiso, sin letra chica.",
-          "Trabajamos con eventos de 50 hasta 1,200 invitados. Si no sabes qué cantidad necesitas, no te preocupes: con los datos de tu venue lo calculamos nosotros."
-        ]}
-      />
-
-      <div class="reserva-layout">
-        <form class="reserva-form" id="reservaForm" novalidate>
-          <div class="reserva-form__grid">
-            <div class="form-field">
-              <label class="form-field__label" for="nombre">
-                Nombre completo <span class="form-field__required">*</span>
-              </label>
-              <input
-                type="text"
-                id="nombre"
-                name="nombre"
-                class="form-field__input"
-                placeholder="Tu nombre"
-                required
+          <div class="hm-feat__media hm-feat__media--g3">
+            <img
+              class="hm-feat__g3-main"
+              src="/images/mobiliario/sillas-chiavari-doradas-boda-lujo.avif"
+              alt="Sillas Chiavari doradas en salón de lujo para bodas y eventos CDMX"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="hm-feat__g3-thumbs">
+              <img
+                src="/images/mobiliario/chiavari-jardin-noche-guirnaldas-exterior.avif"
+                alt="Sillas Chiavari en jardín nocturno con guirnaldas de luz"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                src="/images/mobiliario/chiavari-mesas-patio-arcos-iluminado.avif"
+                alt="Mesas y sillas Chiavari en patio con arcos iluminados"
+                loading="lazy"
+                decoding="async"
               />
             </div>
+          </div>
+        </article>
 
-            <div class="form-field">
-              <label class="form-field__label" for="telefono">
-                Teléfono <span class="form-field__required">*</span>
-              </label>
-              <input
-                type="tel"
-                id="telefono"
-                name="telefono"
-                class="form-field__input"
-                placeholder="55 1234 5678"
-                required
+        <!-- ── Mesas ── -->
+        <article class="hm-feat" aria-labelledby="feat-mesas">
+          <div class="hm-feat__text">
+            <p class="hm__eyebrow">Mesas para Eventos</p>
+            <h3 class="hm-feat__title" id="feat-mesas">
+              Redondas, imperiales, cocktail y tablones — con layout incluido
+            </h3>
+            <p class="hm-feat__lead">
+              La distribución de mesas determina cómo fluye el evento. Te entregamos el layout calculado para tu aforo y venue, sin que tengas que hacer nada.
+            </p>
+            <p>
+              Las <strong>mesas redondas de 150 cm</strong> son las más rentadas para bodas y XV años —
+              caben 8 invitados con vajilla y centros de mesa. Las de <strong>180 cm</strong> aguantan
+              hasta 10 personas y se usan en salones con techos altos, como Salón Jardín Pedregal o
+              eventos en el WTC. Las <strong>mesas imperiales de 240 cm</strong> arman banquetes
+              lineales con un impacto visual enorme.
+            </p>
+            <p>
+              Para recepciones de cóctel, las <strong>periqueras de 110 cm</strong> funcionan sin
+              sillas o con bancos altos — perfectas para la hora de bienvenida. Los
+              <strong>tablones plegables</strong> resuelven buffets, mesas de registro y candy bars.
+              Incluimos <strong>manteles y fundas opcionales</strong> en más de 20 colores. Consulta
+              nuestra <a href="/servicios/accesorios/">mantelería premium</a>.
+            </p>
+            <ul class="hm-feat__chips">
+              {[
+                { name: "Redondas 150 cm", href: "/servicios/mobiliario/mesas/redondas/" },
+                { name: "Redondas 180 cm", href: "/servicios/mobiliario/mesas/redondas/" },
+                { name: "Rectangulares", href: "/servicios/mobiliario/mesas/rectangulares/" },
+                { name: "Cocktail", href: "/servicios/mobiliario/mesas/cocktail/" },
+              ].map((sc) => (
+                <li>
+                  <a href={sc.href}>{sc.name}</a>
+                </li>
+              ))}
+            </ul>
+            <a class="hm-feat__cta" href="/servicios/mobiliario/mesas/">
+              Ver todas las mesas
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+          <div class="hm-feat__media hm-feat__media--g3">
+            <img
+              class="hm-feat__g3-main"
+              src="/images/mobiliario/mesa-imperial-gala-candelabros-boda.avif"
+              alt="Mesa imperial con candelabros para gala y bodas de lujo en CDMX"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="hm-feat__g3-thumbs">
+              <img
+                src="/images/mobiliario/cena-gala-mesa-mirror-candelabros.avif"
+                alt="Cena de gala con mesa espejo y candelabros dorados"
+                loading="lazy"
+                decoding="async"
               />
-            </div>
-
-            <div class="form-field">
-              <label class="form-field__label" for="tipoEvento">
-                Tipo de evento
-              </label>
-              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
-                <option value="">Selecciona una opción</option>
-                <option value="Boda">Boda</option>
-                <option value="XV Años">XV Años</option>
-                <option value="Evento Corporativo">Evento Corporativo</option>
-                <option value="Fiesta Social">Fiesta Social</option>
-                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
-                <option value="Graduación">Graduación</option>
-                <option value="Baby Shower">Baby Shower</option>
-                <option value="Otro">Otro</option>
-              </select>
-            </div>
-
-            <div class="form-field">
-              <label class="form-field__label" for="fecha">
-                Fecha del evento
-              </label>
-              <input
-                type="date"
-                id="fecha"
-                name="fecha"
-                class="form-field__input"
+              <img
+                src="/images/mobiliario/mesa-imperial-salon-barroco-chargers.avif"
+                alt="Mesa imperial en salón barroco con chargers y cristalería"
+                loading="lazy"
+                decoding="async"
               />
-            </div>
-
-            <div class="form-field form-field--full">
-              <label class="form-field__label" for="equipo">
-                Mobiliario de interés
-              </label>
-              <select id="equipo" name="equipo" class="form-field__input form-field__select">
-                <option value="">Selecciona el mobiliario que necesitas</option>
-                <option value="Sillas Tiffany">Sillas Tiffany / Chiavari</option>
-                <option value="Sillas Crossback">Sillas Crossback</option>
-                <option value="Sillas Ghost">Sillas Ghost</option>
-                <option value="Mesas Redondas">Mesas Redondas</option>
-                <option value="Mesas Rectangulares">Mesas Rectangulares</option>
-                <option value="Mesas Cocktail">Mesas Cocktail / Periqueras</option>
-                <option value="Salas Lounge">Salas Lounge</option>
-                <option value="Barras">Barras de Bebidas</option>
-                <option value="Paquete Completo">Paquete Completo de Mobiliario</option>
-                <option value="Otro">Otro / No estoy seguro</option>
-              </select>
-            </div>
-
-            <div class="form-field form-field--full">
-              <label class="form-field__label" for="mensaje">
-                Mensaje <span class="form-field__required">*</span>
-              </label>
-              <textarea
-                id="mensaje"
-                name="mensaje"
-                class="form-field__input form-field__textarea"
-                placeholder="Cuéntanos los detalles: número de invitados, tipo de sillas o mesas, estilo de tu evento..."
-                rows="4"
-                required
-              ></textarea>
             </div>
           </div>
+        </article>
 
-          <button type="submit" class="reserva-form__submit" id="btnEnviar">
-            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        <!-- ── Salas Lounge ── -->
+        <article class="hm-feat" aria-labelledby="feat-lounge">
+          <div class="hm-feat__text">
+            <p class="hm__eyebrow">Salas Lounge</p>
+            <h3 class="hm-feat__title" id="feat-lounge">
+              Área VIP lista en 45 minutos — cuatro estilos, un solo proveedor
+            </h3>
+            <p class="hm-feat__lead">
+              Un lounge bien ejecutado convierte cualquier rincón del venue en el área más fotografiada de la noche.
+            </p>
+            <p>
+              El <strong>Lounge Boho</strong> con sillones de ratán, textiles artesanales y pampas
+              grass es el más solicitado para bodas al aire libre en haciendas y jardines del sur
+              de CDMX. El <strong>Lounge Moderno</strong> en cuero sintético negro o gris es perfecto
+              para eventos corporativos y lanzamientos de producto. El <strong>Lounge Vintage</strong>
+              con sofás Chesterfield en terciopelo azul marino le da carácter a bodas en espacios históricos.
+            </p>
+            <p>
+              Cada set incluye sofá de 3 plazas, dos sillones individuales, mesa de centro y mesa
+              lateral — todo instalado por nuestro equipo. El <strong>Lounge Elegante</strong> en
+              tonos champagne y oro es la opción para galas y premiaciones. Complementa con
+              <a href="/servicios/iluminacion/">iluminación ambiental decorativa</a> para cerrar el ambiente.
+            </p>
+            <ul class="hm-feat__chips">
+              {[
+                { name: "Boho", href: "/servicios/mobiliario/salas-lounge/boho/" },
+                { name: "Moderno", href: "/servicios/mobiliario/salas-lounge/moderno/" },
+                { name: "Vintage", href: "/servicios/mobiliario/salas-lounge/vintage/" },
+                { name: "Elegante", href: "/servicios/mobiliario/salas-lounge/elegante/" },
+              ].map((sc) => (
+                <li>
+                  <a href={sc.href}>{sc.name}</a>
+                </li>
+              ))}
+            </ul>
+            <a class="hm-feat__cta" href="/servicios/mobiliario/salas-lounge/">
+              Ver salas lounge
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+          <div class="hm-feat__media hm-feat__media--g3">
+            <img
+              class="hm-feat__g3-main"
+              src="/images/mobiliario/sala-lounge-boho-ratan-jardin-evento.avif"
+              alt="Sala lounge boho con sillones de ratán y pampas grass para eventos al aire libre"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="hm-feat__g3-thumbs">
+              <img
+                src="/images/mobiliario/sala-lounge-chesterfield-neon-forever.avif"
+                alt="Sala lounge Chesterfield con neón forever para eventos nocturnos"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                src="/images/mobiliario/sala-lounge-boho-ratan-exterior-atardecer.avif"
+                alt="Sala lounge boho con ratán al atardecer en jardín de eventos"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+        </article>
+
+        <!-- ── Barras ── -->
+        <article class="hm-feat" aria-labelledby="feat-barras">
+          <div class="hm-feat__text">
+            <p class="hm__eyebrow">Barras y Complementos</p>
+            <h3 class="hm-feat__title" id="feat-barras">
+              Barras de bebidas, candy bar y periqueras — con montaje incluido
+            </h3>
+            <p class="hm-feat__lead">
+              La barra define la zona de cóctel. El formato correcto — madera rústica, acrílico iluminado o acero — marca la diferencia entre un área de bar y una zona que la gente no quiere dejar.
+            </p>
+            <p>
+              La <strong>barra de madera rústica de 2 metros</strong> es la más solicitada en bodas
+              estilo hacienda — se instala en 20 minutos y aguanta todo el equipo del bartender.
+              La versión en <strong>acrílico iluminado</strong> es ideal para eventos nocturnos y
+              corporativos donde quieres impacto visual. Ambas incluyen respaldo para botellas y
+              espacio para hieleras.
+            </p>
+            <p>
+              Las <strong>mesas de postres y candy bar</strong> con estructura escalonada presentan
+              dulces y pasteles a tres niveles — funcionan muy bien en XV años y bodas. Complementa
+              con <strong>periqueras y bancos altos</strong> en madera, metal o acrílico para crear
+              el área de cóctel completa. Instálalos bajo nuestras
+              <a href="/servicios/carpas/">carpas profesionales</a> para eventos al aire libre.
+            </p>
+            <ul class="hm-feat__chips">
+              {[
+                { name: "Barras de Bebidas", href: "/servicios/mobiliario/barras/barras-bebidas/" },
+                { name: "Periqueras", href: "/servicios/mobiliario/barras/periqueras/" },
+                { name: "Mesas de Postres", href: "/servicios/mobiliario/barras/postres/" },
+                { name: "Accesorios", href: "/servicios/mobiliario/barras/accesorios-decorativos/" },
+              ].map((sc) => (
+                <li>
+                  <a href={sc.href}>{sc.name}</a>
+                </li>
+              ))}
+            </ul>
+            <a class="hm-feat__cta" href="/servicios/mobiliario/barras/">
+              Ver barras y complementos
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+          <div class="hm-feat__media hm-feat__media--g3">
+            <img
+              class="hm-feat__g3-main"
+              src="/images/mobiliario/barra-bebidas-bartender-madera-evento.avif"
+              alt="Barra de bebidas de madera con bartender para eventos y bodas en CDMX"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="hm-feat__g3-thumbs">
+              <img
+                src="/images/mobiliario/barra-madera-dorada-bartender.avif"
+                alt="Barra de madera dorada con bartender en evento de lujo"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                src="/images/mobiliario/barra-premium-evento-celebracion.avif"
+                alt="Barra premium decorada para celebración y eventos especiales"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         ESTADÍSTICAS
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="sv-stats" aria-label="Indicadores de mobiliario EVENTECH">
+      <div class="hm__wrap sv-stats__wrap">
+        <dl class="sv-stats__grid">
+          <div class="sv-stats__item">
+            <dt class="sv-stats__num">500<span>+</span></dt>
+            <dd class="sv-stats__label">Eventos equipados</dd>
+          </div>
+          <div class="sv-stats__item">
+            <dt class="sv-stats__num">12<span>+</span></dt>
+            <dd class="sv-stats__label">Modelos de silla</dd>
+          </div>
+          <div class="sv-stats__item">
+            <dt class="sv-stats__num">45<span>min</span></dt>
+            <dd class="sv-stats__label">Montaje sala lounge</dd>
+          </div>
+          <div class="sv-stats__item">
+            <dt class="sv-stats__num">30<span>+</span></dt>
+            <dd class="sv-stats__label">Años de experiencia</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         POR QUÉ ELEGIRNOS
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="hm__section hm__section--navy" aria-labelledby="porque-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">La diferencia EVENTECH</p>
+            <h2 id="porque-heading">Por qué rentarnos el mobiliario</h2>
+            <p class="hm__head-sub">Inventario propio, montaje profesional y cero sorpresas.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Tenemos inventario propio — no subcontratamos ni rentamos de terceros. Eso nos da
+              control total sobre el estado de cada pieza: revisada, retapizada y verificada
+              antes de cada evento. Lo que ves en el showroom es lo que llega el día del montaje.
+            </p>
+            <p>
+              El precio incluye entrega, instalación completa según el layout aprobado y
+              recolección al terminar. Sin cargos ocultos, sin sorpresas de última hora.
+              En más de 500 eventos equipados en CDMX, nunca hemos fallado a un cliente.
+            </p>
+          </div>
+        </div>
+        <ul class="hm-why">
+          {mobFeatures.map((f) => (
+            <li class="hm-why__item">
+              <div class="hm-why__ic" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <div>
+                <h3>{f.name}</h3>
+                <p>{f.excerpt}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         CÓMO FUNCIONA
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="hm__section" aria-labelledby="proceso-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Sin complicaciones</p>
+            <h2 id="proceso-heading">Cómo funciona la renta</h2>
+            <p class="hm__head-sub">De la cotización al montaje, nos encargamos de todo.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Nuestro proceso está diseñado para que tú no cargues con la logística.
+              Cotizas por WhatsApp, te mandamos el layout y el precio el mismo día.
+              Confirmas con el 30% de anticipo y la fecha queda apartada.
+            </p>
+            <p>
+              El día del evento llegamos con tiempo suficiente para instalar antes de que llegue
+              el primer invitado. Al terminar, nuestro equipo desmonta y recoge sin que muevas
+              un dedo. Tú solo celebras.
+            </p>
+          </div>
+        </div>
+        <ol class="hm-steps">
+          {steps.map((s) => (
+            <li class="hm-step">
+              <div class="hm-step__num" aria-hidden="true">{s.n}</div>
+              <h3>{s.t}</h3>
+              <p>{s.p}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         FAQ + FORMULARIO WHATSAPP
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="hm__section hm__section--ivory" aria-labelledby="faq-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Antes de cotizar</p>
+            <h2 id="faq-heading">Preguntas frecuentes</h2>
+            <p class="hm__head-sub">Las dudas más comunes sobre renta de mobiliario.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Reunimos las preguntas que más nos hacen sobre modelos disponibles, tiempos de
+              reserva, montaje incluido y qué tan rápido respondemos. Si tu duda no está aquí,
+              un asesor te responde en minutos por WhatsApp.
+            </p>
+            <p>
+              Con más de 30 años equipando eventos en CDMX hemos resuelto prácticamente cualquier
+              escenario, desde cambios de último momento hasta bodas de 1,200 personas.
+              Cotiza con la tranquilidad de tener un proveedor que ya lo ha hecho antes.
+            </p>
+          </div>
+        </div>
+
+        <div class="hm-faqx">
+          <div class="hm-faq">
+            {faqs.map((f) => (
+              <details class="hm-faq__item">
+                <summary>{f.question}</summary>
+                <p>{f.answer}</p>
+              </details>
+            ))}
+          </div>
+
+          <aside class="hm-faqx__aside" aria-labelledby="mobform-heading">
+            <form id="mobForm" class="hm-form" data-wa={SITE.contact.whatsapp}>
+              <p class="hm-form__eyebrow">Respuesta en menos de 30 min</p>
+              <h3 id="mobform-heading" class="hm-form__title">Cotiza tu mobiliario</h3>
+              <p class="hm-form__sub">Cuéntanos lo esencial y te mandamos precio el mismo día.</p>
+
+              <label class="hm-form__field">
+                <span>Nombre</span>
+                <input type="text" name="nombre" autocomplete="name" placeholder="Tu nombre" required />
+              </label>
+
+              <label class="hm-form__field">
+                <span>Tipo de evento</span>
+                <select name="tipo">
+                  <option value="">Selecciona…</option>
+                  <option>Boda</option>
+                  <option>XV años</option>
+                  <option>Corporativo</option>
+                  <option>Fiesta social</option>
+                  <option>Fiesta infantil</option>
+                  <option>Graduación</option>
+                  <option>Otro</option>
+                </select>
+              </label>
+
+              <label class="hm-form__field">
+                <span>Fecha del evento</span>
+                <input type="date" name="fecha" />
+              </label>
+
+              <label class="hm-form__field">
+                <span>Mobiliario que necesitas</span>
+                <textarea name="mensaje" rows="3" placeholder="Sillas, mesas, sala lounge, barras — número de invitados y venue…"></textarea>
+              </label>
+
+              <button type="submit" class="hm-form__btn">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
+                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.23 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z" />
+                </svg>
+                Enviar por WhatsApp
+              </button>
+              <p class="hm-form__note">Se abrirá WhatsApp con tu información. Sin compromiso.</p>
+            </form>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         CTA FINAL
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="hm__section hm-cta" aria-label="Cotiza mobiliario para tu evento">
+      <div class="hm__wrap" style="text-align: center;">
+        <h2>+500 eventos en CDMX.<br/>El siguiente puede ser el tuyo.</h2>
+        <p>
+          Renta de mobiliario con entrega, montaje y recolección incluidos.
+          Cotiza hoy — precio ese mismo día, sin compromiso.
+        </p>
+        <div class="hm-cta__row">
+          <a
+            class="hm__btn hm__btn--gold"
+            href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola,%20quiero%20cotizar%20mobiliario%20para%20mi%20evento`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.23 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z" />
             </svg>
-            Enviar por WhatsApp
-          </button>
-        </form>
-
-        <aside class="reserva-sidebar">
-          <div class="reserva-card">
-            <h3 class="reserva-card__title">Respuesta inmediata</h3>
-            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
-          </div>
-
-          <div class="reserva-card">
-            <h3 class="reserva-card__title">Reserva tu fecha</h3>
-            <p class="reserva-card__text">Aparta tu mobiliario con anticipación y asegura disponibilidad para tu evento.</p>
-          </div>
-
-          <div class="reserva-card">
-            <h3 class="reserva-card__title">Sin compromiso</h3>
-            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para tu presupuesto.</p>
-          </div>
-
-          <div class="reserva-card reserva-card--highlight">
-            <h3 class="reserva-card__title">Horario de atención</h3>
-            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
-          </div>
-        </aside>
+            Cotizar ahora por WhatsApp
+          </a>
+          <a class="hm__btn hm__btn--ghost" href={`tel:${SITE.contact.phoneRaw}`}>
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.42 2 2 0 0 1 3.57 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.95a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.72 16.92z" />
+            </svg>
+            Llamar a un asesor
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
-    document.getElementById('reservaForm').addEventListener('submit', function(e) {
-      e.preventDefault();
+  </div><!-- /hm -->
 
-      const nombre = document.getElementById('nombre').value.trim();
-      const telefono = document.getElementById('telefono').value.trim();
-      const tipoEvento = document.getElementById('tipoEvento').value;
-      const fecha = document.getElementById('fecha').value;
-      const equipo = document.getElementById('equipo').value;
-      const mensaje = document.getElementById('mensaje').value.trim();
-
-      if (!nombre || !telefono || !mensaje) {
-        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
-        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
-        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
-        return;
-      }
-
-      let fechaTexto = 'No especificada';
-      if (fecha) {
-        const d = new Date(fecha + 'T12:00:00');
-        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-      }
-
-      let texto = `*Nueva solicitud desde EVENTECH.MX — Mobiliario*\n\n`;
-      texto += `*Nombre:* ${nombre}\n`;
-      texto += `*Teléfono:* ${telefono}\n`;
-      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
-      texto += `*Fecha del evento:* ${fechaTexto}\n`;
-      if (equipo) texto += `*Mobiliario de interés:* ${equipo}\n`;
-      texto += `\n*Mensaje:*\n${mensaje}`;
-
-      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
-      window.open(url, '_blank');
-    });
-
-    document.querySelectorAll('.form-field__input').forEach(function(input) {
-      input.addEventListener('input', function() {
-        this.classList.remove('form-field__input--error');
+  <script>
+    const mobForm = document.getElementById("mobForm");
+    if (mobForm) {
+      mobForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const f = e.currentTarget as HTMLFormElement;
+        const wa = f.dataset.wa;
+        const data = new FormData(f);
+        const get = (k: string) => (data.get(k) || "").toString().trim();
+        let t = "Hola, quiero cotizar mobiliario para mi evento.";
+        if (get("nombre")) t += `\nNombre: ${get("nombre")}`;
+        if (get("tipo"))   t += `\nTipo de evento: ${get("tipo")}`;
+        if (get("fecha"))  t += `\nFecha: ${get("fecha")}`;
+        if (get("mensaje")) t += `\nDetalles: ${get("mensaje")}`;
+        window.open(`https://wa.me/${wa}?text=${encodeURIComponent(t)}`, "_blank", "noopener");
       });
-    });
+    }
   </script>
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       CTA FINAL
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <CTABanner
-    headline="+500 eventos en CDMX. El siguiente puede ser el tuyo."
-    subheadline="Renta de mobiliario con entrega, montaje y recolección incluidos. Cotiza hoy, precio ese mismo día."
-    primaryCTA={{ label: "Cotizar mobiliario", href: "#reserva-heading" }}
-    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar mobiliario para mi evento` }}
-    variant="accent"
-  />
 </PageLayout>
 
+<style>
+  /* ── Nav menu CTA item ── */
+  .hm-menu__item--cta {
+    background: var(--color-gold, #c2a24a);
+    color: #1c1607 !important;
+    font-weight: 700;
+  }
+  .hm-menu__item--cta:hover {
+    background: var(--color-gold-deep, #a9883a) !important;
+    border-top-color: transparent !important;
+  }
+
+  /* ── Stats band ── */
+  .sv-stats {
+    background: var(--color-ivory-alt, #f3efe7);
+    border-block: 1px solid var(--color-hairline, #e7e1d6);
+  }
+  .sv-stats__wrap {
+    padding-block: clamp(36px, 5vw, 52px);
+  }
+  .sv-stats__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin: 0;
+  }
+  .sv-stats__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 clamp(16px, 2.5vw, 32px);
+    border-left: 1px solid var(--color-hairline, #e7e1d6);
+  }
+  .sv-stats__item:first-child { border-left: 0; }
+  .sv-stats__num {
+    font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+    font-weight: 600;
+    font-size: clamp(2.8rem, 5vw, 4rem);
+    line-height: 1;
+    color: var(--color-primary, #1a1a2e);
+    margin: 0;
+  }
+  .sv-stats__num span {
+    font-size: 0.55em;
+    vertical-align: super;
+    color: var(--color-gold, #c2a24a);
+  }
+  .sv-stats__label {
+    margin-top: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-gold-deep, #a9883a);
+  }
+  @media (max-width: 680px) {
+    .sv-stats__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: clamp(20px, 4vw, 32px) 0;
+    }
+    .sv-stats__item:nth-child(2n+1) { border-left: 0; }
+    .sv-stats__item:nth-child(3),
+    .sv-stats__item:nth-child(4) {
+      padding-top: clamp(20px, 4vw, 32px);
+      border-top: 1px solid var(--color-hairline, #e7e1d6);
+    }
+  }
+
+  /* ── Final CTA section overrides ── */
+  .hm-cta h2 {
+    font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+    font-weight: 600;
+    color: #fff;
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    max-width: 20ch;
+    margin: 0 auto 1rem;
+    line-height: 1.15;
+  }
+  .hm-cta p {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 1.1rem;
+    max-width: 50ch;
+    margin: 0 auto 1.8rem;
+  }
+
+  /* ── Gallery 3: imagen principal + 2 thumbs abajo ── */
+  .hm-feat__media--g3 {
+    display: flex !important;
+    flex-direction: column;
+    gap: 8px;
+    position: static !important;
+    min-height: 0 !important;
+    padding: 20px 20px 20px 0;
+    align-self: stretch;
+  }
+  .hm-feat__media--g3 img {
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
+  .hm-feat__g3-main {
+    flex: 1;
+    min-height: 220px;
+    aspect-ratio: 16 / 10;
+    border-radius: 6px 6px 4px 4px !important;
+  }
+  .hm-feat__g3-thumbs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .hm-feat__g3-thumbs img {
+    aspect-ratio: 4 / 3;
+    border-radius: 4px 4px 6px 6px !important;
+  }
+  @media (max-width: 760px) {
+    .hm-feat__media--g3 {
+      padding: 0;
+    }
+  }
+</style>

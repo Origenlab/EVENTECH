@@ -1,778 +1,806 @@
 ---
 /**
- * ─── Services Landing Page ───
- * Página hub de todos los servicios de EVENTECH.
+ * ─── EVENTECH.MX — Servicios (L2 hub, rediseño 2026) ───
  * Catálogo completo de renta de equipo para eventos en CDMX.
+ * Homologado al Home (L1): importa home-2026.css, usa clases `hm-`.
+ * CSS exclusivo de esta página: namespace `sv-` (stats band) al final.
+ *
+ * Keyword primaria: "renta de equipo para eventos CDMX"
  */
 import PageLayout from "@layouts/PageLayout.astro";
-import ServiceShowcase from "@components/ServiceShowcase.astro";
-import HeroPage from "@components/HeroPage.astro";
-import Breadcrumbs from "@components/Breadcrumbs.astro";
-import CTABanner from "@components/CTABanner.astro";
-import SectionHeader from "@components/SectionHeader.astro";
-import Card from "@components/Card.astro";
-import { SITE, SERVICE_CATEGORIES } from "@data/site";
-import { serviceJsonLd, breadcrumbJsonLd } from "@utils/seo";
+import { SITE, SERVICE_CATEGORIES, FEATURES, REVIEWS } from "@data/site";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import "@styles/home-2026.css";
 
-const breadcrumbItems = [
-  { label: "Inicio", href: "/" },
-  { label: "Servicios" },
+const features = FEATURES.slice(0, 6);
+
+const reviews = [
+  ...REVIEWS.filter((r) => r.company === "REDEIL"),
+  ...REVIEWS.filter((r) => r.company !== "REDEIL"),
+].slice(0, 8);
+
+const steps = [
+  { n: 1, t: "Cotiza", p: "Cuéntanos tu evento, fecha y venue. Respondemos con cotización en menos de 24 horas." },
+  { n: 2, t: "Confirma", p: "Ajustamos el paquete a tu presupuesto y apartamos la fecha con un anticipo." },
+  { n: 3, t: "Entregamos", p: "Llevamos y montamos todo el día del evento antes de que llegue el primer invitado." },
+  { n: 4, t: "Disfruta", p: "Tú celebras; al terminar nuestro equipo desmonta y recoge sin que muevas un dedo." },
 ];
+
+const serviciosFaqs = [
+  {
+    question: "¿Qué categorías de equipo renta EVENTECH para eventos?",
+    answer: "Rentamos 8 categorías: mobiliario (sillas, mesas, salas lounge, barras), audiovisual (pantallas LED, sonido, proyectores, micrófonos), carpas y estructuras, iluminación (arquitectónica, decorativa, escenario, efectos), pistas de baile, inflables, equipo de catering y accesorios. Todo bajo un solo contrato con entrega y montaje incluidos.",
+  },
+  {
+    question: "¿La entrega y el montaje están incluidos en el precio?",
+    answer: "Sí. Todos nuestros servicios incluyen entrega en el venue, montaje profesional por nuestro equipo y recolección al finalizar. El costo de envío puede variar según la zona, pero siempre lo detallamos en tu cotización antes de confirmar.",
+  },
+  {
+    question: "¿Puedo rentar varias categorías de equipo en un solo pedido?",
+    answer: "Absolutamente. Una de nuestras principales ventajas es que puedes armar el paquete completo — mobiliario, audio, iluminación, carpas y accesorios — en un solo pedido, con un solo contrato y una sola logística de entrega. Esto simplifica la coordinación y reduce costos.",
+  },
+  {
+    question: "¿Con cuánta anticipación debo reservar el equipo?",
+    answer: "Recomendamos reservar con al menos 2 semanas de anticipación para garantizar disponibilidad, especialmente en temporada alta (noviembre–febrero). Para bodas o congresos, lo ideal es apartar con 1–2 meses. También atendemos solicitudes de último momento sujetas a disponibilidad.",
+  },
+  {
+    question: "¿Cuáles son las zonas de cobertura para entrega de equipo?",
+    answer: "Cubrimos toda la Ciudad de México y Zona Metropolitana: Polanco, Santa Fe, Coyoacán, Roma-Condesa, Del Valle, Naucalpan, Huixquilucan y Tlalnepantla. También atendemos Toluca, Metepec, Cuernavaca y ciudades cercanas con costos de envío claros desde la cotización.",
+  },
+  {
+    question: "¿Cómo obtengo una cotización para el equipo de mi evento?",
+    answer: "La forma más rápida es por WhatsApp: cuéntanos el tipo de evento, fecha, venue y equipo que necesitas, y te respondemos en menos de 24 horas con una propuesta detallada. También puedes usar el formulario en esta página. Sin compromiso y sin costos ocultos.",
+  },
+];
+
+// Módulos destacados — copy editorial único por categoría
+const featuredModules = [
+  {
+    idx: 0,
+    eyebrow: "Mobiliario",
+    title: "La primera impresión la crea el mobiliario, antes de que suene una sola nota",
+    lead: "Los invitados se forman un juicio del evento en los primeros veinte segundos. Todo lo que ven antes de sentarse es mobiliario.",
+    body: [
+      "Manejamos <strong>sillas Tiffany, Chiavari, Crossback y Ghost, mesas redondas e imperiales, salas lounge modulares y barras de diseño</strong> en acabados que van del blanco nupcial al madera natural y al negro mate. El inventario es propio: revisado, retapizado y en condiciones impecables para cada montaje.",
+      "No entregamos piezas sueltas; diseñamos la distribución completa. Calculamos aforos, flujos de circulación y alturas de mesa para que el salón respire. Esa diferencia —entre «mobiliario rentado» y «espacio diseñado»— es exactamente la que aparece en cada fotografía del evento.",
+    ],
+    cta: "Explorar mobiliario",
+    image: "/images/moviliario-para-eventos/boda-salon-mesas-redondas-flores-dorado-34.avif",
+    alt: "Renta de mobiliario para eventos en CDMX: salón con mesas redondas y sillas chiavari doradas",
+    img2: "/images/mobiliario/sillas-chiavari-doradas-boda-lujo.avif",
+    alt2: "Sillas Chiavari doradas en salón de lujo para bodas CDMX",
+    img3: "/images/mobiliario/sala-lounge-boho-ratan-jardin-evento.avif",
+    alt3: "Sala lounge boho con sillones de ratán para eventos al aire libre",
+  },
+  {
+    idx: 1,
+    eyebrow: "Audiovisual",
+    title: "El sonido y la imagen perfectos son los que nadie nota durante el evento",
+    lead: "Cuando el audio llega claro a cada rincón y la imagen es nítida, los invitados no piensan en el equipo. Solo disfrutan.",
+    body: [
+      "Rentamos <strong>pantallas LED y videowalls de alta resolución, sistemas line-array con distribución calibrada por zona, proyección 4K y microfonía inalámbrica de frecuencia gestionada</strong>. Todo con cableado oculto bajo tarima y equipo de respaldo activo en sala —no en el camión: en el salón, listo para entrar en segundos.",
+      "Un evento en vivo no tiene segunda toma. Por eso asignamos un operador técnico dedicado desde la prueba de sonido hasta el cierre: alguien que conoce el venue, ha medido la acústica y ha leído el programa completo. Su trabajo es que tú nunca tengas que pensar en el audio.",
+    ],
+    cta: "Ver equipo audiovisual",
+    image: "/images/audiovisual/pantalla-led-videowall-evento-corporativo.avif",
+    alt: "Renta de equipo audiovisual CDMX: videowall LED de alta resolución en evento corporativo",
+    img2: "/images/audiovisual/sistema-audio-bafle-jbl-evento-corporativo.avif",
+    alt2: "Sistema de audio profesional JBL para eventos corporativos en CDMX",
+    img3: "/images/audiovisual/cabina-dj-profesional-boda-cdmx.avif",
+    alt3: "Cabina DJ profesional con equipo completo para boda en CDMX",
+  },
+  {
+    idx: 2,
+    eyebrow: "Carpas y estructuras",
+    title: "Un terreno vacío puede ser el mejor venue que existe — si tienes la estructura correcta",
+    lead: "La carpa adecuada no limita el evento: lo libera de las restricciones de cualquier recinto cerrado.",
+    body: [
+      "Montamos <strong>carpas árabes, estructurales, tipo hangar y transparentes de doble techo</strong>, con piso flotante nivelado, forro interior, climatización integrada e iluminación pensada desde la estructura. Cada proyecto empieza con un levantamiento en sitio: analizamos el tipo de suelo, los puntos de anclaje y la carga de viento antes de proponer cualquier solución.",
+      "La diferencia entre una carpa que parece improvisada y una que parece construida para el evento está en los acabados y en la ingeniería que hay detrás. Hemos resuelto ambas cosas en el mismo proyecto cientos de veces: desde jardines residenciales para 80 personas hasta explanadas corporativas para 2,000.",
+    ],
+    cta: "Cotizar carpas",
+    image: "/images/carpas/carpa-transparente-boda-elegante.avif",
+    alt: "Renta de carpas para eventos en CDMX: carpa transparente estructural para boda elegante",
+    img2: "/images/carpas/carpa-arabe-beduina-boda-jardin.avif",
+    alt2: "Carpa árabe beduina montada para boda en jardín CDMX",
+    img3: "/images/carpas/carpa-estructural-grande-congreso.avif",
+    alt3: "Carpa estructural de gran formato para congreso corporativo",
+  },
+  {
+    idx: 3,
+    eyebrow: "Iluminación",
+    title: "La misma sala puede contar diez historias distintas — todo depende de cómo la ilumines",
+    lead: "Ningún otro recurso del evento transforma el ambiente con tanta velocidad y con tan poca huella visible como la luz.",
+    body: [
+      "Diseñamos esquemas de <strong>iluminación arquitectónica perimetral, wash de colores personalizados, cabezas robóticas programadas por escena, pin-spots sobre centros de mesa, guirnaldas Edison y efectos de humo bajo y láser</strong>. El color, la intensidad y el movimiento se programan escena por escena: coctel, cena, brindis, baile — cada momento tiene su luz.",
+      "No vendemos «iluminación genérica». Cada propuesta parte del plano del venue, la paleta del evento y el guión de la noche. Llegamos horas antes del evento para calibrar con el salón vacío, porque la luz que se ve bien en la prueba técnica es la que no falla cuando el salón está lleno.",
+    ],
+    cta: "Diseñar iluminación",
+    image: "/images/iluminacion/iluminacion-arquitectonica-hacienda.avif",
+    alt: "Renta de iluminación para eventos CDMX: iluminación arquitectónica en hacienda con efectos de color",
+    img2: "/images/iluminacion/guirnaldas-edison-jardin-boda.avif",
+    alt2: "Guirnaldas Edison iluminando jardín para boda al aire libre",
+    img3: "/images/iluminacion/cabezas-moviles-beam-evento.avif",
+    alt3: "Cabezas móviles beam para espectáculo de luz en evento",
+  },
+  {
+    idx: 4,
+    eyebrow: "Pistas de baile",
+    title: "El instante en que la pista se llena es el que todo el mundo recuerda al día siguiente",
+    lead: "Una pista bien proporcionada y bien ubicada no espera a que la gente suba: la invita desde que la ve.",
+    body: [
+      "Rentamos <strong>pistas LED RGB programables fotograma por fotograma, de madera clásica en duela, acrílicas translúcidas y tarimas de escenario a medida</strong>. Cada pista se ensambla con estructura nivelada y bordes seguros sobre cualquier superficie: pasto, concreto, adoquín o desnivel.",
+      "Diseñamos la pista como parte del plano del evento, no como un añadido de último momento. Tamaño correcto para el aforo, posición estratégica respecto a la banda o DJ, integración con la iluminación para que el momento en que «abra» la pista sea visualmente el más impactante de la noche.",
+    ],
+    cta: "Elegir pista",
+    image: "/images/pistas-baile/pista-led-rgb-fiesta.avif",
+    alt: "Renta de pistas de baile CDMX: pista LED RGB programable iluminada durante fiesta nocturna",
+    img2: "/images/pistas-baile/pista-madera-natural-boda.avif",
+    alt2: "Pista de baile de madera natural para boda clásica CDMX",
+    img3: "/images/pistas-baile/pista-acrilica-transparente-boda.avif",
+    alt3: "Pista acrílica transparente iluminada para boda moderna",
+  },
+  {
+    idx: 5,
+    eyebrow: "Inflables",
+    title: "Para los niños, el inflable no es parte del evento: es el evento",
+    lead: "Ese nivel de expectativa merece equipo que esté a la altura: seguro, limpio y con alguien que sepa operarlo.",
+    body: [
+      "Contamos con <strong>castillos y brincolines en múltiples tamaños, toboganes acuáticos, circuitos de obstáculos, juegos interactivos y opciones para adultos</strong>. Cada unidad llega limpia, anclada y con soplador asignado. El operador permanece en sitio durante todo el evento — no lo dejamos encendido y nos vamos.",
+      "Evaluamos espacio disponible, mezcla de edades y tipo de celebración antes de recomendar. Un inflable mal elegido —demasiado pequeño, sin zona de seguridad o sin supervisión— genera exactamente el caos que querías evitar. Calculamos capacidad y tiempo de armado antes del día para que la instalación no interrumpa nada.",
+    ],
+    cta: "Ver inflables",
+    image: "/images/inflables/castillo-inflable-fiesta-infantil.avif",
+    alt: "Renta de inflables para eventos CDMX: castillo inflable de colores en fiesta infantil exterior",
+    img2: "/images/inflables/alberca-inflable-fiesta-acuatica.avif",
+    alt2: "Alberca inflable para fiesta acuática infantil en jardín",
+    img3: "/images/inflables/tobogan-inflable-agua-verano.avif",
+    alt3: "Tobogán inflable de agua para eventos infantiles de verano",
+  },
+  {
+    idx: 6,
+    eyebrow: "Equipo de catering",
+    title: "El mejor chef del mundo necesita la infraestructura correcta para que su menú llegue como debe",
+    lead: "La logística de cocina es silenciosa cuando funciona bien. Cuando falla, lo nota cada invitado al mismo tiempo.",
+    body: [
+      "Rentamos <strong>cocinas móviles completas, estaciones de bufé y servicio, equipo de refrigeración profesional, fuentes de chocolate, barras de postres y vajilla y cristalería premium</strong>. Todo se monta en coordinación directa con tu banquetero o chef, siguiendo sus tiempos y el layout de servicio que ellos definan.",
+      "Confirmamos el plano de banquete con anticipación, verificamos los puntos de agua y electricidad en el venue, y entregamos cada estación lista para operar en el horario acordado. El día del evento el equipo ya estuvo instalado; no hay sorpresas ni improvisaciones cuando el servicio empieza.",
+    ],
+    cta: "Equipar banquete",
+    image: "/images/catering/mesa-bufet-banquete-corporativo.avif",
+    alt: "Renta de equipo de catering CDMX: estación de bufé y cristalería premium en banquete corporativo",
+    img2: "/images/catering/barra-cocteleria-botanica-boda.avif",
+    alt2: "Barra de coctelería botánica decorada para boda CDMX",
+    img3: "/images/catering/barra-dulces-candy-bar-xv-anos.avif",
+    alt3: "Candy bar y barra de dulces para XV años en CDMX",
+  },
+  {
+    idx: 7,
+    eyebrow: "Accesorios e infraestructura",
+    title: "Los detalles que nadie aplaude son los que hacen que todo lo demás funcione",
+    lead: "La señalización que evita el caos en el acceso, la planta de luz que nadie nota, la mantelería que unifica el montaje: invisibles cuando están, desastrosos cuando faltan.",
+    body: [
+      "Rentamos <strong>señalización y alfombras de entrada, mantelería y textiles coordinados a la paleta del evento, plantas de energía silenciosas, calefactores de terraza, equipos de climatización portátil y sanitarios móviles de lujo</strong>. Cada elemento se selecciona según el tipo de venue, la temporada y el formato.",
+      "Llevamos décadas anticipando lo que los venues no tienen o lo que suele fallar el día del evento: un corte de luz a media cena, una terraza helada en diciembre, un acceso sin señalizar que genera caos en el estacionamiento. Tener un proveedor que piensa en eso antes de que ocurra es la diferencia entre un evento tranquilo y uno que apaga incendios.",
+    ],
+    cta: "Ver accesorios",
+    image: "/images/accesorios/manteles-premium-boda-elegante.avif",
+    alt: "Renta de accesorios para eventos CDMX: mantelería y textiles premium en montaje de boda elegante",
+    img2: "/images/accesorios/alfombra-roja-red-carpet-evento.avif",
+    alt2: "Alfombra roja red carpet para entrada de evento especial",
+    img3: "/images/accesorios/calentador-patio-terraza-evento.avif",
+    alt3: "Calentadores de patio para terraza en evento exterior",
+  },
+];
+
+// Menu de categorías para navegación interna
+const catMenu = SERVICE_CATEGORIES.map((s) => ({ label: s.name, href: `#cat-${s.id}` }));
 
 const jsonLd = [
   serviceJsonLd({
-    name: "Servicios de Renta de Equipo CDMX",
-    description: "Catálogo completo de renta de mobiliario, audio, iluminación, carpas, pistas de baile y accesorios para eventos en CDMX.",
+    name: "Servicios de Renta de Equipo para Eventos CDMX",
+    description:
+      "Catálogo completo de renta de mobiliario, audio, iluminación, carpas, pistas de baile, catering y accesorios para eventos en CDMX y Estado de México.",
     url: "/servicios/",
   }),
   breadcrumbJsonLd([
     { name: "Inicio", url: "/" },
-    { name: "Servicios", url: "/servicios/" },
+    { name: "Servicios de renta de equipo", url: "/servicios/" },
   ]),
+  faqJsonLd(serviciosFaqs),
 ];
 ---
 
 <PageLayout
-  title="Catálogo de renta de equipo para eventos"
-  description="Catálogo de renta para eventos: mobiliario, audio, iluminación, carpas, pistas de baile, catering y accesorios en CDMX y Estado de México. Cotiza en 24h."
+  title="Renta de equipo para eventos CDMX | Catálogo completo"
+  rawTitle={true}
+  description="Catálogo de renta de equipo para eventos en CDMX: mobiliario, audio, carpas, iluminación, pistas de baile, inflables, catering y accesorios. Entrega, montaje y cotización en 24h."
   jsonLd={jsonLd}
 >
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       BREADCRUMBS
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <Breadcrumbs items={breadcrumbItems} />
+  <div class="hm">
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       HERO
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <HeroPage
-    badge="Catálogo completo de equipo para eventos"
-    title='Servicios de <span class="highlight">Renta de Equipo</span> para Eventos'
-    subtitle="Mobiliario, audio, iluminación, carpas y todo lo que necesitas para tu evento en un solo lugar. Entrega, montaje y asesoría incluidos en cada renta."
-    primaryCTA={{ label: "Cotiza tu evento", href: "#reserva-heading" }}
-    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar equipo para mi evento` }}
-    cards={[
-      {
-        title: "Todo el equipo para tu evento en un solo lugar",
-        content: "<strong>Renta de equipo para eventos</strong> sin complicaciones. En EVENTECH centralizamos mobiliario premium, sistemas audiovisuales de última generación, carpas profesionales, iluminación arquitectónica y accesorios decorativos bajo un solo contacto y una sola cotización. Olvídate de coordinar con múltiples proveedores — nuestro catálogo integral cubre cada necesidad de tu celebración, desde bodas íntimas en Polanco hasta congresos corporativos de gran escala en Santa Fe.",
-      },
-      {
-        title: "Servicio integral con logística garantizada",
-        content: "<strong>Entrega puntual, montaje profesional y recolección</strong> incluidos en cada renta. Nuestro equipo de logística coordinado por especialistas en producción de eventos se encarga de cada detalle técnico y operativo para que tú solo disfrutes tu celebración. Con cobertura en toda la CDMX y zona metropolitana, operamos con protocolos de calidad que garantizan cero contratiempos, sin costos ocultos y sin sorpresas.",
-      },
-    ]}
-  />
+    <!-- ══════════════════════════════════════════════════════════════
+         HERO
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="hm-hero" aria-labelledby="sv-hero-heading">
+      <div class="hm__wrap hm-hero__wrap">
+        <!-- Breadcrumbs inline en el hero -->
+        <nav class="sv-breadcrumb" aria-label="Migas de pan">
+          <ol>
+            <li><a href="/">Inicio</a></li>
+            <li aria-hidden="true">›</li>
+            <li><span aria-current="page">Servicios</span></li>
+          </ol>
+        </nav>
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       CTA BANNER
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <CTABanner
-    headline="¿Ya sabes qué necesitas para tu evento?"
-    subheadline="Cotiza sin compromiso y recibe una propuesta personalizada en menos de 24 horas"
-    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
-    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
-  />
+        <div class="hm-hero__grid">
+          <div class="hm-hero__main">
+            <p class="hm__eyebrow hm-hero__eyebrow">
+              Catálogo de renta · CDMX y Estado de México
+            </p>
+            <h1 id="sv-hero-heading">
+              Renta de equipo para eventos, todo en un solo <em>catálogo</em>
+            </h1>
+            <p class="hm-hero__lead">
+              8 categorías de equipamiento profesional. Mobiliario, audio, carpas,
+              iluminación y más — entrega, montaje y asesoría incluidos.
+            </p>
+            <div class="sv-hero__ctas">
+              <a
+                class="hm__btn hm__btn--gold"
+                href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola,%20quiero%20cotizar%20equipo%20para%20mi%20evento`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
+                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.23 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z" />
+                </svg>
+                Cotizar ahora
+              </a>
+              <a class="hm__btn hm__btn--ghost" href="#catalogo">
+                Ver catálogo completo
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 5v14M5 12l7 7 7-7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="hm-hero__seo">
+            <p>
+              Con <strong>más de 30 años de experiencia</strong>, EVENTECH es una
+              de las empresas con mayor trayectoria en la renta de equipo para eventos
+              en México. Tres décadas equipando bodas, XV años, corporativos y
+              celebraciones privadas en CDMX y Estado de México nos respaldan
+              como proveedor de confianza para planners, empresas y familias.
+            </p>
+            <p>
+              Nuestro catálogo abarca <strong>8 categorías completas</strong>
+              —mobiliario, audiovisual, carpas, iluminación, pistas de baile,
+              inflables, catering y accesorios— con inventario propio y verificado,
+              entrega puntual garantizada y un equipo especializado que monta y
+              desmonta el día del evento para que tú no cargues con la logística.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       CATÁLOGO COMPLETO — Todos los servicios
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section" aria-labelledby="catalogo-heading">
-    <div class="container">
-      <SectionHeader
-        id="catalogo-heading"
-        title="Nuestro Catálogo Completo"
-        subtitle="Todo el equipamiento para tu evento en un solo lugar"
-        description={[
-          "En EVENTECH contamos con el inventario más completo de renta de equipo para eventos en la Ciudad de México. Cada categoría incluye múltiples modelos, estilos y configuraciones para adaptarse a cualquier tipo de celebración y presupuesto.",
-          "Desde sillas Tiffany para una boda elegante hasta sistemas de sonido profesional para un congreso corporativo — tenemos la solución perfecta para ti."
-        ]}
-      />
+    <!-- ══════════════════════════════════════════════════════════════
+         NAV DE CATEGORÍAS (acceso rápido)
+         ══════════════════════════════════════════════════════════════ -->
+    <nav class="hm-menu" aria-label="Categorías de servicios">
+      <ul class="hm-menu__grid" style="grid-template-columns: repeat(4, 1fr);">
+        {catMenu.map((m) => (
+          <li>
+            <a class="hm-menu__item" href={m.href}>{m.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
 
-      <div class="grid grid--4">
-        {SERVICE_CATEGORIES.map((service) => (
-          <Card
-            name={service.name}
-            excerpt={service.excerpt}
-            cta={service.cta}
-            href={service.href}
-            icon={service.icon}
-          />
+    <!-- ══════════════════════════════════════════════════════════════
+         CATÁLOGO — Todas las categorías
+         ══════════════════════════════════════════════════════════════ -->
+    <section id="catalogo" class="hm__section" aria-labelledby="catalogo-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Todo en un solo lugar</p>
+            <h2 id="catalogo-heading">Catálogo de servicios</h2>
+            <p class="hm__head-sub">8 categorías de equipo para cualquier tipo de celebración.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Rentamos cada categoría de equipo que un evento necesita bajo un mismo
+              proveedor. Eso elimina la coordinación entre múltiples empresas: un solo
+              contrato, una sola logística de entrega y un equipo que monta y desmonta
+              en tiempo para que tu evento empiece y termine sin contratiempos.
+            </p>
+            <p>
+              Con más de 30 años montando bodas, XV años y eventos corporativos en CDMX
+              y Estado de México, asesoramos cada renta según tu venue, número de
+              invitados y presupuesto. Cotiza en línea y recibe una propuesta clara,
+              con equipo en óptimas condiciones y entrega puntual garantizada.
+            </p>
+          </div>
+        </div>
+
+        <div class="hm-cat-grid">
+          {SERVICE_CATEGORIES.map((s) => (
+            <article id={`cat-${s.id}`} class="hm-cat">
+              <a class="hm-cat__media" href={s.href} aria-label={`Ver categoría ${s.name}`}>
+                <img
+                  class="hm-cat__img"
+                  src={s.image}
+                  alt={`Renta de ${s.name.toLowerCase()} para eventos en CDMX`}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="hm-cat__badge">{s.subcategories.length} subcategorías</span>
+                <span class="hm-cat__name">{s.name}</span>
+              </a>
+              <div class="hm-cat__body">
+                <p class="hm-cat__sub">{s.description}</p>
+                <ul class="hm-cat__menu">
+                  {s.subcategories.map((sc) => (
+                    <li>
+                      <a href={sc.href}>
+                        <span>{sc.name}</span>
+                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M9 18l6-6-6-6" />
+                        </svg>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <a class="hm-cat__cta" href={s.href}>
+                  Ver todo en {s.name}
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         MÓDULOS DESTACADOS — Editorial por categoría
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="hm__section hm__section--ivory" aria-labelledby="destacados-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">En detalle</p>
+            <h2 id="destacados-heading">Cada categoría, a fondo</h2>
+            <p class="hm__head-sub">Equipo, especificaciones y lo que incluye cada servicio.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Detrás de cada categoría hay décadas de experiencia seleccionando el equipo
+              correcto para cada tipo de evento. Conoce en detalle qué rentamos, cómo lo
+              instalamos y por qué un proveedor integral simplifica toda la logística.
+            </p>
+            <p>
+              Cada módulo incluye las subcategorías disponibles, los casos de uso más
+              frecuentes y un enlace directo al catálogo específico para que puedas
+              explorar y cotizar sin dar vueltas entre múltiples páginas.
+            </p>
+          </div>
+        </div>
+
+        {featuredModules.map((m) => (
+          <article
+            class="hm-feat"
+            aria-labelledby={`feat-${m.idx}`}
+          >
+            <div class="hm-feat__text">
+              <p class="hm__eyebrow">{m.eyebrow}</p>
+              <h3 class="hm-feat__title" id={`feat-${m.idx}`}>{m.title}</h3>
+              <p class="hm-feat__lead">{m.lead}</p>
+              {m.body.map((para) => <p set:html={para} />)}
+              <ul class="hm-feat__menu">
+                {SERVICE_CATEGORIES[m.idx].subcategories.map((sc) => (
+                  <li>
+                    <a href={sc.href}>
+                      <span>{sc.name}</span>
+                      <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 18l6-6-6-6" />
+                      </svg>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <a class="hm-feat__cta" href={SERVICE_CATEGORIES[m.idx].href}>
+                {m.cta}
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+            <div class="hm-feat__media hm-feat__media--g3">
+              <img class="hm-feat__g3-main" src={m.image} alt={m.alt} loading="lazy" decoding="async" />
+              <div class="hm-feat__g3-thumbs">
+                <img src={m.img2} alt={m.alt2} loading="lazy" decoding="async" />
+                <img src={m.img3} alt={m.alt3} loading="lazy" decoding="async" />
+              </div>
+            </div>
+          </article>
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       MOBILIARIO — Sección destacada
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="mobiliario-heading">
-    <div class="container">
-      <ServiceShowcase
-    title="Mobiliario para Eventos"
-    headingId="mobiliario-heading"
-    badge="Categoría destacada"
-    subtitle="Sillas Tiffany, Chiavari, salas lounge, mesas y barras personalizadas. Calidad premium que impresiona a tus invitados."
-    tags={["Sillas Tiffany", "Sillas Chiavari", "Salas Lounge", "Mesas", "Barras"]}
-    ctaHref="/servicios/mobiliario/"
-    ctaLabel="Ver catálogo de mobiliario"
-  >
-    <Fragment slot="body">
-      <p class="showcase__text">Nuestro catálogo de mobiliario es el más completo de la Ciudad de México. Desde la elegancia atemporal de las <strong>sillas Tiffany y Chiavari</strong> para bodas y galas, hasta configuraciones modernas de <strong>salas lounge</strong> que transforman cualquier espacio en un área VIP sofisticada.</p>
-      <p class="showcase__text">Contamos con <strong>mesas redondas, rectangulares y tipo coctel</strong> en múltiples acabados, además de <strong>barras personalizadas</strong> que se adaptan a la temática de tu evento. Cada pieza se entrega impecable, con montaje profesional incluido.</p>
-    </Fragment>
-    <Fragment slot="media">
-      <div class="showcase__placeholder">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="12" width="4" height="8" rx="1"/>
-              <rect x="10" y="8" width="4" height="12" rx="1"/>
-              <rect x="18" y="12" width="4" height="8" rx="1"/>
-              <path d="M4 12V9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/>
-            </svg>
-            <span class="showcase__placeholder-text">Imagen próximamente</span>
+    <!-- ══════════════════════════════════════════════════════════════
+         ESTADÍSTICAS
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="sv-stats" aria-label="Indicadores de confianza EVENTECH">
+      <div class="hm__wrap sv-stats__wrap">
+        <dl class="sv-stats__grid">
+          <div class="sv-stats__item">
+            <dt class="sv-stats__num">30<span>+</span></dt>
+            <dd class="sv-stats__label">Años de experiencia</dd>
           </div>
-    </Fragment>
-  </ServiceShowcase>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       AUDIOVISUAL — Sección destacada
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="audiovisual-heading">
-    <div class="container">
-      <ServiceShowcase
-    title="Equipo Audiovisual"
-    headingId="audiovisual-heading"
-    badge="Tecnología profesional"
-    subtitle="Pantallas LED, sonido profesional, proyectores y micrófonos. Todo para presentaciones impactantes."
-    tags={["Pantallas LED", "Sonido Profesional", "Proyectores", "Micrófonos", "DJ Equipment"]}
-    ctaHref="/servicios/audiovisual/"
-    ctaLabel="Ver equipo audiovisual"
-  >
-    <Fragment slot="body">
-      <p class="showcase__text">Llevamos la tecnología de nivel profesional directamente a tu evento. Nuestro inventario incluye <strong>pantallas LED de alta resolución</strong> en múltiples tamaños, <strong>sistemas de sonido</strong> desde ambientación sutil hasta conciertos al aire libre, y <strong>proyectores Full HD</strong> para presentaciones corporativas impecables.</p>
-      <p class="showcase__text">Cada equipo viene con <strong>técnico de operación incluido</strong>, pruebas de sonido previas al evento y cableado oculto para una instalación limpia. Ya sea una conferencia para 50 personas o un festival para 5,000 — tenemos la solución audiovisual perfecta.</p>
-    </Fragment>
-    <Fragment slot="media">
-      <div class="showcase__placeholder">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-              <line x1="8" y1="21" x2="16" y2="21"/>
-              <line x1="12" y1="17" x2="12" y2="21"/>
-            </svg>
-            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          <div class="sv-stats__item">
+            <dt class="sv-stats__num">8</dt>
+            <dd class="sv-stats__label">Categorías de equipo</dd>
           </div>
-    </Fragment>
-  </ServiceShowcase>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       CARPAS — Sección destacada
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="carpas-heading">
-    <div class="container">
-      <ServiceShowcase
-    title="Carpas para Eventos"
-    headingId="carpas-heading"
-    badge="Espacios protegidos"
-    subtitle="Carpas profesionales en múltiples tamaños con montaje, iluminación interior y opciones de piso incluidas."
-    tags={["Carpas Árabes", "Carpas Estructurales", "Tipo Hangar", "Pisos", "Clima Artificial"]}
-    ctaHref="/servicios/carpas/"
-    ctaLabel="Cotizar carpas"
-  >
-    <Fragment slot="body">
-      <p class="showcase__text">Transforma cualquier espacio abierto en un venue elegante y protegido. Nuestras <strong>carpas tipo carpa árabe, tipo hangar y estructurales</strong> se adaptan a jardines, terrazas y estacionamientos, creando ambientes espectaculares sin importar el clima.</p>
-      <p class="showcase__text">Cada instalación incluye <strong>estructura certificada, anclaje profesional y opciones de piso</strong> (duela, alfombra o plataforma). Complementa con <strong>iluminación interior, cortinas y clima artificial</strong> para crear el ambiente perfecto. Capacidad desde 20 hasta más de 1,000 invitados.</p>
-    </Fragment>
-    <Fragment slot="media">
-      <div class="showcase__placeholder">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 20l9-16 9 16"/>
-              <path d="M7.5 20l4.5-8 4.5 8"/>
-            </svg>
-            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          <div class="sv-stats__item">
+            <dt class="sv-stats__num">500<span>+</span></dt>
+            <dd class="sv-stats__label">Eventos equipados</dd>
           </div>
-    </Fragment>
-  </ServiceShowcase>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       ILUMINACIÓN — Sección destacada
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="iluminacion-heading">
-    <div class="container">
-      <ServiceShowcase
-    title="Iluminación para Eventos"
-    headingId="iluminacion-heading"
-    badge="Ambientación profesional"
-    subtitle="Luces LED arquitectónicas, robóticas, efectos especiales y cortinas de luz. Creamos el ambiente perfecto."
-    tags={["LED Arquitectónico", "Robóticas", "Cortinas de Luz", "Efectos Especiales", "Mariposas"]}
-    ctaHref="/servicios/iluminacion/"
-    ctaLabel="Diseñar iluminación"
-  >
-    <Fragment slot="body">
-      <p class="showcase__text">La iluminación define la atmósfera de tu evento. Contamos con <strong>luces LED arquitectónicas</strong> para resaltar la estructura del venue, <strong>cabezas robóticas</strong> para shows dinámicos, y <strong>cortinas de luz</strong> que transforman cualquier espacio en algo mágico.</p>
-      <p class="showcase__text">Nuestro equipo de iluminación diseña un <strong>plano de luces personalizado</strong> para cada evento. Incluimos <strong>efectos especiales</strong> como máquinas de humo, papelitos de mariposas y luces UV. Desde iluminación ambiental cálida para una cena íntima hasta shows de luz sincronizados para fiestas de XV años.</p>
-    </Fragment>
-    <Fragment slot="media">
-      <div class="showcase__placeholder">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18h6"/>
-              <path d="M10 22h4"/>
-              <path d="M12 2v1"/>
-              <path d="M12 7a4 4 0 0 1 4 4c0 2-1.5 3-2 4h-4c-.5-1-2-2-2-4a4 4 0 0 1 4-4z"/>
-              <path d="M4.22 7.22l.7.7"/>
-              <path d="M19.07 7.93l-.7.7"/>
-              <path d="M2 12h1"/>
-              <path d="M21 12h1"/>
-            </svg>
-            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          <div class="sv-stats__item">
+            <dt class="sv-stats__num">24<span>h</span></dt>
+            <dd class="sv-stats__label">Tiempo de cotización</dd>
           </div>
-    </Fragment>
-  </ServiceShowcase>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       PISTAS DE BAILE — Sección destacada
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="pistas-heading">
-    <div class="container">
-      <ServiceShowcase
-    title="Pistas de Baile"
-    headingId="pistas-heading"
-    badge="Centro de la fiesta"
-    subtitle="Pistas LED programables, de madera y modulares. El centro de atención de cualquier celebración."
-    tags={["Pistas LED", "Madera Clásica", "Modulares", "Monograma", "Gran Formato"]}
-    ctaHref="/servicios/pistas-baile/"
-    ctaLabel="Ver pistas de baile"
-  >
-    <Fragment slot="body">
-      <p class="showcase__text">La pista de baile es donde sucede la magia de tu evento. Ofrecemos <strong>pistas LED programables</strong> con patrones de color personalizados, <strong>pistas de madera clásica</strong> con acabado espejo, y <strong>pistas modulares</strong> que se adaptan a cualquier espacio y forma.</p>
-      <p class="showcase__text">Cada pista incluye <strong>instalación nivelada profesional</strong>, bordes de seguridad y diseño de iluminación perimetral. Personalizamos el <strong>monograma o logo de tu evento</strong> directamente en las pistas LED. Disponibles desde 3x3 metros hasta pistas de gran formato para más de 500 personas.</p>
-    </Fragment>
-    <Fragment slot="media">
-      <div class="showcase__placeholder">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="7" height="7"/>
-              <rect x="14" y="3" width="7" height="7"/>
-              <rect x="3" y="14" width="7" height="7"/>
-              <rect x="14" y="14" width="7" height="7"/>
-            </svg>
-            <span class="showcase__placeholder-text">Imagen próximamente</span>
-          </div>
-    </Fragment>
-  </ServiceShowcase>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       INFLABLES — Sección destacada
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="inflables-heading">
-    <div class="container">
-      <ServiceShowcase
-    title="Inflables para Fiestas"
-    headingId="inflables-heading"
-    badge="Diversión garantizada"
-    subtitle="Brincolines, toboganes, castillos y juegos inflables para fiestas infantiles. Diversión segura garantizada."
-    tags={["Brincolines", "Toboganes", "Castillos", "Juegos Interactivos", "Pistas de Obstáculos"]}
-    ctaHref="/servicios/inflables/"
-    ctaLabel="Ver inflables"
-  >
-    <Fragment slot="body">
-      <p class="showcase__text">Haz que la fiesta de los más pequeños sea inolvidable. Nuestro catálogo incluye <strong>brincolines temáticos</strong>, <strong>toboganes gigantes</strong> con doble carril, <strong>castillos inflables</strong> y juegos interactivos que mantienen a los niños entretenidos por horas.</p>
-      <p class="showcase__text">La seguridad es nuestra prioridad: cada inflable cuenta con <strong>certificación de seguridad</strong>, anclaje profesional, red de protección y <strong>monitor de seguridad</strong> durante todo el evento. Incluimos inflado, instalación y supervisión. Ideales para fiestas infantiles, kermesses, eventos escolares y días familiares corporativos.</p>
-    </Fragment>
-    <Fragment slot="media">
-      <div class="showcase__placeholder">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
-              <line x1="9" y1="9" x2="9.01" y2="9"/>
-              <line x1="15" y1="9" x2="15.01" y2="9"/>
-            </svg>
-            <span class="showcase__placeholder-text">Imagen próximamente</span>
-          </div>
-    </Fragment>
-  </ServiceShowcase>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       CATERING — Sección destacada
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="catering-heading">
-    <div class="container">
-      <ServiceShowcase
-    title="Catering para Eventos"
-    headingId="catering-heading"
-    badge="Experiencia gourmet"
-    subtitle="Canapés gourmet, mesas de dulces, barra de quesos y snacks. Deliciosos complementos para consentir a tus invitados."
-    tags={["Canapés Gourmet", "Mesas de Dulces", "Barra de Quesos", "Snacks Premium", "Fuentes de Chocolate"]}
-    ctaHref="/servicios/catering/"
-    ctaLabel="Ver menú catering"
-  >
-    <Fragment slot="body">
-      <p class="showcase__text">Consiente a tus invitados con una experiencia gastronómica memorable. Ofrecemos <strong>canapés gourmet</strong> con presentación de alta cocina, <strong>mesas de dulces personalizadas</strong> que se adaptan a la temática de tu evento, y <strong>barras de quesos artesanales</strong> con selección premium.</p>
-      <p class="showcase__text">Cada servicio de catering incluye <strong>montaje de estaciones</strong>, vajilla elegante, personal de servicio y <strong>menú personalizado</strong> según tus preferencias y restricciones alimentarias. Complementa con estaciones de <strong>snacks gourmet, fruta de temporada y fuentes de chocolate</strong>.</p>
-    </Fragment>
-    <Fragment slot="media">
-      <div class="showcase__placeholder">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
-              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
-              <line x1="6" y1="1" x2="6" y2="4"/>
-              <line x1="10" y1="1" x2="10" y2="4"/>
-              <line x1="14" y1="1" x2="14" y2="4"/>
-            </svg>
-            <span class="showcase__placeholder-text">Imagen próximamente</span>
-          </div>
-    </Fragment>
-  </ServiceShowcase>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       ACCESORIOS — Sección destacada
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="accesorios-heading">
-    <div class="container">
-      <ServiceShowcase
-    title="Accesorios para Eventos"
-    headingId="accesorios-heading"
-    badge="Complementos esenciales"
-    subtitle="Barras, calentadores, generadores, manteles y fundas. Todo lo necesario para complementar tu evento."
-    tags={["Manteles y Fundas", "Calentadores", "Generadores", "Centros de Mesa", "Señalización"]}
-    ctaHref="/servicios/accesorios/"
-    ctaLabel="Ver accesorios"
-  >
-    <Fragment slot="body">
-      <p class="showcase__text">Los detalles hacen la diferencia. Nuestro catálogo de accesorios incluye <strong>manteles y fundas</strong> en más de 30 colores, <strong>calentadores de exterior</strong> para eventos en temporada de frío, y <strong>generadores de energía</strong> silenciosos para venues sin conexión eléctrica.</p>
-      <p class="showcase__text">Complementa tu evento con <strong>centros de mesa, bases para arreglos florales, mamparas divisorias</strong> y señalización personalizada. Cada accesorio se entrega limpio, planchado y listo para usar. Incluimos <strong>asesoría de decoración</strong> para ayudarte a elegir la combinación perfecta.</p>
-    </Fragment>
-    <Fragment slot="media">
-      <div class="showcase__placeholder">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="3"/>
-              <path d="M12 1v2"/>
-              <path d="M12 21v2"/>
-              <path d="M4.22 4.22l1.42 1.42"/>
-              <path d="M18.36 18.36l1.42 1.42"/>
-              <path d="M1 12h2"/>
-              <path d="M21 12h2"/>
-              <path d="M4.22 19.78l1.42-1.42"/>
-              <path d="M18.36 5.64l1.42-1.42"/>
-            </svg>
-            <span class="showcase__placeholder-text">Imagen próximamente</span>
-          </div>
-    </Fragment>
-  </ServiceShowcase>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       RESERVA TU EVENTO - Formulario de contacto / WhatsApp
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section" aria-labelledby="reserva-heading">
-    <div class="container">
-      <SectionHeader
-        id="reserva-heading"
-        title="Cotiza Tu Evento"
-        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
-        description={[
-          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
-          "Ya sea que tengas una fecha definida, necesites equipo específico o simplemente quieras explorar opciones, estamos aquí para ayudarte a crear un evento inolvidable."
-        ]}
-      />
-
-      <div class="reserva-layout">
-        <form class="reserva-form" id="reservaForm" novalidate>
-          <div class="reserva-form__grid">
-            <div class="form-field">
-              <label class="form-field__label" for="nombre">
-                Nombre completo <span class="form-field__required">*</span>
-              </label>
-              <input
-                type="text"
-                id="nombre"
-                name="nombre"
-                class="form-field__input"
-                placeholder="Tu nombre"
-                required
-              />
-            </div>
-
-            <div class="form-field">
-              <label class="form-field__label" for="telefono">
-                Teléfono <span class="form-field__required">*</span>
-              </label>
-              <input
-                type="tel"
-                id="telefono"
-                name="telefono"
-                class="form-field__input"
-                placeholder="55 1234 5678"
-                required
-              />
-            </div>
-
-            <div class="form-field">
-              <label class="form-field__label" for="tipoEvento">
-                Tipo de evento
-              </label>
-              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
-                <option value="">Selecciona una opción</option>
-                <option value="Boda">Boda</option>
-                <option value="XV Años">XV Años</option>
-                <option value="Evento Corporativo">Evento Corporativo</option>
-                <option value="Fiesta Social">Fiesta Social</option>
-                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
-                <option value="Graduación">Graduación</option>
-                <option value="Baby Shower">Baby Shower</option>
-                <option value="Otro">Otro</option>
-              </select>
-            </div>
-
-            <div class="form-field">
-              <label class="form-field__label" for="fecha">
-                Fecha del evento
-              </label>
-              <input
-                type="date"
-                id="fecha"
-                name="fecha"
-                class="form-field__input"
-              />
-            </div>
-
-            <div class="form-field form-field--full">
-              <label class="form-field__label" for="equipo">
-                Equipo de interés
-              </label>
-              <select id="equipo" name="equipo" class="form-field__input form-field__select">
-                <option value="">Selecciona el equipo que necesitas</option>
-                <option value="Mobiliario">Mobiliario</option>
-                <option value="Audio e Iluminación">Audio e Iluminación</option>
-                <option value="Carpas y Estructuras">Carpas y Estructuras</option>
-                <option value="Equipo Audiovisual">Equipo Audiovisual</option>
-                <option value="Pistas de Baile">Pistas de Baile</option>
-                <option value="Inflables">Inflables</option>
-                <option value="Catering">Catering</option>
-                <option value="Paquete Completo">Paquete Completo</option>
-                <option value="Otro">Otro / No estoy seguro</option>
-              </select>
-            </div>
-
-            <div class="form-field form-field--full">
-              <label class="form-field__label" for="mensaje">
-                Mensaje <span class="form-field__required">*</span>
-              </label>
-              <textarea
-                id="mensaje"
-                name="mensaje"
-                class="form-field__input form-field__textarea"
-                placeholder="Cuéntanos los detalles de tu evento: número de invitados, ubicación, equipo que necesitas..."
-                rows="4"
-                required
-              ></textarea>
-            </div>
-          </div>
-
-          <button type="submit" class="reserva-form__submit" id="btnEnviar">
-            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
-            Enviar por WhatsApp
-          </button>
-        </form>
-
-        <aside class="reserva-sidebar">
-          <div class="reserva-card">
-            <h3 class="reserva-card__title">Respuesta inmediata</h3>
-            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
-          </div>
-
-          <div class="reserva-card">
-            <h3 class="reserva-card__title">Reserva tu fecha</h3>
-            <p class="reserva-card__text">Aparta tu equipo con anticipación y asegura disponibilidad para tu evento.</p>
-          </div>
-
-          <div class="reserva-card">
-            <h3 class="reserva-card__title">Sin compromiso</h3>
-            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para tu presupuesto.</p>
-          </div>
-
-          <div class="reserva-card reserva-card--highlight">
-            <h3 class="reserva-card__title">Horario de atención</h3>
-            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
-          </div>
-        </aside>
+        </dl>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
-    document.getElementById('reservaForm').addEventListener('submit', function(e) {
-      e.preventDefault();
+    <!-- ══════════════════════════════════════════════════════════════
+         POR QUÉ ELEGIRNOS
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="hm__section hm__section--navy" aria-labelledby="porque-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">La diferencia EVENTECH</p>
+            <h2 id="porque-heading">Por qué elegirnos</h2>
+            <p class="hm__head-sub">No solo rentamos equipo: entregamos eventos impecables.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Lo que nos distingue es la integralidad. Al concentrar mobiliario, audio,
+              iluminación, carpas y producción en un solo proveedor, eliminamos la fricción
+              de coordinar empresas distintas y reducimos riesgos: un solo contrato, una
+              sola entrega y un equipo responsable de que todo encaje.
+            </p>
+            <p>
+              Detrás hay más de 30 años de oficio en eventos sociales y corporativos en
+              CDMX y Estado de México. Eso se traduce en inventario propio y verificado,
+              precios transparentes con montaje incluido y la asesoría de especialistas
+              que han resuelto miles de eventos.
+            </p>
+          </div>
+        </div>
+        <ul class="hm-why">
+          {features.map((f) => (
+            <li class="hm-why__item">
+              <div class="hm-why__ic" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <div>
+                <h3>{f.name}</h3>
+                <p>{f.excerpt}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
 
-      const nombre = document.getElementById('nombre').value.trim();
-      const telefono = document.getElementById('telefono').value.trim();
-      const tipoEvento = document.getElementById('tipoEvento').value;
-      const fecha = document.getElementById('fecha').value;
-      const equipo = document.getElementById('equipo').value;
-      const mensaje = document.getElementById('mensaje').value.trim();
+    <!-- ══════════════════════════════════════════════════════════════
+         CÓMO FUNCIONA
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="hm__section" aria-labelledby="proceso-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Sin complicaciones</p>
+            <h2 id="proceso-heading">Cómo funciona</h2>
+            <p class="hm__head-sub">De la cotización al montaje, nos encargamos de todo.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Nuestro proceso de renta está pensado para que tú no cargues con la logística:
+              cotizas en línea o por WhatsApp, confirmamos disponibilidad y reservamos tu
+              fecha. El día del evento entregamos, montamos y dejamos todo listo antes de
+              que llegue el primer invitado; al terminar, desmontamos y recogemos.
+            </p>
+            <p>
+              Con más de 30 años coordinando eventos en CDMX y Estado de México, sabemos
+              que la puntualidad lo es todo. Planeamos accesos, tiempos de montaje y
+              contingencias con anticipación, y asignamos un responsable que da seguimiento
+              a tu evento de principio a fin.
+            </p>
+          </div>
+        </div>
+        <ol class="hm-steps">
+          {steps.map((s) => (
+            <li class="hm-step">
+              <div class="hm-step__num" aria-hidden="true">{s.n}</div>
+              <h3>{s.t}</h3>
+              <p>{s.p}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
 
-      if (!nombre || !telefono || !mensaje) {
-        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
-        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
-        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
-        return;
-      }
+    <!-- ══════════════════════════════════════════════════════════════
+         TESTIMONIOS
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="hm__section hm__section--ivory" aria-labelledby="resenas-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Lo que dicen</p>
+            <h2 id="resenas-heading">Clientes y aliados</h2>
+            <p class="hm__head-sub">Empresas y familias que han confiado en nuestro equipo.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Trabajamos tanto con familias que celebran el evento de su vida como con
+              empresas y aliados del sector que complementan sus servicios con nuestro
+              equipo. La constante es siempre la misma: montajes puntuales, equipo
+              en buen estado y un trato cercano que resuelve sobre la marcha.
+            </p>
+            <p>
+              Estas relaciones se construyen con más de 30 años de cumplimiento en CDMX
+              y Estado de México. Cada recomendación refleja la prioridad que nos define:
+              que tu evento y tu tranquilidad queden en las mejores manos.
+            </p>
+          </div>
+        </div>
+        <div class="hm-tst">
+          {reviews.map((r) => (
+            <figure class="hm-tst__card">
+              <span class="hm-tst__mark" aria-hidden="true">&ldquo;</span>
+              <div class="hm-tst__stars" aria-label={`${r.rating} de 5 estrellas`}>
+                {"★".repeat(r.rating)}
+              </div>
+              <blockquote>{r.text}</blockquote>
+              <figcaption class="hm-tst__who">
+                <span class="hm-tst__avatar" aria-hidden="true">{r.company.slice(0, 2)}</span>
+                <span class="hm-tst__meta">
+                  <b>{r.author}</b>
+                  <span class="hm-tst__role">{r.role}</span>
+                  <a class="hm-tst__link" href={r.website} target="_blank" rel="noopener noreferrer">
+                    {r.company}
+                    <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M7 17L17 7M9 7h8v8" />
+                    </svg>
+                  </a>
+                </span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
 
-      let fechaTexto = 'No especificada';
-      if (fecha) {
-        const d = new Date(fecha + 'T12:00:00');
-        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-      }
+    <!-- ══════════════════════════════════════════════════════════════
+         FAQ + FORMULARIO WHATSAPP
+         ══════════════════════════════════════════════════════════════ -->
+    <section class="hm__section" aria-labelledby="faq-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Antes de cotizar</p>
+            <h2 id="faq-heading">Preguntas frecuentes</h2>
+            <p class="hm__head-sub">Resolvemos las dudas más comunes sobre nuestros servicios.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Reunimos las preguntas que más nos hacen sobre categorías disponibles,
+              tiempos de reserva, cobertura, qué incluye el precio y formas de pago.
+              Si tu duda no está aquí, un especialista te responde en minutos por
+              WhatsApp y te ayuda a armar el paquete ideal para tu evento.
+            </p>
+            <p>
+              Con más de 30 años de experiencia hemos atendido prácticamente cualquier
+              escenario, desde cambios de último momento hasta eventos de gran formato.
+              Puedes cotizar con la tranquilidad de tener un proveedor que ya lo ha
+              resuelto antes.
+            </p>
+          </div>
+        </div>
 
-      let texto = `*Nueva solicitud desde EVENTECH.MX — Servicios*\n\n`;
-      texto += `*Nombre:* ${nombre}\n`;
-      texto += `*Teléfono:* ${telefono}\n`;
-      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
-      texto += `*Fecha del evento:* ${fechaTexto}\n`;
-      if (equipo) texto += `*Equipo de interés:* ${equipo}\n`;
-      texto += `\n*Mensaje:*\n${mensaje}`;
+        <div class="hm-faqx">
+          <div class="hm-faq">
+            {serviciosFaqs.map((f) => (
+              <details class="hm-faq__item">
+                <summary>{f.question}</summary>
+                <p>{f.answer}</p>
+              </details>
+            ))}
+          </div>
 
-      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
-      window.open(url, '_blank');
-    });
+          <aside class="hm-faqx__aside" aria-labelledby="svform-heading">
+            <form id="svForm" class="hm-form" data-wa={SITE.contact.whatsapp}>
+              <p class="hm-form__eyebrow">Respuesta en minutos</p>
+              <h3 id="svform-heading" class="hm-form__title">Cotiza por WhatsApp</h3>
+              <p class="hm-form__sub">Cuéntanos lo esencial y un especialista te contesta al instante.</p>
 
-    document.querySelectorAll('.form-field__input').forEach(function(input) {
-      input.addEventListener('input', function() {
-        this.classList.remove('form-field__input--error');
+              <label class="hm-form__field">
+                <span>Nombre</span>
+                <input type="text" name="nombre" autocomplete="name" placeholder="Tu nombre" required />
+              </label>
+
+              <label class="hm-form__field">
+                <span>Tipo de evento</span>
+                <select name="tipo">
+                  <option value="">Selecciona…</option>
+                  <option>Boda</option>
+                  <option>XV años</option>
+                  <option>Corporativo</option>
+                  <option>Evento social</option>
+                  <option>Fiesta infantil</option>
+                  <option>Graduación</option>
+                  <option>Otro</option>
+                </select>
+              </label>
+
+              <label class="hm-form__field">
+                <span>Fecha del evento</span>
+                <input type="date" name="fecha" />
+              </label>
+
+              <label class="hm-form__field">
+                <span>¿Qué equipo necesitas?</span>
+                <textarea name="mensaje" rows="3" placeholder="Mobiliario, audio, carpa, iluminación, número de invitados, venue…"></textarea>
+              </label>
+
+              <button type="submit" class="hm-form__btn">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
+                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.23 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z" />
+                </svg>
+                Enviar por WhatsApp
+              </button>
+              <p class="hm-form__note">Se abrirá WhatsApp con tu información. Sin compromiso.</p>
+            </form>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /hm -->
+
+  <script>
+    const svForm = document.getElementById("svForm");
+    if (svForm) {
+      svForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const f = e.currentTarget as HTMLFormElement;
+        const wa = f.dataset.wa;
+        const data = new FormData(f);
+        const get = (k: string) => (data.get(k) || "").toString().trim();
+        let t = "Hola, quiero cotizar equipo para mi evento.";
+        if (get("nombre")) t += `\nNombre: ${get("nombre")}`;
+        if (get("tipo")) t += `\nTipo de evento: ${get("tipo")}`;
+        if (get("fecha")) t += `\nFecha: ${get("fecha")}`;
+        if (get("mensaje")) t += `\nDetalles: ${get("mensaje")}`;
+        window.open(`https://wa.me/${wa}?text=${encodeURIComponent(t)}`, "_blank", "noopener");
       });
-    });
+    }
   </script>
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       CTA FINAL
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <CTABanner
-    headline="Haz realidad el evento que siempre soñaste"
-    subheadline="Más de 500 eventos exitosos en CDMX nos respaldan. Cotiza hoy y recibe asesoría personalizada sin compromiso."
-    primaryCTA={{ label: "Cotizar mi evento", href: "#reserva-heading" }}
-    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar equipo para mi evento` }}
-    variant="accent"
-  />
 </PageLayout>
 
-<style>.showcase {
+<style>
+  /* ── Stats band ── */
+  .sv-stats {
+    background: var(--color-ivory-alt, #f3efe7);
+    border-block: 1px solid var(--color-hairline, #e7e1d6);
+  }
+  .sv-stats__wrap {
+    padding-block: clamp(36px, 5vw, 52px);
+  }
+  .sv-stats__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-3xl);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin: 0;
+  }
+  .sv-stats__item {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-  }.showcase__badge {
-    display: inline-block;
-    padding: 0.375rem 0.875rem;
-    background: rgba(0, 184, 148, 0.1);
-    border: 1px solid rgba(0, 184, 148, 0.2);
-    border-radius: var(--radius-full);
-    font-size: var(--text-xs);
+    text-align: center;
+    padding: 0 clamp(16px, 2.5vw, 32px);
+    border-left: 1px solid var(--color-hairline, #e7e1d6);
+  }
+  .sv-stats__item:first-child {
+    border-left: 0;
+  }
+  .sv-stats__num {
+    font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
     font-weight: 600;
-    color: #00a085;
+    font-size: clamp(2.8rem, 5vw, 4rem);
+    line-height: 1;
+    color: var(--color-primary, #1a1a2e);
+    margin: 0;
+  }
+  .sv-stats__num span {
+    font-size: 0.55em;
+    vertical-align: super;
+    color: var(--color-gold, #c2a24a);
+  }
+  .sv-stats__label {
+    margin-top: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-block-end: var(--space-lg);
-  }.showcase__title {
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    font-weight: 800;
-    color: var(--color-primary);
-    line-height: 1.2;
-    margin-block-end: var(--space-md);
-  }.showcase__subtitle {
-    font-size: var(--text-lg);
-    font-weight: 500;
-    color: var(--color-accent);
-    line-height: 1.6;
-    margin-block-end: var(--space-lg);
-  }.showcase__text {
-    font-size: var(--text-base);
-    color: var(--color-text-light);
-    line-height: 1.8;
-    margin-block-end: var(--space-md);
-  }.showcase__text:last-of-type {
-    margin-block-end: var(--space-xl);
-  }.showcase__text :global(strong) {
-    color: var(--color-heading);
-    font-weight: 600;
-  }.showcase__tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
-    margin-block-end: var(--space-xl);
-  }.showcase__tag {
-    padding: 0.375rem 0.875rem;
-    background: var(--color-bg-alt, #f0f4f8);
-    border: 1px solid var(--color-border-light);
-    border-radius: var(--radius-full);
-    font-size: var(--text-sm);
-    font-weight: 500;
-    color: var(--color-text);
-  }.showcase__image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }.showcase__placeholder {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
-    border: 2px dashed var(--color-border-light);
-    border-radius: var(--radius-xl, 1rem);
-    display: flex;
+    color: var(--color-gold-deep, #a9883a);
+  }
+
+  @media (max-width: 680px) {
+    .sv-stats__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: clamp(20px, 4vw, 32px) 0;
+    }
+    .sv-stats__item:nth-child(2n + 1) {
+      border-left: 0;
+    }
+    .sv-stats__item:nth-child(3),
+    .sv-stats__item:nth-child(4) {
+      padding-top: clamp(20px, 4vw, 32px);
+      border-top: 1px solid var(--color-hairline, #e7e1d6);
+    }
+  }
+
+  /* ── Gallery 3: imagen principal + 2 thumbs abajo ── */
+  .hm-feat__media--g3 {
+    display: flex !important;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-md);
-    color: var(--color-text-light);
-  }.showcase__placeholder svg {
-    opacity: 0.4;
-  }.showcase__placeholder-text {
-    font-size: var(--text-sm);
-    font-weight: 500;
-    opacity: 0.5;
-  }@media (max-width: 1024px) {
-.showcase {
-      gap: var(--space-2xl);
-    }}
-@media (max-width: 768px) {
-.showcase {
-      grid-template-columns: 1fr;
-      gap: var(--space-xl);
-    }.showcase__image {
-      order: -1;
-    }.showcase__placeholder {
-      aspect-ratio: 16 / 9;
-    }}
-.reserva-layout {
-    display: grid;
-    grid-template-columns: 1fr 340px;
-    gap: var(--space-2xl);
-    align-items: start;
-  }.reserva-form {
-    background: var(--color-bg);
-    padding: var(--space-2xl);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-  }.reserva-form__grid {
+    gap: 8px;
+    position: static !important;
+    min-height: 0 !important;
+    padding: 20px 20px 20px 0;
+    align-self: stretch;
+  }
+  .hm-feat__media--g3 img {
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
+  .hm-feat__g3-main {
+    flex: 1;
+    min-height: 220px;
+    aspect-ratio: 16 / 10;
+    border-radius: 6px 6px 4px 4px !important;
+  }
+  .hm-feat__g3-thumbs {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-lg);
-  }.form-field--full {
-    grid-column: 1 / -1;
-  }.form-field__label {
-    display: block;
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--color-heading);
-    margin-block-end: var(--space-xs);
-  }.form-field__required {
-    color: var(--color-cta);
-  }.form-field__input {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    font-size: var(--text-base);
-    font-family: inherit;
-    color: var(--color-text);
-    background: var(--color-bg);
-    border: 2px solid rgba(0, 0, 0, 0.1);
-    border-radius: var(--radius-md);
-    appearance: none;
-    -webkit-appearance: none;
-  }.form-field__input::placeholder {
-    color: var(--color-text-light);
-  }.form-field__input:focus {
-    outline: none;
-    border-color: var(--color-accent);
-    box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.15);
-  }.form-field__select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236c757d' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-    padding-right: 2.5rem;
-    cursor: pointer;
-  }.form-field__textarea {
-    resize: vertical;
-    min-height: 100px;
-  }.reserva-form__submit {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-sm);
-    width: 100%;
-    margin-block-start: var(--space-lg);
-    padding: 1rem 2rem;
-    font-size: var(--text-lg);
-    font-weight: 700;
-    font-family: inherit;
-    color: white;
-    background: #25d366;
-    border: none;
-    border-radius: var(--radius-md);
-    cursor: pointer;
-    transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
-  }.reserva-form__submit:hover {
-    background: #128c7e;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-  }.reserva-form__submit:active {
-    transform: translateY(0);
-  }.reserva-form__submit-icon {
-    flex-shrink: 0;
-  }.reserva-sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-  }.reserva-card {
-    background: var(--color-bg);
-    padding: var(--space-lg);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-  }.reserva-card--highlight {
-    background: var(--color-primary);
-    color: white;
-    border-color: transparent;
-  }.reserva-card--highlight .reserva-card__text {
-    opacity: 0.9;
-  }.reserva-card__title {
-    font-size: var(--text-base);
-    font-weight: 700;
-    margin-block-end: var(--space-xs);
-  }.reserva-card__text {
-    font-size: var(--text-sm);
-    color: var(--color-text-light);
-    line-height: 1.5;
-  }.reserva-card--highlight .reserva-card__text {
-    color: white;
-  }@media (max-width: 1024px) {
-.reserva-layout {
-      grid-template-columns: 1fr;
-    }.reserva-sidebar {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-md);
-    }}
-@media (max-width: 768px) {
-.reserva-form {
-      padding: var(--space-lg);
-    }.reserva-form__grid {
-      grid-template-columns: 1fr;
-    }.reserva-sidebar {
-      grid-template-columns: 1fr;
-    }}
+    gap: 8px;
+  }
+  .hm-feat__g3-thumbs img {
+    aspect-ratio: 4 / 3;
+    border-radius: 4px 4px 6px 6px !important;
+  }
+  @media (max-width: 760px) {
+    .hm-feat__media--g3 {
+      padding: 0;
+    }
+  }
 </style>

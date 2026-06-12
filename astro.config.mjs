@@ -172,6 +172,11 @@ export default defineConfig({
     inlineStylesheets: "auto",
   },
 
+  // ─── Vite (cache en /tmp para evitar EPERM en sandbox) ───
+  vite: {
+    cacheDir: "/tmp/vite-eventech",
+  },
+
   // ─── Dev Server ───
   server: {
     port: 4321,
