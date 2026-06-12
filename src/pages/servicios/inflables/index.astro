@@ -1,666 +1,766 @@
 ---
 /**
- * ─── Inflables Category Page ───
- * Página de categoría: Renta de Inflables para Eventos en CDMX.
- * Sigue el layout de subcategoría principal aprobado.
+ * ─── EVENTECH.MX — Inflables para Eventos (L3, rediseño 2026) ───
+ * Renta de inflables: castillos, acuáticos, interactivos y para adultos.
  */
 import PageLayout from "@layouts/PageLayout.astro";
-import ServiceShowcase from "@components/ServiceShowcase.astro";
-import HeroPage from "@components/HeroPage.astro";
-import Breadcrumbs from "@components/Breadcrumbs.astro";
-import CTABanner from "@components/CTABanner.astro";
-import SectionHeader from "@components/SectionHeader.astro";
-import CategoryCard from "@components/CategoryCard.astro";
 import { SITE } from "@data/site";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
-import CtaBar from "@components/CtaBar.astro";
-import Gallery4x4 from "@components/Gallery4x4.astro";
-import FaqSection from "@components/FaqSection.astro";
-import '@styles/l3-shared.css';
-import '@styles/l4-shared.css';
-
-const breadcrumbItems = [
-  { label: "Inicio", href: "/" },
-  { label: "Servicios", href: "/servicios/" },
-  { label: "Inflables" },
-];
+import "@styles/home-2026.css";
 
 const SUB_SERVICES = [
   {
+    id: "juegos-infantiles",
     name: "Juegos Infantiles",
-    excerpt: "Brincolines, toboganes inflables, castillos y circuitos de obstáculos diseñados para niños de 3 a 12 años. Diversión segura y supervisada para fiestas infantiles.",
+    badge: "El favorito de los niños",
+    excerpt: "Castillos inflables, brincabrincas y laberintos de colores para fiestas infantiles, kermeses y eventos familiares. Materiales certificados y supervisión de seguridad incluida.",
     href: "/servicios/inflables/juegos-infantiles/",
     image: "/images/inflables/castillo-inflable-fiesta-infantil.avif",
     subcategories: [
-      { name: "Brincolines y Castillos", href: "/servicios/inflables/juegos-infantiles/brincolines/" },
-      { name: "Toboganes Inflables", href: "/servicios/inflables/juegos-infantiles/toboganes/" },
-      { name: "Circuitos de Obstáculos", href: "/servicios/inflables/juegos-infantiles/circuitos-obstaculos/" },
-      { name: "Inflables Temáticos", href: "/servicios/inflables/juegos-infantiles/tematicos/" },
+      { name: "Castillos Inflables", href: "/servicios/inflables/juegos-infantiles/castillos/" },
+      { name: "Brincabrincas Clásicos", href: "/servicios/inflables/juegos-infantiles/brincabrincas/" },
+      { name: "Laberintos", href: "/servicios/inflables/juegos-infantiles/laberintos/" },
+      { name: "Temáticos", href: "/servicios/inflables/juegos-infantiles/tematicos/" },
     ],
   },
   {
-    name: "Inflables Acuáticos",
-    excerpt: "Toboganes de agua, albercas inflables, resbaladillas splash y circuitos acuáticos para eventos al aire libre en temporada de calor. Máxima diversión refrescante.",
+    id: "acuaticos",
+    name: "Acuáticos",
+    badge: "Para el calor de CDMX",
+    excerpt: "Albercas inflables, toboganes de agua y parques acuáticos portátiles. La opción que convierte cualquier jardín en un parque de diversiones de verano.",
     href: "/servicios/inflables/acuaticos/",
     image: "/images/inflables/tobogan-inflable-agua-verano.avif",
     subcategories: [
-      { name: "Toboganes de Agua", href: "/servicios/inflables/acuaticos/toboganes-agua/" },
+      { name: "Toboganes de Agua", href: "/servicios/inflables/acuaticos/toboganes/" },
       { name: "Albercas Inflables", href: "/servicios/inflables/acuaticos/albercas/" },
-      { name: "Resbaladillas Splash", href: "/servicios/inflables/acuaticos/resbaladillas-splash/" },
-      { name: "Circuitos Acuáticos", href: "/servicios/inflables/acuaticos/circuitos-acuaticos/" },
+      { name: "Parques Acuáticos", href: "/servicios/inflables/acuaticos/parques/" },
+      { name: "Splash Pad", href: "/servicios/inflables/acuaticos/splash-pad/" },
     ],
   },
   {
-    name: "Juegos para Adultos",
-    excerpt: "Toro mecánico, futbolito humano, gladiadores, sumo wrestling y pistas de obstáculos extremas. Activaciones dinámicas para corporativos, team buildings y fiestas.",
-    href: "/servicios/inflables/adultos/",
+    id: "interactivos-deportivos",
+    name: "Interactivos y Deportivos",
+    badge: "Competencia y diversión",
+    excerpt: "Obstáculos, arenas de boxeo inflable, escalada, futbolito humano y juegos de competencia para activaciones corporativas, kermeses y eventos donde la participación es el objetivo.",
+    href: "/servicios/inflables/interactivos-deportivos/",
     image: "/images/inflables/inflable-obstaculos-kermesse.avif",
     subcategories: [
-      { name: "Toro Mecánico", href: "/servicios/inflables/adultos/toro-mecanico/" },
-      { name: "Futbolito Humano", href: "/servicios/inflables/adultos/futbolito-humano/" },
-      { name: "Gladiadores y Sumo", href: "/servicios/inflables/adultos/gladiadores-sumo/" },
-      { name: "Obstáculos Extremos", href: "/servicios/inflables/adultos/obstaculos-extremos/" },
+      { name: "Circuito de Obstáculos", href: "/servicios/inflables/interactivos-deportivos/obstaculos/" },
+      { name: "Arena de Boxeo", href: "/servicios/inflables/interactivos-deportivos/boxeo/" },
+      { name: "Escalada Inflable", href: "/servicios/inflables/interactivos-deportivos/escalada/" },
+      { name: "Futbolito Humano", href: "/servicios/inflables/interactivos-deportivos/futbolito/" },
     ],
   },
   {
-    name: "Interactivos y Deportivos",
-    excerpt: "Cancha de futbol inflable, basquetbol gigante, boxing ring, bungee run y juegos de destreza. Entretenimiento competitivo para eventos de cualquier escala.",
-    href: "/servicios/inflables/interactivos-deportivos/",
-    image: "/images/inflables/inflable-evento-01.avif",
+    id: "adultos",
+    name: "Para Adultos",
+    badge: "Sin límite de edad",
+    excerpt: "Inflables de gran formato, sumo, mecedoras gigantes y juegos de habilidad diseñados para activaciones corporativas, team building y eventos sociales para adultos.",
+    href: "/servicios/inflables/adultos/",
+    image: "/images/inflables/alberca-inflable-fiesta-acuatica.avif",
     subcategories: [
-      { name: "Cancha de Futbol", href: "/servicios/inflables/interactivos-deportivos/futbol-inflable/" },
-      { name: "Basquetbol Gigante", href: "/servicios/inflables/interactivos-deportivos/basquetbol-gigante/" },
-      { name: "Bungee Run", href: "/servicios/inflables/interactivos-deportivos/bungee-run/" },
-      { name: "Circuito Multijuego", href: "/servicios/inflables/interactivos-deportivos/circuito-multijuego/" },
+      { name: "Sumo Inflable", href: "/servicios/inflables/adultos/sumo/" },
+      { name: "Mecedoras Gigantes", href: "/servicios/inflables/adultos/mecedoras/" },
+      { name: "Team Building", href: "/servicios/inflables/adultos/team-building/" },
+      { name: "Activaciones de Marca", href: "/servicios/inflables/adultos/activaciones/" },
     ],
   },
 ];
 
+const whyFeatures = [
+  {
+    icon: "🛡️",
+    title: "Materiales certificados NOM y ASTM",
+    body: "Todos nuestros inflables están fabricados en vinilo de PVC de alta densidad, sin plastificantes tóxicos. Certificados para uso con menores en eventos públicos y privados en CDMX.",
+  },
+  {
+    icon: "⚙️",
+    title: "Sopladores industriales de respaldo",
+    body: "Cada inflable opera con su soplador industrial dedicado más uno de respaldo en sitio. Un soplador que falla no interrumpe el evento — el respaldo entra en segundos.",
+  },
+  {
+    icon: "👷",
+    title: "Operador en sitio durante todo el evento",
+    body: "Un operador certificado permanece junto al inflable durante toda la renta. Controla aforo, tiempos de uso, seguridad de los participantes y cualquier ajuste de operación.",
+  },
+  {
+    icon: "📐",
+    title: "Verificación de espacio antes de confirmar",
+    body: "Confirmamos dimensiones del área disponible, altura libre, acceso para instalación y tipo de terreno antes de aceptar cualquier pedido. Sin sorpresas el día del evento.",
+  },
+  {
+    icon: "🧼",
+    title: "Desinfección certificada entre eventos",
+    body: "Cada inflable se limpia y desinfecta con productos bactericidas aprobados para contacto con piel entre uso y uso. Entregamos certificado de sanitización con cada renta.",
+  },
+  {
+    icon: "🚚",
+    title: "Traslado, montaje y desmontaje incluidos",
+    body: "El precio de renta incluye transporte, instalación completa y retiro al finalizar. No necesitas contratar flete ni mover un dedo — el inflable llega listo para usar.",
+  },
+];
+
+const steps = [
+  { n: 1, t: "Verificación de espacio", p: "Confirmamos dimensiones del área, altura libre, tipo de terreno y acceso para el vehículo de carga. Sin esta verificación no confirmamos el pedido." },
+  { n: 2, t: "Confirmación y reserva", p: "Una vez verificado el espacio, confirmamos disponibilidad del modelo y tamaño. El inflable queda reservado con anticipo del 50%." },
+  { n: 3, t: "Instalación en sitio", p: "Nuestro equipo llega 2–3 horas antes del evento para instalar, inflar, verificar estabilidad y dejar el área lista con señalización de seguridad." },
+  { n: 4, t: "Operación y retiro", p: "El operador permanece durante todo el evento. Al finalizar, desinflamos, doblamos y retiramos sin dejar rastro en el venue." },
+];
+
 const faqs = [
-  { question: "¿Qué edades son adecuadas para los inflables?", answer: "Manejamos inflables segmentados por edad: juegos infantiles para niños de 3 a 12 años con alturas y complejidad apropiadas, y juegos para adolescentes y adultos como toro mecánico, futbolito humano, gladiadores y pistas de obstáculos extremas sin restricción de edad (sujeto a condiciones de salud). Cada inflable incluye señalización con capacidad máxima y rango de edad recomendado. Para fiestas mixtas con niños y adultos, armamos paquetes combinados con juegos para todas las edades." },
-  { question: "¿Los inflables incluyen monitor o supervisor?", answer: "Sí. Todos nuestros paquetes incluyen al menos un monitor certificado por cada inflable que supervisa el uso correcto, controla la capacidad, asiste a los participantes y garantiza la seguridad durante todo el evento. Para eventos grandes con múltiples inflables asignamos un equipo de 2-4 monitores con coordinador. Los monitores están capacitados en primeros auxilios básicos y manejo de emergencias." },
-  { question: "¿Qué espacio se necesita para instalar un inflable?", answer: "Depende del modelo. Los brincolines infantiles estándar requieren un área mínima de 5x5 metros con 3 metros de altura libre. Los toboganes grandes y circuitos de obstáculos pueden necesitar hasta 15x5 metros. Las pistas de obstáculos extremas requieren hasta 20x6 metros. Siempre necesitamos al menos 1.5 metros de espacio libre alrededor del inflable por seguridad. Nuestro equipo evalúa tu espacio disponible y recomienda los modelos que mejor se adaptan." },
-  { question: "¿Se pueden instalar en interiores?", answer: "Sí, siempre que el espacio cumpla con los requisitos de altura libre (mínimo 3 metros para infantiles, 5 metros para toboganes grandes) y ventilación adecuada. En interiores se requiere acceso a tomas de corriente de 110V para los motores de inflado continuo. Protegemos el piso del venue con lonas de PVC para evitar cualquier daño. Algunos modelos como el toro mecánico y los juegos de sumo son especialmente populares para salones cerrados." },
-  { question: "¿Qué pasa si llueve durante el evento?", answer: "Los inflables secos (brincolines, toboganes, obstáculos) se operan perfectamente con lluvia ligera. En caso de lluvia intensa o tormenta eléctrica, el protocolo de seguridad indica desalojar y desinflar temporalmente hasta que las condiciones mejoren. Los inflables acuáticos están diseñados para operar con agua por lo que la lluvia no afecta su funcionamiento. Todos nuestros inflables están fabricados con lona de PVC laminado de 18 oz resistente a condiciones climáticas." },
-  { question: "¿Con cuánta anticipación debo reservar?", answer: "Recomendamos reservar con 2 a 3 semanas de anticipación para garantizar disponibilidad del modelo que deseas. En temporada alta (abril a agosto para acuáticos, octubre a diciembre para fiestas) lo ideal es apartar con 4 a 6 semanas. Para eventos corporativos o escolares con múltiples inflables, sugerimos contactarnos con al menos 1 mes de anticipación para diseñar el layout óptimo y garantizar el inventario completo." },
+  {
+    question: "¿Cuánto espacio necesito para instalar un inflable?",
+    answer: "Depende del modelo. Un castillo inflable estándar para niños requiere un área mínima de 5×5 m con al menos 4 m de altura libre. Un tobogán de agua puede requerir 8×4 m con 5 m de altura libre. Un circuito de obstáculos puede ocupar desde 12×4 m. Siempre confirmamos las dimensiones exactas del área disponible en tu venue antes de confirmar el pedido — si el espacio no es suficiente, lo decimos antes, no el día del evento.",
+  },
+  {
+    question: "¿Los inflables se pueden instalar en jardines con pasto?",
+    answer: "Sí. El pasto es de hecho la superficie ideal para la mayoría de los inflables — amortigua mejor que el concreto y reduce el riesgo de lesiones por caídas. Para inflables acuáticos el pasto también es perfecto. Sobre concreto o loseta colocamos tapetes de protección debajo del inflable. Lo que no recomendamos es instalar sobre superficies con piedras, raíces expuestas o pendientes mayores a 5%.",
+  },
+  {
+    question: "¿Los inflables acuáticos necesitan conexión de agua especial?",
+    answer: "Solo requieren una toma de agua estándar de jardín (manguera de ½ pulgada). El llenado inicial de una alberca inflable tarda entre 20 y 45 minutos según el modelo. Los toboganes funcionan con una manguera conectada en la parte superior que mantiene la superficie húmeda durante el evento. No necesitas presión especial ni instalación hidráulica.",
+  },
+  {
+    question: "¿Se incluye operador durante el evento?",
+    answer: "Sí, siempre. Todos nuestros inflables se rentan con operador certificado incluido que permanece junto al equipo durante toda la renta. El operador controla el aforo (número máximo de participantes simultáneos), hace cumplir las reglas de uso, supervisa la seguridad y opera el soplador. Sin operador no rentamos — es parte del servicio estándar.",
+  },
+  {
+    question: "¿Tienen inflables para eventos corporativos o adultos?",
+    answer: "Sí. Nuestra línea de inflables para adultos incluye arenas de sumo, circuitos de obstáculos de alto rendimiento, escalada inflable, futbolito humano y mecedoras gigantes — todos diseñados para activaciones corporativas, team building y eventos sociales para adultos. También diseñamos activaciones de marca con inflables personalizados con el logo o colores de la empresa.",
+  },
+  {
+    question: "¿Cuánto tiempo antes hay que reservar?",
+    answer: "Recomendamos reservar con 2–3 semanas de anticipación para fechas entre semana, y 4–6 semanas para fines de semana y temporada alta (diciembre, febrero, julio). Para eventos corporativos con inflables personalizados (impresos con logo) necesitamos al menos 4 semanas por el tiempo de producción del vinil.",
+  },
 ];
 
 const jsonLd = [
   serviceJsonLd({
     name: "Renta de Inflables para Eventos en CDMX",
-    description: "Brincolines, toboganes, toro mecánico, inflables acuáticos y juegos interactivos para fiestas infantiles, corporativos y eventos en CDMX. Monitor incluido.",
+    description: "Renta de castillos inflables, toboganes de agua, circuitos de obstáculos e inflables para adultos en CDMX. Operador certificado y traslado incluidos.",
     url: "/servicios/inflables/",
-    priceRange: { min: 1500, max: 45000 },
   }),
   breadcrumbJsonLd([
     { name: "Inicio", url: "/" },
     { name: "Servicios", url: "/servicios/" },
-    { name: "Inflables", url: "/servicios/inflables/" },
+    { name: "Inflables para Eventos", url: "/servicios/inflables/" },
   ]),
   faqJsonLd(faqs),
 ];
 ---
 
 <PageLayout
-  title="Renta de Inflables para Eventos"
-  description="Renta de inflables para fiestas y eventos en CDMX: brincolines, toboganes, toro mecánico, inflables acuáticos y juegos interactivos con monitor incluido."
+  title="Renta de Inflables para Eventos en CDMX | Equipo para eventos en México"
+  rawTitle={true}
+  description="Renta de inflables para eventos en CDMX: castillos, toboganes de agua, obstáculos y juegos para adultos. Operador certificado, traslado y sanitización incluidos. Cotización en 24h."
   jsonLd={jsonLd}
 >
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       BREADCRUMBS
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <Breadcrumbs items={breadcrumbItems} />
+  <div class="hm">
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       HERO
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <HeroPage
-    badge="Diversión garantizada con supervisión profesional"
-    title='Renta de <span class="highlight">Inflables para Eventos</span> en CDMX'
-    subtitle="Brincolines, toboganes, toro mecánico, inflables acuáticos, futbolito humano y juegos interactivos con monitor certificado incluido. La diversión segura y espectacular que hace de cualquier fiesta infantil, corporativo o evento social una experiencia inolvidable para todas las edades."
-    primaryCTA={{ label: "Cotiza tu evento", href: "#reserva-heading" }}
-    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar inflables para mi evento en CDMX` }}
-    cards={[
-      {
-        title: "Inflables comerciales certificados con lona de grado industrial",
-        content: "<strong>Renta de inflables para eventos</strong> fabricados con los más altos estándares de seguridad. Lona de PVC laminado de 18 oz con costura cuádruple reforzada, certificación ASTM F2374 para uso comercial y sistema de anclaje con estacas de acero o lastres de arena según el terreno. Cada inflable cuenta con <strong>motores de inflado continuo UL Listed</strong> que mantienen la presión constante, redes de seguridad perimetrales, rampas de acceso acolchadas y deflectores internos que amortiguan caídas. Inspección y sanitización profesional antes de cada evento.",
-      },
-      {
-        title: "Servicio llave en mano con monitor y logística completa",
-        content: "<strong>Servicio integral de inflables</strong> que incluye entrega, montaje profesional, <strong>monitor certificado en primeros auxilios</strong> durante todo el evento y desmontaje al finalizar. Nuestro equipo evalúa tu espacio disponible — jardín, salón, explanada o parque — para recomendar los modelos ideales según el número de asistentes, edades y tipo de evento. Diseñamos layouts con zonas de seguridad perimetral y flujo de circulación óptimo. Complementa con <strong>carpas para sombra, mobiliario infantil</strong> y área de hidratación para un evento completamente organizado.",
-      },
-    ]}
-  />
+    <!-- HERO -->
+    <section class="hm-hero" aria-labelledby="inflables-hero-heading">
+      <div class="hm__wrap hm-hero__wrap">
+        <nav class="sv-breadcrumb" aria-label="Migas de pan">
+          <ol>
+            <li><a href="/">Inicio</a></li>
+            <li aria-hidden="true">›</li>
+            <li><a href="/servicios/">Servicios</a></li>
+            <li aria-hidden="true">›</li>
+            <li><span aria-current="page">Inflables para Eventos</span></li>
+          </ol>
+        </nav>
+        <div class="hm-hero__grid">
+          <div class="hm-hero__main">
+            <p class="hm__eyebrow hm-hero__eyebrow">Renta de inflables · CDMX y ZMVM</p>
+            <h1 id="inflables-hero-heading">
+              Inflables que convierten cualquier espacio en un lugar donde <em>nadie quiere irse</em>
+            </h1>
+            <p class="hm-hero__lead">
+              Castillos, toboganes de agua, circuitos de obstáculos e inflables para adultos.
+              Operador certificado incluido, materiales sanitizados entre eventos y traslado
+              sin costo adicional en CDMX y zona metropolitana.
+            </p>
+            <div class="sv-hero__ctas">
+              <a
+                class="hm__btn hm__btn--gold"
+                href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola,%20quiero%20cotizar%20un%20inflable%20para%20mi%20evento`}
+                target="_blank" rel="noopener noreferrer"
+              >
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.23 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+                Cotizar ahora
+              </a>
+              <a class="hm__btn hm__btn--ghost" href="#catalogo">
+                Ver tipos de inflable
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="hm-hero__seo">
+            <p>
+              Con <strong>más de 600 eventos atendidos con inflables</strong> en Ciudad de
+              México y zona metropolitana, EVENTECH cubre cuatro líneas de producto:
+              juegos infantiles clásicos, acuáticos para el calor de verano, interactivos
+              y deportivos para activaciones de alto impacto, y una línea completa
+              diseñada específicamente para adultos y eventos corporativos.
+            </p>
+            <p>
+              Cada renta incluye <strong>operador certificado en sitio</strong>,
+              sanitización con certificado entre eventos, soplador de respaldo y
+              traslado dentro de CDMX y ZMVM. El objetivo es que el inflable funcione
+              perfectamente durante toda la celebración sin que el organizador
+              tenga que pensar en nada relacionado con el equipo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <CtaBar headline="¿Qué inflables necesitas?" items={[
-    { label: "Infantiles", href: "/servicios/inflables/juegos-infantiles/", icon: "inflables" },
-    { label: "Acuáticos", href: "/servicios/inflables/acuaticos/", icon: "inflables" },
-    { label: "Adultos", href: "/servicios/inflables/adultos/", icon: "inflables" },
-    { label: "Interactivos", href: "/servicios/inflables/interactivos-deportivos/", icon: "inflables" },
-  ]} />
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       CTA BANNER
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <CTABanner
-    headline="La diversión que hace memorable cualquier celebración"
-    subheadline="Recibe una propuesta personalizada con los inflables ideales según tu espacio, edades de los invitados y tipo de evento — sin compromiso"
-    primaryCTA={{ label: "Cotizar inflables", href: "#reserva-heading" }}
-    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
-  />
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       CATÁLOGO — Sub-servicios con Cards
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section" aria-labelledby="catalogo-heading">
-    <div class="container">
-      <SectionHeader
-        id="catalogo-heading"
-        title="Nuestro Catálogo de Inflables"
-        subtitle="Diversión para todas las edades y tipos de evento"
-        description={[
-          "Desde un brincolin clásico para una fiesta infantil en un jardín de Coyoacán hasta un circuito completo de juegos extremos para un team building corporativo en Santa Fe — contamos con el inventario más completo de inflables para eventos en la Ciudad de México y zona metropolitana.",
-          "Cada inflable incluye montaje profesional, monitor certificado en primeros auxilios y sanitización completa previa. No solo rentamos juegos: creamos experiencias de diversión segura que niños, adolescentes y adultos disfrutan por igual."
-        ]}
-      />
-
-      <div class="grid grid--4">
-        {SUB_SERVICES.map((sub) => (
-          <CategoryCard
-            title={sub.name}
-            subtitle={sub.excerpt}
-            href={sub.href}
-            image={sub.image}
-            subcategories={sub.subcategories}
-          />
+    <!-- NAV SUBCATEGORÍAS -->
+    <nav class="hm-menu" aria-label="Tipos de inflables para eventos">
+      <ul class="hm-menu__grid" style="grid-template-columns: repeat(5, 1fr);">
+        {SUB_SERVICES.map((s) => (
+          <li><a class="hm-menu__item" href={s.href}>{s.name}</a></li>
         ))}
+        <li>
+          <a
+            class="hm-menu__item hm-menu__item--cta"
+            href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola,%20quiero%20cotizar%20un%20inflable%20para%20mi%20evento`}
+            target="_blank" rel="noopener noreferrer"
+          >Cotizar ahora</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- CATÁLOGO -->
+    <section id="catalogo" class="hm__section" aria-labelledby="catalogo-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Cuatro líneas para cuatro tipos de evento</p>
+            <h2 id="catalogo-heading">¿Qué tipo de inflable necesita tu evento?</h2>
+            <p class="hm__head-sub">Infantiles, acuáticos, interactivos o para adultos — cada línea para un perfil distinto.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Un inflable bien elegido puede ser el elemento que más recuerden los invitados
+              de cualquier evento. Uno mal elegido — el modelo equivocado para la edad del
+              público, sin el espacio adecuado o sin operador presente — se convierte en
+              el problema más visible del día. La elección correcta empieza con entender
+              para quién es el evento y qué quieres que hagan los asistentes.
+            </p>
+            <p>
+              No vendemos inflables genéricos de catálogo. Recomendamos el modelo
+              correcto según el espacio disponible, el rango de edad de los participantes
+              y el tipo de actividad que buscas generar — diversión pasiva, competencia
+              activa o activación de marca.
+            </p>
+          </div>
+        </div>
+        <div class="hm-cat-grid">
+          {SUB_SERVICES.map((s) => (
+            <article class="hm-cat">
+              <a class="hm-cat__media" href={s.href} aria-label={`Ver ${s.name}`}>
+                <img class="hm-cat__img" src={s.image} alt={`Renta de inflables ${s.name.toLowerCase()} para eventos en CDMX`} loading="lazy" decoding="async" />
+                <span class="hm-cat__badge">{s.badge}</span>
+                <span class="hm-cat__name">{s.name}</span>
+              </a>
+              <div class="hm-cat__body">
+                <p class="hm-cat__sub">{s.excerpt}</p>
+                <ul class="hm-cat__menu">
+                  {s.subcategories.map((sc) => (
+                    <li>
+                      <a href={sc.href}>
+                        <span>{sc.name}</span>
+                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <a class="hm-cat__cta" href={s.href}>
+                  Ver {s.name}
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       JUEGOS INFANTILES — Showcase section
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="infantiles-heading">
-    <div class="container">
-      <ServiceShowcase
-    title="Juegos Inflables Infantiles"
-    headingId="infantiles-heading"
-    badge="Lo más solicitado para fiestas infantiles"
-    subtitle="Brincolines, toboganes inflables, castillos y circuitos de obstáculos diseñados específicamente para niños de 3 a 12 años con máxima seguridad y diversión garantizada."
-    tags={["Brincolines 4x4m", "Castillos Temáticos", "Tobogán 6-10m", "Circuito Obstáculos", "3-12 Años", "ASTM F2374"]}
-    ctaHref="#reserva-heading"
-    ctaLabel="Cotizar Juegos Infantiles"
-  >
-    <Fragment slot="body">
-      <p class="showcase__text">Nuestros <strong>juegos infantiles inflables</strong> son la estrella de toda fiesta para niños. Los <strong>brincolines clásicos</strong> de 4x4m y 5x5m con paredes perimetrales de red y rampa de acceso acolchada son perfectos para fiestas de cumpleaños de 15 a 40 niños. Los <strong>castillos inflables temáticos</strong> — princesas, superhéroes, piratas y dinosaurios — miden entre 5x5m y 7x7m con tobogán integrado, zona de salto y área de juego interactivo. Cada juego está fabricado con <strong>lona de PVC de 18 oz con costura cuádruple</strong> y cuenta con certificación ASTM F2374.</p>
-      <p class="showcase__text">Los <strong>toboganes inflables gigantes</strong> de 6 a 10 metros de altura son el hit de cualquier evento infantil — con escalera de acceso segura con pasamanos, canal de deslizamiento doble para mayor capacidad y zona de aterrizaje acolchada. Los <strong>circuitos de obstáculos infantiles</strong> de 12 a 18 metros de largo combinan túneles, escaleras, toboganes y zonas de salto para una experiencia completa de aventura. Complementa con <a href="/servicios/mobiliario/">mobiliario infantil</a> — mesas y sillas coloridas — y una <a href="/servicios/carpas/">carpa de sombra</a> para los papás.</p>
-    </Fragment>
-    <Fragment slot="media">
-      <img
-            src="/images/inflables/castillo-inflable-fiesta-infantil.avif"
-            alt="Castillo inflable para fiestas infantiles en CDMX"
-            width="800" height="600"
-            loading="lazy" decoding="async"
-            class="showcase__img"
-          />
-    </Fragment>
-  </ServiceShowcase>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       INFLABLES ACUÁTICOS — Showcase section
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="acuaticos-heading">
-    <div class="container">
-      <ServiceShowcase
-    title="Inflables Acuáticos para Eventos"
-    headingId="acuaticos-heading"
-    badge="Temporada de calor: marzo a septiembre"
-    subtitle="Toboganes de agua gigantes, resbaladillas splash, albercas inflables y circuitos acuáticos para eventos al aire libre. La opción perfecta para combatir el calor con diversión refrescante."
-    tags={["Tobogán Agua 8-12m", "Slip & Slide 20m", "Chapoteadero", "Alberca 4x6m", "Aspersores", "Marzo - Septiembre"]}
-    ctaHref="#reserva-heading"
-    ctaLabel="Cotizar Acuáticos"
-  >
-    <Fragment slot="body">
-      <p class="showcase__text">Los <strong>inflables acuáticos</strong> transforman cualquier jardín en un parque acuático privado. Nuestros <strong>toboganes de agua gigantes</strong> de 8 a 12 metros de altura con doble canal de deslizamiento y zona de splash aterrizaje son la atracción estrella de eventos al aire libre entre marzo y septiembre. Las <strong>resbaladillas slip & slide</strong> de 12 a 20 metros de largo con sistema de aspersión continua crean la experiencia de deslizamiento acuático más divertida — perfectas para fiestas de adolescentes, cumpleaños y eventos de verano.</p>
-      <p class="showcase__text">Los <strong>circuitos acuáticos completos</strong> combinan tobogán, zona de salto con chapoteadero, aspersores y alberca de aterrizaje en un solo sistema de 15 a 25 metros de largo. Las <strong>albercas inflables</strong> de 3x5m y 4x6m con profundidad controlada de 30 a 60 cm son seguras para niños pequeños. Todos los inflables acuáticos incluyen <strong>sistema de recirculación de agua</strong> con bomba y manguera de conexión estándar. Solo necesitas una toma de agua y corriente eléctrica — nuestro equipo se encarga del resto. Complementa con <a href="/servicios/carpas/">carpas de sombra</a> y <a href="/servicios/mobiliario/">camastros y mesas</a> para crear tu pool party perfecta.</p>
-    </Fragment>
-    <Fragment slot="media">
-      <img
-            src="/images/inflables/tobogan-inflable-agua-verano.avif"
-            alt="Tobogán inflable de agua para eventos y fiestas de verano en CDMX"
-            width="800" height="600"
-            loading="lazy" decoding="async"
-            class="showcase__img"
-          />
-    </Fragment>
-  </ServiceShowcase>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       JUEGOS PARA ADULTOS — Showcase section
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="adultos-heading">
-    <div class="container">
-      <ServiceShowcase
-    title="Inflables para Adultos"
-    headingId="adultos-heading"
-    badge="Activaciones corporativas y team building"
-    subtitle="Toro mecánico, futbolito humano, gladiadores inflables, sumo wrestling y pistas de obstáculos extremas. Las activaciones dinámicas que rompen el hielo y generan momentos épicos."
-    tags={["Toro Mecánico", "Futbolito Humano", "Gladiadores", "Sumo Wrestling", "Obstáculos 30m", "Team Building"]}
-    ctaHref="#reserva-heading"
-    ctaLabel="Cotizar Juegos Adultos"
-  >
-    <Fragment slot="body">
-      <p class="showcase__text">Los <strong>juegos inflables para adultos</strong> son el diferenciador que transforma un evento corporativo convencional en una experiencia memorable. Nuestro <strong>toro mecánico profesional</strong> con colchón de seguridad de 5x5m, velocidad regulable y operador dedicado es la atracción más fotografiada en fiestas empresariales, posadas y celebraciones de fin de año. El <strong>futbolito humano inflable</strong> para 12 jugadores simultáneos convierte cualquier explanada en una cancha de competencias por equipos — ideal para team buildings donde se busca fomentar trabajo en equipo.</p>
-      <p class="showcase__text">Los <strong>gladiadores inflables</strong> con pedestales acolchados y bastones de espuma, el <strong>sumo wrestling</strong> con trajes acolchados gigantes y el <strong>boxing ring inflable</strong> con guantes oversized crean competencias hilarantes perfectas para romper el hielo en grupos corporativos. Las <strong>pistas de obstáculos extremas</strong> de 20 a 30 metros con escalada, túneles, redes y toboganes son la opción premium para team buildings competitivos y eventos deportivos. Combina con <a href="/servicios/audiovisual/">equipo de sonido profesional</a> para musicalizar las competencias y <a href="/servicios/iluminacion/">iluminación</a> para eventos nocturnos.</p>
-    </Fragment>
-    <Fragment slot="media">
-      <img
-            src="/images/inflables/inflable-obstaculos-kermesse.avif"
-            alt="Inflable de obstáculos para adultos en eventos y kermeses en CDMX"
-            width="800" height="600"
-            loading="lazy" decoding="async"
-            class="showcase__img"
-          />
-    </Fragment>
-  </ServiceShowcase>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       INTERACTIVOS Y DEPORTIVOS — Showcase section
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="interactivos-heading">
-    <div class="container">
-      <ServiceShowcase
-    title="Inflables Interactivos y Deportivos"
-    headingId="interactivos-heading"
-    badge="Competencias y entretenimiento activo"
-    subtitle="Cancha de futbol inflable, basquetbol gigante, bungee run, juegos de destreza y simuladores deportivos inflables. Entretenimiento competitivo que involucra a todos los asistentes."
-    tags={["Futbol Inflable 12x6m", "Basquetbol Gigante", "Bungee Run", "Wipeout", "Circuito Multijuego", "Kit Competencia"]}
-    ctaHref="#reserva-heading"
-    ctaLabel="Cotizar Interactivos"
-  >
-    <Fragment slot="body">
-      <p class="showcase__text">Los <strong>juegos interactivos y deportivos inflables</strong> llevan la competencia amistosa a otro nivel. Nuestra <strong>cancha de futbol inflable</strong> de 12x6m con paredes perimetrales y porterías integradas permite partidos de 5 vs 5 en cualquier espacio — desde jardines hasta explanadas corporativas. El <strong>basquetbol gigante</strong> con canastas de 3 metros y pelotas oversized, el <strong>bungee run</strong> doble con arnés elástico donde dos competidores corren en sentido opuesto, y los <strong>juegos de puntería con dardos velcro gigantes</strong> ofrecen entretenimiento para todas las edades simultáneamente.</p>
-      <p class="showcase__text">Para eventos más grandes, ofrecemos <strong>circuitos multijuego</strong> que combinan 4 a 8 estaciones inflables en un recorrido competitivo por equipos con sistema de puntuación — perfecto para kermeses escolares, family days corporativos y eventos comunitarios. El <strong>wipeout inflable</strong> con brazo giratorio y plataformas de equilibrio es la atracción más viral en redes sociales — ideal para activaciones de marca. Cada juego incluye <strong>monitor dedicado y kit de competencia</strong> (silbatos, cronómetros, marcadores). Complementa con <a href="/servicios/carpas/">carpas de sombra</a> para zonas de descanso y <a href="/servicios/audiovisual/">sonido ambiental</a> para musicalizar las actividades.</p>
-    </Fragment>
-    <Fragment slot="media">
-      <img
-            src="/images/inflables/inflable-evento-01.avif"
-            alt="Juegos inflables interactivos y deportivos para eventos en CDMX"
-            width="800" height="600"
-            loading="lazy" decoding="async"
-            class="showcase__img"
-          />
-    </Fragment>
-  </ServiceShowcase>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       GALERÍA
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section" aria-labelledby="galeria-heading">
-    <div class="container">
-      <h2 id="galeria-heading" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 2rem;">¿Cómo lucen nuestros inflables para eventos?</h2>
-      <Gallery4x4 images={[
-        { src: "/images/inflables/castillo-inflable-fiesta-infantil.avif", alt: "Castillo inflable fiesta infantil" },
-        { src: "/images/inflables/alberca-inflable-fiesta-acuatica.avif", alt: "Alberca inflable fiesta acuática" },
-        { src: "/images/inflables/inflable-obstaculos-kermesse.avif", alt: "Inflable obstáculos kermesse" },
-        { src: "/images/inflables/tobogan-inflable-agua-verano.avif", alt: "Tobogán inflable agua verano" },
-        { src: "/images/mobiliario/silla-tiffany-dorada-boda-gala-01.avif", alt: "Silla Tiffany dorada para boda de gala en CDMX" },
-        { src: "/images/mobiliario/salon-mesas-redondas-banquete-montaje.avif", alt: "Salón con mesas redondas montaje banquete" },
-        { src: "/images/mobiliario/lounge-moderno-terciopelo-evento-premium.avif", alt: "Sala lounge moderno terciopelo evento premium" },
-        { src: "/images/mobiliario/barra-bebidas-bartender-madera-evento.avif", alt: "Barra de bebidas bartender madera para evento" },
-      ]} />
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       PREGUNTAS FRECUENTES
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section" aria-labelledby="faq-heading">
-    <div class="container">
-      <h2 id="faq-heading" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 2rem;">Preguntas frecuentes sobre inflables para eventos</h2>
-    </div>
-    <FaqSection items={faqs} serviceName="inflables para eventos" />
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       PROVEEDORES — Aliados comerciales
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section" aria-labelledby="proveedores-heading">
-    <div class="container">
-      <SectionHeader
-        id="proveedores-heading"
-        title="Nuestros Proveedores de Renta de Inflables"
-        subtitle="Aliados comerciales especializados que garantizan calidad y seguridad"
-        description={[
-          "Trabajamos con los mejores especialistas en renta de inflables para eventos en CDMX y zona metropolitana. Cada proveedor es verificado con estándares de seguridad, higiene y servicio profesional para garantizarte una experiencia sin contratiempos.",
-          "Nuestro aliado principal, Inflables Para Fiestas, es el referente en renta de inflables en CDMX con cobertura en las 16 alcaldías y los principales municipios del Estado de México."
-        ]}
-      />
-
-      <div class="grid grid--4">
-        <article class="partner-card">
-          <div class="partner-card__header">
-            <span class="partner-card__initial">I</span>
-            <div class="partner-card__badge">Aliado oficial</div>
+    <!-- MÓDULOS DESTACADOS -->
+    <section class="hm__section hm__section--ivory" aria-labelledby="detalle-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Cada línea, a fondo</p>
+            <h2 id="detalle-heading">Inflables en detalle</h2>
+            <p class="hm__head-sub">Qué incluye cada tipo, para qué edad y tipo de evento es la elección natural.</p>
           </div>
-          <div class="partner-card__content">
-            <h3 class="partner-card__name">Inflables Para Fiestas</h3>
-            <p class="partner-card__tagline">Renta de Inflables CDMX</p>
-            <p class="partner-card__text">Especialistas en renta de inflables para fiestas y eventos en CDMX y Estado de México. Castillos, toboganes, circuitos de obstáculos e inflables temáticos con entrega, instalación y desinfección certificada incluidos. Cobertura en 16 alcaldías y municipios del EDOMEX.</p>
+          <div class="hm__head-copy">
+            <p>
+              Los inflables son el elemento de un evento que más directamente impacta
+              la experiencia de los asistentes. No hay decoración, iluminación ni catering
+              que genere las mismas carcajadas y energía que un circuito de obstáculos
+              bien instalado o un tobogán de agua en pleno julio en CDMX. Lo que marca
+              la diferencia es la calidad del equipo, la seguridad de la operación y
+              que el modelo sea el correcto para ese grupo específico de personas.
+            </p>
           </div>
-          <a href="https://inflablesparafiestas.com.mx/" target="_blank" rel="noopener noreferrer" class="partner-card__btn">
-            Visitar sitio
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </div>
+
+        <!-- Juegos Infantiles -->
+        <article class="hm-feat" aria-labelledby="feat-infantiles">
+          <div class="hm-feat__text">
+            <p class="hm__eyebrow">Juegos Infantiles</p>
+            <h3 class="hm-feat__title" id="feat-infantiles">Castillos y brincabrincas — la zona de juego que mantiene a los niños felices durante todo el evento</h3>
+            <p class="hm-feat__lead">Cuando los niños están entretenidos y seguros, los adultos disfrutan el evento. Así de simple — y así de importante la elección del inflable correcto.</p>
+            <p>
+              Nuestros <strong>castillos inflables</strong> están fabricados en vinilo
+              de PVC de alta densidad con costuras dobles reforzadas y mallas de ventilación
+              lateral que mantienen temperatura interior segura incluso en días soleados.
+              Disponibles en modelos <strong>neutros y temáticos</strong> — princesas,
+              superhéroes, dinosaurios, Minecraft — en tamaños de 3×3 m hasta 6×4 m
+              para grupos de 6 a 20 niños simultáneos. Todos cuentan con
+              <strong>rampa de entrada y zona de amortiguación</strong> en la salida.
+            </p>
+            <p>
+              Los <strong>laberintos y túneles inflables</strong> añaden una dimensión
+              de exploración que mantiene a los niños activos durante horas. Se instalan
+              junto al castillo para crear una zona de juego completa que puede ocupar
+              entre 30 y 60 minutos continuos de actividad por niño. Cada unidad opera
+              con <strong>soplador industrial de 1.5 HP</strong> con motor térmicamente
+              protegido y soplador de respaldo en sitio. Todos los inflables se
+              <strong>sanitizan con solución bactericida certificada</strong> entre
+              cada evento — entregamos certificado de limpieza con la renta.
+            </p>
+            <ul class="hm-feat__chips">
+              {[
+                { name: "Castillos", href: "/servicios/inflables/juegos-infantiles/castillos/" },
+                { name: "Brincabrincas", href: "/servicios/inflables/juegos-infantiles/brincabrincas/" },
+                { name: "Laberintos", href: "/servicios/inflables/juegos-infantiles/laberintos/" },
+                { name: "Temáticos", href: "/servicios/inflables/juegos-infantiles/tematicos/" },
+              ].map((sc) => (<li><a href={sc.href}>{sc.name}</a></li>))}
+            </ul>
+            <a class="hm-feat__cta" href="/servicios/inflables/juegos-infantiles/">
+              Ver juegos infantiles
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <div class="hm-feat__media hm-feat__media--g3">
+            <img class="hm-feat__g3-main" src="/images/inflables/castillo-inflable-fiesta-infantil.avif" alt="Castillo inflable en fiesta infantil en jardín residencial CDMX" loading="lazy" decoding="async" />
+            <div class="hm-feat__g3-thumbs">
+              <img src="/images/inflables/inflable-evento-01.avif" alt="Brincabrinca infantil temático con rampa en evento familiar" loading="lazy" decoding="async" />
+              <img src="/images/inflables/inflable-evento-02.avif" alt="Laberinto inflable para niños en kermés escolar CDMX" loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </article>
+
+        <!-- Acuáticos -->
+        <article class="hm-feat" aria-labelledby="feat-acuaticos">
+          <div class="hm-feat__text">
+            <p class="hm__eyebrow">Inflables Acuáticos</p>
+            <h3 class="hm-feat__title" id="feat-acuaticos">Toboganes y albercas inflables — el parque acuático portátil que transforma cualquier jardín en verano</h3>
+            <p class="hm-feat__lead">En CDMX el calor de marzo a junio convierte cualquier evento con agua en el más recordado del año. La solución no requiere construcción ni permisos especiales.</p>
+            <p>
+              Nuestros <strong>toboganes de agua inflables</strong> van desde modelos de
+              4 m de deslizamiento para niños de 4 a 12 años hasta toboganes de doble
+              carril de 8 m para adolescentes y adultos jóvenes. El sistema de agua
+              circulante mantiene la superficie lubricada durante todo el evento con
+              una simple manguera de jardín — sin presión especial, sin instalación
+              hidráulica, sin requisitos técnicos del venue. La zona de llegada incluye
+              <strong>alberca de amortiguación</strong> con 20–40 cm de agua que
+              garantiza un aterrizaje seguro.
+            </p>
+            <p>
+              Las <strong>albercas inflables de gran formato</strong> (3×6 m hasta 5×10 m)
+              son la opción para eventos donde el objetivo es que los invitados pasen
+              tiempo en el agua, no solo deslizarse. Ideales para fiestas de cumpleaños
+              de adolescentes, eventos familiares de fin de semana y graduaciones con
+              ambiente veraniego. Para eventos de mayor escala montamos
+              <strong>parques acuáticos combinados</strong> — tobogán + alberca + zona
+              splash pad — que pueden atender grupos de 30 a 100 personas simultáneas.
+              Combina con <a href="/servicios/carpas/">carpa de sombra</a> para
+              proteger a los invitados que esperan turno.
+            </p>
+            <ul class="hm-feat__chips">
+              {[
+                { name: "Toboganes", href: "/servicios/inflables/acuaticos/toboganes/" },
+                { name: "Albercas", href: "/servicios/inflables/acuaticos/albercas/" },
+                { name: "Parques Acuáticos", href: "/servicios/inflables/acuaticos/parques/" },
+                { name: "Splash Pad", href: "/servicios/inflables/acuaticos/splash-pad/" },
+              ].map((sc) => (<li><a href={sc.href}>{sc.name}</a></li>))}
+            </ul>
+            <a class="hm-feat__cta" href="/servicios/inflables/acuaticos/">
+              Ver inflables acuáticos
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <div class="hm-feat__media hm-feat__media--g3">
+            <img class="hm-feat__g3-main" src="/images/inflables/tobogan-inflable-agua-verano.avif" alt="Tobogán inflable de agua en evento de verano para niños CDMX" loading="lazy" decoding="async" />
+            <div class="hm-feat__g3-thumbs">
+              <img src="/images/inflables/alberca-inflable-fiesta-acuatica.avif" alt="Alberca inflable grande en fiesta acuática familiar en jardín" loading="lazy" decoding="async" />
+              <img src="/images/inflables/inflable-evento-03.avif" alt="Parque acuático portátil con tobogán y splash pad en evento" loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </article>
+
+        <!-- Interactivos y Deportivos -->
+        <article class="hm-feat" aria-labelledby="feat-interactivos">
+          <div class="hm-feat__text">
+            <p class="hm__eyebrow">Interactivos y Deportivos</p>
+            <h3 class="hm-feat__title" id="feat-interactivos">Obstáculos, boxeo y escalada — inflables donde la competencia y la carcajada son el producto</h3>
+            <p class="hm-feat__lead">Para eventos donde la participación activa es el objetivo — kermeses, días de campo, activaciones corporativas — los interactivos son los que generan más energía y más fotos.</p>
+            <p>
+              El <strong>circuito de obstáculos inflable</strong> es la pieza más versátil
+              del catálogo: funciona para niños de 6 años, para adolescentes y para
+              adultos corporativos por igual. El recorrido de 12 m incluye túneles,
+              escalareras de escalada, tobogán de salida y zona de obstáculos laterales.
+              Se puede configurar como carrera contrarreloj individual o en parejas —
+              el cronómetro convierte cualquier actividad en una competencia que
+              engancha a los espectadores tanto como a los participantes.
+            </p>
+            <p>
+              La <strong>arena de boxeo inflable</strong> con guantes de espuma de alta
+              densidad es la activación más fotografiada en eventos corporativos y
+              reuniones de amigos. El <strong>futbolito humano</strong> — inflable donde
+              los participantes van dentro de esferas que reproducen el movimiento de
+              las piezas — funciona perfectamente para team building con grupos de
+              10 a 20 personas. La <strong>escalada inflable de 5 m</strong> con
+              superficie de agarre y colchoneta de caída es ideal para eventos al
+              aire libre donde se busca generar contenido en redes. Todos los
+              interactivos deportivos incluyen <a href="/servicios/inflables/interactivos-deportivos/">
+              equipamiento de seguridad completo</a> y operador que modera la actividad.
+            </p>
+            <ul class="hm-feat__chips">
+              {[
+                { name: "Obstáculos", href: "/servicios/inflables/interactivos-deportivos/obstaculos/" },
+                { name: "Boxeo", href: "/servicios/inflables/interactivos-deportivos/boxeo/" },
+                { name: "Escalada", href: "/servicios/inflables/interactivos-deportivos/escalada/" },
+                { name: "Futbolito Humano", href: "/servicios/inflables/interactivos-deportivos/futbolito/" },
+              ].map((sc) => (<li><a href={sc.href}>{sc.name}</a></li>))}
+            </ul>
+            <a class="hm-feat__cta" href="/servicios/inflables/interactivos-deportivos/">
+              Ver interactivos y deportivos
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <div class="hm-feat__media hm-feat__media--g3">
+            <img class="hm-feat__g3-main" src="/images/inflables/inflable-obstaculos-kermesse.avif" alt="Circuito de obstáculos inflable en kermés escolar CDMX" loading="lazy" decoding="async" />
+            <div class="hm-feat__g3-thumbs">
+              <img src="/images/inflables/inflable-evento-04.avif" alt="Arena de boxeo inflable con guantes de espuma en evento corporativo" loading="lazy" decoding="async" />
+              <img src="/images/inflables/inflable-evento-01.avif" alt="Escalada inflable de 5 metros en evento al aire libre CDMX" loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </article>
+
+        <!-- Para Adultos -->
+        <article class="hm-feat" aria-labelledby="feat-adultos">
+          <div class="hm-feat__text">
+            <p class="hm__eyebrow">Inflables para Adultos</p>
+            <h3 class="hm-feat__title" id="feat-adultos">Sumo, mecedoras gigantes y activaciones de marca — porque los adultos también necesitan jugar</h3>
+            <p class="hm-feat__lead">Los mejores momentos de un evento corporativo o social para adultos no ocurren en el salón — ocurren cuando alguien propone algo ridículo y todos se apuntan.</p>
+            <p>
+              El <strong>sumo inflable</strong> — trajes inflables de 15 kg donde dos
+              personas compiten por empujarse fuera de un ring — es la activación que
+              más risas genera en cualquier evento sin importar la edad ni el nivel
+              de condición física del participante. Es apto para adultos de hasta
+              120 kg, no requiere habilidad previa y el operador puede organizar
+              torneos rápidos de eliminación que involucran a todo el grupo.
+            </p>
+            <p>
+              Las <strong>mecedoras gigantes y sillas inflables de gran formato</strong>
+              son perfectas como estaciones fotográficas en eventos sociales y
+              corporativos — generan contenido orgánico en redes con el mínimo
+              esfuerzo de producción. Para <strong>activaciones de marca</strong>,
+              personalizamos inflables con el logo, colores corporativos y mensaje
+              de la empresa mediante viniles de alta resolución — la activación
+              funciona como branding de alto impacto durante todo el evento y como
+              backdrop para fotos que los asistentes comparten voluntariamente.
+              Coordina con <a href="/servicios/audiovisual/">sistema de sonido</a>
+              y <a href="/servicios/iluminacion/">iluminación de efectos</a> para
+              una activación de 360°.
+            </p>
+            <ul class="hm-feat__chips">
+              {[
+                { name: "Sumo Inflable", href: "/servicios/inflables/adultos/sumo/" },
+                { name: "Mecedoras Gigantes", href: "/servicios/inflables/adultos/mecedoras/" },
+                { name: "Team Building", href: "/servicios/inflables/adultos/team-building/" },
+                { name: "Activaciones", href: "/servicios/inflables/adultos/activaciones/" },
+              ].map((sc) => (<li><a href={sc.href}>{sc.name}</a></li>))}
+            </ul>
+            <a class="hm-feat__cta" href="/servicios/inflables/adultos/">
+              Ver inflables para adultos
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <div class="hm-feat__media hm-feat__media--g3">
+            <img class="hm-feat__g3-main" src="/images/inflables/alberca-inflable-fiesta-acuatica.avif" alt="Inflable para adultos en fiesta acuática corporativa CDMX" loading="lazy" decoding="async" />
+            <div class="hm-feat__g3-thumbs">
+              <img src="/images/inflables/inflable-evento-02.avif" alt="Sumo inflable en evento corporativo para adultos CDMX" loading="lazy" decoding="async" />
+              <img src="/images/inflables/inflable-evento-03.avif" alt="Activación de marca con inflable personalizado en evento empresarial" loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ESTADÍSTICAS -->
+    <section class="sv-stats" aria-label="Indicadores de inflables EVENTECH">
+      <div class="hm__wrap sv-stats__wrap">
+        <dl class="sv-stats__grid">
+          <div class="sv-stats__item">
+            <dt class="sv-stats__num">600<span>+</span></dt>
+            <dd class="sv-stats__label">Eventos con inflables</dd>
+          </div>
+          <div class="sv-stats__item">
+            <dt class="sv-stats__num">4</dt>
+            <dd class="sv-stats__label">Líneas de producto</dd>
+          </div>
+          <div class="sv-stats__item">
+            <dt class="sv-stats__num">100<span>%</span></dt>
+            <dd class="sv-stats__label">Con operador certificado</dd>
+          </div>
+          <div class="sv-stats__item">
+            <dt class="sv-stats__num">30<span>+</span></dt>
+            <dd class="sv-stats__label">Años de experiencia</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- POR QUÉ ELEGIRNOS -->
+    <section class="hm__section hm__section--navy" aria-labelledby="porque-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">La diferencia EVENTECH</p>
+            <h2 id="porque-heading">Seguridad primero. Diversión después.</h2>
+            <p class="hm__head-sub">Materiales certificados, operador en sitio y protocolos de seguridad en cada renta.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Un inflable sin operador es un accidente esperando ocurrir. El aforo
+              incorrecto, los saltos simultáneos de demasiados niños, el uso por
+              edades o pesos fuera de rango — todos son riesgos reales que se previenen
+              con un operador certificado presente, no con un letrero de advertencia.
+            </p>
+            <p>
+              Por eso en EVENTECH no existe la opción de rentar un inflable sin operador.
+              No es un extra — es parte del servicio estándar, igual que el soplador
+              de respaldo y el certificado de sanitización. La diversión sin seguridad
+              no es diversión: es responsabilidad.
+            </p>
+          </div>
+        </div>
+        <div class="hm-why">
+          {whyFeatures.map((f) => (
+            <div class="hm-why__item">
+              <span class="hm-why__icon" aria-hidden="true">{f.icon}</span>
+              <div>
+                <h3 class="hm-why__title">{f.title}</h3>
+                <p class="hm-why__body">{f.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESO -->
+    <section class="hm__section" aria-labelledby="proceso-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">De la cotización al desmontaje</p>
+            <h2 id="proceso-heading">Cómo funciona la renta</h2>
+            <p class="hm__head-sub">4 pasos para que el inflable funcione perfecto y tú no hayas hecho nada.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Rentar un inflable con EVENTECH no debería generarte ningún trabajo logístico.
+              Verificamos el espacio, confirmamos disponibilidad, instalamos con anticipación
+              y retiramos al terminar. Tu única responsabilidad es disfrutar el evento.
+            </p>
+          </div>
+        </div>
+        <ol class="hm-steps">
+          {steps.map((s) => (
+            <li class="hm-steps__item">
+              <span class="hm-steps__num">{s.n}</span>
+              <h3 class="hm-steps__title">{s.t}</h3>
+              <p class="hm-steps__body">{s.p}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- FAQ + FORM -->
+    <section class="hm__section hm__section--ivory" aria-labelledby="faq-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Antes de cotizar</p>
+            <h2 id="faq-heading">Preguntas frecuentes</h2>
+            <p class="hm__head-sub">Espacio, agua, operador, limpieza y tiempos de reserva.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Las dudas más comunes sobre espacio necesario, si se puede instalar
+              sobre pasto, qué pasa con el agua en acuáticos y por qué el operador
+              va siempre incluido. Si tu caso no está aquí, un asesor te responde
+              en minutos por WhatsApp.
+            </p>
+          </div>
+        </div>
+
+        <div class="hm-faqx">
+          <div class="hm-faq">
+            {faqs.map((f) => (
+              <details class="hm-faq__item">
+                <summary>{f.question}</summary>
+                <p>{f.answer}</p>
+              </details>
+            ))}
+          </div>
+
+          <aside class="hm-faqx__aside" aria-labelledby="inflableform-heading">
+            <form id="inflableForm" class="hm-form" data-wa={SITE.contact.whatsapp}>
+              <p class="hm-form__eyebrow">Respuesta en minutos</p>
+              <h3 id="inflableform-heading" class="hm-form__title">Cotiza tu inflable</h3>
+              <p class="hm-form__sub">Cuéntanos el espacio y para quién es — te respondemos al instante.</p>
+
+              <label class="hm-form__field">
+                <span>Nombre</span>
+                <input type="text" name="nombre" autocomplete="name" placeholder="Tu nombre" required />
+              </label>
+
+              <label class="hm-form__field">
+                <span>Tipo de evento</span>
+                <select name="tipo">
+                  <option value="">Selecciona…</option>
+                  <option>Fiesta infantil</option>
+                  <option>Kermés / día de campo</option>
+                  <option>Evento corporativo</option>
+                  <option>Graduación</option>
+                  <option>Reunión familiar</option>
+                  <option>Otro</option>
+                </select>
+              </label>
+
+              <label class="hm-form__field">
+                <span>Tipo de inflable</span>
+                <select name="tipo_inflable">
+                  <option value="">No sé aún / necesito asesoría</option>
+                  <option>Castillo / brincabrinca infantil</option>
+                  <option>Tobogán de agua</option>
+                  <option>Alberca inflable</option>
+                  <option>Circuito de obstáculos</option>
+                  <option>Inflable para adultos</option>
+                  <option>Activación de marca</option>
+                </select>
+              </label>
+
+              <label class="hm-form__field">
+                <span>Fecha del evento</span>
+                <input type="date" name="fecha" />
+              </label>
+
+              <label class="hm-form__field">
+                <span>Detalles</span>
+                <textarea name="mensaje" rows="3" placeholder="Número de niños/invitados, espacio disponible (m²), venue o dirección aproximada…"></textarea>
+              </label>
+
+              <button type="submit" class="hm-form__btn">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.23 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+                Enviar por WhatsApp
+              </button>
+              <p class="hm-form__note">Se abrirá WhatsApp con tu información. Sin compromiso.</p>
+            </form>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="hm__section hm-cta" aria-label="Cotiza inflables para tu evento">
+      <div class="hm__wrap" style="text-align: center;">
+        <h2>+600 eventos.<br/>El siguiente puede ser el tuyo.</h2>
+        <p>
+          Renta de inflables con operador certificado, sanitización incluida y soplador de respaldo en sitio.
+          Cotiza hoy — disponibilidad confirmada ese mismo día.
+        </p>
+        <div class="hm-cta__row">
+          <a
+            class="hm__btn hm__btn--gold"
+            href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola,%20quiero%20cotizar%20un%20inflable%20para%20mi%20evento`}
+            target="_blank" rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.23 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+            Cotizar ahora por WhatsApp
           </a>
-        </article>
-        <article class="partner-card">
-          <div class="partner-card__header"><span class="partner-card__initial">B</span><div class="partner-card__badge">Juegos Infantiles</div></div>
-          <div class="partner-card__content"><h3 class="partner-card__name">Brincolines CDMX</h3><p class="partner-card__tagline">Brincolines y Castillos Temáticos</p><p class="partner-card__text">Amplio catálogo de brincolines infantiles y castillos temáticos para fiestas de cumpleaños. Modelos de princesas, superhéroes, piratas y dinosaurios con monitor de seguridad incluido.</p></div>
-          <a href="#reserva-heading" class="partner-card__btn">Cotizar <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-        </article>
-        <article class="partner-card">
-          <div class="partner-card__header"><span class="partner-card__initial">A</span><div class="partner-card__badge">Inflables Acuáticos</div></div>
-          <div class="partner-card__content"><h3 class="partner-card__name">Aqua Fun MX</h3><p class="partner-card__tagline">Toboganes de Agua y Acuáticos</p><p class="partner-card__text">Especialistas en inflables acuáticos para temporada de calor: toboganes de agua gigantes, resbaladillas splash, albercas inflables y circuitos acuáticos para eventos al aire libre en CDMX.</p></div>
-          <a href="#reserva-heading" class="partner-card__btn">Cotizar <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-        </article>
-        <article class="partner-card">
-          <div class="partner-card__header"><span class="partner-card__initial">F</span><div class="partner-card__badge">Adultos y Corporativos</div></div>
-          <div class="partner-card__content"><h3 class="partner-card__name">Fun Events MX</h3><p class="partner-card__tagline">Juegos para Adultos y Team Building</p><p class="partner-card__text">Toro mecánico, futbolito humano, gladiadores inflables, sumo wrestling y pistas de obstáculos extremas para eventos corporativos, team buildings y fiestas de adultos en CDMX.</p></div>
-          <a href="#reserva-heading" class="partner-card__btn">Cotizar <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
-        </article>
+          <a class="hm__btn hm__btn--ghost" href={`tel:${SITE.contact.phoneRaw}`}>
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.42 2 2 0 0 1 3.57 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.95a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.72 16.92z"/></svg>
+            Llamar a un asesor
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       RESERVA TU EVENTO - Formulario de contacto / WhatsApp
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="reserva-heading">
-    <div class="container">
-      <SectionHeader
-        id="reserva-heading"
-        title="Cotiza Tus Inflables"
-        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
-        description={[
-          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada de inflables. Sin compromiso, sin costos ocultos.",
-          "Ya sea un brincolin para una fiesta infantil de 20 niños o un circuito completo para un family day corporativo de 500 personas, estamos aquí para ayudarte."
-        ]}
-      />
+  </div><!-- /hm -->
 
-      <div class="reserva-layout">
-        <form class="reserva-form" id="reservaForm" novalidate>
-          <div class="reserva-form__grid">
-            <div class="form-field">
-              <label class="form-field__label" for="nombre">
-                Nombre completo <span class="form-field__required">*</span>
-              </label>
-              <input
-                type="text"
-                id="nombre"
-                name="nombre"
-                class="form-field__input"
-                placeholder="Tu nombre"
-                required
-              />
-            </div>
-
-            <div class="form-field">
-              <label class="form-field__label" for="telefono">
-                Teléfono <span class="form-field__required">*</span>
-              </label>
-              <input
-                type="tel"
-                id="telefono"
-                name="telefono"
-                class="form-field__input"
-                placeholder="55 1234 5678"
-                required
-              />
-            </div>
-
-            <div class="form-field">
-              <label class="form-field__label" for="tipoEvento">
-                Tipo de evento
-              </label>
-              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
-                <option value="">Selecciona una opción</option>
-                <option value="Fiesta Infantil">Fiesta Infantil</option>
-                <option value="XV Años">XV Años</option>
-                <option value="Family Day Corporativo">Family Day Corporativo</option>
-                <option value="Team Building">Team Building</option>
-                <option value="Kermés Escolar">Kermés Escolar</option>
-                <option value="Evento Comunitario">Evento Comunitario</option>
-                <option value="Fiesta de Verano / Pool Party">Fiesta de Verano / Pool Party</option>
-                <option value="Otro">Otro</option>
-              </select>
-            </div>
-
-            <div class="form-field">
-              <label class="form-field__label" for="fecha">
-                Fecha del evento
-              </label>
-              <input
-                type="date"
-                id="fecha"
-                name="fecha"
-                class="form-field__input"
-              />
-            </div>
-
-            <div class="form-field form-field--full">
-              <label class="form-field__label" for="equipo">
-                Tipo de inflable
-              </label>
-              <select id="equipo" name="equipo" class="form-field__input form-field__select">
-                <option value="">Selecciona el tipo de inflable que necesitas</option>
-                <option value="Brincolin Infantil">Brincolin / Castillo Infantil</option>
-                <option value="Tobogán Inflable">Tobogán Inflable Gigante</option>
-                <option value="Circuito de Obstáculos">Circuito de Obstáculos</option>
-                <option value="Inflable Acuático">Inflable Acuático / Tobogán de Agua</option>
-                <option value="Toro Mecánico">Toro Mecánico</option>
-                <option value="Futbolito Humano">Futbolito Humano</option>
-                <option value="Gladiadores / Sumo">Gladiadores / Sumo Wrestling</option>
-                <option value="Cancha Deportiva Inflable">Cancha Deportiva Inflable</option>
-                <option value="Paquete Múltiple">Paquete Múltiple (varios inflables)</option>
-                <option value="Otro">Otro / No estoy seguro</option>
-              </select>
-            </div>
-
-            <div class="form-field form-field--full">
-              <label class="form-field__label" for="mensaje">
-                Mensaje <span class="form-field__required">*</span>
-              </label>
-              <textarea
-                id="mensaje"
-                name="mensaje"
-                class="form-field__input form-field__textarea"
-                placeholder="Cuéntanos los detalles: número de invitados, edades de los niños/participantes, tipo de espacio (jardín, salón, explanada), duración del evento..."
-                rows="4"
-                required
-              ></textarea>
-            </div>
-          </div>
-
-          <button type="submit" class="reserva-form__submit" id="btnEnviar">
-            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
-            Enviar por WhatsApp
-          </button>
-        </form>
-
-        <aside class="reserva-sidebar">
-          <div class="reserva-card">
-            <h3 class="reserva-card__title">Respuesta inmediata</h3>
-            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
-          </div>
-
-          <div class="reserva-card">
-            <h3 class="reserva-card__title">Monitor incluido</h3>
-            <p class="reserva-card__text">Todos nuestros inflables incluyen monitor certificado que supervisa la seguridad durante todo el evento.</p>
-          </div>
-
-          <div class="reserva-card">
-            <h3 class="reserva-card__title">Sin compromiso</h3>
-            <p class="reserva-card__text">Cotiza gratis y sin presiones. Te asesoramos sobre los inflables ideales según tu espacio y edades.</p>
-          </div>
-
-          <div class="reserva-card reserva-card--highlight">
-            <h3 class="reserva-card__title">Horario de atención</h3>
-            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
-    document.getElementById('reservaForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const nombre = document.getElementById('nombre').value.trim();
-      const telefono = document.getElementById('telefono').value.trim();
-      const tipoEvento = document.getElementById('tipoEvento').value;
-      const fecha = document.getElementById('fecha').value;
-      const equipo = document.getElementById('equipo').value;
-      const mensaje = document.getElementById('mensaje').value.trim();
-
-      if (!nombre || !telefono || !mensaje) {
-        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
-        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
-        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
-        return;
-      }
-
-      let fechaTexto = 'No especificada';
-      if (fecha) {
-        const d = new Date(fecha + 'T12:00:00');
-        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-      }
-
-      let texto = `*Nueva solicitud desde EVENTECH.MX — Inflables*\n\n`;
-      texto += `*Nombre:* ${nombre}\n`;
-      texto += `*Teléfono:* ${telefono}\n`;
-      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
-      texto += `*Fecha del evento:* ${fechaTexto}\n`;
-      if (equipo) texto += `*Tipo de inflable:* ${equipo}\n`;
-      texto += `\n*Mensaje:*\n${mensaje}`;
-
-      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
-      window.open(url, '_blank');
-    });
-
-    document.querySelectorAll('.form-field__input').forEach(function(input) {
-      input.addEventListener('input', function() {
-        this.classList.remove('form-field__input--error');
+  <script>
+    const inflableForm = document.getElementById("inflableForm");
+    if (inflableForm) {
+      inflableForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const f = e.currentTarget as HTMLFormElement;
+        const wa = f.dataset.wa;
+        const data = new FormData(f);
+        const get = (k: string) => (data.get(k) || "").toString().trim();
+        let t = "Hola, quiero cotizar un inflable para mi evento.";
+        if (get("nombre"))        t += `\nNombre: ${get("nombre")}`;
+        if (get("tipo"))          t += `\nTipo de evento: ${get("tipo")}`;
+        if (get("tipo_inflable")) t += `\nTipo de inflable: ${get("tipo_inflable")}`;
+        if (get("fecha"))         t += `\nFecha: ${get("fecha")}`;
+        if (get("mensaje"))       t += `\nDetalles: ${get("mensaje")}`;
+        window.open(`https://wa.me/${wa}?text=${encodeURIComponent(t)}`, "_blank", "noopener");
       });
-    });
+    }
   </script>
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       CTA FINAL
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <CTABanner
-    headline="Diversión garantizada que hace felices a niños y adultos por igual"
-    subheadline="Más de 500 eventos con inflables en CDMX nos respaldan. Cotiza hoy y recibe asesoría personalizada con monitor certificado incluido."
-    primaryCTA={{ label: "Cotizar inflables", href: "#reserva-heading" }}
-    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar inflables para mi evento en CDMX` }}
-    variant="accent"
-  />
 </PageLayout>
 
 <style>
-.partner-card {
-    display: flex;
-    flex-direction: column;
-    background: var(--color-bg);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--color-border-light);
-  }.partner-card__header {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    aspect-ratio: 4 / 3;
-    background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
-    overflow: hidden;
-  }.partner-card__initial {
-    font-size: 4rem;
-    font-weight: 800;
-    color: rgba(255, 255, 255, 0.15);
-    letter-spacing: -0.04em;
-    user-select: none;
-  }.partner-card__badge {
-    position: absolute;
-    bottom: var(--space-sm);
-    left: var(--space-sm);
-    padding: 0.25rem 0.625rem;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(4px);
-    border-radius: var(--radius-full);
-    font-size: var(--text-xs);
-    font-weight: 600;
-    color: white;
-    white-space: nowrap;
-  }.partner-card__content {
-    display: flex;
-    flex-direction: column;
-    padding: var(--space-xl);
-    flex-grow: 1;
-  }.partner-card__name {
-    font-size: var(--text-xl);
+  .hm-menu__item--cta {
+    background: var(--color-gold, #c2a24a);
+    color: #1c1607 !important;
     font-weight: 700;
-    color: var(--color-primary);
-    margin-block-end: 0.125rem;
-  }.partner-card__tagline {
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: #00b894;
-    margin-block-end: var(--space-sm);
-  }.partner-card__text {
-    font-size: var(--text-sm);
-    color: var(--color-text-light);
-    line-height: 1.7;
-  }.partner-card__btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-sm);
-    width: 100%;
-    padding: 1rem 1.5rem;
-    background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
-    color: white;
-    font-size: var(--text-base);
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-    transition: background 0.2s ease;
-    margin-top: auto;
-  }.partner-card__btn:hover {
-    background: #007a65;
-  }@media (max-width: 768px) {
-.partner-card__content {
-      padding: var(--space-lg);
-    }.partner-card__name {
-      font-size: var(--text-lg);
-    }.partner-card__text {
-      font-size: var(--text-xs);
-    }.partner-card__btn {
-      padding: 0.875rem 1.25rem;
-      font-size: var(--text-sm);
-    }}
+  }
+  .hm-menu__item--cta:hover {
+    background: var(--color-gold-deep, #a9883a) !important;
+    border-top-color: transparent !important;
+  }
+  .sv-stats { background: var(--color-ivory-alt, #f3efe7); border-block: 1px solid var(--color-hairline, #e7e1d6); }
+  .sv-stats__wrap { padding-block: clamp(36px, 5vw, 52px); }
+  .sv-stats__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin: 0; }
+  .sv-stats__item { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 clamp(16px, 2.5vw, 32px); border-left: 1px solid var(--color-hairline, #e7e1d6); }
+  .sv-stats__item:first-child { border-left: 0; }
+  .sv-stats__num { font-family: var(--font-display, "Cormorant Garamond", Georgia, serif); font-weight: 600; font-size: clamp(2.8rem, 5vw, 4rem); line-height: 1; color: var(--color-primary, #1a1a2e); margin: 0; }
+  .sv-stats__num span { font-size: 0.55em; vertical-align: super; color: var(--color-gold, #c2a24a); }
+  .sv-stats__label { margin-top: 8px; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-gold-deep, #a9883a); }
+  @media (max-width: 680px) {
+    .sv-stats__grid { grid-template-columns: repeat(2, 1fr); gap: clamp(20px, 4vw, 32px) 0; }
+    .sv-stats__item:nth-child(2n+1) { border-left: 0; }
+    .sv-stats__item:nth-child(3), .sv-stats__item:nth-child(4) { padding-top: clamp(20px, 4vw, 32px); border-top: 1px solid var(--color-hairline, #e7e1d6); }
+  }
+  .hm-cta h2 { font-family: var(--font-display, "Cormorant Garamond", Georgia, serif); font-weight: 600; color: #fff; font-size: clamp(2.2rem, 4vw, 3rem); max-width: 22ch; margin: 0 auto 1rem; line-height: 1.15; }
+  .hm-cta p { color: rgba(255,255,255,.82); font-size: 1.1rem; max-width: 52ch; margin: 0 auto 1.8rem; }
+  .hm-feat__media--g3 { display: flex !important; flex-direction: column; gap: 8px; position: static !important; min-height: 0 !important; padding: 20px 20px 20px 0; align-self: stretch; }
+  .hm-feat__media--g3 img { position: static !important; inset: auto !important; width: 100% !important; height: auto !important; display: block; object-fit: cover; border-radius: 6px; flex-shrink: 0; }
+  .hm-feat__g3-main { flex: 1; min-height: 220px; aspect-ratio: 16 / 10; border-radius: 6px 6px 4px 4px !important; }
+  .hm-feat__g3-thumbs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .hm-feat__g3-thumbs img { aspect-ratio: 4 / 3; border-radius: 4px 4px 6px 6px !important; }
+  @media (max-width: 760px) { .hm-feat__media--g3 { padding: 0; } }
 </style>
