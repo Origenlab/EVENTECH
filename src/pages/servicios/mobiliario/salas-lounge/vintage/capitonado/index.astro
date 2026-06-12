@@ -1,0 +1,445 @@
+---
+/**
+ * ─── Sillón Capitonado Lounge Vintage — Página de Variante (Nivel 4) ───
+ * Jerarquía: Servicios > Mobiliario > Salas Lounge > Vintage > Capitonado
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import Gallery4x4 from "@components/Gallery4x4.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Salas Lounge", href: "/servicios/mobiliario/salas-lounge/" },
+  { label: "Lounge Vintage", href: "/servicios/mobiliario/salas-lounge/vintage/" },
+  { label: "Sillón Capitonado" },
+];
+
+const galleryImages = [
+  { src: "/images/mobiliario/sala-lounge-vintage-terciopelo-evento.avif", alt: "Sillón capitonado en terciopelo para zona lounge de boda en hacienda CDMX" },
+  { src: "/images/mobiliario/lounge-vintage-chesterfield-boda-hacienda.avif", alt: "Sillón capitonado vintage junto a sofá Chesterfield en evento" },
+  { src: "/images/mobiliario/lounge-moderno-terciopelo-evento-premium.avif", alt: "Sillón capitonado individual en zona VIP de gala" },
+  { src: "/images/mobiliario/sala-lounge-elegante-sofa-neon-boda.avif", alt: "Capitonado vintage en recepción de boda clásica CDMX" },
+  { src: "/images/mobiliario/sala-lounge-moderno-blanco-dorado.avif", alt: "Sillón capitonado en zona lounge de evento de lujo" },
+  { src: "/images/mobiliario/silla-tiffany-dorada-boda-gala-01.avif", alt: "Capitonado vintage en evento con decoración dorada" },
+];
+
+const faqs = [
+  {
+    question: "¿Cuál es la diferencia entre el sillón capitonado y el Chesterfield?",
+    answer: "El <strong>sillón capitonado</strong> es una pieza individual (1 persona) con respaldo redondeado alto y capitonado en toda la superficie. El <strong>sofá Chesterfield</strong> es una pieza de 3 plazas con brazos y respaldo al mismo nivel. El sillón capitonado es más íntimo y lujoso como pieza individual; el Chesterfield tiene más presencia escénica grupal. Se complementan perfectamente en el set vintage completo."
+  },
+  {
+    question: "¿Cuántos sillones capitonados se recomiendan por evento?",
+    answer: "En el <strong>set completo vintage</strong> se incluyen 2 sillones capitonados que flanquean el sofá Chesterfield. Para zonas lounge más amplias, recomendamos rentar sets adicionales de 2 unidades. Como pieza individual, el sillón capitonado funciona perfecto en rincones de foto, junto a espejos vintage o como complemento de mesas de bienvenida."
+  },
+  {
+    question: "¿En qué colores está disponible el sillón capitonado?",
+    answer: "El sillón capitonado está disponible en los mismos <strong>cuatro colores de terciopelo</strong> que el Chesterfield: Vino Borgoña, Esmeralda Profundo, Azul Petróleo y Mostaza Ámbar. Esto garantiza coherencia visual perfecta cuando se combinan ambas piezas. También podemos mezclar colores para crear contrastes intencionales — consulta con tu asesor."
+  },
+  {
+    question: "¿El sillón capitonado se puede usar como trono o silla principal?",
+    answer: "Sí, el <strong>sillón capitonado vintage</strong> es frecuentemente usado como el \"trono\" de bodas con estética clásica o vintage. Su respaldo alto y el capitonado profundo crean una silueta imponente que destaca en fotografías. Muchas parejas lo usan para la sesión de fotos en la boda sin necesidad de comprar muebles especiales."
+  },
+  {
+    question: "¿Cuánto tiempo se tarda en montar el sillón capitonado?",
+    answer: "El sillón capitonado no requiere armado — llega completamente ensamblado y se coloca en su posición en segundos. Nuestro equipo de montaje lo ubica según el plano aprobado, verifica la nivelación y lo acomoda para que quede perfectamente posicionado. En conjuntos de 6 sillones o más, el montaje total toma menos de 20 minutos."
+  },
+];
+
+const specs = [
+  { label: "Tipo de pieza", value: "Sillón individual capitonado (1 plaza)" },
+  { label: "Material tapicería", value: "Terciopelo premium con capitonado artesanal en toda la superficie" },
+  { label: "Colores disponibles", value: "Vino Borgoña / Esmeralda / Azul Petróleo / Mostaza Ámbar" },
+  { label: "Dimensiones", value: "85 cm ancho × 85 cm profundo × 105 cm alto (respaldo)" },
+  { label: "Capacidad", value: "1 persona" },
+  { label: "Acabados decorativos", value: "Botones dorados, patas torneadas en acabado dorado" },
+  { label: "Resistencia", value: "100 kg por asiento" },
+  { label: "Estilo", value: "Victoriano — respaldo alto redondeado, capitonado completo" },
+  { label: "Precio", value: "Desde $1,800 por pieza / evento" },
+  { label: "Incluye", value: "Entrega, colocación y recolección en CDMX" },
+];
+
+const reviews = [
+  { author: "Camila Herrera", text: "Los 2 sillones capitonados junto al Chesterfield crearon el rincón más elegante de toda la boda. Todos nuestros invitados pasaron por ahí. El terciopelo esmeralda con el dorado fue espectacular.", rating: 5, date: "2025-10-25" },
+  { author: "Diego Fuentes", text: "Usamos 4 sillones capitonados en vino para nuestra zona de cóctel. Con las velas y la iluminación, parecían piezas de museo. El estado de conservación es perfecto.", rating: 5, date: "2025-09-20" },
+  { author: "Ana García", text: "El sillón capitonado como 'trono' de nuestra boda funcionó mejor que las sillas de novia genéricas. Las fotos quedaron increíbles. Muy fácil de coordinar con EVENTECH.", rating: 5, date: "2025-11-10" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta Sillón Capitonado Lounge Vintage para Eventos CDMX",
+    description: "Sillón capitonado individual en terciopelo premium con botones dorados. Respaldo alto redondeado. Vino, esmeralda, azul y mostaza. Desde $1,800.",
+    url: "/servicios/mobiliario/salas-lounge/vintage/capitonado/",
+    priceRange: { min: 1800, max: 3600 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 24,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Salas Lounge", url: "/servicios/mobiliario/salas-lounge/" },
+    { name: "Lounge Vintage", url: "/servicios/mobiliario/salas-lounge/vintage/" },
+    { name: "Sillón Capitonado", url: "/servicios/mobiliario/salas-lounge/vintage/capitonado/" },
+  ]),
+  faqJsonLd(faqs),
+];
+
+const sidebarNav = [
+  { name: "Lounge Vintage", href: "/servicios/mobiliario/salas-lounge/vintage/" },
+  { name: "Set Completo", href: "/servicios/mobiliario/salas-lounge/vintage/set-completo/" },
+  { name: "Sofá Chesterfield", href: "/servicios/mobiliario/salas-lounge/vintage/chesterfield/" },
+  { name: "Sillón Capitonado", href: null, active: true },
+];
+
+const sidebarRelated = [
+  { name: "Lounge Moderno", href: "/servicios/mobiliario/salas-lounge/moderno/" },
+  { name: "Lounge Boho", href: "/servicios/mobiliario/salas-lounge/boho/" },
+  { name: "Lounge Elegante", href: "/servicios/mobiliario/salas-lounge/elegante/" },
+  { name: "Sillas Tiffany", href: "/servicios/mobiliario/sillas/tiffany/" },
+  { name: "Mesas para Eventos", href: "/servicios/mobiliario/mesas/" },
+];
+---
+
+<PageLayout
+  title="Renta Sillón Capitonado Vintage CDMX"
+  description="Renta sillón capitonado vintage en CDMX. Terciopelo premium con botones dorados y respaldo alto. Vino, esmeralda, azul y mostaza. Desde $1,800 por pieza."
+  jsonLd={jsonLd}
+>
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <HeroPage
+    badge="Individual · respaldo alto · capitonado completo · botones dorados"
+    title='Sillón <span class="highlight">Capitonado</span> Vintage — Renta en CDMX'
+    subtitle="Sillón individual con respaldo alto redondeado y capitonado artesanal en toda la superficie. Terciopelo premium en vino borgoña, esmeralda, azul petróleo y mostaza ámbar. El complemento perfecto del Chesterfield para completar zonas lounge vintage o como pieza independiente para rincones fotogénicos."
+    primaryCTA={{ label: "Cotizar sillón capitonado", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar por WhatsApp", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar el sillón capitonado vintage para mi evento` }}
+    cards={[
+      {
+        title: "El complemento perfecto del Chesterfield — y una pieza estelar por sí solo",
+        content: "El <strong>sillón capitonado vintage</strong> está diseñado para funcionar en dos contextos: como parte del set completo flanqueando el Chesterfield, o como pieza independiente en rincones de foto, zonas de bienvenida o puntos de descanso dispersos por el venue. Su respaldo alto redondeado crea una silueta imponente que en fotografías resulta espectacular.",
+      },
+      {
+        title: "El 'trono' preferido para bodas clásicas y XV años de lujo",
+        content: "Muchos clientes rentan el sillón capitonado específicamente para <strong>usarlo como silla principal en bodas o XV años</strong> con estética vintage o clásica. El capitonado profundo y el respaldo alto crean una presencia visual que las sillas especiales estándar no logran. El terciopelo en vino o esmeralda con los botones dorados es uno de los elementos más recordados del evento.",
+      },
+    ]}
+  />
+
+  <CTABanner
+    headline="El sillón capitonado que crea el rincón más elegante y fotogénico de tu evento"
+    subheadline="Terciopelo premium · Respaldo alto · Botones dorados · CDMX"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Variantes Lounge Vintage</h2>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card sidebar-card--cta">
+          <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+          <p class="sidebar-card--cta-text">Sillón capitonado para tu evento</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar el sillón capitonado vintage`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">WhatsApp</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <div class="l4-main">
+
+          <section class="section" aria-labelledby="galeria-heading">
+            <h2 id="galeria-heading" class="section__title">Galería — Sillón Capitonado en Eventos Reales</h2>
+            <p class="section__subtitle">Bodas en hacienda, galas y XV años en CDMX</p>
+            <Gallery4x4 images={galleryImages} />
+          </section>
+
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones — Sillón Capitonado Vintage</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section class="section section--alt" aria-labelledby="descripcion-heading">
+            <ServiceShowcase
+    title="Por qué el sillón capitonado es indispensable en cualquier zona lounge vintage"
+    headingId="descripcion-heading"
+    badge="Pieza individual · presencia escénica · capitonado artesanal"
+    tags={["Sillón Capitonado", "Lounge Vintage", "Terciopelo", "XV Años · Bodas CDMX"]}
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">El <strong>sillón capitonado</strong> resuelve uno de los problemas más comunes en zonas lounge: la falta de piezas individuales con presencia. Mientras un sofá es una pieza grupal que invita a sentarse juntos, el sillón individual crea espacios de conversación cara a cara — esa disposición que hace que la gente hable de verdad.</p>
+      <p class="showcase__text">El capitonado artesanal en toda la superficie — respaldo, asiento y brazos — crea una textura visual que en fotografías resulta profunda y lujosa. Los botones dorados no son solo decorativos: sujetan el relleno en su posición y previenen el abultamiento que sufren los sillones de menor calidad.</p>
+      <p class="showcase__text">En <strong>bodas y XV años en CDMX</strong>, lo usamos frecuentemente como la silla principal de la festejada — un trono sin exageración que comunica lujo y cuidado en cada detalle. Combinado con el Chesterfield, crea uno de los sets más fotografiados de toda la colección.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main">
+                    <img src="/images/mobiliario/sala-lounge-vintage-terciopelo-evento.avif" alt="Sillón capitonado vintage en zona lounge de boda" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/lounge-vintage-chesterfield-boda-hacienda.avif" alt="Capitonado junto a Chesterfield en set vintage" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/lounge-moderno-terciopelo-evento-premium.avif" alt="Sillón capitonado en zona VIP de gala" loading="lazy" decoding="async" />
+                  </div>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <section class="section section--alt" aria-labelledby="testimonios-heading">
+            <h2 id="testimonios-heading" class="section__title">Opiniones — Sillón Capitonado Vintage</h2>
+            <div class="grid grid--3" style="margin-top: var(--space-xl);">
+              {reviews.map((review) => (
+                <div class="sidebar-card">
+                  <div style="display: flex; gap: 4px; margin-bottom: var(--space-sm);">
+                    {[1,2,3,4,5].map(() => (
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    ))}
+                  </div>
+                  <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text); font-style: italic; margin-bottom: var(--space-sm);">"{review.text}"</p>
+                  <p style="font-size: var(--text-xs); font-weight: 700; color: var(--color-heading);">— {review.author}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas sobre el Sillón Capitonado Vintage"
+              subtitle="Todo lo que necesitas saber antes de reservar"
+              description={["Resolvemos las dudas más frecuentes sobre el sillón capitonado vintage para eventos en CDMX."]}
+            />
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿Tienes más dudas?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp — un especialista te responde al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo dudas sobre el sillón capitonado vintage`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">Escribir por WhatsApp</a>
+                </div>
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Número de piezas, color, fecha y venue — precio en menos de 30 minutos.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Variantes lounge vintage y servicios relacionados">
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Variantes Lounge Vintage</h2>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/salas-lounge/" class="sidebar-nav__back">&uarr; Volver a Salas Lounge</a>
+              </li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Otros Estilos de Lounge</h2>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="sidebar-card sidebar-card--cta">
+            <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+            <p class="sidebar-card--cta-text">Sillón capitonado vintage para tu evento en CDMX</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar el sillón capitonado vintage`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">WhatsApp</a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza tu Sillón Capitonado Vintage"
+        subtitle="Cuéntanos sobre tu evento y te respondemos de inmediato"
+        description={["Completa el formulario y un asesor te enviará cotización personalizada por WhatsApp. Sin compromiso."]}
+      />
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">Nombre completo <span class="form-field__required">*</span></label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">Teléfono <span class="form-field__required">*</span></label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">Tipo de evento</label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Gala Temática">Gala Temática</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Sesión de Fotos">Sesión de Fotos</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">Fecha del evento</label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">Detalles del pedido <span class="form-field__required">*</span></label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Número de sillones, color de terciopelo (vino/esmeralda/azul/mostaza), venue y cualquier detalle..." rows="4" required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta en 30 min</h3>
+            <p class="reserva-card__text">Te contactamos por WhatsApp con precio exacto en menos de 30 minutos.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Desde $1,800 por pieza</h3>
+            <p class="reserva-card__text">Sillón capitonado con entrega, colocación y recolección incluidos.</p>
+          </div>
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+      let texto = `*Sillón Capitonado Vintage — Cotización*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      texto += `\n*Detalles:*\n${mensaje}`;
+      window.open(`https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`, '_blank');
+    });
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() { this.classList.remove('form-field__input--error'); });
+    });
+  </script>
+
+  <CTABanner
+    headline="Sillón capitonado — el trono que tu boda o XV años merece"
+    subheadline="Terciopelo premium · Respaldo alto · Botones dorados · Entrega en CDMX"
+    primaryCTA={{ label: "Cotizar sillón capitonado", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar el sillón capitonado vintage` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<style is:global>
+  :root {
+    --color-accent: #7c3d12;
+    --color-accent-hover: #6b2f08;
+    --color-accent-light: #a0522d;
+    --color-accent-soft: rgba(124, 61, 18, 0.1);
+    --gradient-accent: linear-gradient(135deg, #7c3d12 0%, #6b2f08 100%);
+    --shadow-accent: 0 4px 14px rgba(124, 61, 18, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(124, 61, 18, 0.5);
+  }
+</style>

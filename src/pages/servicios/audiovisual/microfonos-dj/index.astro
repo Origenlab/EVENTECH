@@ -1,0 +1,602 @@
+---
+/**
+ * ─── Micrófonos y DJ para Eventos — Sub-subcategoría (Nivel 3) ───
+ * Página especializada: Renta de Micrófonos y Equipo DJ para Eventos en CDMX.
+ * Color accent: Indigo #6c5ce7 (diferencia visual del nivel 2 teal).
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import ProductCard from "@components/ProductCard.astro";
+import { SITE } from "@data/site";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import Gallery4x4 from "@components/Gallery4x4.astro";
+import PricingCards from "@components/PricingCards.astro";
+import FaqSection from "@components/FaqSection.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Audiovisual", href: "/servicios/audiovisual/" },
+  { label: "Micrófonos y DJ" },
+];
+
+const MICROFONOS = [
+  {
+    name: "Micrófonos Inalámbricos",
+    price: "Desde $300",
+    excerpt: "Shure SLX-D y Sennheiser EW de mano con receptor UHF. Alcance 100 m, audio sin interferencias para ceremonias, brindis y discursos en bodas y XV años.",
+    href: "/servicios/audiovisual/microfonos-dj/inalambricos/",
+    image: "/images/audiovisual/microfono-inalambrico-shure-conferencia-evento.avif",
+    tags: ["Shure SLX-D", "Sennheiser EW", "UHF", "100 m", "Bodas"],
+    badge: "Más popular",
+  },
+  {
+    name: "Micrófono de Solapa y Diadema",
+    price: "Desde $400",
+    excerpt: "Lavalier y headset profesionales para maestros de ceremonias y conferencistas. Audio discreto y manos libres durante toda la presentación.",
+    href: "/servicios/audiovisual/microfonos-dj/solapa-diadema/",
+    image: "/images/audiovisual/microfono-solapa-diadema-conferencista.avif",
+    tags: ["Lavalier", "Headset", "Manos libres", "Congresos", "MC"],
+  },
+  {
+    name: "Equipo DJ Completo",
+    price: "Desde $3,500",
+    excerpt: "Pioneer CDJ-3000 + DJM-900 Nexus + monitores de referencia. El setup que usan los mejores DJs de bodas en CDMX. Llegan y conectan.",
+    href: "/servicios/audiovisual/microfonos-dj/equipo-dj/",
+    image: "/images/audiovisual/cabina-dj-profesional-boda-cdmx.avif",
+    tags: ["Pioneer CDJ-3000", "DJM-900", "Monitores", "Bodas", "Fiestas"],
+  },
+  {
+    name: "Cabina DJ Iluminada",
+    price: "Desde $2,500",
+    excerpt: "Estructura de truss con LEDs RGB integrados y facia personalizable con tu logo o tema. Transforma el rincón del DJ en el centro visual de la fiesta.",
+    href: "/servicios/audiovisual/microfonos-dj/cabina-dj/",
+    image: "/images/audiovisual/equipo-audiovisual-completo-boda.avif",
+    tags: ["LED RGB", "Truss", "Branding", "Personalizable"],
+  },
+];
+
+const faqs = [
+  { question: "¿Cuántos micrófonos inalámbricos necesito?", answer: "Para ceremonias religiosas o civiles recomendamos 1 a 2 micrófonos (oficiante y pareja). En eventos corporativos con panel de discusión, de 2 a 4 micrófonos según el número de panelistas. Para brindis y discursos sociales, 1 micrófono es suficiente. Siempre incluimos unidades de respaldo en cada renta para garantizar audio sin interrupciones durante todo tu evento." },
+  { question: "¿Qué diferencia hay entre micrófono de mano, solapa y diadema?", answer: "El micrófono de mano es ideal para discursos, brindis y momentos puntuales donde el orador lo sostiene. El micrófono de solapa (lavalier) se sujeta en la solapa del saco o blusa, perfecto para conferencias, paneles y entrevistas donde necesitas audio continuo sin sostener nada. La diadema (headset) se coloca en la oreja y queda frente a la boca, ideal para maestros de ceremonias, presentadores y animadores que necesitan las manos completamente libres. Cada tipo tiene su caso de uso óptimo y nuestro ingeniero de audio te recomienda el adecuado." },
+  { question: "¿El equipo de DJ incluye DJ?", answer: "No, la renta es únicamente del equipo profesional: tornamesas, controladores, mixer, monitores y cableado. Proporcionamos el setup completo listo para operar. Si necesitas recomendación de DJ, te conectamos con nuestros DJs asociados de confianza con experiencia comprobada en bodas, fiestas y eventos corporativos. También trabajamos sin problema con tu propio DJ — solo necesita llegar y conectarse." },
+  { question: "¿La cabina DJ incluye iluminación?", answer: "Sí, nuestras cabinas DJ incluyen tiras LED RGB integradas en la estructura, opción de proyección de logo en la facia frontal, e integración con el diseño de iluminación general de tu evento. Disponibles en acabado blanco, negro y con branding personalizado (viniles o impresión en tela). La iluminación LED se controla de forma independiente o sincronizada con la música." },
+  { question: "¿Se pueden combinar micrófonos con el sistema de sonido?", answer: "Sí, todos nuestros micrófonos son 100% compatibles con nuestros sistemas de sonido profesional. La integración es completamente transparente a través de nuestro ingeniero de audio, quien configura las frecuencias, ecualización y niveles para cada micrófono en el sistema. Si ya cuentas con equipo de sonido propio o de otro proveedor, nuestros micrófonos también se conectan sin problema vía XLR o receptor UHF estándar." },
+  { question: "¿Con cuánta anticipación debo reservar?", answer: "Recomendamos reservar con 2 a 3 semanas de anticipación para micrófonos y equipo estándar. El equipo Pioneer CDJ-3000 y las cabinas DJ premium tienen alta demanda, por lo que en temporada alta (noviembre a febrero) sugerimos apartar con al menos 1 mes de anticipación. También atendemos solicitudes de última hora sujetas a disponibilidad de inventario." },
+];
+
+const jsonLd = [
+  serviceJsonLd({
+    name: "Renta de Micrófonos y Equipo DJ CDMX",
+    description: "Micrófonos inalámbricos Shure y Sennheiser, equipo DJ Pioneer CDJ-3000, cabinas DJ iluminadas. Ingeniero de audio incluido.",
+    url: "/servicios/audiovisual/microfonos-dj/",
+    priceRange: { min: 300, max: 12000 },
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Audiovisual", url: "/servicios/audiovisual/" },
+    { name: "Micrófonos y DJ", url: "/servicios/audiovisual/microfonos-dj/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Micrófonos y Equipo DJ CDMX"
+  description="Renta de micrófonos inalámbricos Shure y Sennheiser, equipo DJ Pioneer CDJ-3000 y cabinas DJ iluminadas para eventos en CDMX. Ingeniero de audio incluido."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Audio claro y fiesta garantizada"
+    title='Renta de <span class="highlight">Micrófonos y DJ</span> para Eventos en CDMX'
+    subtitle="Micrófonos inalámbricos profesionales Shure y Sennheiser para ceremonias y discursos, más equipo DJ Pioneer de última generación para la mejor fiesta. Ingeniero de audio dedicado en cada evento."
+    primaryCTA={{ label: "Cotiza tu equipo", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar micrófonos y equipo DJ para mi evento` }}
+    cards={[
+      {
+        title: "Micrófonos profesionales para cada momento de tu evento",
+        content: "<strong>Renta de micrófonos inalámbricos para eventos</strong> con las marcas líderes de la industria del audio profesional. Sistemas Shure BLX y QLXD con receptores UHF de alta fidelidad y alcance de 100 metros para ceremonias religiosas, brindis y discursos corporativos. Micrófonos de solapa Sennheiser ME2 y diademas Shure MX para presentadores, panelistas y maestros de ceremonias que necesitan audio discreto y manos libres — cada sistema con baterías de respaldo y frecuencias coordinadas para cero interferencias.",
+      },
+      {
+        title: "Equipo DJ Pioneer para producciones de primer nivel",
+        content: "<strong>Setup DJ profesional</strong> con el equipo más solicitado por los mejores DJs del mundo. Tornamesas Pioneer CDJ-3000 con pantalla táctil de 9 pulgadas, controladores DDJ-1000 para sets versátiles, mixer DJM-900NXS2 con efectos integrados y monitores de referencia KRK y JBL para mezcla precisa. Cabinas DJ con estructura de truss, iluminación LED integrada y facias personalizables — todo instalado, cableado y listo para que tu DJ solo llegue y conecte.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CTA BANNER
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas audio profesional y música para tu evento?"
+    subheadline="Cotiza sin compromiso y recibe una propuesta técnica con el equipo ideal para tu espacio y audiencia"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CATÁLOGO — 4 tipos de equipo
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="catalogo-heading">
+    <div class="container">
+      <SectionHeader
+        id="catalogo-heading"
+        title="Nuestro Catálogo de Micrófonos y DJ"
+        subtitle="Audio profesional y entretenimiento para cada tipo de evento"
+        description={[
+          "Desde micrófonos inalámbricos para ceremonias íntimas hasta setups DJ completos para fiestas de 1,000 personas. Contamos con el inventario de equipo de audio y DJ más completo de la Ciudad de México.",
+          "Cada equipo incluye cableado profesional, configuración técnica e ingeniero de audio dedicado. Marcas certificadas Shure, Sennheiser y Pioneer para garantizar la mejor calidad de sonido."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        {MICROFONOS.map((mic) => (
+          <ProductCard
+            name={mic.name}
+            price={mic.price}
+            excerpt={mic.excerpt}
+            href={mic.href}
+            image={mic.image}
+            tags={mic.tags}
+            badge={mic.badge}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MICRÓFONOS INALÁMBRICOS — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="inalambricos-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Micrófonos Inalámbricos"
+    headingId="inalambricos-heading"
+    badge="Claridad de voz"
+    subtitle="Audio cristalino de grado profesional para ceremonias, brindis y discursos en eventos de cualquier tamaño."
+    tags={["Shure BLX/QLXD", "Sennheiser EW G4", "UHF 100m", "Respaldo incluido"]}
+    ctaHref="/servicios/audiovisual/microfonos-dj/inalambricos/"
+    ctaLabel="Ver Micrófonos Inalámbricos"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Nuestros <strong>micrófonos inalámbricos profesionales</strong> incluyen los sistemas más confiables de la industria: <strong>Shure BLX288 y QLXD24</strong> con cápsulas SM58 y Beta 58A, y <strong>Sennheiser EW 100/300 G4</strong> con receptores UHF de banda ancha. Alcance efectivo de <strong>100 metros sin interferencias</strong>, frecuencias coordinadas automáticamente y baterías AA con duración de 8+ horas. Perfectos para <strong>ceremonias religiosas, bodas civiles, brindis y discursos corporativos</strong> donde la claridad de voz es esencial.</p>
+      <p class="showcase__text">Cada sistema incluye <strong>receptor de rack, antenas direccionales y unidad de respaldo</strong> lista para activarse al instante. Nuestro ingeniero de audio configura las frecuencias para evitar interferencias con otros equipos inalámbricos del venue. Combínalos con nuestro <a href="/servicios/audiovisual/">sonido profesional</a> para una cobertura de audio completa en tu evento.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+              <line x1="12" y1="19" x2="12" y2="23"/>
+              <line x1="8" y1="23" x2="16" y2="23"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SOLAPA Y DIADEMA — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="solapa-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Micrófonos de Solapa y Diadema"
+    headingId="solapa-heading"
+    badge="Audio discreto"
+    subtitle="La solución manos libres para presentadores, maestros de ceremonias y panelistas profesionales."
+    tags={["Sennheiser ME2", "Shure MX150", "Body Pack", "Manos libres"]}
+    ctaHref="/servicios/audiovisual/microfonos-dj/solapa-diadema/"
+    ctaLabel="Ver Solapa y Diadema"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Los <strong>micrófonos de solapa (lavalier)</strong> son el estándar profesional para conferencias, paneles de discusión y entrevistas. Nuestro inventario incluye <strong>Sennheiser ME2-II</strong> con cápsula omnidireccional y <strong>Shure MX150</strong> con cápsula subminiatura, ambos con body pack transmisor ultraligero que se oculta en el cinturón o bolsillo. Audio nítido sin que el micrófono sea visible en cámara — perfecto para <strong>eventos híbridos con transmisión en vivo</strong>.</p>
+      <p class="showcase__text">Las <strong>diademas profesionales (headset)</strong> son ideales para maestros de ceremonias, animadores y presentadores que necesitan <strong>las manos completamente libres</strong> mientras se mueven por el escenario. Cápsula cardioide posicionada junto a la boca para rechazo máximo de ruido ambiente. Incluyen body pack, clip de sujeción ajustable y color de diadema en tono piel para discreción total. Combínalos con nuestro <a href="/servicios/mobiliario/">mobiliario ejecutivo</a> para conferencias y paneles de primer nivel.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+              <line x1="12" y1="19" x2="12" y2="23"/>
+              <line x1="8" y1="23" x2="16" y2="23"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       EQUIPO DJ — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="dj-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Equipo DJ Completo"
+    headingId="dj-heading"
+    badge="Setup profesional"
+    subtitle="El setup Pioneer de grado profesional que los mejores DJs exigen para fiestas y eventos memorables."
+    tags={["Pioneer CDJ-3000", "DDJ-1000", "DJM-900NXS2", "KRK / JBL"]}
+    ctaHref="/servicios/audiovisual/microfonos-dj/equipo-dj/"
+    ctaLabel="Ver Equipo DJ"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Nuestro <strong>equipo DJ profesional</strong> incluye el hardware más solicitado en la industria: <strong>Pioneer CDJ-3000</strong> con pantalla táctil HD de 9 pulgadas, análisis de tracks en tiempo real y conectividad USB/SD/WiFi. <strong>Controladores DDJ-1000</strong> con jog wheels de tamaño completo para DJs que prefieren setup compacto. Mixer <strong>DJM-900NXS2</strong> con 4 canales, efectos Beat FX integrados y doble puerto USB para transiciones entre DJs sin interrupciones.</p>
+      <p class="showcase__text">Complementamos con <strong>monitores de referencia KRK Rokit 8 y JBL 308P</strong> posicionados en la cabina para que el DJ escuche su mezcla con precisión. Todo el cableado es profesional <strong>XLR y RCA blindado</strong>, con regletas de energía reguladas y protección contra picos. Nuestro técnico instala, configura y verifica todo antes del evento. Combínalo con nuestras <a href="/servicios/pistas-baile/">pistas de baile</a> para crear la zona de fiesta perfecta.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="5.5" cy="17.5" r="2.5"/>
+              <circle cx="17.5" cy="15.5" r="2.5"/>
+              <path d="M8 17V5l12-2v10"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CABINA DJ — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="cabina-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Cabina DJ Iluminada"
+    headingId="cabina-heading"
+    badge="El centro de la fiesta"
+    subtitle="Estructura profesional con iluminación LED y branding personalizable que eleva la experiencia visual de tu evento."
+    tags={["Truss aluminio", "LED RGB", "Branding custom", "Logo projection"]}
+    ctaHref="/servicios/audiovisual/microfonos-dj/cabina-dj/"
+    ctaLabel="Ver Cabina DJ"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Nuestras <strong>cabinas DJ profesionales</strong> están construidas con <strong>estructura de truss de aluminio</strong> reforzado, facias frontales y laterales intercambiables, y espacio amplio para todo el equipo técnico: tornamesas, mixer, monitores, laptop y controladores de iluminación. Disponibles en <strong>acabado blanco, negro y con branding personalizado</strong> mediante viniles impresos o tela tensada con el logo de tu evento, marca o temática de la fiesta.</p>
+      <p class="showcase__text">La iluminación LED viene <strong>integrada en la estructura</strong> con tiras RGB programables en la base, bordes y facia frontal. Opción de <strong>proyección de logo o monograma</strong> en la superficie frontal y sincronización con la música para efectos reactivos al beat. La cabina se convierte en el <strong>punto focal visual de la pista de baile</strong>. Combínala con nuestra <a href="/servicios/iluminacion/">iluminación decorativa</a> para un diseño de luz integral en todo tu evento.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+              <path d="M16 7V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v3"/>
+              <line x1="12" y1="12" x2="12" y2="16"/>
+              <line x1="10" y1="14" x2="14" y2="14"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       GALERÍA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="galeria-heading">
+    <div class="container">
+      <h2 id="galeria-heading" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 2rem;">¿Cómo luce nuestro equipo de micrófonos y DJ?</h2>
+      <Gallery4x4 images={[
+        { src: "/images/audiovisual/cabina-dj-profesional-boda-cdmx.avif", alt: "Cabina DJ profesional para boda en CDMX" },
+        { src: "/images/audiovisual/equipo-audiovisual-completo-boda.avif", alt: "Equipo audiovisual completo para boda" },
+        { src: "/images/audiovisual/microfono-inalambrico-shure-conferencia-evento.avif", alt: "Micrófono inalámbrico Shure para conferencia" },
+        { src: "/images/audiovisual/microfono-solapa-diadema-conferencista.avif", alt: "Micrófono de solapa y diadema para conferencista" },
+        { src: "/images/audiovisual/monitor-pantalla-presentacion-congreso.avif", alt: "Monitor pantalla presentación congreso" },
+        { src: "/images/audiovisual/pantalla-led-videowall-evento-corporativo.avif", alt: "Pantalla LED videowall evento corporativo" },
+        { src: "/images/audiovisual/proyector-4k-pantalla-gigante-evento.avif", alt: "Proyector 4K pantalla gigante evento" },
+        { src: "/images/audiovisual/sistema-audio-bafle-jbl-evento-corporativo.avif", alt: "Sistema audio JBL evento corporativo" },
+      ]} />
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PAQUETES
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="paquetes-heading">
+    <div class="container">
+      <h2 id="paquetes-heading" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 0.5rem;">¿Cuánto cuesta rentar micrófonos y equipo DJ?</h2>
+      <p style="color: var(--color-text-light); margin-bottom: 2rem; max-width: 60ch;">Precios referenciales por evento (+IVA). Incluye entrega y montaje en CDMX.</p>
+      <PricingCards packages={[
+        {
+          name: "Básico",
+          price: "$800",
+          priceNote: "por evento",
+          description: "1-2 micrófonos para ceremonias y brindis.",
+          features: [
+            { text: "2 micrófonos inalámbricos", included: true },
+            { text: "Receptor y baterías", included: true },
+            { text: "Equipo DJ", included: false },
+            { text: "Cabina DJ", included: false },
+          ],
+          ctaHref: "/cotizar/",
+        },
+        {
+          name: "Estándar",
+          badge: "Más popular",
+          highlight: true,
+          price: "$1,500",
+          priceNote: "por evento",
+          description: "Micrófonos + equipo DJ básico.",
+          features: [
+            { text: "3 micrófonos (mano + solapa)", included: true },
+            { text: "Controlador DDJ-1000", included: true },
+            { text: "Monitores de referencia", included: true },
+            { text: "Ingeniero de audio", included: true },
+          ],
+          ctaHref: "/cotizar/",
+        },
+        {
+          name: "Premium",
+          price: "$2,800",
+          priceNote: "por evento",
+          description: "Setup DJ completo con cabina iluminada.",
+          features: [
+            { text: "Pioneer CDJ-3000 + DJM-900", included: true },
+            { text: "Cabina DJ iluminada", included: true },
+            { text: "Micrófonos premium Shure", included: true },
+            { text: "Técnico dedicado", included: true },
+          ],
+          ctaHref: "/cotizar/",
+        },
+        {
+          name: "Full Setup",
+          price: "Cotizar",
+          priceNote: "producción completa",
+          description: "Producción audiovisual integral.",
+          features: [
+            { text: "Todo el equipo premium", included: true },
+            { text: "Cabina con branding custom", included: true },
+            { text: "Efectos de iluminación", included: true },
+            { text: "Equipo técnico completo", included: true },
+          ],
+          ctaHref: "/cotizar/",
+        },
+      ]} />
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PREGUNTAS FRECUENTES
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="faq-heading">
+    <div class="container">
+      <h2 id="faq-heading" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 2rem;">Preguntas frecuentes sobre micrófonos y equipo DJ</h2>
+    </div>
+    <FaqSection items={faqs} serviceName="micrófonos y equipo DJ" />
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       RESERVA TU EVENTO - Formulario de contacto / WhatsApp
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Equipo de Micrófonos y DJ"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores técnicos te responderá por WhatsApp con una cotización personalizada de micrófonos y equipo DJ. Sin compromiso, sin costos ocultos.",
+          "Ya sea un micrófono inalámbrico para tu ceremonia o un setup DJ completo con cabina iluminada para tu fiesta, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoMicDj">
+                Tipo de equipo
+              </label>
+              <select id="tipoMicDj" name="tipoMicDj" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de equipo</option>
+                <option value="Micrófono Inalámbrico Shure">Micrófono Inalámbrico Shure</option>
+                <option value="Micrófono Inalámbrico Sennheiser">Micrófono Inalámbrico Sennheiser</option>
+                <option value="Micrófono de Solapa">Micrófono de Solapa</option>
+                <option value="Micrófono de Diadema">Micrófono de Diadema</option>
+                <option value="Equipo DJ Pioneer">Equipo DJ Pioneer</option>
+                <option value="Controlador DDJ-1000">Controlador DDJ-1000</option>
+                <option value="Cabina DJ Estándar">Cabina DJ Estándar</option>
+                <option value="Cabina DJ Premium">Cabina DJ Premium</option>
+                <option value="Paquete Completo">Paquete Completo</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de asistentes, tipo de venue (salón/jardín/auditorio), micrófonos necesarios, si cuentas con DJ propio..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Prueba de audio gratis</h3>
+            <p class="reserva-card__text">Realizamos prueba de sonido previa al evento para garantizar audio perfecto en tu venue.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría técnica personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoMicDj = document.getElementById('tipoMicDj').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Nueva solicitud desde EVENTECH.MX — Micrófonos y DJ*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoMicDj) texto += `*Tipo de equipo:* ${tipoMicDj}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CTA FINAL
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Audio claro y la mejor fiesta para tu evento"
+    subheadline="Micrófonos profesionales y equipo DJ Pioneer con ingeniero de audio dedicado. Cotiza hoy y recibe asesoría técnica sin compromiso."
+    primaryCTA={{ label: "Cotizar micrófonos y DJ", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar micrófonos y equipo DJ para mi evento` }}
+    variant="accent"
+  />
+
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     INDIGO COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #6c5ce7;
+    --color-accent-hover: #5a4fd6;
+    --color-accent-light: #8b7ff0;
+    --color-accent-soft: rgba(108, 92, 231, 0.1);
+    --gradient-accent: linear-gradient(135deg, #6c5ce7 0%, #5a4fd6 100%);
+    --shadow-accent: 0 4px 14px rgba(108, 92, 231, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(108, 92, 231, 0.5);
+  }
+</style>

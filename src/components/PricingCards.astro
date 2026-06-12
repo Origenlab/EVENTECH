@@ -1,0 +1,209 @@
+---
+/**
+ * PricingCards — OrigenLab Standard (EVENTECH)
+ * Grid de paquetes/pricing con highlight en el recomendado.
+ * CSS 100% scoped. Sin animaciones.
+ * Colores: accent #00b894 (teal), primary #1a1a2e
+ */
+interface Feature {
+  text: string;
+  included: boolean;
+}
+
+interface Package {
+  name: string;
+  badge?: string;
+  highlight?: boolean;
+  price: string;
+  priceNote?: string;
+  description: string;
+  features: Feature[];
+  ctaLabel?: string;
+  ctaHref: string;
+}
+
+interface Props {
+  packages: Package[];
+}
+
+const { packages } = Astro.props;
+---
+
+<div class="pk__grid">
+  {packages.map((pkg) => (
+    <div class:list={['pk__card', { 'pk__card--highlight': pkg.highlight }]}>
+      {pkg.badge && <span class="pk__badge">{pkg.badge}</span>}
+      <h3 class="pk__name">{pkg.name}</h3>
+      <div class="pk__price">
+        <span class="pk__price-value">{pkg.price}</span>
+        {pkg.priceNote && <span class="pk__price-note">{pkg.priceNote}</span>}
+      </div>
+      <p class="pk__desc">{pkg.description}</p>
+      <ul class="pk__features">
+        {pkg.features.map((f) => (
+          <li class:list={[{ 'pk__feat--no': !f.included }]}>
+            <span class="pk__feat-icon">{f.included ? '✓' : '—'}</span>
+            {f.text}
+          </li>
+        ))}
+      </ul>
+      <a href={pkg.ctaHref} class:list={['pk__cta', { 'pk__cta--highlight': pkg.highlight }]}>
+        {pkg.ctaLabel || 'Cotizar este paquete'}
+      </a>
+    </div>
+  ))}
+</div>
+
+<style>
+  .pk__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  .pk__card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pk__card--highlight {
+    border: 2px solid #00b894;
+    box-shadow: 0 8px 30px rgba(0, 184, 148, 0.12);
+  }
+
+  .pk__badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #00b894;
+    color: #fff;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 1rem;
+    border-radius: 0 10px 0 8px;
+  }
+
+  .pk__name {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0 0 1rem;
+    line-height: 1.3;
+  }
+
+  .pk__price {
+    margin-bottom: 0.75rem;
+  }
+
+  .pk__price-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #00b894;
+    line-height: 1.1;
+  }
+
+  .pk__price-note {
+    display: block;
+    font-size: 0.75rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+  }
+
+  .pk__desc {
+    font-size: 0.8125rem;
+    color: #6c757d;
+    line-height: 1.6;
+    margin: 0 0 1.25rem;
+    flex: 0;
+  }
+
+  .pk__features {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 1.25rem !important;
+  }
+
+  .pk__features li {
+    font-size: 0.8125rem;
+    color: #495057;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    line-height: 1.5;
+  }
+
+  .pk__feat-icon {
+    flex-shrink: 0;
+    font-weight: 700;
+    color: #00b894;
+    font-size: 0.75rem;
+    margin-top: 0.1rem;
+  }
+
+  .pk__feat--no {
+    color: #adb5bd;
+  }
+
+  .pk__feat--no .pk__feat-icon {
+    color: #ced4da;
+  }
+
+  .pk__cta {
+    display: block;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    border: 1px solid #e0e0e0;
+  }
+
+  .pk__cta:hover {
+    background: #e9ecef;
+  }
+
+  .pk__cta--highlight {
+    background: #00b894;
+    color: #fff;
+    border-color: #00b894;
+  }
+
+  .pk__cta--highlight:hover {
+    background: #00a085;
+  }
+
+  @media (max-width: 1100px) {
+    .pk__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .pk__grid {
+      grid-template-columns: 1fr;
+      max-width: 100%;
+      margin: 0;
+      padding: 0 0.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,66 @@
+---
+/**
+ * ─── Event Pages ───
+ * Renderiza páginas de tipos de eventos desde content collections.
+ */
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import EventLayout from "@layouts/EventLayout.astro";
+import Gallery4x4 from "@components/Gallery4x4.astro";
+import { eventTypeJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+
+export async function getStaticPaths() {
+  const eventos = await getCollection("eventos");
+  return eventos.map((evento: CollectionEntry<"eventos">) => ({
+    params: { slug: evento.slug },
+    props: { evento },
+  }));
+}
+
+const { evento } = Astro.props as { evento: CollectionEntry<"eventos"> };
+const { Content } = await evento.render();
+const { title, description, seoTitle, seoDescription, hero, faqs, gallery } = evento.data;
+
+const pageTitle = seoTitle || title;
+const pageDescription = seoDescription || description;
+const pageUrl = `/eventos/${evento.slug}/`;
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Eventos", href: "/eventos/" },
+  { label: title },
+];
+
+const jsonLd = [
+  eventTypeJsonLd({
+    name: pageTitle,
+    description: pageDescription,
+    url: pageUrl,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Eventos", url: "/eventos/" },
+    { name: title, url: pageUrl },
+  ]),
+  ...(faqs?.length ? [faqJsonLd(faqs)] : []),
+];
+---
+
+<EventLayout
+  title={pageTitle}
+  description={pageDescription}
+  hero={hero}
+  jsonLd={jsonLd}
+  breadcrumbItems={breadcrumbItems}
+>
+  <Content />
+
+  {gallery?.length > 0 && (
+    <section class="section" aria-labelledby="galeria-evento">
+      <div class="container">
+        <h2 id="galeria-evento" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 2rem;">Galería de {title}</h2>
+        <Gallery4x4 images={gallery} />
+      </div>
+    </section>
+  )}
+</EventLayout>

@@ -1,0 +1,432 @@
+---
+/**
+ * ─── Mesa Rectangular 240cm — Página de Variante (Nivel 4) ───
+ * Mesa rectangular 240cm, 10 personas, formato imperial en CDMX.
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import Gallery4x4 from "@components/Gallery4x4.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Mesas", href: "/servicios/mobiliario/mesas/" },
+  { label: "Mesas Rectangulares", href: "/servicios/mobiliario/mesas/rectangulares/" },
+  { label: "240cm — 10 personas" },
+];
+
+const galleryImages = [
+  { src: "/images/mobiliario/mesas-rectangulares-imperiales-gala-velas.avif", alt: "Mesa rectangular 240cm imperial con candelabros para gala de lujo" },
+  { src: "/images/mobiliario/mesas-rectangulares-imperial-linea-continua.avif", alt: "Mesas rectangulares 240cm en línea continua para boda imperial" },
+  { src: "/images/mobiliario/mesa-imperial-gala-candelabros-boda.avif", alt: "Mesa imperial 240cm con candelabros en boda de gala CDMX" },
+  { src: "/images/mobiliario/mesas-rectangulares-manteleria-premium.avif", alt: "Mesa rectangular 240cm con mantelería premium para evento" },
+  { src: "/images/mobiliario/mesas-rectangulares-distribucion-u-corporativa.avif", alt: "Mesas rectangulares 240cm en distribución U para evento corporativo" },
+  { src: "/images/mobiliario/mesa-imperial-salon-barroco-chargers.avif", alt: "Mesa imperial 240cm en salón barroco con chargers dorados" },
+];
+
+const faqs = [
+  {
+    question: "¿Cuántas personas caben en una mesa rectangular de 240cm?",
+    answer: "Una <strong>mesa rectangular de 240 × 120 cm</strong> tiene capacidad para <strong>10 personas</strong> — 4 por lado y 1 en cada cabecera. Si se usa sin cabeceras (solo los lados largos), caben 8 personas con mayor holgura. Es el formato estándar para mesas imperiales en bodas, donde se colocan en línea continua para crear el efecto dramático de banquete de gala."
+  },
+  {
+    question: "¿Qué es una mesa imperial y por qué se usa en bodas?",
+    answer: "La <strong>mesa imperial</strong> es una configuración de mesas rectangulares unidas en línea continua, creando una mesa única de gran longitud. Se usa en bodas íntimas y cenas de gala porque crea líneas visuales dramáticas extremadamente fotogénicas, coloca a todos los invitados en una sola mesa generando comunidad, y permite centros de mesa en runner continuo que lucen espectaculares en fotografía."
+  },
+  {
+    question: "¿Cuántas mesas rectangulares de 240cm necesito para 80 personas?",
+    answer: "Para <strong>80 personas en formato imperial continuo</strong> necesitas 8 mesas de 240 cm (10 personas cada una). La línea continua tendría 1,920 cm de longitud — aproximadamente 20 metros. Necesitas un salón de al menos 25 metros de largo y 10-12 metros de ancho. Si el espacio es más compacto, podemos configurarlas en U, T o herradura."
+  },
+  {
+    question: "¿La mesa de 240cm se puede unir con otras para banquetes grandes?",
+    answer: "Sí, es exactamente para lo que están diseñadas. Las mesas de 240 cm se pueden <strong>unir en secuencia</strong> para crear banquetes imperiales de cualquier longitud. Los tableros tienen cantos lisos que permiten la unión sin escalones visibles. Con mantelería en runner continuo, la ilusión de una sola mesa larga es perfecta."
+  },
+  {
+    question: "¿Qué sillas combinan mejor con la mesa rectangular de 240cm?",
+    answer: "Las combinaciones más solicitadas son: <strong>silla Tiffany dorada</strong> para bodas clásicas de alto nivel, <strong>silla Chiavari negra</strong> para galas corporativas, y <strong>silla Crossback</strong> para bodas rústicas en haciendas. La silla Ghost transparente también funciona muy bien porque no compite visualmente con el drama de la mesa larga."
+  },
+];
+
+const specs = [
+  { label: "Largo", value: "240 cm" },
+  { label: "Ancho", value: "120 cm" },
+  { label: "Altura", value: "75 cm (estándar banquete)" },
+  { label: "Capacidad", value: "10 personas (4 por lado + 1 en cada cabecera)" },
+  { label: "Material tablero", value: "Triplay alta densidad con melamínico resistente" },
+  { label: "Estructura", value: "Patas metálicas plegables reforzadas" },
+  { label: "Resistencia", value: "150 kg distribuidos sobre la superficie" },
+  { label: "Unibles", value: "Sí — en línea continua para mesas imperiales" },
+  { label: "Precio referencial", value: "Desde $150 por mesa / evento" },
+];
+
+const reviews = [
+  { author: "Alejandra Robles", text: "La mesa imperial con 10 mesas de 240cm fue el WOW de nuestra boda. 100 personas en una sola mesa continua con flores y velas — las fotos quedaron increíbles.", rating: 5, date: "2025-12-10" },
+  { author: "Miguel Torres", text: "Cena de gala corporativa con 8 mesas rectangulares en U. El impacto visual fue enorme y el servicio de montaje de EVENTECH fue puntual y profesional.", rating: 5, date: "2025-11-25" },
+  { author: "Valeria Gutiérrez", text: "Bodas íntimas de 40 personas con 4 mesas de 240cm. Formato imperial perfecto — todos sentados juntos, la decoración fue impresionante.", rating: 5, date: "2025-10-15" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta Mesa Rectangular 240cm Imperial para Bodas CDMX — 10 Personas",
+    description: "Mesa rectangular 240cm para 10 personas. El formato imperial para bodas de gala y corporativos en CDMX. Resistencia 150 kg, unibles en línea. Desde $150.",
+    url: "/servicios/mobiliario/mesas/rectangulares/240cm/",
+    priceRange: { min: 150, max: 250 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 28,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Mesas", url: "/servicios/mobiliario/mesas/" },
+    { name: "Mesas Rectangulares", url: "/servicios/mobiliario/mesas/rectangulares/" },
+    { name: "240cm — 10 Personas", url: "/servicios/mobiliario/mesas/rectangulares/240cm/" },
+  ]),
+  faqJsonLd(faqs),
+];
+
+const sidebarNav = [
+  { name: "Todas las Rectangulares", href: "/servicios/mobiliario/mesas/rectangulares/" },
+  { name: "240cm (10 personas)", href: null, active: true },
+  { name: "180cm (8 personas)", href: "/servicios/mobiliario/mesas/rectangulares/180cm/" },
+];
+
+const sidebarRelated = [
+  { name: "Mesas Redondas", href: "/servicios/mobiliario/mesas/redondas/" },
+  { name: "Mesas Cocktail", href: "/servicios/mobiliario/mesas/cocktail/" },
+  { name: "Sillas para Eventos", href: "/servicios/mobiliario/sillas/" },
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+  { name: "Tablones y Buffet", href: "/servicios/mobiliario/mesas/tablones/" },
+];
+---
+
+<PageLayout
+  title="Renta Mesa Rectangular 240cm Imperial Bodas"
+  description="Renta mesa rectangular 240cm en CDMX — 10 personas, formato imperial. Para bodas de gala, cenas corporativas y banquetes lineales. Unibles, 150 kg. Desde $150."
+  jsonLd={jsonLd}
+>
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <HeroPage
+    badge="El formato imperial — la mesa que transforma el salón"
+    title='Mesa Rectangular <span class="highlight">240cm</span> Imperial — Renta CDMX'
+    subtitle="La mesa rectangular de 240 cm es el formato que crea los banquetes más fotogénicos y dramáticos. Unidas en línea continua forman la mesa imperial perfecta. Capacidad 10 personas, resistencia 150 kg, tablero melamínico resistente. Desde $150."
+    primaryCTA={{ label: "Cotizar mesas rectangulares 240cm", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar por WhatsApp", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar mesas rectangulares de 240cm para mi evento` }}
+    cards={[
+      {
+        title: "La mesa que crea bodas de revista",
+        content: "La <strong>mesa rectangular de 240 cm</strong> es la protagonista del banquete imperial — ese formato de boda donde todos los invitados comparten una sola mesa larga que se extiende por todo el salón. El resultado es una de las configuraciones más fotogénicas en la fotografía de bodas contemporánea. Unidas en secuencia, crean líneas visuales dramáticas que no tienen comparación con el formato circular.",
+      },
+      {
+        title: "Resistencia y versatilidad para cualquier montaje",
+        content: "Fabricadas con <strong>tablero de triplay de alta densidad</strong> y estructura de patas metálicas reforzadas con capacidad de <strong>150 kg</strong>. Los cantos lisos permiten unión perfecta entre mesas sin escalonado visible. Se configuran en línea, U, T, herradura o cualquier formato que requiera tu venue. Entrega, montaje profesional y recolección incluidos en CDMX.",
+      },
+    ]}
+  />
+
+  <CTABanner
+    headline="¿Boda imperial, cena de gala o distribución corporativa? Diseñamos el layout"
+    subheadline="Asesoría de distribución sin costo — mesas rectangulares para cualquier configuración"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Variantes Rectangulares</h2>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card sidebar-card--cta">
+          <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+          <p class="sidebar-card--cta-text">Mesas rectangulares 240cm para tu evento</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar mesas rectangulares de 240cm`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <div class="l4-main">
+
+          <section class="section" aria-labelledby="galeria-heading">
+            <h2 id="galeria-heading" class="section__title">Galería — Mesa Rectangular 240cm en Eventos Reales</h2>
+            <p class="section__subtitle">Bodas imperiales, galas y corporativos en CDMX</p>
+            <Gallery4x4 images={galleryImages} />
+          </section>
+
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones — Mesa Rectangular 240cm</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section class="section section--alt" aria-labelledby="descripcion-heading">
+            <ServiceShowcase
+    title="¿Por qué la mesa rectangular es la favorita para bodas de revista?"
+    headingId="descripcion-heading"
+    badge="Imperial — la tendencia más fotogénica en bodas 2025"
+    tags={["240 × 120 cm", "10 personas", "Formato imperial", "Bodas de gala"]}
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">La tendencia más fuerte en bodas de lujo en los últimos años es el <strong>formato imperial</strong>: una línea de mesas rectangulares que atraviesa el salón, con todos los invitados sentados juntos. Esta configuración genera una experiencia completamente diferente a las mesas redondas — más íntima, más fotogénica, más memorable.</p>
+      <p class="showcase__text">El tablero de <strong>240 × 120 cm con melamínico resistente</strong> proporciona el ancho perfecto para runner de flores, cristalería, chargers y menú sin que se sienta apretado. La resistencia de <strong>150 kg distribuidos</strong> asegura que incluso las estaciones de botanas sobre la mesa no comprometan la estructura.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main">
+                    <img src="/images/mobiliario/mesas-rectangulares-imperiales-gala-velas.avif" alt="Mesas rectangulares 240cm en gala con candelabros" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/mesas-rectangulares-imperial-linea-continua.avif" alt="Mesas rectangulares en línea continua para boda imperial" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/mesa-imperial-salon-barroco-chargers.avif" alt="Mesa imperial en salón barroco con chargers" loading="lazy" decoding="async" />
+                  </div>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <section class="section section--alt" aria-labelledby="testimonios-heading">
+            <h2 id="testimonios-heading" class="section__title">Opiniones — Mesa Rectangular 240cm</h2>
+            <div class="grid grid--3" style="margin-top: var(--space-xl);">
+              {reviews.map((review) => (
+                <div class="sidebar-card">
+                  <div style="display: flex; gap: 4px; margin-bottom: var(--space-sm);">
+                    {[1,2,3,4,5].map(() => (
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    ))}
+                  </div>
+                  <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text); font-style: italic; margin-bottom: var(--space-sm);">"{review.text}"</p>
+                  <p style="font-size: var(--text-xs); font-weight: 700; color: var(--color-heading);">— {review.author}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas sobre Mesa Rectangular 240cm"
+              subtitle="Lo que nos preguntan antes de reservar"
+              description={["El formato imperial para bodas y galas. 10 personas por mesa, unibles en línea continua."]}
+            />
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer"><p set:html={faq.answer} /></div>
+                  </details>
+                ))}
+              </div>
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿Tienes más dudas?</h3>
+                  <p class="faq-sidebar-card__text">Te ayudamos a diseñar el layout imperial perfecto para tu boda o evento.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, necesito asesoría para mesa imperial rectangular 240cm`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">Escribir por WhatsApp</a>
+                </div>
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Dinos invitados, venue y configuración — respuesta en menos de 30 minutos.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Variantes mesas rectangulares">
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Variantes Rectangulares</h2>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item"><a href="/servicios/mobiliario/mesas/" class="sidebar-nav__back">&uarr; Volver a Mesas</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li><a href={item.href} class="sidebar-related__link"><span class="sidebar-related__arrow">&rarr;</span>{item.name}</a></li>
+              ))}
+            </ul>
+          </div>
+          <div class="sidebar-card sidebar-card--cta">
+            <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+            <p class="sidebar-card--cta-text">Mesa imperial 240cm para tu evento en CDMX</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar mesas rectangulares de 240cm`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tus Mesas Rectangulares 240cm"
+        subtitle="Cuéntanos sobre tu evento y te respondemos de inmediato"
+        description={["Completa el formulario y te enviamos cotización personalizada por WhatsApp. Sin compromiso.", "Dinos configuración, invitados y venue — te diseñamos el layout imperial."]}
+      />
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">Nombre completo <span class="form-field__required">*</span></label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">Teléfono <span class="form-field__required">*</span></label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">Tipo de evento</label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="Gala / Cena Formal">Gala / Cena Formal</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">Fecha del evento</label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">Detalles del pedido <span class="form-field__required">*</span></label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Número de mesas o invitados, configuración (imperial, U, T), venue..." rows="4" required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta en 30 min</h3>
+            <p class="reserva-card__text">Cotización y diseño de layout por WhatsApp en menos de 30 minutos.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Diseño de layout</h3>
+            <p class="reserva-card__text">Te dibujamos la distribución imperial óptima según las medidas de tu venue.</p>
+          </div>
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+      let fechaTexto = 'No especificada';
+      if (fecha) { const d = new Date(fecha + 'T12:00:00'); fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }); }
+      let texto = `*Mesa Rectangular 240cm — Cotización*\n\n*Nombre:* ${nombre}\n*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha:* ${fechaTexto}\n\n*Detalles:*\n${mensaje}`;
+      window.open(`https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`, '_blank');
+    });
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() { this.classList.remove('form-field__input--error'); });
+    });
+  </script>
+
+  <CTABanner
+    headline="La mesa rectangular 240cm que convierte tu boda en obra de arte visual"
+    subheadline="Formato imperial · Unibles en línea continua · Montaje profesional en CDMX"
+    primaryCTA={{ label: "Cotizar mesas rectangulares", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar mesas rectangulares de 240cm` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<style is:global>
+  :root {
+    --color-accent: #6c5ce7;
+    --color-accent-hover: #5a4fd6;
+    --color-accent-light: #8b7ff0;
+    --color-accent-soft: rgba(108, 92, 231, 0.1);
+    --gradient-accent: linear-gradient(135deg, #6c5ce7 0%, #5a4fd6 100%);
+    --shadow-accent: 0 4px 14px rgba(108, 92, 231, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(108, 92, 231, 0.5);
+  }
+</style>

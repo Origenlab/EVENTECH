@@ -1,0 +1,91 @@
+---
+/**
+ * ─── BlogCard Component (homologado al home premium) ───
+ * Card de artículo con estética `hm-` (navy + gold, serif display).
+ * Estilos en `@styles/blog-2026.css` (clases `hm-bl-card`).
+ */
+import { readingTime } from "@utils/helpers";
+
+type Props = {
+  title: string;
+  description: string;
+  slug: string;
+  date?: Date;
+  image?: string;
+  body?: string;
+  category?: string;
+  tags?: string[];
+  author?: string;
+  featured?: boolean;
+};
+
+const { title, description, slug, image, body, category, tags, author, featured } = Astro.props;
+const minutes = body ? readingTime(body) : undefined;
+
+const CATEGORY_LABELS: Record<string, string> = {
+  "bodas": "Bodas",
+  "xv-anos": "XV Años",
+  "corporativos": "Corporativos",
+  "tendencias": "Tendencias",
+  "guias": "Guías",
+  "tips": "Tips",
+  "casos-exito": "Casos de Éxito",
+};
+---
+
+<article class:list={["hm-bl-card", { "hm-bl-card--featured": featured }]} data-category={category}>
+  <a href={`/blog/${slug}/`} class="hm-bl-card__link">
+    <div class="hm-bl-card__media">
+      {image ? (
+        <img
+          src={image}
+          alt=""
+          class="hm-bl-card__img"
+          loading="lazy"
+          decoding="async"
+          width="400"
+          height="250"
+        />
+      ) : (
+        <div class="hm-bl-card__ph">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
+            <circle cx="12" cy="13" r="3"/>
+          </svg>
+        </div>
+      )}
+      {category && (
+        <span class="hm-bl-card__badge">{CATEGORY_LABELS[category] || category}</span>
+      )}
+      {minutes && (
+        <span class="hm-bl-card__rt">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          {minutes} min
+        </span>
+      )}
+    </div>
+    <div class="hm-bl-card__body">
+      <h3 class="hm-bl-card__title">{title}</h3>
+      <p class="hm-bl-card__desc">{description}</p>
+      {tags && tags.length > 0 && (
+        <div class="hm-bl-card__tags">
+          {tags.slice(0, 3).map((tag) => (
+            <span class="hm-bl-card__tag">#{tag.replace(/\s+/g, '')}</span>
+          ))}
+        </div>
+      )}
+      <div class="hm-bl-card__foot">
+        {author ? (
+          <span class="hm-bl-card__author">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            {author}
+          </span>
+        ) : <span></span>}
+        <span class="hm-bl-card__more">
+          Leer artículo
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </div>
+    </div>
+  </a>
+</article>

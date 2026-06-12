@@ -1,0 +1,607 @@
+---
+/**
+ * ─── Plantas de Energía para Eventos — Sub-subcategoría (Nivel 3) ───
+ * Página especializada: Renta de Plantas de Energía para Eventos en CDMX.
+ * Color accent: Indigo #6c5ce7 (diferencia visual del nivel 2 teal).
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import ProductCard from "@components/ProductCard.astro";
+import { SITE } from "@data/site";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import Gallery4x4 from "@components/Gallery4x4.astro";
+import PricingCards from "@components/PricingCards.astro";
+import FaqSection from "@components/FaqSection.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Accesorios", href: "/servicios/accesorios/" },
+  { label: "Plantas de Energía" },
+];
+
+const PLANTAS = [
+  {
+    name: "Generadores 20-50 kW",
+    price: "Desde $3,000",
+    excerpt: "Generadores diésel silenciados de 20 a 50 kW para bodas, banquetes y eventos sociales de hasta 300 personas. Operación silenciosa con máximo 65 dB.",
+    href: "/servicios/accesorios/plantas-energia/gen-20-50/",
+    image: "/images/accesorios/planta-luz-generador-evento.avif",
+    tags: ["20 kW", "30 kW", "50 kW", "65 dB", "Técnico incluido"],
+    badge: "Eventos sociales",
+  },
+  {
+    name: "Generadores 50-150 kW",
+    price: "Desde $8,000",
+    excerpt: "Plantas de energía de mediana capacidad para eventos corporativos, conciertos y expos. Múltiples zonas de alimentación con transferencia automática.",
+    href: "/servicios/accesorios/plantas-energia/gen-50-150/",
+    image: "/images/accesorios/accesorio-evento-04.avif",
+    tags: ["75 kW", "100 kW", "150 kW", "Transferencia Auto", "Multi-zona"],
+  },
+  {
+    name: "Generadores 150-500 kW",
+    price: "Desde $18,000",
+    excerpt: "Generadores de escala industrial para festivales, producciones masivas y eventos de gran formato. Sistemas de respaldo redundante y potencia total de producción.",
+    href: "/servicios/accesorios/plantas-energia/gen-150-500/",
+    image: "/images/accesorios/accesorio-evento-01.avif",
+    tags: ["200 kW", "350 kW", "500 kW", "Redundancia N+1", "Paralelo"],
+  },
+  {
+    name: "Tableros y Distribución",
+    price: "Desde $1,500",
+    excerpt: "Tableros de distribución eléctrica, reguladores de voltaje, interruptores termomagnéticos, canalización de cableado y protección contra fallas a tierra.",
+    href: "/servicios/accesorios/plantas-energia/tableros-distribucion/",
+    image: "/images/accesorios/accesorio-evento-02.avif",
+    tags: ["NOM-001-SEDE", "16A/32A/63A CEE", "Diferencial 30mA", "Cable 4 AWG"],
+  },
+];
+
+const faqs = [
+  { question: "¿Cómo calculo la potencia que necesito para mi evento?", answer: "El cálculo depende del equipamiento total que alimentarás. Sumamos el consumo en watts de iluminación, sonido, pantallas LED, refrigeración, cocina y cualquier otro equipo eléctrico. Como regla general: un evento social para 150 personas con iluminación y sonido básico requiere 20-30 kW. Un evento corporativo con audiovisual completo necesita 50-75 kW. Un festival con escenario de producción completa puede requerir 150-500 kW. Nuestro ingeniero eléctrico realiza el cálculo exacto sin costo y recomienda la planta ideal con margen de seguridad del 20%." },
+  { question: "¿Qué nivel de ruido tienen los generadores?", answer: "Nuestros generadores diésel cuentan con cabina insonorizada de fábrica. Los modelos de 20-50 kW operan a un máximo de 65 dB a 7 metros de distancia, equivalente a una conversación normal. Los de 50-150 kW alcanzan 70-75 dB, y siempre se ubican a distancia prudente del área de invitados. Para bodas y eventos donde el silencio es crítico, utilizamos generadores super silenciados de 60 dB y los posicionamos estratégicamente con barreras acústicas adicionales." },
+  { question: "¿Cuánto combustible consumen los generadores?", answer: "El consumo varía según la capacidad y la carga real. Un generador de 20 kW al 75% de carga consume aproximadamente 5-6 litros de diésel por hora. Uno de 50 kW consume 12-15 litros/hora, y los de 150 kW consumen 35-40 litros/hora. Todos nuestros generadores llegan con tanque lleno y calculamos el combustible necesario según la duración de tu evento más un margen de seguridad del 30%. El costo del diésel está incluido en la cotización para eventos de hasta 12 horas." },
+  { question: "¿Pueden operar las 24 horas sin interrupciones?", answer: "Sí. Nuestros generadores están diseñados para operación continua. Para eventos que superan las 12 horas, programamos reabastecimiento de combustible sin cortes de energía. En eventos de varios días (festivales, expos, ferias), instalamos sistemas de tanque extendido o reabastecimiento automático. Para aplicaciones críticas, desplegamos generadores en configuración de respaldo (redundancia N+1) con transferencia automática, garantizando cero interrupciones incluso ante una falla mecánica." },
+  { question: "¿Incluyen técnico de operación?", answer: "Sí, todos nuestros servicios de plantas de energía incluyen un técnico electricista certificado durante todo el evento. El técnico se encarga del arranque, monitoreo de cargas, distribución de circuitos, verificación de conexiones a tierra y atención de cualquier contingencia eléctrica. Para eventos de gran formato (150+ kW), asignamos un equipo de dos técnicos con turno rotativo. El técnico permanece en sitio desde el montaje hasta el desmontaje completo." },
+  { question: "¿Con cuánta anticipación debo reservar una planta de energía?", answer: "Recomendamos reservar con 2 a 4 semanas de anticipación para generadores de 20-50 kW. Para plantas de 50-150 kW o superior, lo ideal es apartar con 1 a 2 meses, especialmente en temporada alta (noviembre a febrero) cuando la demanda se triplica. Los generadores de 250-500 kW tienen disponibilidad limitada y requieren planificación logística especial por su tamaño. También atendemos emergencias y solicitudes de último momento sujetas a disponibilidad." },
+];
+
+const jsonLd = [
+  serviceJsonLd({
+    name: "Renta de Plantas de Energía CDMX",
+    description: "Generadores diésel silenciados de 20 a 500 kW, tableros de distribución y reguladores de voltaje para eventos. Técnico electricista incluido.",
+    url: "/servicios/accesorios/plantas-energia/",
+    priceRange: { min: 3000, max: 50000 },
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Accesorios", url: "/servicios/accesorios/" },
+    { name: "Plantas de Energía", url: "/servicios/accesorios/plantas-energia/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Plantas de Energía CDMX"
+  description="Renta de generadores diésel silenciados de 20 a 500 kW, tableros de distribución y reguladores de voltaje para eventos en CDMX. Técnico incluido."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Energía confiable para tu evento"
+    title='Renta de <span class="highlight">Plantas de Energía</span> para Eventos en CDMX'
+    subtitle="Generadores diésel silenciados desde 20 kW hasta 500 kW con tableros de distribución profesional. Operación silenciosa, técnico electricista dedicado y combustible incluido en cada renta."
+    primaryCTA={{ label: "Cotiza tu planta", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar plantas de energía para mi evento` }}
+    cards={[
+      {
+        title: "Generadores de grado profesional para cada evento",
+        content: "<strong>Renta de plantas de energía para eventos</strong> con generadores diésel de última generación disponibles en CDMX. Equipos silenciados de 20 a 50 kW con nivel de ruido máximo de 65 dB para bodas y eventos sociales. Plantas de mediana capacidad de 50 a 150 kW con transferencia automática para corporativos y conciertos. Generadores industriales de 150 a 500 kW con sistemas de respaldo redundante para festivales y producciones masivas — cada unidad revisada y verificada antes de cada entrega.",
+      },
+      {
+        title: "Distribución eléctrica profesional con técnico dedicado",
+        content: "<strong>Servicio técnico eléctrico completo</strong> incluido en cada renta de planta de energía. Nuestro ingeniero electricista certificado se encarga del transporte, instalación, conexión de tableros de distribución, reguladores de voltaje, protección contra fallas a tierra, canalización de cableado oculto y monitoreo de cargas en tiempo real durante todo el evento. Interruptores termomagnéticos y protección diferencial incluidos para máxima seguridad eléctrica.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CTA BANNER
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas energía confiable para tu próximo evento?"
+    subheadline="Cotiza sin compromiso y recibe una propuesta técnica con la planta ideal para tu consumo eléctrico"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CATÁLOGO — 4 tipos de planta
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="catalogo-heading">
+    <div class="container">
+      <SectionHeader
+        id="catalogo-heading"
+        title="Nuestro Catálogo de Plantas de Energía"
+        subtitle="La solución eléctrica perfecta para cada tipo de evento"
+        description={[
+          "Desde generadores compactos silenciados para bodas íntimas hasta plantas industriales para festivales masivos. Contamos con el inventario de generadores y equipos de distribución eléctrica más completo de la Ciudad de México.",
+          "Cada planta incluye tablero de distribución, protecciones eléctricas, combustible y técnico electricista dedicado. Potencia, autonomía y seguridad certificadas para garantizar energía ininterrumpida."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        {PLANTAS.map((planta) => (
+          <ProductCard
+            name={planta.name}
+            price={planta.price}
+            excerpt={planta.excerpt}
+            href={planta.href}
+            image={planta.image}
+            tags={planta.tags}
+            badge={planta.badge}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       GENERADORES 20-50 kW — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="gen-20-50-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Generadores 20-50 kW"
+    headingId="gen-20-50-heading"
+    badge="Eventos medianos"
+    subtitle="Generadores diésel silenciados para bodas y eventos sociales con hasta 300 personas."
+    tags={["20 kW", "30 kW", "50 kW", "65 dB máx"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Generador 20-50 kW"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Nuestros <strong>generadores de 20 a 50 kW</strong> son la solución ideal para eventos que requieren energía confiable sin sacrificar la tranquilidad acústica. Equipados con <strong>cabina insonorizada de fábrica</strong>, operan a un máximo de <strong>65 dB a 7 metros</strong> de distancia — equivalente a una conversación normal. Disponibles en capacidades de <strong>20, 30 y 50 kW</strong> para alimentar iluminación decorativa, sonido ambiental, pantallas LED, refrigeradores y equipos de cocina simultáneamente.</p>
+      <p class="showcase__text">Ideales para <strong>bodas en jardín, recepciones en haciendas, banquetes al aire libre y eventos sociales</strong> donde no existe acometida eléctrica o la disponible es insuficiente. Cada generador llega con tanque lleno, tablero de distribución de 4 a 8 circuitos y conexión a tierra certificada. Combínalos con nuestra <a href="/servicios/iluminacion/">iluminación profesional</a> para crear ambientes mágicos con energía garantizada durante todo el evento.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+              <line x1="6" y1="7" x2="6" y2="3"/>
+              <line x1="18" y1="7" x2="18" y2="3"/>
+              <line x1="6" y1="3" x2="18" y2="3"/>
+              <circle cx="12" cy="14" r="3"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       GENERADORES 50-150 kW — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="gen-50-150-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Generadores 50-150 kW"
+    headingId="gen-50-150-heading"
+    badge="Gran formato"
+    subtitle="Plantas de energía de mediana capacidad para eventos corporativos, conciertos y expos con múltiples zonas de alimentación."
+    tags={["50 kW", "75 kW", "100 kW", "150 kW"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Generador 50-150 kW"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Los <strong>generadores de 50 a 150 kW</strong> están diseñados para eventos de gran formato que requieren alimentar <strong>múltiples zonas de potencia simultáneamente</strong>: escenario principal con sonido e iluminación, área de catering con equipos de cocina, zonas de exhibición con pantallas LED y climatización de carpas. Disponibles en capacidades de <strong>50, 75, 100 y 150 kW</strong> con <strong>transferencia automática</strong> que garantiza cero interrupciones ante cualquier fluctuación.</p>
+      <p class="showcase__text">Incluyen <strong>tablero de distribución principal con hasta 16 circuitos independientes</strong>, regulador de voltaje integrado, medidor de consumo en tiempo real y sistema de arranque automático. Ideales para <strong>eventos corporativos, conciertos, lanzamientos de producto, congresos y expos comerciales</strong> donde la continuidad eléctrica es crítica. Combínalos con nuestros equipos de <a href="/servicios/audiovisual/">audiovisual profesional</a> para producciones de alto impacto con energía garantizada.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="6" width="22" height="15" rx="2" ry="2"/>
+              <line x1="5" y1="6" x2="5" y2="2"/>
+              <line x1="19" y1="6" x2="19" y2="2"/>
+              <line x1="5" y1="2" x2="19" y2="2"/>
+              <path d="M9 13l2 2 4-4"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       GENERADORES 150-500 kW — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="gen-150-500-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Generadores 150-500 kW"
+    headingId="gen-150-500-heading"
+    badge="Escala industrial"
+    subtitle="Potencia industrial para festivales, producciones masivas y eventos de gran escala con sistemas de respaldo redundante."
+    tags={["150 kW", "250 kW", "350 kW", "500 kW"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Generador 150-500 kW"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Nuestros <strong>generadores de 150 a 500 kW</strong> representan la máxima capacidad de generación eléctrica para <strong>eventos masivos, festivales de música, producciones de televisión y montajes de gran escala</strong>. Disponibles en capacidades de <strong>150, 250, 350 y 500 kW</strong> con configuración de <strong>respaldo redundante N+1</strong> que garantiza energía ininterrumpida incluso ante una falla mecánica. Potencia total de producción para alimentar escenarios completos con sonido line array, iluminación robotizada, pantallas LED gigantes y toda la infraestructura del evento.</p>
+      <p class="showcase__text">Incluyen <strong>sistema de sincronización para operación en paralelo</strong>, tableros de distribución principal y secundarios, monitoreo remoto de cargas, tanque extendido para autonomía de 24+ horas y equipo técnico de dos ingenieros con turno rotativo. Ideales para <strong>festivales de 2-5 días, eventos deportivos, ferias industriales y producciones que requieren energía de grado comercial</strong>. Complementa con nuestras <a href="/servicios/carpas/">carpas estructurales</a> para proteger el área técnica y crear zonas de producción cubiertas.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="5" width="22" height="16" rx="2" ry="2"/>
+              <line x1="4" y1="5" x2="4" y2="1"/>
+              <line x1="20" y1="5" x2="20" y2="1"/>
+              <line x1="4" y1="1" x2="20" y2="1"/>
+              <line x1="8" y1="13" x2="16" y2="13"/>
+              <line x1="12" y1="9" x2="12" y2="17"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       TABLEROS Y DISTRIBUCIÓN — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="tableros-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Tableros y Distribución"
+    headingId="tableros-heading"
+    badge="Seguridad eléctrica"
+    subtitle="Distribución eléctrica profesional con protecciones certificadas para eventos seguros y sin interrupciones."
+    tags={["Tableros 100-600A", "Reguladores", "GFCI", "Cable management"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Tableros"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Nuestros <strong>tableros de distribución eléctrica</strong> son el complemento esencial para cualquier instalación de energía en eventos. <strong>Tableros principales y secundarios</strong> con capacidad de 100 a 600 amperes, <strong>reguladores de voltaje automáticos</strong> que mantienen la tensión estable entre 118-122V, <strong>interruptores termomagnéticos</strong> por circuito independiente y <strong>protección diferencial contra fallas a tierra</strong> (GFCI) para máxima seguridad de asistentes y equipos.</p>
+      <p class="showcase__text">Incluyen <strong>canalización de cableado profesional con tapetes de protección</strong>, cajas de conexión distribuidas, extensiones industriales certificadas y señalización de seguridad eléctrica. Todo el cableado se oculta y protege para eliminar riesgos de tropiezo. La <strong>gestión de cable management</strong> garantiza una instalación limpia y profesional que se integra con el montaje de tu evento. Combínalos con nuestro <a href="/servicios/mobiliario/">mobiliario para eventos</a> para una producción integral con energía y equipamiento coordinados.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              <line x1="9" y1="3" x2="9" y2="21"/>
+              <line x1="15" y1="3" x2="15" y2="21"/>
+              <line x1="3" y1="9" x2="21" y2="9"/>
+              <line x1="3" y1="15" x2="21" y2="15"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       GALERÍA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="galeria-heading">
+    <div class="container">
+      <h2 id="galeria-heading" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 2rem;">¿Cómo lucen nuestras plantas de energía?</h2>
+      <Gallery4x4 images={[
+        { src: "/images/accesorios/alfombra-roja-red-carpet-evento.avif", alt: "Alfombra roja red carpet evento" },
+        { src: "/images/accesorios/calentador-patio-terraza-evento.avif", alt: "Calentador patio terraza evento" },
+        { src: "/images/accesorios/manteles-premium-boda-elegante.avif", alt: "Manteles premium boda elegante" },
+        { src: "/images/accesorios/planta-luz-generador-evento.avif", alt: "Planta de luz generador evento" },
+        { src: "/images/mobiliario/silla-tiffany-dorada-boda-gala-01.avif", alt: "Silla Tiffany dorada para boda de gala en CDMX" },
+        { src: "/images/mobiliario/salon-mesas-redondas-banquete-montaje.avif", alt: "Salón con mesas redondas montaje banquete" },
+        { src: "/images/mobiliario/lounge-moderno-terciopelo-evento-premium.avif", alt: "Sala lounge moderno terciopelo evento premium" },
+        { src: "/images/mobiliario/barra-bebidas-bartender-madera-evento.avif", alt: "Barra de bebidas bartender madera para evento" },
+      ]} />
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PAQUETES
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="paquetes-heading">
+    <div class="container">
+      <h2 id="paquetes-heading" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 0.5rem;">¿Cuánto cuesta rentar plantas de energía?</h2>
+      <p style="color: var(--color-text-light); margin-bottom: 2rem; max-width: 60ch;">Precios referenciales por evento (+IVA). Incluye entrega y montaje en CDMX.</p>
+      <PricingCards packages={[
+        {
+          name: "Básico",
+          price: "$3,000",
+          priceNote: "por evento",
+          description: "Generador para iluminación básica.",
+          features: [
+            { text: "Generador 20-50 KVA", included: true },
+            { text: "Combustible (8 hrs)", included: true },
+            { text: "Tablero de distribución", included: true },
+            { text: "Técnico en sitio", included: false },
+          ],
+          ctaHref: "/cotizar/",
+        },
+        {
+          name: "Estándar",
+          badge: "Más popular",
+          highlight: true,
+          price: "$5,500",
+          priceNote: "por evento",
+          description: "Planta de energía para bodas.",
+          features: [
+            { text: "Generador 50-150 KVA", included: true },
+            { text: "Combustible incluido", included: true },
+            { text: "Tablero + extensiones", included: true },
+            { text: "Técnico de guardia", included: true },
+          ],
+          ctaHref: "/cotizar/",
+        },
+        {
+          name: "Premium",
+          price: "$10,000",
+          priceNote: "por evento",
+          description: "Energía para eventos grandes.",
+          features: [
+            { text: "Generador 150-500 KVA", included: true },
+            { text: "Combustible ilimitado", included: true },
+            { text: "Distribución profesional", included: true },
+            { text: "Técnico permanente", included: true },
+          ],
+          ctaHref: "/cotizar/",
+        },
+        {
+          name: "Industrial",
+          price: "Cotizar",
+          priceNote: "mega eventos",
+          description: "Energía industrial para festivales.",
+          features: [
+            { text: "Multi-generador", included: true },
+            { text: "Red de distribución", included: true },
+            { text: "Respaldo automático", included: true },
+            { text: "Ingeniería eléctrica", included: true },
+          ],
+          ctaHref: "/cotizar/",
+        },
+      ]} />
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PREGUNTAS FRECUENTES
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="faq-heading">
+    <div class="container">
+      <h2 id="faq-heading" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 2rem;">Preguntas frecuentes sobre plantas de energía</h2>
+    </div>
+    <FaqSection items={faqs} serviceName="plantas de energía" />
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       RESERVA TU EVENTO - Formulario de contacto / WhatsApp
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Planta de Energía"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores técnicos te responderá por WhatsApp con una cotización personalizada de plantas de energía. Sin compromiso, sin costos ocultos.",
+          "Ya sea un generador de 20 kW para tu boda o una planta de 500 kW para tu festival, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoPlanta">
+                Tipo de planta
+              </label>
+              <select id="tipoPlanta" name="tipoPlanta" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de planta</option>
+                <option value="Generador 20 kW">Generador 20 kW</option>
+                <option value="Generador 30 kW">Generador 30 kW</option>
+                <option value="Generador 50 kW">Generador 50 kW</option>
+                <option value="Generador 75 kW">Generador 75 kW</option>
+                <option value="Generador 100 kW">Generador 100 kW</option>
+                <option value="Generador 150 kW">Generador 150 kW</option>
+                <option value="Generador 250-500 kW">Generador 250-500 kW</option>
+                <option value="Tablero Distribución">Tablero Distribución</option>
+                <option value="Regulador Voltaje">Regulador Voltaje</option>
+                <option value="Paquete Energía Completo">Paquete Energía Completo</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de asistentes, tipo de venue (salón/jardín/hacienda), equipos a alimentar, duración del evento, si hay acometida eléctrica disponible..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Evaluación eléctrica gratis</h3>
+            <p class="reserva-card__text">Calculamos el consumo eléctrico de tu evento sin costo para recomendarte la planta ideal según tus equipos.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría técnica personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoPlanta = document.getElementById('tipoPlanta').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Nueva solicitud desde EVENTECH.MX — Plantas de Energía*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoPlanta) texto += `*Tipo de planta:* ${tipoPlanta}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CTA FINAL
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="La energía confiable que tu evento necesita"
+    subheadline="Más de 500 eventos exitosos con plantas de energía nos respaldan. Cotiza hoy y recibe asesoría técnica sin compromiso."
+    primaryCTA={{ label: "Cotizar planta de energía", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar plantas de energía para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     INDIGO COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #6c5ce7;
+    --color-accent-hover: #5a4fd6;
+    --color-accent-light: #8b7ff0;
+    --color-accent-soft: rgba(108, 92, 231, 0.1);
+    --gradient-accent: linear-gradient(135deg, #6c5ce7 0%, #5a4fd6 100%);
+    --shadow-accent: 0 4px 14px rgba(108, 92, 231, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(108, 92, 231, 0.5);
+  }
+</style>

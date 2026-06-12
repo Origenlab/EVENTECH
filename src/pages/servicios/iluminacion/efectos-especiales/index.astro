@@ -1,0 +1,595 @@
+---
+/**
+ * ─── Efectos Especiales para Eventos — Sub-subcategoría (Nivel 3) ───
+ * Página especializada: Renta de Efectos Especiales para Eventos en CDMX.
+ * Color accent: Indigo #6c5ce7 (diferencia visual del nivel 2 teal).
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import ProductCard from "@components/ProductCard.astro";
+import { SITE } from "@data/site";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import Gallery4x4 from "@components/Gallery4x4.astro";
+import PricingCards from "@components/PricingCards.astro";
+import FaqSection from "@components/FaqSection.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Iluminación", href: "/servicios/iluminacion/" },
+  { label: "Efectos Especiales" },
+];
+
+const EFECTOS = [
+  {
+    name: "Humo Bajo y Niebla",
+    excerpt: "Máquinas de humo bajo con hielo seco y niebla de glicol para primer baile, pasarelas y entradas dramáticas. Efecto rasante seguro para cualquier venue.",
+    href: "/servicios/iluminacion/efectos-especiales/humo-bajo/",
+    image: "/images/iluminacion/efectos-especiales-humo-bajo.avif",
+    price: "Desde $1,500",
+    tags: ["Hielo Seco", "Rasante", "Sin alarma"],
+    badge: "Más solicitado",
+  },
+  {
+    name: "Láser Multicolor",
+    excerpt: "Shows de láser RGB de 2 a 10W con efectos aéreos, túneles, abanicos y ondas. Sincronización DMX/ILDA con música para espectáculos inolvidables.",
+    href: "/servicios/iluminacion/efectos-especiales/laser/",
+    image: "/images/iluminacion/iluminacion-evento-06.avif",
+    price: "Desde $3,000",
+    tags: ["RGB 5W", "ILDA", "Sync música"],
+  },
+  {
+    name: "Papelitos de Mariposas",
+    excerpt: "Lanzadores de papelitos en forma de mariposa con colores personalizados. Efecto mágico para cumpleaños, XV años, baby showers y fiestas infantiles.",
+    href: "/servicios/iluminacion/efectos-especiales/mariposas/",
+    image: "/images/iluminacion/iluminacion-evento-03.avif",
+    price: "Desde $800",
+    tags: ["Biodegradable", "Colores custom", "Aire comprimido"],
+  },
+  {
+    name: "Confeti y Serpentinas",
+    excerpt: "Cañones de confeti CO2 y lanzadores de serpentinas con papeles metálicos, de papel y colores personalizados para momentos de celebración explosiva.",
+    href: "/servicios/iluminacion/efectos-especiales/confeti/",
+    image: "/images/iluminacion/iluminacion-evento-04.avif",
+    price: "Desde $1,200",
+    tags: ["CO2", "Metálico", "Colores custom"],
+  },
+];
+
+const faqs = [
+  { question: "¿El humo bajo es seguro para usar en interiores?", answer: "Sí, completamente seguro. Nuestras máquinas de humo bajo utilizan hielo seco (CO2 sólido) o fluido de glicol de grado alimenticio que genera una niebla densa a nivel del suelo sin dejar residuos ni activar alarmas contra incendio. El efecto se disipa en minutos y no irrita ojos ni vías respiratorias. Trabajamos con ventilación controlada y nuestro técnico monitorea los niveles de CO2 en todo momento para garantizar la seguridad de tus invitados." },
+  { question: "¿Los papelitos de mariposas son seguros para interiores?", answer: "Sí, completamente seguros. Los papelitos de mariposas están fabricados en papel de seda ultraligero y biodegradable que no genera residuos dañinos ni mancha superficies. Los lanzadores utilizan aire comprimido (sin fuego ni pirotecnia) para proyectar las mariposas a alturas de 3 a 8 metros, creando un efecto mágico de mariposas volando. Son aptos para salones, jardines, terrazas y cualquier tipo de venue. Incluimos servicio de recolección posterior al evento." },
+  { question: "¿Los láseres son seguros para los ojos de los asistentes?", answer: "Absolutamente. Todos nuestros shows de láser cumplen con normativas internacionales de seguridad (IEC 60825). Los haces se proyectan por encima de la altura de las personas (zona de audiencia segura) y utilizamos sistemas de seguridad con sensores que apagan el láser si detectan una obstrucción en la zona de exclusión. Nuestro operador certificado programa cada show según las dimensiones de tu venue para garantizar que los haces nunca impacten directamente a los ojos." },
+  { question: "¿Quién se encarga de la limpieza del confeti después del evento?", answer: "Incluimos la recolección del confeti como parte de nuestro servicio. Después del evento, nuestro equipo recoge el confeti con aspiradoras industriales y escobas. Si tu venue requiere que la limpieza sea inmediata, ofrecemos servicio de limpieza express. También contamos con opciones de confeti biodegradable y soluble en agua para eventos en jardines y espacios abiertos donde la limpieza completa es más compleja." },
+  { question: "¿Puedo combinar varios efectos especiales en un mismo evento?", answer: "Por supuesto, y es lo que más recomendamos. Los efectos se potencian entre sí: humo bajo para el primer baile combinado con papelitos de mariposas para el momento de la sorpresa, láser durante la fiesta y cañones de confeti para el momento cumbre. Ofrecemos paquetes combinados con descuento que incluyen operador técnico dedicado, programación sincronizada con la música de tu DJ y coordinación con tu wedding planner o productor de eventos." },
+  { question: "¿Con cuánta anticipación debo reservar los efectos especiales?", answer: "Recomendamos reservar con 2 a 4 semanas de anticipación, especialmente en temporada alta (noviembre a febrero y temporada de bodas). Para shows de láser programados o paquetes de efectos completos, lo ideal es apartar con 1 a 2 meses para incluir la visita técnica al venue y la programación personalizada. También atendemos solicitudes de último momento sujetas a disponibilidad de equipo y operadores." },
+];
+
+const jsonLd = [
+  serviceJsonLd({
+    name: "Renta de Efectos Especiales CDMX",
+    description: "Humo bajo, láser multicolor, papelitos de mariposas y cañones de confeti para bodas, cumpleaños y eventos corporativos. Operador incluido.",
+    url: "/servicios/iluminacion/efectos-especiales/",
+    priceRange: { min: 800, max: 25000 },
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Iluminación", url: "/servicios/iluminacion/" },
+    { name: "Efectos Especiales", url: "/servicios/iluminacion/efectos-especiales/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Efectos Especiales CDMX"
+  description="Renta de humo bajo, láser multicolor, papelitos de mariposas y cañones de confeti para eventos en CDMX. Operador incluido. Desde $800. Cotiza hoy."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Momentos que dejan huella"
+    title='Renta de <span class="highlight">Efectos Especiales</span> para Eventos en CDMX'
+    subtitle="Humo bajo, láser multicolor, papelitos de mariposas y cañones de confeti para crear momentos espectaculares. Equipo profesional con operador técnico incluido en cada renta."
+    primaryCTA={{ label: "Cotiza tus efectos", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar efectos especiales para mi evento` }}
+    cards={[
+      {
+        title: "Efectos especiales de grado profesional para cada evento",
+        content: "<strong>Renta de efectos especiales para eventos</strong> con tecnología de última generación disponible en CDMX. Máquinas de humo bajo con hielo seco y niebla de glicol para primer baile y pasarelas. Sistemas láser RGB de 2 a 10W con sincronización DMX/ILDA para shows programados. Lanzadores de papelitos de mariposas con colores personalizados para cumpleaños y celebraciones. Cañones de confeti CO2 y lanzadores de serpentinas — cada efecto verificado y probado antes de cada evento.",
+      },
+      {
+        title: "Operación profesional con técnico dedicado",
+        content: "<strong>Servicio técnico completo</strong> incluido en cada renta de efectos especiales. Nuestro operador certificado se encarga del transporte, instalación segura, programación de secuencias sincronizadas con la música, pruebas previas al evento y operación en tiempo real durante toda la celebración. Cumplimos con normativas de protección civil de CDMX y realizamos evaluación previa de cada venue para garantizar seguridad total.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CTA BANNER
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Quieres un momento espectacular en tu evento?"
+    subheadline="Cotiza sin compromiso y recibe una propuesta técnica con los efectos ideales para tu celebración"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CATÁLOGO — 4 tipos de efectos especiales
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="catalogo-heading">
+    <div class="container">
+      <SectionHeader
+        id="catalogo-heading"
+        title="Nuestro Catálogo de Efectos Especiales"
+        subtitle="La magia visual que transforma cada momento"
+        description={[
+          "Desde humo bajo para el primer baile hasta shows de láser para la pista. Contamos con el inventario de efectos especiales más completo de la Ciudad de México para bodas, fiestas y eventos corporativos.",
+          "Cada efecto incluye equipo profesional certificado, operador técnico dedicado y evaluación previa de tu venue. Seguridad garantizada para interiores y exteriores."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        {EFECTOS.map((efecto) => (
+          <ProductCard
+            name={efecto.name}
+            excerpt={efecto.excerpt}
+            href={efecto.href}
+            image={efecto.image}
+            price={efecto.price}
+            tags={efecto.tags}
+            badge={efecto.badge}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       HUMO BAJO Y NIEBLA — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="humo-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Humo Bajo y Niebla"
+    headingId="humo-heading"
+    badge="Momento mágico"
+    subtitle="El efecto más romántico y cinematográfico para primer baile, pasarelas y entradas dramáticas."
+    tags={["Hielo seco", "Niebla glicol", "Primer baile", "Seguro interior"]}
+    ctaHref="/servicios/iluminacion/efectos-especiales/humo-bajo/"
+    ctaLabel="Ver Humo Bajo y Niebla"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Nuestras <strong>máquinas de humo bajo con hielo seco</strong> generan una niebla densa y rasante que cubre el suelo creando el efecto de caminar entre nubes. Utilizamos <strong>hielo seco de grado profesional</strong> que produce una niebla blanca espesa a nivel del piso, perfecta para el <strong>primer baile de bodas, entradas de quinceañeras y pasarelas de moda</strong>. El efecto dura entre 3 y 5 minutos por activación y se disipa sin dejar residuos ni olores.</p>
+      <p class="showcase__text">También contamos con <strong>máquinas de niebla de glicol (haze)</strong> para crear una atmósfera envolvente que realza los haces de luz y láser. El haze permanece suspendido en el ambiente durante horas, ideal para <strong>fiestas, conciertos y eventos con iluminación dramática</strong>. Ambos efectos son completamente seguros para interiores y no activan alarmas contra incendio. Combínalos con nuestras <a href="/servicios/pistas-baile/">pistas de baile iluminadas</a> para un momento verdaderamente mágico.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 15c2.483 0 4.345-3 4.345-3s1.862 3 4.345 3c2.483 0 4.345-3 4.345-3s1.862 3 4.345 3"/>
+              <path d="M3 19c2.483 0 4.345-3 4.345-3s1.862 3 4.345 3c2.483 0 4.345-3 4.345-3s1.862 3 4.345 3"/>
+              <path d="M12 3v6m-3-3l3 3 3-3"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       LÁSER MULTICOLOR — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="laser-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Láser Multicolor"
+    headingId="laser-heading"
+    badge="Espectáculo visual"
+    subtitle="Shows de láser RGB programados que transforman cualquier espacio en un espectáculo de luz y color."
+    tags={["RGB 2-10W", "DMX / ILDA", "Túnel láser", "Sync musical"]}
+    ctaHref="/servicios/iluminacion/efectos-especiales/laser/"
+    ctaLabel="Ver Láser Multicolor"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Nuestros <strong>sistemas láser RGB de 2 a 10W</strong> producen haces de luz intensos y nítidos en miles de combinaciones de color. Creamos <strong>efectos aéreos espectaculares</strong> como túneles de láser, abanicos, ondas, vórtices y cortinas de luz que envuelven a tus invitados en una experiencia visual inmersiva. Cada show se <strong>programa a medida con sincronización DMX/ILDA</strong> que permite coordinar los haces de láser con la música de tu DJ o playlist en tiempo real.</p>
+      <p class="showcase__text">Disponemos de <strong>láseres de animación para proyectar logos, textos y gráficos</strong> sobre paredes y techos, ideales para lanzamientos de producto y eventos corporativos. Todos nuestros equipos cumplen con normativas internacionales de seguridad IEC 60825 y son operados por técnicos certificados que garantizan que los haces se mantengan en la zona segura por encima de la audiencia. Combínalos con nuestro <a href="/servicios/audiovisual/">equipo audiovisual</a> para una producción de nivel profesional.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PAPELITOS DE MARIPOSAS — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="mariposas-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Papelitos de Mariposas"
+    headingId="mariposas-heading"
+    badge="Magia en el aire"
+    subtitle="Lanzadores de papelitos en forma de mariposa que crean un efecto mágico de vuelo para cumpleaños y celebraciones."
+    tags={["Papel de seda", "3-8 m altura", "Colores custom", "Biodegradable"]}
+    ctaHref="/servicios/iluminacion/efectos-especiales/mariposas/"
+    ctaLabel="Ver Papelitos de Mariposas"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Nuestros <strong>lanzadores de papelitos de mariposas</strong> utilizan <strong>aire comprimido</strong> para proyectar cientos de mariposas de papel de seda ultraligero a alturas de <strong>3 a 8 metros</strong>, creando un efecto visual mágico de mariposas volando y descendiendo suavemente sobre los invitados. Disponibles en <strong>colores personalizados</strong> que combinan con la temática de tu evento: tonos pastel para baby showers, rosa y dorado para XV años, multicolor para cumpleaños infantiles y combinaciones elegantes para fiestas de adultos.</p>
+      <p class="showcase__text">Ofrecemos configuraciones desde <strong>2 hasta 6 lanzadores simultáneos</strong> que se activan por control remoto para crear lluvia de mariposas desde distintos puntos del venue. Cada lanzador incluye suficientes papelitos para <strong>múltiples activaciones</strong> durante el evento — corte de pastel, momento de la sorpresa, entrada del festejado y brindis. Los papelitos son <strong>100% biodegradables</strong> y no manchan superficies. Incluimos servicio de recolección post-evento. Complementa con nuestro <a href="/servicios/mobiliario/">mobiliario de evento</a> para un montaje integral.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 21c-4-4-8-7-8-11a4 4 0 0 1 8 0 4 4 0 0 1 8 0c0 4-4 7-8 11z"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CONFETI Y SERPENTINAS — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="confeti-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Confeti y Serpentinas"
+    headingId="confeti-heading"
+    badge="Celebración explosiva"
+    subtitle="Cañones de confeti CO2 y lanzadores de serpentinas para los momentos más explosivos de tu celebración."
+    tags={["Cañones CO2", "Serpentinas", "Colores custom", "Biodegradable"]}
+    ctaHref="/servicios/iluminacion/efectos-especiales/confeti/"
+    ctaLabel="Ver Confeti y Serpentinas"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Nuestros <strong>cañones de confeti CO2</strong> disparan ráfagas de confeti a alturas de <strong>8 a 15 metros</strong> con un efecto visual impresionante que cubre toda la pista de baile. Disponibles en <strong>confeti metálico, papel de colores, biodegradable y holográfico</strong> con la posibilidad de personalizar los colores para que combinen con la temática de tu evento. Los <strong>lanzadores de serpentinas</strong> crean streamers de hasta 10 metros de largo que flotan espectacularmente sobre los invitados.</p>
+      <p class="showcase__text">Ofrecemos configuraciones con <strong>múltiples cañones sincronizados por DMX</strong> para crear lluvia de confeti simultánea desde varios puntos del venue. Ideales para <strong>conteos regresivos, brindis, primer baile, entrada de artistas y finales de show</strong>. Incluimos servicio de limpieza post-evento con aspiradoras industriales. También contamos con opciones de confeti soluble en agua para eventos en jardín. Combina con nuestras <a href="/servicios/carpas/">carpas para eventos</a> para celebraciones al aire libre sin preocupaciones.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/>
+              <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+              <line x1="9" y1="9" x2="9.01" y2="9"/>
+              <line x1="15" y1="9" x2="15.01" y2="9"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       GALERÍA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="galeria-heading">
+    <div class="container">
+      <h2 id="galeria-heading" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 2rem;">¿Cómo lucen nuestros efectos especiales?</h2>
+      <Gallery4x4 images={[
+        { src: "/images/iluminacion/cabezas-moviles-beam-evento.avif", alt: "Cabezas móviles beam evento" },
+        { src: "/images/iluminacion/efectos-especiales-humo-bajo.avif", alt: "Efectos especiales humo bajo" },
+        { src: "/images/iluminacion/guirnaldas-edison-jardin-boda.avif", alt: "Guirnaldas Edison jardín boda" },
+        { src: "/images/iluminacion/iluminacion-arquitectonica-hacienda.avif", alt: "Iluminación arquitectónica hacienda" },
+        { src: "/images/iluminacion/luces-neon-uv-fiesta-glow.avif", alt: "Luces neón UV fiesta glow" },
+        { src: "/images/guirnaldas/boda-jardin.avif", alt: "Guirnaldas Edison iluminando boda en jardín" },
+        { src: "/images/guirnaldas/100m.avif", alt: "Guirnaldas Edison 100 metros para evento" },
+        { src: "/images/guirnaldas/200m.avif", alt: "Guirnaldas Edison 200 metros boda grande" },
+      ]} />
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PAQUETES
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="paquetes-heading">
+    <div class="container">
+      <h2 id="paquetes-heading" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 0.5rem;">¿Cuánto cuesta rentar efectos especiales de iluminación?</h2>
+      <p style="color: var(--color-text-light); margin-bottom: 2rem; max-width: 60ch;">Precios referenciales por evento (+IVA). Incluye entrega y montaje en CDMX.</p>
+      <PricingCards packages={[
+        {
+          name: "Básico",
+          price: "$2,000",
+          priceNote: "por evento",
+          description: "Efectos básicos para fiestas.",
+          features: [
+            { text: "Máquina de humo", included: true },
+            { text: "Luces estroboscópicas", included: true },
+            { text: "Operador", included: false },
+            { text: "Cañón CO2", included: false },
+          ],
+          ctaHref: "/cotizar/",
+        },
+        {
+          name: "Estándar",
+          badge: "Más popular",
+          highlight: true,
+          price: "$4,500",
+          priceNote: "por evento",
+          description: "Pack de efectos para bodas y fiestas.",
+          features: [
+            { text: "Humo bajo (primer baile)", included: true },
+            { text: "Sparklers fríos", included: true },
+            { text: "Cañón confeti", included: true },
+            { text: "Operador técnico", included: true },
+          ],
+          ctaHref: "/cotizar/",
+        },
+        {
+          name: "Premium",
+          price: "$8,000",
+          priceNote: "por evento",
+          description: "Show de efectos especiales completo.",
+          features: [
+            { text: "Cañones CO2", included: true },
+            { text: "Humo bajo + sparklers", included: true },
+            { text: "Lluvia de burbujas", included: true },
+            { text: "Coordinación con DJ", included: true },
+          ],
+          ctaHref: "/cotizar/",
+        },
+        {
+          name: "Show Completo",
+          price: "Cotizar",
+          priceNote: "producción de efectos",
+          description: "Producción de efectos para espectáculos.",
+          features: [
+            { text: "Efectos pirotécnicos fríos", included: true },
+            { text: "Láser profesional", included: true },
+            { text: "Producción integral", included: true },
+            { text: "Director técnico", included: true },
+          ],
+          ctaHref: "/cotizar/",
+        },
+      ]} />
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PREGUNTAS FRECUENTES
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="faq-heading">
+    <div class="container">
+      <h2 id="faq-heading" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 2rem;">Preguntas frecuentes sobre efectos especiales de iluminación</h2>
+    </div>
+    <FaqSection items={faqs} serviceName="efectos especiales de iluminación" />
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       RESERVA TU EVENTO - Formulario de contacto / WhatsApp
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tus Efectos Especiales"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores técnicos te responderá por WhatsApp con una cotización personalizada de efectos especiales. Sin compromiso, sin costos ocultos.",
+          "Ya sea humo bajo para tu primer baile o un paquete completo con láser, mariposas y confeti, estamos aquí para hacer tu evento inolvidable."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoEfecto">
+                Tipo de efecto
+              </label>
+              <select id="tipoEfecto" name="tipoEfecto" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de efecto</option>
+                <option value="Humo Bajo Hielo Seco">Humo Bajo Hielo Seco</option>
+                <option value="Máquina de Niebla">Máquina de Niebla</option>
+                <option value="Láser RGB Básico">Láser RGB Básico</option>
+                <option value="Láser Show Programado">Láser Show Programado</option>
+                <option value="Papelitos de Mariposas x2">Papelitos de Mariposas x2</option>
+                <option value="Papelitos de Mariposas x4">Papelitos de Mariposas x4</option>
+                <option value="Cañón de Confeti">Cañón de Confeti</option>
+                <option value="Serpentinas CO2">Serpentinas CO2</option>
+                <option value="Paquete Primer Baile">Paquete Primer Baile</option>
+                <option value="Paquete Efectos Completo">Paquete Efectos Completo</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: tipo de venue (salón/jardín/terraza), momento del evento para los efectos, número de invitados, si ya cuentas con DJ o coordinador..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para verificar seguridad y recomendar los efectos ideales según el espacio.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría técnica personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoEfecto = document.getElementById('tipoEfecto').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Nueva solicitud desde EVENTECH.MX — Efectos Especiales*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoEfecto) texto += `*Tipo de efecto:* ${tipoEfecto}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CTA FINAL
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Los efectos especiales que tu evento necesita"
+    subheadline="Más de 500 eventos exitosos con efectos especiales nos respaldan. Cotiza hoy y recibe asesoría técnica sin compromiso."
+    primaryCTA={{ label: "Cotizar efectos especiales", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar efectos especiales para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     INDIGO COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #6c5ce7;
+    --color-accent-hover: #5a4fd6;
+    --color-accent-light: #8b7ff0;
+    --color-accent-soft: rgba(108, 92, 231, 0.1);
+    --gradient-accent: linear-gradient(135deg, #6c5ce7 0%, #5a4fd6 100%);
+    --shadow-accent: 0 4px 14px rgba(108, 92, 231, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(108, 92, 231, 0.5);
+  }
+</style>

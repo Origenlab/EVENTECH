@@ -1,0 +1,621 @@
+---
+/**
+ * ─── Directorio de Salones Index ───
+ * Página principal del directorio con estadísticas, filtros y listado de venues por zona.
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import CTABanner from "@components/CTABanner.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+import DirectorySearch from "@components/DirectorySearch.astro";
+import RelatedContent from "@components/RelatedContent.astro";
+import { DirectoryStatsBar, DirectoryFAQ, VenueShowcase } from "@components/directorio";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { breadcrumbJsonLd, itemListJsonLd, collectionPageJsonLd } from "@utils/seo";
+import { POPULAR_SERVICES } from "@utils/interlinking";
+import "@styles/directorio.css";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Directorio" },
+];
+
+// Get all venues
+const allVenues: CollectionEntry<"venues">[] = await getCollection("venues");
+
+// Group by region
+const cdmxVenues = allVenues.filter(v => v.data.region === "cdmx");
+const edomexVenues = allVenues.filter(v => v.data.region === "estado-mexico");
+
+// Get unique zones for each region
+const cdmxZones = [...new Set(cdmxVenues.map(v => v.data.zone))];
+const edomexZones = [...new Set(edomexVenues.map(v => v.data.zone))];
+
+// Stats
+const totalVenues = allVenues.length;
+const totalZones = cdmxZones.length + edomexZones.length;
+const featuredVenues = allVenues.filter(v => v.data.featured).length;
+const partnerVenues = allVenues.filter(v => v.data.eventechPartner).length;
+
+// Featured venues for display
+const featuredList = allVenues
+  .filter(v => v.data.featured)
+  .sort((a, b) => (a.data.order || 0) - (b.data.order || 0))
+  .slice(0, 6);
+
+// Fetch related blog articles (bodas, guides, venues-related content)
+const allBlogPosts: CollectionEntry<"blog">[] = await getCollection("blog", ({ data }: CollectionEntry<"blog">) => !data.draft);
+const relatedBlogPosts = allBlogPosts
+  .filter(post =>
+    post.data.category === "bodas" ||
+    post.data.category === "guias" ||
+    post.data.tags?.some((tag: string) => ["venues", "salones", "haciendas", "jardines", "bodas"].includes(tag.toLowerCase()))
+  )
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 4);
+
+// Category labels for blog
+const CATEGORY_LABELS: Record<string, string> = {
+  "bodas": "Bodas",
+  "xv-anos": "XV Años",
+  "corporativos": "Corporativos",
+  "tendencias": "Tendencias",
+  "guias": "Guías",
+  "tips": "Tips",
+  "casos-exito": "Casos de Éxito",
+};
+
+// Venue type labels
+const venueTypeLabels: Record<string, string> = {
+  "salon": "Salón",
+  "jardin": "Jardín",
+  "hacienda": "Hacienda",
+  "terraza": "Terraza",
+  "hotel": "Hotel",
+  "restaurante": "Restaurante",
+  "foro": "Foro",
+  "quinta": "Quinta",
+  "mansion": "Mansión",
+  "centro-convenciones": "Centro de Convenciones",
+  "rooftop": "Rooftop",
+  "playa": "Playa",
+};
+
+const jsonLd = [
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Directorio", url: "/directorio/" },
+  ]),
+  collectionPageJsonLd({
+    name: "Directorio de Salones de Fiestas",
+    description: "Directorio completo de salones, jardines, haciendas y venues para eventos en CDMX y Estado de México",
+    url: "/directorio/",
+    numberOfItems: totalVenues,
+    areaServed: "Ciudad de México y Estado de México",
+  }),
+  itemListJsonLd(
+    featuredList.map(venue => ({
+      name: venue.data.name,
+      url: `/directorio/${venue.data.region}/${venue.data.zoneSlug}/${venue.id.split('/').pop()?.replace('.md', '')}/`,
+      image: venue.data.image,
+      description: venue.data.shortDescription,
+    }))
+  ),
+];
+---
+
+<PageLayout
+  title="Directorio de salones para eventos"
+  description="Directorio de salones, jardines y haciendas para eventos en CDMX y Estado de México. Compara capacidades, precios y amenidades de cada venue. Encuentra el tuyo."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Directorio de Venues"
+    title='Salones de Fiestas en <span class="highlight">CDMX y Estado de México</span>'
+    subtitle="Encuentra el venue perfecto para tu evento. Directorio completo con información detallada de capacidades, precios, amenidades y servicios disponibles en cada ubicación."
+    primaryCTA={{ label: "Ver todos los salones", href: "#venues" }}
+    secondaryCTA={{ label: "Cotizar equipo", href: "/cotizar/" }}
+    cards={[
+      {
+        title: "Directorio verificado",
+        content: "Cada venue ha sido <strong>verificado por nuestro equipo</strong>. Conocemos personalmente los espacios porque hemos llevado nuestro equipo a cientos de eventos ahí."
+      },
+      {
+        title: "Cobertura completa",
+        content: "Cubrimos <strong>toda la CDMX y Zona Metropolitana</strong>. Desde Polanco hasta Metepec, conocemos los mejores espacios para bodas, XV años y eventos corporativos."
+      }
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       STATS BAR
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <DirectoryStatsBar stats={[
+        { value: totalVenues, label: "Venues Registrados", icon: "building", suffix: "+" },
+        { value: totalZones, label: "Zonas Cubiertas", icon: "map" },
+        { value: featuredVenues, label: "Venues Destacados", icon: "star" },
+        { value: partnerVenues, label: "Partners EVENTECH", icon: "award" }
+      ]} />
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SEARCH SECTION
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        title="Busca tu Venue Ideal"
+        subtitle="Búsqueda rápida"
+        description={[
+          "Encuentra venues por nombre, zona, tipo o capacidad.",
+          "Usa los filtros para refinar tu búsqueda."
+        ]}
+      />
+      <DirectorySearch />
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       ZONES SECTION
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" id="venues">
+    <div class="container">
+      <SectionHeader
+        title="Explora por Región"
+        subtitle="Cobertura completa"
+        description={[
+          "Selecciona la región donde será tu evento. Contamos con información detallada de los mejores venues en cada zona.",
+          "Como proveedores de equipo, conocemos de primera mano estos espacios y podemos recomendarte los más adecuados para tu celebración."
+        ]}
+      />
+
+      <div class="grid grid--2" style="gap: var(--space-2xl);">
+        <!-- CDMX Card -->
+        <div class="zone-card">
+          <div class="zone-card__header">
+            <h3 class="zone-card__title">Ciudad de México</h3>
+            <p class="zone-card__subtitle">Salones, jardines y haciendas en las principales alcaldías de la capital</p>
+          </div>
+          <div class="zone-card__content">
+            <p class="zone-card__section-title">Zonas disponibles</p>
+            <div class="zone-card__zones">
+              {cdmxZones.map(zone => (
+                <a href={`/directorio/cdmx/${zone.toLowerCase().replace(/\s+/g, '-').normalize("NFD").replace(/[\u0300-\u036f]/g, "")}/`} class="zone-card__zone-tag">
+                  {zone}
+                </a>
+              ))}
+            </div>
+            <div class="zone-card__stats">
+              <div class="zone-card__stat">
+                <span class="zone-card__stat-number">{cdmxVenues.length}+</span>
+                <span class="zone-card__stat-label">Venues</span>
+              </div>
+              <div class="zone-card__stat">
+                <span class="zone-card__stat-number">{cdmxZones.length}</span>
+                <span class="zone-card__stat-label">Zonas</span>
+              </div>
+              <div class="zone-card__stat">
+                <span class="zone-card__stat-number">$$-$$$$</span>
+                <span class="zone-card__stat-label">Precios</span>
+              </div>
+            </div>
+            <a href="/directorio/cdmx/" class="zone-card__cta">
+              Explorar CDMX
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Estado de México Card -->
+        <div class="zone-card">
+          <div class="zone-card__header">
+            <h3 class="zone-card__title">Estado de México</h3>
+            <p class="zone-card__subtitle">Haciendas, jardines y salones en la Zona Metropolitana y alrededores</p>
+          </div>
+          <div class="zone-card__content">
+            <p class="zone-card__section-title">Zonas disponibles</p>
+            <div class="zone-card__zones">
+              {edomexZones.map(zone => (
+                <a href={`/directorio/estado-mexico/${zone.toLowerCase().replace(/\s+/g, '-').normalize("NFD").replace(/[\u0300-\u036f]/g, "")}/`} class="zone-card__zone-tag">
+                  {zone}
+                </a>
+              ))}
+            </div>
+            <div class="zone-card__stats">
+              <div class="zone-card__stat">
+                <span class="zone-card__stat-number">{edomexVenues.length}+</span>
+                <span class="zone-card__stat-label">Venues</span>
+              </div>
+              <div class="zone-card__stat">
+                <span class="zone-card__stat-number">{edomexZones.length}</span>
+                <span class="zone-card__stat-label">Zonas</span>
+              </div>
+              <div class="zone-card__stat">
+                <span class="zone-card__stat-number">$-$$$$</span>
+                <span class="zone-card__stat-label">Precios</span>
+              </div>
+            </div>
+            <a href="/directorio/estado-mexico/" class="zone-card__cta">
+              Explorar Edo. México
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BROWSE BY EVENT TYPE
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt">
+    <div class="container">
+      <SectionHeader
+        title="Busca por Tipo de Evento"
+        subtitle="¿Qué celebras?"
+        description={[
+          "Cada tipo de evento tiene requerimientos diferentes.",
+          "Filtra venues que se especializan en el tipo de celebración que planeas."
+        ]}
+      />
+
+      <div class="dir-event-types-grid">
+        <a href="/directorio/tipo-evento/bodas/" class="dir-event-type-card">
+          <span class="dir-event-type-card__name">Bodas</span>
+          <span class="dir-event-type-card__count">{allVenues.filter(v => v.data.eventTypes?.includes("bodas")).length} venues</span>
+        </a>
+        <a href="/directorio/tipo-evento/xv-anos/" class="dir-event-type-card">
+          <span class="dir-event-type-card__name">XV Años</span>
+          <span class="dir-event-type-card__count">{allVenues.filter(v => v.data.eventTypes?.includes("xv-anos")).length} venues</span>
+        </a>
+        <a href="/directorio/tipo-evento/corporativos/" class="dir-event-type-card">
+          <span class="dir-event-type-card__name">Corporativos</span>
+          <span class="dir-event-type-card__count">{allVenues.filter(v => v.data.eventTypes?.includes("corporativos")).length} venues</span>
+        </a>
+        <a href="/directorio/tipo-evento/bautizos/" class="dir-event-type-card">
+          <span class="dir-event-type-card__name">Bautizos</span>
+          <span class="dir-event-type-card__count">{allVenues.filter(v => v.data.eventTypes?.includes("bautizos")).length} venues</span>
+        </a>
+        <a href="/directorio/tipo-evento/graduaciones/" class="dir-event-type-card">
+          <span class="dir-event-type-card__name">Graduaciones</span>
+          <span class="dir-event-type-card__count">{allVenues.filter(v => v.data.eventTypes?.includes("graduaciones")).length} venues</span>
+        </a>
+        <a href="/directorio/tipo-evento/cumpleanos/" class="dir-event-type-card">
+          <span class="dir-event-type-card__name">Cumpleaños</span>
+          <span class="dir-event-type-card__count">{allVenues.filter(v => v.data.eventTypes?.includes("cumpleanos")).length} venues</span>
+        </a>
+        <a href="/directorio/tipo-evento/aniversarios/" class="dir-event-type-card">
+          <span class="dir-event-type-card__name">Aniversarios</span>
+          <span class="dir-event-type-card__count">{allVenues.filter(v => v.data.eventTypes?.includes("aniversarios")).length} venues</span>
+        </a>
+        <a href="/directorio/tipo-evento/cenas-gala/" class="dir-event-type-card">
+          <span class="dir-event-type-card__name">Cenas de Gala</span>
+          <span class="dir-event-type-card__count">{allVenues.filter(v => v.data.eventTypes?.includes("cenas-gala")).length} venues</span>
+        </a>
+        <a href="/directorio/tipo-evento/lanzamientos/" class="dir-event-type-card">
+          <span class="dir-event-type-card__name">Lanzamientos</span>
+          <span class="dir-event-type-card__count">{allVenues.filter(v => v.data.eventTypes?.includes("lanzamientos")).length} venues</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BROWSE BY VENUE TYPE
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        title="Busca por Tipo de Venue"
+        subtitle="¿Qué estilo prefieres?"
+        description={[
+          "Cada tipo de venue ofrece una experiencia diferente.",
+          "Haciendas coloniales, jardines al aire libre, salones modernos y más."
+        ]}
+      />
+
+      <div class="dir-venue-types-grid">
+        <a href="/directorio/tipo-venue/haciendas/" class="dir-venue-type-card">
+          <div class="dir-venue-type-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <span class="dir-venue-type-card__name">Haciendas</span>
+          <span class="dir-venue-type-card__count">{allVenues.filter(v => v.data.type === "hacienda").length} venues</span>
+        </a>
+        <a href="/directorio/tipo-venue/jardines/" class="dir-venue-type-card">
+          <div class="dir-venue-type-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c0-7-3-11-7-11a7 7 0 0 1 7-7c4 0 7 4 7 11"/><path d="M12 22V5"/></svg>
+          </div>
+          <span class="dir-venue-type-card__name">Jardines</span>
+          <span class="dir-venue-type-card__count">{allVenues.filter(v => v.data.type === "jardin").length} venues</span>
+        </a>
+        <a href="/directorio/tipo-venue/salones/" class="dir-venue-type-card">
+          <div class="dir-venue-type-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg>
+          </div>
+          <span class="dir-venue-type-card__name">Salones</span>
+          <span class="dir-venue-type-card__count">{allVenues.filter(v => v.data.type === "salon").length} venues</span>
+        </a>
+        <a href="/directorio/tipo-venue/terrazas/" class="dir-venue-type-card">
+          <div class="dir-venue-type-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </div>
+          <span class="dir-venue-type-card__name">Terrazas</span>
+          <span class="dir-venue-type-card__count">{allVenues.filter(v => v.data.type === "terraza").length} venues</span>
+        </a>
+        <a href="/directorio/tipo-venue/hoteles/" class="dir-venue-type-card">
+          <div class="dir-venue-type-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16m14 0H5m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/></svg>
+          </div>
+          <span class="dir-venue-type-card__name">Hoteles</span>
+          <span class="dir-venue-type-card__count">{allVenues.filter(v => v.data.type === "hotel").length} venues</span>
+        </a>
+        <a href="/directorio/tipo-venue/quintas/" class="dir-venue-type-card">
+          <div class="dir-venue-type-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <span class="dir-venue-type-card__name">Quintas</span>
+          <span class="dir-venue-type-card__count">{allVenues.filter(v => v.data.type === "quinta").length} venues</span>
+        </a>
+        <a href="/directorio/tipo-venue/restaurantes/" class="dir-venue-type-card">
+          <div class="dir-venue-type-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>
+          </div>
+          <span class="dir-venue-type-card__name">Restaurantes</span>
+          <span class="dir-venue-type-card__count">{allVenues.filter(v => v.data.type === "restaurante").length} venues</span>
+        </a>
+        <a href="/directorio/tipo-venue/foros/" class="dir-venue-type-card">
+          <div class="dir-venue-type-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          <span class="dir-venue-type-card__name">Foros</span>
+          <span class="dir-venue-type-card__count">{allVenues.filter(v => v.data.type === "foro").length} venues</span>
+        </a>
+        <a href="/directorio/tipo-venue/centros-convenciones/" class="dir-venue-type-card">
+          <div class="dir-venue-type-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <span class="dir-venue-type-card__name">Centros Conv.</span>
+          <span class="dir-venue-type-card__count">{allVenues.filter(v => v.data.type === "centro-convenciones").length} venues</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       FEATURED VENUES
+       ═══════════════════════════════════════════════════════════════════════ -->
+  {featuredList.length > 0 && (
+    <section class="section section--alt">
+      <div class="container">
+        <SectionHeader
+          title="Venues Destacados"
+          subtitle="Recomendados por EVENTECH"
+          description={[
+            "Estos son algunos de los venues más populares donde hemos trabajado. Los conocemos bien porque hemos equipado decenas de eventos en cada uno.",
+            "Son espacios que destacan por su calidad, servicio y versatilidad para diferentes tipos de celebraciones."
+          ]}
+        />
+
+        {/* Featured venue showcase for the first venue */}
+        {featuredList[0] && (
+          <VenueShowcase
+            name={featuredList[0].data.name}
+            image={featuredList[0].data.image || "/images/placeholder-venue.avif"}
+            type={venueTypeLabels[featuredList[0].data.type] || featuredList[0].data.type}
+            location={`${featuredList[0].data.zone}, ${featuredList[0].data.region === "cdmx" ? "CDMX" : "Edo. Méx."}`}
+            capacity={featuredList[0].data.capacity}
+            priceRange={featuredList[0].data.priceRange}
+            description={featuredList[0].data.shortDescription}
+            href={`/directorio/${featuredList[0].data.region}/${featuredList[0].data.zoneSlug}/${featuredList[0].id.split('/').pop()?.replace('.md', '')}/`}
+            badges={[
+              ...(featuredList[0].data.premium ? ["Premium"] : []),
+              ...(featuredList[0].data.eventechPartner ? ["Partner EVENTECH"] : [])
+            ]}
+            rating={featuredList[0].data.rating}
+            amenities={featuredList[0].data.amenities?.slice(0, 6) || []}
+          />
+        )}
+
+        {/* Rest of featured venues in cards */}
+        {featuredList.length > 1 && (
+          <div class="dir-grid dir-grid--3" style="margin-top: var(--space-xl);">
+            {featuredList.slice(1).map(venue => (
+              <article class="venue-card">
+                <a href={`/directorio/${venue.data.region}/${venue.data.zoneSlug}/${venue.id.split('/').pop()?.replace('.md', '')}/`} class="venue-card__link">
+                  <div class="venue-card__image-wrapper">
+                    <img
+                      src={venue.data.image || "/images/placeholder-venue.avif"}
+                      alt={venue.data.name}
+                      class="venue-card__image"
+                      loading="lazy"
+                      width="400"
+                      height="300"
+                    />
+                    <div class="venue-card__badges">
+                      {venue.data.premium && (
+                        <span class="venue-card__badge venue-card__badge--premium">Premium</span>
+                      )}
+                      {venue.data.verified && (
+                        <span class="venue-card__badge venue-card__badge--verified">Verificado</span>
+                      )}
+                    </div>
+                    <span class="venue-card__price-badge">{venue.data.priceRange}</span>
+                  </div>
+                  <div class="venue-card__content">
+                    <span class="venue-card__type">{venueTypeLabels[venue.data.type] || venue.data.type}</span>
+                    <h3 class="venue-card__name">{venue.data.name}</h3>
+                    <p class="venue-card__location">
+                      <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      {venue.data.zone}, {venue.data.region === "cdmx" ? "CDMX" : "Edo. Méx."}
+                    </p>
+                    <p class="venue-card__description">{venue.data.shortDescription}</p>
+                    <div class="venue-card__meta">
+                      <span class="venue-card__capacity">
+                        <strong>{venue.data.capacity.min}-{venue.data.capacity.max}</strong> personas
+                      </span>
+                      {venue.data.rating && (
+                        <span class="venue-card__rating">
+                          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                          {venue.data.rating}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </a>
+              </article>
+            ))}
+          </div>
+        )}
+
+        <div style="text-align: center; margin-top: var(--space-2xl);">
+          <a href="/directorio/cdmx/" class="btn btn--primary" style="margin-right: var(--space-md);">
+            Ver CDMX
+          </a>
+          <a href="/directorio/estado-mexico/" class="btn btn--outline">
+            Ver Estado de México
+          </a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       EVENTECH SERVICES INFO
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        title="Equipo para tu Venue"
+        subtitle="Servicio completo"
+        description={[
+          "No importa el salón que elijas, EVENTECH lleva el equipo que necesitas: mobiliario, carpas, iluminación, audio y más.",
+          "Conocemos los requerimientos técnicos de cada venue y podemos asesorarte sobre qué equipo funciona mejor en cada espacio."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <div class="card">
+          <div class="card__icon">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <h3 class="card__title">Conocemos los Venues</h3>
+          <p class="card__content">Hemos trabajado en la mayoría de salones listados. Sabemos qué equipo funciona mejor en cada espacio.</p>
+        </div>
+        <div class="card">
+          <div class="card__icon">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3 class="card__title">Cotización Rápida</h3>
+          <p class="card__content">Dinos el venue y la fecha. Te enviamos cotización personalizada en menos de 24 horas.</p>
+        </div>
+        <div class="card">
+          <div class="card__icon">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 class="card__title">Montaje Profesional</h3>
+          <p class="card__content">Nuestro equipo se coordina con el venue para montaje y desmontaje sin complicaciones.</p>
+        </div>
+        <div class="card">
+          <div class="card__icon">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="card__title">Garantía Total</h3>
+          <p class="card__content">Equipo de respaldo y técnicos en sitio durante tu evento para cualquier eventualidad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       RELATED BLOG & SERVICES
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        title="Recursos para tu Evento"
+        subtitle="Guías y artículos"
+        description={[
+          "Artículos y guías para ayudarte a planear tu evento.",
+          "Descubre tendencias, tips y servicios complementarios."
+        ]}
+      />
+
+      <RelatedContent
+        title=""
+        services={POPULAR_SERVICES.slice(0, 4)}
+        blogPosts={relatedBlogPosts.map(post => ({
+          title: post.data.title,
+          href: `/blog/${post.slug}/`,
+          image: post.data.image,
+          category: CATEGORY_LABELS[post.data.category] || post.data.category
+        }))}
+        variant="grid"
+        showIcons={true}
+      />
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       FAQ SECTION
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt">
+    <div class="container">
+      <DirectoryFAQ
+        title="Preguntas Frecuentes sobre Venues"
+        subtitle="Resuelve tus dudas"
+        questions={[
+          {
+            question: "¿Cómo elijo el venue ideal para mi evento?",
+            answer: "Considera estos factores clave: <strong>capacidad</strong> (número de invitados + 10% extra), <strong>ubicación</strong> (accesibilidad para tus invitados), <strong>tipo de espacio</strong> (jardín, salón, hacienda), <strong>presupuesto</strong> (pregunta qué incluye el precio), y <strong>servicios incluidos</strong> (mobiliario, catering, coordinador). Te recomendamos visitar al menos 3 opciones antes de decidir."
+          },
+          {
+            question: "¿Qué preguntas debo hacer al visitar un venue?",
+            answer: "Preguntas esenciales: ¿Qué incluye el precio? ¿Puedo traer proveedores externos (catering, DJ, decoración)? ¿Hay límite de hora? ¿Cuánto cuesta la hora extra? ¿Tienen planta de luz de respaldo? ¿Hay estacionamiento y cuántos lugares? ¿Qué restricciones tienen (música, pirotecnia, confeti)? ¿Cuál es la política de cancelación?"
+          },
+          {
+            question: "¿Cuándo debo reservar mi venue?",
+            answer: "Para <strong>bodas y XV años</strong>: reserva con 8-12 meses de anticipación, especialmente si tu fecha es en temporada alta (mayo-noviembre). Para <strong>eventos corporativos</strong>: 2-4 meses es suficiente. Para <strong>fiestas y cumpleaños</strong>: 1-2 meses. Los venues más populares como Hacienda de los Morales o los jardines de Coyoacán se agotan rápido en fines de semana."
+          },
+          {
+            question: "¿Cuál es el rango de precios de los venues en CDMX?",
+            answer: "Los precios varían ampliamente: <strong>$</strong> (económico): $150-300 MXN por persona, incluye espacio y mobiliario básico. <strong>$$</strong> (moderado): $400-800 MXN, incluye banquete estándar. <strong>$$$</strong> (premium): $900-1,500 MXN, banquete completo y coordinación. <strong>$$$$</strong> (lujo): $1,800+ MXN, servicio todo incluido en venues exclusivos. Haciendas y hoteles 5 estrellas suelen estar en la categoría alta."
+          },
+          {
+            question: "¿EVENTECH trabaja con todos los venues del directorio?",
+            answer: "Sí, hemos llevado equipo a la mayoría de venues listados. Conocemos las especificaciones técnicas, accesos de carga, tomas eléctricas y logística de cada espacio. Esto nos permite asesorarte sobre qué equipo funciona mejor en cada venue: qué tipo de iluminación realza los jardines, cuántas bocinas necesitas según el salón, o si el espacio requiere pistas de baile especiales."
+          },
+          {
+            question: "¿Qué servicios adicionales puedo necesitar para mi venue?",
+            answer: "Depende del venue, pero comúnmente se requieren: <strong>Mobiliario adicional</strong> (sillas especiales, mesas, salas lounge), <strong>Iluminación</strong> (guirnaldas, uplighting, letras luminosas), <strong>Audio y video</strong> (sonido profesional, pantallas, proyectores), <strong>Carpas y toldos</strong> (si hay jardín), <strong>Pistas de baile</strong> (LED o madera sobre césped). En EVENTECH rentamos todo esto con entrega e instalación en tu venue."
+          }
+        ]}
+        schema={true}
+      />
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CTA BANNER
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Ya tienes tu venue?"
+    subheadline="Cotiza el equipo que necesitas: mobiliario, carpas, iluminación, audio y más. Llevamos todo a donde sea tu evento."
+    primaryCTA={{ label: "Cotizar equipo", href: "/cotizar/" }}
+    secondaryCTA={{ label: "Ver servicios", href: "/servicios/" }}
+    variant="accent"
+  />
+</PageLayout>

@@ -1,0 +1,600 @@
+---
+/**
+ * ─── Proyectores y Video para Eventos — Sub-subcategoría (Nivel 3) ───
+ * Página especializada: Renta de Proyectores y Video para Eventos en CDMX.
+ * Color accent: Indigo #6c5ce7 (diferencia visual del nivel 2 teal).
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import ProductCard from "@components/ProductCard.astro";
+import { SITE } from "@data/site";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import Gallery4x4 from "@components/Gallery4x4.astro";
+import PricingCards from "@components/PricingCards.astro";
+import FaqSection from "@components/FaqSection.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Audiovisual", href: "/servicios/audiovisual/" },
+  { label: "Proyectores" },
+];
+
+const PROYECTORES = [
+  {
+    name: "Proyectores Full HD y 4K",
+    price: "Desde $1,000",
+    excerpt: "5,000 a 10,000 lúmenes Full HD y 4K. Imagen nítida en salones con luz ambiental y auditorios de hasta 500 personas. Pantalla de proyección incluida.",
+    href: "/servicios/audiovisual/proyectores/fullhd-4k/",
+    image: "/images/audiovisual/proyector-4k-pantalla-gigante-evento.avif",
+    tags: ["5,000–10,000 lm", "Full HD", "4K", "HDMI", "USB-C"],
+    badge: "Más popular",
+  },
+  {
+    name: "Streaming en Vivo",
+    price: "Desde $4,500",
+    excerpt: "Cámaras HD, switcher Blackmagic ATEM y encoder profesional. Transmisión en vivo a YouTube, Zoom o Teams con grabación del evento incluida.",
+    href: "/servicios/audiovisual/proyectores/streaming/",
+    image: "/images/audiovisual/audio-evento-05.avif",
+    tags: ["YouTube", "Zoom", "Teams", "Multi-cámara", "Grabación HD"],
+  },
+  {
+    name: "Video Mapping",
+    price: "Desde $8,000",
+    excerpt: "Proyección artística con Resolume Arena sobre fachadas, escenarios y pasteles de boda. El efecto visual más impactante para bodas y lanzamientos de producto.",
+    href: "/servicios/audiovisual/proyectores/mapping/",
+    image: "/images/audiovisual/audio-evento-06.avif",
+    tags: ["Resolume Arena", "Fachadas", "Cake Mapping", "WOW"],
+  },
+  {
+    name: "Pantallas de Proyección",
+    price: "Desde $500",
+    excerpt: "Front y rear projection de 100 a 300 pulgadas. Trípode, eléctrica, frame y fast-fold disponibles para presentaciones en salón o escenarios de congreso.",
+    href: "/servicios/audiovisual/proyectores/pantallas-proyeccion/",
+    image: "/images/audiovisual/monitor-pantalla-presentacion-congreso.avif",
+    tags: ["100\"–300\"", "Front / Rear", "Fast-fold", "Trípode", "Frame"],
+  },
+];
+
+const faqs = [
+  { question: "¿Cuántos lúmenes necesita el proyector para mi evento?", answer: "Depende del ambiente de tu venue. Para salones oscuros o con control de iluminación, de 3,000 a 5,000 lúmenes es suficiente. Si hay luz ambiental moderada (ventanales, iluminación parcial), recomendamos de 5,000 a 7,000 lúmenes. Para grandes recintos, auditorios o eventos al aire libre necesitas de 7,000 a 10,000 lúmenes. Nuestro equipo técnico evalúa tu espacio y te recomienda la potencia exacta para garantizar una imagen nítida y visible desde cualquier punto." },
+  { question: "¿Pueden hacer transmisión en vivo (streaming) de mi evento?", answer: "Sí, ofrecemos servicio completo de streaming profesional. Configuramos setups multi-cámara con cámaras HD, switcher Blackmagic ATEM, encoder profesional y conexión a internet dedicada. Transmitimos a YouTube, Zoom, Microsoft Teams o cualquier plataforma que necesites. El servicio incluye grabación del evento en alta definición como respaldo. Nuestro operador de video gestiona las transiciones, gráficos en pantalla y monitoreo de la señal en tiempo real." },
+  { question: "¿Qué es video mapping y para qué tipo de eventos se usa?", answer: "El video mapping es una técnica de proyección sobre superficies tridimensionales como fachadas, edificios, escenarios, pasteles de boda y objetos decorativos. Mediante software especializado (Resolume Arena), se adapta el contenido visual a la geometría de la superficie para crear efectos inmersivos y espectaculares. Es perfecto para bodas (cake mapping, proyección en mesa de novios), lanzamientos de producto, shows artísticos y eventos corporativos de alto impacto. Requiere planeación de 1 a 2 meses de anticipación para diseño de contenido y calibración." },
+  { question: "¿Qué tipo de pantalla de proyección debo elegir?", answer: "Depende del espacio y uso. Pantalla trípode para reuniones pequeñas y presentaciones rápidas (fácil de montar). Pantalla eléctrica para salas de juntas y espacios corporativos permanentes. Pantalla frame para instalaciones fijas con imagen tensada. Pantalla fast-fold para eventos con montaje rápido y profesional, disponible desde 100 hasta 300 pulgadas. Si el proyector está detrás de la pantalla (en escenarios), necesitas rear projection. Para configuraciones normales, front projection es la opción estándar. Te asesoramos según tu venue." },
+  { question: "¿El proyector incluye computadora o fuente de señal?", answer: "Cada proyector incluye cable HDMI, adaptador USB-C y conectividad básica para que conectes tu laptop o dispositivo. Si no cuentas con computadora, ofrecemos renta de laptop como complemento adicional. También disponemos de reproductores multimedia para loops de video y presentaciones automáticas. Nuestro técnico te asiste con la conexión, configuración de resolución y pruebas previas al evento para garantizar que todo funcione perfectamente." },
+  { question: "¿Con cuánta anticipación debo reservar proyectores?", answer: "Para renta estándar de proyectores y pantallas de proyección, recomendamos reservar con 2 a 3 semanas de anticipación. Para servicios de video mapping o streaming profesional, lo ideal es apartar con 1 a 2 meses de anticipación, ya que requieren planeación técnica, diseño de contenido y pruebas previas. En temporada alta (noviembre a febrero) la demanda aumenta considerablemente, por lo que te sugerimos reservar lo antes posible. También atendemos solicitudes urgentes sujetas a disponibilidad." },
+];
+
+const jsonLd = [
+  serviceJsonLd({
+    name: "Renta de Proyectores y Video CDMX",
+    description: "Proyectores Full HD y 4K, streaming en vivo, video mapping y pantallas de proyección para bodas, congresos y eventos corporativos. Técnico incluido.",
+    url: "/servicios/audiovisual/proyectores/",
+    priceRange: { min: 1000, max: 20000 },
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Audiovisual", url: "/servicios/audiovisual/" },
+    { name: "Proyectores", url: "/servicios/audiovisual/proyectores/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Proyectores y Video CDMX"
+  description="Renta de proyectores Full HD y 4K, streaming en vivo, video mapping y pantallas de proyección para eventos en CDMX. Técnico incluido. Desde $1,000. Cotiza hoy."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Imagen profesional en alta definición"
+    title='Renta de <span class="highlight">Proyectores y Video</span> para Eventos en CDMX'
+    subtitle="Proyectores de 5,000 a 10,000 lúmenes, streaming multi-cámara, video mapping artístico y pantallas de proyección hasta 300 pulgadas. Técnico de operación incluido en cada renta."
+    primaryCTA={{ label: "Cotiza tu proyector", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar proyectores y video para mi evento` }}
+    cards={[
+      {
+        title: "Tecnología de proyección profesional para cada evento",
+        content: "<strong>Renta de proyectores para eventos</strong> con equipos de grado profesional disponibles en CDMX. Proyectores DLP y LCD de 5,000 a 10,000 lúmenes con resolución Full HD y 4K para presentaciones corporativas, videos de boda, conferencias magistrales y mapping arquitectónico. Pantallas de proyección front y rear desde 100 hasta 300 pulgadas en formatos trípode, eléctrica, frame y fast-fold que se adaptan a cualquier tipo de venue — cada equipo calibrado y verificado antes de cada entrega para garantizar nitidez y fidelidad de color.",
+      },
+      {
+        title: "Streaming profesional y video mapping de alto impacto",
+        content: "<strong>Servicios audiovisuales avanzados</strong> para eventos que necesitan ir más allá de la proyección tradicional. Streaming en vivo multi-cámara con switcher Blackmagic ATEM, encoder profesional y transmisión simultánea a YouTube, Zoom y Teams para eventos híbridos. Video mapping con software Resolume Arena para proyecciones artísticas sobre fachadas, escenarios y superficies 3D que transforman cualquier espacio en una experiencia visual inmersiva — operador de video dedicado durante todo el evento.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CTA BANNER
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas proyección profesional para tu próximo evento?"
+    subheadline="Cotiza sin compromiso y recibe una propuesta técnica con el equipo ideal para tu espacio y audiencia"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CATÁLOGO — 4 tipos de proyección y video
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="catalogo-heading">
+    <div class="container">
+      <SectionHeader
+        id="catalogo-heading"
+        title="Nuestro Catálogo de Proyectores y Video"
+        subtitle="La solución audiovisual perfecta para cada tipo de evento"
+        description={[
+          "Desde proyectores de alta luminosidad para conferencias corporativas hasta video mapping artístico para bodas y lanzamientos de producto. Contamos con el equipo de proyección y video más completo de la Ciudad de México.",
+          "Cada servicio incluye equipo profesional, cableado, configuración técnica y operador dedicado. Calidad de imagen, potencia lumínica y soporte técnico garantizados para una experiencia visual impecable."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        {PROYECTORES.map((proyector) => (
+          <ProductCard
+            name={proyector.name}
+            price={proyector.price}
+            excerpt={proyector.excerpt}
+            href={proyector.href}
+            image={proyector.image}
+            tags={proyector.tags}
+            badge={proyector.badge}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROYECTORES FULL HD Y 4K — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="proyectores-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Proyectores Full HD y 4K"
+    headingId="proyectores-heading"
+    badge="Alta definición"
+    subtitle="Imagen nítida y brillante para presentaciones, videos y proyecciones de gran formato."
+    tags={["5,000 lúmenes", "7,000 lúmenes", "10,000 lúmenes", "4K nativo"]}
+    ctaHref="/servicios/audiovisual/proyectores/fullhd-4k/"
+    ctaLabel="Ver Proyectores Full HD/4K"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Nuestros <strong>proyectores profesionales</strong> están disponibles en potencias de <strong>5,000, 7,000 y 10,000 lúmenes</strong> con resolución Full HD (1080p) y 4K nativo. Tecnología DLP y LCD de última generación con contraste superior a 10,000:1 para colores vibrantes y negros profundos. Equipos short throw disponibles para espacios reducidos donde la distancia de proyección es limitada, logrando imágenes de hasta 150 pulgadas a solo 1.5 metros de la pantalla.</p>
+      <p class="showcase__text">Incluyen <strong>lente de zoom motorizado, corrección keystone y conexiones HDMI, SDI y HDBaseT</strong> para fuentes profesionales de video. Ideales para <strong>presentaciones corporativas, conferencias magistrales, proyección de videos en bodas, ceremonias religiosas y mapping arquitectónico</strong>. Cada proyector se entrega calibrado en brillo y color según las condiciones lumínicas de tu venue. Asegura la alimentación eléctrica con nuestras <a href="/servicios/accesorios/">plantas de energía</a> para eventos en exteriores o locaciones sin instalación fija.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       STREAMING EN VIVO — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="streaming-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Streaming en Vivo"
+    headingId="streaming-heading"
+    badge="Eventos híbridos"
+    subtitle="Transmisión profesional multi-cámara para llevar tu evento a audiencias remotas en todo el mundo."
+    tags={["Multi-cámara", "Blackmagic ATEM", "1080p 60fps", "Grabación HD"]}
+    ctaHref="/servicios/audiovisual/proyectores/streaming/"
+    ctaLabel="Ver Streaming en Vivo"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Nuestro servicio de <strong>streaming profesional</strong> incluye setup completo con <strong>2 a 4 cámaras HD</strong>, switcher <strong>Blackmagic ATEM</strong> para transiciones en vivo, encoder de hardware dedicado y conexión a internet redundante. Transmitimos simultáneamente a <strong>YouTube Live, Zoom, Microsoft Teams, Facebook Live</strong> y cualquier plataforma RTMP. Calidad de transmisión hasta 1080p a 60fps con audio embebido profesional y monitoreo constante de la señal.</p>
+      <p class="showcase__text">Incluye <strong>grabación completa del evento en alta definición</strong> como respaldo, gráficos en pantalla (lower thirds, logos, contadores), gestión de Q&A remoto y soporte técnico de nuestro operador de video durante toda la transmisión. Perfecto para <strong>congresos híbridos, conferencias corporativas, ceremonias religiosas, graduaciones y eventos sociales</strong> con invitados a distancia. Complementa tu transmisión con nuestro <a href="/servicios/audiovisual/">sonido profesional</a> para una experiencia audiovisual completa.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="23 7 16 12 23 17 23 7"/>
+              <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       VIDEO MAPPING — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="mapping-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Video Mapping"
+    headingId="mapping-heading"
+    badge="Efecto WOW"
+    subtitle="Proyección artística sobre superficies 3D que transforma cualquier espacio en una experiencia inmersiva."
+    tags={["Resolume Arena", "Fachadas 3D", "Contenido a medida", "Alto lumen"]}
+    ctaHref="/servicios/audiovisual/proyectores/mapping/"
+    ctaLabel="Ver Video Mapping"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">El <strong>video mapping profesional</strong> utiliza proyectores de <strong>7,000 a 10,000 lúmenes</strong> y software especializado <strong>Resolume Arena</strong> para proyectar contenido visual adaptado a la geometría de superficies tridimensionales. Desde <strong>fachadas de edificios y escenarios</strong> hasta pasteles de boda, mesas de honor y objetos decorativos — cada proyección se diseña a medida con animaciones, efectos visuales y contenido personalizado que genera un impacto visual inolvidable.</p>
+      <p class="showcase__text">Nuestro equipo de diseño crea el <strong>contenido visual a medida</strong> según la temática de tu evento: logotipos animados para lanzamientos corporativos, efectos florales para bodas, countdown espectaculares y shows de luz sincronizados con música. El proceso incluye <strong>levantamiento técnico del venue, diseño de contenido, calibración y ensayos</strong> previos al evento. Ideal para combinarse con nuestros <a href="/servicios/iluminacion/">efectos especiales de iluminación</a> y crear producciones de nivel espectacular.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PANTALLAS DE PROYECCIÓN — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="pantallas-proy-heading">
+    <div class="container">
+      <div class="showcase">
+        <div class="showcase__content">
+          <span class="showcase__badge">La superficie ideal</span>
+          <h2 class="showcase__title" id="pantallas-proy-heading">Pantallas de Proyección</h2>
+          <p class="showcase__subtitle">Front y rear projection desde 100 hasta 300 pulgadas para cada tipo de espacio y evento.</p>
+          <p class="showcase__text">Nuestras <strong>pantallas de proyección profesional</strong> están disponibles en 4 formatos: <strong>trípode</strong> para reuniones rápidas y presentaciones portátiles, <strong>eléctrica</strong> con control remoto para salas corporativas, <strong>frame</strong> con tensor perimetral para imagen perfectamente plana, y <strong>fast-fold</strong> con estructura plegable de montaje rápido para eventos de gran formato. Tamaños desde <strong>100 hasta 300 pulgadas</strong> en relación de aspecto 16:9 y 4:3, con ganancia de superficie 1.0 a 1.3 para máxima luminosidad.</p>
+          <p class="showcase__text">Disponibles en configuración <strong>front projection</strong> (proyector delante de la pantalla, la más común) y <strong>rear projection</strong> (proyector detrás, ideal para escenarios donde no se quiere ver el haz de luz). Las pantallas fast-fold de 200 y 300 pulgadas son las más solicitadas para <strong>congresos, bodas en jardín, conciertos y eventos al aire libre</strong>. Complementa tu montaje con nuestras <a href="/servicios/carpas/">carpas profesionales</a> para crear un espacio de proyección protegido de la intemperie.</p>
+          <div class="showcase__tags">
+            <span class="showcase__tag">Trípode</span>
+            <span class="showcase__tag">Eléctrica</span>
+            <span class="showcase__tag">Frame</span>
+            <span class="showcase__tag">Fast-Fold 300"</span>
+          </div>
+          <a href="/servicios/audiovisual/proyectores/pantallas-proyeccion/" class="btn btn--primary btn--lg">
+            Ver Pantallas de Proyección
+          </a>
+        </div>
+        <div class="showcase__image">
+          <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       GALERÍA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="galeria-heading">
+    <div class="container">
+      <h2 id="galeria-heading" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 2rem;">¿Cómo lucen nuestros proyectores en eventos?</h2>
+      <Gallery4x4 images={[
+        { src: "/images/audiovisual/cabina-dj-profesional-boda-cdmx.avif", alt: "Cabina DJ profesional para boda en CDMX" },
+        { src: "/images/audiovisual/equipo-audiovisual-completo-boda.avif", alt: "Equipo audiovisual completo para boda" },
+        { src: "/images/audiovisual/microfono-inalambrico-shure-conferencia-evento.avif", alt: "Micrófono inalámbrico Shure para conferencia" },
+        { src: "/images/audiovisual/microfono-solapa-diadema-conferencista.avif", alt: "Micrófono de solapa y diadema para conferencista" },
+        { src: "/images/audiovisual/monitor-pantalla-presentacion-congreso.avif", alt: "Monitor pantalla presentación congreso" },
+        { src: "/images/audiovisual/pantalla-led-videowall-evento-corporativo.avif", alt: "Pantalla LED videowall evento corporativo" },
+        { src: "/images/audiovisual/proyector-4k-pantalla-gigante-evento.avif", alt: "Proyector 4K pantalla gigante evento" },
+        { src: "/images/audiovisual/sistema-audio-bafle-jbl-evento-corporativo.avif", alt: "Sistema audio JBL evento corporativo" },
+      ]} />
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PAQUETES
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="paquetes-heading">
+    <div class="container">
+      <h2 id="paquetes-heading" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 0.5rem;">¿Cuánto cuesta rentar proyectores y video?</h2>
+      <p style="color: var(--color-text-light); margin-bottom: 2rem; max-width: 60ch;">Precios referenciales por evento (+IVA). Incluye entrega y montaje en CDMX.</p>
+      <PricingCards packages={[
+        {
+          name: "Básico",
+          price: "$1,500",
+          priceNote: "por evento",
+          description: "Proyector para presentaciones corporativas.",
+          features: [
+            { text: "Proyector Full HD 5,000 lm", included: true },
+            { text: "Pantalla de proyección", included: true },
+            { text: "Cableado HDMI", included: true },
+            { text: "Streaming en vivo", included: false },
+          ],
+          ctaHref: "/cotizar/",
+        },
+        {
+          name: "Estándar",
+          badge: "Más popular",
+          highlight: true,
+          price: "$3,000",
+          priceNote: "por evento",
+          description: "Proyección profesional para eventos medianos.",
+          features: [
+            { text: "Proyector 4K 7,000 lm", included: true },
+            { text: "Pantalla motorizada", included: true },
+            { text: "Técnico de operación", included: true },
+            { text: "Laptop de respaldo", included: true },
+          ],
+          ctaHref: "/cotizar/",
+        },
+        {
+          name: "Premium",
+          price: "$5,500",
+          priceNote: "por evento",
+          description: "Proyección de alto impacto con streaming.",
+          features: [
+            { text: "Proyector 4K 10,000 lm", included: true },
+            { text: "Streaming profesional", included: true },
+            { text: "Cámaras HD + switcher", included: true },
+            { text: "Equipo técnico completo", included: true },
+          ],
+          ctaHref: "/cotizar/",
+        },
+        {
+          name: "Producción Full",
+          price: "Cotizar",
+          priceNote: "mapping + streaming",
+          description: "Mapping arquitectónico y producción audiovisual.",
+          features: [
+            { text: "Multi-proyector mapping", included: true },
+            { text: "Producción streaming HD", included: true },
+            { text: "Grabación profesional", included: true },
+            { text: "Director técnico", included: true },
+          ],
+          ctaHref: "/cotizar/",
+        },
+      ]} />
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PREGUNTAS FRECUENTES
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="faq-heading">
+    <div class="container">
+      <h2 id="faq-heading" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 2rem;">Preguntas frecuentes sobre proyectores y video</h2>
+    </div>
+    <FaqSection items={faqs} serviceName="proyectores y video" />
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       RESERVA TU EVENTO - Formulario de contacto / WhatsApp
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Proyector y Video"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores técnicos te responderá por WhatsApp con una cotización personalizada de proyectores y video. Sin compromiso, sin costos ocultos.",
+          "Ya sea un proyector de 5,000 lúmenes para tu conferencia o un servicio completo de video mapping para tu boda, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoProyector">
+                Tipo de proyector / servicio
+              </label>
+              <select id="tipoProyector" name="tipoProyector" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de equipo</option>
+                <option value="Proyector Full HD 5,000 lm">Proyector Full HD 5,000 lm</option>
+                <option value="Proyector Full HD 7,000 lm">Proyector Full HD 7,000 lm</option>
+                <option value="Proyector 4K 10,000 lm">Proyector 4K 10,000 lm</option>
+                <option value="Streaming Multi-cámara">Streaming Multi-cámara</option>
+                <option value="Video Mapping">Video Mapping</option>
+                <option value="Pantalla Trípode">Pantalla Trípode</option>
+                <option value="Pantalla Fast-Fold">Pantalla Fast-Fold</option>
+                <option value="Pantalla Eléctrica">Pantalla Eléctrica</option>
+                <option value="Paquete Completo">Paquete Completo</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de asistentes, tipo de venue (salón/jardín/auditorio), contenido a proyectar, necesidad de streaming o mapping..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para recomendarte el proyector y pantalla ideales según distancias y condiciones de luz.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría técnica personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoProyector = document.getElementById('tipoProyector').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Nueva solicitud desde EVENTECH.MX — Proyectores y Video*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoProyector) texto += `*Tipo de proyector:* ${tipoProyector}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CTA FINAL
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="La imagen profesional que tu evento necesita"
+    subheadline="Más de 500 eventos exitosos con proyectores y video nos respaldan. Cotiza hoy y recibe asesoría técnica sin compromiso."
+    primaryCTA={{ label: "Cotizar proyectores y video", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar proyectores y video para mi evento` }}
+    variant="accent"
+  />
+
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     INDIGO COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #6c5ce7;
+    --color-accent-hover: #5a4fd6;
+    --color-accent-light: #8b7ff0;
+    --color-accent-soft: rgba(108, 92, 231, 0.1);
+    --gradient-accent: linear-gradient(135deg, #6c5ce7 0%, #5a4fd6 100%);
+    --shadow-accent: 0 4px 14px rgba(108, 92, 231, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(108, 92, 231, 0.5);
+  }
+</style>

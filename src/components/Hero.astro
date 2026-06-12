@@ -1,0 +1,107 @@
+---
+/**
+ * ─── Hero Component ───
+ * Full-width hero section with heading, description, and CTA buttons.
+ * Supports optional background image via prop.
+ */
+
+type Props = {
+  title: string;
+  description?: string;
+  primaryCTA?: { label: string; href: string };
+  secondaryCTA?: { label: string; href: string };
+  backgroundImage?: string;
+  centered?: boolean;
+};
+
+const {
+  title,
+  description,
+  primaryCTA,
+  secondaryCTA,
+  backgroundImage,
+  centered = true,
+} = Astro.props;
+---
+
+<section
+  class:list={["hero section", { "hero--centered": centered, "hero--image": Boolean(backgroundImage) }]}
+  style={backgroundImage ? `--hero-bg: url(${backgroundImage})` : undefined}
+>
+  <div class="container stack">
+    <h1 class="hero__title">{title}</h1>
+    {description && <p class="hero__description">{description}</p>}
+    {(primaryCTA || secondaryCTA) && (
+      <div class="hero__actions cluster">
+        {primaryCTA && (
+          <a href={primaryCTA.href} class="btn btn--primary">
+            {primaryCTA.label}
+          </a>
+        )}
+        {secondaryCTA && (
+          <a href={secondaryCTA.href} class="btn btn--outline">
+            {secondaryCTA.label}
+          </a>
+        )}
+      </div>
+    )}
+    <slot />
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-block: var(--space-4xl);
+    background-color: var(--color-bg-alt);
+    background-image: var(--hero-bg, none);
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* Overlay para garantizar contraste del texto cuando hay imagen de fondo (WCAG 1.4.3) */
+  .hero--image {
+    position: relative;
+    isolation: isolate;
+  }
+  .hero--image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(rgba(15, 15, 26, 0.55), rgba(15, 15, 26, 0.65));
+  }
+  .hero--image .hero__title { color: #fff; }
+  .hero--image .hero__description { color: rgba(255, 255, 255, 0.92); }
+
+  .hero--centered {
+    text-align: center;
+  }
+
+  .hero--centered .hero__actions {
+    justify-content: center;
+  }
+
+  .hero--centered .hero__description {
+    margin-inline: auto;
+  }
+
+  .hero__title {
+    font-size: var(--text-4xl);
+    max-width: 20ch;
+  }
+
+  .hero--centered .hero__title {
+    margin-inline: auto;
+  }
+
+  .hero__description {
+    font-size: var(--text-lg);
+    color: var(--color-text-light);
+    max-width: 55ch;
+    line-height: 1.6;
+  }
+
+  .hero__actions {
+    margin-block-start: var(--space-lg);
+  }
+</style>

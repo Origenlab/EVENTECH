@@ -1,0 +1,197 @@
+---
+/**
+ * ComparisonTable Component
+ * Displays a comparison table with optional highlighted column.
+ *
+ * @example
+ * <ComparisonTable
+ *   highlightColumn={2}
+ *   headers={["Característica", "Básico", "Premium", "VIP"]}
+ *   rows={[
+ *     { feature: "Instalación", values: ["No", "Sí", "Sí"], highlight: true },
+ *     { feature: "Metros incluidos", values: ["50m", "100m", "200m"] }
+ *   ]}
+ * />
+ */
+
+interface TableRow {
+  feature: string;
+  values: string[];
+  highlight?: boolean;
+}
+
+interface Props {
+  headers: string[];
+  rows: TableRow[];
+  highlightColumn?: number;
+  title?: string;
+  caption?: string;
+}
+
+const { headers, rows, highlightColumn, title, caption } = Astro.props;
+---
+
+<div class="comparison-table-wrapper">
+  {title && <h3 class="comparison-table__title">{title}</h3>}
+  <div class="comparison-table__scroll">
+    <table class="comparison-table">
+      {caption && <caption class="comparison-table__caption">{caption}</caption>}
+      <thead>
+        <tr>
+          {headers.map((header, idx) => (
+            <th class={highlightColumn === idx ? "highlight-col" : ""}>
+              {header}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row) => (
+          <tr class={row.highlight ? "highlight-row" : ""}>
+            <td class="feature-cell">{row.feature}</td>
+            {row.values.map((value, idx) => (
+              <td class={highlightColumn === idx + 1 ? "highlight-col" : ""}>
+                {value === "Sí" || value === "✓" ? (
+                  <span class="check-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                  </span>
+                ) : value === "No" || value === "✗" ? (
+                  <span class="x-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="18" y1="6" x2="6" y2="18"/>
+                      <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                  </span>
+                ) : (
+                  value
+                )}
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<style>
+  .comparison-table-wrapper {
+    margin: var(--space-xl) 0;
+  }
+
+  .comparison-table__title {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+    text-align: center;
+  }
+
+  .comparison-table__scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+    background: #fff;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .comparison-table__caption {
+    caption-side: bottom;
+    padding: var(--space-sm);
+    font-size: var(--text-xs);
+    color: var(--color-text-light);
+    text-align: left;
+  }
+
+  .comparison-table thead {
+    background: var(--color-primary, #1a1a2e);
+    color: #fff;
+  }
+
+  .comparison-table th {
+    padding: var(--space-md);
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .comparison-table th:first-child {
+    text-align: left;
+  }
+
+  .comparison-table td {
+    padding: var(--space-md);
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .comparison-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .comparison-table tbody tr:nth-child(even) {
+    background: var(--color-bg-alt, #f8f9fa);
+  }
+
+  .comparison-table tbody tr:hover {
+    background: var(--color-accent-soft, rgba(0, 184, 148, 0.05));
+  }
+
+  .feature-cell {
+    text-align: left;
+    font-weight: 500;
+    color: var(--color-primary);
+    white-space: nowrap;
+  }
+
+  .highlight-col {
+    background: var(--color-accent-soft, rgba(0, 184, 148, 0.1)) !important;
+  }
+
+  .highlight-row {
+    background: rgba(255, 234, 167, 0.3) !important;
+  }
+
+  .highlight-row:hover {
+    background: rgba(255, 234, 167, 0.5) !important;
+  }
+
+  thead .highlight-col {
+    background: var(--color-accent, #00b894) !important;
+  }
+
+  .check-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #27ae60;
+  }
+
+  .x-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #e74c3c;
+  }
+
+  @media (max-width: 576px) {
+    .comparison-table th,
+    .comparison-table td {
+      padding: var(--space-sm);
+      font-size: var(--text-xs);
+    }
+
+    .feature-cell {
+      min-width: 120px;
+    }
+  }
+</style>

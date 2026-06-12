@@ -1,0 +1,675 @@
+---
+/**
+ * ─── Videowall Modular LED — Pagina de Producto (Nivel 4) ───
+ * Paneles LED modulares P2.5 y P3.9 ensamblables en cualquier
+ * dimension para escenarios de gran impacto.
+ *
+ * Jerarquia: Servicios > Audiovisual > Pantallas LED > Videowall
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Audiovisual", href: "/servicios/audiovisual/" },
+  { label: "Pantallas LED", href: "/servicios/audiovisual/pantallas-led/" },
+  { label: "Videowall Modular" },
+];
+
+const faqs = [
+  { question: "¿Cuál es la diferencia entre pixel pitch P2.5 y P3.9?", answer: 'El <strong>pixel pitch</strong> indica la distancia en milímetros entre cada LED. P2.5 tiene una densidad mayor de pixeles (mayor resolución) ideal para <strong>interiores con distancias de visualización cortas</strong> (2 a 10 metros) — perfecto para salones de hotel, centros de convenciones y salas de conferencias. P3.9 tiene menor densidad pero mayor brillo, ideal para <strong>escenarios con distancias medianas a largas</strong> (5 a 30 metros) y eventos con iluminación intensa o uso semi-exterior. Para conciertos y festivales, P3.9 ofrece el mejor balance entre resolución, brillo y costo.' },
+  { question: "¿Puedo solicitar dimensiones personalizadas para el videowall?", answer: "Sí, es una de las mayores ventajas del videowall modular. Nuestros paneles se ensamblan como piezas para crear pantallas de <strong>cualquier dimensión</strong>: desde 2x1 metros para presentaciones hasta 6x3 metros o más para conciertos masivos. También creamos <strong>configuraciones no rectangulares</strong> como formas en L, U, curvas e incluso columnas envolventes. El único límite es el espacio disponible en tu venue. Nuestro ingeniero de video diseña la configuración óptima según tus necesidades y el espacio disponible." },
+  { question: "¿Necesito crear contenido especial para el videowall?", answer: "No necesariamente. Nuestro procesador Novastar <strong>escala automáticamente</strong> cualquier contenido (presentaciones, videos, transmisiones) a la resolución del videowall. Sin embargo, para un resultado visualmente impactante, recomendamos crear contenido en la <strong>resolución nativa del videowall</strong> (que calculamos según la configuración elegida). Si necesitas contenido personalizado, podemos referirte con diseñadores especializados en contenido para LED. Para corporativos, tus presentaciones de PowerPoint funcionan perfectamente sin modificaciones." },
+  { question: "¿Cuánta energía necesita un videowall modular?", answer: "Depende de la dimensión. Configuraciones pequeñas de <strong>2x1m a 3x2m</strong> funcionan con alimentación <strong>110V/220V estándar</strong> (1-2 circuitos dedicados). Configuraciones medianas de <strong>3x2m a 4x2.5m</strong> requieren 220V con tablero dedicado. Para configuraciones grandes de <strong>5x3m o más</strong>, recomendamos alimentación trifásica 220V o una <a href='/servicios/accesorios/plantas-energia/'>planta de energía dedicada</a>. Nuestro equipo técnico evalúa la infraestructura eléctrica de tu venue y coordina todo lo necesario para garantizar una alimentación estable y segura." },
+  { question: "¿Cuánto tiempo tarda el montaje de un videowall?", answer: "El tiempo de montaje varía según la dimensión y configuración. Un <strong>videowall de 2x1m</strong> se instala en aproximadamente <strong>2 a 3 horas</strong>. Configuraciones de <strong>3x2m</strong> requieren 3 a 4 horas. Para <strong>4x2.5m o más</strong>, el montaje puede tomar de 4 a 8 horas dependiendo de si es ground stack (piso) o fly system (rigging aéreo). Siempre programamos el montaje con margen suficiente e incluimos pruebas de imagen, calibración de color y verificación de señal antes de que inicie tu evento." },
+  { question: "¿El videowall modular funciona en exteriores?", answer: 'Nuestros paneles P3.9 pueden utilizarse en <strong>exteriores cubiertos</strong> (bajo carpa o toldo) con excelentes resultados. Para eventos completamente al aire libre con exposición al sol y riesgo de lluvia, recomendamos nuestras <a href="/servicios/audiovisual/pantallas-led/exterior/">pantallas LED de exterior</a> con certificación IP65 y brillo de 5,000+ nits. Si tu evento es al atardecer o de noche al aire libre, los paneles P3.9 ofrecen suficiente brillo (3,000-5,000 nits) para una imagen nítida.' },
+];
+
+const specs = [
+  { label: "Pixel pitch", value: "P2.5 (interior) / P3.9 (versátil)" },
+  { label: "Dimensiones", value: "2×1 m hasta 6×3 m+ (modular)" },
+  { label: "Brillo", value: "1,500 – 5,000 nits (según modelo)" },
+  { label: "Procesador", value: "Novastar incluido (hasta 4 fuentes)" },
+  { label: "Refresh rate", value: "3,840 Hz (sin parpadeo en cámara)" },
+  { label: "Peso por panel", value: "~8 kg/m²" },
+  { label: "Montaje", value: "Ground stack / Fly system (rigging)" },
+  { label: "Contenido", value: "Video, gráficos, streaming, multi-fuente" },
+  { label: "Energía", value: "220V trifásica para configuraciones >3×2 m" },
+  { label: "Técnico", value: "Instalación + operación incluidos" },
+];
+
+const sidebarNav = [
+  { name: "Pantallas en Pedestal", href: "/servicios/audiovisual/pantallas-led/pedestal/" },
+  { name: "Videowall Modular", href: null, active: true },
+  { name: "Pantallas Gigantes Exterior", href: "/servicios/audiovisual/pantallas-led/exterior/" },
+  { name: "Monitores y Displays", href: "/servicios/audiovisual/pantallas-led/monitores/" },
+];
+
+const sidebarRelated = [
+  { name: "Sonido Line Array", href: "/servicios/audiovisual/sonido/" },
+  { name: "Iluminación Escenario", href: "/servicios/iluminacion/escenario/" },
+  { name: "Tarimas y Escenarios", href: "/servicios/pistas-baile/tarimas-escenarios/" },
+  { name: "Streaming en Vivo", href: "/servicios/audiovisual/microfonos-dj/" },
+  { name: "Efectos Especiales", href: "/servicios/iluminacion/efectos-especiales/" },
+];
+
+const reviews = [
+  { author: "Miguel Ángel Reyes", text: "Montamos un videowall de 3x2 metros P2.5 para un concierto privado en un salón de Polanco. La calidad de imagen fue impresionante — los videos musicales se veían con una nitidez increíble. El equipo de EVENTECH instaló todo en 4 horas y el técnico operó las transiciones entre contenidos como un profesional. El punto focal del evento.", rating: 5, date: "2025-11-28" },
+  { author: "Laura Mendoza", text: "Contratamos un videowall de 4x2.5 metros para nuestra convención anual corporativa con 400 asistentes. El procesador Novastar permitió alternar entre la presentación del CEO, cámaras en vivo y videos institucionales sin ningún corte. La inversión valió completamente la pena — el impacto visual fue de otro nivel.", rating: 5, date: "2025-10-12" },
+  { author: "Carlos Vega", text: "Usamos el videowall P3.9 de 3x2m para un festival de música al aire libre en el atardecer. Tenía dudas sobre el brillo pero se veía perfecto. El montaje fue rápido, el rigging profesional y el equipo técnico resolvió todo impecablemente. Ya estamos planeando el siguiente festival con una pantalla aún más grande.", rating: 5, date: "2025-09-05" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Videowall Modular LED CDMX",
+    description: "Videowall modular LED P2.5 y P3.9 en cualquier dimensión para escenarios en CDMX. Desde 2x1 hasta 6x3 metros. Técnico e instalación incluidos. Desde $8,000.",
+    url: "/servicios/audiovisual/pantallas-led/videowall/",
+    priceRange: { min: 8000, max: 45000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 87,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Audiovisual", url: "/servicios/audiovisual/" },
+    { name: "Pantallas LED", url: "/servicios/audiovisual/pantallas-led/" },
+    { name: "Videowall Modular", url: "/servicios/audiovisual/pantallas-led/videowall/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Videowall Modular LED CDMX"
+  description="Renta de videowall modular LED P2.5 y P3.9 en cualquier dimensión para escenarios en CDMX. Desde 2x1 hasta 6x3 metros. Técnico e instalación incluidos."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Impacto visual sin límites de tamaño"
+    title='Renta de <span class="highlight">Videowall Modular LED</span> para Eventos en CDMX'
+    subtitle="Paneles LED modulares P2.5 y P3.9 que se ensamblan en cualquier dimensión. Desde 2x1 hasta 6x3 metros para escenarios de gran impacto. Procesador Novastar, técnico e instalación profesional incluidos."
+    primaryCTA={{ label: "Cotiza tu videowall", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar un videowall modular para mi evento` }}
+    cards={[
+      {
+        title: "Paneles LED modulares en cualquier dimensión",
+        content: "<strong>Renta de videowall modular LED</strong> con paneles de última generación en pixel pitch P2.5 (alta resolución interior) y P3.9 (versátil interior/exterior). Ensamblaje en cualquier dimensión desde 2x1 hasta 6x3 metros o configuraciones creativas en formas L, U y curvas. Refresh rate de 3,840 Hz para imagen sin parpadeos incluso en grabaciones de video. Procesador Novastar incluido con gestión de hasta 4 fuentes simultáneas para transiciones fluidas entre contenidos.",
+      },
+      {
+        title: "Instalación profesional con ingeniería de video",
+        content: "<strong>Servicio completo de instalación</strong> con ingeniero de video certificado. Estructura de soporte ground stack o fly system (rigging aéreo) según tu venue. Cableado SDI/HDMI profesional, calibración de brillo y color panel por panel, y operación técnica durante todo el evento. Montaje de 3 a 8 horas según dimensión con pruebas previas completas. Ideal para congresos, conciertos, lanzamientos de producto y escenarios de gran formato.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas un escenario visual de gran impacto?"
+    subheadline="Cotiza sin compromiso — diseñamos la configuración de videowall perfecta para tu evento"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Pantallas LED para Eventos</h2>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card sidebar-card--cta">
+          <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+          <p class="sidebar-card--cta-text">¿Necesitas un videowall para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar un videowall modular para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Videowall Modular LED</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Videowall 2x1m -->
+          <section class="section section--alt" aria-labelledby="vw-2x1-heading">
+            <ServiceShowcase
+    title="Videowall 2x1 Metros"
+    headingId="vw-2x1-heading"
+    badge="Ideal para salones"
+    subtitle="La configuración de entrada para presentaciones corporativas y eventos en salón con impacto superior a una pantalla convencional."
+    tags={["2×1 metros", "P2.5 interior", "3,840 Hz", "2-3 hrs montaje"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Videowall 2×1m"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">El <strong>videowall de 2x1 metros</strong> es la configuración más compacta de nuestro catálogo modular y ofrece un impacto visual significativamente superior a cualquier pantalla individual. Con paneles <strong>P2.5 de alta resolución</strong>, entrega una imagen nítida y vibrante visible desde distancias de 2 a 15 metros. Resolución efectiva de 800x400 píxeles (P2.5) con tasa de refresco de 3,840 Hz — perfecta para grabaciones de video sin parpadeos.</p>
+      <p class="showcase__text">Ideal para <strong>presentaciones corporativas, lanzamientos de producto, conferencias de prensa y showrooms</strong> donde necesitas un fondo visual de alto impacto sin ocupar demasiado espacio. El montaje ground stack se completa en <strong>2 a 3 horas</strong> e incluye procesador Novastar, cableado HDMI/SDI y técnico de operación. Funciona con alimentación <strong>110V/220V estándar</strong> sin necesidad de tablero especial. Combínalo con nuestro <a href="/servicios/audiovisual/sonido/">sonido profesional</a> para una producción completa.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/>
+                  </svg>
+                  <span>Videowall 2×1m</span>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <!-- 5. SHOWCASE: Videowall 3x2m -->
+          <section class="section section--alt" aria-labelledby="vw-3x2-heading">
+            <ServiceShowcase
+    title="Videowall 3x2 Metros"
+    headingId="vw-3x2-heading"
+    badge="El más solicitado"
+    subtitle="El tamaño más popular para escenarios: congresos, galas corporativas y eventos con 200 a 500 asistentes."
+    tags={["3×2 metros", "P2.5 / P3.9", "4 fuentes", "3-4 hrs montaje"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Videowall 3×2m"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">El <strong>videowall de 3x2 metros</strong> es nuestra configuración más solicitada y el estándar para <strong>escenarios profesionales</strong> en la Ciudad de México. Con 6 metros cuadrados de superficie visual, ofrece un impacto dramático que transforma cualquier salón en un espacio de primer nivel. Disponible en <strong>P2.5 para máxima resolución</strong> o P3.9 para mayor versatilidad y brillo, con resolución efectiva superior a Full HD.</p>
+      <p class="showcase__text">El montaje se realiza en <strong>3 a 4 horas</strong> con estructura ground stack o fly system según la altura del venue. El procesador Novastar gestiona hasta 4 fuentes simultáneas — alterna entre presentaciones, cámaras en vivo, videos pregrabados y gráficos animados con transiciones suaves. Perfecto para <strong>congresos, galas de premiación, conciertos privados y lanzamientos de marca</strong>. Requiere alimentación 220V con circuito dedicado. Complementa con nuestra <a href="/servicios/iluminacion/escenario/">iluminación de escenario</a> para una producción integral.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/>
+                  </svg>
+                  <span>Videowall 3×2m</span>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <!-- 6. SHOWCASE: Videowall 4x2.5m -->
+          <section class="section section--alt" aria-labelledby="vw-4x25-heading">
+            <ServiceShowcase
+    title="Videowall 4x2.5 Metros"
+    headingId="vw-4x25-heading"
+    badge="Gran formato"
+    subtitle="El videowall de gran formato para conciertos, festivales y eventos con más de 500 asistentes."
+    tags={["4×2.5 metros", "P3.9 alto brillo", "10 m² superficie", "Fly system"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Videowall 4×2.5m"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">El <strong>videowall de 4x2.5 metros</strong> (10 m² de superficie) es la elección para <strong>eventos de gran escala</strong> donde el impacto visual debe ser proporcional al tamaño de la audiencia. Con paneles <strong>P3.9 de alto brillo</strong> (hasta 5,000 nits), la imagen se mantiene nítida y vibrante incluso bajo iluminación intensa de escenario. Visible con claridad desde distancias de hasta 30 metros — perfecto para festivales, conciertos y eventos masivos.</p>
+      <p class="showcase__text">El montaje requiere <strong>4 a 6 horas</strong> con estructura fly system (rigging aéreo certificado) o ground stack reforzado. Incluye procesador Novastar profesional, cableado SDI redundante y <strong>dos técnicos dedicados</strong> (ingeniero de video + operador de contenido). Alimentación trifásica 220V con tablero protegido. Ideal para <strong>conciertos, festivales de música, convenciones masivas y shows de entretenimiento</strong>. Combínalo con nuestras <a href="/servicios/pistas-baile/tarimas-escenarios/">tarimas y escenarios</a> para una producción de nivel profesional.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/>
+                  </svg>
+                  <span>Videowall 4×2.5m</span>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <!-- 7. SHOWCASE: Videowall Creativo -->
+          <section class="section section--alt" aria-labelledby="vw-creativo-heading">
+            <ServiceShowcase
+    title="Videowall Creativo"
+    headingId="vw-creativo-heading"
+    badge="Diseño sin límites"
+    subtitle="Formas no rectangulares: configuraciones en L, U, curvas y columnas para experiencias inmersivas."
+    tags={["Forma L / U / Curva", "Diseño 3D previo", "Inmersivo 270°", "Contenido a medida"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Videowall Creativo"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Nuestro <strong>videowall creativo</strong> rompe los límites del formato rectangular. Diseñamos configuraciones en <strong>formas de L para escenarios envolventes</strong>, en U para experiencias inmersivas de 270 grados, <strong>curvas cóncavas para auditorios</strong> y columnas LED para instalaciones artísticas. Cada configuración se diseña a medida utilizando paneles P2.5 o P3.9 con ángulos especiales y soportes personalizados que permiten crear cualquier forma imaginable.</p>
+      <p class="showcase__text">El videowall creativo es la elección de <strong>agencias de publicidad para lanzamientos de marca, productores de conciertos para escenografías espectaculares y organizadores de exposiciones para instalaciones interactivas</strong>. Nuestro ingeniero de video diseña la configuración en 3D antes del evento para visualizar el resultado exacto. El contenido se produce en la resolución y forma nativa de la configuración para un resultado impecable. Complementa con nuestros <a href="/servicios/iluminacion/efectos-especiales/">efectos especiales</a> para una experiencia sensorial completa.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/>
+                  </svg>
+                  <span>Videowall Creativo</span>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Videowall Modular"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu videowall modular, es natural tener preguntas sobre configuraciones, montaje y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un ingeniero de video te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un ingeniero de video resolverá todas tus dudas sobre videowall al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre videowall modular para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Pantallas LED para Eventos</h2>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/audiovisual/pantallas-led/" class="sidebar-nav__back">&uarr; Volver a Pantallas LED</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/audiovisual/" class="sidebar-nav__back">&uarr; Volver a Audiovisual</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de videowall:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="sidebar-card sidebar-card--cta">
+            <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+            <p class="sidebar-card--cta-text">¿Necesitas un videowall para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar un videowall modular para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Videowall Modular"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros ingenieros de video te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un videowall de 2x1 metros para tu presentación o un montaje creativo de 6x3 metros para tu concierto, estamos aquí para hacer realidad tu visión."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoVideowall">
+                Tipo de videowall
+              </label>
+              <select id="tipoVideowall" name="tipoVideowall" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de videowall</option>
+                <option value="2x1m P2.5">2×1m P2.5</option>
+                <option value="3x2m P2.5">3×2m P2.5</option>
+                <option value="4x2.5m P3.9">4×2.5m P3.9</option>
+                <option value="6x3m P3.9">6×3m P3.9</option>
+                <option value="Forma Creativa">Forma Creativa</option>
+                <option value="Paquete Escenario Completo">Paquete Escenario Completo</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Cuéntanos los detalles: número de asistentes, dimensiones del escenario, tipo de contenido a mostrar, indoor/outdoor..." rows="4" required></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para diseñar la configuración de videowall ideal para tu escenario.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría de ingeniería de video para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoVideowall = document.getElementById('tipoVideowall').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Videowall Modular LED*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoVideowall) texto += `*Tipo de videowall:* ${tipoVideowall}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Audiovisual"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de equipo audiovisual para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, técnicos capacitados y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">A</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">AudioVisual Pro MX</h3>
+            <p class="partner-card__tagline">Videowall y Producción de Escenario</p>
+            <p class="partner-card__text">Líder en renta de videowall modular y producción visual para conciertos, congresos y eventos corporativos en CDMX. Paneles P2.5 y P3.9, procesadores Novastar y rigging profesional certificado.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">S</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">SonidoEventos CDMX</h3>
+            <p class="partner-card__tagline">Audio, Video y Escenografía Digital</p>
+            <p class="partner-card__text">Especialistas en soluciones audiovisuales integrales con videowall modular, sonido line array y producción técnica completa para festivales, conciertos y eventos corporativos de gran formato.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">T</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">TechEvents</h3>
+            <p class="partner-card__tagline">Tecnología LED de Gran Formato</p>
+            <p class="partner-card__text">Más de 10 años proporcionando videowall modular de última generación para eventos en CDMX. Configuraciones creativas, ingeniería de video y producción integral de escenarios profesionales.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MediaRent</h3>
+            <p class="partner-card__tagline">Renta de Equipo LED Profesional</p>
+            <p class="partner-card__text">Servicio integral de renta de videowall con logística profesional en toda la CDMX. Paneles LED, estructuras de montaje, procesadores de video y operadores técnicos certificados.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="El videowall que transforma tu escenario en una experiencia visual épica"
+    subheadline="Más de 300 producciones con videowall modular nos respaldan. Cotiza hoy y recibe asesoría de ingeniería de video sin compromiso."
+    primaryCTA={{ label: "Cotizar videowall", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar un videowall modular para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

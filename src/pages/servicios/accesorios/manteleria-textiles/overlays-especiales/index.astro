@@ -1,0 +1,719 @@
+---
+/**
+ * ─── Overlays y Telas Especiales — Pagina de Producto (Nivel 4) ───
+ * Overlays de encaje, lentejuela y organza, telas para drapeado,
+ * backdrops textiles y faldones de mesa para eventos en CDMX.
+ *
+ * Jerarquia: Servicios > Accesorios > Mantelería y Textiles > Overlays y Telas Especiales
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Accesorios", href: "/servicios/accesorios/" },
+  { label: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+  { label: "Overlays y Telas Especiales" },
+];
+
+const faqs = [
+  { question: "¿Cuál es la diferencia entre los tipos de overlay?", answer: 'Ofrecemos 4 tipos principales de overlay, cada uno con un efecto visual distinto: <strong>Encaje</strong> — textura delicada y romántica, ideal para bodas vintage y elegantes; se coloca sobre mantel liso para crear profundidad. <strong>Lentejuela</strong> — brillo completo que refleja la luz, perfecto para galas y eventos nocturnos; disponible en dorado, plateado, oro rosa y champagne. <strong>Organza cristal</strong> — transparencia sutil con brillo etéreo, crea capas de color sin ocultar el mantel base; 30+ colores. <strong>Tul bordado</strong> — textura delicada con patrones florales o geométricos, ideal para mesas de honor y postres.' },
+  { question: "¿El drapeado incluye instalación con técnicos?", answer: 'Sí, todos los servicios de drapeado (techo, columnas y backdrops) <strong>incluyen instalación con técnicos de montaje</strong> sin costo adicional. Nuestro equipo lleva la estructura necesaria (rieles, ganchos, varillas), instala las telas con pliegues profesionales y las retira al finalizar el evento. El tiempo de instalación varía según la superficie: un drapeado de techo de 10x10 metros requiere aproximadamente 3-4 horas. Coordinamos el acceso al venue con anticipación para no interferir con otros proveedores.' },
+  { question: "¿Cuál es la diferencia entre un backdrop textil y uno de señalización?", answer: 'Un <strong>backdrop textil</strong> utiliza telas como satín, terciopelo, gasa o lentejuela para crear un fondo decorativo con textura y movimiento — ideal para fondos de mesa de honor, photo booths y ceremonias. Un <strong>backdrop de <a href="/servicios/accesorios/senalizacion-alfombras/">señalización</a></strong> usa materiales rígidos (lona, vinil, acrílico) con diseños impresos como logos, nombres o gráficos — ideal para eventos corporativos, press walls y branding. Ambos pueden combinarse para crear instalaciones únicas.' },
+  { question: "¿Qué medidas de faldones de mesa tienen disponibles?", answer: 'Nuestros faldones de mesa (buffet skirts) están disponibles en <strong>largo completo (hasta el piso)</strong> para mesas estándar de 75 cm de altura. El largo del faldón se adapta al perímetro de tu mesa: ofrecemos faldones de <strong>4, 5, 6 y 8 metros lineales</strong> que cubren mesas rectangulares de buffet completas. Disponibles en plisado box pleat (cuadrado) y shirred (fruncido). Colores principales: blanco, marfil, negro, navy y champagne. Se sujetan con clips de presión incluidos.' },
+  { question: "¿Cuántos colores de overlays tienen disponibles?", answer: 'La disponibilidad de colores varía por tipo de overlay: <strong>Organza cristal</strong> — 30+ colores sólidos, la mayor variedad. <strong>Lentejuela</strong> — dorado, plateado, oro rosa, champagne, cobre, negro, blush y burgundy (8 colores). <strong>Encaje</strong> — blanco, marfil, champagne, negro y blush (5 colores clásicos). <strong>Tul bordado</strong> — blanco, marfil y champagne (3 tonos). Para drapeado de techo tenemos satín en 20+ colores y voile/gasa en 15+ colores. Enviamos muestras físicas de aprobación sin costo.' },
+  { question: "¿Puedo combinar overlays con el resto de la mantelería?", answer: 'Absolutamente, es la forma más efectiva de elevar el montaje. Nuestro servicio de <strong>coordinación textil integral</strong> te permite combinar overlays con <a href="/servicios/accesorios/manteleria-textiles/manteles-cubremesas/">manteles base</a>, <a href="/servicios/accesorios/manteleria-textiles/cubresillas-bandas/">cubresillas</a> y <a href="/servicios/accesorios/manteleria-textiles/servilletas-caminos/">servilletas</a> en la misma paleta. Las combinaciones más populares: mantel blanco + overlay lentejuela dorada para bodas glam, mantel lino + overlay encaje para estilo vintage, mantel negro + overlay organza champagne para galas. Un asesor te ayuda con muestras físicas.' },
+];
+
+const specs = [
+  { label: "Overlays encaje", value: '72x72" y 90x90"' },
+  { label: "Overlays lentejuela", value: '72x72" y 90x90" dorada/plateada' },
+  { label: "Overlays organza", value: '72x72" y 90x90" 30+ colores' },
+  { label: "Tul bordado", value: "Por metro, ancho 150 cm" },
+  { label: "Faldones mesa", value: "Largo completo, plisado o liso" },
+  { label: "Drapeado techo", value: "Satín/Voile, por metro lineal" },
+  { label: "Drapeado columnas", value: "Kit con estructura" },
+  { label: "Backdrop textil", value: "2.4x2.4 m y 3x2.4 m" },
+  { label: "Instalación", value: "Técnicos de montaje incluidos para drapeados" },
+  { label: "Pedido mínimo", value: "5 piezas overlays / 10 m drapeado" },
+];
+
+const sidebarNav = [
+  { name: "Manteles y Cubremesas", href: "/servicios/accesorios/manteleria-textiles/manteles-cubremesas/" },
+  { name: "Cubresillas y Bandas", href: "/servicios/accesorios/manteleria-textiles/cubresillas-bandas/" },
+  { name: "Servilletas y Caminos", href: "/servicios/accesorios/manteleria-textiles/servilletas-caminos/" },
+  { name: "Overlays y Telas Especiales", href: null, active: true },
+];
+
+const sidebarRelated = [
+  { name: "Vajilla y Cristalería", href: "/servicios/catering/vajilla-cristaleria/" },
+  { name: "Mobiliario Sillas", href: "/servicios/mobiliario/sillas/" },
+  { name: "Mobiliario Mesas", href: "/servicios/mobiliario/mesas/" },
+  { name: "Señalización y Alfombras", href: "/servicios/accesorios/senalizacion-alfombras/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+];
+
+const reviews = [
+  { author: "Gabriela Ríos", text: "Rentamos overlays de lentejuela dorada para las 25 mesas de nuestra boda de gala en Polanco. El efecto con la iluminación fue mágico — cada mesa brillaba como en una revista. La calidad de la lentejuela es excelente, bien cosida y sin desprendimientos. La entrega y recolección fueron impecables.", rating: 5, date: "2025-12-01" },
+  { author: "Andrea Villalobos", text: "Contratamos drapeado de techo en satín blanco para un salón de 15x20 metros y un backdrop de terciopelo burgundy para la mesa de honor. El equipo de montaje fue extraordinario — transformaron el salón por completo en 4 horas. El resultado fue un espacio de ensueño que todos los invitados admiraron.", rating: 5, date: "2025-10-28" },
+  { author: "Daniela Herrera", text: "Para los XV años de mi hija rentamos overlays de encaje marfil sobre manteles de satín blush y un backdrop textil con gasa y luces. El montaje quedó espectacular y las fotos se ven increíbles. El servicio de coordinación textil nos ayudó a elegir la combinación perfecta con muestras previas. Totalmente recomendable.", rating: 5, date: "2025-09-15" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Overlays y Telas Especiales CDMX",
+    description: "Renta de overlays de encaje, lentejuela y organza, telas para drapeado, backdrops textiles y faldones de mesa. Textura y profundidad visual.",
+    url: "/servicios/accesorios/manteleria-textiles/overlays-especiales/",
+    priceRange: { min: 50, max: 300 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 198,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Accesorios", url: "/servicios/accesorios/" },
+    { name: "Mantelería y Textiles", url: "/servicios/accesorios/manteleria-textiles/" },
+    { name: "Overlays y Telas Especiales", url: "/servicios/accesorios/manteleria-textiles/overlays-especiales/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Overlays y Telas Especiales CDMX"
+  description="Renta de overlays de encaje, lentejuela y organza, telas para drapeado, backdrops textiles y faldones de mesa. Textura y profundidad visual."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Texturas premium de alto impacto"
+    title='Renta de <span class="highlight">Overlays y Telas Especiales</span> para Eventos'
+    subtitle="Overlays de encaje, lentejuela, organza y tul bordado para mesas de alto impacto. Telas para drapeado de techo, backdrops textiles y faldones de mesa. Instalación con técnicos incluida."
+    primaryCTA={{ label: "Cotiza tus textiles especiales", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar overlays y telas especiales para mi evento` }}
+    cards={[
+      {
+        title: "Overlays y telas decorativas para montajes de alto impacto",
+        content: "<strong>Renta de overlays decorativos</strong> de encaje vintage, lentejuela dorada/plateada, organza cristal y tul bordado para mesas de honor, postres y centros de mesa. Faldones de mesa en múltiples telas y largos para buffets y estaciones de servicio. Cada overlay transforma una mesa sencilla en un montaje de revista con textura y profundidad visual.",
+      },
+      {
+        title: "Drapeado profesional con estructura e instalación incluida",
+        content: "<strong>Telas para drapeado de techo, columnas y backdrops</strong> en satín, voile y gasa con servicio de instalación completo. Técnicos de montaje con estructura incluida para crear ambientes envolventes que transforman cualquier espacio. Backdrops textiles de 2.4x2.4 m y 3x2.4 m en terciopelo, lentejuela y gasa para ceremonias, mesas de honor y photo booths.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Quieres transformar tu espacio con texturas premium?"
+    subheadline="Cotiza sin compromiso — drapeados, overlays y backdrops que convierten cualquier venue en un escenario de ensueño"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Mantelería y Textiles</h2>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+          <p class="sidebar-card--cta-text">¿Necesitas overlays y telas especiales para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar overlays y telas especiales para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones — Overlays y Telas Especiales</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Overlays de Lentejuela Dorada -->
+          <section class="section section--alt" aria-labelledby="lentejuela-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Máximo brillo y glamour</span>
+                <h2 class="showcase__title" id="lentejuela-heading">Overlays de Lentejuela Dorada</h2>
+                <p class="showcase__subtitle">Overlays de lentejuela completa que reflejan la luz y transforman cada mesa en una pieza de gala.</p>
+                <p class="showcase__text">Nuestros <strong>overlays de lentejuela</strong> son el elemento decorativo más impactante para mesas de eventos nocturnos y galas. Cada overlay está cubierto por <strong>lentejuelas cosidas individualmente sobre base de malla</strong> que reflejan la luz desde cualquier ángulo, creando un efecto de brillo deslumbrante. Disponibles en <strong>dorado, plateado, oro rosa, champagne, cobre, negro, blush y burgundy</strong>. Tamaños de 72x72" y 90x90".</p>
+                <p class="showcase__text">Se colocan directamente sobre el <a href="/servicios/accesorios/manteleria-textiles/manteles-cubremesas/">mantel base liso</a> (blanco, negro o color neutro) para crear un contraste de texturas que eleva todo el montaje. Son los favoritos para <strong>mesas de honor, mesa de novios, mesa de postres y mesas VIP</strong>. La combinación con nuestra <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a> multiplica el efecto visual, llenando el espacio de destellos dorados que crean una atmósfera mágica.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Lentejuela completa</span>
+                  <span class="showcase__tag">8 colores metálicos</span>
+                  <span class="showcase__tag">72x72" y 90x90"</span>
+                  <span class="showcase__tag">Galas y bodas glam</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Overlays Lentejuela
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Overlays Lentejuela Dorada</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Overlays de Encaje Vintage -->
+          <section class="section section--alt" aria-labelledby="encaje-heading">
+            <ServiceShowcase
+    title="Overlays de Encaje Vintage"
+    headingId="encaje-heading"
+    badge="Elegancia romántica"
+    subtitle="Overlays de encaje con patrones florales que aportan romanticismo y textura a mesas elegantes."
+    tags={["Encaje vintage", "Patrones florales", "Bordes festoneados", "Bodas románticas"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Overlays Encaje"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Nuestros <strong>overlays de encaje vintage</strong> son la elección perfecta para bodas románticas, eventos shabby chic y montajes con estética clásica. El encaje ofrece una <strong>textura delicada con patrones florales y geométricos</strong> que agregan profundidad visual a la mesa sin saturarla. Disponibles en <strong>blanco, marfil, champagne, negro y blush</strong>. Tamaños de 72x72" y 90x90" con bordes festoneados.</p>
+      <p class="showcase__text">La combinación más solicitada es overlay de encaje marfil sobre <a href="/servicios/accesorios/manteleria-textiles/manteles-cubremesas/">mantel de satín</a> en tono complementario (blush, champagne o lavanda) — creando un efecto vintage-elegante que fotografía extraordinariamente bien. Para mesas imperiales, dos overlays de encaje traslapados crean un <strong>efecto de alfombra textil</strong> a lo largo de toda la mesa. Complementa con <a href="/servicios/accesorios/manteleria-textiles/servilletas-caminos/">servilletas y servilleteros</a> coordinados.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Overlays Encaje Vintage</span>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <!-- 6. SHOWCASE: Drapeado de Techo Satín -->
+          <section class="section section--alt" aria-labelledby="drapeado-heading">
+            <ServiceShowcase
+    title="Drapeado de Techo Satín"
+    headingId="drapeado-heading"
+    badge="Transformación total del espacio"
+    subtitle="Telas para drapeado de techo en satín y voile que transforman cualquier salón en un espacio de ensueño."
+    tags={["Satín/Voile/Gasa", "Instalación incluida", "20+ colores", "Por metro lineal"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Drapeado de Techo"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Nuestro servicio de <strong>drapeado de techo</strong> es la forma más espectacular de transformar un salón o espacio industrial en un venue de gala. Utilizamos telas de <strong>satín premium, voile transparente y gasa etérea</strong> instaladas en pliegues profesionales que crean un efecto de nube o carpa interior. Se renta por metro lineal con instalación incluida. Disponible en <strong>20+ colores de satín y 15+ de voile</strong>.</p>
+      <p class="showcase__text">El equipo de montaje instala <strong>rieles, cables y estructura de soporte</strong> en el techo del venue, drapeando las telas con pliegues simétricos que cubren vigas, techos industriales o espacios poco estéticos. Los drapeados de voile transparente combinados con nuestra <a href="/servicios/iluminacion/decorativa/fairy-lights/">iluminación de fairy lights</a> crean un efecto de cielo estrellado impresionante. Para <a href="/servicios/carpas/">carpas y estructuras</a>, el drapeado interior transforma la carpa en un espacio elegante y acogedor.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Drapeado de Techo</span>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <!-- 7. SHOWCASE: Backdrop Textil Elegante -->
+          <section class="section section--alt" aria-labelledby="backdrop-heading">
+            <ServiceShowcase
+    title="Backdrop Textil Elegante"
+    headingId="backdrop-heading"
+    badge="Fondo perfecto para fotos"
+    subtitle="Fondos textiles en terciopelo, lentejuela y gasa para ceremonias, mesas de honor y photo booths."
+    tags={["Terciopelo/Lentejuela/Gasa", "Estructura incluida", "2.4x2.4 / 3x2.4 m", "Photo booth"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Backdrop Textil"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Nuestros <strong>backdrops textiles</strong> crean fondos espectaculares para las zonas más fotografiadas de tu evento. Disponibles en <strong>terciopelo (textura rica y profunda), lentejuela (brillo deslumbrante), gasa (etéreo y romántico) y satín (elegante y liso)</strong>. Tamaños estándar de 2.4x2.4 m y 3x2.4 m con estructura autoportante incluida. Los backdrops de gasa se pueden combinar con iluminación trasera para un efecto de retroiluminación espectacular.</p>
+      <p class="showcase__text">Son la pieza central para <strong>ceremonias civiles, mesa de novios, mesa de honor de XV años, photo booths y zonas VIP</strong>. Nuestros backdrops de terciopelo burgundy y navy son los más solicitados para bodas elegantes, mientras que los de lentejuela dorada y plateada dominan las galas corporativas. La estructura incluida permite <strong>instalación en cualquier espacio</strong> sin necesidad de colgar del techo. Complementa con <a href="/servicios/iluminacion/decorativa/">iluminación decorativa</a> para crear un punto focal inolvidable.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                  <span>Backdrop Textil Elegante</span>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Overlays y Telas Especiales"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar overlays o servicios de drapeado, es natural tener preguntas sobre tipos, instalación y logística. Aquí encontrarás las respuestas más comunes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de textiles especiales resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre overlays y telas especiales para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Mantelería y Textiles -->
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Mantelería y Textiles</h2>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/accesorios/manteleria-textiles/" class="sidebar-nav__back">&uarr; Volver a Mantelería y Textiles</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/accesorios/" class="sidebar-nav__back">&uarr; Volver a Accesorios</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de textiles:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+            <p class="sidebar-card--cta-text">¿Necesitas overlays y telas especiales para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar overlays y telas especiales para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tus Overlays y Telas Especiales"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sean overlays para 10 mesas o drapeado de techo para un salón completo, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoTextil">
+                Tipo de textil especial
+              </label>
+              <select id="tipoTextil" name="tipoTextil" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo</option>
+                <option value="Overlay Encaje">Overlay Encaje</option>
+                <option value="Overlay Lentejuela Dorada">Overlay Lentejuela Dorada</option>
+                <option value="Overlay Organza">Overlay Organza</option>
+                <option value="Drapeado Techo por Metro">Drapeado Techo por Metro</option>
+                <option value="Backdrop Textil">Backdrop Textil</option>
+                <option value="Paquete Textiles Especiales">Paquete Textiles Especiales</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de mesas para overlays, dimensiones del techo para drapeado, tipo de backdrop, colores deseados..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para drapeados y backdrops con medidas exactas y propuesta visual.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría de diseño textil personalizada.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoTextil = document.getElementById('tipoTextil').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Overlays y Telas Especiales*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoTextil) texto += `*Tipo de textil:* ${tipoTextil}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Textiles Especiales"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de overlays, drapeados y textiles especiales para eventos en la Ciudad de México. Cada aliado cuenta con equipo de montaje profesional y trayectoria comprobada.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de telas y cobertura completa para proyectos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">A</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Accesorios Event MX</h3>
+            <p class="partner-card__tagline">Mantelería, textiles y accesorios premium para eventos en CDMX</p>
+            <p class="partner-card__text">Líder en overlays decorativos y telas especiales con el catálogo más amplio del mercado. Servicio de drapeado profesional con equipo de montaje experimentado.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">RentaDecor CDMX</h3>
+            <p class="partner-card__tagline">Renta de mantelería, cubresillas y decoración textil profesional</p>
+            <p class="partner-card__text">Especialistas en drapeados de techo, backdrops textiles y overlays decorativos para bodas y eventos de gala. Equipo de montaje con estructura incluida.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">T</span>
+            <div class="partner-card__badge">Calidad certificada</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">TextilEvent</h3>
+            <p class="partner-card__tagline">Textiles de alta calidad con servicio de lavado y planchado incluido</p>
+            <p class="partner-card__text">Overlays y telas especiales premium con control de calidad pieza por pieza. Servicio de instalación profesional para drapeados y backdrops de gran formato.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">Servicio integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventosPro Accesorios</h3>
+            <p class="partner-card__tagline">Complementos y accesorios integrales para todo tipo de evento</p>
+            <p class="partner-card__text">Servicio integral de textiles especiales con logística profesional. Drapeados, backdrops y overlays con equipo de montaje y desmontaje incluido en toda la CDMX.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Texturas premium que transforman cualquier espacio en un escenario de ensueño"
+    subheadline="Overlays, drapeados y backdrops textiles con instalación profesional. Cotiza hoy sin compromiso."
+    primaryCTA={{ label: "Cotizar textiles especiales", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar overlays y telas especiales para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

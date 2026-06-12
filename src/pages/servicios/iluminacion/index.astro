@@ -1,0 +1,536 @@
+---
+/**
+ * ─── Iluminación Category Page ───
+ * Página de categoría: Renta de Iluminación para Eventos en CDMX.
+ * Sigue el layout de subcategoría principal aprobado.
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import CategoryCard from "@components/CategoryCard.astro";
+import { SITE } from "@data/site";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import CtaBar from "@components/CtaBar.astro";
+import Gallery4x4 from "@components/Gallery4x4.astro";
+import FaqSection from "@components/FaqSection.astro";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Iluminación" },
+];
+
+const SUB_SERVICES = [
+  {
+    name: "Iluminación Arquitectónica",
+    excerpt: "Wash lights, uplighting y bañadores de muros LED que transforman cualquier espacio con color y profundidad. La base de todo diseño de iluminación profesional.",
+    href: "/servicios/iluminacion/arquitectonica/",
+    image: "/images/iluminacion/iluminacion-arquitectonica-hacienda.avif",
+    subcategories: [
+      { name: "Wash Lights LED", href: "/servicios/iluminacion/arquitectonica/wash-lights/" },
+      { name: "Uplighting Perimetral", href: "/servicios/iluminacion/arquitectonica/uplighting/" },
+      { name: "Bañadores de Muros", href: "/servicios/iluminacion/arquitectonica/banadores/" },
+      { name: "Fachadas", href: "/servicios/iluminacion/arquitectonica/fachadas/" },
+    ],
+  },
+  {
+    name: "Iluminación Decorativa",
+    excerpt: "Fairy lights, candiles de cristal, esferas LED y guirnaldas vintage. El toque mágico que convierte cualquier venue en un escenario de ensueño.",
+    href: "/servicios/iluminacion/decorativa/",
+    image: "/images/iluminacion/guirnaldas-edison-jardin-boda.avif",
+    subcategories: [
+      { name: "Fairy Lights y Guirnaldas", href: "/servicios/iluminacion/decorativa/fairy-lights/" },
+      { name: "Candiles y Candelabros", href: "/servicios/iluminacion/decorativa/candiles/" },
+      { name: "Esferas y Figuras LED", href: "/servicios/iluminacion/decorativa/esferas-led/" },
+      { name: "Letras Luminosas", href: "/servicios/iluminacion/decorativa/letras-luminosas/" },
+    ],
+  },
+  {
+    name: "Iluminación de Escenario",
+    excerpt: "Par LED RGBWA, moving heads, follow spots y barras motorizadas para tarimas, pasarelas y presentaciones. Control DMX profesional incluido.",
+    href: "/servicios/iluminacion/escenario/",
+    image: "/images/iluminacion/cabezas-moviles-beam-evento.avif",
+    subcategories: [
+      { name: "Par LED RGBWA", href: "/servicios/iluminacion/escenario/par-led/" },
+      { name: "Moving Heads", href: "/servicios/iluminacion/escenario/moving-heads/" },
+      { name: "Follow Spots", href: "/servicios/iluminacion/escenario/follow-spots/" },
+      { name: "Barras LED Motorizadas", href: "/servicios/iluminacion/escenario/barras-led/" },
+    ],
+  },
+  {
+    name: "Efectos Especiales",
+    excerpt: "Máquinas de humo bajo, láser multicolor, cañones de confeti, papelitos de mariposas y pantallas de agua. Momentos WOW que nadie olvidará.",
+    href: "/servicios/iluminacion/efectos-especiales/",
+    image: "/images/iluminacion/efectos-especiales-humo-bajo.avif",
+    subcategories: [
+      { name: "Humo Bajo y Niebla", href: "/servicios/iluminacion/efectos-especiales/humo-bajo/" },
+      { name: "Láser Multicolor", href: "/servicios/iluminacion/efectos-especiales/laser/" },
+      { name: "Papelitos de Mariposas", href: "/servicios/iluminacion/efectos-especiales/mariposas/" },
+      { name: "Confeti y Serpentinas", href: "/servicios/iluminacion/efectos-especiales/confeti/" },
+    ],
+  },
+];
+
+const faqs = [
+  { question: "¿Qué tipo de iluminación recomiendan para una boda?", answer: "Para bodas recomendamos una combinación de iluminación arquitectónica con wash lights ámbar cálido (2700K-3000K) como base ambiental, fairy lights o guirnaldas como elemento decorativo estrella, y spots direccionables para resaltar la mesa de novios, pastel y pista de baile. Si tu boda es en jardín o bajo carpa, complementamos con uplighting perimetral que baña las paredes o cortinas de la estructura con el color de tu paleta. Nuestro diseñador de iluminación crea un plano personalizado según tu venue y estilo." },
+  { question: "¿Incluyen operador técnico durante el evento?", answer: "Sí. Todos nuestros paquetes de iluminación profesional incluyen un técnico operador certificado que permanece durante todo el evento. El operador gestiona la consola DMX, sincroniza los cambios de iluminación con los momentos clave (primer baile, brindis, fiesta) y resuelve cualquier ajuste en tiempo real. Para eventos grandes o con requerimientos complejos asignamos un equipo de 2-3 técnicos con director de iluminación." },
+  { question: "¿Se puede combinar iluminación interior y exterior?", answer: "Por supuesto. De hecho, diseñar un concepto integral interior-exterior es una de nuestras especialidades. Utilizamos wash lights IP65 (resistentes a intemperie) para jardines, fachadas y caminos, combinados con iluminación interior controlada desde la misma consola DMX. Esto permite transiciones coordinadas entre espacios — por ejemplo, guiar a los invitados desde un coctel en jardín iluminado con uplighting azul hacia un salón con ambiental cálido dorado." },
+  { question: "¿Necesito instalación eléctrica especial para la iluminación?", answer: "Depende del tamaño del montaje. Para eventos medianos (hasta 150 invitados) generalmente basta con los contactos regulares del venue. Para eventos grandes o montajes con más de 20 luminarias y efectos especiales, podemos requerir una acometida de 220V o tableros de distribución trifásicos. Nuestro equipo realiza una evaluación eléctrica durante la visita técnica y, si es necesario, llevamos plantas de luz silenciosas o tableros portátiles sin costo adicional en paquetes premium." },
+  { question: "¿Con cuánta anticipación debo reservar el servicio de iluminación?", answer: "Recomendamos reservar con 3 a 4 semanas de anticipación para garantizar disponibilidad del equipo y agenda del operador técnico. En temporada alta (noviembre a febrero) lo ideal es apartar con 6 a 8 semanas. La visita técnica al venue se programa 2-3 semanas antes del evento para diseñar el plano de iluminación y coordinar con el venue los puntos de corriente y estructura de montaje." },
+  { question: "¿Ofrecen diseño de iluminación personalizado?", answer: "Sí. Nuestro servicio incluye un diseñador de iluminación que crea un concepto visual personalizado basado en tu paleta de colores, estilo del evento, arquitectura del venue y momentos clave de la celebración. Presentamos un render o moodboard previo para tu aprobación antes del evento. El diseño considera la temperatura de color, intensidad, direccionalidad y efectos de cada zona del espacio para crear la atmósfera exacta que imaginas." },
+];
+
+const jsonLd = [
+  serviceJsonLd({
+    name: "Renta de Iluminación para Eventos en CDMX",
+    description: "Iluminación arquitectónica, decorativa, de escenario y efectos especiales para bodas, corporativos y eventos sociales. Operador DMX incluido.",
+    url: "/servicios/iluminacion/",
+    priceRange: { min: 2500, max: 85000 },
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Iluminación", url: "/servicios/iluminacion/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Iluminación para Eventos"
+  description="Renta de iluminación para eventos en CDMX: wash lights, fairy lights, par LED, moving heads y efectos especiales con operador DMX incluido. Cotiza en 24h."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Diseño lumínico profesional con operador DMX"
+    title='Renta de <span class="highlight">Iluminación para Eventos</span> en CDMX'
+    subtitle="Iluminación arquitectónica, decorativa, de escenario y efectos especiales con control DMX profesional y operador técnico incluido. Transforma cualquier venue en una experiencia visual inmersiva que tus invitados recordarán por siempre."
+    primaryCTA={{ label: "Cotiza tu evento", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar iluminación profesional para mi evento en CDMX` }}
+    cards={[
+      {
+        title: "Equipo LED de última generación con control DMX512",
+        content: "<strong>Renta de iluminación profesional para eventos</strong> con el inventario más completo de CDMX. Luminarias LED de alta eficiencia con CRI 95+ para una reproducción cromática impecable — wash lights RGBWA+UV de 18x15W, par LED de 54x3W, moving heads beam/spot/wash de 230W y 280W, barras de LEDs motorizadas, follow spots de 1200W y spots elipsoidales ETC Source Four. Todo operado desde consolas DMX512 profesionales (GrandMA, Avolites, ChamSys) por técnicos certificados que garantizan sincronización perfecta con cada momento de tu celebración.",
+      },
+      {
+        title: "Diseño lumínico personalizado con visita técnica incluida",
+        content: "<strong>Servicio integral de iluminación</strong> que va más allá de rentar equipo. Nuestro diseñador de iluminación realiza una visita técnica gratuita a tu venue para evaluar arquitectura del espacio, puntos de corriente, estructura de montaje y condiciones de luz natural. Creamos un concepto lumínico personalizado con moodboard y plano técnico que contempla <strong>temperatura de color, intensidad por zona, transiciones sincronizadas</strong> con los momentos clave de tu evento y coordinación total con <strong>sonido, video y decoración</strong> para una producción impecable.",
+      },
+    ]}
+  />
+
+  <CtaBar headline="¿Qué iluminación necesitas?" items={[
+    { label: "Arquitectónica", href: "/servicios/iluminacion/arquitectonica/", icon: "iluminacion" },
+    { label: "Decorativa", href: "/servicios/iluminacion/decorativa/", icon: "iluminacion" },
+    { label: "Escenario", href: "/servicios/iluminacion/escenario/", icon: "iluminacion" },
+    { label: "Efectos", href: "/servicios/iluminacion/efectos-especiales/", icon: "iluminacion" },
+  ]} />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CTA BANNER
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="La iluminación correcta transforma un evento bueno en uno inolvidable"
+    subheadline="Recibe un diseño lumínico personalizado con render previo y operador técnico DMX incluido — sin compromiso"
+    primaryCTA={{ label: "Cotizar iluminación", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CATÁLOGO — Sub-servicios con Cards
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="catalogo-heading">
+    <div class="container">
+      <SectionHeader
+        id="catalogo-heading"
+        title="¿Qué iluminación profesional puedes rentar para tu evento?"
+        subtitle="El concepto lumínico perfecto para cada tipo de evento y presupuesto"
+        description={[
+          "Desde un ambiental íntimo con fairy lights y velas LED para una boda en un jardín de Coyoacán, hasta un montaje de escenario completo con moving heads y láser para un concierto corporativo en Santa Fe — contamos con el inventario más completo de iluminación profesional para eventos en la Ciudad de México y zona metropolitana.",
+          "Cada montaje incluye operador técnico certificado, consola DMX profesional y diseño lumínico personalizado. No solo rentamos equipo: creamos experiencias visuales que transforman por completo la atmósfera de tu celebración."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        {SUB_SERVICES.map((sub) => (
+          <CategoryCard
+            title={sub.name}
+            subtitle={sub.excerpt}
+            href={sub.href}
+            image={sub.image}
+            subcategories={sub.subcategories}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       ILUMINACIÓN ARQUITECTÓNICA — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="arquitectonica-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Iluminación Arquitectónica"
+    headingId="arquitectonica-heading"
+    badge="Base de todo diseño lumínico"
+    subtitle="Wash lights, uplighting y bañadores de muros LED que transforman la arquitectura del venue con color, profundidad y dimensión profesional."
+    tags={["Wash LED RGBWA+UV", "Uplighting IP65", "DMX512", "Barras LED", "CRI 95+", "Interior & Exterior"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Arquitectónica"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">La <strong>iluminación arquitectónica</strong> es el cimiento de cualquier diseño lumínico profesional. Nuestros <strong>wash lights LED RGBWA+UV de 18x15W</strong> bañan muros, columnas, cortinas y techos con color infinitamente personalizable — desde ámbar cálido para bodas elegantes hasta azul eléctrico para lanzamientos corporativos. El <strong>uplighting perimetral</strong> con luminarias IP65 (resistentes a intemperie) es perfecto para jardines, fachadas y eventos al aire libre. Complementa con nuestras <a href="/servicios/carpas/">carpas profesionales</a> y el uplighting transforma la lona en un lienzo de color que envuelve todo el espacio.</p>
+      <p class="showcase__text">Cada luminaria opera con protocolo <strong>DMX512 desde consolas GrandMA o Avolites</strong>, permitiendo control individual de color, intensidad y transiciones programadas. Nuestro técnico sincroniza cambios de ambiente con los momentos clave: ceremonia en blanco cálido, brindis en dorado, primer baile en rosa suave, fiesta en colores dinámicos. Incluimos <strong>barras LED de piso y techo</strong>, bañadores de 36x3W para grandes superficies y spots de acento para destacar centros de mesa, pastel o arreglos florales. Combina con <a href="/servicios/audiovisual/">equipo audiovisual</a> para una producción integral.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/>
+              <line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/>
+              <line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       ILUMINACIÓN DECORATIVA — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="decorativa-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Iluminación Decorativa"
+    headingId="decorativa-heading"
+    badge="Lo más solicitado para bodas y sociales"
+    subtitle="Fairy lights, candiles de cristal cortado, esferas LED, guirnaldas vintage y velas LED que crean atmósferas mágicas e irresistiblemente fotogénicas."
+    tags={["Fairy Lights 2700K", "Candiles Cristal", "Esferas LED", "Edison Vintage", "Letras Luminosas", "Neón Personalizado"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Decorativa"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">La <strong>iluminación decorativa</strong> es el elemento que convierte un espacio bonito en un escenario de ensueño. Nuestras <strong>fairy lights (luces de hada) de LED blanco cálido 2700K</strong> se instalan como cielo estrellado sobre pistas de baile, en cascadas sobre cortinas o entrelazadas en follaje natural — el efecto más fotografiado en bodas de CDMX. Los <strong>candiles de cristal cortado</strong> en formatos de 60, 80 y 100 cm de diámetro aportan elegancia clásica, mientras que las <strong>esferas LED suspendidas</strong> y las <strong>guirnaldas estilo Edison con filamento vintage</strong> crean un look bohemio-industrial perfecto para jardines y terrazas.</p>
+      <p class="showcase__text">Cada instalación decorativa se diseña a medida según la <strong>arquitectura del venue, altura de techo y concepto del evento</strong>. Nuestro equipo instala con rigging profesional certificado — eslingas de acero, motores CM Lodestar y puntos de anclaje verificados — garantizando seguridad total para piezas suspendidas sobre invitados. Complementa con <a href="/servicios/mobiliario/">mobiliario premium</a> y centros de mesa iluminados para una decoración integral. Incluimos <strong>velas LED de cera real con timer</strong>, letras luminosas gigantes y letreros neón personalizados con el nombre de los novios o hashtag del evento.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       ILUMINACIÓN DE ESCENARIO — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="escenario-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Iluminación de Escenario"
+    headingId="escenario-heading"
+    badge="Producción de escenario profesional"
+    subtitle="Par LED RGBWA, moving heads, follow spots, barras motorizadas y truss de aluminio para tarimas, pasarelas, presentaciones y shows en vivo con control DMX completo."
+    tags={["Par LED 54x3W", "Moving Head 230W", "Follow Spot 1200W", "Truss Aluminio", "GrandMA / Avolites", "Rider Compatible"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Escenario"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Nuestra <strong>iluminación de escenario</strong> está diseñada para producciones que requieren impacto visual profesional. Equipamos tarimas y escenarios con <strong>par LED de 54x3W RGBWA</strong> como base de color, <strong>moving heads beam 230W Sharpy</strong> para efectos aéreos de alto impacto, <strong>moving heads spot/wash 280W</strong> con gobos personalizables para proyecciones, y <strong>follow spots de 1200W</strong> con operador dedicado para seguir al presentador, novios o artista principal. Todo montado sobre <strong>truss de aluminio certificado</strong> (12", 20" o 24") con rigging profesional.</p>
+      <p class="showcase__text">El sistema se controla desde <strong>consolas DMX profesionales GrandMA2/3, Avolites Tiger Touch o ChamSys</strong> operadas por técnicos con experiencia en producción de conciertos, convenciones y shows corporativos. Programamos cues de iluminación sincronizados con la música, presentaciones y momentos clave del evento. Para <strong>conciertos y festivales</strong>, ofrecemos riders técnicos compatibles con artistas nacionales e internacionales. Combina con nuestro <a href="/servicios/audiovisual/">equipo audiovisual profesional</a> — pantallas LED, sonido line array y video — para una producción escénica completa.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       EFECTOS ESPECIALES — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="efectos-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Efectos Especiales"
+    headingId="efectos-heading"
+    badge="Momentos WOW garantizados"
+    subtitle="Máquinas de humo bajo, láser multicolor, cañones de confeti, papelitos de mariposas, CO2 criogénico y burbujas. Los efectos que convierten momentos clave en recuerdos épicos."
+    tags={["Humo Bajo / Ice Fog", "Papelitos Mariposas", "Láser RGB 5W", "CO2 Criogénico", "Confeti & Serpentinas", "100% Seguro"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Efectos Especiales"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Los <strong>efectos especiales</strong> son el ingrediente secreto de los eventos más memorables. Nuestras <strong>máquinas de humo bajo (ice fog) con hielo seco</strong> crean el icónico efecto nube a ras de piso para el primer baile de los novios — denso, controlado y que se disipa en minutos sin activar alarmas. Los <strong>papelitos de mariposas</strong> crean una lluvia mágica de mariposas de papel de seda en colores personalizados que descienden suavemente sobre los invitados — el efecto favorito para cumpleaños, XV años y momentos de sorpresa.</p>
+      <p class="showcase__text">Para producciones de mayor escala, ofrecemos <strong>láser multicolor de 5W RGB con protocolo ILDA</strong> para shows aéreos programados, <strong>cañones de CO2 criogénico</strong> con chorros de hasta 8 metros que generan explosiones de niebla fría instantánea, <strong>cañones de confeti y serpentinas</strong> manuales o eléctricos, y <strong>máquinas de burbujas profesionales</strong> con fluido no tóxico. Cada efecto se opera con protocolos de seguridad certificados y coordinación con el venue. Complementa con <a href="/servicios/carpas/">carpas profesionales</a> para eventos al aire libre donde los efectos crean un espectáculo sin restricciones de espacio.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       GALERÍA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="galeria-heading">
+    <div class="container">
+      <h2 id="galeria-heading" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 2rem;">¿Cómo luce nuestra iluminación para eventos?</h2>
+      <Gallery4x4 images={[
+        { src: "/images/iluminacion/cabezas-moviles-beam-evento.avif", alt: "Cabezas móviles beam evento" },
+        { src: "/images/iluminacion/efectos-especiales-humo-bajo.avif", alt: "Efectos especiales humo bajo" },
+        { src: "/images/iluminacion/guirnaldas-edison-jardin-boda.avif", alt: "Guirnaldas Edison jardín boda" },
+        { src: "/images/iluminacion/iluminacion-arquitectonica-hacienda.avif", alt: "Iluminación arquitectónica hacienda" },
+        { src: "/images/iluminacion/luces-neon-uv-fiesta-glow.avif", alt: "Luces neón UV fiesta glow" },
+        { src: "/images/guirnaldas/boda-jardin.avif", alt: "Guirnaldas Edison iluminando boda en jardín" },
+        { src: "/images/guirnaldas/100m.avif", alt: "Guirnaldas Edison 100 metros para evento" },
+        { src: "/images/guirnaldas/200m.avif", alt: "Guirnaldas Edison 200 metros boda grande" },
+      ]} />
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PREGUNTAS FRECUENTES
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="faq-heading">
+    <div class="container">
+      <h2 id="faq-heading" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 2rem;">Preguntas frecuentes sobre iluminación para eventos</h2>
+    </div>
+    <FaqSection items={faqs} serviceName="iluminación para eventos" />
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       RESERVA TU EVENTO - Formulario de contacto / WhatsApp
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Iluminación"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada de iluminación. Sin compromiso, sin costos ocultos.",
+          "Ya sea un ambiental íntimo con fairy lights o una producción de escenario con moving heads y láser, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Concierto / Festival">Concierto / Festival</option>
+                <option value="Lanzamiento de Producto">Lanzamiento de Producto</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="equipo">
+                Tipo de iluminación
+              </label>
+              <select id="equipo" name="equipo" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de iluminación que necesitas</option>
+                <option value="Iluminación Arquitectónica">Iluminación Arquitectónica (Wash / Uplighting)</option>
+                <option value="Fairy Lights / Decorativa">Fairy Lights / Iluminación Decorativa</option>
+                <option value="Candiles y Esferas">Candiles de Cristal / Esferas LED</option>
+                <option value="Iluminación de Escenario">Iluminación de Escenario (Par LED / Moving Heads)</option>
+                <option value="Efectos Especiales">Efectos Especiales (Humo Bajo / Mariposas / Láser)</option>
+                <option value="Letras Luminosas / Neón">Letras Luminosas / Letreros Neón</option>
+                <option value="Producción Completa">Producción de Iluminación Completa</option>
+                <option value="Paquete Integral">Paquete Integral (Iluminación + Audio + Video)</option>
+                <option value="Otro">Otro / No estoy seguro</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de invitados, venue (salón, jardín, terraza), estilo de iluminación que imaginas, momentos especiales a destacar..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Visitamos tu venue sin costo para evaluar puntos de corriente y diseñar tu plano lumínico.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe un render previo del diseño de iluminación para tu evento.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const equipo = document.getElementById('equipo').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Nueva solicitud desde EVENTECH.MX — Iluminación*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (equipo) texto += `*Tipo de iluminación:* ${equipo}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CTA FINAL
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="La luz correcta cuenta la historia de tu evento sin palabras"
+    subheadline="Más de 500 producciones exitosas en CDMX nos respaldan. Cotiza hoy y recibe diseño lumínico personalizado con render previo."
+    primaryCTA={{ label: "Cotizar iluminación", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar iluminación profesional para mi evento en CDMX` }}
+    variant="accent"
+  />
+</PageLayout>
+

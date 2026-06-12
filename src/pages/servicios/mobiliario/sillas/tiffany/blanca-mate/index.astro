@@ -1,0 +1,541 @@
+---
+/**
+ * ─── Silla Tiffany Blanca Mate — Página de Variante (Nivel 4) ───
+ * Acabado blanco puro sin brillo — la más versátil, combina con cualquier paleta.
+ * Bodas minimalistas, baby showers, comuniones. Jardín Santa Fe, terraza Condesa.
+ *
+ * Jerarquía: Servicios > Mobiliario > Sillas > Sillas Tiffany > Blanca Mate
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import Gallery4x4 from "@components/Gallery4x4.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Sillas", href: "/servicios/mobiliario/sillas/" },
+  { label: "Sillas Tiffany", href: "/servicios/mobiliario/sillas/tiffany/" },
+  { label: "Blanca Mate" },
+];
+
+const faqs = [
+  {
+    question: "¿Cuál es la diferencia entre blanca mate y blanca brillante en la silla Tiffany?",
+    answer: "La Tiffany <strong>blanca mate</strong> tiene un acabado sin brillo — la superficie absorbe la luz en lugar de reflejarla, lo que crea un look limpio, tranquilo y elegante sin estridencias. Es el acabado ideal cuando quieres que la silla 'desaparezca' visualmente dentro de la decoración y que los arreglos florales, el mantel y el centro de mesa sean los protagonistas. En contraste, un acabado brillante llamaría más la atención. El mate también muestra menos huellas y marcas que un acabado brillante."
+  },
+  {
+    question: "¿La silla Tiffany blanca mate combina con decoraciones de colores fuertes?",
+    answer: "Sí, y es precisamente su mayor ventaja. El blanco mate actúa como lienzo neutro que <strong>amplifica cualquier color</strong> que pongas junto a él. Burdeos oscuro, esmeralda, azul rey, mostaza — todos contrastan perfectamente con el blanco sin crear conflicto visual. A diferencia del dorado o el plateado, que tienen personalidad de color propia, el blanco mate no compite con nada. Si tienes una paleta cromática fuerte o inusual para tu evento, la Tiffany blanca es la opción que nunca decepciona."
+  },
+  {
+    question: "¿Qué color de cojín va mejor con la Tiffany blanca para una boda minimalista?",
+    answer: "Para bodas minimalistas, las tres opciones más elegantes son: <strong>blanco puro</strong> (look monocromático total, muy editorial, muy actual), <strong>rosa blush</strong> (aporta calidez sin saturar — el cojín favorito para bodas de primavera y jardín) y <strong>champagne</strong> (un toque cálido discreto que funciona muy bien con flores secas o pampas). Si buscas un look más dramático para un evento diferente al de boda, el negro sobre blanco mate es impactante. Y si tu evento es baby shower o primera comunión, el rosa bebé o el azul cielo son perfectos."
+  },
+  {
+    question: "¿La silla Tiffany blanca se ensucia mucho en eventos al aire libre?",
+    answer: "La resina policarbonato del acabado blanco mate es <strong>no porosa y muy fácil de limpiar</strong> — las manchas de barro, bebidas o comida se van con un trapo húmedo. En superficies de jardín, la mayor precaución es con el pasto húmedo o tierra que puede subir por las patas, no por el cuerpo de la silla. Los cojines blancos son más delicados: si tu evento es en jardín con niños, considera cojín champagne o rosa blush que disimulen mejor. Todos los cojines se envían recién lavados y se recogen para limpieza después del evento."
+  },
+  {
+    question: "¿Para cuántas personas es ideal rentar la Tiffany blanca en Jardín Santa Fe o terraza en Condesa?",
+    answer: "El Jardín Santa Fe tiene capacidad para 80-300 personas dependiendo del formato de mesas. La Tiffany blanca funciona especialmente bien en ese venue porque contrasta con el verde del jardín de forma muy fotogénica. Para una terraza en Condesa de 50-100 personas, la Tiffany blanca sin cojín da un look contemporáneo muy limpio. El mínimo práctico para justificar la logística es <strong>50 sillas</strong>, pero puedes pedir menos con cargo de servicio mínimo. Para 100 sillas en Jardín Santa Fe, el precio ronda los $5,000-$6,500."
+  },
+];
+
+const specs = [
+  { label: "Acabado", value: "Blanco Mate — blanco puro sin brillo, acabado satinado sin reflejo" },
+  { label: "Material", value: "Resina policarbonato + estructura interna de acero inoxidable" },
+  { label: "Resistencia", value: "180 kg por silla (certificado)" },
+  { label: "Peso", value: "4.5 kg" },
+  { label: "Altura total", value: "90 cm (respaldo)" },
+  { label: "Ancho asiento", value: "40 cm" },
+  { label: "Apilable", value: "Sí, hasta 10 unidades" },
+  { label: "Cojín", value: "Incluido sin costo — blanco, rosa blush, champagne y 17+ colores más" },
+  { label: "Certificación", value: "Anti-UV, ignífugo, apto exterior" },
+  { label: "Mantenimiento", value: "Limpieza e inspección pre-evento incluida" },
+];
+
+const reviews = [
+  { author: "Carlos Ramírez", text: "Rentamos 150 sillas Tiffany blancas para una gala corporativa en Santa Fe. Cojín negro. El look fue minimalista y muy ejecutivo. El equipo fue muy profesional, montaron todo según el plano que les enviamos.", rating: 5, date: "2025-09-12" },
+  { author: "Valeria Montoya", text: "Para el baby shower de mi hermana usamos Tiffany blanca con cojín rosa bebé en terraza de Condesa. Todo quedó precioso para las fotos. La silla es ligera pero se siente muy sólida. Sin duda volveré a rentar.", rating: 5, date: "2025-08-20" },
+  { author: "Alejandra Cruz", text: "Boda minimalista en jardín privado. Tiffany blanca + cojín rosa blush + flores pampas. El resultado fue exactamente el look bohemio-elegante que buscaba. Las sillas llegaron limpísimas y a tiempo. Muy recomendados.", rating: 5, date: "2025-07-15" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Sillas Tiffany Blanca Mate para Bodas y Eventos en CDMX",
+    description: "Sillas Tiffany acabado blanco mate para bodas minimalistas, baby showers y comuniones en CDMX. La más versátil — combina con cualquier paleta. 180 kg. Cojín incluido. Desde $35/silla.",
+    url: "/servicios/mobiliario/sillas/tiffany/blanca-mate/",
+    priceRange: { min: 35, max: 65 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 28,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Sillas", url: "/servicios/mobiliario/sillas/" },
+    { name: "Sillas Tiffany", url: "/servicios/mobiliario/sillas/tiffany/" },
+    { name: "Blanca Mate", url: "/servicios/mobiliario/sillas/tiffany/blanca-mate/" },
+  ]),
+  faqJsonLd(faqs),
+];
+
+const sidebarNav = [
+  { name: "Todas las Tiffany", href: "/servicios/mobiliario/sillas/tiffany/" },
+  { name: "Dorada Champagne", href: "/servicios/mobiliario/sillas/tiffany/dorada-champagne/" },
+  { name: "Plateada Espejo", href: "/servicios/mobiliario/sillas/tiffany/plateada-espejo/" },
+  { name: "Blanca Mate", href: null, active: true },
+  { name: "Transparente Cristal", href: "/servicios/mobiliario/sillas/tiffany/transparente-cristal/" },
+];
+
+const sidebarRelated = [
+  { name: "Sillas Chiavari", href: "/servicios/mobiliario/sillas/chiavari/" },
+  { name: "Mesas para Eventos", href: "/servicios/mobiliario/mesas/" },
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+  { name: "Iluminación Decorativa", href: "/servicios/iluminacion/decorativa/" },
+  { name: "Carpas Profesionales", href: "/servicios/carpas/" },
+];
+
+const galleryImages = [
+  { src: "/images/mobiliario/sillas-tiffany-blanca-mate.avif", alt: "Silla Tiffany blanca mate para bodas minimalistas CDMX" },
+  { src: "/images/mobiliario/tiffany-blanca-01.avif", alt: "Sillas Tiffany blancas en ceremonia de boda jardín" },
+  { src: "/images/mobiliario/tiffany-blanca-02.avif", alt: "Montaje sillas Tiffany blancas baby shower elegante" },
+  { src: "/images/mobiliario/real-wedding-chiavari-03.avif", alt: "Sillas blancas en boda real al aire libre CDMX" },
+  { src: "/images/mobiliario/real-ceremony-outdoor-01.avif", alt: "Ceremonia outdoor con sillas blancas en jardín" },
+  { src: "/images/mobiliario/real-ceremony-outdoor-02.avif", alt: "Setup sillas blancas para ceremonia en jardín privado" },
+];
+---
+
+<PageLayout
+  title="Renta Sillas Tiffany Blanca Mate para Bodas"
+  description="Renta sillas Tiffany blanca mate en CDMX — la más versátil: bodas minimalistas, baby showers, comuniones."
+  jsonLd={jsonLd}
+>
+  <!-- BREADCRUMBS -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- 1. HERO -->
+  <HeroPage
+    badge="La silla comodín — combina con absolutamente cualquier temática"
+    title='Silla Tiffany <span class="highlight">Blanca Mate</span> — Renta en CDMX'
+    subtitle="Acabado blanco puro mate sin brillo — la silla que no compite con tu decoración sino que la potencia. Bodas minimalistas, baby showers, comuniones, jardines y terrazas. Estructura resina policarbonato + acero, 180 kg, cojín incluido."
+    primaryCTA={{ label: "Cotizar sillas Tiffany blancas", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar por WhatsApp", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar sillas Tiffany blancas mate para mi evento` }}
+    cards={[
+      {
+        title: "El acabado neutro que deja brillar tu decoración",
+        content: "La <strong>silla Tiffany blanca mate</strong> es la decisión inteligente cuando no quieres que la silla llame la atención — quieres que tus arreglos florales, el mantel y los centros de mesa sean los protagonistas. El acabado blanco puro sin brillo <strong>absorbe la luz en lugar de reflejarla</strong>, creando un fondo limpio y sereno que hace que cualquier color de decoración parezca más intenso. Ideal para Jardín Santa Fe, terrazas en Condesa y cualquier venue que tenga iluminación natural.",
+      },
+      {
+        title: "Versátil para cualquier tipo de celebración",
+        content: "La Tiffany blanca es la única silla que funciona igual de bien en una <strong>boda minimalista, un baby shower rosado, una primera comunión, una quinceanera pastel y una gala ejecutiva</strong>. El secreto es el cojín: blanco monocromático para bodas editorialistas, rosa blush para celebraciones íntimas, champagne para bodas bohemias, negro para galas corporativas. <strong>Desde $35/silla en lotes de 300+</strong>, $45-55 en 50-149. Entrega, montaje y desmontaje incluidos en CDMX.",
+      },
+    ]}
+  />
+
+  <!-- 2. CTA BANNER -->
+  <CTABanner
+    headline="La Tiffany blanca — la silla que siempre dice sí sin importar la temática de tu evento"
+    subheadline="Bodas, baby showers, comuniones, jardines y terrazas · Cojín en tu color incluido · CDMX"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- MOBILE SIDEBAR -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Variantes Tiffany</h2>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card sidebar-card--cta">
+          <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+          <p class="sidebar-card--cta-text">Sillas Tiffany blancas para tu evento</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar sillas Tiffany blancas mate`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT + SIDEBAR -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <div class="l4-main">
+
+
+          <!-- GALERÍA (primera sección del main) -->
+          <section class="section" aria-labelledby="galeria-heading">
+            <h2 id="galeria-heading" class="section__title">Galería — Tiffany Blanca Mate en Eventos Reales</h2>
+            <p class="section__subtitle">Bodas minimalistas, baby showers y comuniones en Jardín Santa Fe y venues de CDMX</p>
+            <Gallery4x4 images={galleryImages} />
+          </section>
+
+          <!-- SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 13V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/><path d="M3 13h18v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6z"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones — Silla Tiffany Blanca Mate</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- IMAGEN PRINCIPAL + DESCRIPCIÓN -->
+          <section class="section section--alt" aria-labelledby="descripcion-heading">
+            <ServiceShowcase
+    title="Blanco Mate: cuando la silla no compite, gana"
+    headingId="descripcion-heading"
+    badge="La silla que potencia cualquier decoración"
+    tags={["Blanco Mate", "Bodas Minimalistas", "Baby Showers", "Comuniones"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Tiffany Blanca"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Hay una paradoja en el diseño de eventos: a veces la mejor silla es la que menos se ve. La <strong>silla Tiffany blanca mate</strong> entiende ese principio a la perfección. Su acabado sin brillo no llama la atención — se funde con el ambiente y deja que los arreglos florales, la iluminación, los manteles y los centros de mesa sean los verdaderos protagonistas.</p>
+      <p class="showcase__text">En el <strong>Jardín Santa Fe</strong>, el blanco mate contrasta con el verde natural de forma muy limpia. En una terraza en Condesa con vegetación tropical, el mismo efecto. En un salón de paredes blancas para una boda minimalista, la silla prácticamente desaparece visualmente y el espacio se siente más amplio y sereno. Es la decisión inteligente cuando sabes que tu decoración es fuerte y no necesita competencia.</p>
+      <p class="showcase__text">La estructura es la misma que en todos los modelos: <strong>resina policarbonato sobre acero inoxidable, 180 kg de resistencia</strong>, apilable hasta 10 unidades. La diferencia es que el acabado mate es ligeramente más resistente a las huellas que el brillante — pequeño detalle que en eventos de día con mucha luz natural es apreciable.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main">
+                    <img src="/images/mobiliario/sillas-tiffany-blanca-mate.avif" alt="Sillas Tiffany blancas mate en evento elegante" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/silla-tiffany-dorada-gran-salon-03.avif" alt="Sillas para eventos en gran salón con montaje profesional" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/silla-tiffany-dorada-salon-champagne-05.avif" alt="Sillas en salón para boda con mantelería elegante" loading="lazy" decoding="async" />
+                  </div>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <!-- COMBOS SUGERIDOS -->
+          <section class="section" aria-labelledby="combos-heading">
+            <h2 id="combos-heading" class="section__title">Combos más pedidos con Tiffany Blanca</h2>
+            <p class="section__subtitle">Combinaciones de cojín, mesa y mantelería para distintos tipos de evento</p>
+            <div class="grid grid--3" style="margin-top: var(--space-xl);">
+              <div class="sidebar-card">
+                <h3 class="sidebar-card__title">Boda Minimalista</h3>
+                <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text);">
+                  Tiffany blanca + <strong>cojín blanco monocromático</strong> + mesa redonda con mantel blanco y flores secas pampas. El efecto es totalmente editorial — una boda que podría salir en cualquier revista de tendencias. Muy fotografiable bajo luz natural.
+                </p>
+              </div>
+              <div class="sidebar-card">
+                <h3 class="sidebar-card__title">Baby Shower Romántico</h3>
+                <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text);">
+                  Tiffany blanca + <strong>cojín rosa blush</strong> + mesa redonda con mantel blanco y globos dorados. La combinación blanco-rosa blush es la más pedida para baby showers de niña — suave, fotogénica y que funciona tanto en jardines como en terrazas.
+                </p>
+              </div>
+              <div class="sidebar-card">
+                <h3 class="sidebar-card__title">Comunión o Bautizo</h3>
+                <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text);">
+                  Tiffany blanca + <strong>cojín champagne</strong> + mesa rectangular con mantel marfil y arreglo floral blanco-verde. El champagne sobre blanco da un toque de madurez elegante — no tan infantil como el rosa, no tan serio como el negro. Perfecto para la mesa de los adultos en comuniones.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- TESTIMONIALES -->
+          <section class="section section--alt" aria-labelledby="testimonios-heading">
+            <h2 id="testimonios-heading" class="section__title">Opiniones — Tiffany Blanca Mate</h2>
+            <div class="grid grid--3" style="margin-top: var(--space-xl);">
+              {reviews.map((review) => (
+                <div class="sidebar-card">
+                  <div style="display: flex; gap: 4px; margin-bottom: var(--space-sm);">
+                    {[1,2,3,4,5].map(() => (
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    ))}
+                  </div>
+                  <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text); font-style: italic; margin-bottom: var(--space-sm);">"{review.text}"</p>
+                  <p style="font-size: var(--text-xs); font-weight: 700; color: var(--color-heading);">— {review.author}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <!-- FAQ -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas sobre Silla Tiffany Blanca Mate"
+              subtitle="Versatilidad, cojines y venues — todo lo que necesitas saber"
+              description={[
+                "La Tiffany blanca mate parece sencilla pero tiene más matices de los que aparenta. Resolvemos las dudas más frecuentes antes de que reserves.",
+              ]}
+            />
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿Tienes más dudas?</h3>
+                  <p class="faq-sidebar-card__text">Un asesor te ayuda a elegir el cojín y el combo perfecto para tu evento.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo dudas sobre la silla Tiffany blanca mate para mi evento`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">Escribir por WhatsApp</a>
+                </div>
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Número de sillas, tipo de evento y venue — respuesta en menos de 30 minutos.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- DESKTOP SIDEBAR -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Variantes Tiffany y servicios relacionados">
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Variantes Tiffany</h2>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/sillas/" class="sidebar-nav__back">&uarr; Volver a Sillas</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/" class="sidebar-nav__back">&uarr; Volver a Mobiliario</a>
+              </li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje con Tiffany blanca:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="sidebar-card sidebar-card--cta">
+            <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+            <p class="sidebar-card--cta-text">Sillas Tiffany blancas para tu boda, baby shower o comunión</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar sillas Tiffany blancas mate para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESERVA FORM -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tus Sillas Tiffany Blancas"
+        subtitle="Bodas, baby showers, comuniones y eventos en jardines y terrazas"
+        description={[
+          "Cuéntanos los detalles de tu evento y te enviamos cotización personalizada por WhatsApp. Sin compromiso y sin costos ocultos.",
+          "¿No estás segura del color de cojín? Cuéntanos la paleta de tu evento y te asesoramos con opciones concretas.",
+        ]}
+      />
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">Nombre completo <span class="form-field__required">*</span></label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">Teléfono <span class="form-field__required">*</span></label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">Tipo de evento</label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="Baby Shower">Baby Shower</option>
+                <option value="Primera Comunión">Primera Comunión</option>
+                <option value="Bautizo">Bautizo</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">Fecha del evento</label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="cojin">Color de cojín preferido</label>
+              <select id="cojin" name="cojin" class="form-field__input form-field__select">
+                <option value="">Selecciona el color de cojín</option>
+                <option value="Blanco">Blanco (monocromático elegante)</option>
+                <option value="Rosa Blush">Rosa Blush (bodas y baby showers)</option>
+                <option value="Champagne">Champagne (toque cálido discreto)</option>
+                <option value="Negro">Negro (contraste dramático)</option>
+                <option value="Rosa Bebé">Rosa Bebé</option>
+                <option value="Azul Cielo">Azul Cielo</option>
+                <option value="No sé aún">Aún no lo sé — necesito asesoría de paleta</option>
+              </select>
+            </div>
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">Detalles del pedido <span class="form-field__required">*</span></label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Número de sillas, venue (jardín, terraza, salón), horario y cualquier detalle sobre tu paleta de colores..." rows="4" required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Asesoría de paleta</h3>
+            <p class="reserva-card__text">¿No sabes qué cojín combina mejor? Cuéntanos tu decoración y te recomendamos el color exacto.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Cojín incluido</h3>
+            <p class="reserva-card__text">Blanco, rosa blush, champagne, negro y 17 colores más — incluido sin costo extra.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Precio por volumen</h3>
+            <p class="reserva-card__text">1-49 sillas: $55-65/u · 50-149: $45-55/u · 150-299: $40-50/u · 300+: desde $35/u</p>
+          </div>
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const cojin = document.getElementById('cojin').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+      let texto = `*Silla Tiffany Blanca Mate — Cotización*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (cojin) texto += `*Color de cojín:* ${cojin}\n`;
+      texto += `\n*Detalles:*\n${mensaje}`;
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() { this.classList.remove('form-field__input--error'); });
+    });
+  </script>
+
+  <!-- CTA FINAL -->
+  <CTABanner
+    headline="La silla Tiffany blanca que transforma jardines, terrazas y salones en algo memorable"
+    subheadline="La más versátil de todas las Tiffany — con cojín en tu color y montaje profesional incluidos"
+    primaryCTA={{ label: "Cotizar sillas Tiffany blancas", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar sillas Tiffany blancas mate para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<style is:global>
+  :root {
+    --color-accent: #6366f1;
+    --color-accent-hover: #4f46e5;
+    --color-accent-light: #818cf8;
+    --color-accent-soft: rgba(99, 102, 241, 0.1);
+    --gradient-accent: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    --shadow-accent: 0 4px 14px rgba(99, 102, 241, 0.35);
+    --shadow-accent-hover: 0 6px 20px rgba(99, 102, 241, 0.45);
+  }
+</style>

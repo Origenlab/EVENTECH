@@ -1,0 +1,513 @@
+---
+/**
+ * ─── Mesa Redonda 150cm — Página de Variante (Nivel 4) ───
+ * Mesa redonda 150cm, 8 personas, para bodas y banquetes en CDMX.
+ * Jerarquía: Servicios > Mobiliario > Mesas > Redondas > 150cm
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import Gallery4x4 from "@components/Gallery4x4.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Mesas", href: "/servicios/mobiliario/mesas/" },
+  { label: "Mesas Redondas", href: "/servicios/mobiliario/mesas/redondas/" },
+  { label: "150cm — 8 personas" },
+];
+
+const galleryImages = [
+  { src: "/images/mobiliario/mesas-redondas-150cm-banquete-estandar.avif", alt: "Mesa redonda 150cm en banquete estándar con montaje completo CDMX" },
+  { src: "/images/mobiliario/mesas-redondas-montaje-dorado-bodas.avif", alt: "Mesas redondas en montaje dorado para bodas elegantes" },
+  { src: "/images/mobiliario/mesa-redonda-detalle-chargers-dorados-flores.avif", alt: "Detalle mesa redonda 150cm con chargers dorados y flores blancas" },
+  { src: "/images/mobiliario/mesa-redonda-overhead-chargers-boda.avif", alt: "Vista aérea mesa redonda 150cm con chargers dorados para boda" },
+  { src: "/images/mobiliario/mesas-redondas-manteleria-completa.avif", alt: "Mesa redonda 150cm con mantelería completa para banquete" },
+  { src: "/images/mobiliario/salon-mesas-redondas-banquete-montaje.avif", alt: "Salón con mesas redondas en montaje completo de banquete" },
+];
+
+const faqs = [
+  {
+    question: "¿Cuántas personas caben en una mesa redonda de 150cm?",
+    answer: "Una <strong>mesa redonda de 150 cm de diámetro</strong> tiene capacidad cómoda para <strong>8 personas</strong> — 4 sillas de cada lado con espacio adecuado entre comensales. En montajes muy ajustados puede llegar a 9, pero recomendamos no superar las 8 para garantizar comodidad en cenas de larga duración como bodas y XV años. El diámetro de 150 cm es el estándar más usado en salones de banquete en México."
+  },
+  {
+    question: "¿Cuántas mesas redondas de 150cm necesito para 200 invitados?",
+    answer: "Para <strong>200 invitados</strong> con mesas de 150 cm (8 personas cada una) necesitas <strong>25 mesas</strong>. La fórmula es: invitados ÷ 8 = número de mesas. Te recomendamos agregar 1-2 mesas extra como reserva para imprevistos. Para un layout óptimo en salones estándar, necesitarás aproximadamente 420 m² de salón para 25 mesas con pasillos de servicio de 1.5 m."
+  },
+  {
+    question: "¿Cuál es la diferencia entre la mesa de 150cm y la de 180cm?",
+    answer: "La mesa de 150 cm es el <strong>estándar para banquetes convencionales</strong>: 8 personas, más económica y más fácil de distribuir en salones con espacio limitado. La de 180 cm admite 10 personas y crea un ambiente más spacioso, ideal para banquetes VIP donde se quiere mayor holgura entre comensales. Para el mismo número de invitados, las mesas de 150 cm permiten poner más centros de mesa y floral, mientras que las de 180 cm crean más conversación entre los comensales."
+  },
+  {
+    question: "¿Las mesas redondas incluyen mantelería?",
+    answer: "Las mesas se rentan con o sin mantelería según tu presupuesto. Ofrecemos <strong>manteles redondos completos que llegan al piso</strong> (360 cm de circunferencia) en más de 30 colores y texturas: satinado, organza, rustico, spandex elástico. El mantel es la mayor diferencia visual en una mesa — te recomendamos incluirlo para un acabado profesional. La mantelería se cotiza por separado para darte flexibilidad total."
+  },
+  {
+    question: "¿Con cuánta anticipación debo reservar las mesas para mi boda?",
+    answer: "Para bodas en temporada alta (noviembre a febrero), recomendamos reservar con <strong>6 a 8 semanas de anticipación</strong>. En temporada media, con 3-4 semanas es suficiente. Las mesas redondas de 150 cm son nuestro producto más solicitado y los formatos completos (mesa + mantel + sillas) se agotan primero. Un anticipo del 30% bloquea tu fecha y cantidad. Para eventos de 200+ personas siempre recomendamos reservar con 2 meses."
+  },
+];
+
+const specs = [
+  { label: "Diámetro", value: "150 cm" },
+  { label: "Altura", value: "75 cm (estándar banquete)" },
+  { label: "Capacidad", value: "8 personas cómodas" },
+  { label: "Material tablero", value: "Triplay alta densidad con melamínico resistente" },
+  { label: "Estructura", value: "Base metálica plegable con niveladores ajustables" },
+  { label: "Resistencia", value: "120 kg distribuidos sobre la superficie" },
+  { label: "Sistema", value: "Plegable — fácil traslado y almacenamiento" },
+  { label: "Mantenimiento", value: "Limpieza e inspección pre-evento incluida" },
+  { label: "Precio referencial", value: "Desde $120 por mesa / evento" },
+];
+
+const reviews = [
+  { author: "Sofía Hernández", text: "Rentamos 25 mesas redondas de 150cm para nuestra boda. Llegaron perfectas, bien calibradas y sin ningún problema. El montaje fue rápido y los niveladores funcionaron perfecto en el jardín.", rating: 5, date: "2025-11-10" },
+  { author: "Laura Mendoza", text: "Las mesas de 150cm son ideales para el salón donde hicimos los XV años de mi hija. Cabían 8 personas holgadas y el espacio entre mesas quedó perfecto para que circulara el personal de servicio.", rating: 5, date: "2025-10-05" },
+  { author: "Carlos Jiménez", text: "Evento corporativo de 180 personas con 23 mesas. Todas llegaron a tiempo, impecables, y el equipo las montó en menos de hora y media. Precio muy competitivo para la calidad.", rating: 5, date: "2025-09-20" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta Mesa Redonda 150cm para Bodas en CDMX — 8 Personas",
+    description: "Mesa redonda 150cm para 8 personas. El estándar para banquetes de bodas, XV años y corporativos en CDMX. Tablero melamínico, base plegable con niveladores. Desde $120.",
+    url: "/servicios/mobiliario/mesas/redondas/150cm/",
+    priceRange: { min: 120, max: 200 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 43,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Mesas", url: "/servicios/mobiliario/mesas/" },
+    { name: "Mesas Redondas", url: "/servicios/mobiliario/mesas/redondas/" },
+    { name: "150cm — 8 Personas", url: "/servicios/mobiliario/mesas/redondas/150cm/" },
+  ]),
+  faqJsonLd(faqs),
+];
+
+const sidebarNav = [
+  { name: "Todas las Redondas", href: "/servicios/mobiliario/mesas/redondas/" },
+  { name: "150cm (8 personas)", href: null, active: true },
+  { name: "180cm (10 personas)", href: "/servicios/mobiliario/mesas/redondas/180cm/" },
+];
+
+const sidebarRelated = [
+  { name: "Mesas Rectangulares", href: "/servicios/mobiliario/mesas/rectangulares/" },
+  { name: "Mesas Cocktail", href: "/servicios/mobiliario/mesas/cocktail/" },
+  { name: "Sillas para Eventos", href: "/servicios/mobiliario/sillas/" },
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+  { name: "Tablones y Buffet", href: "/servicios/mobiliario/mesas/tablones/" },
+];
+---
+
+<PageLayout
+  title="Renta Mesa Redonda 150cm para Bodas CDMX"
+  description="Renta mesa redonda 150cm en CDMX — capacidad 8 personas. El estándar para banquetes de bodas, XV años y corporativos."
+  jsonLd={jsonLd}
+>
+  <!-- BREADCRUMBS -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- 1. HERO -->
+  <HeroPage
+    badge="El formato estándar — presente en 80% de los banquetes"
+    title='Mesa Redonda <span class="highlight">150cm</span> — 8 Personas — Renta CDMX'
+    subtitle="La mesa redonda de 150 cm es el estándar de oro para banquetes en México: caben 8 comensales con holgura, el diámetro optimiza el espacio del salón y el formato circular favorece la conversación. Tablero melamínico, base plegable con niveladores. Desde $120."
+    primaryCTA={{ label: "Cotizar mesas redondas 150cm", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar por WhatsApp", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar mesas redondas de 150cm para mi evento` }}
+    cards={[
+      {
+        title: "El formato que define el banquete clásico en México",
+        content: "La <strong>mesa redonda de 150 cm</strong> es la más usada en bodas, XV años, bautizos y galas corporativas de la Ciudad de México. Su diámetro estándar permite distribuir <strong>8 sillas cómodamente</strong> con espacio suficiente para centros de mesa, cristalería y chargers. Es el formato que mejor aprovecha el espacio del salón — permite colocar más mesas con pasillos adecuados que cualquier otro formato redondo.",
+      },
+      {
+        title: "Resistencia real y niveladores para cualquier superficie",
+        content: "Fabricada en <strong>tablero de triplay de alta densidad</strong> con acabado melamínico resistente a manchas, agua y raspones. La base metálica plegable incluye <strong>niveladores ajustables en cada pata</strong> que garantizan estabilidad total incluso en jardines con desniveles o alfombra gruesa. Soporta hasta <strong>120 kg distribuidos</strong>. Montaje, entrega y recolección incluidos en CDMX.",
+      },
+    ]}
+  />
+
+  <!-- 2. CTA BANNER -->
+  <CTABanner
+    headline="¿Cuántas mesas de 150cm necesitas? Te ayudamos a calcular el layout"
+    subheadline="Asesoría de distribución sin costo — calcula cantidad exacta según tu venue y número de invitados"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- MOBILE SIDEBAR -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Variantes Redondas</h2>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card sidebar-card--cta">
+          <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+          <p class="sidebar-card--cta-text">Mesas redondas 150cm para tu evento</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar mesas redondas de 150cm`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT + SIDEBAR -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <div class="l4-main">
+
+          <!-- GALERÍA -->
+          <section class="section" aria-labelledby="galeria-heading">
+            <h2 id="galeria-heading" class="section__title">Galería — Mesa Redonda 150cm en Eventos Reales</h2>
+            <p class="section__subtitle">Bodas, XV años y corporativos en salones y jardines de CDMX</p>
+            <Gallery4x4 images={galleryImages} />
+          </section>
+
+          <!-- SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones — Mesa Redonda 150cm</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- DESCRIPCIÓN DE VENTA -->
+          <section class="section section--alt" aria-labelledby="descripcion-heading">
+            <ServiceShowcase
+    title="¿Por qué la mesa de 150cm es la más elegida para bodas?"
+    headingId="descripcion-heading"
+    badge="El estándar de oro del banquete mexicano"
+    tags={["150 cm diámetro", "8 personas", "Banquetes clásicos", "Bodas y XV años"]}
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">El diámetro de 150 cm no es un número arbitrario — es el resultado de décadas de experiencia en banquetes. Con 8 comensales, cada persona tiene aproximadamente <strong>59 cm de espacio lateral</strong>, suficiente para comer cómodamente sin sentirse apretada. El tablero circular permite que todos se vean entre sí, favoreciendo la conversación — algo que los formatos rectangulares no logran igual.</p>
+      <p class="showcase__text">El tablero de <strong>triplay de alta densidad con acabado melamínico</strong> resiste manchas de vino, aceite y agua sin absorberlas. La superficie lisa facilita el deslizamiento de platos y manteles. El sistema de patas plegables con <strong>niveladores de rosca</strong> garantiza que la mesa quede perfectamente horizontal incluso en jardines con desniveles de 2-3 cm.</p>
+      <p class="showcase__text">Cada mesa se limpia e inspecciona antes de entregarse. Si hay algún rasguño en el tablero, se retira del evento. Somos el proveedor con mayor inventario de este formato en la Ciudad de México — <strong>más de 1,200 unidades</strong> disponibles para eventos simultáneos.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main">
+                    <img src="/images/mobiliario/mesas-redondas-150cm-banquete-estandar.avif" alt="Mesa redonda 150cm montada en banquete estándar" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/mesa-redonda-detalle-chargers-dorados-flores.avif" alt="Mesa redonda 150cm con chargers dorados y arreglo floral" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/mesas-redondas-manteleria-completa.avif" alt="Mesa redonda 150cm con mantelería completa para boda" loading="lazy" decoding="async" />
+                  </div>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <!-- COMBINACIONES -->
+          <section class="section" aria-labelledby="combos-heading">
+            <h2 id="combos-heading" class="section__title">Montajes más pedidos con mesa redonda 150cm</h2>
+            <p class="section__subtitle">Combinaciones de sillas, mantelería y decoración que funcionan</p>
+            <div class="grid grid--3" style="margin-top: var(--space-xl);">
+              <div class="sidebar-card">
+                <h3 class="sidebar-card__title">Boda Clásica</h3>
+                <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text);">
+                  Mesa 150cm + <strong>silla Tiffany dorada</strong> + mantel blanco hasta el piso + centro de mesa floral. El montaje clásico que aparece en el 70% de las bodas en CDMX. Funciona en salones y jardines.
+                </p>
+              </div>
+              <div class="sidebar-card">
+                <h3 class="sidebar-card__title">Corporativo Formal</h3>
+                <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text);">
+                  Mesa 150cm + <strong>silla Chiavari negra</strong> + mantel gris antracita + mantel de color corporativo. Proyecta profesionalismo sin perder la calidez del formato circular.
+                </p>
+              </div>
+              <div class="sidebar-card">
+                <h3 class="sidebar-card__title">Jardín Rústico</h3>
+                <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text);">
+                  Mesa 150cm + <strong>silla Crossback natural</strong> + mantel de lino + runner de yute + flores silvestres. El estilo boho-chic más fotogénico para bodas en haciendas y jardines.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- TESTIMONIALES -->
+          <section class="section section--alt" aria-labelledby="testimonios-heading">
+            <h2 id="testimonios-heading" class="section__title">Opiniones — Mesa Redonda 150cm</h2>
+            <div class="grid grid--3" style="margin-top: var(--space-xl);">
+              {reviews.map((review) => (
+                <div class="sidebar-card">
+                  <div style="display: flex; gap: 4px; margin-bottom: var(--space-sm);">
+                    {[1,2,3,4,5].map(() => (
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    ))}
+                  </div>
+                  <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text); font-style: italic; margin-bottom: var(--space-sm);">"{review.text}"</p>
+                  <p style="font-size: var(--text-xs); font-weight: 700; color: var(--color-heading);">— {review.author}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <!-- FAQ -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas sobre Mesa Redonda 150cm"
+              subtitle="Lo que nos preguntan antes de reservar"
+              description={["El formato estándar para banquetes. Capacidad 8 personas, niveladores incluidos, listo para cualquier tipo de evento."]}
+            />
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿Tienes más dudas?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp — te ayudamos a calcular cuántas mesas necesitas para tu evento.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo dudas sobre la renta de mesas redondas 150cm`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">Escribir por WhatsApp</a>
+                </div>
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Dinos el número de invitados y te calculamos mesas, sillas y mantelería al instante.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- DESKTOP SIDEBAR -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Variantes mesas redondas y servicios relacionados">
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Variantes Redondas</h2>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/mesas/" class="sidebar-nav__back">&uarr; Volver a Mesas</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/" class="sidebar-nav__back">&uarr; Volver a Mobiliario</a>
+              </li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="sidebar-card sidebar-card--cta">
+            <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+            <p class="sidebar-card--cta-text">Mesas redondas 150cm para tu evento en CDMX</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar mesas redondas de 150cm para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESERVA FORM -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tus Mesas Redondas 150cm"
+        subtitle="Cuéntanos sobre tu evento y te respondemos de inmediato"
+        description={[
+          "Completa el formulario y un asesor te enviará cotización personalizada por WhatsApp. Sin compromiso, sin costos ocultos.",
+          "Dinos el número de invitados y te calculamos la cantidad exacta de mesas, el layout óptimo y el precio final.",
+        ]}
+      />
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">Nombre completo <span class="form-field__required">*</span></label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">Teléfono <span class="form-field__required">*</span></label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">Tipo de evento</label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">Fecha del evento</label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">Detalles del pedido <span class="form-field__required">*</span></label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Número de mesas o invitados, venue, si necesitas mantelería, sillas..." rows="4" required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta en 30 min</h3>
+            <p class="reserva-card__text">Te contactamos por WhatsApp con precio exacto y layout sugerido en menos de 30 minutos.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Asesoría de layout</h3>
+            <p class="reserva-card__text">Te calculamos la cantidad exacta de mesas según tu venue y número de invitados, sin costo.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Precio por volumen</h3>
+            <p class="reserva-card__text">1-10 mesas: $150/u · 11-25 mesas: $135/u · 26-50 mesas: $120/u · 50+: cotizar</p>
+          </div>
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+      let texto = `*Mesa Redonda 150cm — Cotización*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      texto += `\n*Detalles:*\n${mensaje}`;
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() { this.classList.remove('form-field__input--error'); });
+    });
+  </script>
+
+  <!-- CTA FINAL -->
+  <CTABanner
+    headline="La mesa redonda de 150cm que hace perfecto tu banquete — cotiza sin compromiso"
+    subheadline="El estándar de oro para bodas en CDMX · Niveladores incluidos · Montaje profesional"
+    primaryCTA={{ label: "Cotizar mesas redondas", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar mesas redondas de 150cm para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<style is:global>
+  :root {
+    --color-accent: #6c5ce7;
+    --color-accent-hover: #5a4fd6;
+    --color-accent-light: #8b7ff0;
+    --color-accent-soft: rgba(108, 92, 231, 0.1);
+    --gradient-accent: linear-gradient(135deg, #6c5ce7 0%, #5a4fd6 100%);
+    --shadow-accent: 0 4px 14px rgba(108, 92, 231, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(108, 92, 231, 0.5);
+  }
+</style>

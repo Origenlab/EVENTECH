@@ -1,0 +1,351 @@
+---
+/**
+ * ─── Blog Index — Rediseño 2026 (homologado al home) ───
+ * Mismo sistema visual del home (`hm-`): hero navy/gold, menú de secciones,
+ * split heads, cards premium y sidebar. Estilos en `@styles/blog-2026.css`.
+ */
+import type { GetStaticPaths, Page } from "astro";
+import PageLayout from "@layouts/PageLayout.astro";
+import BlogCard from "@components/BlogCard.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { breadcrumbJsonLd } from "@utils/seo";
+import "@styles/home-2026.css";
+import "@styles/blog-2026.css";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const allPosts = (await getCollection("blog", ({ data }: CollectionEntry<"blog">) => !data.draft))
+    .sort((a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) => b.data.date.valueOf() - a.data.date.valueOf());
+
+  // 6 posts per page
+  return paginate(allPosts, { pageSize: 6 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props as { page: Page<CollectionEntry<"blog">> };
+const currentPage = page.currentPage;
+const totalPages = page.lastPage;
+
+// All posts for category counts (not just current page)
+const allPosts = (await getCollection("blog", ({ data }: CollectionEntry<"blog">) => !data.draft))
+  .sort((a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) => b.data.date.valueOf() - a.data.date.valueOf());
+
+// Category definitions with counts
+const categoryDefs = [
+  { slug: "all", label: "Todos" },
+  { slug: "bodas", label: "Bodas" },
+  { slug: "xv-anos", label: "XV Años" },
+  { slug: "corporativos", label: "Corporativos" },
+  { slug: "tendencias", label: "Tendencias" },
+  { slug: "guias", label: "Guías" },
+  { slug: "tips", label: "Tips" },
+  { slug: "casos-exito", label: "Casos de Éxito" },
+];
+
+// Count posts per category
+const categories = categoryDefs.map(cat => ({
+  ...cat,
+  count: cat.slug === "all"
+    ? allPosts.length
+    : allPosts.filter((p: CollectionEntry<"blog">) => p.data.category === cat.slug).length
+})).filter(cat => cat.count > 0 || cat.slug === "all");
+
+const sectionMenu = [
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Eventos", href: "/eventos/" },
+  { label: "Salones", href: "/directorio/" },
+  { label: "Nosotros", href: "/nosotros/" },
+  { label: "Blog", href: "/blog/" },
+  { label: "Cotizar", href: "/cotizar/" },
+];
+
+const jsonLd = [
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Blog", url: "/blog/" },
+  ]),
+];
+
+const pageTitle = currentPage > 1
+  ? `Blog — Página ${currentPage}`
+  : "Blog — Artículos y Guías de Eventos";
+
+---
+
+<PageLayout
+  title={pageTitle}
+  description="Artículos, guías y tendencias sobre eventos, bodas, XV años y corporativos. Tips para organizar tu celebración perfecta en CDMX."
+  jsonLd={jsonLd}
+>
+  <div class="hm">
+    <!-- HERO (solo página 1) -->
+    {currentPage === 1 && (
+      <section class="hm-hero" aria-labelledby="blog-hero-heading">
+        <div class="hm__wrap hm-hero__wrap">
+          <div class="hm-hero__grid">
+            <div class="hm-hero__main">
+              <p class="hm__eyebrow hm-hero__eyebrow">
+                Recursos para tu evento · CDMX y Estado de México
+              </p>
+              <h1 id="blog-hero-heading">El blog de <em>EVENTECH</em></h1>
+              <p class="hm-hero__lead">
+                Guías prácticas, tendencias y consejos de expertos para organizar
+                eventos memorables: mobiliario, carpas, iluminación y más.
+              </p>
+            </div>
+            <div class="hm-hero__seo">
+              <p>
+                Con <strong>más de 30 años equipando eventos</strong> en la Ciudad de
+                México y el Estado de México, compartimos en este blog el conocimiento
+                que acumulamos montando bodas, XV años y eventos corporativos. Desde
+                guías paso a paso hasta tips de montaje profesional, cada artículo nace
+                de la experiencia real de nuestro equipo.
+              </p>
+              <p>
+                Publicamos con regularidad sobre <strong>tendencias actuales</strong>,
+                nuevos productos disponibles para renta y casos de éxito de eventos que
+                hemos equipado, para que organices tu celebración con información práctica
+                y confiable.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- MENU DE SECCIONES -->
+    <nav class="hm-menu" aria-label="Secciones principales del sitio">
+      <ul class="hm-menu__grid">
+        {sectionMenu.map((m) => (
+          <li>
+            <a class="hm-menu__item" href={m.href}>{m.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <!-- ARTICULOS -->
+    <section class="hm__section" id="articulos" aria-labelledby="articulos-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Conocimiento para tu evento</p>
+            <h2 id="articulos-heading">
+              {currentPage === 1 ? "Artículos y guías" : `Artículos · Página ${currentPage}`}
+            </h2>
+            <p class="hm__head-sub">
+              {currentPage === 1
+                ? "Contenido organizado por tipo de evento y tema, basado en cientos de montajes reales."
+                : `Mostrando artículos ${page.start + 1}–${page.end + 1} de ${page.total} publicados.`}
+            </p>
+          </div>
+          <div class="hm__head-copy">
+            <p>Encuentra el contenido que necesitas organizado por tipo de evento o tema: desde preparativos para bodas hasta consejos para eventos corporativos, todo con información aplicable a tu celebración.</p>
+            <p>Cada artículo incluye recomendaciones prácticas surgidas de nuestra experiencia equipando cientos de eventos cada año en CDMX y Estado de México.</p>
+          </div>
+        </div>
+
+        <div class="hm-bl-layout">
+          <!-- Contenido principal -->
+          <div class="hm-bl-main">
+            <!-- Filtros -->
+            <div class="hm-bl-filters" role="tablist" aria-label="Filtrar por categoría">
+              {categories.map((cat, i) => (
+                <button
+                  type="button"
+                  role="tab"
+                  class:list={["hm-bl-tab", { "hm-bl-tab--active": i === 0 }]}
+                  data-category={cat.slug}
+                  aria-selected={i === 0 ? "true" : "false"}
+                >
+                  {cat.label} ({cat.count})
+                </button>
+              ))}
+            </div>
+
+            <!-- Grid -->
+            {page.data.length > 0 ? (
+              <div class="hm-bl-grid">
+                {page.data.map((post, i) => (
+                  <BlogCard
+                    title={post.data.title}
+                    description={post.data.description}
+                    slug={post.slug}
+                    image={post.data.image}
+                    body={post.body}
+                    category={post.data.category}
+                    tags={post.data.tags}
+                    author={post.data.author}
+                    featured={currentPage === 1 && i === 0}
+                  />
+                ))}
+              </div>
+            ) : (
+              <p class="hm-bl-empty">No hay artículos publicados todavía. Vuelve pronto.</p>
+            )}
+
+            <!-- Paginación -->
+            {totalPages > 1 && (
+              <nav class="hm-bl-pag" aria-label="Navegación del blog">
+                <div class="hm-bl-pag__info">
+                  Página {currentPage} de {totalPages} · {page.total} artículos
+                </div>
+                <div class="hm-bl-pag__links">
+                  {page.url.prev ? (
+                    <a href={page.url.prev} class="hm-bl-pag__btn">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                      Anterior
+                    </a>
+                  ) : (
+                    <span class="hm-bl-pag__btn hm-bl-pag__btn--off">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                      Anterior
+                    </span>
+                  )}
+
+                  <div class="hm-bl-pag__nums">
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((num) => {
+                      const url = num === 1 ? "/blog/" : `/blog/${num}/`;
+                      const isActive = num === currentPage;
+                      return (
+                        <a
+                          href={url}
+                          class:list={["hm-bl-pag__num", { "hm-bl-pag__num--active": isActive }]}
+                          aria-current={isActive ? "page" : undefined}
+                        >
+                          {num}
+                        </a>
+                      );
+                    })}
+                  </div>
+
+                  {page.url.next ? (
+                    <a href={page.url.next} class="hm-bl-pag__btn">
+                      Siguiente
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                    </a>
+                  ) : (
+                    <span class="hm-bl-pag__btn hm-bl-pag__btn--off">
+                      Siguiente
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                    </span>
+                  )}
+                </div>
+              </nav>
+            )}
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="hm-bl-side">
+            <!-- Categorías -->
+            <div class="hm-bl-scard">
+              <h3 class="hm-bl-scard__title">Categorías</h3>
+              <nav class="hm-bl-snav" aria-label="Categorías del blog">
+                <a href="/blog/" class="hm-bl-slink hm-bl-slink--active">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                  Todos los artículos
+                </a>
+                <a href="/blog/?cat=bodas" class="hm-bl-slink">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  Bodas
+                </a>
+                <a href="/blog/?cat=xv-anos" class="hm-bl-slink">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  XV Años
+                </a>
+                <a href="/blog/?cat=corporativos" class="hm-bl-slink">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                  Corporativos
+                </a>
+                <a href="/blog/?cat=guias" class="hm-bl-slink">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                  Guías
+                </a>
+                <a href="/blog/?cat=tips" class="hm-bl-slink">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  Tips
+                </a>
+              </nav>
+            </div>
+
+            <!-- Servicios -->
+            <div class="hm-bl-scard">
+              <h3 class="hm-bl-scard__title">Nuestros servicios</h3>
+              <div class="hm-bl-chips">
+                <a href="/servicios/mobiliario/" class="hm-bl-chip">Mobiliario</a>
+                <a href="/servicios/carpas/" class="hm-bl-chip">Carpas</a>
+                <a href="/servicios/audiovisual/" class="hm-bl-chip">Audiovisual</a>
+                <a href="/servicios/iluminacion/" class="hm-bl-chip">Iluminación</a>
+                <a href="/servicios/pistas-baile/" class="hm-bl-chip">Pistas</a>
+                <a href="/servicios/inflables/" class="hm-bl-chip">Inflables</a>
+                <a href="/servicios/catering/" class="hm-bl-chip">Catering</a>
+                <a href="/servicios/accesorios/" class="hm-bl-chip">Accesorios</a>
+              </div>
+            </div>
+
+            <!-- Tipos de evento -->
+            <div class="hm-bl-scard">
+              <h3 class="hm-bl-scard__title">Tipos de evento</h3>
+              <nav class="hm-bl-snav">
+                <a href="/eventos/bodas/" class="hm-bl-slink">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  Bodas
+                </a>
+                <a href="/eventos/xv-anos/" class="hm-bl-slink">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  XV Años
+                </a>
+                <a href="/eventos/corporativos/" class="hm-bl-slink">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                  Corporativos
+                </a>
+                <a href="/eventos/fiestas-infantiles/" class="hm-bl-slink">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                  Fiestas Infantiles
+                </a>
+              </nav>
+            </div>
+
+            <!-- CTA -->
+            <div class="hm-bl-scard hm-bl-scard--cta">
+              <h3 class="hm-bl-scard__title">¿Necesitas equipo?</h3>
+              <p class="hm-bl-cta-txt">
+                Cotiza sin compromiso y recibe asesoría personalizada para tu evento.
+              </p>
+              <a href="/cotizar/" class="hm-bl-cta-btn">Cotizar ahora</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</PageLayout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    var tabs = document.querySelectorAll('.hm-bl-tab');
+    var cards = document.querySelectorAll('.hm-bl-card');
+
+    tabs.forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var category = tab.dataset.category;
+
+        tabs.forEach(function(t) {
+          t.classList.remove('hm-bl-tab--active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('hm-bl-tab--active');
+        tab.setAttribute('aria-selected', 'true');
+
+        cards.forEach(function(card) {
+          var cardCategory = card.dataset.category;
+          if (category === 'all' || cardCategory === category) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>

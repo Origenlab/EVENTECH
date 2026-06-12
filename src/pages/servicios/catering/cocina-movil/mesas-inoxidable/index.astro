@@ -1,0 +1,716 @@
+---
+/**
+ * ─── Mesas de Trabajo de Acero Inoxidable — Pagina de Producto (Nivel 4) ───
+ * Mesas de trabajo de acero inoxidable comercial, estaciones de preparacion,
+ * estanteria y tarjas portatiles con certificacion de higiene.
+ *
+ * Jerarquia: Servicios > Catering > Cocina Movil > Mesas de Trabajo Inoxidable
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@data/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Catering", href: "/servicios/catering/" },
+  { label: "Cocina Movil", href: "/servicios/catering/cocina-movil/" },
+  { label: "Mesas de Trabajo Inoxidable" },
+];
+
+const faqs = [
+  { question: "¿Qué certificaciones de higiene tienen las mesas y tarjas?", answer: "Todo nuestro equipo de acero inoxidable cuenta con <strong>certificación NOM (Norma Oficial Mexicana)</strong> para contacto con alimentos y <strong>certificación NSF International</strong>, el estándar global más reconocido en seguridad alimentaria. El acero inoxidable grado 304 que utilizamos es el mismo que se emplea en cocinas industriales de hospitales y restaurantes. Antes de cada evento realizamos <strong>sanitización certificada</strong> con documentación disponible si tu evento requiere permisos sanitarios de COFEPRIS o la delegación correspondiente." },
+  { question: "¿Cuánto peso soportan las mesas de trabajo?", answer: "Nuestras mesas de trabajo están diseñadas para uso industrial intensivo. La <strong>mesa de 1.2 metros</strong> soporta hasta 200 kg de carga distribuida. Las <strong>mesas de 1.5 y 1.8 metros</strong> soportan hasta 250 kg gracias a su estructura reforzada con entrepaño inferior y patas de calibre grueso. La <strong>estantería de 4 niveles</strong> soporta 200 kg por nivel (800 kg totales). Todas cuentan con patas ajustables con niveladores para garantizar estabilidad en superficies irregulares como jardines, terrazas y pisos de carpa." },
+  { question: "¿Las tarjas portátiles tienen agua caliente?", answer: "Sí, nuestras tarjas portátiles cuentan con <strong>sistema de agua caliente y fría autónomo</strong>. La tarja de 1 tina incluye un calentador eléctrico de paso que proporciona agua caliente instantánea para lavado de manos y utensilios. La tarja de 2 tinas cuenta con mezcladora profesional de palanca para control preciso de temperatura. Ambas incluyen <strong>tanque de agua limpia de 80 litros y tanque de agua gris de 80 litros</strong>, bomba de presión eléctrica y conexión a 110V estándar. El servicio incluye tanques llenos al inicio del evento." },
+  { question: "¿Puedo combinar mesas de trabajo con otro equipo de cocina?", answer: 'Las mesas de trabajo son la base de cualquier operación de cocina móvil. Las combinaciones más solicitadas son: <strong>mesa + parrilla</strong> para estaciones de preparación y emplatado junto al asado, <strong>mesa + horno</strong> para zonas de horneado con superficie de trabajo amplia, y <strong>mesa + tarja + estantería</strong> para una estación de preparación completa con lavado y almacenamiento. Ofrecemos paquetes de cocina completa con descuentos especiales. Visita nuestra página de <a href="/servicios/catering/cocina-movil/">cocina móvil</a> para ver todas las opciones.' },
+  { question: "¿Cómo se transportan las mesas y tarjas al venue?", answer: "Todo nuestro equipo se transporta en <strong>vehículos cerrados con rampa</strong> para proteger las superficies de acero inoxidable durante el traslado. Las mesas son desarmables (patas desmontables) para facilitar el transporte y acceso a espacios reducidos. Las tarjas portátiles incluyen ruedas para fácil desplazamiento dentro del venue. Nuestro equipo de logística se encarga de la <strong>descarga, armado, nivelación e instalación</strong> de todas las piezas. El servicio cubre toda la CDMX y zona metropolitana sin costo adicional." },
+  { question: "¿El equipo funciona bien en eventos al aire libre?", answer: "Sí, todo nuestro equipo de acero inoxidable está diseñado para uso en <strong>interiores y exteriores</strong>. El acero grado 304 es resistente a la corrosión, humedad y cambios de temperatura. Las patas ajustables con niveladores permiten instalar las mesas en superficies irregulares como césped, grava y pisos de carpa. Para eventos al aire libre, recomendamos complementar con una <a href='/servicios/carpas/'>carpa</a> para proteger el área de preparación del sol y la lluvia, y una <a href='/servicios/accesorios/plantas-energia/'>planta de energía</a> si se requieren conexiones eléctricas para tarjas y equipos." },
+];
+
+const specs = [
+  { label: "Mesas trabajo", value: "1.2, 1.5 y 1.8 metros" },
+  { label: "Material", value: "Acero inoxidable 304 calibre 18" },
+  { label: "Entrepaño", value: "Inferior de refuerzo incluido" },
+  { label: "Estantería", value: "4 niveles, capacidad 200 kg/nivel" },
+  { label: "Tarja 1 tina", value: "Con mezcladora y drenaje" },
+  { label: "Tarja 2 tinas", value: "Con escurridero lateral" },
+  { label: "Certificación", value: "NOM + NSF International" },
+  { label: "Patas", value: "Ajustables con niveladores" },
+  { label: "Capacidad mesa", value: "250 kg de carga" },
+  { label: "Complementos", value: "Tablas, cuchillos, contenedores" },
+];
+
+const sidebarNav = [
+  { name: "Parrillas Industriales", href: "/servicios/catering/cocina-movil/parrillas/" },
+  { name: "Planchas y Freidoras", href: "/servicios/catering/cocina-movil/planchas-freidoras/" },
+  { name: "Hornos de Convección", href: "/servicios/catering/cocina-movil/hornos-conveccion/" },
+  { name: "Mesas de Trabajo Inoxidable", href: null, active: true },
+];
+
+const sidebarRelated = [
+  { name: "Estaciones de Servicio", href: "/servicios/catering/estaciones-servicio/" },
+  { name: "Vajilla y Cristalería", href: "/servicios/catering/vajilla-cristaleria/" },
+  { name: "Refrigeración", href: "/servicios/catering/refrigeracion/" },
+  { name: "Plantas de Energía", href: "/servicios/accesorios/plantas-energia/" },
+  { name: "Carpas para Eventos", href: "/servicios/carpas/" },
+];
+
+const reviews = [
+  { author: "Chef Eduardo Sánchez", text: "Montamos una cocina móvil completa para una boda de 200 personas en un jardín de San Ángel. Rentamos 4 mesas de 1.8m, 2 tarjas de 2 tinas y estantería de 4 niveles. Todo el equipo llegó impecable, el acero inoxidable 304 se nota de calidad profesional y las patas ajustables nivelaron perfecto en el césped. La tarja con agua caliente fue indispensable.", rating: 5, date: "2025-11-25" },
+  { author: "Andrea Gutiérrez", text: "Para un festival gastronómico de 3 días rentamos 8 mesas de trabajo y 4 tarjas portátiles para las diferentes estaciones de comida. El servicio de EVENTECH fue excepcional — entregaron todo el primer día a las 6 AM, cada pieza en perfecto estado y con documentación de higiene NSF. Las tarjas con tanques de 80 litros alcanzaron perfecto para cada jornada.", rating: 5, date: "2025-10-18" },
+  { author: "Luis Fernando Ortiz", text: "Organizamos un evento de catering corporativo para 300 personas y el paquete de cocina completa con mesas, tarjas y estantería fue exactamente lo que necesitábamos. La estantería de 4 niveles organizó todos nuestros insumos perfectamente y las mesas soportaron todo el peso del equipo de cocina sin problema. Muy profesional y puntual.", rating: 5, date: "2025-09-20" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta Mesas de Trabajo de Acero Inoxidable",
+    description: "Renta de mesas de trabajo de acero inoxidable comercial, estaciones de preparación, estantería y tarjas portátiles con certificación de higiene. Desde $800.",
+    url: "/servicios/catering/cocina-movil/mesas-inoxidable/",
+    priceRange: { min: 800, max: 3000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 128,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Catering", url: "/servicios/catering/" },
+    { name: "Cocina Móvil", url: "/servicios/catering/cocina-movil/" },
+    { name: "Mesas de Trabajo Inoxidable", url: "/servicios/catering/cocina-movil/mesas-inoxidable/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta Mesas de Trabajo de Acero Inoxidable"
+  description="Renta de mesas de trabajo de acero inoxidable comercial, estaciones de preparación, estantería y tarjas portátiles con certificación de higiene. Desde $800."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="container">
+    <Breadcrumbs items={breadcrumbItems} />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Certificación de higiene NOM"
+    title='Renta de <span class="highlight">Mesas de Trabajo Inoxidable</span> para Eventos'
+    subtitle="Mesas de trabajo de acero inoxidable 304 en tamaños de 1.2, 1.5 y 1.8 metros con entrepaño inferior, estantería de 4 niveles y tarjas portátiles de 1 y 2 tinas. Certificación NOM y NSF."
+    primaryCTA={{ label: "Cotiza tu equipo", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar mesas de trabajo inoxidable para mi evento` }}
+    cards={[
+      {
+        title: "Mesas de trabajo y estantería de acero inoxidable 304",
+        content: "<strong>Renta de mesas de trabajo de acero inoxidable</strong> 304 en tamaños de 1.2, 1.5 y 1.8 metros con entrepaño inferior, estantería de 4 niveles y tarjas portátiles de 1 y 2 tinas. Calibre 18 de alta resistencia con capacidad de carga de hasta 250 kg. Patas ajustables con niveladores para superficies irregulares. Certificación NOM para contacto con alimentos y NSF International. Ideales para cocinas móviles de eventos, festivales gastronómicos y catering profesional.",
+      },
+      {
+        title: "Certificación de higiene y complementos profesionales",
+        content: "<strong>Servicio completo de mesas y tarjas</strong> con certificación de higiene NOM y NSF, superficie antibacteriana, patas ajustables y complementos de preparación profesional para cocina móvil. Incluye tablas de corte por código de color HACCP, contenedores GN y kit de sanitización. Transporte en vehículos cerrados, armado, nivelación e instalación incluidos. Cobertura completa en CDMX y zona metropolitana sin costo adicional.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas equipo de preparación profesional para tu evento?"
+    subheadline="Cotiza sin compromiso — te enviamos propuesta con las mesas, tarjas y estantería ideal para tu operación de cocina"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Cocina Móvil para Eventos</h2>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+          <p class="sidebar-card--cta-text">¿Necesitas mesas de trabajo inoxidable para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar mesas de trabajo inoxidable para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — Mesas de Trabajo Inoxidable</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Mesa de Trabajo 1.5m -->
+          <section class="section section--alt" aria-labelledby="mesa-150-heading">
+            <ServiceShowcase
+    title="Mesa de Trabajo 1.5m"
+    headingId="mesa-150-heading"
+    badge="La más versátil"
+    subtitle="La mesa estándar para preparación de alimentos en cocinas móviles y estaciones de catering."
+    tags={["1.5 metros", "Acero 304", "250 kg carga", "Entrepaño incluido"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Mesa 1.5m"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Nuestra <strong>mesa de trabajo de 1.5 metros</strong> es la opción más versátil del catálogo, perfecta para la mayoría de las operaciones de cocina móvil. Fabricada en <strong>acero inoxidable grado 304 calibre 18</strong> con superficie lisa antibacteriana y bordes redondeados para fácil limpieza. El <strong>entrepaño inferior de refuerzo</strong> proporciona almacenamiento adicional para insumos, contenedores y utensilios. Capacidad de carga de <strong>250 kg distribuidos</strong> sobre la superficie de trabajo.</p>
+      <p class="showcase__text">Incluye <strong>patas ajustables con niveladores de rosca</strong> para compensar superficies irregulares en jardines, terrazas y pisos de carpa. La altura estándar de 90 cm es ergonómicamente ideal para trabajo de pie prolongado. Complementa con <strong>tablas de corte por código de color HACCP</strong> (rojo para carnes, verde para verduras, azul para pescado). Combínala con nuestras <a href="/servicios/catering/cocina-movil/parrillas/">parrillas industriales</a> para crear una estación de preparación y asado profesional.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Mesa de Trabajo 1.5m</span>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <!-- 5. SHOWCASE: Mesa de Trabajo 1.8m con Entrepaño -->
+          <section class="section section--alt" aria-labelledby="mesa-180-heading">
+            <ServiceShowcase
+    title="Mesa de Trabajo 1.8m con Entrepaño"
+    headingId="mesa-180-heading"
+    badge="Máxima superficie de trabajo"
+    subtitle="La mesa más grande para operaciones de cocina de alto volumen y emplatado de banquetes."
+    tags={["1.8 metros", "75 cm ancho", "Entrepaño reforzado", "2-3 personas"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Mesa 1.8m"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">La <strong>mesa de trabajo de 1.8 metros</strong> es nuestra opción de mayor superficie, diseñada para <strong>operaciones de cocina de alto volumen y emplatado de banquetes grandes</strong>. Con 180 cm de largo por 75 cm de ancho, ofrece el espacio necesario para que 2-3 personas trabajen simultáneamente en preparación, corte y emplatado. El <strong>entrepaño inferior reforzado</strong> de acero inoxidable proporciona almacenamiento adicional para charolas, contenedores y equipo pesado.</p>
+      <p class="showcase__text">Fabricada con el mismo <strong>acero inoxidable 304 calibre 18</strong> de grado comercial con soldadura TIG sanitaria y acabado mate antirreflejo. Las <strong>patas de calibre grueso con niveladores</strong> garantizan estabilidad total incluso con carga máxima de 250 kg. Ideal para <strong>banquetes de boda, congresos corporativos y festivales gastronómicos</strong> donde se requiere preparación masiva de alimentos. Combínala con nuestros <a href="/servicios/catering/cocina-movil/hornos-conveccion/">hornos de convección</a> para una línea de producción profesional completa.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Mesa de Trabajo 1.8m</span>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <!-- 6. SHOWCASE: Estantería 4 Niveles -->
+          <section class="section section--alt" aria-labelledby="estanteria-heading">
+            <ServiceShowcase
+    title="Estantería 4 Niveles"
+    headingId="estanteria-heading"
+    badge="Almacenamiento organizado"
+    subtitle="Estantería de acero inoxidable de 4 niveles para organizar insumos, equipo y contenedores en tu cocina móvil."
+    tags={["4 niveles", "200 kg/nivel", "Altura ajustable", "Acero inoxidable"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Estantería"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Nuestra <strong>estantería de 4 niveles en acero inoxidable</strong> es el complemento esencial para organizar cualquier operación de cocina móvil. Con <strong>capacidad de 200 kg por nivel</strong> (800 kg totales), almacena charolas GN, contenedores de alimentos, equipo de cocina, vajilla y utensilios con seguridad y accesibilidad. Los <strong>entrepaños perforados</strong> permiten circulación de aire para almacenamiento higiénico conforme a normativas sanitarias.</p>
+      <p class="showcase__text">Fabricada en <strong>acero inoxidable con acabado cromado sanitario</strong>. Los niveles son <strong>ajustables en altura</strong> cada 5 cm para adaptarse al tamaño del equipo y contenedores que necesites almacenar. Las patas con <strong>niveladores y opcionales de ruedas con freno</strong> permiten colocarla en cualquier superficie y moverla según las necesidades del servicio. Ideal para combinar con mesas de trabajo y tarjas en una estación de preparación completa. Complementa con nuestras <a href="/servicios/catering/vajilla-cristaleria/">vajillas y cristalería</a> para tener todo organizado.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Estantería 4 Niveles</span>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <!-- 7. SHOWCASE: Tarja Portátil 2 Tinas -->
+          <section class="section section--alt" aria-labelledby="tarja-heading">
+            <ServiceShowcase
+    title="Tarja Portátil 2 Tinas"
+    headingId="tarja-heading"
+    badge="Obligatoria por normativa"
+    subtitle="Tarja portátil con agua caliente y fría autónoma, obligatoria para cualquier operación de alimentos en eventos."
+    tags={["2 tinas profundas", "Agua caliente/fría", "80L limpia + 80L gris", "Norma HACCP"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Tarja Portátil"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Nuestra <strong>tarja portátil de 2 tinas</strong> es un elemento obligatorio por normativa sanitaria para cualquier operación de preparación de alimentos en eventos. Con <strong>2 tinas profundas de acero inoxidable</strong> y escurridero lateral, permite separar el lavado de alimentos del lavado de utensilios conforme a normas HACCP. El <strong>sistema autónomo de agua caliente y fría</strong> incluye calentador de paso eléctrico, bomba de presión, tanque de agua limpia de 80 litros y tanque de agua gris de 80 litros.</p>
+      <p class="showcase__text">La <strong>mezcladora profesional de palanca</strong> permite control preciso de temperatura para lavado de manos y sanitización de utensilios. Incluye <strong>dispensador de jabón antibacteriano, toallero y contenedor de residuos</strong>. La tarja funciona con <strong>110V estándar</strong> y se conecta en minutos. Montada sobre <strong>ruedas con freno</strong> para fácil desplazamiento dentro del venue. Es el complemento indispensable para cualquier montaje de cocina móvil con nuestras <a href="/servicios/catering/cocina-movil/planchas-freidoras/">planchas y freidoras</a>.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/>
+                    <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+                  </svg>
+                  <span>Tarja Portátil 2 Tinas</span>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Mesas de Trabajo Inoxidable"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tus mesas de trabajo y tarjas, es natural tener preguntas sobre certificaciones, capacidades y logística. Aquí encontrarás las respuestas más comunes de nuestros clientes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor técnico te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de cocina móvil resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre mesas de trabajo inoxidable para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Cocina Móvil -->
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Cocina Móvil para Eventos</h2>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/cocina-movil/" class="sidebar-nav__back">&uarr; Volver a Cocina Móvil</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/catering/" class="sidebar-nav__back">&uarr; Volver a Catering</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de cocina:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+            <p class="sidebar-card--cta-text">¿Necesitas mesas de trabajo inoxidable para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar mesas de trabajo inoxidable para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tus Mesas de Trabajo Inoxidable"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores técnicos te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea una mesa de trabajo para tu estación de catering o un paquete completo de cocina móvil, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoEquipo">
+                Tipo de equipo
+              </label>
+              <select id="tipoEquipo" name="tipoEquipo" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de equipo</option>
+                <option value="Mesa 1.2m">Mesa 1.2m</option>
+                <option value="Mesa 1.5m">Mesa 1.5m</option>
+                <option value="Mesa 1.8m">Mesa 1.8m</option>
+                <option value="Estantería 4 Niveles">Estantería 4 Niveles</option>
+                <option value="Tarja 1 Tina">Tarja 1 Tina</option>
+                <option value="Tarja 2 Tinas">Tarja 2 Tinas</option>
+                <option value="Paquete Cocina Completa">Paquete Cocina Completa</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de comensales, tipo de operación, venue (jardín/terraza/salón), equipo específico que necesitas..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para recomendar la distribución ideal de mesas y equipo de preparación.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría técnica personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoEquipo = document.getElementById('tipoEquipo').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Mesas de Trabajo Inoxidable*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoEquipo) texto += `*Tipo de equipo:* ${tipoEquipo}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Catering"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de equipo de catering y cocina móvil para eventos en la Ciudad de México. Cada aliado cuenta con equipo certificado, personal capacitado y trayectoria comprobada en la industria.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad, variedad de equipo y cobertura completa para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Catering Pro MX</h3>
+            <p class="partner-card__tagline">Servicio Integral de Catering</p>
+            <p class="partner-card__text">Servicio integral de catering y estaciones gourmet para eventos en CDMX. Mesas de trabajo, tarjas portátiles y equipo de preparación certificado para operaciones de cualquier escala.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">G</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">GastroEventos CDMX</h3>
+            <p class="partner-card__tagline">Equipo de Cocina Profesional</p>
+            <p class="partner-card__text">Renta de equipo de cocina y estaciones de servicio profesional para eventos corporativos, bodas y festivales gastronómicos. Mesas inoxidable, tarjas y estantería certificada NSF.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">ChefMóvil</h3>
+            <p class="partner-card__tagline">Estaciones de Comida en Vivo</p>
+            <p class="partner-card__text">Estaciones de comida en vivo con chef y equipo profesional certificado. Mesas de preparación, tarjas portátiles y montaje de cocina móvil completa para eventos premium.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">B</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">BanquetesPro</h3>
+            <p class="partner-card__tagline">Mobiliario y Equipo de Catering</p>
+            <p class="partner-card__text">Mobiliario y equipo de catering para bodas, corporativos y sociales. Servicio integral con transporte, montaje y operación técnica en toda la CDMX y zona metropolitana.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Mesas de trabajo certificadas que profesionalizan tu cocina móvil"
+    subheadline="Más de 500 eventos con equipo de cocina móvil nos respaldan. Cotiza hoy y recibe asesoría técnica sin compromiso."
+    primaryCTA={{ label: "Cotizar mesas inoxidable", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar mesas de trabajo inoxidable para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     AMBER COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #e17055;
+    --color-accent-hover: #d35400;
+    --color-accent-light: #f0856d;
+    --color-accent-soft: rgba(225, 112, 85, 0.1);
+    --gradient-accent: linear-gradient(135deg, #e17055 0%, #d35400 100%);
+    --shadow-accent: 0 4px 14px rgba(225, 112, 85, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(225, 112, 85, 0.5);
+  }
+</style>

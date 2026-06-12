@@ -1,0 +1,85 @@
+---
+/**
+ * FeatureGrid — OrigenLab Standard (EVENTECH)
+ * Grid de features con ícono, título y descripción.
+ * CSS 100% scoped. Colores EVENTECH.
+ */
+interface Feature {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  features: Feature[];
+  columns?: 2 | 3;
+}
+
+const { features, columns = 3 } = Astro.props;
+---
+
+<div class="fg" style={`--fg-cols: ${columns}`}>
+  {features.map((f) => (
+    <div class="fg__item">
+      <span class="fg__icon">✓</span>
+      <div>
+        <h4 class="fg__title">{f.title}</h4>
+        <p class="fg__desc">{f.description}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .fg {
+    display: grid;
+    grid-template-columns: repeat(var(--fg-cols, 3), 1fr);
+    gap: 1.25rem;
+  }
+
+  .fg__item {
+    display: flex;
+    gap: 0.875rem;
+    align-items: flex-start;
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 1.25rem;
+  }
+
+  .fg__icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 184, 148, 0.1);
+    color: #00b894;
+    font-weight: 800;
+    font-size: 0.875rem;
+    border-radius: 8px;
+  }
+
+  .fg__title {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0 0 0.25rem;
+    line-height: 1.3;
+  }
+
+  .fg__desc {
+    font-size: 0.8125rem;
+    color: #6c757d;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .fg {
+      grid-template-columns: 1fr;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+  }
+</style>

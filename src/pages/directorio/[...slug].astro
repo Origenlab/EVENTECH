@@ -1,0 +1,1246 @@
+---
+/**
+ * ─── Directorio Dynamic Route ───
+ * Handles: /directorio/cdmx/, /directorio/estado-mexico/, /directorio/cdmx/polanco/, /directorio/cdmx/polanco/venue-slug/
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import HeroPage from "@components/HeroPage.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+import CTABanner from "@components/CTABanner.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { breadcrumbJsonLd, venueJsonLd, collectionPageJsonLd, itemListJsonLd } from "@utils/seo";
+import { SERVICE_CATEGORIES, SITE } from "@data/site";
+import "@styles/directorio.css";
+
+// Get all venues
+const allVenues: CollectionEntry<"venues">[] = await getCollection("venues");
+
+// Generate static paths
+export async function getStaticPaths() {
+  const allVenues: CollectionEntry<"venues">[] = await getCollection("venues");
+  const paths: Array<{ params: { slug: string }, props: any }> = [];
+
+  // Region paths: /directorio/cdmx/, /directorio/estado-mexico/
+  const regions = ["cdmx", "estado-mexico"];
+  for (const region of regions) {
+    const regionVenues = allVenues.filter(v => v.data.region === region);
+    const zones = [...new Set(regionVenues.map(v => v.data.zoneSlug))];
+
+    paths.push({
+      params: { slug: region },
+      props: {
+        type: "region",
+        region,
+        venues: regionVenues,
+        zones
+      }
+    });
+
+    // Zone paths: /directorio/cdmx/polanco/
+    for (const zone of zones) {
+      const zoneVenues = regionVenues.filter(v => v.data.zoneSlug === zone);
+      const zoneName = zoneVenues[0]?.data.zone || zone;
+
+      paths.push({
+        params: { slug: `${region}/${zone}` },
+        props: {
+          type: "zone",
+          region,
+          zone,
+          zoneName,
+          venues: zoneVenues
+        }
+      });
+
+      // Venue paths: /directorio/cdmx/polanco/hacienda-morales/
+      for (const venue of zoneVenues) {
+        const venueSlug = venue.id.split('/').pop()?.replace('.md', '') || venue.id;
+        paths.push({
+          params: { slug: `${region}/${zone}/${venueSlug}` },
+          props: {
+            type: "venue",
+            region,
+            zone,
+            zoneName,
+            venue
+          }
+        });
+      }
+    }
+  }
+
+  return paths;
+}
+
+const { type, region, zone, zoneName, venues, venue } = Astro.props as {
+  type: string;
+  region: string;
+  zone: string;
+  zoneName: string;
+  venues: CollectionEntry<"venues">[];
+  venue: CollectionEntry<"venues">;
+};
+
+// Render venue markdown content if it's a venue page
+let VenueContent: any = null;
+if (type === "venue" && venue) {
+  const { Content } = await venue.render();
+  VenueContent = Content;
+}
+
+// Labels
+const regionLabels: Record<string, string> = {
+  "cdmx": "Ciudad de México",
+  "estado-mexico": "Estado de México"
+};
+
+const venueTypeLabels: Record<string, string> = {
+  "salon": "Salón",
+  "jardin": "Jardín",
+  "hacienda": "Hacienda",
+  "terraza": "Terraza",
+  "hotel": "Hotel",
+  "restaurante": "Restaurante",
+  "foro": "Foro",
+  "quinta": "Quinta",
+  "mansion": "Mansión",
+  "centro-convenciones": "Centro de Convenciones",
+  "rooftop": "Rooftop",
+  "playa": "Playa",
+};
+
+// Venue type to slug mapping (for linking to /directorio/tipo-venue/...)
+const venueTypeSlugs: Record<string, string> = {
+  "salon": "salones",
+  "jardin": "jardines",
+  "hacienda": "haciendas",
+  "terraza": "terrazas",
+  "hotel": "hoteles",
+  "restaurante": "restaurantes",
+  "foro": "foros",
+  "quinta": "quintas",
+  "mansion": "mansiones",
+  "centro-convenciones": "centros-convenciones",
+  "rooftop": "rooftops",
+  "playa": "playas",
+};
+
+// Event type labels
+const eventTypeLabels: Record<string, string> = {
+  "bodas": "Bodas",
+  "xv-anos": "XV Años",
+  "corporativos": "Corporativos",
+  "bautizos": "Bautizos",
+  "comuniones": "Comuniones",
+  "graduaciones": "Graduaciones",
+  "aniversarios": "Aniversarios",
+  "cumpleanos": "Cumpleaños",
+  "baby-showers": "Baby Showers",
+  "despedidas": "Despedidas",
+  "cenas-gala": "Cenas de Gala",
+  "lanzamientos": "Lanzamientos",
+};
+
+const amenityLabels: Record<string, string> = {
+  "estacionamiento": "Estacionamiento",
+  "valet-parking": "Valet Parking",
+  "pista-baile": "Pista de Baile",
+  "capilla": "Capilla",
+  "cocina-industrial": "Cocina Industrial",
+  "terraza": "Terraza",
+  "jardin": "Jardín",
+  "alberca": "Alberca",
+  "spa": "Spa",
+  "habitaciones": "Habitaciones",
+  "suite-nupcial": "Suite Nupcial",
+  "area-infantil": "Área Infantil",
+  "acceso-discapacitados": "Acceso Discapacitados",
+  "aire-acondicionado": "Aire Acondicionado",
+  "calefaccion": "Calefacción",
+  "generador-emergencia": "Generador de Emergencia",
+  "wifi": "WiFi",
+  "vestidores": "Vestidores",
+  "area-fotos": "Área de Fotos",
+  "fuente": "Fuente",
+  "lago": "Lago",
+  "vista-panoramica": "Vista Panorámica",
+};
+
+// Zone configurations with SEO descriptions
+const zoneConfig: Record<string, { description: string; highlights: string[]; character: string }> = {
+  // CDMX Zones
+  "polanco": {
+    description: "Polanco es la zona más exclusiva de CDMX para eventos de alto nivel. Arquitectura icónica, hoteles de lujo y restaurantes de clase mundial hacen de esta colonia el destino favorito para bodas elegantes y eventos corporativos premium.",
+    highlights: ["Hoteles 5 estrellas", "Restaurantes galardonados", "Valet parking garantizado"],
+    character: "Elegancia y sofisticación"
+  },
+  "centro-historico": {
+    description: "El Centro Histórico ofrece venues con siglos de historia: palacios virreinales, casonas coloniales y salones con techos abovedados. Ideal para quienes buscan un marco arquitectónico único e irrepetible.",
+    highlights: ["Arquitectura colonial", "Patrimonio histórico", "Ambiente único"],
+    character: "Historia y tradición"
+  },
+  "santa-fe": {
+    description: "Santa Fe es el distrito corporativo más moderno de México. Sus venues ofrecen tecnología de punta, acceso ejecutivo y espacios diseñados para impresionar a clientes y socios de negocios.",
+    highlights: ["Tecnología de punta", "Acceso corporativo", "Estacionamiento amplio"],
+    character: "Modernidad empresarial"
+  },
+  "san-angel": {
+    description: "San Ángel conserva el encanto de un pueblo colonial dentro de la metrópoli. Sus jardines escondidos, haciendas restauradas y calles empedradas crean el ambiente perfecto para bodas íntimas y románticas.",
+    highlights: ["Jardines secretos", "Haciendas coloniales", "Ambiente íntimo"],
+    character: "Romance y tradición"
+  },
+  "coyoacan": {
+    description: "Coyoacán mezcla historia, arte y naturaleza. Sus haciendas y jardines ofrecen espacios con carácter bohemio, ideales para eventos creativos, bodas artísticas y celebraciones con personalidad.",
+    highlights: ["Ambiente bohemio", "Jardines históricos", "Cultura y arte"],
+    character: "Creatividad y carácter"
+  },
+  "roma-condesa": {
+    description: "Roma-Condesa es el epicentro de la vida cultural de CDMX. Sus terrazas, casonas Art Déco y espacios de diseño son perfectos para eventos con estilo contemporáneo y ambiente cosmopolita.",
+    highlights: ["Terrazas con vista", "Arquitectura Art Déco", "Ambiente trendy"],
+    character: "Estilo contemporáneo"
+  },
+  "lomas-chapultepec": {
+    description: "Lomas de Chapultepec representa el prestigio residencial de la ciudad. Sus mansiones y clubs privados ofrecen exclusividad, discreción y el nivel de servicio que esperan los eventos más selectos.",
+    highlights: ["Mansiones exclusivas", "Clubs privados", "Alta seguridad"],
+    character: "Prestigio y exclusividad"
+  },
+  "tlalpan": {
+    description: "Tlalpan al sur de la ciudad ofrece haciendas con amplios jardines y bosques cercanos. Es la zona ideal para eventos que buscan naturaleza, tranquilidad y espacios al aire libre.",
+    highlights: ["Grandes jardines", "Ambiente natural", "Estacionamiento amplio"],
+    character: "Naturaleza y amplitud"
+  },
+  "del-valle": {
+    description: "Del Valle ofrece una ubicación céntrica con venues accesibles y bien comunicados. Perfecto para eventos que priorizan la comodidad de los invitados sin sacrificar calidad.",
+    highlights: ["Ubicación céntrica", "Fácil acceso", "Variedad de opciones"],
+    character: "Practicidad y accesibilidad"
+  },
+  "cuauhtemoc": {
+    description: "La alcaldía Cuauhtémoc alberga palacios históricos y centros de convenciones de primer nivel. Desde el Casino Español hasta Palacio de Minería, ofrece venues con grandeza arquitectónica.",
+    highlights: ["Palacios históricos", "Centros de convenciones", "Capacidad masiva"],
+    character: "Grandeza arquitectónica"
+  },
+  "benito-juarez": {
+    description: "Benito Juárez ofrece casonas elegantes en colonias residenciales como Narvarte y Nápoles. Venues con estilo pero accesibles, ideales para eventos familiares de buen nivel.",
+    highlights: ["Casonas residenciales", "Precios competitivos", "Ambiente familiar"],
+    character: "Elegancia accesible"
+  },
+  "xochimilco": {
+    description: "Xochimilco ofrece un escenario único con sus chinampas, jardines flotantes y naturaleza exuberante. Ideal para eventos originales que buscan conectar con las tradiciones mexicanas.",
+    highlights: ["Jardines naturales", "Ambiente tradicional", "Escenario único"],
+    character: "Tradición y naturaleza"
+  },
+  "alvaro-obregon": {
+    description: "Álvaro Obregón alberga zonas como San Ángel y antiguos espacios industriales reconvertidos. Ofrece diversidad de venues desde lo histórico hasta lo contemporáneo.",
+    highlights: ["Espacios industriales", "Versatilidad", "Buenos precios"],
+    character: "Diversidad de estilos"
+  },
+  "miguel-hidalgo": {
+    description: "Miguel Hidalgo incluye colonias premium como Polanco y Lomas. Sus venues van desde hoteles de lujo hasta casonas históricas, cubriendo todos los estilos de eventos.",
+    highlights: ["Variedad de venues", "Ubicación premium", "Servicios completos"],
+    character: "Variedad premium"
+  },
+  "pedregal": {
+    description: "El Pedregal ofrece venues exclusivos en una de las zonas residenciales más prestigiosas. Sus jardines y terrazas aprovechan el paisaje volcánico único de la zona sur.",
+    highlights: ["Paisaje volcánico", "Exclusividad residencial", "Vistas únicas"],
+    character: "Exclusividad natural"
+  },
+  "azcapotzalco": {
+    description: "Azcapotzalco ha transformado espacios industriales en venues creativos y accesibles. Ideal para eventos con presupuesto consciente sin renunciar al estilo.",
+    highlights: ["Espacios industriales", "Precios accesibles", "Creatividad"],
+    character: "Industrial creativo"
+  },
+  // Estado de México Zones
+  "naucalpan": {
+    description: "Naucalpan ofrece amplios jardines y quintas a minutos de Santa Fe. Es la opción ideal para quienes buscan espacios grandes cerca de la ciudad con precios competitivos.",
+    highlights: ["Grandes jardines", "Cerca de Santa Fe", "Buenos precios"],
+    character: "Amplitud y valor"
+  },
+  "huixquilucan": {
+    description: "Huixquilucan en la zona de Interlomas ofrece haciendas y venues modernos en un entorno natural privilegiado, muy cerca de las zonas más exclusivas de CDMX.",
+    highlights: ["Entorno natural", "Cerca de Interlomas", "Venues modernos"],
+    character: "Naturaleza premium"
+  },
+  "atizapan": {
+    description: "Atizapán ofrece quintas y jardines con excelente relación calidad-precio. Espacios amplios para eventos grandes en un ambiente más relajado que la ciudad.",
+    highlights: ["Quintas espaciosas", "Precios accesibles", "Ambiente relajado"],
+    character: "Espacio y valor"
+  },
+  "tlalnepantla": {
+    description: "Tlalnepantla combina accesibilidad con variedad de venues. Desde jardines hasta salones, ofrece opciones para todos los presupuestos muy cerca del norte de CDMX.",
+    highlights: ["Variedad de opciones", "Fácil acceso", "Todos los presupuestos"],
+    character: "Accesibilidad total"
+  },
+  "ecatepec": {
+    description: "Ecatepec ofrece salones con gran capacidad a precios muy competitivos. Ideal para eventos grandes que priorizan el valor sin comprometer la calidad del servicio.",
+    highlights: ["Gran capacidad", "Precios competitivos", "Buena comunicación"],
+    character: "Valor y capacidad"
+  },
+  "toluca": {
+    description: "Toluca y sus alrededores ofrecen haciendas históricas con hectáreas de jardines. Una opción perfecta para bodas de fin de semana que buscan escapar de la ciudad.",
+    highlights: ["Haciendas históricas", "Grandes extensiones", "Ambiente campestre"],
+    character: "Grandeza campestre"
+  },
+  "metepec": {
+    description: "Metepec, Pueblo Mágico cerca de Toluca, ofrece haciendas y jardines con encanto tradicional. Ideal para eventos que buscan autenticidad y tradición mexicana.",
+    highlights: ["Pueblo Mágico", "Tradición mexicana", "Haciendas con encanto"],
+    character: "Tradición mágica"
+  },
+  "tepotzotlan": {
+    description: "Tepotzotlán es un Pueblo Mágico con ex-haciendas jesuitas y jardines históricos. Sus venues ofrecen un marco colonial excepcional a solo 40 minutos de CDMX.",
+    highlights: ["Pueblo Mágico", "Ex-haciendas jesuitas", "Historia colonial"],
+    character: "Historia excepcional"
+  },
+  "coacalco": {
+    description: "Coacalco ofrece quintas y jardines accesibles para el norte del Valle de México. Espacios amplios con buena relación calidad-precio para eventos familiares.",
+    highlights: ["Quintas accesibles", "Norte del valle", "Eventos familiares"],
+    character: "Familiar y accesible"
+  },
+  "cuautitlan-izcalli": {
+    description: "Cuautitlán Izcalli ofrece haciendas restauradas y venues modernos en el corredor norte. Ideal para eventos que combinan tradición con comodidades actuales.",
+    highlights: ["Haciendas restauradas", "Venues modernos", "Corredor norte"],
+    character: "Tradición renovada"
+  },
+  "texcoco": {
+    description: "Texcoco ofrece ex-haciendas con siglos de historia y vistas al oriente del valle. La zona perfecta para eventos que buscan grandeza histórica y naturaleza.",
+    highlights: ["Ex-haciendas históricas", "Grandes extensiones", "Paisaje único"],
+    character: "Historia y paisaje"
+  },
+  "valle-de-bravo": {
+    description: "Valle de Bravo es el destino favorito para bodas destination cerca de CDMX. Lagos, montañas y venues de lujo crean el escenario perfecto para eventos memorables.",
+    highlights: ["Destino de bodas", "Lago y montañas", "Venues de lujo"],
+    character: "Destino de ensueño"
+  },
+  "ixtapan-de-la-sal": {
+    description: "Ixtapan de la Sal ofrece haciendas termales y spas para eventos de fin de semana. Un destino que combina celebración con relajación para bodas íntimas.",
+    highlights: ["Aguas termales", "Spas de lujo", "Bodas destination"],
+    character: "Wellness y celebración"
+  },
+  // Zones sin descripción específica - genérico
+  "tultitlan": {
+    description: "Tultitlán ofrece jardines y salones accesibles en el norte del Estado de México. Venues con buena capacidad y precios competitivos cerca de la zona industrial.",
+    highlights: ["Precios accesibles", "Buena capacidad", "Fácil acceso"],
+    character: "Valor accesible"
+  },
+  "chalco": {
+    description: "Chalco ofrece salones y jardines en el oriente del Estado de México. Opciones económicas para eventos grandes con buena conectividad vial.",
+    highlights: ["Precios económicos", "Eventos grandes", "Conectividad"],
+    character: "Economía y capacidad"
+  },
+  "nicolas-romero": {
+    description: "Nicolás Romero ofrece quintas campestres rodeadas de naturaleza al norte del valle. Ideal para eventos que buscan escape de la ciudad sin alejarse demasiado.",
+    highlights: ["Ambiente campestre", "Quintas con jardín", "Naturaleza"],
+    character: "Campestre cercano"
+  },
+  "amecameca": {
+    description: "Amecameca al pie de los volcanes ofrece haciendas con vistas espectaculares. Un destino único para bodas que buscan paisajes dramáticos e inolvidables.",
+    highlights: ["Vista a volcanes", "Haciendas históricas", "Paisaje dramático"],
+    character: "Paisaje volcánico"
+  },
+  "zinacantepec": {
+    description: "Zinacantepec cerca del Nevado de Toluca ofrece venues con bosques y aire puro. Ideal para eventos íntimos que buscan naturaleza y tranquilidad.",
+    highlights: ["Bosques de coníferas", "Aire puro", "Eventos íntimos"],
+    character: "Naturaleza serena"
+  },
+  "lerma": {
+    description: "Lerma ofrece haciendas y jardines en el corredor Toluca-CDMX. Venues con espacios amplios y buena comunicación vial para invitados de ambas ciudades.",
+    highlights: ["Haciendas", "Corredor Toluca-CDMX", "Espacios amplios"],
+    character: "Conectividad estratégica"
+  },
+  "jilotepec": {
+    description: "Jilotepec ofrece ranchos y quintas en un ambiente rural auténtico al norte del estado. Perfecto para eventos campestres que buscan tradición y amplitud.",
+    highlights: ["Ambiente rural", "Ranchos y quintas", "Tradición"],
+    character: "Rural auténtico"
+  },
+  "tenango-del-valle": {
+    description: "Tenango del Valle ofrece quintas con vistas al Nevado de Toluca. Un destino tranquilo para bodas que buscan paisaje montañoso y ambiente sereno.",
+    highlights: ["Vista al Nevado", "Ambiente tranquilo", "Quintas"],
+    character: "Montaña serena"
+  }
+};
+
+// Related venues (same zone, excluding current)
+const relatedVenues = type === "venue" && venue
+  ? allVenues
+      .filter(v => v.data.zoneSlug === venue.data.zoneSlug && v.id !== venue.id)
+      .slice(0, 3)
+  : [];
+
+// Services relevant to venue type
+const relevantServices = SERVICE_CATEGORIES.slice(0, 6);
+
+// Build breadcrumbs
+let breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Directorio", href: "/directorio/" },
+];
+
+if (type === "region" || type === "zone" || type === "venue") {
+  breadcrumbItems.push({
+    label: regionLabels[region],
+    href: `/directorio/${region}/`
+  });
+}
+
+if ((type === "zone" || type === "venue") && zoneName) {
+  breadcrumbItems.push({
+    label: zoneName,
+    href: `/directorio/${region}/${zone}/`
+  });
+}
+
+if (type === "venue" && venue) {
+  breadcrumbItems.push({
+    label: venue.data.name,
+    href: "#"
+  });
+}
+
+// Page title and description
+let pageTitle = "";
+let pageDescription = "";
+
+if (type === "region") {
+  pageTitle = `Salones de Fiestas en ${regionLabels[region]}`;
+  pageDescription = `Encuentra los mejores salones, jardines y haciendas para eventos en ${regionLabels[region]}. Directorio completo con capacidades, precios y servicios.`;
+} else if (type === "zone") {
+  pageTitle = `Salones de Fiestas en ${zoneName}`;
+  pageDescription = `Los mejores venues para bodas, XV años y eventos en ${zoneName}. Directorio con información de capacidad, precios y amenidades.`;
+} else if (type === "venue" && venue) {
+  pageTitle = venue.data.seoTitle || `${venue.data.name} en ${venue.data.zone}`;
+  pageDescription = venue.data.seoDescription || venue.data.shortDescription;
+}
+
+const jsonLd = [
+  breadcrumbJsonLd(breadcrumbItems.map(item => ({
+    name: item.label,
+    url: item.href
+  }))),
+  // Add CollectionPage schema for region pages
+  ...(type === "region" && venues ? [
+    collectionPageJsonLd({
+      name: `Salones de Fiestas en ${regionLabels[region]}`,
+      description: `Directorio de venues para eventos en ${regionLabels[region]}`,
+      url: `/directorio/${region}/`,
+      numberOfItems: venues.length,
+      areaServed: regionLabels[region],
+    }),
+    itemListJsonLd(
+      venues.slice(0, 10).map(v => ({
+        name: v.data.name,
+        url: `/directorio/${region}/${v.data.zoneSlug}/${v.id.split('/').pop()?.replace('.md', '')}/`,
+        image: v.data.image,
+        description: v.data.shortDescription,
+      }))
+    ),
+  ] : []),
+  // Add CollectionPage schema for zone pages
+  ...(type === "zone" && venues ? [
+    collectionPageJsonLd({
+      name: `Venues para Eventos en ${zoneName}`,
+      description: `Salones, jardines y haciendas para bodas, XV años y eventos en ${zoneName}, ${regionLabels[region]}`,
+      url: `/directorio/${region}/${zone}/`,
+      numberOfItems: venues.length,
+      areaServed: `${zoneName}, ${regionLabels[region]}`,
+    }),
+    itemListJsonLd(
+      venues.map(v => ({
+        name: v.data.name,
+        url: `/directorio/${region}/${zone}/${v.id.split('/').pop()?.replace('.md', '')}/`,
+        image: v.data.image,
+        description: v.data.shortDescription,
+      }))
+    ),
+  ] : []),
+  // Add venue schema for venue pages
+  ...(type === "venue" && venue ? [
+    venueJsonLd({
+      name: venue.data.name,
+      description: venue.data.seoDescription || venue.data.shortDescription,
+      url: `/directorio/${region}/${zone}/${venue.data.slug}/`,
+      image: venue.data.image,
+      address: {
+        street: venue.data.address,
+        locality: venue.data.zone,
+        region: venue.data.region === "cdmx" ? "Ciudad de México" : "Estado de México",
+        postalCode: venue.data.postalCode,
+      },
+      geo: venue.data.coordinates,
+      telephone: venue.data.contact?.phone,
+      email: venue.data.contact?.email,
+      priceRange: venue.data.priceRange,
+      capacity: venue.data.capacity,
+      rating: venue.data.rating,
+      reviewCount: venue.data.reviewCount,
+      amenities: venue.data.amenities,
+      openingHours: venue.data.schedule,
+    })
+  ] : []),
+];
+---
+
+<PageLayout
+  title={pageTitle}
+  description={pageDescription}
+  jsonLd={jsonLd}
+>
+  <!-- Breadcrumbs -->
+  <Breadcrumbs items={breadcrumbItems} />
+
+  {/* ═══════════════════════════════════════════════════════════════════════
+      REGION PAGE
+      ═══════════════════════════════════════════════════════════════════════ */}
+  {type === "region" && venues && (
+    <>
+      <HeroPage
+        badge={`Directorio ${regionLabels[region]}`}
+        title={`Salones de Fiestas en <span class="highlight">${regionLabels[region]}</span>`}
+        subtitle={`Encuentra el venue perfecto para tu evento. Explora nuestra selección de salones, jardines y haciendas en ${regionLabels[region]}.`}
+        primaryCTA={{ label: "Ver todos", href: "#venues" }}
+        secondaryCTA={{ label: "Cotizar equipo", href: "/cotizar/" }}
+        cards={[
+          {
+            title: `${venues.length}+ venues verificados`,
+            content: `Conocemos de primera mano estos espacios porque hemos <strong>llevado equipo a cientos de eventos</strong> en cada zona.`
+          },
+          {
+            title: "Filtro por zona",
+            content: `Explora por <strong>alcaldía o municipio</strong> para encontrar opciones cerca de donde planeas tu celebración.`
+          }
+        ]}
+      />
+
+      <section class="section" id="venues">
+        <div class="container">
+          <SectionHeader
+            title={`Zonas en ${regionLabels[region]}`}
+            subtitle="Explora por ubicación"
+            description={[
+              `Selecciona la zona donde planeas tu evento para ver los venues disponibles.`,
+              `Cada zona tiene características únicas que pueden complementar tu celebración.`
+            ]}
+          />
+
+          {/* Zone cards - Professional Layout */}
+          <div class="dir-grid dir-grid--3" style="margin-bottom: var(--space-3xl);">
+            {[...new Set(venues.map(v => v.data.zone))].map(zoneName => {
+              const zoneVenues = venues.filter(v => v.data.zone === zoneName);
+              const zoneSlug = zoneVenues[0]?.data.zoneSlug;
+              const venueTypes = [...new Set(zoneVenues.map(v => venueTypeLabels[v.data.type] || v.data.type))].slice(0, 3);
+              const featuredCount = zoneVenues.filter(v => v.data.featured).length;
+              const premiumCount = zoneVenues.filter(v => v.data.premium).length;
+              return (
+                <article class="zone-card-pro">
+                  <div class="zone-card-pro__header">
+                    <div class="zone-card-pro__icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                      </svg>
+                    </div>
+                    {premiumCount > 0 && (
+                      <span class="zone-card-pro__badge">
+                        {premiumCount} Premium
+                      </span>
+                    )}
+                  </div>
+                  <div class="zone-card-pro__content">
+                    <h3 class="zone-card-pro__title">{zoneName}</h3>
+                    <p class="zone-card-pro__description">
+                      Explora <strong>{zoneVenues.length} venues</strong> para bodas, XV años y eventos corporativos en {zoneName}.
+                    </p>
+                    <div class="zone-card-pro__types">
+                      {venueTypes.map(type => (
+                        <span class="zone-card-pro__type">{type}</span>
+                      ))}
+                      {venueTypes.length < [...new Set(zoneVenues.map(v => venueTypeLabels[v.data.type]))].length && (
+                        <span class="zone-card-pro__type zone-card-pro__type--more">+más</span>
+                      )}
+                    </div>
+                    <div class="zone-card-pro__stats">
+                      <div class="zone-card-pro__stat">
+                        <span class="zone-card-pro__stat-value">{zoneVenues.length}</span>
+                        <span class="zone-card-pro__stat-label">Venues</span>
+                      </div>
+                      {featuredCount > 0 && (
+                        <div class="zone-card-pro__stat">
+                          <span class="zone-card-pro__stat-value">{featuredCount}</span>
+                          <span class="zone-card-pro__stat-label">Destacados</span>
+                        </div>
+                      )}
+                      <div class="zone-card-pro__stat">
+                        <span class="zone-card-pro__stat-value">{zoneVenues.filter(v => v.data.verified).length}</span>
+                        <span class="zone-card-pro__stat-label">Verificados</span>
+                      </div>
+                    </div>
+                  </div>
+                  <a href={`/directorio/${region}/${zoneSlug}/`} class="zone-card-pro__btn">
+                    Ver venues en {zoneName}
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M5 12h14"/>
+                      <path d="M12 5l7 7-7 7"/>
+                    </svg>
+                  </a>
+                </article>
+              );
+            })}
+          </div>
+
+          <SectionHeader
+            title="Todos los Venues"
+            subtitle={`${venues.length} opciones`}
+            description={[
+              `Explora todos los venues disponibles en esta región. Usa los filtros para encontrar el espacio ideal.`,
+              `Hemos trabajado en muchos de estos lugares, así que podemos asesorarte sobre sus características técnicas.`
+            ]}
+          />
+
+          {/* All venues grid */}
+          <div class="dir-grid dir-grid--3">
+            {venues.map(v => (
+              <article class="venue-card">
+                <a href={`/directorio/${region}/${v.data.zoneSlug}/${v.id.split('/').pop()?.replace('.md', '')}/`} class="venue-card__link">
+                  <div class="venue-card__image-wrapper">
+                    <img
+                      src={v.data.image || "/images/placeholder-venue.avif"}
+                      alt={v.data.name}
+                      class="venue-card__image"
+                      loading="lazy"
+                      width="400"
+                      height="300"
+                    />
+                    <div class="venue-card__badges">
+                      {v.data.premium && <span class="venue-card__badge venue-card__badge--premium">Premium</span>}
+                      {v.data.verified && <span class="venue-card__badge venue-card__badge--verified">Verificado</span>}
+                    </div>
+                    <span class="venue-card__price-badge">{v.data.priceRange}</span>
+                  </div>
+                  <div class="venue-card__content">
+                    <span class="venue-card__type">{venueTypeLabels[v.data.type] || v.data.type}</span>
+                    <h3 class="venue-card__name">{v.data.name}</h3>
+                    <p class="venue-card__location">
+                      <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      {v.data.zone}
+                    </p>
+                    <p class="venue-card__description">{v.data.shortDescription}</p>
+                    <div class="venue-card__meta">
+                      <span class="venue-card__capacity"><strong>{v.data.capacity.min}-{v.data.capacity.max}</strong> personas</span>
+                      {v.data.rating && (
+                        <span class="venue-card__rating">
+                          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                          {v.data.rating}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  )}
+
+  {/* ═══════════════════════════════════════════════════════════════════════
+      ZONE PAGE
+      ═══════════════════════════════════════════════════════════════════════ */}
+  {type === "zone" && venues && (() => {
+    const zoneInfo = zoneConfig[zone] || {
+      description: `${zoneName} ofrece venues de calidad para todo tipo de eventos. Explora las opciones disponibles y encuentra el espacio perfecto.`,
+      highlights: ["Venues verificados", "Variedad de estilos", "Asesoría disponible"],
+      character: "Versatilidad"
+    };
+    const zoneVenueTypes = [...new Set(venues.map(v => v.data.type))];
+    const zoneEventTypes = [...new Set(venues.flatMap(v => v.data.eventTypes || []))];
+    const avgCapacity = Math.round(venues.reduce((sum, v) => sum + v.data.capacity.max, 0) / venues.length);
+    const premiumCount = venues.filter(v => v.data.premium).length;
+    const verifiedCount = venues.filter(v => v.data.verified).length;
+
+    return (
+      <>
+        <HeroPage
+          badge={`${regionLabels[region]} • ${zoneInfo.character}`}
+          title={`Venues para Eventos en <span class="highlight">${zoneName}</span>`}
+          subtitle={zoneInfo.description}
+          primaryCTA={{ label: "Ver venues", href: "#venues" }}
+          secondaryCTA={{ label: "Cotizar equipo", href: "/cotizar/" }}
+          cards={[
+            {
+              title: `${venues.length} venues disponibles`,
+              content: `Desde ${venueTypeLabels[zoneVenueTypes[0]] || zoneVenueTypes[0]}${zoneVenueTypes.length > 1 ? ` hasta ${venueTypeLabels[zoneVenueTypes[zoneVenueTypes.length - 1]] || zoneVenueTypes[zoneVenueTypes.length - 1]}` : ''}. <strong>Capacidad promedio: ${avgCapacity} personas</strong>.`
+            },
+            {
+              title: "Lo que destaca",
+              content: zoneInfo.highlights.map(h => `<strong>${h}</strong>`).join(' • ')
+            }
+          ]}
+        />
+
+        {/* Zone Stats Bar */}
+        <section class="section section--compact">
+          <div class="container">
+            <div class="zone-stats-bar">
+              <div class="zone-stat">
+                <span class="zone-stat__value">{venues.length}</span>
+                <span class="zone-stat__label">Venues</span>
+              </div>
+              <div class="zone-stat">
+                <span class="zone-stat__value">{zoneVenueTypes.length}</span>
+                <span class="zone-stat__label">Tipos</span>
+              </div>
+              <div class="zone-stat">
+                <span class="zone-stat__value">{premiumCount}</span>
+                <span class="zone-stat__label">Premium</span>
+              </div>
+              <div class="zone-stat">
+                <span class="zone-stat__value">{verifiedCount}</span>
+                <span class="zone-stat__label">Verificados</span>
+              </div>
+              <div class="zone-stat">
+                <span class="zone-stat__value">{avgCapacity}</span>
+                <span class="zone-stat__label">Cap. promedio</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Event Types in this Zone */}
+        {zoneEventTypes.length > 0 && (
+          <section class="section section--alt">
+            <div class="container">
+              <SectionHeader
+                title={`Eventos populares en ${zoneName}`}
+                subtitle="Tipos de celebración"
+                description={[
+                  `Los venues en ${zoneName} son ideales para estos tipos de eventos. Haz clic para ver más opciones similares en toda la región.`
+                ]}
+              />
+              <div class="zone-event-types-grid">
+                {zoneEventTypes.slice(0, 8).map(eventType => {
+                  const countInZone = venues.filter(v => v.data.eventTypes?.includes(eventType)).length;
+                  return (
+                    <a href={`/directorio/tipo-evento/${eventType}/`} class="zone-event-type-card">
+                      <span class="zone-event-type-card__name">{eventTypeLabels[eventType] || eventType}</span>
+                      <span class="zone-event-type-card__count">{countInZone} venues</span>
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Venue Types in this Zone */}
+        {zoneVenueTypes.length > 1 && (
+          <section class="section">
+            <div class="container">
+              <SectionHeader
+                title={`Tipos de venue en ${zoneName}`}
+                subtitle="Explora por categoría"
+                description={[
+                  `Filtra por tipo de espacio para encontrar exactamente lo que buscas.`
+                ]}
+              />
+              <div class="zone-venue-types-grid">
+                {zoneVenueTypes.map(venueType => {
+                  const countInZone = venues.filter(v => v.data.type === venueType).length;
+                  const typeSlug = venueTypeSlugs[venueType];
+                  return (
+                    <a href={typeSlug ? `/directorio/tipo-venue/${typeSlug}/` : '#'} class="zone-venue-type-card">
+                      <div class="zone-venue-type-card__icon">
+                        {venueType === "hacienda" && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg>}
+                        {venueType === "jardin" && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22V8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/><path d="M8 8a4 4 0 1 1 8 0"/></svg>}
+                        {venueType === "salon" && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>}
+                        {venueType === "terraza" && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7h20L12 2z"/><path d="M2 7v10l10 5 10-5V7"/></svg>}
+                        {venueType === "hotel" && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Z"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/><path d="M12 14h.01"/></svg>}
+                        {venueType === "restaurante" && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>}
+                        {venueType === "quinta" && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18"/><path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16"/><path d="M9 21v-4h6v4"/></svg>}
+                        {venueType === "foro" && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>}
+                        {venueType === "mansion" && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18"/><path d="M4 21V10l8-6 8 6v11"/><path d="M10 21v-6h4v6"/></svg>}
+                        {venueType === "centro-convenciones" && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M17 2l-5 5-5-5"/></svg>}
+                        {venueType === "rooftop" && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>}
+                        {!["hacienda", "jardin", "salon", "terraza", "hotel", "restaurante", "quinta", "foro", "mansion", "centro-convenciones", "rooftop"].includes(venueType) && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>}
+                      </div>
+                      <span class="zone-venue-type-card__name">{venueTypeLabels[venueType] || venueType}</span>
+                      <span class="zone-venue-type-card__count">{countInZone} en {zoneName}</span>
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+        )}
+
+        <section class="section" id="venues">
+          <div class="container">
+            <SectionHeader
+              title={`Todos los Venues en ${zoneName}`}
+              subtitle={`${venues.length} opciones`}
+              description={[
+                `Explora todos los venues disponibles en ${zoneName}. Hemos trabajado en muchos de estos espacios y conocemos sus características técnicas.`
+              ]}
+            />
+
+            <div class="dir-grid dir-grid--3">
+              {venues.map(v => (
+                <article class="venue-card">
+                  <a href={`/directorio/${region}/${zone}/${v.id.split('/').pop()?.replace('.md', '')}/`} class="venue-card__link">
+                    <div class="venue-card__image-wrapper">
+                      <img
+                        src={v.data.image || "/images/placeholder-venue.avif"}
+                        alt={v.data.name}
+                        class="venue-card__image"
+                        loading="lazy"
+                        width="400"
+                        height="300"
+                      />
+                      <div class="venue-card__badges">
+                        {v.data.premium && <span class="venue-card__badge venue-card__badge--premium">Premium</span>}
+                        {v.data.verified && <span class="venue-card__badge venue-card__badge--verified">Verificado</span>}
+                      </div>
+                      <span class="venue-card__price-badge">{v.data.priceRange}</span>
+                    </div>
+                    <div class="venue-card__content">
+                      <span class="venue-card__type">{venueTypeLabels[v.data.type] || v.data.type}</span>
+                      <h3 class="venue-card__name">{v.data.name}</h3>
+                      <p class="venue-card__location">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        {v.data.neighborhood || v.data.zone}
+                      </p>
+                      <p class="venue-card__description">{v.data.shortDescription}</p>
+                      <div class="venue-card__meta">
+                        <span class="venue-card__capacity"><strong>{v.data.capacity.min}-{v.data.capacity.max}</strong> personas</span>
+                        {v.data.rating && (
+                          <span class="venue-card__rating">
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            {v.data.rating}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </a>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Back Navigation */}
+        <section class="section section--compact">
+          <div class="container">
+            <div class="zone-navigation">
+              <a href={`/directorio/${region}/`} class="zone-navigation__link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+                Ver todas las zonas en {regionLabels[region]}
+              </a>
+              <a href="/directorio/" class="zone-navigation__link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                Explorar todo el directorio
+              </a>
+            </div>
+          </div>
+        </section>
+      </>
+    );
+  })()}
+
+  {/* ═══════════════════════════════════════════════════════════════════════
+      VENUE PAGE
+      ═══════════════════════════════════════════════════════════════════════ */}
+  {type === "venue" && venue && (
+    <section class="section">
+      <div class="container">
+        <div class="venue-page">
+          <!-- Main Content -->
+          <main class="venue-page__main">
+            <!-- Header -->
+            <header class="venue-header">
+              <div class="venue-header__badges">
+                <span class="venue-header__badge venue-header__badge--type">
+                  {venueTypeLabels[venue.data.type] || venue.data.type}
+                </span>
+                {venue.data.premium && (
+                  <span class="venue-header__badge venue-header__badge--premium">Premium</span>
+                )}
+                {venue.data.verified && (
+                  <span class="venue-header__badge venue-header__badge--verified">Verificado EVENTECH</span>
+                )}
+              </div>
+              <h1 class="venue-header__name">{venue.data.name}</h1>
+              <p class="venue-header__location">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                {venue.data.address}, {venue.data.zone}
+              </p>
+            </header>
+
+            <!-- Gallery -->
+            <div class="venue-gallery">
+              <div class="venue-gallery__main">
+                <img
+                  src={venue.data.image || "/images/placeholder-venue.avif"}
+                  alt={venue.data.name}
+                  width="800"
+                  height="500"
+                />
+              </div>
+              {venue.data.gallery && venue.data.gallery.length > 0 && (
+                <div class="venue-gallery__thumbs">
+                  {venue.data.gallery.slice(0, 4).map((img: string, i: number) => (
+                    <div class="venue-gallery__thumb">
+                      <img src={img} alt={`${venue.data.name} - ${i + 1}`} loading="lazy" width="200" height="150" />
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <!-- Description / Full Content -->
+            <div class="venue-content prose">
+              {VenueContent ? (
+                <VenueContent />
+              ) : (
+                <div class="venue-section">
+                  <h2 class="venue-section__title">Acerca del Venue</h2>
+                  <p>{venue.data.description}</p>
+                </div>
+              )}
+            </div>
+
+            <!-- Amenities -->
+            {venue.data.amenities && venue.data.amenities.length > 0 && (
+              <div class="venue-section">
+                <h2 class="venue-section__title">Amenidades</h2>
+                <div class="venue-amenities">
+                  {venue.data.amenities.map((amenity: string) => (
+                    <div class="venue-amenity">
+                      <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      {amenityLabels[amenity] || amenity}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <!-- Event Types with Links -->
+            {venue.data.eventTypes && venue.data.eventTypes.length > 0 && (
+              <div class="venue-section">
+                <h2 class="venue-section__title">Ideal para</h2>
+                <div class="venue-event-types-links">
+                  {venue.data.eventTypes.map((eventType: string) => (
+                    <a href={`/directorio/tipo-evento/${eventType}/`} class="venue-event-type-link">
+                      {eventTypeLabels[eventType] || eventType}
+                    </a>
+                  ))}
+                </div>
+                <p class="venue-section__hint">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;vertical-align:middle;margin-right:4px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  Haz clic en cualquier tipo de evento para ver más venues similares
+                </p>
+              </div>
+            )}
+
+            <!-- Venue Type Link -->
+            {venueTypeSlugs[venue.data.type] && (
+              <div class="venue-section">
+                <h2 class="venue-section__title">Tipo de Venue</h2>
+                <a href={`/directorio/tipo-venue/${venueTypeSlugs[venue.data.type]}/`} class="venue-type-link-card">
+                  <div class="venue-type-link-card__content">
+                    <span class="venue-type-link-card__label">{venueTypeLabels[venue.data.type] || venue.data.type}</span>
+                    <span class="venue-type-link-card__action">Ver más {venueTypeLabels[venue.data.type]?.toLowerCase() || venue.data.type}s →</span>
+                  </div>
+                </a>
+              </div>
+            )}
+
+            <!-- Reviews -->
+            {venue.data.reviews && venue.data.reviews.length > 0 && (
+              <div class="venue-section">
+                <h2 class="venue-section__title">Opiniones</h2>
+                <div class="venue-reviews">
+                  {venue.data.reviews.map((review: { author: string; date: string; rating: number; text: string; eventType?: string }) => (
+                    <div class="venue-review">
+                      <div class="venue-review__header">
+                        <span class="venue-review__author">{review.author}</span>
+                        <div class="venue-review__rating">
+                          {[...Array(5)].map((_, i) => (
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style={i < review.rating ? "" : "opacity: 0.3"}>
+                              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                            </svg>
+                          ))}
+                        </div>
+                      </div>
+                      <p class="venue-review__text">{review.text}</p>
+                      <p class="venue-review__meta">{review.eventType} • {review.date}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <!-- Services Included -->
+            {venue.data.servicesIncluded && venue.data.servicesIncluded.length > 0 && (
+              <div class="venue-section">
+                <h2 class="venue-section__title">Servicios Incluidos</h2>
+                <div class="venue-services-included">
+                  {venue.data.servicesIncluded.map((service: string) => (
+                    <div class="venue-service-item">
+                      <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                      <span>{service.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <!-- Schedule & Pricing Info Box -->
+            <div class="venue-info-box">
+              <div class="venue-info-box__grid">
+                {venue.data.schedule && (
+                  <div class="venue-info-box__item">
+                    <div class="venue-info-box__icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div class="venue-info-box__content">
+                      <h4>Horarios</h4>
+                      <p><strong>Entre semana:</strong> {venue.data.schedule.weekdays}</p>
+                      <p><strong>Fines de semana:</strong> {venue.data.schedule.weekends}</p>
+                      {venue.data.schedule.minHours && <p class="venue-info-box__note">Mínimo {venue.data.schedule.minHours} horas</p>}
+                    </div>
+                  </div>
+                )}
+                {(venue.data.pricePerPerson || venue.data.rentalPrice) && (
+                  <div class="venue-info-box__item">
+                    <div class="venue-info-box__icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <div class="venue-info-box__content">
+                      <h4>Precios</h4>
+                      {venue.data.pricePerPerson && (
+                        <p><strong>Por persona:</strong> ${venue.data.pricePerPerson.min.toLocaleString()} - ${venue.data.pricePerPerson.max.toLocaleString()} MXN</p>
+                      )}
+                      {venue.data.rentalPrice && (
+                        <p><strong>Renta:</strong> ${venue.data.rentalPrice.min.toLocaleString()} - ${venue.data.rentalPrice.max.toLocaleString()} MXN</p>
+                      )}
+                      <p class="venue-info-box__badge">{venue.data.priceRange}</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <!-- Restrictions -->
+            {venue.data.restrictions && venue.data.restrictions.length > 0 && (
+              <div class="venue-section venue-section--warning">
+                <h2 class="venue-section__title">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  Consideraciones Importantes
+                </h2>
+                <ul class="venue-restrictions">
+                  {venue.data.restrictions.map((restriction: string) => (
+                    <li>{restriction}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <!-- EVENTECH Partner Badge -->
+            {venue.data.eventechPartner && (
+              <div class="venue-partner-banner">
+                <div class="venue-partner-banner__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                </div>
+                <div class="venue-partner-banner__content">
+                  <h3>Partner Oficial EVENTECH</h3>
+                  <p>Hemos trabajado en este venue y conocemos sus instalaciones. Podemos asesorarte sobre el equipo ideal para tu evento.</p>
+                  {venue.data.eventechDiscount && (
+                    <span class="venue-partner-banner__discount">{venue.data.eventechDiscount}</span>
+                  )}
+                </div>
+              </div>
+            )}
+
+            <!-- Location / Google Maps -->
+            {venue.data.googleMapsUrl && (
+              <div class="venue-section">
+                <h2 class="venue-section__title">Ubicación</h2>
+                <div class="venue-location-card">
+                  <div class="venue-location-card__info">
+                    <p class="venue-location-card__address">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      {venue.data.address}
+                    </p>
+                    <p class="venue-location-card__zone">{venue.data.neighborhood}, {venue.data.zone}</p>
+                    {venue.data.postalCode && <p class="venue-location-card__postal">C.P. {venue.data.postalCode}</p>}
+                  </div>
+                  <a href={venue.data.googleMapsUrl} target="_blank" rel="noopener noreferrer" class="venue-location-card__btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                    Ver en Google Maps
+                  </a>
+                </div>
+              </div>
+            )}
+          </main>
+
+          <!-- Sidebar -->
+          <aside class="venue-page__sidebar">
+            <!-- Venue Quick Info Card -->
+            <div class="venue-sidebar-card venue-sidebar-card--highlight">
+              <div class="venue-quick-info">
+                <h3 class="venue-quick-info__name">{venue.data.name}</h3>
+                <p class="venue-quick-info__type">{venueTypeLabels[venue.data.type] || venue.data.type}</p>
+                <div class="venue-quick-info__stats">
+                  <div class="venue-quick-info__stat">
+                    <span class="venue-quick-info__stat-value">{venue.data.capacity.max}</span>
+                    <span class="venue-quick-info__stat-label">Capacidad máx.</span>
+                  </div>
+                  {venue.data.rating && (
+                    <div class="venue-quick-info__stat">
+                      <span class="venue-quick-info__stat-value">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px;color:#ffc107;vertical-align:middle;margin-right:4px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        {venue.data.rating}
+                      </span>
+                      <span class="venue-quick-info__stat-label">{venue.data.reviewCount} reseñas</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Card -->
+            {venue.data.contact && (
+              <div class="venue-sidebar-card">
+                <h3 class="venue-sidebar-card__title">Contacto del Venue</h3>
+                <div class="venue-contact-list">
+                  {venue.data.contact.whatsapp && (
+                    <a href={`https://wa.me/52${venue.data.contact.whatsapp.replace(/\s/g, '')}`} class="venue-contact-item venue-contact-item--whatsapp">
+                      <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                      WhatsApp del Venue
+                    </a>
+                  )}
+                  {venue.data.contact.phone && (
+                    <a href={`tel:${venue.data.contact.phone.replace(/\s/g, '')}`} class="venue-contact-item">
+                      <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                      {venue.data.contact.phone}
+                    </a>
+                  )}
+                  {venue.data.contact.email && (
+                    <a href={`mailto:${venue.data.contact.email}`} class="venue-contact-item">
+                      <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                      Email
+                    </a>
+                  )}
+                </div>
+              </div>
+            )}
+
+            <!-- Capacity Details -->
+            <div class="venue-sidebar-card">
+              <h3 class="venue-sidebar-card__title">Capacidad</h3>
+              <div class="venue-capacity-list">
+                <div class="venue-capacity-item">
+                  <span class="venue-capacity-item__label">Banquete</span>
+                  <span class="venue-capacity-item__value">{venue.data.capacity.min} - {venue.data.capacity.max}</span>
+                </div>
+                {venue.data.capacity.cocktail && (
+                  <div class="venue-capacity-item">
+                    <span class="venue-capacity-item__label">Cóctel</span>
+                    <span class="venue-capacity-item__value">{venue.data.capacity.cocktail}</span>
+                  </div>
+                )}
+                {venue.data.capacity.ceremony && (
+                  <div class="venue-capacity-item">
+                    <span class="venue-capacity-item__label">Ceremonia</span>
+                    <span class="venue-capacity-item__value">{venue.data.capacity.ceremony}</span>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <!-- EVENTECH CTA -->
+            <div class="venue-sidebar-card venue-sidebar-card--cta">
+              <div class="venue-cta-card">
+                <h3 class="venue-cta-card__title">¿Tu evento será aquí?</h3>
+                <p class="venue-cta-card__text">Cotiza el equipo que necesitas: mobiliario, audio, iluminación, carpas y más.</p>
+                <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, estoy interesado en cotizar equipo para un evento en ${venue.data.name}`} class="venue-cta-card__btn">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                  Cotizar con EVENTECH
+                </a>
+              </div>
+            </div>
+
+            <!-- EVENTECH Services -->
+            <div class="venue-sidebar-card">
+              <h3 class="venue-sidebar-card__title">Servicios EVENTECH</h3>
+              <p class="venue-sidebar-card__subtitle">Equipo profesional para tu evento</p>
+              <div class="venue-services-grid">
+                {relevantServices.map(service => (
+                  <a href={service.href} class="venue-service-link">
+                    <span class="venue-service-link__icon">
+                      {service.icon === "chair" && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 18v3h4v-3"/><path d="M16 18v3h4v-3"/><path d="M12 14v4"/><path d="M4 6h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/></svg>}
+                      {service.icon === "speaker" && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12" y2="6"/></svg>}
+                      {service.icon === "tent" && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 22h20L12 2z"/><path d="M12 22V12"/></svg>}
+                      {service.icon === "lightbulb" && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z"/></svg>}
+                      {service.icon === "music" && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="15.5" r="2.5"/><path d="M8 17V5l12-2v12"/></svg>}
+                      {service.icon === "utensils" && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>}
+                    </span>
+                    <span class="venue-service-link__name">{service.name}</span>
+                  </a>
+                ))}
+              </div>
+              <a href="/servicios/" class="venue-sidebar-link">Ver todos los servicios →</a>
+            </div>
+
+            <!-- Related Venues -->
+            {relatedVenues.length > 0 && (
+              <div class="venue-sidebar-card">
+                <h3 class="venue-sidebar-card__title">Más en {venue.data.zone}</h3>
+                <div class="venue-related-list">
+                  {relatedVenues.map(v => (
+                    <a href={`/directorio/${v.data.region}/${v.data.zoneSlug}/${v.id.split('/').pop()?.replace('.md', '')}/`} class="venue-related-item">
+                      <div class="venue-related-item__info">
+                        <span class="venue-related-item__name">{v.data.name}</span>
+                        <span class="venue-related-item__type">{venueTypeLabels[v.data.type] || v.data.type}</span>
+                      </div>
+                      <span class="venue-related-item__capacity">{v.data.capacity.max} pers.</span>
+                    </a>
+                  ))}
+                </div>
+                <a href={`/directorio/${venue.data.region}/${venue.data.zoneSlug}/`} class="venue-sidebar-link">Ver todos en {venue.data.zone} →</a>
+              </div>
+            )}
+
+            <!-- Explore More -->
+            <div class="venue-sidebar-card">
+              <h3 class="venue-sidebar-card__title">Explorar Directorio</h3>
+              <div class="venue-explore-links">
+                <a href="/directorio/cdmx/" class="venue-explore-link">
+                  <span>CDMX</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+                <a href="/directorio/estado-mexico/" class="venue-explore-link">
+                  <span>Estado de México</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+                <a href="/directorio/" class="venue-explore-link">
+                  <span>Todo el Directorio</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA Banner -->
+  <CTABanner
+    headline="¿Encontraste tu venue?"
+    subheadline="Cotiza el equipo que necesitas: mobiliario, carpas, iluminación y más. Conocemos este espacio y podemos asesorarte."
+    primaryCTA={{ label: "Cotizar equipo", href: "/cotizar/" }}
+    secondaryCTA={{ label: "Ver servicios", href: "/servicios/" }}
+    variant="accent"
+  />
+</PageLayout>

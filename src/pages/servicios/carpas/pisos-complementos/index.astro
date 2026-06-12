@@ -1,0 +1,610 @@
+---
+/**
+ * ─── Pisos y Complementos para Carpas — Sub-subcategoría (Nivel 3) ───
+ * Página especializada: Renta de Pisos y Complementos para Carpas en CDMX.
+ * Color accent: Indigo #6c5ce7 (diferencia visual del nivel 2 teal).
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import ProductCard from "@components/ProductCard.astro";
+import { SITE } from "@data/site";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import '@styles/l3-shared.css';
+import Gallery4x4 from "@components/Gallery4x4.astro";
+import PricingCards from "@components/PricingCards.astro";
+import FaqSection from "@components/FaqSection.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Carpas", href: "/servicios/carpas/" },
+  { label: "Pisos y Complementos" },
+];
+
+const COMPLEMENTOS = [
+  {
+    name: "Piso de Duela",
+    price: "Desde $120 MXN/m²",
+    excerpt: "Duela laminada 12 mm con acabado semi-mate sobre estructura elevada. Protección contra humedad del terreno, nivelación profesional y aspecto premium para bodas y galas.",
+    href: "/servicios/carpas/pisos-complementos/duela/",
+    image: "/images/carpas/carpa-boda-01.avif",
+    tags: ["Duela 12 mm", "Semi-mate", "Nivelación incluida"],
+    badge: "Para bodas",
+  },
+  {
+    name: "Alfombra Profesional",
+    price: "Desde $60 MXN/m²",
+    excerpt: "Alfombra industrial de alta densidad en más de 15 colores. Instalación rápida sobre cualquier superficie para expos, ferias, corporativos y pasarelas.",
+    href: "/servicios/carpas/pisos-complementos/alfombra/",
+    image: "/images/carpas/carpa-mediana-quinceanos-decorada.avif",
+    tags: ["+15 colores", "Alta densidad", "Expos y corporativos"],
+  },
+  {
+    name: "Cortinas y Forros",
+    price: "Desde $80 MXN/m²",
+    excerpt: "Forros en chiffon, satín y blackout que transforman el interior de tu carpa. Cortinas laterales, cielos decorativos y divisiones de espacio en más de 10 colores.",
+    href: "/servicios/carpas/pisos-complementos/cortinas-forros/",
+    image: "/images/carpas/forros-interiores-carpa-elegante.avif",
+    tags: ["Chiffon / Satín / Blackout", "+10 colores", "Cielos decorativos"],
+  },
+  {
+    name: "Clima Artificial",
+    price: "Desde $3,500 MXN",
+    excerpt: "Calefacción industrial, enfriamiento evaporativo y AC portátil hasta 20 ton. Mantiene 20–24°C dentro de la carpa en cualquier temporada del año.",
+    href: "/servicios/carpas/pisos-complementos/clima-artificial/",
+    image: "/images/carpas/carpa-boda-02.avif",
+    tags: ["Calefacción / Enfriamiento", "Hasta 20 ton AC", "Cualquier temporada"],
+  },
+];
+
+const faqs = [
+  { question: "¿Qué tipos de piso están disponibles para carpas?", answer: "Ofrecemos tres opciones principales: piso de duela laminada de 12mm con acabado semi-mate (ideal para bodas y galas), alfombra industrial de alta densidad en más de 15 colores (perfecta para expos y corporativos), y plataforma nivelada de madera contrachapada (base técnica para terrenos irregulares). Cada opción incluye estructura elevada con marco de aluminio o madera tratada que protege contra la humedad del suelo y garantiza una superficie firme y segura." },
+  { question: "¿Se puede instalar piso sobre terreno irregular o con pendiente?", answer: "Sí, es una de nuestras especialidades. Utilizamos un sistema de plataforma nivelada con patas ajustables que compensa desniveles de hasta 40 cm. La estructura se ancla al terreno con estacas o contrapesos según el tipo de suelo (tierra, pasto, concreto). Realizamos una visita técnica previa para evaluar el terreno y diseñar la nivelación exacta. El resultado es una superficie perfectamente plana y estable, independientemente de las condiciones del terreno original." },
+  { question: "¿Qué opciones de color tienen las cortinas y forros interiores?", answer: "Manejamos tres tipos de tela: chiffon (translúcido, elegante, disponible en blanco, ivory, champagne, rosa y azul cielo), satín (brillo sofisticado en blanco, ivory, dorado, plata, negro y rojo), y blackout (opaco total para control de luz en negro, blanco y gris). Los forros de techo se pueden combinar con drapeados decorativos y luces LED integradas. Para eventos corporativos ofrecemos impresión personalizada en telas para branding." },
+  { question: "¿Cómo funciona la calefacción para carpas en invierno?", answer: "Utilizamos calefactores industriales de gas LP o eléctricos que distribuyen aire caliente de manera uniforme dentro de la carpa. Para carpas de hasta 100 m² usamos 2 calefactores de 30,000 BTU. Para carpas más grandes (200-500 m²) instalamos un sistema de ductos con calefactor central de 100,000+ BTU. Los forros interiores actúan como aislante térmico, mejorando la eficiencia del sistema hasta un 40%. La temperatura se mantiene entre 20-24°C incluso en noches de invierno en CDMX." },
+  { question: "¿Qué opciones de enfriamiento tienen para eventos en verano?", answer: "Ofrecemos tres soluciones según el tipo de carpa: enfriamiento evaporativo (reduce 8-12°C, ideal para carpas semi-abiertas), aire acondicionado portátil de 5 a 20 toneladas (para carpas cerradas con forro), y ventilación forzada con extractores industriales (para carpas abiertas). El enfriamiento evaporativo es el más económico y ecológico, mientras que el AC portátil ofrece control preciso de temperatura. Nuestro técnico evalúa tu carpa y recomienda la mejor opción según dimensiones y número de asistentes." },
+  { question: "¿Cuánto cuesta un paquete completo de piso más clima?", answer: "Los paquetes combinados ofrecen el mejor valor. Un paquete básico (piso de duela + ventilación para carpa de 50 m²) parte desde $8,000 MXN. Un paquete premium (duela + forros de satín + calefacción para carpa de 100 m²) desde $18,000 MXN. El paquete completo (duela nivelada + alfombra + forros + AC portátil para carpa de 200 m²) desde $35,000 MXN. Todos incluyen instalación, operación durante el evento y desmontaje. Cotizamos según las dimensiones exactas de tu carpa y las condiciones específicas de tu venue." },
+];
+
+const jsonLd = [
+  serviceJsonLd({
+    name: "Renta Pisos y Complementos para Carpas en CDMX",
+    description: "Pisos de duela, alfombra profesional, cortinas, forros y clima artificial para carpas de eventos. Instalación incluida.",
+    url: "/servicios/carpas/pisos-complementos/",
+    priceRange: { min: 2000, max: 60000 },
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Carpas", url: "/servicios/carpas/" },
+    { name: "Pisos y Complementos", url: "/servicios/carpas/pisos-complementos/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta Pisos y Complementos para Carpas en CDMX"
+  description="Renta de pisos de duela, alfombra profesional, cortinas, forros interiores y clima artificial para carpas en CDMX. Instalación incluida. Desde $2,000."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Confort y acabado profesional para tu carpa"
+    title='Renta de <span class="highlight">Pisos y Complementos</span> para Carpas en CDMX'
+    subtitle="Pisos de duela laminada, alfombra industrial, cortinas decorativas y sistemas de clima artificial para transformar cualquier carpa en un espacio elegante y confortable."
+    primaryCTA={{ label: "Cotiza tu complemento", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar pisos y complementos para carpa` }}
+    cards={[
+      {
+        title: "Pisos y acabados de grado profesional para cada carpa",
+        content: "<strong>Renta de pisos y complementos para carpas</strong> con los materiales de mayor calidad disponibles en CDMX. Piso de duela laminada de 12mm con acabado semi-mate sobre estructura elevada con protección contra humedad para bodas y eventos de gala. Alfombra industrial de alta densidad en más de 15 colores para expos, ferias y corporativos. Forros interiores en chiffon, satín y blackout que transforman por completo la apariencia de tu carpa — cada complemento instalado por profesionales con experiencia en más de 800 eventos.",
+      },
+      {
+        title: "Clima artificial para confort en cualquier temporada",
+        content: "<strong>Sistemas de climatización profesional</strong> para carpas de cualquier dimensión. Calefacción industrial con ductos para noches frías de invierno, enfriamiento evaporativo ecológico para primavera y verano, aire acondicionado portátil de 5 a 20 toneladas para control preciso de temperatura, y ventilación forzada con extractores industriales. Cada sistema dimensionado según el tamaño de tu carpa, número de asistentes y condiciones climáticas del venue.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CTA BANNER
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas que tu carpa luzca impecable y confortable?"
+    subheadline="Cotiza sin compromiso pisos, forros y clima artificial con instalación profesional incluida"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CATÁLOGO — 4 tipos de complemento
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="catalogo-heading">
+    <div class="container">
+      <SectionHeader
+        id="catalogo-heading"
+        title="Nuestro Catálogo de Pisos y Complementos"
+        subtitle="Todo lo que necesitas para completar tu carpa"
+        description={[
+          "Desde pisos de duela premium para bodas de gala hasta sistemas de clima industrial para eventos masivos. Contamos con el catálogo de complementos para carpas más completo de la Ciudad de México.",
+          "Cada complemento incluye instalación profesional, materiales certificados y soporte técnico durante tu evento. Combinaciones personalizadas para crear el ambiente perfecto dentro de tu carpa."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        {COMPLEMENTOS.map((complemento) => (
+          <ProductCard
+            name={complemento.name}
+            price={complemento.price}
+            excerpt={complemento.excerpt}
+            href={complemento.href}
+            image={complemento.image}
+            tags={complemento.tags}
+            badge={complemento.badge}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PISO DE DUELA — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="duela-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Piso de Duela"
+    headingId="duela-heading"
+    badge="Acabado premium"
+    subtitle="El acabado elegante que transforma cualquier carpa en un salón de eventos de primer nivel."
+    tags={["Duela 12mm", "Semi-mate", "Estructura elevada", "Anti-humedad"]}
+    ctaHref="/servicios/carpas/pisos-complementos/duela/"
+    ctaLabel="Ver Piso de Duela"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Nuestro <strong>piso de duela laminada de 12mm</strong> ofrece un acabado semi-mate con apariencia de madera natural que eleva la estética de cualquier carpa. Montado sobre una <strong>estructura elevada de marco de aluminio</strong> con patas ajustables, crea una superficie firme, nivelada y aislada del suelo que protege contra humedad, irregularidades del terreno y temperatura del piso. Disponible en tonos <strong>roble claro, nogal, caoba y gris moderno</strong>.</p>
+      <p class="showcase__text">La estructura elevada permite compensar <strong>desniveles de hasta 40 cm</strong>, ideal para jardines, terrenos y espacios al aire libre. El sistema modular se instala en secciones de 1×1 metro que se ensamblan sin tornillos visibles, logrando una superficie continua y sin juntas perceptibles. Perfecto para <strong>bodas, galas, cenas de gala y eventos de lujo</strong>. Combina con nuestro <a href="/servicios/mobiliario/">mobiliario premium</a> para un montaje integral de primer nivel.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="6" width="20" height="12" rx="2"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <line x1="8" y1="6" x2="8" y2="18"/>
+              <line x1="16" y1="6" x2="16" y2="18"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       ALFOMBRA PROFESIONAL — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="alfombra-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Alfombra Profesional"
+    headingId="alfombra-heading"
+    badge="15+ colores disponibles"
+    subtitle="Alfombra industrial de alta densidad con instalación rápida para expos, ferias y eventos corporativos."
+    tags={["Alta densidad", "15+ colores", "Corte a medida", "Alto tráfico"]}
+    ctaHref="/servicios/carpas/pisos-complementos/alfombra/"
+    ctaLabel="Ver Alfombra Profesional"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Nuestra <strong>alfombra profesional de alta densidad</strong> está disponible en más de <strong>15 colores</strong> incluyendo rojo, azul rey, verde, gris Oxford, negro, beige, burgundy y colores corporativos personalizados. Fabricada con fibra de polipropileno de <strong>alta resistencia al tráfico</strong>, soporta el paso de miles de visitantes sin desgaste visible. Instalación directa sobre concreto, pasto o plataforma nivelada con cinta de doble cara profesional.</p>
+      <p class="showcase__text">Ideal para <strong>expos comerciales, ferias, convenciones, pasarelas y eventos corporativos</strong> donde la imagen de marca es fundamental. Los rollos de 4 metros de ancho permiten cubrir grandes superficies con mínimas uniones. Incluye <strong>corte a medida, instalación y retiro</strong> después del evento. Disponible también en formato de pasillo para alfombra roja de entrada. Complementa con nuestra <a href="/servicios/accesorios/">señalización y accesorios</a> para un montaje profesional completo.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="8" width="18" height="8" rx="1"/>
+              <path d="M3 16l-1 2"/>
+              <path d="M21 16l1 2"/>
+              <path d="M3 8l-1-2"/>
+              <path d="M21 8l1-2"/>
+              <line x1="7" y1="8" x2="7" y2="16"/>
+              <line x1="12" y1="8" x2="12" y2="16"/>
+              <line x1="17" y1="8" x2="17" y2="16"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CORTINAS Y FORROS — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="cortinas-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Cortinas y Forros"
+    headingId="cortinas-heading"
+    badge="Transformación total"
+    subtitle="Transforma el interior de tu carpa con forros decorativos en chiffon, satín y blackout."
+    tags={["Chiffon", "Satín", "Blackout", "Drapeados"]}
+    ctaHref="/servicios/carpas/pisos-complementos/cortinas-forros/"
+    ctaLabel="Ver Cortinas y Forros"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Nuestros <strong>forros interiores y cortinas decorativas</strong> transforman por completo la apariencia de cualquier carpa. <strong>Forros de techo en chiffon</strong> crean drapeados elegantes con caída natural, disponibles en blanco, ivory, champagne, rosa y azul cielo. <strong>Forros de satín</strong> aportan un brillo sofisticado en blanco, ivory, dorado, plata, negro y rojo. <strong>Cortinas blackout</strong> ofrecen control total de luz para proyecciones y montajes audiovisuales.</p>
+      <p class="showcase__text">Instalamos <strong>cortinas laterales, cielos decorativos con drapeado, cenefas perimetrales y divisiones de espacio</strong> para crear ambientes diferenciados dentro de una misma carpa. Los forros actúan como <strong>aislante térmico natural</strong>, mejorando la eficiencia del clima artificial hasta un 40%. Para eventos corporativos ofrecemos impresión personalizada en tela para branding. Combina con nuestra <a href="/servicios/iluminacion/">iluminación decorativa</a> para crear ambientes mágicos con juegos de luz a través de las telas.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 3h16"/>
+              <path d="M4 3c0 6 2 10 4 14"/>
+              <path d="M20 3c0 6-2 10-4 14"/>
+              <path d="M8 17c2 2 6 2 8 0"/>
+              <path d="M4 3v2c0 4 3 6 3 10"/>
+              <path d="M20 3v2c0 4-3 6-3 10"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CLIMA ARTIFICIAL — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="clima-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Clima Artificial"
+    headingId="clima-heading"
+    badge="Confort garantizado"
+    subtitle="Calefacción, enfriamiento y ventilación industrial para garantizar la temperatura ideal en cualquier temporada."
+    tags={["Calefacción", "Enfriamiento", "AC portátil", "Ventilación"]}
+    ctaHref="/servicios/carpas/pisos-complementos/clima-artificial/"
+    ctaLabel="Ver Clima Artificial"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Nuestros <strong>sistemas de clima artificial para carpas</strong> garantizan confort térmico en cualquier época del año. <strong>Calefacción industrial</strong> con calefactores de gas LP de 30,000 a 100,000+ BTU y sistemas de ductos para distribución uniforme del calor en noches frías. <strong>Enfriamiento evaporativo</strong> que reduce la temperatura entre 8 y 12°C de manera ecológica, ideal para carpas semi-abiertas en primavera y verano.</p>
+      <p class="showcase__text"><strong>Aire acondicionado portátil</strong> de 5 a 20 toneladas para carpas cerradas con forro, ofreciendo control preciso de temperatura entre 18 y 24°C. <strong>Ventilación forzada</strong> con extractores industriales de alto flujo para renovación de aire constante en carpas abiertas con gran asistencia. Todos los equipos incluyen <strong>instalación, ductos, conexiones eléctricas y operación técnica</strong> durante el evento. Complementa con nuestro <a href="/servicios/audiovisual/">equipo audiovisual</a> para producciones de eventos integrales.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <line x1="8" y1="20" x2="8" y2="22"/>
+              <line x1="16" y1="20" x2="16" y2="22"/>
+              <path d="M6 12h12"/>
+              <path d="M9 8l3 4-3 4"/>
+              <path d="M15 8l-3 4 3 4"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       GALERÍA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="galeria-heading">
+    <div class="container">
+      <h2 id="galeria-heading" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 2rem;">¿Cómo lucen nuestros pisos y complementos?</h2>
+      <Gallery4x4 images={[
+        { src: "/images/carpas/carpa-arabe-beduina-boda-jardin.avif", alt: "Carpa árabe beduina para boda en jardín" },
+        { src: "/images/carpas/carpa-estructural-grande-congreso.avif", alt: "Carpa estructural grande para congreso" },
+        { src: "/images/carpas/carpa-hangar-industrial-evento-grande.avif", alt: "Carpa hangar industrial evento grande" },
+        { src: "/images/carpas/carpa-mediana-quinceanos-decorada.avif", alt: "Carpa mediana quinceaños decorada" },
+        { src: "/images/carpas/carpa-transparente-boda-elegante.avif", alt: "Carpa transparente boda elegante" },
+        { src: "/images/carpas/forros-interiores-carpa-elegante.avif", alt: "Forros interiores carpa elegante" },
+        { src: "/images/mobiliario/silla-tiffany-dorada-boda-gala-01.avif", alt: "Silla Tiffany dorada para boda de gala en CDMX" },
+        { src: "/images/mobiliario/salon-mesas-redondas-banquete-montaje.avif", alt: "Salón con mesas redondas montaje banquete" },
+      ]} />
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PAQUETES
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="paquetes-heading">
+    <div class="container">
+      <h2 id="paquetes-heading" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 0.5rem;">¿Cuánto cuesta rentar pisos y complementos para carpas?</h2>
+      <p style="color: var(--color-text-light); margin-bottom: 2rem; max-width: 60ch;">Precios referenciales por evento (+IVA). Incluye entrega y montaje en CDMX.</p>
+      <PricingCards packages={[
+        {
+          name: "Básico",
+          price: "$3,000",
+          priceNote: "por evento",
+          description: "Piso básico para carpa.",
+          features: [
+            { text: "Piso nivelado 6x6m", included: true },
+            { text: "Instalación", included: true },
+            { text: "Alfombra", included: false },
+            { text: "Iluminación perimetral", included: false },
+          ],
+          ctaHref: "/cotizar/",
+        },
+        {
+          name: "Estándar",
+          badge: "Más popular",
+          highlight: true,
+          price: "$6,000",
+          priceNote: "por evento",
+          description: "Piso con acabado para eventos sociales.",
+          features: [
+            { text: "Piso nivelado 10x10m", included: true },
+            { text: "Alfombra incluida", included: true },
+            { text: "Iluminación perimetral", included: true },
+            { text: "Montaje profesional", included: true },
+          ],
+          ctaHref: "/cotizar/",
+        },
+        {
+          name: "Premium",
+          price: "$10,000",
+          priceNote: "por evento",
+          description: "Piso premium con acabados de lujo.",
+          features: [
+            { text: "Piso 15x15m+", included: true },
+            { text: "Acabado madera o mármol", included: true },
+            { text: "Rampa de acceso", included: true },
+            { text: "Diseño personalizado", included: true },
+          ],
+          ctaHref: "/cotizar/",
+        },
+        {
+          name: "Full Service",
+          price: "Cotizar",
+          priceNote: "piso + complementos",
+          description: "Piso integral con todos los complementos.",
+          features: [
+            { text: "Dimensiones a medida", included: true },
+            { text: "Climatización", included: true },
+            { text: "Mobiliario integrado", included: true },
+            { text: "Coordinación completa", included: true },
+          ],
+          ctaHref: "/cotizar/",
+        },
+      ]} />
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PREGUNTAS FRECUENTES
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="faq-heading">
+    <div class="container">
+      <h2 id="faq-heading" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 2rem;">Preguntas frecuentes sobre pisos y complementos para carpas</h2>
+    </div>
+    <FaqSection items={faqs} serviceName="pisos y complementos para carpas" />
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       RESERVA TU EVENTO - Formulario de contacto / WhatsApp
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tus Pisos y Complementos"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada de pisos y complementos para carpa. Sin compromiso, sin costos ocultos.",
+          "Ya sea un piso de duela para tu boda o un sistema de clima completo para tu expo, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoComplemento">
+                Tipo de complemento
+              </label>
+              <select id="tipoComplemento" name="tipoComplemento" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de complemento</option>
+                <option value="Piso de Duela 12mm">Piso de Duela 12mm</option>
+                <option value="Alfombra Color Específico">Alfombra Color Específico</option>
+                <option value="Plataforma Nivelada">Plataforma Nivelada</option>
+                <option value="Forros Interiores Satín">Forros Interiores Satín</option>
+                <option value="Forros Interiores Chiffon">Forros Interiores Chiffon</option>
+                <option value="Cortinas Laterales">Cortinas Laterales</option>
+                <option value="Calefacción Industrial">Calefacción Industrial</option>
+                <option value="Enfriamiento Evaporativo">Enfriamiento Evaporativo</option>
+                <option value="Ventilación Portátil">Ventilación Portátil</option>
+                <option value="Paquete Completo">Paquete Completo</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: dimensiones de la carpa, tipo de terreno, cantidad de asistentes, colores deseados, necesidades de clima..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para medir el terreno, verificar la nivelación y diseñar la instalación ideal.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para tu presupuesto y necesidades.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoComplemento = document.getElementById('tipoComplemento').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Nueva solicitud desde EVENTECH.MX — Pisos y Complementos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoComplemento) texto += `*Tipo de complemento:* ${tipoComplemento}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CTA FINAL
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="El acabado y confort que tu carpa necesita"
+    subheadline="Más de 800 carpas equipadas con pisos, forros y clima nos respaldan. Cotiza hoy y recibe asesoría sin compromiso."
+    primaryCTA={{ label: "Cotizar pisos y complementos", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar pisos y complementos para carpa` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     INDIGO COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #6c5ce7;
+    --color-accent-hover: #5a4fd6;
+    --color-accent-light: #8b7ff0;
+    --color-accent-soft: rgba(108, 92, 231, 0.1);
+    --gradient-accent: linear-gradient(135deg, #6c5ce7 0%, #5a4fd6 100%);
+    --shadow-accent: 0 4px 14px rgba(108, 92, 231, 0.4);
+    --shadow-accent-hover: 0 6px 20px rgba(108, 92, 231, 0.5);
+  }
+</style>

@@ -1,0 +1,534 @@
+---
+/**
+ * ─── Carpas Category Page ───
+ * Página de categoría: Renta de Carpas para Eventos en CDMX.
+ * Sigue el layout de subcategoría principal aprobado.
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import CategoryCard from "@components/CategoryCard.astro";
+import { SITE } from "@data/site";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import CtaBar from "@components/CtaBar.astro";
+import Gallery4x4 from "@components/Gallery4x4.astro";
+import FaqSection from "@components/FaqSection.astro";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Carpas" },
+];
+
+const SUB_SERVICES = [
+  {
+    name: "Carpas Árabes",
+    excerpt: "Techos tensados en pico desde $3,000 MXN. Clásicas, con forros, transparentes o beduinas. De 6x6 m (30 personas) hasta 15x30 m (400+ personas). La favorita para bodas y XV años.",
+    href: "/servicios/carpas/carpas-arabes/",
+    image: "/images/carpas/carpa-arabe-beduina-boda-jardin.avif",
+    subcategories: [
+      { name: "Árabe Clásica", href: "/servicios/carpas/carpas-arabes/clasica/" },
+      { name: "Con Forros", href: "/servicios/carpas/carpas-arabes/forros/" },
+      { name: "Transparente", href: "/servicios/carpas/carpas-arabes/transparente/" },
+      { name: "Beduina", href: "/servicios/carpas/carpas-arabes/beduina/" },
+    ],
+  },
+  {
+    name: "Carpas Estructurales",
+    excerpt: "Aluminio serie 6000 con lona PVC 650 g/m². Desde $5,000 MXN. De 5x5 m hasta 15x30 m. Resistentes a lluvia y viento de 80 km/h. Para corporativos, ferias y bodas grandes.",
+    href: "/servicios/carpas/estructurales/",
+    image: "/images/carpas/carpa-estructural-grande-congreso.avif",
+    subcategories: [
+      { name: "Medianas 5x5–10x10 m", href: "/servicios/carpas/estructurales/medianas/" },
+      { name: "Grandes 10x15–15x30 m", href: "/servicios/carpas/estructurales/grandes/" },
+      { name: "Paredes Modulares", href: "/servicios/carpas/estructurales/paredes-modulares/" },
+      { name: "Accesorios", href: "/servicios/carpas/estructurales/accesorios-estructurales/" },
+    ],
+  },
+  {
+    name: "Carpas Tipo Hangar",
+    excerpt: "Acero galvanizado con claro libre hasta 30 m sin columnas. Desde $25,000 MXN. Para 500 a 5,000+ personas. Rigging certificado 500 kg por punto para expos y conciertos.",
+    href: "/servicios/carpas/hangar/",
+    image: "/images/carpas/carpa-hangar-industrial-evento-grande.avif",
+    subcategories: [
+      { name: "Hangar Claro 20 m", href: "/servicios/carpas/hangar/hangar-20m/" },
+      { name: "Hangar Claro 30 m", href: "/servicios/carpas/hangar/hangar-30m/" },
+      { name: "Con Rigging", href: "/servicios/carpas/hangar/rigging/" },
+      { name: "Industrial", href: "/servicios/carpas/hangar/industrial/" },
+    ],
+  },
+  {
+    name: "Pisos y Complementos",
+    excerpt: "Duela 12 mm, alfombra HD en +15 colores, cortinas chiffon/satín y clima artificial. Paquetes desde $8,000 MXN. Nivelación en terrenos irregulares incluida.",
+    href: "/servicios/carpas/pisos-complementos/",
+    image: "/images/carpas/forros-interiores-carpa-elegante.avif",
+    subcategories: [
+      { name: "Piso de Duela", href: "/servicios/carpas/pisos-complementos/duela/" },
+      { name: "Alfombra Profesional", href: "/servicios/carpas/pisos-complementos/alfombra/" },
+      { name: "Cortinas y Forros", href: "/servicios/carpas/pisos-complementos/cortinas-forros/" },
+      { name: "Clima Artificial", href: "/servicios/carpas/pisos-complementos/clima-artificial/" },
+    ],
+  },
+];
+
+const faqs = [
+  { question: "¿Qué tamaños de carpas tienen disponibles?", answer: "Manejamos carpas desde 4x4 metros (ideales para áreas de registro o coctelería) hasta estructuras de 20x50 metros o más para grandes eventos. Las medidas más solicitadas son 6x12m (80-100 personas), 10x20m (150-200 personas) y 15x30m (300-400 personas). Diseñamos configuraciones a la medida según tu venue y número de invitados." },
+  { question: "¿Las carpas resisten lluvia y viento fuerte?", answer: "Sí. Nuestras carpas estructurales y tipo hangar están certificadas para resistir lluvias intensas y vientos de hasta 80 km/h. Utilizamos lonas impermeables de grado comercial, estructura de aluminio reforzado y sistemas de anclaje profesional con lastres de concreto o estacas de acero según el terreno." },
+  { question: "¿El montaje y desmontaje están incluidos en el precio?", answer: "Sí. Todos nuestros paquetes de carpas incluyen entrega, montaje profesional por nuestro equipo certificado y desmontaje al finalizar el evento. El montaje se realiza entre 24 y 48 horas antes del evento dependiendo del tamaño de la estructura." },
+  { question: "¿Pueden instalar piso dentro de la carpa?", answer: "Por supuesto. Ofrecemos tres opciones de piso: duela de madera elegante (ideal para bodas), alfombra en múltiples colores y plataforma nivelada para terrenos irregulares. El piso se instala sobre una base que lo mantiene separado del suelo, garantizando estabilidad y limpieza." },
+  { question: "¿Con cuánta anticipación debo reservar la carpa?", answer: "Recomendamos reservar con 3 a 6 semanas de anticipación para garantizar disponibilidad del tamaño que necesitas. En temporada alta (octubre a febrero) lo ideal es apartar con 2 meses. Para eventos muy grandes (+500 personas) o carpas tipo hangar, sugerimos contactarnos con al menos 2 meses de anticipación." },
+  { question: "¿Necesito permisos especiales para instalar una carpa?", answer: "Depende del venue. En jardines y terrenos privados generalmente no se requieren permisos adicionales. Para espacios públicos o delegacionales sí pueden requerirse. Nuestro equipo te asesora sobre los requisitos específicos de tu ubicación y te ayudamos con la documentación técnica si es necesaria." },
+];
+
+const jsonLd = [
+  serviceJsonLd({
+    name: "Renta de Carpas para Eventos en CDMX",
+    description: "Carpas árabes, estructurales y tipo hangar para bodas, corporativos y eventos masivos. Montaje, piso e iluminación incluidos.",
+    url: "/servicios/carpas/",
+    priceRange: { min: 3000, max: 150000 },
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Carpas", url: "/servicios/carpas/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Carpas para Eventos"
+  description="Renta de carpas para eventos: árabes, estructurales y tipo hangar en CDMX y Estado de México. Montaje, piso e iluminación incluidos. Cotiza en 24h."
+  jsonLd={jsonLd}
+>
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       BREADCRUMBS
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <Breadcrumbs items={breadcrumbItems} />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Más de 500 eventos protegidos en CDMX"
+    title='Renta de <span class="highlight">Carpas para Eventos</span> en CDMX'
+    subtitle="Carpas árabes, estructurales y tipo hangar con montaje profesional, iluminación interior y opciones de piso incluidas. Transforma cualquier jardín, terraza o espacio abierto en un venue espectacular y protegido, sin importar el clima."
+    primaryCTA={{ label: "Cotiza tu evento", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar una carpa para mi evento en CDMX` }}
+    cards={[
+      {
+        title: "Estructuras de grado comercial con certificación de seguridad",
+        content: "<strong>Renta de carpas para eventos</strong> fabricadas con los más altos estándares de la industria. Lonas impermeables de PVC con protección UV al 99%, estructura de aluminio anodizado serie 6000 o acero galvanizado según el tipo de carpa, tensores de acero inoxidable 304 y sistemas de anclaje profesional con lastres de concreto o estacas de acero según las condiciones del terreno. Cada estructura es inspeccionada y certificada por nuestro equipo de ingeniería antes de su instalación, garantizando la seguridad total de tus invitados ante lluvia, viento y condiciones climáticas adversas.",
+      },
+      {
+        title: "Montaje integral con visita técnica y diseño de espacios",
+        content: "<strong>Servicio completo de carpas</strong> con enfoque llave en mano. Nuestro equipo de producción realiza una visita técnica gratuita a tu venue para evaluar terreno, accesos, puntos de corriente y condiciones del espacio. Diseñamos la distribución óptima considerando flujo de invitados, ubicación de tarima y pista de baile, y ejecutamos el montaje profesional entre 24 y 48 horas antes de tu evento. Complementa tu carpa con <strong>pisos de duela o alfombra</strong>, <strong>iluminación arquitectónica interior</strong>, cortinas decorativas y clima artificial para un espacio completamente personalizado.",
+      },
+    ]}
+  />
+
+  <CtaBar headline="¿Qué tipo de carpa necesitas?" items={[
+    { label: "Carpas Árabes", href: "/servicios/carpas/carpas-arabes/", icon: "carpas" },
+    { label: "Estructurales", href: "/servicios/carpas/estructurales/", icon: "carpas" },
+    { label: "Hangar", href: "/servicios/carpas/hangar/", icon: "carpas" },
+    { label: "Pisos", href: "/servicios/carpas/pisos-complementos/", icon: "carpas" },
+  ]} />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CTA BANNER
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Tu evento es al aire libre? Nosotros lo convertimos en un venue de primer nivel"
+    subheadline="Recibe una propuesta técnica personalizada con el tipo, tamaño y complementos ideales para tu celebración — sin compromiso"
+    primaryCTA={{ label: "Cotizar mi carpa", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CATÁLOGO — Sub-servicios con Cards
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="catalogo-heading">
+    <div class="container">
+      <SectionHeader
+        id="catalogo-heading"
+        title="¿Qué tipos de carpas para eventos puedes rentar en CDMX?"
+        subtitle="La estructura perfecta para cada tipo de evento y presupuesto"
+        description={[
+          "Desde una carpa íntima para 20 personas en un jardín de Coyoacán hasta estructuras de gran formato para más de 5,000 asistentes en explanadas corporativas de Santa Fe — contamos con el inventario más completo de carpas para eventos en la Ciudad de México y zona metropolitana.",
+          "Cada estructura incluye montaje profesional certificado, lona impermeable de grado comercial y opciones de personalización completa: pisos, iluminación, cortinas, clima artificial y todo lo necesario para que tu espacio luzca exactamente como lo imaginaste."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        {SUB_SERVICES.map((sub) => (
+          <CategoryCard
+            title={sub.name}
+            subtitle={sub.excerpt}
+            href={sub.href}
+            image={sub.image}
+            subcategories={sub.subcategories}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CARPAS ÁRABES — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="arabes-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Carpas Árabes"
+    headingId="arabes-heading"
+    badge="La más solicitada para bodas"
+    subtitle="Elegancia clásica con techos tensados que crean ambientes románticos y sofisticados para bodas, XV años y eventos sociales al aire libre."
+    tags={["6x6m", "6x12m", "10x20m", "15x30m", "Cortinas Chiffon", "Fairy Lights"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Carpas Árabes"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">La <strong>carpa árabe</strong> es la opción preferida por wedding planners y organizadores de eventos sociales en CDMX por su silueta elegante con techos altos de hasta 5 metros y caídas naturales que evocan sofisticación. Disponibles en <strong>blanco, marfil, beige y colores personalizados</strong>, con cortinas laterales de tela chiffon o blackout que permiten crear ambientes abiertos, semi-cerrados o completamente cerrados según la hora del día. Combínalas con nuestro <a href="/servicios/mobiliario/">mobiliario premium</a> para un montaje integral.</p>
+      <p class="showcase__text">Disponibles desde <strong>6x6 metros (30 invitados) hasta 15x30 metros (400+ invitados)</strong>. Cada instalación incluye <strong>estructura de aluminio serie 6000, tensores de acero inoxidable 304</strong> y lona premium de PVC con protección UV al 99% e impermeabilidad certificada. Complementa con nuestra <a href="/servicios/iluminacion/">iluminación profesional</a> — fairy lights, candiles o spots LED — para un resultado que dejará sin aliento a tus invitados.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 20l9-16 9 16"/>
+              <path d="M7.5 20l4.5-8 4.5 8"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CARPAS ESTRUCTURALES — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="estructurales-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Carpas Estructurales"
+    headingId="estructurales-heading"
+    badge="Certificación anti-lluvia y viento"
+    subtitle="Estructura rígida de aluminio anodizado con lona PVC tensada. La solución más segura y versátil para eventos profesionales durante todo el año."
+    tags={["Aluminio Serie 6000", "Lona PVC 650g", "Paredes Modulares", "Transparentes", "Anti-lluvia 80km/h"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Estructurales"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Las <strong>carpas estructurales</strong> son la elección de empresas, agencias de eventos y wedding planners que exigen máxima confiabilidad. Su <strong>marco rígido de aluminio anodizado serie 6000</strong> con lona PVC de 650 g/m² garantiza estabilidad total ante lluvia intensa y vientos de hasta 80 km/h — certificadas bajo norma DIN 4102. Paredes laterales modulares (sólidas, con ventana o completamente transparentes) permiten configurar el espacio según las necesidades exactas de cada evento.</p>
+      <p class="showcase__text">Disponibles desde <strong>5x5 hasta 20x40 metros</strong> con altura libre de 3 a 6 metros. Ideales para <strong>bodas en jardín, eventos corporativos, ferias y exposiciones</strong>. Incluyen <strong>canaletas de desagüe integradas</strong>, anclaje con lastres de 250 kg y opciones de <strong>pared panorámica transparente</strong>. Equípalas con nuestro <a href="/servicios/audiovisual/">equipo audiovisual</a> para presentaciones corporativas impecables dentro de la estructura.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M3 9h18"/>
+              <path d="M9 21V9"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CARPAS TIPO HANGAR — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="hangar-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Carpas Tipo Hangar"
+    headingId="hangar-heading"
+    badge="+500 invitados sin límite"
+    subtitle="Estructuras de gran escala para producciones masivas. La solución profesional para expos, conciertos, ferias comerciales y convenciones donde otros espacios se quedan cortos."
+    tags={["Claro 20m", "Claro 30m", "Sin Columnas", "Acceso Vehicular 5m", "Rigging Certificado"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Tipo Hangar"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">Nuestras <strong>carpas tipo hangar</strong> están diseñadas para eventos que requieren escala industrial. Con <strong>claros libres de hasta 30 metros sin columnas intermedias</strong>, ofrecen un espacio completamente diáfano perfecto para <strong>expos con stands de exhibición, conciertos con tarima y PA system, ferias comerciales con circulación vehicular</strong> y convenciones corporativas de 500 a más de 5,000 asistentes simultáneos.</p>
+      <p class="showcase__text">Estructura de <strong>acero galvanizado por inmersión en caliente con lona industrial de 900 g/m²</strong>, preparada para condiciones climáticas extremas y uso intensivo. Incluyen <strong>puertas de acceso vehicular de hasta 5 metros</strong>, puntos de anclaje certificados para rigging de <a href="/servicios/iluminacion/">iluminación profesional</a> y <a href="/servicios/audiovisual/">equipo de sonido</a>, e instalación eléctrica trifásica con tableros de distribución. La estructura soporta cargas suspendidas de hasta 500 kg por punto de anclaje.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 20h20"/>
+              <path d="M4 20V8l8-5 8 5v12"/>
+              <path d="M9 20v-6h6v6"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PISOS Y COMPLEMENTOS — Showcase section
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="pisos-heading">
+    <div class="container">
+      <ServiceShowcase
+    title="Pisos y Complementos"
+    headingId="pisos-heading"
+    badge="Personalización total"
+    subtitle="Duela de madera, alfombra profesional, plataformas niveladas, iluminación interior, cortinas decorativas y clima artificial. Todo para convertir una estructura vacía en un venue de primer nivel."
+    tags={["Duela 12mm", "Alfombra HD", "Plataformas", "Iluminación LED", "Clima Artificial", "Cortinas Textiles"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Complementos"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">El piso transforma radicalmente la experiencia dentro de una carpa. Nuestra <strong>duela de madera laminada de 12 mm</strong> con acabado semi-mate es la opción premium para bodas y galas — instalada sobre bastidores que la elevan del terreno natural garantizando estabilidad y protección contra humedad. La <strong>alfombra industrial de alta densidad</strong> en más de 15 colores es la elección profesional para expos, ferias y corporativos. Las <strong>plataformas modulares niveladas</strong> son indispensables para jardines, predios y terrenos irregulares donde se requiere una superficie perfectamente plana.</p>
+      <p class="showcase__text">Eleva el ambiente con <a href="/servicios/iluminacion/">iluminación LED profesional</a> interior — candiles de cristal, fairy lights, spots direccionables y wash lights que transforman el espacio. Agrega <strong>cortinas y forros textiles</strong> en chiffon, satín o blackout que ocultan la estructura metálica y crean ambientes envolventes. Completa con <strong>sistemas de clima artificial</strong> (calefacción industrial o enfriamiento evaporativo) para garantizar el confort de tus invitados en cualquier temporada. Complementa con <a href="/servicios/mobiliario/">mobiliario elegante</a> para un montaje integral.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <div class="showcase__placeholder">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          </div>
+    </Fragment>
+  </ServiceShowcase>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       GALERÍA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="galeria-heading">
+    <div class="container">
+      <h2 id="galeria-heading" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 2rem;">¿Cómo lucen nuestras carpas para eventos?</h2>
+      <Gallery4x4 images={[
+        { src: "/images/carpas/carpa-arabe-beduina-boda-jardin.avif", alt: "Carpa árabe beduina para boda en jardín" },
+        { src: "/images/carpas/carpa-estructural-grande-congreso.avif", alt: "Carpa estructural grande para congreso" },
+        { src: "/images/carpas/carpa-hangar-industrial-evento-grande.avif", alt: "Carpa hangar industrial evento grande" },
+        { src: "/images/carpas/carpa-mediana-quinceanos-decorada.avif", alt: "Carpa mediana quinceaños decorada" },
+        { src: "/images/carpas/carpa-transparente-boda-elegante.avif", alt: "Carpa transparente boda elegante" },
+        { src: "/images/carpas/forros-interiores-carpa-elegante.avif", alt: "Forros interiores carpa elegante" },
+        { src: "/images/mobiliario/silla-tiffany-dorada-boda-gala-01.avif", alt: "Silla Tiffany dorada para boda de gala en CDMX" },
+        { src: "/images/mobiliario/salon-mesas-redondas-banquete-montaje.avif", alt: "Salón con mesas redondas montaje banquete" },
+      ]} />
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PREGUNTAS FRECUENTES
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="faq-heading">
+    <div class="container">
+      <h2 id="faq-heading" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 2rem;">Preguntas frecuentes sobre carpas para eventos</h2>
+    </div>
+    <FaqSection items={faqs} serviceName="carpas para eventos" />
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       RESERVA TU EVENTO - Formulario de contacto / WhatsApp
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Carpa"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada de carpas. Sin compromiso, sin costos ocultos.",
+          "Ya sea una carpa íntima para 30 personas o una estructura para 5,000 invitados, estamos aquí para ayudarte."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Expo / Feria">Expo / Feria</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="equipo">
+                Tipo de carpa
+              </label>
+              <select id="equipo" name="equipo" class="form-field__input form-field__select">
+                <option value="">Selecciona el tipo de carpa que necesitas</option>
+                <option value="Carpa Árabe">Carpa Árabe</option>
+                <option value="Carpa Estructural">Carpa Estructural</option>
+                <option value="Carpa Tipo Hangar">Carpa Tipo Hangar</option>
+                <option value="Carpa con Piso de Duela">Carpa con Piso de Duela</option>
+                <option value="Carpa con Alfombra">Carpa con Alfombra</option>
+                <option value="Carpa con Clima Artificial">Carpa con Clima Artificial</option>
+                <option value="Carpa con Iluminación">Carpa con Iluminación Interior</option>
+                <option value="Paquete Carpa Completo">Paquete Carpa Completo</option>
+                <option value="Otro">Otro / No estoy seguro</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de invitados, ubicación del evento (jardín, terraza, predio), medidas aproximadas del espacio..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Visitamos tu venue sin costo para evaluar el terreno y diseñar la distribución ideal.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const equipo = document.getElementById('equipo').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Nueva solicitud desde EVENTECH.MX — Carpas*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (equipo) texto += `*Tipo de carpa:* ${equipo}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CTA FINAL
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Transforma cualquier espacio abierto en el venue perfecto"
+    subheadline="Más de 500 instalaciones exitosas en CDMX y zona metropolitana nos respaldan. Cotiza hoy y recibe visita técnica gratuita a tu venue."
+    primaryCTA={{ label: "Cotizar mi carpa", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar una carpa para mi evento en CDMX` }}
+    variant="accent"
+  />
+</PageLayout>
+

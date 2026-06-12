@@ -1,0 +1,274 @@
+---
+/**
+ * DirectoryFAQ Component
+ * FAQ section with accordion and automatic JSON-LD FAQPage schema generation.
+ *
+ * @example
+ * <DirectoryFAQ
+ *   title="Preguntas Frecuentes sobre Venues"
+ *   questions={[
+ *     { question: "¿Cómo elijo el venue ideal?", answer: "Considera la capacidad..." }
+ *   ]}
+ *   schema={true}
+ * />
+ */
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  questions: FAQItem[];
+  title?: string;
+  subtitle?: string;
+  schema?: boolean;
+  variant?: "default" | "sidebar" | "compact";
+}
+
+const {
+  questions,
+  title = "Preguntas Frecuentes",
+  subtitle,
+  schema = true,
+  variant = "default"
+} = Astro.props;
+
+// Generate JSON-LD schema
+const faqSchema = schema ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": questions.map(q => ({
+    "@type": "Question",
+    "name": q.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": q.answer
+    }
+  }))
+} : null;
+---
+
+<section class={`directory-faq directory-faq--${variant}`}>
+  {(title || subtitle) && (
+    <div class="directory-faq__header">
+      {subtitle && <span class="directory-faq__subtitle">{subtitle}</span>}
+      {title && <h2 class="directory-faq__title">{title}</h2>}
+    </div>
+  )}
+
+  <div class="directory-faq__list">
+    {questions.map((item, index) => (
+      <details class="directory-faq__item" name="directory-faq">
+        <summary class="directory-faq__question">
+          <span class="directory-faq__question-number">{String(index + 1).padStart(2, "0")}</span>
+          <span class="directory-faq__question-text">{item.question}</span>
+          <span class="directory-faq__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="directory-faq__answer">
+          <p set:html={item.answer} />
+        </div>
+      </details>
+    ))}
+  </div>
+
+  {schema && faqSchema && (
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  )}
+</section>
+
+<style>
+  .directory-faq {
+    margin: var(--space-3xl) 0;
+  }
+
+  .directory-faq__header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .directory-faq__subtitle {
+    display: inline-block;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-accent, #00b894);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-sm);
+  }
+
+  .directory-faq__title {
+    font-size: var(--text-3xl);
+    font-weight: 800;
+    color: var(--color-primary);
+    margin: 0;
+  }
+
+  .directory-faq__list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .directory-faq__item {
+    background: #fff;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    transition: box-shadow 0.2s ease;
+  }
+
+  .directory-faq__item:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .directory-faq__item[open] {
+    border-color: var(--color-accent, #00b894);
+    box-shadow: var(--shadow-md);
+  }
+
+  .directory-faq__question {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+
+  .directory-faq__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .directory-faq__question-number {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-accent-soft, rgba(0, 184, 148, 0.1));
+    color: var(--color-accent, #00b894);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    border-radius: var(--radius-sm);
+  }
+
+  .directory-faq__question-text {
+    flex: 1;
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-primary);
+    line-height: 1.4;
+  }
+
+  .directory-faq__icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    color: var(--color-text-light);
+    transition: transform 0.2s ease;
+  }
+
+  .directory-faq__icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .directory-faq__item[open] .directory-faq__icon {
+    transform: rotate(180deg);
+    color: var(--color-accent, #00b894);
+  }
+
+  .directory-faq__answer {
+    padding: 0 var(--space-lg) var(--space-lg) calc(36px + var(--space-md) + var(--space-lg));
+  }
+
+  .directory-faq__answer p {
+    margin: 0;
+    font-size: var(--text-base);
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .directory-faq__answer :global(strong) {
+    color: var(--color-primary);
+  }
+
+  .directory-faq__answer :global(a) {
+    color: var(--color-accent, #00b894);
+    text-decoration: underline;
+  }
+
+  /* Sidebar variant */
+  .directory-faq--sidebar {
+    margin: 0;
+  }
+
+  .directory-faq--sidebar .directory-faq__header {
+    text-align: left;
+    margin-bottom: var(--space-lg);
+  }
+
+  .directory-faq--sidebar .directory-faq__title {
+    font-size: var(--text-xl);
+  }
+
+  .directory-faq--sidebar .directory-faq__list {
+    max-width: none;
+  }
+
+  .directory-faq--sidebar .directory-faq__question {
+    padding: var(--space-md);
+  }
+
+  .directory-faq--sidebar .directory-faq__question-number {
+    width: 28px;
+    height: 28px;
+    font-size: var(--text-xs);
+  }
+
+  .directory-faq--sidebar .directory-faq__answer {
+    padding: 0 var(--space-md) var(--space-md) calc(28px + var(--space-md) + var(--space-md));
+  }
+
+  /* Compact variant */
+  .directory-faq--compact .directory-faq__item {
+    border-radius: var(--radius-sm);
+  }
+
+  .directory-faq--compact .directory-faq__question {
+    padding: var(--space-sm) var(--space-md);
+    gap: var(--space-sm);
+  }
+
+  .directory-faq--compact .directory-faq__question-number {
+    display: none;
+  }
+
+  .directory-faq--compact .directory-faq__answer {
+    padding: 0 var(--space-md) var(--space-md) var(--space-md);
+    font-size: var(--text-sm);
+  }
+
+  @media (max-width: 768px) {
+    .directory-faq__title {
+      font-size: var(--text-2xl);
+    }
+
+    .directory-faq__question {
+      padding: var(--space-md);
+    }
+
+    .directory-faq__answer {
+      padding: 0 var(--space-md) var(--space-md) var(--space-md);
+    }
+  }
+</style>
