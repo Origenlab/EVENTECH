@@ -4,6 +4,21 @@ Changelog de todo lo generado, para mantener homologación. Fechas absolutas.
 
 ## 2026-06-12
 
+### Breadcrumbs — rediseño sitewide (todas las páginas)
+- **`Breadcrumbs.astro`** rediseñado: sin `<style>` scoped, usa clases globales `hm-breadcrumb-bar` + `hm-bc__*`. Renders un `<nav class="hm-breadcrumb-bar">` limpio.
+- **`home-2026.css`** — añadido bloque `.hm-breadcrumb-bar` (fondo blanco, `border-bottom` hairline dorado, `padding-block: 10px`) + `.hm-bc__list / item / link / current / sep`. Override `.hm-breadcrumb-bar .sv-breadcrumb` para texto oscuro cuando no está dentro del hero.
+- **13 páginas L2/L3** (`nosotros`, `directorio`, `servicios/*`, `blog`): script Python extrajo `<nav class="sv-breadcrumb">` de dentro de `hm-hero` y lo colocó en `<div slot="breadcrumbs" class="hm-breadcrumb-bar"><div class="hm__wrap">` antes de `<div class="hm">`.
+- **223 páginas L4** (`sillas/tiffany/*`, etc.): script Python migró `<div class="container"><Breadcrumbs .../></div>` → `<Breadcrumbs items={breadcrumbItems} slot="breadcrumbs" />` (directo en `<PageLayout>`).
+- Resultado: breadcrumb visible entre header y hero en **todas las 236 páginas** del sitio.
+
+
+
+### /servicios/audiovisual/ — homologación L3
+- **Why section**: `ul.hm-why > li.hm-why__item + div.hm-why__ic (SVG checkmark) + h3 + p` (bare, sin clases).
+- **Steps section**: `li.hm-step + div.hm-step__num + h3 + p` (bare, sin clases).
+- **Zig-zag**: `hm-feat--reverse` en módulo 2 (Pantallas LED) y módulo 4 (Micrófonos y DJ).
+- **Scoped style**: eliminado bloque gallery3 CSS redundante con `!important`.
+
 ### /servicios/mobiliario/sillas/ — reescritura L3 con home-2026.css
 - Página reescrita desde cero con design system `home-2026.css`. Hero, breadcrumb, nav subcategorías (5 tipos), catálogo grid, 5 módulos `hm-feat` con galería g3, why section, steps, FAQ, form, CTA final.
 - **Galería `hm-feat__media--g3`:** CSS añadido globalmente en `home-2026.css` (después del bloque `.hm-feat__media img`). Ver [[Galeria-hm-feat-g3]].
