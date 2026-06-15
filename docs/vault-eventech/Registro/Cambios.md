@@ -21,6 +21,30 @@ Changelog de todo lo generado, para mantener homologación. Fechas absolutas.
 - **CTA final**: sección `.hm-cta` añadida (HTML faltaba, CSS ya existía en global). Eyebrow "Diseño lumínico profesional · CDMX y ZMVM", headline, párrafo, botón gold WA + ghost /directorio/.
 - **Scoped style**: eliminado bloque gallery3 CSS redundante con `!important` + overrides `.hm-cta h2/p` innecesarios.
 
+### /servicios/catering/ — homologación L3 + mejoras profesionales
+- **Why section**: `ul.hm-why > li.hm-why__item + div.hm-why__ic (SVG checkmark) + h3 + p` (bare, sin clases). Fondo navy.
+- **Steps section**: `li.hm-step + div.hm-step__num + h3 + p` (bare, sin clases). 4-col grid gold.
+- **Zig-zag**: `hm-feat--reverse` en módulo 2 (Cocina Móvil) y módulo 4 (Vajilla y Cristalería).
+- **Stats**: ya eran impactantes (400+ eventos, 1,500 servicios de vajilla, 85°C lavado industrial, 30+ años) — sin cambios.
+- **CTA final**: sección `.hm-cta` añadida. Eyebrow "Equipo para catering · CDMX y ZMVM", headline "Tu chef llega — el equipo ya está montado y verificado", botón gold WA + ghost /directorio/.
+- **Scoped style**: eliminado `.hm-cta h2/p` + bloque gallery3 CSS con `!important`.
+
+### /servicios/accesorios/ — homologación L3 + mejoras profesionales
+- **Why section**: `ul.hm-why > li.hm-why__item + div.hm-why__ic (SVG checkmark) + h3 + p` (bare, sin clases). Fondo navy.
+- **Steps section**: `li.hm-step + div.hm-step__num + h3 + p` (bare, sin clases). 4-col grid gold.
+- **Zig-zag**: `hm-feat--reverse` en módulo 2 (Señalización y Alfombras) y módulo 4 (Plantas de Energía).
+- **Stats**: ya eran impactantes (500+ eventos, 40+ colores, 500kVA, 30+ años) — sin cambios.
+- **CTA final**: sección `.hm-cta` añadida. Eyebrow "Accesorios para eventos · CDMX y ZMVM", headline "Los detalles que separan un evento producido…", botón gold WA + ghost /directorio/.
+- **Scoped style**: eliminado `.hm-cta h2/p` + bloque gallery3 CSS con `!important`.
+
+### /servicios/pistas-baile/ — homologación L3 + mejoras profesionales
+- **Why section**: `ul.hm-why > li.hm-why__item + div.hm-why__ic (SVG checkmark) + h3 + p` (bare, sin clases). Fondo navy.
+- **Steps section**: `li.hm-step + div.hm-step__num + h3 + p` (bare, sin clases). 4-col grid gold.
+- **Zig-zag**: `hm-feat--reverse` en módulo 2 (Madera Clásica) y módulo 4 (Tarimas y Escenarios).
+- **Stats mejorados**: "3×3m Tamaño mínimo" → `10<span>+</span>` Tipos de pista y acabado; "8×12m Tamaño máximo" → `100<span>%</span>` Con nivelación incluida.
+- **CTA final**: sección `.hm-cta` añadida. Eyebrow "Pistas de baile · CDMX y ZMVM", headline "La pista perfecta para tu evento…", botón gold WA + ghost /directorio/.
+- **Scoped style**: eliminado bloque gallery3 CSS redundante con `!important` + overrides `.hm-cta h2/p` innecesarios.
+
 ### /servicios/audiovisual/ — homologación L3 + CTA final
 - **Why section**: `ul.hm-why > li.hm-why__item + div.hm-why__ic (SVG checkmark) + h3 + p` (bare, sin clases).
 - **Steps section**: `li.hm-step + div.hm-step__num + h3 + p` (bare, sin clases).
