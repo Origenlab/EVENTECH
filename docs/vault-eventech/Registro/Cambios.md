@@ -13,11 +13,20 @@ Changelog de todo lo generado, para mantener homologación. Fechas absolutas.
 
 
 
-### /servicios/audiovisual/ — homologación L3
+### /servicios/iluminacion/ — homologación L3 + mejoras profesionales
+- **Why section**: `ul.hm-why > li.hm-why__item + div.hm-why__ic (SVG checkmark) + h3 + p` (bare, sin clases). Fondo navy.
+- **Steps section**: `li.hm-step + div.hm-step__num + h3 + p` (bare, sin clases). 4-col grid gold.
+- **Zig-zag**: `hm-feat--reverse` en módulo 2 (Decorativa) y módulo 4 (Efectos Especiales).
+- **Stats mejorados**: "4 Tipos" → `16<span>K</span>` Watts inventario; "DMX512 Control" → `100<span>%</span>` Técnico DMX.
+- **CTA final**: sección `.hm-cta` añadida (HTML faltaba, CSS ya existía en global). Eyebrow "Diseño lumínico profesional · CDMX y ZMVM", headline, párrafo, botón gold WA + ghost /directorio/.
+- **Scoped style**: eliminado bloque gallery3 CSS redundante con `!important` + overrides `.hm-cta h2/p` innecesarios.
+
+### /servicios/audiovisual/ — homologación L3 + CTA final
 - **Why section**: `ul.hm-why > li.hm-why__item + div.hm-why__ic (SVG checkmark) + h3 + p` (bare, sin clases).
 - **Steps section**: `li.hm-step + div.hm-step__num + h3 + p` (bare, sin clases).
 - **Zig-zag**: `hm-feat--reverse` en módulo 2 (Pantallas LED) y módulo 4 (Micrófonos y DJ).
-- **Scoped style**: eliminado bloque gallery3 CSS redundante con `!important`.
+- **CTA final**: sección `.hm-cta` añadida. Headline "El audio que se escucha — la imagen que no se olvida", botón gold WA + ghost /directorio/.
+- **Scoped style**: eliminado bloque gallery3 CSS redundante con `!important` + overrides `.hm-cta h2/p` innecesarios.
 
 ### /servicios/mobiliario/sillas/ — reescritura L3 con home-2026.css
 - Página reescrita desde cero con design system `home-2026.css`. Hero, breadcrumb, nav subcategorías (5 tipos), catálogo grid, 5 módulos `hm-feat` con galería g3, why section, steps, FAQ, form, CTA final.
