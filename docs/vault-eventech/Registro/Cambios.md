@@ -2,6 +2,59 @@
 
 Changelog de todo lo generado, para mantener homologación. Fechas absolutas.
 
+## 2026-06-15
+
+### Auditoría y optimización integral de mobiliario (78 páginas)
+Auditoría completa de `/servicios/mobiliario/` (L3 + 4 hubs L4 + 17 L5 + ~56 L6). Hallazgos y correcciones:
+
+- **Color homologado al 100%:** se detectaron **68 páginas L5/L6** con override de acento fuera de marca (morado #6c5ce7, ámbar #e17055, café, azul, verde, etc.). Script reescribió las 7 variables `--*-accent` al **dorado institucional #c2a24a** en todas. Verificado: 0 acentos no-dorado en todo mobiliario.
+- **122 imágenes rotas corregidas:** 19 páginas L6 (plegables ×4, barras-bebidas ×3, periqueras ×3, accesorios ×2, salas-lounge variantes) referenciaban imágenes inexistentes en `/public` (esquemas de nombres nunca generados, 9 por página en los peores casos). Se sustituyeron por imágenes reales del pool por tipo (`silla-plegable-plastico-*`, `barra-bebidas-*`, `periqueras-*`, candelabros, `lounge-*`, etc.). Verificado: 0 imágenes rotas en mobiliario.
+- **Marca:** corregida mención "EVENTECH" en subtítulo de `crossback/caoba` (la regla aplica a `<title>`/meta; se conserva la mención natural dentro de un testimonio de cliente).
+- **OK confirmado:** las 78 páginas usan el componente `<Breadcrumbs>`; títulos sin marca; bloques de override completos. Hubs L4 en sistema `hm-` dorado.
+
+### Homologación L4 hubs de mobiliario — template = hub de SILLAS (sistema hm-)
+**Decisión del usuario (corrige la anterior):** el homólogo/template de los hubs L4 de mobiliario es **`/servicios/mobiliario/sillas/`** (sistema `hm-`: hero navy, `hm-menu`, `hm-cat-grid`, `hm-feat` zig-zag con galería `--g3`, `hm-why` navy, `hm-steps`, `hm-faqx` con formulario). NO el sistema de componentes. Los hubs se reconstruyen a ese molde.
+
+- **`mesas/index.astro` reconstruido por completo** al sistema `hm-`, homólogo de sillas en layout, complementos e implementación. Importa `home-2026.css` (no l3/l4-shared), dorado institucional por defecto (sin override de color). Contenido de mesas: 4 formatos (Redondas, Rectangulares, Cocktail, Tablones) con `SUB_SERVICES`, `whyFeatures` (6), `steps` (4), `faqs` (7), `hm-feat` (4) con chips → L6 y galería g3, formulario WhatsApp (`#mesasForm`). Título sin marca + `rawTitle`, JSON-LD (service+breadcrumb+faq). Imágenes y rutas L5/L6 verificadas.
+- **`salas-lounge/index.astro` reconstruido por completo** al sistema `hm-`, homólogo de sillas/mesas. Contenido: 4 estilos (Moderno, Vintage, Boho, Elegante) con `SUB_SERVICES`, `whyFeatures` (6), `steps` (4), `faqs` (7), `hm-feat` (4) con chips → L6 y galería g3, formulario WhatsApp (`#loungeForm`). Dorado por defecto (home-2026.css, sin override morado). Título sin marca + `rawTitle`, JSON-LD. Imágenes y rutas L5/L6 verificadas.
+- **`barras/index.astro` reconstruido por completo** al sistema `hm-`, homólogo de sillas. Contenido: 4 líneas (Barras de Bebidas, Periqueras, Mesas de Postres, Accesorios Decorativos) con `SUB_SERVICES`, `whyFeatures` (6), `steps` (4), `faqs` (7), `hm-feat` (4) con chips → L6 y galería g3, formulario WhatsApp (`#barrasForm`). Dorado por defecto. Título sin marca + `rawTitle`, JSON-LD. 12 imágenes + 12 rutas L6 verificadas.
+- **✅ COMPLETO — los 4 hubs L4 de mobiliario homologados al sistema `hm-`:** `sillas` (template), `mesas`, `salas-lounge`, `barras`. Mismo layout, complementos, dorado institucional. Template documentado en [[Template-L4-hub]].
+
+### Acento de las páginas de sillas — homologado al DORADO institucional `#c2a24a`
+Las 5 páginas de detalle de sillas (`tiffany`, `chiavari`, `ghost`, `plegables`, `crossback`) overrideaban `--color-accent` a **ámbar `#e17055`** en su `<style is:global>`, lo que las hacía verse naranjas y fuera de línea respecto al resto del sitio (index, hubs L2/L3/L4) que usa el **dorado de marca `#c2a24a`** (token `--color-gold`).
+
+- En las 5 se reemplazó el bloque `:root` ámbar por el dorado institucional: `--color-accent:#c2a24a`, `-hover:#a9883a` (gold-deep), `-light:#d4b96a`, `-soft/gradient/shadow` derivados. Comentario actualizado a "ACENTO INSTITUCIONAL".
+- Afecta highlight del hero, botones primarios/secundarios, badges, links, tags y CTAs — todo el acento de cada página.
+- **Regla de marca:** la sección sillas usa el dorado institucional, NO acentos por categoría. (El sitio tiene 220 páginas con overrides de color variados — pendiente revisar si se quieren homologar también, pero fuera del alcance de sillas.)
+- **Nota dev:** el watcher de Vite sobre la carpeta montada a veces no recompila el `<style is:global>` de un `.astro`; si un cambio de color no aparece, `touch` al archivo o reinicio del dev server lo fuerza (no es problema del código).
+
+### Migas de pan — homologadas 100% al componente (SITEWIDE)
+Había **dos implementaciones** conviviendo: 223 páginas usaban el componente `<Breadcrumbs>` (markup `.bc-*`, estilos scoped) y **13 hubs L2/L3** usaban markup crudo `<nav class="sv-breadcrumb">` dentro de `.hm-breadcrumb-bar` (estilos en `home-2026.css`). Se notaba en sillas: el hub `sillas/index` se veía distinto a sus hijas (tiffany, chiavari…).
+
+- **Migradas las 13** a `<Breadcrumbs items={breadcrumbItems} slot="breadcrumbs" />**: `nosotros`, `directorio`, `blog/[...page]`, `servicios/index` y las 8 categorías L3 (`carpas`, `audiovisual`, `inflables`, `iluminacion`, `pistas-baile`, `accesorios`, `mobiliario`, `catering`) + `mobiliario/sillas/index`. En cada una: añadido `import Breadcrumbs`, `const breadcrumbItems = [...]` (extraído del markup crudo, mismo orden/labels/hrefs) y reemplazado el bloque `<div class="hm-breadcrumb-bar">…</nav></div></div>`.
+- **Resultado:** 236/245 páginas con la MISMA miga (las 9 sin miga son correctas: home, 404, rutas catch-all dinámicas, cotizar, eventos/index).
+- **CSS muerto retirado** de `home-2026.css` (~48 líneas): `.hm-breadcrumb-bar`, `.hm-bc__*` y `.hm-breadcrumb-bar .sv-breadcrumb`. El componente es autocontenido (`.bc-*` scoped) y no depende de `home-2026.css`. Se conservó el bloque legacy `.sv-breadcrumb` de hero (inerte).
+- **Color de la miga = dorado institucional `#c2a24a` (FIJO, sitewide).** Se probó `var(--color-accent)` para tomar el acento por página pero se **revirtió**: la miga debe respetar el dorado de marca aprobado en todas las páginas, no el accent por página (que en sillas es ámbar y en hubs teal). Regla: la miga NO cambia de color por página.
+
+
+### Homologación L5 de Sillas — sección "Acabados / elige el tuyo"
+Página modelo aprobada: `sillas/tiffany/` (L5). Se replicó su sección **Acabados** (grid de 4 `ProductCard` que enlazan a las variantes L6) a las otras 4 L5 de sillas, que ya compartían el resto del esqueleto (hero, 2 CTABanner, specs, 4 ServiceShowcase galería-3, FAQ, sidebar sticky, formulario reserva, proveedores, CTABanner accent, override ámbar).
+
+- **Patrón insertado** en `chiavari`, `crossback`, `ghost`, `plegables`: `import ProductCard` + `<section aria-labelledby="acabados-heading">` con `SectionHeader` + `<div class="grid grid--4">` de 4 cards. Ubicación: entre el primer `CTABanner` y `<section class="l4-mobile-nav">` (mismo orden que tiffany).
+- **Cards → L6 reales** (`name`, `price`, `excerpt`, `href`, `image`, `tags`, badge en la más popular):
+  - chiavari: dorada (Más popular) / plateada / negra / bronce — desde $40.
+  - crossback: natural (Más popular) / nogal / blanco-vintage / caoba — desde $40.
+  - ghost: transparente (Más popular) / humo / ambar / exterior — desde $45.
+  - plegables: plastico (Más económica, $15) / madera ($25) / napoleon ($30) / apilable ($20).
+- **Bug fix en tiffany**: el ServiceShowcase "Blanca Mate" usaba imágenes **doradas** (`silla-tiffany-dorada-boda-premier-04/05/06`). Reemplazadas por imágenes blancas reales (`sillas-tiffany-blanca-mate`, `tiffany-blanca-01`, `tiffany-blanca-02`).
+- **Imágenes**: todas las de las cards verificadas en disco. Nota: `plegables/apilable` no tiene imágenes propias en `/public/images/mobiliario/` (su L6 referencia `plegable-apilable-*.avif` inexistentes) — la card usa `silla-plegable-plastico-salon-filas-09.avif` como representativa. **Pendiente:** generar fotos reales de apilable.
+- **Verificación**: las 5 L5 renderizadas en `localhost:4321` sin errores de Astro; grids y links L6 OK.
+
+### Galería showcase (`showcase__gallery3`) — distribución 1 arriba + 2 abajo (SITEWIDE)
+- En `src/styles/l3-shared.css` se cambió el desktop de `grid 2fr/1fr + height:420px` (1 grande izq + 2 apiladas der) a **1 imagen principal full-width arriba (16:9) + 2 miniaturas abajo (4:3)**. Sin alturas fijas (aspect-ratio), bordes redondeados por imagen. Afecta a TODAS las galerías showcase del sitio (~60 páginas: sillas, mesas, barras, salas-lounge, iluminación) — homologación total. Decisión del usuario.
+- Eliminada la copia **inline** de `showcase__gallery3` en `chiavari/index.astro` que pisaba el global; ahora usa el CSS compartido (regla: nunca CSS scoped, solo global — ver [[Galeria-hm-feat-g3]]).
+- **Fondo gris quitado** de los 4 bloques `ServiceShowcase` de cada L5 de sillas: `class="section section--alt"` → `class="section"` (solo en los showcase; la sección de reserva conserva su fondo). Se veía apretado; ahora abierto en blanco.
+
 ## 2026-06-12
 
 ### Breadcrumbs — rediseño sitewide (todas las páginas)

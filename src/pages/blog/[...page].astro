@@ -13,6 +13,7 @@ import type { CollectionEntry } from "astro:content";
 import { breadcrumbJsonLd, collectionPageJsonLd } from "@utils/seo";
 import "@styles/home-2026.css";
 import "@styles/blog-2026.css";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const allPosts = (await getCollection("blog", ({ data }: CollectionEntry<"blog">) => !data.draft))
@@ -79,6 +80,10 @@ const pageTitle = currentPage > 1
   ? `Blog EVENTECH — Guías de eventos · Página ${currentPage}`
   : "Blog EVENTECH — Guías, tendencias y consejos para eventos en CDMX";
 
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Blog" },
+];
 ---
 
 <PageLayout
@@ -88,17 +93,7 @@ const pageTitle = currentPage > 1
   jsonLd={jsonLd}
 >
 
-  <div slot="breadcrumbs" class="hm-breadcrumb-bar">
-    <div class="hm__wrap">
-      <nav class="sv-breadcrumb" aria-label="Migas de pan">
-                  <ol>
-                    <li><a href="/">Inicio</a></li>
-                    <li aria-hidden="true">›</li>
-                    <li><span aria-current="page">Blog</span></li>
-                  </ol>
-                </nav>
-    </div>
-  </div>
+  <Breadcrumbs items={breadcrumbItems} slot="breadcrumbs" />
   <div class="hm">
     <!-- HERO (solo página 1) -->
     {currentPage === 1 && (

@@ -5,14 +5,13 @@
  * Captura queries como "haciendas para bodas CDMX" y "jardines de eventos"
  */
 import PageLayout from "@layouts/PageLayout.astro";
-import HeroPage from "@components/HeroPage.astro";
-import SectionHeader from "@components/SectionHeader.astro";
 import Breadcrumbs from "@components/Breadcrumbs.astro";
-import CTABanner from "@components/CTABanner.astro";
+import VenueCard from "@components/directorio/VenueCard.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { breadcrumbJsonLd, canonicalURL } from "@utils/seo";
-import "@styles/directorio.css";
+import "@styles/home-2026.css";
+import "@styles/directorio-2026.css";
 
 // Venue type configurations
 const venueTypeConfig: Record<string, {
@@ -326,138 +325,105 @@ const maxCapacity = Math.max(...capacities);
 >
   <Breadcrumbs items={breadcrumbItems} slot="breadcrumbs" />
 
-  <HeroPage
-    badge={`${config.labelPlural} para Eventos`}
-    title={`<span class="highlight">${config.labelPlural}</span> para Bodas y Eventos`}
-    subtitle={config.heroSubtitle}
-    primaryCTA={{ label: `Ver ${config.labelPlural.toLowerCase()}`, href: "#venues" }}
-    secondaryCTA={{ label: "Cotizar equipo", href: "/cotizar/" }}
-    cards={config.heroCards}
-  />
+  <div class="hm">
 
-  <!-- Stats Bar -->
-  <section class="section section--compact">
-    <div class="container">
-      <div class="dir-stats-bar">
-        <div class="dir-stats-bar__item">
-          <span class="dir-stats-bar__number">{filteredVenues.length}</span>
-          <span class="dir-stats-bar__label">{config.labelPlural}</span>
-        </div>
-        <div class="dir-stats-bar__item">
-          <span class="dir-stats-bar__number">{cdmxCount}</span>
-          <span class="dir-stats-bar__label">En CDMX</span>
-        </div>
-        <div class="dir-stats-bar__item">
-          <span class="dir-stats-bar__number">{edomexCount}</span>
-          <span class="dir-stats-bar__label">En Edo. México</span>
-        </div>
-        <div class="dir-stats-bar__item">
-          <span class="dir-stats-bar__number">{minCapacity}-{maxCapacity}</span>
-          <span class="dir-stats-bar__label">Capacidad</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Venues Grid -->
-  <section class="section" id="venues">
-    <div class="container">
-      <SectionHeader
-        title={config.labelPlural}
-        subtitle={`${filteredVenues.length} opciones`}
-        description={[
-          `Todos los ${config.labelPlural.toLowerCase()} disponibles en CDMX y Estado de México.`,
-          `Ordenados por relevancia: primero destacados, premium y mejor calificados.`
-        ]}
-      />
-
-      <div class="dir-grid dir-grid--3">
-        {filteredVenues.map(venue => (
-          <article class="venue-card">
-            <a href={`/directorio/${venue.data.region}/${venue.data.zoneSlug}/${venue.id.split('/').pop()?.replace('.md', '')}/`} class="venue-card__link">
-              <div class="venue-card__image-wrapper">
-                <img
-                  src={venue.data.image || "/images/placeholder-venue.avif"}
-                  alt={venue.data.name}
-                  class="venue-card__image"
-                  loading="lazy"
-                  width="400"
-                  height="300"
-                />
-                <div class="venue-card__badges">
-                  {venue.data.premium && <span class="venue-card__badge venue-card__badge--premium">Premium</span>}
-                  {venue.data.verified && <span class="venue-card__badge venue-card__badge--verified">Verificado</span>}
-                </div>
-                <span class="venue-card__price-badge">{venue.data.priceRange}</span>
-              </div>
-              <div class="venue-card__content">
-                <span class="venue-card__type">{venueTypeLabels[venue.data.type] || venue.data.type}</span>
-                <h3 class="venue-card__name">{venue.data.name}</h3>
-                <p class="venue-card__location">
-                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                  {venue.data.zone}, {venue.data.region === "cdmx" ? "CDMX" : "Edo. Méx."}
-                </p>
-                <p class="venue-card__description">{venue.data.shortDescription}</p>
-                <div class="venue-card__meta">
-                  <span class="venue-card__capacity"><strong>{venue.data.capacity.min}-{venue.data.capacity.max}</strong> personas</span>
-                  {venue.data.rating && (
-                    <span class="venue-card__rating">
-                      <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                      {venue.data.rating}
-                    </span>
-                  )}
-                </div>
-              </div>
-            </a>
-          </article>
-        ))}
-      </div>
-
-      {filteredVenues.length === 0 && (
-        <div class="dir-empty-state">
-          <p>No encontramos {config.labelPlural.toLowerCase()} en este momento.</p>
-          <a href="/directorio/" class="btn btn--primary">Ver todo el directorio</a>
-        </div>
-      )}
-    </div>
-  </section>
-
-  <!-- Related Venue Types -->
-  <section class="section section--alt">
-    <div class="container">
-      <SectionHeader
-        title="Explora por Tipo de Venue"
-        subtitle="Más opciones"
-        description={[
-          "Cada tipo de venue tiene características únicas.",
-          "Explora otras categorías para encontrar el espacio ideal."
-        ]}
-      />
-
-      <div class="dir-venue-types-grid">
-        {Object.entries(venueTypeConfig).filter(([key]) => key !== venueType).slice(0, 8).map(([key, cfg]) => (
-          <a href={`/directorio/tipo-venue/${key}/`} class="dir-venue-type-card">
-            <div class="dir-venue-type-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 018 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
+    {/* HERO */}
+    <section class="hm-hero" aria-labelledby="tv-hero-heading">
+      <div class="hm__wrap hm-hero__wrap">
+        <div class="hm-hero__grid">
+          <div class="hm-hero__main">
+            <p class="hm__eyebrow hm-hero__eyebrow">Directorio · {config.labelPlural}</p>
+            <h1 id="tv-hero-heading"><em>{config.labelPlural}</em> para bodas y eventos</h1>
+            <p class="hm-hero__lead">{config.heroSubtitle}</p>
+            <div class="sv-hero__ctas">
+              <a class="hm__btn hm__btn--gold" href="#venues">
+                Ver {config.labelPlural.toLowerCase()}
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7" /></svg>
+              </a>
+              <a class="hm__btn hm__btn--ghost" href="/cotizar/">Cotizar equipo</a>
             </div>
-            <span class="dir-venue-type-card__name">{cfg.labelPlural}</span>
-            <span class="dir-venue-type-card__count">
-              {allVenues.filter(v => v.data.type === cfg.type).length} venues
-            </span>
-          </a>
-        ))}
+          </div>
+          <div class="hm-hero__seo">
+            {config.heroCards.map((c) => (<p set:html={`<strong>${c.title}.</strong> ${c.content}`} />))}
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <CTABanner
-    headline={`¿Tu evento será en una ${config.label.toLowerCase()}?`}
-    subheadline="Cotiza el equipo que necesitas: mobiliario, carpas, iluminación, audio y más. Llevamos todo a donde sea tu evento."
-    primaryCTA={{ label: "Cotizar equipo", href: "/cotizar/" }}
-    secondaryCTA={{ label: "Ver servicios", href: "/servicios/" }}
-    variant="accent"
-  />
+    {/* STATS */}
+    <section class="dr-stats" aria-label={`Indicadores de ${config.labelPlural}`}>
+      <div class="hm__wrap dr-stats__wrap">
+        <dl class="dr-stats__grid">
+          <div class="dr-stats__item"><dt class="dr-stats__num">{filteredVenues.length}</dt><dd class="dr-stats__label">{config.labelPlural}</dd></div>
+          <div class="dr-stats__item"><dt class="dr-stats__num">{cdmxCount}</dt><dd class="dr-stats__label">En CDMX</dd></div>
+          <div class="dr-stats__item"><dt class="dr-stats__num">{edomexCount}</dt><dd class="dr-stats__label">En Edo. Méx.</dd></div>
+          <div class="dr-stats__item"><dt class="dr-stats__num" style="font-size:clamp(1.8rem,3.5vw,2.6rem);">{minCapacity}–{maxCapacity}</dt><dd class="dr-stats__label">Capacidad</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    {/* VENUES */}
+    <section id="venues" class="hm__section" aria-labelledby="tv-venues-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">{filteredVenues.length} opciones</p>
+            <h2 id="tv-venues-heading">{config.labelPlural} en CDMX y Edo. México</h2>
+            <p class="hm__head-sub">Ordenados por relevancia.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>Todos los {config.labelPlural.toLowerCase()} disponibles, verificados de primera mano: primero destacados, premium y mejor calificados.</p>
+            <p>Conocemos las particularidades técnicas de este tipo de espacio y podemos coordinar el equipo —mobiliario, audio, iluminación, carpas y pistas— directamente con cada venue.</p>
+          </div>
+        </div>
+
+        {filteredVenues.length > 0 ? (
+          <div class="dr-venue-grid dr-venue-grid--3">
+            {filteredVenues.map(venue => <VenueCard venue={venue} typeLabel={venueTypeLabels[venue.data.type] || venue.data.type} />)}
+          </div>
+        ) : (
+          <div class="dr-nav" style="justify-content:center;margin-top:32px;">
+            <a href="/directorio/" class="dr-nav__link">No hay venues por ahora — ver todo el directorio</a>
+          </div>
+        )}
+      </div>
+    </section>
+
+    {/* OTROS TIPOS DE VENUE */}
+    <section class="hm__section hm__section--ivory" aria-labelledby="tv-other-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Más opciones</p>
+            <h2 id="tv-other-heading">Explora por tipo de venue</h2>
+            <p class="hm__head-sub">Cada espacio, una atmósfera.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>Una hacienda colonial, un jardín al aire libre o un rooftop moderno definen el carácter del evento antes de que llegue la primera flor. Cambia de categoría para comparar.</p>
+          </div>
+        </div>
+        <div class="dr-etype-grid">
+          {Object.entries(venueTypeConfig).filter(([key]) => key !== venueType).map(([key, cfg]) => (
+            <a href={`/directorio/tipo-venue/${key}/`} class="dr-etype-tag">
+              <span class="dr-etype-tag__name">{cfg.labelPlural}</span>
+              <span class="dr-etype-tag__count">{allVenues.filter(v => v.data.type === cfg.type).length}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* CTA */}
+    <section class="hm__section hm-cta">
+      <div class="hm__wrap">
+        <h2>¿Tu evento será en una {config.label.toLowerCase()}?</h2>
+        <p>Cotiza mobiliario, carpas, iluminación, audio y pistas. Llevamos todo a donde sea tu evento y te asesoramos sin costo.</p>
+        <div class="hm-cta__row">
+          <a class="hm__btn hm__btn--gold" href="/cotizar/">Cotizar equipo</a>
+          <a class="hm__btn hm__btn--ghost" href="/servicios/">Ver servicios</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
 </PageLayout>

@@ -6,6 +6,10 @@ Fuente única de verdad para mantener **homologado** todo lo que se construye en
 
 ## Mapa del vault
 
+### Plantillas
+- [[Template-L4-hub]] — **template de referencia para TODOS los hubs L4** (sistema `hm-`: hero navy, catálogo, hm-feat, why, steps, faq+form). Página modelo: `sillas/`.
+- [[Template-L5-producto]] — **template de referencia para TODAS las L5** (layout, secciones, complementos, colores). Página modelo: `sillas/tiffany/`.
+
 ### SEO
 - [[Convencion-de-titulos]] — complemento de título homologado para TODAS las páginas
 - [[Meta-descripciones]] — reglas para `meta description`

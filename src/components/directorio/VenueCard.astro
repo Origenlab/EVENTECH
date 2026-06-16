@@ -1,0 +1,56 @@
+---
+/**
+ * ─── VenueCard (Directorio 2026) ───
+ * Ficha-tarjeta homologada al sistema hm-/dr-. Se usa en index, región, zona,
+ * tipo-evento y tipo-venue. Estilos en src/styles/directorio-2026.css (.dr-venue-card*).
+ */
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  venue: CollectionEntry<"venues">;
+  /** Etiqueta legible del tipo de venue (ej. "Hacienda") */
+  typeLabel?: string;
+  /** Texto de ubicación a mostrar (zona, colonia, etc.) */
+  location?: string;
+}
+
+const { venue, typeLabel, location } = Astro.props;
+const v = venue.data;
+const venueSlug = venue.id.split("/").pop()?.replace(".md", "") || venue.id;
+const href = `/directorio/${v.region}/${v.zoneSlug}/${venueSlug}/`;
+const loc = location || v.zone;
+---
+
+<article class="dr-venue-card">
+  <a class="dr-venue-card__link" href={href}>
+    <div class="dr-venue-card__media">
+      <img
+        src={v.image || "/images/placeholder-venue.avif"}
+        alt={`${v.name} — venue para eventos`}
+        loading="lazy"
+        decoding="async"
+        width="400"
+        height="300"
+      />
+      {v.premium && <span class="dr-venue-card__badge dr-venue-card__badge--premium">Premium</span>}
+      {v.verified && !v.premium && <span class="dr-venue-card__badge dr-venue-card__badge--verified">Verificado</span>}
+      {v.eventechPartner && v.premium && <span class="dr-venue-card__badge dr-venue-card__badge--partner">Partner</span>}
+      <span class="dr-venue-card__price">{v.priceRange}</span>
+    </div>
+    <div class="dr-venue-card__body">
+      <span class="dr-venue-card__type">{typeLabel || v.type}</span>
+      <h3 class="dr-venue-card__name">{v.name}</h3>
+      <p class="dr-venue-card__location">
+        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" />
+        </svg>
+        {loc}, {v.region === "cdmx" ? "CDMX" : "Edo. Méx."}
+      </p>
+      <p class="dr-venue-card__desc">{v.shortDescription}</p>
+      <div class="dr-venue-card__meta">
+        <span>{v.capacity.min}–{v.capacity.max} personas</span>
+        {v.rating && <span class="dr-venue-card__rating">★ {v.rating}</span>}
+      </div>
+    </div>
+  </a>
+</article>
