@@ -69,7 +69,6 @@ contact:
   phone: "726 262 1234"
   whatsapp: "55 1234 5685"
   email: "eventos@haciendasangaspar.mx"
-  website: ""
   instagram: "@haciendasangaspar"
 
 image: "/images/venues/san-gaspar-hero.avif"

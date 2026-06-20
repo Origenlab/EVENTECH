@@ -75,7 +75,6 @@ contact:
   phone: "55 5230 1818"
   whatsapp: "55 1234 5680"
   email: "events.mexicocity@fourseasons.com"
-  website: ""
   instagram: "@fsmexicocity"
 
 image: "/images/venues/four-seasons-hero.avif"

@@ -87,7 +87,6 @@ contact:
   email: "eventos@haciendapanoaya.com"
   instagram: "@haciendapanoaya"
   facebook: "HaciendaPanoayaOficial"
-  website: ""
 
 image: "/images/venues/panoaya-hero.avif"
 gallery:

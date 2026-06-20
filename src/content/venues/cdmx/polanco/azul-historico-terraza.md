@@ -66,7 +66,6 @@ contact:
   whatsapp: "55 1234 5710"
   email: "eventos@azulhistorico.com"
   instagram: "@azulhistorico"
-  website: ""
 
 image: "/images/venues/azulhistorico-hero.avif"
 gallery:

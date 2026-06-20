@@ -85,7 +85,6 @@ contact:
   email: "bodas@hotelavandaro.com"
   instagram: "@hotelavandaro"
   facebook: "HotelAvandaro"
-  website: ""
 
 image: "/images/venues/avandaro-hero.avif"
 gallery:

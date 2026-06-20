@@ -68,7 +68,6 @@ contact:
   whatsapp: "55 1234 5713"
   email: "eventos@loftescandon.mx"
   instagram: "@loftescandonindustrial"
-  website: ""
 
 image: "/images/venues/loftescandon-hero.avif"
 gallery:

@@ -76,7 +76,6 @@ contact:
   whatsapp: "55 1234 5711"
   email: "eventos@casadepiedravalle.mx"
   instagram: "@casadepiedravalle"
-  website: ""
 
 image: "/images/venues/casapiedra-hero.avif"
 gallery:
