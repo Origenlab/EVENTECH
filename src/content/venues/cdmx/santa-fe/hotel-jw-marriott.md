@@ -74,7 +74,7 @@ contact:
   phone: "55 5950 9200"
   whatsapp: "55 1234 5683"
   email: "eventos.santafe@marriott.com"
-  website: "https://www.marriott.com/hotels/travel/mexjw-jw-marriott-hotel-mexico-city-santa-fe/"
+  website: ""
   instagram: "@jwmarriottsantafe"
 
 image: "/images/venues/jw-marriott-hero.avif"

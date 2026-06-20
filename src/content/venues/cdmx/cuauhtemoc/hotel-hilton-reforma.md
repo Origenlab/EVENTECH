@@ -74,7 +74,7 @@ contact:
   phone: "55 5130 5300"
   whatsapp: "55 1234 5687"
   email: "eventos.mexicocity@hilton.com"
-  website: "https://www.hilton.com/en/hotels/mexrfhh-hilton-mexico-city-reforma/"
+  website: ""
   instagram: "@hiltonmexicocity"
 
 image: "/images/venues/hilton-reforma-hero.avif"

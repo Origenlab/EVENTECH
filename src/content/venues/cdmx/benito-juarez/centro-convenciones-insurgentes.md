@@ -78,7 +78,7 @@ contact:
   phone: "55 5662 8899"
   whatsapp: "55 8899 0011"
   email: "grupos@conventionsinsurgentes.mx"
-  website: "https://conventionsinsurgentes.mx"
+  website: ""
   instagram: "@ccinsurgentes"
 
 image: "/images/venues/centro-convenciones-insurgentes-hero.avif"

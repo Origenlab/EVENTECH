@@ -72,7 +72,7 @@ contact:
   whatsapp: "55 1234 5708"
   email: "eventos@haciendavistahermosa.mx"
   instagram: "@haciendavistahermosaoficial"
-  website: "https://haciendavistahermosa.mx"
+  website: ""
 
 image: "/images/venues/vistahermosa-hero.avif"
 gallery:

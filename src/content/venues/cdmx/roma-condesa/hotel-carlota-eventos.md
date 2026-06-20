@@ -72,7 +72,7 @@ contact:
   whatsapp: "55 1234 5712"
   email: "eventos@hotelcarlota.mx"
   instagram: "@hotelcarlotacdmx"
-  website: "https://hotelcarlota.mx"
+  website: ""
 
 image: "/images/venues/carlota-hero.avif"
 gallery:

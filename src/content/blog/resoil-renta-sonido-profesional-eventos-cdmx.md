@@ -19,7 +19,6 @@ keywords:
   - sonido profesional Estado de México
   - equipo de sonido para fiestas
 relatedPosts:
-  - redeil-renta-iluminacion-audio-eventos-cdmx
   - eventech-renta-equipo-eventos-cdmx-guia-completa
   - paled-renta-pantallas-led-eventos-cdmx
 featured: false

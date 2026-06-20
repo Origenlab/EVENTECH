@@ -27,7 +27,6 @@ relatedEvents:
   - "xv-anos"
 relatedPosts:
   - "eventech-renta-equipo-eventos-cdmx-guia-completa"
-  - "redeil-renta-iluminacion-audio-eventos-cdmx"
 draft: false
 featured: false
 cta:

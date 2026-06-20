@@ -16,7 +16,7 @@ geo:
 venues:
   - name: "Hacienda de los Morales"
     type: "Hacienda"
-    url: "https://haciendadelosmorales.com"
+    url: ""
   - name: "Club de Banqueros"
     type: "Salón"
   - name: "Jardín Versal"

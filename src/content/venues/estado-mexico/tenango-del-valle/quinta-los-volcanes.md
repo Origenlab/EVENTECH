@@ -82,7 +82,7 @@ contact:
   whatsapp: "55 4567 8901"
   email: "eventos@quintalosvolcanes.mx"
   instagram: "@quintalosvolcanes"
-  website: "https://www.quintalosvolcanes.mx"
+  website: ""
 
 image: "/images/venues/volcanes-hero.avif"
 gallery:

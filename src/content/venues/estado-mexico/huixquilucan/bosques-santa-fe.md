@@ -71,7 +71,7 @@ contact:
   phone: "55 5246 7890"
   whatsapp: "55 1234 5686"
   email: "eventos@bosquessantafe.mx"
-  website: "https://www.bosquessantafe.mx"
+  website: ""
   instagram: "@bosquessantafe"
 
 image: "/images/venues/bosques-sf-hero.avif"

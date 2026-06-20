@@ -82,7 +82,7 @@ contact:
   whatsapp: "55 8901 2345"
   email: "bodas@bosquesdelnvado.mx"
   instagram: "@bosquesdelnvado"
-  website: "https://www.bosquesdelnvado.mx"
+  website: ""
 
 image: "/images/venues/nevado-hero.avif"
 gallery:

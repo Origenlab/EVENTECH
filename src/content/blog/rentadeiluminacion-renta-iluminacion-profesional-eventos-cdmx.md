@@ -25,8 +25,6 @@ relatedEvents:
   - "bodas"
   - "xv-anos"
   - "corporativos"
-relatedPosts:
-  - "redeil-renta-iluminacion-audio-eventos-cdmx"
 draft: false
 featured: false
 cta:

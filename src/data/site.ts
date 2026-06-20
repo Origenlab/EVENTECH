@@ -456,7 +456,7 @@ export const REVIEWS = [
     rating: 5,
     text: "Llevamos más de 10 años iluminando eventos en CDMX y Estado de México con iluminación LED profesional, audio JBL y QSC, y DJ. EVENTECH es el aliado ideal: mientras nosotros aportamos luz y sonido, ellos complementan con mobiliario, carpas y pistas de primera. Marcas como Martin Professional, Chauvet y Elation respaldan cada montaje.",
     event: "Alianza Estratégica",
-    website: "https://redeil.com/",
+    website: "",
   },
   {
     id: "review-5",
@@ -466,7 +466,7 @@ export const REVIEWS = [
     rating: 5,
     text: "Desde 2015 hemos decorado más de 5,000 eventos en CDMX. EVENTECH es nuestro aliado estratégico: nosotros aportamos arcos, columnas y backdrops de globos premium, mientras ellos complementan con mobiliario, iluminación y carpas de primera. Juntos creamos escenarios mágicos.",
     event: "Alianza Estratégica",
-    website: "https://fantasyglobos.com.mx/",
+    website: "",
   },
   {
     id: "review-6",
@@ -496,7 +496,7 @@ export const REVIEWS = [
     rating: 5,
     text: "Con más de 500 eventos exitosos en CDMX y Estado de México, SOEVE lidera en renta de sonido profesional. EVENTECH es nuestro aliado perfecto: mientras nosotros aportamos bocinas, consolas de mezcla y micrófonos de alta calidad, ellos complementan con mobiliario, carpas e iluminación premium. Juntos cubrimos eventos de 50 a 5,000 personas.",
     event: "Alianza Estratégica",
-    website: "https://sonidoparaeventos.com.mx/",
+    website: "",
   },
   {
     id: "review-9",
@@ -506,7 +506,7 @@ export const REVIEWS = [
     rating: 5,
     text: "Con 20 años en venta y renta de equipos para exposiciones —stands modulares, vitrinas, pantallas LED e iluminación— para ferias y congresos en México, sabemos lo que exige un montaje profesional. EVENTECH es el aliado ideal: cuando el evento va más allá del stand, ellos aportan mobiliario, carpas, audio e iluminación de primer nivel. Juntos montamos exposiciones impecables.",
     event: "Alianza Estratégica",
-    website: "https://avantexpo.com.mx/",
+    website: "",
   },
   {
     id: "review-10",
@@ -536,7 +536,7 @@ export const REVIEWS = [
     rating: 5,
     text: "Con 500+ eventos y 4.9 de calificación, somos especialistas en renta de máquinas de palomitas con operador, carrito vintage y gourmet para bodas, XV años y corporativos en CDMX y Estado de México. EVENTECH es el aliado ideal: nosotros ponemos la estación de snacks que encanta a los invitados y ellos el mobiliario, carpas, iluminación y audio. Eventos memorables y bien montados.",
     event: "Alianza Estratégica",
-    website: "https://palomita.mx/",
+    website: "",
   },
 ] as const;
 

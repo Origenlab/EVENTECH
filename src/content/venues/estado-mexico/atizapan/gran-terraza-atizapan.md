@@ -72,7 +72,7 @@ contact:
   phone: "55 5822 3456"
   whatsapp: "55 1234 5691"
   email: "eventos@granterrazaatizapan.mx"
-  website: "https://www.granterrazaatizapan.mx"
+  website: ""
   instagram: "@granterrazaatizapan"
 
 image: "/images/venues/gran-terraza-hero.avif"

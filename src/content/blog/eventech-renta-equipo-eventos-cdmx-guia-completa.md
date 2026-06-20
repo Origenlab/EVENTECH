@@ -36,7 +36,6 @@ relatedEvents:
   - "corporativos"
   - "fiestas-infantiles"
 relatedPosts:
-  - "redeil-renta-iluminacion-audio-eventos-cdmx"
   - "rentadeiluminacion-renta-iluminacion-profesional-eventos-cdmx"
 draft: false
 featured: false
@@ -1921,11 +1920,11 @@ Más de 500 eventos en CDMX y Estado de México. Los inflables más seguros, var
 
 ### SOEVE - Maestros del Sonido
 Especialistas en audio profesional para eventos de 50 a 5,000 personas. Equipos JBL y QSC de primera línea. Ingenieros de sonido certificados.
-[sonidoparaeventos.com.mx](https://sonidoparaeventos.com.mx)
+sonidoparaeventos.com.mx
 
 ### DEGLOB - Arte en Globos
 Desde 2015, más de 5,000 eventos decorados con globos premium. Arcos, columnas, backdrops, instalaciones artísticas y diseños personalizados.
-[fantasyglobos.com.mx](https://fantasyglobos.com.mx)
+fantasyglobos.com.mx
 
 ### MEDEDUL - Especialistas en Mesas de Dulces
 Calificación de 4.9 estrellas con más de 127 reseñas. Candy bars, fuentes de chocolate, mesas de postres espectaculares y montajes temáticos.

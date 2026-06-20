@@ -74,7 +74,7 @@ contact:
   phone: "55 5228 1818"
   whatsapp: "55 1234 5679"
   email: "events.mexicocity@stregis.com"
-  website: "https://www.marriott.com/hotels/travel/mexsr-the-st-regis-mexico-city/"
+  website: ""
   instagram: "@stregismexicocity"
 
 image: "/images/venues/st-regis-hero.avif"
