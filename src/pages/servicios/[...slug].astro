@@ -5,7 +5,7 @@
  * Hub pages (isHub: true) usan template rico con componentes.
  * Sub-pages usan ServiceLayout simple con prose content.
  */
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import ServiceLayout from "@layouts/ServiceLayout.astro";
 import PageLayout from "@layouts/PageLayout.astro";
@@ -13,23 +13,23 @@ import HeroPage from "@components/HeroPage.astro";
 import CTABanner from "@components/CTABanner.astro";
 import SectionHeader from "@components/SectionHeader.astro";
 import Card from "@components/Card.astro";
-import { EVENT_TYPES, SITE } from "@data/site";
-import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import { EVENT_TYPES, SITE } from "@config/site";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from "@lib/seo";
 
 export async function getStaticPaths() {
   const servicios = await getCollection("servicios");
   // Excluir slugs que ya tienen una página estática dedicada (evita colisión de rutas).
   const STATIC_PAGES = new Set(["mobiliario"]);
   return servicios
-    .filter((servicio: CollectionEntry<"servicios">) => !STATIC_PAGES.has(servicio.slug))
+    .filter((servicio: CollectionEntry<"servicios">) => !STATIC_PAGES.has(servicio.id))
     .map((servicio: CollectionEntry<"servicios">) => ({
-      params: { slug: servicio.slug },
+      params: { slug: servicio.id },
       props: { servicio },
     }));
 }
 
 const { servicio } = Astro.props as { servicio: CollectionEntry<"servicios"> };
-const { Content } = await servicio.render();
+const { Content } = await render(servicio);
 const {
   title,
   description,
@@ -47,7 +47,7 @@ const {
 
 const pageTitle = seoTitle || title;
 const pageDescription = seoDescription || description;
-const pageUrl = `/servicios/${servicio.slug}/`;
+const pageUrl = `/servicios/${servicio.id}/`;
 
 // JSON-LD structured data
 const jsonLd = [

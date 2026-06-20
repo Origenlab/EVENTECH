@@ -6,7 +6,7 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-import { SITE } from "@data/site";
+import { SITE } from "@config/site";
 import type { APIContext } from "astro";
 
 export async function GET(context: APIContext) {
@@ -22,7 +22,7 @@ export async function GET(context: APIContext) {
       title: post.data.title,
       pubDate: post.data.date,
       description: post.data.description,
-      link: `/blog/${post.slug}/`,
+      link: `/blog/${post.id}/`,
       categories: post.data.tags,
     })),
     customData: `<language>${SITE.language}</language>`,

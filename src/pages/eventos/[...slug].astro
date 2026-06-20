@@ -3,27 +3,27 @@
  * ─── Event Pages ───
  * Renderiza páginas de tipos de eventos desde content collections.
  */
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import EventLayout from "@layouts/EventLayout.astro";
 import Gallery4x4 from "@components/Gallery4x4.astro";
-import { eventTypeJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import { eventTypeJsonLd, breadcrumbJsonLd, faqJsonLd } from "@lib/seo";
 
 export async function getStaticPaths() {
   const eventos = await getCollection("eventos");
   return eventos.map((evento: CollectionEntry<"eventos">) => ({
-    params: { slug: evento.slug },
+    params: { slug: evento.id },
     props: { evento },
   }));
 }
 
 const { evento } = Astro.props as { evento: CollectionEntry<"eventos"> };
-const { Content } = await evento.render();
+const { Content } = await render(evento);
 const { title, description, seoTitle, seoDescription, hero, faqs, gallery } = evento.data;
 
 const pageTitle = seoTitle || title;
 const pageDescription = seoDescription || description;
-const pageUrl = `/eventos/${evento.slug}/`;
+const pageUrl = `/eventos/${evento.id}/`;
 
 const breadcrumbItems = [
   { label: "Inicio", href: "/" },

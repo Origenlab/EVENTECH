@@ -7,18 +7,18 @@
 import PageLayout from "./PageLayout.astro";
 import Breadcrumbs from "@components/Breadcrumbs.astro";
 import RelatedContent from "@components/RelatedContent.astro";
-import { readingTime } from "@utils/helpers";
-import { articleJsonLd, breadcrumbJsonLd, canonicalURL } from "@utils/seo";
+import { readingTime } from "@lib/helpers";
+import { articleJsonLd, breadcrumbJsonLd, canonicalURL } from "@lib/seo";
 import {
   findRelatedServices,
   findRelatedEventTypes,
   findRelatedVenueTypes,
   POPULAR_VENUES,
   CDMX_ZONES
-} from "@utils/interlinking";
+} from "@lib/interlinking";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-import { SITE } from "@data/site";
+import { SITE } from "@config/site";
 import "@styles/blog.css";
 import "@styles/blog-components.css";
 import "@styles/home-2026.css";
@@ -73,7 +73,7 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString("es-MX", {
 let relatedPostsData: CollectionEntry<"blog">[] = [];
 if (relatedPosts && relatedPosts.length > 0) {
   const allPosts = await getCollection("blog", ({ data }: CollectionEntry<"blog">) => !data.draft);
-  relatedPostsData = allPosts.filter((p: CollectionEntry<"blog">) => relatedPosts.includes(p.slug)).slice(0, 4);
+  relatedPostsData = allPosts.filter((p: CollectionEntry<"blog">) => relatedPosts.includes(p.id)).slice(0, 4);
 }
 
 // Auto-detect related content for interlinking (SEO)
@@ -363,7 +363,7 @@ const firstParagraph = paragraphs[0]?.replace(/\*\*/g, '').replace(/\[([^\]]+)\]
               </h3>
               <div class="related-posts-list">
                 {relatedPostsData.map((post: CollectionEntry<"blog">) => (
-                  <a href={`/blog/${post.slug}/`} class="related-post-card">
+                  <a href={`/blog/${post.id}/`} class="related-post-card">
                     {post.data.image ? (
                       <img
                         src={post.data.image}

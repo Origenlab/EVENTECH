@@ -3,26 +3,26 @@
  * ─── Zone Pages ───
  * Renderiza páginas de zonas/ubicaciones desde content collections.
  */
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import ZoneLayout from "@layouts/ZoneLayout.astro";
-import { localBusinessJsonLd, breadcrumbJsonLd } from "@utils/seo";
+import { localBusinessJsonLd, breadcrumbJsonLd } from "@lib/seo";
 
 export async function getStaticPaths() {
   const zonas = await getCollection("zonas");
   return zonas.map((zona: CollectionEntry<"zonas">) => ({
-    params: { slug: zona.slug },
+    params: { slug: zona.id },
     props: { zona },
   }));
 }
 
 const { zona } = Astro.props as { zona: CollectionEntry<"zonas"> };
-const { Content } = await zona.render();
+const { Content } = await render(zona);
 const { title, description, seoTitle, seoDescription, hero, subzones } = zona.data;
 
 const pageTitle = seoTitle || title;
 const pageDescription = seoDescription || description;
-const pageUrl = `/zonas/${zona.slug}/`;
+const pageUrl = `/zonas/${zona.id}/`;
 
 // Build areaServed from subzones
 const areaServedNames = (subzones || []).map((z: string) =>

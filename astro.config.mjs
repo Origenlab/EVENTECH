@@ -3,6 +3,7 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 
 // ─── ExactDN CDN ───────────────────────────────────────────────────────────
 const CDN_BASE = "https://ehzpd66uywy.exactdn.com";
@@ -175,6 +176,17 @@ export default defineConfig({
   // ─── Vite (cache en /tmp para evitar EPERM en sandbox) ───
   vite: {
     cacheDir: "/tmp/vite-eventech",
+    resolve: {
+      alias: {
+        "@": fileURLToPath(new URL("./src", import.meta.url)),
+        "@components": fileURLToPath(new URL("./src/components", import.meta.url)),
+        "@layouts": fileURLToPath(new URL("./src/layouts", import.meta.url)),
+        "@config": fileURLToPath(new URL("./src/config", import.meta.url)),
+        "@data": fileURLToPath(new URL("./src/data", import.meta.url)),
+        "@lib": fileURLToPath(new URL("./src/lib", import.meta.url)),
+        "@styles": fileURLToPath(new URL("./src/styles", import.meta.url)),
+      },
+    },
   },
 
   // ─── Dev Server ───
