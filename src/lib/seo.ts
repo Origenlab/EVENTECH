@@ -49,6 +49,7 @@ export function organizationJsonLd() {
     "@id": `${SITE.url}/#organization`,
     name: SITE.organization.name,
     legalName: SITE.organization.legalName,
+    alternateName: SITE.organization.alternateName,
     url: SITE.url,
     logo: {
       "@type": "ImageObject",

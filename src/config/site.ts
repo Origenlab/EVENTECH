@@ -43,6 +43,12 @@ export const SITE = {
   organization: {
     name: "EVENTECH.MX",
     legalName: "EVENTECH S.A. de C.V.",
+    alternateName: [
+      "EVENTECH",
+      "Eventech MX",
+      "Renta de Equipo para Eventos CDMX",
+      "eventech.mx",
+    ],
     logo: "/images/logo.png",
     foundingDate: "2024",
     sameAs: [
