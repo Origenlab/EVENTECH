@@ -1,0 +1,545 @@
+---
+/**
+ * ─── EVENTECH.MX — Precios de Renta de Equipo para Eventos ───
+ * Página de precios con rangos reales por categoría.
+ * Schema: 8 × Service + Offer + FAQPage + BreadcrumbList.
+ * Keyword primaria: "precios renta equipo para eventos CDMX"
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import { SITE } from "@config/site";
+import { breadcrumbJsonLd, faqJsonLd } from "@lib/seo";
+import "@styles/home-2026.css";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+/* ── Rangos de precio por categoría (precios reales del inventario EVENTECH) ── */
+const CATEGORIAS = [
+  {
+    id: "mobiliario",
+    icon: "🪑",
+    nombre: "Mobiliario",
+    descripcion: "Sillas Tiffany, Chiavari, Ghost, Crossback · Mesas · Salas lounge · Barras",
+    desde: "$15",
+    unidad: "por pieza",
+    ejemplos: [
+      { item: "Silla Tiffany", precio: "desde $15" },
+      { item: "Silla Chiavari / Ghost", precio: "desde $80" },
+      { item: "Mesa redonda (150–180 cm)", precio: "desde $80" },
+      { item: "Sala lounge (sofá individual)", precio: "desde $1,500" },
+      { item: "Set lounge completo", precio: "desde $3,500" },
+    ],
+    href: "/servicios/mobiliario/",
+    minPrice: 15,
+    maxPrice: 25000,
+    badge: "Lo más solicitado",
+  },
+  {
+    id: "audiovisual",
+    icon: "🎛️",
+    nombre: "Audiovisual",
+    descripcion: "Pantallas LED · Videowall · Sonido line-array · Proyectores · DJ",
+    desde: "$300",
+    unidad: "por equipo",
+    ejemplos: [
+      { item: "Micrófono inalámbrico", precio: "desde $300" },
+      { item: "Pantalla LED 55–85\"", precio: "desde $1,500" },
+      { item: "Sistema de sonido profesional", precio: "desde $3,500" },
+      { item: "Videowall LED modular", precio: "desde $8,000" },
+      { item: "Pantalla LED exterior IP65", precio: "desde $12,000" },
+    ],
+    href: "/servicios/audiovisual/",
+    minPrice: 300,
+    maxPrice: 60000,
+    badge: "Técnico incluido",
+  },
+  {
+    id: "carpas",
+    icon: "⛺",
+    nombre: "Carpas y Estructuras",
+    descripcion: "Árabes · Estructurales · Hangar 20m y 30m · Pisos y complementos",
+    desde: "$3,000",
+    unidad: "por evento",
+    ejemplos: [
+      { item: "Carpa árabe clásica", precio: "desde $3,000" },
+      { item: "Carpa árabe con forros", precio: "desde $5,500" },
+      { item: "Carpa estructural pequeña (5×5 a 10×10 m)", precio: "desde $6,000" },
+      { item: "Carpa estructural grande (10×15 a 15×30 m)", precio: "desde $18,000" },
+      { item: "Carpa hangar 20 m", precio: "desde $35,000" },
+    ],
+    href: "/servicios/carpas/",
+    minPrice: 3000,
+    maxPrice: 65000,
+    badge: "Montaje incluido",
+  },
+  {
+    id: "iluminacion",
+    icon: "💡",
+    nombre: "Iluminación",
+    descripcion: "Arquitectónica · Decorativa · Escenario · Efectos especiales",
+    desde: "$250",
+    unidad: "por luminaria",
+    ejemplos: [
+      { item: "Uplighting LED (barra RGBWA)", precio: "desde $250/barra" },
+      { item: "Efectos especiales (humo, confeti)", precio: "desde $800" },
+      { item: "Paquete iluminación básico", precio: "desde $3,000" },
+      { item: "Paquete iluminación premium", precio: "desde $6,000" },
+      { item: "Show completo (cabezas móviles + efectos)", precio: "desde $12,000" },
+    ],
+    href: "/servicios/iluminacion/",
+    minPrice: 250,
+    maxPrice: 25000,
+    badge: "DMX profesional",
+  },
+  {
+    id: "pistas-baile",
+    icon: "🪩",
+    nombre: "Pistas de Baile",
+    descripcion: "LED programable · Madera clásica · Parquet · Tarimas y escenarios",
+    desde: "$1,500",
+    unidad: "por evento",
+    ejemplos: [
+      { item: "Pista LED básica (3×3 m)", precio: "desde $1,500" },
+      { item: "Pista madera clásica", precio: "desde $3,000" },
+      { item: "Pista LED mediana (4×4 m)", precio: "desde $5,500" },
+      { item: "Pista parquet modular", precio: "desde $5,000" },
+      { item: "Pista LED grande + marco", precio: "desde $9,000" },
+    ],
+    href: "/servicios/pistas-baile/",
+    minPrice: 1500,
+    maxPrice: 40000,
+    badge: "Control DMX",
+  },
+  {
+    id: "inflables",
+    icon: "🎪",
+    nombre: "Inflables",
+    descripcion: "Brincolines · Toboganes · Interactivos · Acuáticos · Adultos",
+    desde: "$2,000",
+    unidad: "por evento",
+    ejemplos: [
+      { item: "Castillo / brincolin básico", precio: "desde $2,000" },
+      { item: "Juego interactivo deportivo", precio: "desde $2,500" },
+      { item: "Bungee run / futbol inflable", precio: "desde $3,000" },
+      { item: "Circuito extremo 15–20 m", precio: "desde $4,000" },
+      { item: "Paquete corporativo team building", precio: "cotizar" },
+    ],
+    href: "/servicios/inflables/",
+    minPrice: 2000,
+    maxPrice: 25000,
+    badge: "Operador incluido",
+  },
+  {
+    id: "catering",
+    icon: "🍽️",
+    nombre: "Catering y Cocina",
+    descripcion: "Cocina móvil · Vajilla · Refrigeración · Estaciones de servicio",
+    desde: "$500",
+    unidad: "por equipo / día",
+    ejemplos: [
+      { item: "Hielera profesional 100–200 L", precio: "desde $500" },
+      { item: "Parrilla industrial gas", precio: "desde $1,500" },
+      { item: "Horno convección + vaporizador", precio: "desde $1,800" },
+      { item: "Estación cocina básica", precio: "desde $5,000" },
+      { item: "Cocina móvil completa", precio: "desde $10,000" },
+    ],
+    href: "/servicios/catering/",
+    minPrice: 500,
+    maxPrice: 18000,
+    badge: "Higiene certificada",
+  },
+  {
+    id: "accesorios",
+    icon: "✨",
+    nombre: "Accesorios y Clima",
+    descripcion: "Mantelería · Plantas de energía · Calefacción · Señalización",
+    desde: "$25",
+    unidad: "por pieza",
+    ejemplos: [
+      { item: "Funda / cubresilla", precio: "desde $25/pieza" },
+      { item: "Mantel (redondo o rectangular)", precio: "desde $35/pieza" },
+      { item: "Paquete mantelería 100 pers.", precio: "desde $1,500" },
+      { item: "Calefacción / enfriamiento", precio: "desde $3,500" },
+      { item: "Planta de energía 50–150 kW", precio: "desde $6,000" },
+    ],
+    href: "/servicios/accesorios/",
+    minPrice: 25,
+    maxPrice: 50000,
+    badge: "Entrega incluida",
+  },
+];
+
+/* ── FAQs de precios ─────────────────────────────────────────────────── */
+const faqs = [
+  {
+    question: "¿Cuánto cuesta la renta de equipo para eventos en CDMX?",
+    answer: "Depende del tipo y volumen de equipo. Las sillas Tiffany arrancan desde $15 MXN por pieza; los inflables desde $2,000 por evento; la iluminación desde $250 por luminaria. Para una boda de 100 personas con mobiliario, iluminación y pista de baile, un presupuesto típico va de $15,000 a $40,000 MXN con montaje incluido. Te damos una cotización detallada en menos de 24 horas — sin compromiso.",
+  },
+  {
+    question: "¿El montaje y la entrega están incluidos en el precio?",
+    answer: "Sí. Todos nuestros precios incluyen entrega en tu venue, montaje profesional y recolección al finalizar. Dentro de las 16 alcaldías de CDMX no hay costo de traslado adicional. Para Naucalpan, Tlalnepantla, Toluca, Cuernavaca y otras ciudades aplicamos un cargo de envío que siempre detallamos en la cotización antes de confirmar — sin sorpresas.",
+  },
+  {
+    question: "¿Puedo rentar varias categorías en un solo pedido?",
+    answer: "Absolutamente. Una de las ventajas de EVENTECH es que puedes armar el paquete completo — mobiliario, audiovisual, carpas, iluminación, pista de baile e inflables — bajo un solo contrato. Esto simplifica la logística, reduce el costo total y garantiza que todos los elementos lleguen y monten coordinados el día del evento.",
+  },
+  {
+    question: "¿Los precios mostrados son el precio final?",
+    answer: "Los precios mostrados son precios mínimos de referencia por equipo individual. El precio final depende del tamaño del evento, la combinación de equipo y la zona de entrega. Para la mayoría de los eventos, el precio disminuye por volumen: si rentas mobiliario + iluminación + pista, el total es menor que si cotizas cada uno por separado. Solicita tu cotización personalizada por WhatsApp.",
+  },
+  {
+    question: "¿Puedo modificar o cancelar mi renta?",
+    answer: "Sí. Aceptamos modificaciones de equipo sin costo hasta 72 horas antes del evento. Para cancelaciones, el anticipo (50%) es no reembolsable con menos de 7 días de anticipación, pero el saldo restante no se cobra. Si cancelas con más de 7 días, el anticipo se puede aplicar como crédito a un evento futuro.",
+  },
+  {
+    question: "¿Cuánto tiempo de anticipación necesito para reservar?",
+    answer: "Para eventos de hasta 100 personas, con 1–2 semanas de anticipación es suficiente. Para bodas, XV años o corporativos grandes (200+ personas), recomendamos 4–8 semanas, especialmente en temporada alta (noviembre–febrero). El equipo más solicitado — sillas Tiffany doradas, pistas LED grandes y carpas hangar — se agota primero. Con el 50% de anticipo, la fecha y el inventario quedan apartados.",
+  },
+  {
+    question: "¿Aceptan tarjeta de crédito o transferencia bancaria?",
+    answer: "Aceptamos transferencia electrónica (SPEI), tarjeta de crédito y débito, y pago en efectivo. Para corporativos emitimos factura electrónica (CFDI) por el total del servicio. El anticipo es del 50% para confirmar la reserva; el saldo se liquida 24 horas antes del evento o el día del montaje.",
+  },
+  {
+    question: "¿Los precios incluyen IVA?",
+    answer: "Los precios de referencia publicados no incluyen IVA. La cotización formal que te enviamos por WhatsApp detalla el precio con y sin IVA según el tipo de cliente (persona física o moral). Para eventos personales la mayoría de nuestros clientes prefieren cotización sin factura; para corporativos siempre emitimos CFDI.",
+  },
+];
+
+/* ── Schema JSON-LD ─────────────────────────────────────────────────── */
+const orgId = `${SITE.url}/#organization`;
+
+const serviceSchemas = CATEGORIAS.map((cat) => ({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${SITE.url}/precios/#service-${cat.id}`,
+  name: `Renta de ${cat.nombre} para Eventos CDMX`,
+  description: cat.descripcion,
+  url: `${SITE.url}${cat.href}`,
+  provider: {
+    "@type": "LocalBusiness",
+    "@id": `${SITE.url}/#localbusiness`,
+    name: SITE.organization.name,
+  },
+  areaServed: [
+    { "@type": "City", name: "Ciudad de México" },
+    { "@type": "City", name: "Estado de México" },
+  ],
+  offers: {
+    "@type": "Offer",
+    priceSpecification: {
+      "@type": "PriceSpecification",
+      minPrice: cat.minPrice,
+      maxPrice: cat.maxPrice,
+      priceCurrency: "MXN",
+    },
+    availability: "https://schema.org/InStock",
+    seller: { "@type": "Organization", "@id": orgId },
+  },
+}));
+
+const breadcrumb = breadcrumbJsonLd([
+  { name: "Inicio", url: "/" },
+  { name: "Precios", url: "/precios/" },
+]);
+
+const faqSchema = faqJsonLd(faqs);
+
+const jsonLd = [...serviceSchemas, breadcrumb, faqSchema];
+
+/* ── SEO ─────────────────────────────────────────────────────────────── */
+const seo = {
+  title: "Precios Renta de Equipo para Eventos CDMX",
+  rawTitle: true,
+  description:
+    "Precios de renta de sillas, carpas, sonido, iluminación, pistas de baile e inflables para eventos en CDMX. Sillas Tiffany desde $15 · Carpas desde $3,000 · Pistas LED desde $1,500. Cotiza hoy.",
+};
+---
+
+<PageLayout {...seo} jsonLd={jsonLd}>
+  <!-- Breadcrumb -->
+  <div class="container" style="padding-top: var(--space-lg)">
+    <Breadcrumbs
+      items={[
+        { label: "Inicio", href: "/" },
+        { label: "Precios", href: "/precios/" },
+      ]}
+    />
+  </div>
+
+  <!-- Hero -->
+  <section class="hm-hero" style="padding-block: var(--space-3xl) var(--space-2xl)">
+    <div class="container">
+      <div class="hm-hero__inner" style="max-width: 780px; margin-inline: auto; text-align: center">
+        <span class="hm-badge">Precios de referencia 2025 · CDMX</span>
+        <h1 class="hm-hero__title" style="font-size: clamp(2rem, 5vw, 3rem); margin-top: var(--space-md)">
+          Precios reales de renta de equipo para eventos en CDMX
+        </h1>
+        <p class="hm-hero__subtitle" style="max-width: 620px; margin-inline: auto; margin-top: var(--space-lg)">
+          Sin letra chica. Montaje y entrega incluidos en todas las categorías dentro de las 16 alcaldías.
+          Cotización personalizada en menos de 24 horas.
+        </p>
+        <div class="hm-hero__ctas" style="margin-top: var(--space-xl)">
+          <a
+            href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola,%20quisiera%20una%20cotizaci%C3%B3n%20para%20mi%20evento`}
+            class="hm-btn hm-btn--primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Cotizar ahora — WhatsApp
+          </a>
+          <a href="/servicios/" class="hm-btn hm-btn--outline">
+            Ver todos los servicios
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust strip -->
+  <section style="background: var(--color-surface-alt); border-block: 1px solid var(--color-border)">
+    <div class="container">
+      <div
+        style="display: flex; flex-wrap: wrap; gap: var(--space-lg) var(--space-2xl); justify-content: center; padding-block: var(--space-lg); text-align: center"
+      >
+        {[
+          ["✅", "Montaje incluido"],
+          ["⚡", "Cotización en 24h"],
+          ["📋", "Factura CFDI"],
+          ["🔄", "Modificaciones sin costo hasta 72h antes"],
+          ["📍", "Cobertura CDMX + EdoMex"],
+        ].map(([icon, txt]) => (
+          <span style="font-size: var(--text-sm); color: var(--color-text-muted); display: flex; align-items: center; gap: 0.4rem">
+            <span aria-hidden="true">{icon}</span> {txt}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Precio cards por categoría -->
+  <section class="container section" id="categorias">
+    <h2
+      style="font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; color: var(--color-primary); text-align: center; margin-bottom: var(--space-xl)"
+    >
+      Precios por categoría de equipo
+    </h2>
+    <p style="text-align: center; color: var(--color-text-muted); max-width: 600px; margin-inline: auto; margin-bottom: var(--space-3xl)">
+      Los precios mostrados son precios mínimos de referencia para orientarte. El precio final depende del
+      volumen, zona y combinación de equipo — siempre en tu cotización antes de confirmar.
+    </p>
+
+    <div
+      style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--space-lg)"
+    >
+      {
+        CATEGORIAS.map((cat) => (
+          <article
+            style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column"
+          >
+            <!-- Card header -->
+            <div style="background: var(--color-primary); padding: var(--space-lg); color: #fff">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-sm)">
+                <span style="font-size: 1.75rem" aria-hidden="true">{cat.icon}</span>
+                <span
+                  style="font-size: var(--text-xs); background: rgba(255,255,255,0.2); padding: 0.2rem 0.6rem; border-radius: 999px; font-weight: 500"
+                >
+                  {cat.badge}
+                </span>
+              </div>
+              <h3 style="font-size: var(--text-xl); font-weight: 700; margin-bottom: var(--space-xs)">
+                {cat.nombre}
+              </h3>
+              <p style="font-size: var(--text-sm); opacity: 0.85; line-height: 1.4">{cat.descripcion}</p>
+            </div>
+
+            <!-- Desde -->
+            <div
+              style="padding: var(--space-md) var(--space-lg); background: var(--color-accent, #f0fdf4); border-bottom: 1px solid var(--color-border); display: flex; align-items: baseline; gap: var(--space-xs)"
+            >
+              <span style="font-size: var(--text-xs); color: var(--color-text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em">
+                Desde
+              </span>
+              <span style="font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; color: var(--color-primary)">
+                {cat.desde} MXN
+              </span>
+              <span style="font-size: var(--text-xs); color: var(--color-text-muted)">{cat.unidad}</span>
+            </div>
+
+            <!-- Ejemplos de precios -->
+            <ul style="list-style: none; padding: var(--space-md) var(--space-lg); margin: 0; flex: 1; display: flex; flex-direction: column; gap: var(--space-xs)">
+              {cat.ejemplos.map((ej) => (
+                <li style="display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-sm); font-size: var(--text-sm); padding-bottom: var(--space-xs); border-bottom: 1px dashed var(--color-border)">
+                  <span style="color: var(--color-text)">{ej.item}</span>
+                  <span style="font-weight: 600; color: var(--color-primary); white-space: nowrap">{ej.precio}</span>
+                </li>
+              ))}
+            </ul>
+
+            <!-- CTA -->
+            <div style="padding: var(--space-md) var(--space-lg)">
+              <a
+                href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola,%20quisiera%20cotizar%20${encodeURIComponent(cat.nombre)}%20para%20mi%20evento`}
+                class="hm-btn hm-btn--primary"
+                style="width: 100%; text-align: center; justify-content: center"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Cotizar {cat.nombre}
+              </a>
+              <a
+                href={cat.href}
+                style="display: block; text-align: center; margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-text-muted); text-decoration: underline"
+              >
+                Ver más detalles →
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Mismo precio, mejor calidad — propuesta de valor -->
+  <section
+    style="background: var(--color-primary); color: #fff; padding-block: var(--space-3xl)"
+  >
+    <div class="container">
+      <div style="max-width: 780px; margin-inline: auto; text-align: center">
+        <span class="hm-badge" style="background: rgba(255,255,255,0.15); color: #fff; border-color: transparent">
+          Propuesta de valor
+        </span>
+        <h2 style="font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 700; margin-top: var(--space-md); margin-bottom: var(--space-lg)">
+          Mismos precios que la competencia — mejor calidad de equipo y servicio
+        </h2>
+        <p style="opacity: 0.85; font-size: var(--text-base); line-height: 1.7; margin-bottom: var(--space-xl)">
+          En EVENTECH no competimos bajando calidad para bajar precio. Competimos con un inventario propio
+          revisado antes de cada montaje, técnicos especializados por categoría y un coordinador dedicado
+          a tu evento desde la cotización hasta el desmontaje.
+        </p>
+        <div
+          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-lg); text-align: left; margin-bottom: var(--space-2xl)"
+        >
+          {[
+            { t: "Inventario propio verificado", d: "Cada pieza revisada y en condiciones impecables antes de cada evento. Sin sustituciones de último momento." },
+            { t: "Técnico dedicado en sitio", d: "Para audiovisual, iluminación y pistas LED, un técnico queda en tu evento durante toda la función." },
+            { t: "Coordinador de proyecto", d: "Un solo punto de contacto que conoce tu evento de principio a fin y coordina todos los equipos." },
+            { t: "Respaldo inmediato", d: "Equipo de contingencia disponible. Si algo falla, lo resolvemos sin que tú te enteres." },
+          ].map(({ t, d }) => (
+            <div style="background: rgba(255,255,255,0.08); border-radius: var(--radius-md); padding: var(--space-md)">
+              <strong style="display: block; margin-bottom: var(--space-xs); font-size: var(--text-base)">{t}</strong>
+              <p style="font-size: var(--text-sm); opacity: 0.8; line-height: 1.5; margin: 0">{d}</p>
+            </div>
+          ))}
+        </div>
+        <a
+          href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola,%20quisiera%20una%20cotizaci%C3%B3n%20completa%20para%20mi%20evento`}
+          class="hm-btn"
+          style="background: #fff; color: var(--color-primary); font-weight: 700"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Solicitar cotización sin compromiso
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo funciona -->
+  <section class="container section">
+    <h2
+      style="font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; color: var(--color-primary); text-align: center; margin-bottom: var(--space-2xl)"
+    >
+      Cómo funciona la renta
+    </h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-xl); max-width: 900px; margin-inline: auto">
+      {[
+        { n: "1", t: "Cotiza por WhatsApp", d: "Cuéntanos el tipo de evento, fecha, venue y equipo que necesitas. Respondemos con cotización detallada en menos de 24 horas." },
+        { n: "2", t: "Confirma con anticipo", d: "Ajustamos el paquete a tu presupuesto. Con el 50% de anticipo, el inventario y la fecha quedan apartados." },
+        { n: "3", t: "Montamos el día del evento", d: "Nuestro equipo llega antes de tus invitados, instala todo según el layout acordado y deja el venue listo." },
+        { n: "4", t: "Disfruta y nosotros recogemos", d: "Al terminar, desmontamos y retiramos todo. Tú solo celebras." },
+      ].map(({ n, t, d }) => (
+        <div style="text-align: center">
+          <div
+            style="width: 3rem; height: 3rem; border-radius: 50%; background: var(--color-primary); color: #fff; font-weight: 800; font-size: 1.25rem; display: flex; align-items: center; justify-content: center; margin-inline: auto; margin-bottom: var(--space-md)"
+          >
+            {n}
+          </div>
+          <strong style="display: block; margin-bottom: var(--space-xs); color: var(--color-primary)">{t}</strong>
+          <p style="font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.5; margin: 0">{d}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="container section" style="max-width: 780px; margin-inline: auto">
+    <h2
+      style="font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; color: var(--color-primary); text-align: center; margin-bottom: var(--space-2xl)"
+    >
+      Preguntas frecuentes sobre precios
+    </h2>
+    <div style="display: flex; flex-direction: column; gap: var(--space-md)">
+      {
+        faqs.map((faq) => (
+          <details
+            style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden"
+          >
+            <summary
+              style="padding: var(--space-md) var(--space-lg); font-weight: 600; cursor: pointer; color: var(--color-primary); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: var(--space-sm)"
+            >
+              {faq.question}
+              <span aria-hidden="true" style="font-size: 1.25rem; flex-shrink: 0">＋</span>
+            </summary>
+            <p
+              style="padding: 0 var(--space-lg) var(--space-md); margin: 0; color: var(--color-text-muted); line-height: 1.7; font-size: var(--text-sm)"
+            >
+              {faq.answer}
+            </p>
+          </details>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section
+    style="background: var(--color-surface-alt); border-top: 1px solid var(--color-border); padding-block: var(--space-3xl)"
+  >
+    <div class="container" style="text-align: center">
+      <h2
+        style="font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; color: var(--color-primary); margin-bottom: var(--space-md)"
+      >
+        ¿Listo para cotizar tu evento?
+      </h2>
+      <p style="color: var(--color-text-muted); max-width: 540px; margin-inline: auto; margin-bottom: var(--space-xl)">
+        Cuéntanos los detalles de tu evento y te enviamos una cotización completa con todos los equipos,
+        precios finales y disponibilidad — en menos de 24 horas, sin compromiso.
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: var(--space-md); justify-content: center">
+        <a
+          href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola,%20quisiera%20una%20cotizaci%C3%B3n%20para%20mi%20evento`}
+          class="hm-btn hm-btn--primary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Cotizar por WhatsApp
+        </a>
+        <a href="/cotizar/" class="hm-btn hm-btn--outline">
+          Formulario de cotización
+        </a>
+      </div>
+      <p style="margin-top: var(--space-md); font-size: var(--text-sm); color: var(--color-text-muted)">
+        Tel: {SITE.contact.phone} · {SITE.contact.email}
+      </p>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  /* Toggle FAQ icon */
+  details[open] > summary > span {
+    transform: rotate(45deg);
+  }
+  details > summary > span {
+    display: inline-block;
+    transition: transform 0.2s ease;
+  }
+</style>
