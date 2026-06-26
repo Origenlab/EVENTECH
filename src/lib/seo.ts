@@ -337,6 +337,85 @@ export function itemListJsonLd(items: {
   };
 }
 
+/** Generate Product JSON-LD for rental equipment items (satisfies ZeroRank Product check) */
+export function productJsonLd(product: {
+  name: string;
+  description: string;
+  url: string;
+  image?: string;
+  sku?: string;
+  priceRange?: {
+    min: number;
+    max: number;
+    currency?: string;
+  };
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.description,
+    url: canonicalURL(product.url),
+    ...(product.image && { image: canonicalURL(product.image) }),
+    ...(product.sku && { sku: product.sku }),
+    brand: {
+      "@type": "Brand",
+      name: SITE.organization.name,
+    },
+    ...(product.priceRange && {
+      offers: {
+        "@type": "Offer",
+        url: canonicalURL(product.url),
+        priceCurrency: product.priceRange.currency ?? "MXN",
+        priceSpecification: {
+          "@type": "PriceSpecification",
+          minPrice: product.priceRange.min,
+          maxPrice: product.priceRange.max,
+          priceCurrency: product.priceRange.currency ?? "MXN",
+        },
+        availability: "https://schema.org/InStock",
+        seller: {
+          "@type": "Organization",
+          "@id": `${SITE.url}/#organization`,
+        },
+      },
+    }),
+  };
+}
+
+/** Generate HowTo JSON-LD for step-by-step instructional content */
+export function howToJsonLd(howTo: {
+  name: string;
+  description: string;
+  url: string;
+  image?: string;
+  totalTime?: string; // ISO 8601, e.g. "PT24H"
+  steps: {
+    name: string;
+    text: string;
+    url?: string;
+    image?: string;
+  }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: howTo.name,
+    description: howTo.description,
+    url: canonicalURL(howTo.url),
+    ...(howTo.image && { image: canonicalURL(howTo.image) }),
+    ...(howTo.totalTime && { totalTime: howTo.totalTime }),
+    step: howTo.steps.map((step, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: step.name,
+      text: step.text,
+      ...(step.url && { url: canonicalURL(step.url) }),
+      ...(step.image && { image: canonicalURL(step.image) }),
+    })),
+  };
+}
+
 /** Generate CollectionPage JSON-LD (for directory region/zone pages) */
 export function collectionPageJsonLd(page: {
   name: string;

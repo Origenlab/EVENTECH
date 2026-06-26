@@ -202,7 +202,7 @@ export default defineConfig({
 
   // ─── Redirects ───
   redirects: {
-    // Legacy redirects (add as needed)
-    // "/old-path": "/new-path",
+    // ZeroRank / crawlers que buscan /sitemap.xml en lugar de /sitemap-index.xml
+    "/sitemap.xml": "/sitemap-index.xml",
   },
 });

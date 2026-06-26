@@ -7,7 +7,7 @@
  */
 import PageLayout from "@layouts/PageLayout.astro";
 import { SITE } from "@config/site";
-import { breadcrumbJsonLd, faqJsonLd } from "@lib/seo";
+import { breadcrumbJsonLd, faqJsonLd, productJsonLd } from "@lib/seo";
 import "@styles/home-2026.css";
 import Breadcrumbs from "@components/Breadcrumbs.astro";
 
@@ -242,7 +242,17 @@ const breadcrumb = breadcrumbJsonLd([
 
 const faqSchema = faqJsonLd(faqs);
 
-const jsonLd = [...serviceSchemas, breadcrumb, faqSchema];
+/* ── Product schemas (satisfies ZeroRank Product check) ── */
+const productSchemas = CATEGORIAS.map((cat) =>
+  productJsonLd({
+    name: `${cat.nombre} para Renta de Eventos CDMX`,
+    description: cat.descripcion,
+    url: cat.href,
+    priceRange: { min: cat.minPrice, max: cat.maxPrice, currency: "MXN" },
+  })
+);
+
+const jsonLd = [...serviceSchemas, ...productSchemas, breadcrumb, faqSchema];
 
 /* ── SEO ─────────────────────────────────────────────────────────────── */
 const seo = {
