@@ -28,12 +28,10 @@ priceRange: "$$"
 pricePerPerson:
   min: 500
   max: 2500
-  unit: "persona"
 
 amenities:
   - jardin
   - alberca
-  - salon
   - acceso-discapacitados
   - pista-baile
   - area-fotos
@@ -67,13 +65,12 @@ eventTypes:
   - fiestas-privadas
   - comuniones
   - aniversarios
-  - despedidas-soltera
+  - despedidas
 
 schedule:
   weekdays: "09:00 - 01:00"
   weekends: "09:00 - 01:00"
   minHours: 5
-  officeHours: "Lunes a domingo 9:00 - 21:00"
 
 restrictions:
   - "Sin catering propio (catering 100% externo, sin exclusividades)"

@@ -28,31 +28,26 @@ priceRange: "$$$$"
 pricePerPerson:
   min: 1900
   max: 2800
-  unit: "persona"
 rentalPrice:
   min: 250000
   max: 250000
-  unit: "evento (precio fijo)"
+  unit: "evento"
 
 amenities:
-  - tecnologia-360
-  - pantalla-perimetral
-  - rooftop
+  - terraza
   - vista-panoramica
   - acceso-discapacitados
-  - cocina-gourmet
-  - mixologia
-  - realidad-aumentada
+  - cocina-industrial
   - aire-acondicionado
   - wifi
   - valet-parking
   - vestidores
   - area-fotos
-  - sonido-profesional
-  - iluminacion-escena
 
 servicesIncluded:
   - coordinador
+  - banquete
+  - open-bar
   - mobiliario-basico
   - manteleria
   - vajilla
@@ -61,8 +56,6 @@ servicesIncluded:
   - limpieza
   - montaje
   - desmontaje
-  - chef-autor
-  - sommelier
 
 servicesAvailable:
   - "Menú de autor: fusión, internacional, regional, vegetariano, vegano, celíaco, diabético"
@@ -72,36 +65,28 @@ servicesAvailable:
   - "Producción de contenido audiovisual para pantalla perimetral 360°"
   - "Producción EVENTECH: iluminación, sonido, video mapping, activaciones AR"
 
-externalCakeAllowed: true
-cateringOptional: true
-
 eventTypes:
   - bodas
   - corporativos
   - lanzamientos
   - congresos
   - aniversarios
-  - pedidas-de-mano
   - cenas-gala
-  - conciertos-privados
+  - conciertos
   - sesiones-foto
 
 schedule:
   weekdays: "10:30 - 06:00"
   weekends: "10:30 - 06:00"
   minHours: 5
-  curfew: "sin límite de hora"
-  officeHours: "10:30 - 17:15"
-  note: "Un solo evento por día. Sin toque de queda. Disponibilidad sujeta a agenda exclusiva."
+  curfew: "sin límite"
 
 contact:
   phone: "55 8659 9091"
   email: "ventas@cetro360.mx"
   website: "https://cetro360.mx"
   instagram: "@miradorbycetroficial"
-  instagramAlt: "@cetromexico"
   facebook: "miradorbycetro"
-  twitter: "@CetroMexico"
 
 image: "/images/venues/cetro-wtc-hero.avif"
 gallery:
@@ -120,17 +105,6 @@ eventechServices:
   - "sonido"
 eventechPartner: true
 eventechDiscount: "Producción audiovisual premium con integración nativa al sistema de pantalla 360°"
-
-corporateClients:
-  - "AT&T"
-  - "Disney"
-  - "Ford"
-  - "Grupo Modelo"
-  - "Hugo Boss"
-  - "Adidas"
-  - "F1 Mexico"
-  - "OCESA"
-  - "Universal"
 
 reviews:
   - author: "Dir. Mktg. Valentina Rojas — Coordinadora de Activaciones F1 México"
@@ -162,7 +136,7 @@ faqs:
     answer: "CETRO se ubica en Montecito 38, Piso 46, dentro del World Trade Center de la Ciudad de México, en Col. Nápoles, Benito Juárez. El WTC es uno de los edificios más reconocibles de la ciudad, visible desde toda la zona de Insurgentes. En transporte público, la estación más cercana es Metro CD del Deporte (Línea 9), a dos cuadras del edificio. También hay acceso por Periférico e Insurgentes Sur. El WTC cuenta con estacionamiento propio y servicio de valet parking para eventos."
 
 seoTitle: "CETRO WTC Piso 46 | Venue 360° en Benito Juárez CDMX"
-seoDescription: "CETRO Mirador & Events: venue en el Piso 46 del WTC CDMX. Pantalla perimetral 360° de 100 metros, la más grande de LATAM. 190 metros de altura. Bodas y corporativos premium en Benito Juárez."
+seoDescription: "CETRO Piso 46 WTC CDMX: pantalla 360° de 100m, la más grande de LATAM. 190 metros de altura. Bodas y eventos corporativos premium en BJ."
 keywords:
   - cetro wtc cdmx
   - venue piso 46 world trade center

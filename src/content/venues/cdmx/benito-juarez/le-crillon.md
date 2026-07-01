@@ -28,7 +28,6 @@ priceRange: "$$$"
 pricePerPerson:
   min: 1055
   max: 1580
-  unit: "persona"
 
 amenities:
   - estacionamiento

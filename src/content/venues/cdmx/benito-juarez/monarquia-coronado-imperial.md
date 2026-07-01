@@ -25,15 +25,13 @@ capacity:
   ceremony: 400
 
 priceRange: "$$$"
-rentalPrice:
+pricePerPerson:
   min: 985
   max: 1310
-  unit: "persona"
 
 amenities:
   - valet-parking
   - capilla
-  - rampa-hidraulica
   - pista-baile
   - cocina-industrial
   - aire-acondicionado
@@ -52,7 +50,6 @@ servicesIncluded:
   - desmontaje
   - seguridad
   - limpieza
-  - valet-parking
 
 servicesAvailable:
   - "Catering propio con menú adaptable (vegano y vegetariano disponible)"
@@ -71,7 +68,6 @@ eventTypes:
   - graduaciones
   - corporativos
   - aniversarios
-  - ceremonias-civiles
   - bautizos
   - cumpleanos
   - cenas-gala

@@ -28,17 +28,15 @@ priceRange: "$"
 pricePerPerson:
   min: 250
   max: 400
-  unit: "persona"
 
 amenities:
   - cocina-industrial
   - pista-baile
   - area-fotos
-  - montaje-lounge
-  - barra-dulces
+  - vestidores
 
 servicesIncluded:
-  - catering-propio
+  - banquete
   - mobiliario-basico
   - manteleria
   - vajilla
@@ -71,8 +69,6 @@ eventTypes:
   - baby-showers
   - comuniones
   - fiestas-privadas
-  - brunch
-  - desayunos
 
 schedule:
   weekdays: "14:00 - 23:00"

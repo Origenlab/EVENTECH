@@ -32,7 +32,6 @@ amenities:
   - wifi
   - acceso-discapacitados
   - generador-emergencia
-  - pet-friendly
   - area-fotos
   - terraza
 
@@ -58,7 +57,7 @@ servicesAvailable:
 
 eventTypes:
   - corporativos
-  - reuniones-ejecutivas
+  - reuniones
   - bodas
   - cenas-gala
   - lanzamientos

@@ -28,7 +28,6 @@ priceRange: "$$"
 pricePerPerson:
   min: 487
   max: 1200
-  unit: "persona"
 
 amenities:
   - estacionamiento
@@ -38,7 +37,7 @@ amenities:
   - aire-acondicionado
   - area-fotos
   - wifi
-  - sala-vip
+  - vestidores
 
 servicesIncluded:
   - coordinador
