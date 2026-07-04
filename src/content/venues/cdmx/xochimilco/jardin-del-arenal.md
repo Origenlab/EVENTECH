@@ -1,14 +1,28 @@
 ---
 name: "Jardín de Fiestas Del Arenal"
 slug: "jardin-del-arenal"
-description: "Jardín de Fiestas Del Arenal es un espacio al aire libre rodeado de vegetación natural en la colonia Valle Escondido, Xochimilco, una zona que conserva el carácter semi-rural y los paisajes verdes del sur de la Ciudad de México. Con capacidad para hasta 280 personas en banquete, el jardín combina 1,200 metros cuadrados de área verde con una palapa techada de 250 m² que permite celebrar sin preocupaciones climáticas. Su ambiente campestre, estacionamiento amplio y cercanía a los embarcaderos de Xochimilco lo convierten en referencia para bodas, XV años y celebraciones familiares al aire libre."
-shortDescription: "Jardín con palapa techada en Valle Escondido, Xochimilco. Bodas y XV años al aire libre hasta 280 personas. Ambiente campestre."
+description: >-
+  Jardín de Fiestas Del Arenal es un espacio al aire libre rodeado de vegetación
+  natural en la colonia Valle Escondido, Xochimilco — alcaldía declarada Patrimonio
+  de la Humanidad por la UNESCO por sus canales y chinampas prehispánicas. Con
+  capacidad para hasta 280 personas en banquete, el jardín combina 1,200 metros
+  cuadrados de área verde con una palapa techada de 250 m² que permite celebrar
+  sin preocupaciones climáticas. Su ambiente campestre, estacionamiento amplio y
+  cercanía a los embarcaderos de trajineras de Xochimilco lo convierten en
+  referencia para bodas campestres, XV años y celebraciones familiares en la única
+  zona lacustre de la Ciudad de México.
+shortDescription: "Jardín campestre con palapa en Valle Escondido, Xochimilco Patrimonio UNESCO."
 
 region: "cdmx"
 zone: "Xochimilco"
 zoneSlug: "xochimilco"
 address: "Calz. Arenal 582, Valle Escondido"
 neighborhood: "Valle Escondido"
+postalCode: "16200"
+coordinates:
+  lat: 19.2468235
+  lng: -99.1165533
+googleMapsUrl: "https://maps.google.com/?q=Jardin+del+arenal+xochimilco+CDMX"
 
 type: "jardin"
 
@@ -91,6 +105,18 @@ reviews:
     text: "El bautizo de nuestra hija con 120 invitados bajo la palapa. Los niños corrieron por el jardín toda la tarde, los abuelos estuvieron cómodos bajo la sombra y las fotos con la vegetación quedaron preciosas. Precio muy accesible para un jardín de este tamaño en Xochimilco."
     eventType: "bautizo"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Jardín de Fiestas Del Arenal?"
+    answer: "Jardín Del Arenal tiene capacidad para 280 personas en formato banquete y 350 en cóctel. Combina 1,200 metros cuadrados de área verde con una palapa techada de 250 m² para proteger a los invitados de las lluvias, en Valle Escondido, Xochimilco."
+  - question: "¿Dónde está Jardín Del Arenal y cómo llegar?"
+    answer: "El jardín se ubica en Calzada Arenal 582, colonia Valle Escondido, alcaldía Xochimilco, CDMX, C.P. 16200. Está en una zona que conserva el carácter semi-rural del sur de la ciudad, cercana a los embarcaderos de Xochimilco. Cuenta con amplio estacionamiento propio."
+  - question: "¿Qué incluye la renta de Jardín Del Arenal?"
+    answer: "La renta incluye mobiliario básico, mantelería, iluminación básica, montaje, desmontaje, seguridad y limpieza. El jardín cuenta con pista de baile, palapa techada, área infantil, área de fotos y Wi-Fi. Se pueden contratar carpas adicionales, catering externo y DJ de manera independiente."
+  - question: "¿Qué tipos de eventos acepta Jardín Del Arenal?"
+    answer: "Jardín Del Arenal es ideal para bodas campestres al aire libre, XV años, bautizos, cumpleaños, comuniones, fiestas privadas, aniversarios y fiestas infantiles. Su ambiente semi-rural y cercanía a los embarcaderos de Xochimilco lo convierten en referencia para celebraciones con sabor al sur de la CDMX."
+  - question: "¿Cuál es el horario de operación de Jardín Del Arenal?"
+    answer: "El jardín opera de lunes a viernes de 10:00 a 22:00 y fines de semana de 10:00 a 02:00 horas, con un mínimo de 5 horas de renta. La palapa techada de 250 m² garantiza la celebración incluso en temporada de lluvias, un diferenciador importante para eventos de mayo a octubre en el sur de la CDMX."
+
 seoTitle: "Jardín Del Arenal"
 seoDescription: "Jardín con palapa en Valle Escondido, Xochimilco. Bodas y XV años al aire libre hasta 280 personas. Áreas verdes y precio accesible."
 keywords:
@@ -102,6 +128,9 @@ keywords:
   - renta jardin sur cdmx
   - jardin con palapa xochimilco
   - eventos aire libre xochimilco cdmx
+  - venue xochimilco patrimonio UNESCO
+  - salón fiestas xochimilco cdmx
+  - jardín eventos zona lacustre cdmx
 
 featured: false
 premium: false

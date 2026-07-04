@@ -116,6 +116,17 @@ reviews:
     text: "Los XV años de mi hija fueron perfectos en Las Ventanas. La sesión de fotos por la tarde con la luz natural de los ventanales quedó espectacular. El vestidor fue muy útil para que mi hija se cambiara para la fiesta. La pista de baile tiene excelente tamaño para el vals y las coreografías."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón de Eventos Las Ventanas?"
+    answer: "Salón de Eventos Las Ventanas tiene capacidad para hasta 220 personas en formato banquete y hasta 280 en formato cóctel. Para ceremonias, el espacio acomoda hasta 130 invitados. El mínimo de invitados es de 40 personas."
+  - question: "¿Dónde está ubicado Salón de Eventos Las Ventanas y cómo llegar?"
+    answer: "Salón de Eventos Las Ventanas se encuentra en C. 12 #574, Pro Hogar, colonia Pro Hogar, alcaldía Azcapotzalco, Ciudad de México. Puedes llegar en Metro (línea 6, estación Vallejo o Ferrería) o en auto particular y Uber/DiDi. Cuenta con estacionamiento propio."
+  - question: "¿Qué está incluido en la renta de Salón de Eventos Las Ventanas?"
+    answer: "La renta de Salón de Eventos Las Ventanas incluye: mobiliario básico (mesas y sillas), mantelería, iluminación básica, montaje, desmontaje, personal de seguridad y limpieza post-evento. Las instalaciones cuentan además con cocina industrial, pista de baile, Wi-Fi, aire acondicionado."
+  - question: "¿Qué tipo de eventos se pueden realizar en Salón de Eventos Las Ventanas?"
+    answer: "Salón de Eventos Las Ventanas es ideal para bodas, XV años, bautizos, cumpleaños, graduaciones, primeras comuniones, fiestas privadas y aniversarios. Entre otros tipos de celebraciones y reuniones."
+  - question: "¿Cuál es el horario de eventos en Salón de Eventos Las Ventanas?"
+    answer: "Salón de Eventos Las Ventanas opera en los siguientes horarios: lunes a viernes de 10:00 - 23:00, sábados y domingos de 10:00 - 02:00. La renta mínima es de 5 horas. Respecto al catering: Catering externo permitido."
 seoTitle: "Salón Las Ventanas"
 seoDescription: "Salón con ventanales amplios en Pro Hogar, Azcapotzalco. Bodas, XV años y corporativos hasta 220 personas. Precios accesibles CDMX."
 keywords:

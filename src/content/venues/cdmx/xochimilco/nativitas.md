@@ -1,8 +1,20 @@
 ---
 name: "Jardines Nativitas Xochimilco"
 slug: "nativitas"
-description: "Jardines Nativitas ofrece la experiencia más auténticamente mexicana para celebrar un evento: junto a los legendarios canales de Xochimilco, Patrimonio de la Humanidad por la UNESCO. Este espacio único combina jardines sombreados por ahuehuetes de más de 500 años, kioscos tradicionales con vista al agua, y acceso directo al embarcadero donde trajineras adornadas pueden transportar a los invitados en un viaje mágico a través de los últimos vestigios de los lagos que rodeaban la gran Tenochtitlan. Es el venue para quienes buscan celebrar con raíces, tradición y la alegría contagiosa que solo Xochimilco puede ofrecer."
-shortDescription: "Jardines junto a canales UNESCO con ahuehuetes centenarios y acceso a trajineras en Xochimilco."
+description: >-
+  Jardines Nativitas ofrece la experiencia más auténticamente mexicana para
+  celebrar un evento: junto a los legendarios canales de Xochimilco, Patrimonio
+  de la Humanidad por la UNESCO declarado en 1987 por su sistema de chinampas
+  prehispánicas — la única zona lacustre activa de la Ciudad de México. Este
+  espacio único combina jardines sombreados por ahuehuetes de más de 500 años,
+  kioscos tradicionales con vista al agua, y acceso directo al embarcadero donde
+  trajineras adornadas transportan a los invitados por los canales que fueron
+  los últimos vestigios de los lagos que rodearon la gran Tenochtitlan. Con
+  capacidad para hasta 400 personas, es el venue para quienes buscan celebrar
+  boda xochimilco lago cdmx, XV años con llegada en trajinera o cualquier evento
+  con raíces, tradición y la alegría contagiosa que solo la zona patrimonial
+  de Xochimilco puede ofrecer.
+shortDescription: "Jardines con ahuehuetes centenarios junto a los canales Patrimonio UNESCO en Xochimilco."
 
 region: "cdmx"
 zone: "Xochimilco"
@@ -89,6 +101,29 @@ reviews:
     text: "Mis XV años con mariachi en trajinera fueron un sueño. Todos mis invitados quedaron encantados."
     eventType: "xv-anos"
 
+  - author: "Bernardo Salinas Moreno"
+    date: "2025-01"
+    rating: 5
+    text: "Celebramos el bautizo de nuestro hijo en Jardines Nativitas y la experiencia fue única. Que los padrinos llegaran en trajinera con mariachi fue el momento más emocionante de la tarde. El kiosco junto al canal nos dio las fotos más hermosas que podríamos imaginar. Un venue con alma que no tiene comparación."
+    eventType: "bautizo"
+  - author: "Valeria Ángeles Domínguez"
+    date: "2025-04"
+    rating: 4
+    text: "Nuestra boda en Jardines Nativitas fue todo lo que soñamos. El Jardín de los Ahuehuetes con esos árboles de 500 años como testigos de nuestra ceremonia civil nos dejó sin palabras. El equipo de coordinación fue muy atento y nos ayudó con los trajineros para el paseo nocturno de los invitados. Le doy 4 estrellas porque la música en vivo tuvo que terminar a las 22:00, pero entendemos la restricción de la zona UNESCO."
+    eventType: "boda"
+
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Jardines Nativitas Xochimilco?"
+    answer: "Jardines Nativitas tiene capacidad para hasta 400 personas en formato banquete y 600 en cóctel, con montaje para ceremonia de hasta 250 invitados. Sus jardines con ahuehuetes de más de 500 años junto al Embarcadero Nativitas ofrecen un escenario de escala excepcional."
+  - question: "¿Dónde están Jardines Nativitas y cómo llegar?"
+    answer: "Los jardines se ubican en el Embarcadero Nativitas, barrio de Nativitas, alcaldía Xochimilco, CDMX, C.P. 16030. Están junto a los legendarios canales Patrimonio de la Humanidad UNESCO. Se llega desde la Calzada de Xochimilco o en Tren Ligero hasta la estación Xochimilco. Cuenta con estacionamiento propio."
+  - question: "¿Qué incluye la renta de Jardines Nativitas?"
+    answer: "La renta incluye coordinador de eventos, mobiliario básico, montaje, desmontaje, seguridad y limpieza. El venue cuenta con cocina industrial, terraza con vista al agua, kioscos tradicionales y acceso directo al embarcadero para trajineras. Como socio EVENTECH, ofrece 10% de descuento en renta de carpas."
+  - question: "¿Para qué tipos de eventos son ideales Jardines Nativitas?"
+    answer: "Nativitas es el venue perfecto para bodas, XV años con llegada en trajinera, cumpleaños, bautizos y comuniones que busquen la experiencia más auténtica de Xochimilco. La posibilidad de transportar a los invitados en trajineras adornadas por los canales es el elemento que convierte cada celebración en un evento verdaderamente único."
+  - question: "¿Cuál es el horario y cuáles son las restricciones de Jardines Nativitas?"
+    answer: "Los jardines operan de lunes a viernes de 10:00 a 22:00 y fines de semana de 10:00 a 00:00 horas, con mínimo de 5 horas. La música en vivo tiene horario límite hasta las 22:00; el DJ puede operar hasta el cierre. El cierre máximo es a la medianoche para respetar la tranquilidad de la zona patrimonial de Xochimilco."
+
 seoTitle: "Jardines Nativitas"
 seoDescription: "Celebra junto a los canales de Xochimilco, Patrimonio UNESCO. Ahuehuetes centenarios, trajineras y tradición mexicana hasta 400 personas."
 keywords:
@@ -96,6 +131,13 @@ keywords:
   - bodas xochimilco cdmx
   - venue nativitas
   - eventos patrimonio unesco
+  - venue xochimilco patrimonio UNESCO
+  - eventos xochimilco trajineras
+  - boda xochimilco lago cdmx
+  - salón fiestas xochimilco cdmx
+  - jardín eventos zona lacustre cdmx
+  - xv anos xochimilco trajineras
+  - bodas canales xochimilco
 
 featured: false
 verified: true

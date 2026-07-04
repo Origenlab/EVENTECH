@@ -1,14 +1,30 @@
 ---
 name: "Jardín de Eventos La Caleta"
 slug: "jardin-la-caleta"
-description: "Jardín de Eventos La Caleta es un espacio al aire libre con ambiente rústico ubicado en Santiago Tulyehualco, Xochimilco, en la zona más rural del sur de la Ciudad de México. Con capacidad para hasta 250 personas en banquete, La Caleta ofrece 1,000 metros cuadrados de jardín con árboles frutales — ciruelos, higueras y cítricos que cambian con las estaciones — una zona techada de madera de 200 m² y un ambiente tranquilo alejado del ruido urbano. Su ubicación en Tulyehualco, tierra del amaranto y las tradiciones agrícolas, le confiere un carácter campestre auténtico para bodas rústicas, XV años y celebraciones familiares a precios accesibles."
-shortDescription: "Jardín rústico con árboles frutales en Tulyehualco, Xochimilco. Bodas y XV años al aire libre hasta 250 personas a precios accesibles."
+description: >-
+  Jardín de Eventos La Caleta es un espacio al aire libre con ambiente rústico
+  ubicado en Santiago Tulyehualco, Xochimilco, en la zona más rural del sur de
+  la Ciudad de México. Enclavado en la alcaldía declarada Patrimonio de la
+  Humanidad por la UNESCO por su sistema lacustre de chinampas prehispánicas,
+  La Caleta ofrece 1,000 metros cuadrados de jardín con árboles frutales —
+  ciruelos, higueras y cítricos que cambian con las estaciones — una zona
+  techada de madera de 200 m² y un ambiente tranquilo alejado del ruido urbano.
+  Su ubicación en Tulyehualco, tierra del amaranto y las tradiciones agrícolas
+  ligadas a la cultura chinampa, le confiere un carácter campestre auténtico
+  para bodas rústicas, XV años y celebraciones familiares en la única zona
+  lacustre de la Ciudad de México.
+shortDescription: "Jardín rústico con árboles frutales en Tulyehualco, Xochimilco Patrimonio UNESCO."
 
 region: "cdmx"
 zone: "Xochimilco"
 zoneSlug: "xochimilco"
 address: "Tlaltenco 118, Santiago Tulyehualco"
 neighborhood: "Santiago Tulyehualco"
+postalCode: "16750"
+coordinates:
+  lat: 19.2538494
+  lng: -99.0117244
+googleMapsUrl: "https://maps.google.com/?q=Jardin+la+caleta+xochimilco+CDMX"
 
 type: "jardin"
 
@@ -89,6 +105,18 @@ reviews:
     text: "Bautizo de nuestra nieta con 100 personas. El jardín con los árboles frutales en flor fue un escenario hermoso para las fotos familiares. La cercanía con la parroquia de Tulyehualco facilitó todo. Precio muy accesible para familias."
     eventType: "bautizo"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Jardín La Caleta Xochimilco?"
+    answer: "Jardín de Eventos La Caleta tiene capacidad para 250 personas en formato banquete y 300 en cóctel. Sus 1,000 metros cuadrados de jardín con árboles frutales y zona techada de madera de 200 m² ofrecen un ambiente campestre auténtico en Santiago Tulyehualco, Xochimilco."
+  - question: "¿Dónde está Jardín La Caleta y cómo llegar?"
+    answer: "El jardín se ubica en Tlaltenco 118, barrio de Santiago Tulyehualco, alcaldía Xochimilco, CDMX, C.P. 16750. Tulyehualco es la zona más rural del sur de la ciudad, conocida por el amaranto y las tradiciones agrícolas. Cuenta con estacionamiento propio y acceso para personas con discapacidad."
+  - question: "¿Qué incluye la renta de Jardín La Caleta?"
+    answer: "La renta incluye mobiliario básico, mantelería, iluminación básica, montaje, desmontaje y limpieza. El jardín cuenta con árboles frutales — ciruelos, higueras y cítricos que cambian con las estaciones —, zona techada de madera, pista de baile y área infantil para los más pequeños."
+  - question: "¿Qué tipos de eventos se celebran en Jardín La Caleta?"
+    answer: "La Caleta es ideal para bodas rústicas, XV años, bautizos, cumpleaños, comuniones, fiestas infantiles, fiestas privadas y aniversarios. El ambiente tranquilo alejado del ruido urbano y los árboles frutales como escenario crean fotos naturales y memorables para cualquier celebración."
+  - question: "¿Cuál es el horario y qué diferencia a Jardín La Caleta de otros venues?"
+    answer: "El jardín opera de lunes a viernes de 10:00 a 22:00 y fines de semana de 10:00 a 02:00 horas, con un mínimo de 5 horas de renta. El carácter auténticamente campestre de Santiago Tulyehualco, la tranquilidad absoluta de la zona rural de Xochimilco y los precios accesibles son los principales atractivos de La Caleta para bodas y XV años."
+
 seoTitle: "Jardín La Caleta Tulyehualco"
 seoDescription: "Jardín rústico con árboles frutales en Tulyehualco, Xochimilco. Bodas y XV años al aire libre hasta 250 personas. Precios accesibles."
 keywords:
@@ -100,6 +128,9 @@ keywords:
   - renta jardin tulyehualco cdmx
   - jardin rustico eventos xochimilco
   - jardin fiestas economico sur cdmx
+  - jardín eventos zona lacustre cdmx
+  - salón fiestas xochimilco cdmx
+  - boda xochimilco lago cdmx
 
 featured: false
 premium: false

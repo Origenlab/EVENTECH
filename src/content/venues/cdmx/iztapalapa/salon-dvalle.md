@@ -93,7 +93,8 @@ restrictions:
   - "Confeti metálico no permitido (protección del mármol)"
 
 contact:
-  phone: ""
+  phone: "55 4185 6424"
+  whatsapp: "55 4185 6424"
 
 image: "/images/venues/salon-dvalle-hero.avif"
 gallery:
@@ -150,6 +151,17 @@ reviews:
     text: "Nuestra graduación con 250 alumnos y familiares fue todo un éxito. El Salón Imperial tiene el espacio y la elegancia para que una ceremonia escolar se sienta especial y formal. El escenario que montamos al fondo con iluminación de EVENTECH se veía profesional. Los papás no dejaban de comentar lo bonito del lugar."
     eventType: "graduacion"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón D'Valle?"
+    answer: "Salón D'Valle tiene capacidad para hasta 350 personas en formato banquete y hasta 450 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salón D'Valle y cómo llegar?"
+    answer: "Salón D'Valle se encuentra en Av. Luis Hidalgo Monroy 329, San Miguel, alcaldía Iztapalapa, Ciudad de México. La alcaldía cuenta con múltiples estaciones del Metro (Líneas 8, 9 y A) y es accesible desde Periférico, Canal de San Juan y otras vías principales."
+  - question: "¿Qué incluye la renta de Salón D'Valle?"
+    answer: "La renta de Salón D'Valle incluye coordinador de eventos, mobiliario básico (mesas y sillas), mantelería, vajilla completa, iluminación básica. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón D'Valle?"
+    answer: "Salón D'Valle es apto para bodas, quinceañeras, bautizos, cumpleaños y aniversarios. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Se puede llevar catering externo a Salón D'Valle?"
+    answer: "Sí, Salón D'Valle permite el ingreso de catering externo, lo que te da libertad para elegir el servicio gastronómico que mejor se adapte a tu presupuesto y preferencias. Te recomendamos coordinar con anticipación los detalles logísticos de acceso para proveedores."
 seoTitle: "Salón D'Valle"
 seoDescription: "Salón clásico-europeo con mármol importado y candelabros de cristal en Iztapalapa. Bodas y XV años hasta 350 personas. Socio premium EVENTECH CDMX."
 keywords:

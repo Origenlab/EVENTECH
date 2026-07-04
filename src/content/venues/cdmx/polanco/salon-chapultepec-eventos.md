@@ -99,6 +99,34 @@ eventechPartner: true
 
 rating: 4.7
 reviewCount: 189
+reviews:
+  - author: "Natalia Lozano y Héctor Bravo"
+    date: "2025-04"
+    rating: 5
+    text: "Elegimos el Salón Chapultepec Eventos para nuestra boda por la combinación de una dirección de primer nivel en Polanco con un espacio que nos permitía personalizar completamente. Los 1,200 metros cuadrados con techos de 5 metros y vigas de madera restauradas ofrecen una elegancia que no depende de la decoración: el espacio habla solo. La terraza privada con vista arbolada fue el escenario de nuestro cóctel de bienvenida y los 320 invitados en ceremonia después disfrutaron el banquete incluido que fue de primera calidad."
+    eventType: "bodas"
+  - author: "Familia Morales Ibáñez"
+    date: "2024-11"
+    rating: 5
+    text: "Los XV años de mi hija en el Salón Chapultepec fueron perfectos en cada detalle. El venue en Presidente Masaryk a tres cuadras del Bosque de Chapultepec tiene una presencia que los invitados comentaron desde que llegaron. Los dos salones independientes y combinables nos permitieron tener el montaje de recepción separado de la pista de baile, y el servicio de banquete incluido en el paquete liberó a toda la familia de preocupaciones logísticas. Muy recomendado para celebraciones de alto nivel en Polanco."
+    eventType: "bodas"
+  - author: "Ing. Alberto Soria — Consorcio Inmobiliario ARCO"
+    date: "2025-02"
+    rating: 4
+    text: "Realizamos una cena de gala corporativa para 250 personas en el Salón Chapultepec y la experiencia fue muy positiva. Los pisos de mármol carrara y el diseño del espacio comunican el nivel de distinción que buscábamos para un evento de cierre de año con clientes de alto perfil. El open bar premium con mixólogos que ofrecen como servicio adicional fue un acierto. El único punto de mejora sería ampliar las opciones de menú del banquete incluido."
+    eventType: "cenas-gala"
+
+faqs:
+  - question: "¿Cuántas personas tienen cabida en Salón Chapultepec Eventos?"
+    answer: "Salón Chapultepec Eventos cuenta con 1,200 metros cuadrados distribuidos en dos salones combinables con capacidad de 100 a 400 personas en banquete y hasta 500 en cóctel. Para ceremonias, la capacidad es de 320 personas, con techos de 5 metros y pisos de mármol carrara."
+  - question: "¿Dónde está ubicado Salón Chapultepec Eventos?"
+    answer: "El salón se encuentra en Av. Presidente Masaryk 345, Polanco V Sección, Miguel Hidalgo, CP 11560, a solo tres cuadras del Bosque de Chapultepec. Cuenta con estacionamiento propio, valet parking y acceso para personas con discapacidad, en pleno corazón de Polanco."
+  - question: "¿Qué incluye la renta de Salón Chapultepec Eventos?"
+    answer: "La renta incluye banquete, meseros, coordinador de eventos, mobiliario básico, mantelería, vajilla, iluminación básica, sonido básico, montaje y desmontaje, seguridad y limpieza. La terraza privada con vista arbolada al Bosque de Chapultepec es parte del espacio disponible."
+  - question: "¿Qué tipo de eventos se realizan en Salón Chapultepec Eventos?"
+    answer: "El salón acepta bodas, cenas de gala, eventos corporativos, convenciones, aniversarios, XV años, lanzamientos de productos y fiestas privadas. También ofrece servicios adicionales como open bar premium con mixólogos, producción audiovisual y florería."
+  - question: "¿Cuál es el horario y la política de catering en Salón Chapultepec Eventos?"
+    answer: "Opera entre semana de 13:00 a 00:00 horas y los fines de semana de 12:00 a 02:00, con duración mínima de 5 horas. El catering es parte de los servicios incluidos. Para eventos que requieran catering internacional o caterers especializados, existe coordinación con proveedores autorizados externos."
 
 seoTitle: "Salón Chapultepec Eventos Polanco"
 seoDescription: "Salón de lujo en Polanco para eventos hasta 400 personas. Banquete incluido, terraza privada. Bodas y cenas de gala en la zona más exclusiva de CDMX."

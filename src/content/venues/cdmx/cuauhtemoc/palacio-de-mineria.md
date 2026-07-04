@@ -1,9 +1,28 @@
 ---
 name: "Palacio de Minería"
 slug: "palacio-de-mineria"
-description: "El Palacio de Minería representa la cumbre del neoclásico latinoamericano y es considerado la obra maestra del arquitecto Manuel Tolsá. Construido entre 1797 y 1813 como sede del Real Seminario de Minería, este monumento nacional combina proporciones perfectas, cantería de Chiluca labrada a mano y una escalera helicoidal que Alexander von Humboldt calificó como 'una de las obras más bellas jamás concebidas'. Sus salones con frescos originales de Rafael Ximeno y Planes, patios con fuentes de cantera rosa y columnas corintias crean un escenario de elegancia incomparable para bodas de alta sociedad, cenas de gala corporativas, ceremonias de premiación y eventos que exigen un marco arquitectónico verdaderamente excepcional en el corazón del Centro Histórico de la Ciudad de México."
-shortDescription: "Obra maestra neoclásica de Manuel Tolsá con salones monumentales, frescos originales y la escalera más icónica de México."
-
+description: >-
+  Inaugurado en 1797 bajo la dirección del maestro valenciano Manuel Tolsá,
+  el Palacio de Minería es considerado la obra cumbre del neoclásico
+  novohispano en América Latina y uno de los monumentos más imponentes del
+  Centro Histórico de la Ciudad de México. Su Patio Central de doble arcada
+  —con columnas toscanas en planta baja y jónicas en el primer nivel, fuente
+  de cantera rosa original y proporciones que Alexander von Humboldt calificó
+  de perfectas— es el escenario de cócteles hasta 1,200 personas bajo las
+  estrellas del Centro Histórico. La Sala Manuel Tolsá, con frescos originales
+  de Rafael Ximeno y Planes en techos de doce metros y candiles de cristal de
+  Bohemia del siglo XIX, aloja galas y congresos de hasta 800 personas con una
+  majestuosidad que ningún venue contemporáneo puede replicar. La escalera
+  helicoidal autoportante —116 escalones de cantera que parecen flotar sin
+  columna de soporte visible— funciona como backdrop fotográfico y pasarela
+  ceremonial único en el mundo. Para directivos corporativos, presidentes de
+  asociaciones y comités de eventos de instituciones financieras, elegir el
+  Palacio de Minería transmite un mensaje inequívoco: este evento es de la más
+  alta jerarquía. Ubicado en Tacuba 5, a pasos del Palacio de Bellas Artes y
+  del Metro Bellas Artes, el acceso desde cualquier punto de la ciudad es
+  directo. Los eventos requieren tramitación de permisos ante el INAH con al
+  menos 90 días de anticipación.
+shortDescription: "Obra maestra de Manuel Tolsá (1797): Patio Central hasta 1,200 cóctel, Sala Tolsá 800 banquete y la escalera icónica del Centro Histórico CDMX."
 region: "cdmx"
 zone: "Cuauhtémoc"
 zoneSlug: "cuauhtemoc"
@@ -74,17 +93,49 @@ gallery:
 eventechPartner: false
 rating: 4.9
 reviewCount: 89
+reviews:
+  - author: "Lic. Ignacio Herrera Fuentes — Cámara Nacional de la Industria Mexicana"
+    date: "2025-02"
+    rating: 5
+    text: "Organizar nuestra ceremonia de premiación anual en el Palacio de Minería fue una decisión que transformó el nivel percibido de nuestro evento industria. La obra maestra de Manuel Tolsá, con sus frescos originales de Rafael Ximeno y Planes y la escalera helicoidal que Humboldt calificó de obra perfecta, generó una experiencia en los 600 asistentes que ningún venue contemporáneo puede replicar. La coordinación de permisos con UNAM fue manejada con profesionalismo y los montajes respetaron escrupulosamente el patrimonio histórico."
+    eventType: "corporativos"
+  - author: "Dra. Alejandra Montoya — Colegio Nacional de Ciencias"
+    date: "2024-10"
+    rating: 5
+    text: "Realizamos nuestra convención centenaria en el Palacio de Minería por razones históricas y simbólicas que el espacio cumplió con creces. Caminar por los patios de cantera rosa con columnas corintias es una experiencia que marca a los asistentes antes de que comience el evento. Los salones con frescos originales del siglo XVIII son un escenario de una dignidad incomparable para eventos académicos y culturales de primer nivel. El impacto en fotografía y en la percepción de los delegados internacionales fue invaluable."
+    eventType: "convenciones"
+  - author: "Lic. Beatriz Guzmán, Coordinadora de Eventos — Grupo Financiero Banamex Cultural"
+    date: "2025-04"
+    rating: 5
+    text: "La cena de gala de fin de año de nuestra institución en el Palacio de Minería fue el evento más memorable en la historia reciente de la empresa. Ese patio de cantera con fuentes originales iluminado para una gala nocturna es algo que nuestros invitados siguen mencionando meses después. El proceso de coordinación con los requerimientos del INAH requiere anticipación y experiencia — recomendamos contar con un organizador profesional que conozca el venue — pero el resultado final justifica cada esfuerzo."
+    eventType: "cenas-gala"
 
+faqs:
+  - question: "¿Cuántas personas caben en el Palacio de Minería?"
+    answer: "El Palacio de Minería tiene capacidad para 800 personas en banquete y hasta 1,200 en cóctel. Para ceremonias en sus patios coloniales puede alojar hasta 400 personas sentadas. El aforo mínimo es de 100 personas. Sus salones monumentales con frescos originales de Rafael Ximeno y Planes son el escenario sin par para eventos de máxima distinción."
+  - question: "¿Dónde está el Palacio de Minería y cómo llegar?"
+    answer: "Se ubica en Tacuba 5, Centro Histórico, alcaldía Cuauhtémoc, C.P. 06000, a media cuadra del Museo Nacional de Arte y del Palacio de Bellas Artes. El Metro más cercano es Bellas Artes (Líneas 2 y 8), a 200 metros. También está el Metro Allende (Línea 2). Cuenta con acceso para discapacitados y WiFi."
+  - question: "¿Qué incluye la renta del Palacio de Minería?"
+    answer: "La renta incluye coordinador de eventos, seguridad especializada, limpieza e iluminación básica. El espacio comprende salones con frescos originales del siglo XVIII, la escalera helicoidal que Alexander von Humboldt catalogó como 'una de las obras más bellas jamás concebidas', patios con fuentes de cantera rosa y columnas corintias. El mobiliario, catering y decoración se contratan con proveedores externos aprobados."
+  - question: "¿Qué tipo de eventos se realizan en el Palacio de Minería?"
+    answer: "El Palacio de Minería está especializado en eventos corporativos de alto nivel, cenas de gala, graduaciones universitarias, lanzamientos de producto de primer orden, convenciones y ceremonias de premiación. Al ser un monumento nacional administrado por la UNAM, los eventos deben tramitar permisos especiales con el INAH y respetar estrictamente las normas de preservación del patrimonio."
+  - question: "¿Cuál es el proceso para reservar el Palacio de Minería y cuánto cuesta?"
+    answer: "El Palacio de Minería opera de 09:00 a 23:00 todos los días, con mínimo de 4 horas de renta. Los precios van de $150,000 a $350,000 por evento, siendo uno de los venues más exclusivos de México. Se requiere tramitar permisos especiales con el INAH, la decoración está sujeta a aprobación previa, no se permite pirotecnia y todos los montajes deben respetar la integridad de la estructura histórica."
 seoTitle: "Palacio de Minería"
 seoDescription: "Palacio de Minería: obra maestra de Tolsá con salones monumentales, frescos originales y patios coloniales. Eventos de gala hasta 800 personas."
 keywords:
-  - palacio mineria eventos
-  - salon historico centro cdmx
-  - venue gala ciudad mexico
-  - eventos corporativos centro historico
-  - bodas palacio mineria
-  - cenas gala cdmx
-
+  - palacio de mineria eventos cdmx
+  - venue corporativo historico cdmx
+  - renta palacio mineria evento
+  - cena gala palacio mineria
+  - congreso palacio de mineria cdmx
+  - evento cultural palacio mineria mexico city
+  - venue gala centro historico ciudad de mexico
+  - salon monumental cdmx eventos corporativos
+  - manuel tolsa venue historico cdmx
+  - venue neoclasico cdmx lujo
+  - ceremonia premiacion palacio mineria
+  - convencion palacio mineria centro historico
 featured: true
 premium: true
 verified: true

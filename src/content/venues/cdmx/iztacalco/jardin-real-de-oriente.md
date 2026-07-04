@@ -112,6 +112,17 @@ reviews:
     text: "Nuestra boda con 120 invitados fue perfecta. El jardín al atardecer se veía hermoso y las fotos quedaron increíbles con los árboles de fondo. El montaje estuvo listo a tiempo y todo funcionó sin problemas. Excelente opción en Iztacalco."
     eventType: "boda"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Jardín Real de Oriente?"
+    answer: "Jardín Real de Oriente tiene capacidad para hasta 200 personas en formato banquete y hasta 250 en formato cóctel. El espacio al aire libre resulta ideal para celebraciones en un ambiente natural y tranquilo."
+  - question: "¿Dónde está ubicado Jardín Real de Oriente y cómo llegar?"
+    answer: "Jardín Real de Oriente se encuentra en Ote. 229 #200, Agrícola Oriental, alcaldía Iztacalco, Ciudad de México. La alcaldía está bien comunicada a través de las líneas del Metro (Línea 8 y 9) y vías principales como el Eje 4 y la Calzada de la Viga."
+  - question: "¿Qué incluye la renta de Jardín Real de Oriente?"
+    answer: "La renta de Jardín Real de Oriente incluye mobiliario básico (mesas y sillas), mantelería, montaje del evento, desmontaje, servicio de limpieza. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Jardín Real de Oriente?"
+    answer: "Jardín Real de Oriente es apto para bodas, quinceañeras, bautizos, cumpleaños y comuniones. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Se puede llevar catering externo a Jardín Real de Oriente?"
+    answer: "Sí, Jardín Real de Oriente permite el ingreso de catering externo, lo que te da libertad para elegir el servicio gastronómico que mejor se adapte a tu presupuesto y preferencias. Te recomendamos coordinar con anticipación los detalles logísticos de acceso para proveedores."
 seoTitle: "Jardín Real de Oriente"
 seoDescription: "Jardín para eventos en Agrícola Oriental, Iztacalco. Bodas, XV años y bautizos hasta 200 personas. Precios accesibles en CDMX."
 keywords:

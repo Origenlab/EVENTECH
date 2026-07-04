@@ -109,6 +109,17 @@ reviews:
     text: "Nuestra boda civil fue en Kristel con 140 invitados. El salón se prestó muy bien para la decoración que pusimos, la cocina funcionó perfecto para el catering y los invitados estuvieron cómodos toda la noche. Muy recomendable por el precio."
     eventType: "boda"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón de Fiestas Kristel?"
+    answer: "Salón de Fiestas Kristel tiene capacidad para hasta 180 personas en formato banquete y hasta 220 en formato cóctel. Para ceremonias, el espacio acomoda hasta 100 invitados. El mínimo de invitados es de 30 personas."
+  - question: "¿Dónde está ubicado Salón de Fiestas Kristel y cómo llegar?"
+    answer: "Salón de Fiestas Kristel se encuentra en Cerrojillo 72, José María Pino Suárez, colonia José María Pino Suárez, alcaldía Álvaro Obregón, Ciudad de México. La zona es accesible en auto particular; se recomienda usar Uber o DiDi indicando el nombre del salón. Cuenta con estacionamiento propio."
+  - question: "¿Qué está incluido en la renta de Salón de Fiestas Kristel?"
+    answer: "La renta de Salón de Fiestas Kristel incluye: mobiliario básico (mesas y sillas), mantelería, montaje, desmontaje y limpieza post-evento. Las instalaciones cuentan además con cocina industrial, pista de baile, aire acondicionado."
+  - question: "¿Qué tipo de eventos se pueden realizar en Salón de Fiestas Kristel?"
+    answer: "Salón de Fiestas Kristel es ideal para bodas, XV años, bautizos, cumpleaños, primeras comuniones, fiestas privadas, aniversarios y baby showers."
+  - question: "¿Cuál es el horario de eventos en Salón de Fiestas Kristel?"
+    answer: "Salón de Fiestas Kristel opera en los siguientes horarios: lunes a viernes de 10:00 - 23:00, sábados y domingos de 10:00 - 02:00. La renta mínima es de 5 horas. Respecto al catering: Catering externo permitido sin recargo."
 seoTitle: "Salón Kristel Álvaro Obregón"
 seoDescription: "Salón de fiestas Kristel en Álvaro Obregón. Bodas, XV años y bautizos hasta 180 personas con A/C y proveedores libres. Desde $7,000."
 keywords:

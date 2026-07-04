@@ -117,6 +117,17 @@ reviews:
     text: "Los XV de Karen con 230 invitados fueron una gran fiesta. La pista de baile es amplia, el sonido se escuchó bien en todo el salón y la iluminación LED le dio un toque moderno que a los jóvenes les encantó. El precio fue justo para lo que ofrece. Muy contentos con la elección."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Cristal Iztacalco?"
+    answer: "Salón Cristal Iztacalco tiene capacidad para hasta 250 personas en formato banquete y hasta 300 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salón Cristal Iztacalco y cómo llegar?"
+    answer: "Salón Cristal Iztacalco se encuentra en Sur 8 #318, Agrícola Oriental, alcaldía Iztacalco, Ciudad de México. La alcaldía está bien comunicada a través de las líneas del Metro (Línea 8 y 9) y vías principales como el Eje 4 y la Calzada de la Viga."
+  - question: "¿Qué incluye la renta de Salón Cristal Iztacalco?"
+    answer: "La renta de Salón Cristal Iztacalco incluye mobiliario básico (mesas y sillas), mantelería, vajilla completa, iluminación básica, montaje del evento. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón Cristal Iztacalco?"
+    answer: "Salón Cristal Iztacalco es apto para bodas, quinceañeras, bautizos, cumpleaños y aniversarios. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Se puede llevar catering externo a Salón Cristal Iztacalco?"
+    answer: "Sí, Salón Cristal Iztacalco permite el ingreso de catering externo, lo que te da libertad para elegir el servicio gastronómico que mejor se adapte a tu presupuesto y preferencias. Te recomendamos coordinar con anticipación los detalles logísticos de acceso para proveedores."
 seoTitle: "Salón Cristal Iztacalco"
 seoDescription: "Salón moderno con iluminación LED en Agrícola Oriental, Iztacalco. Bodas y XV años hasta 250 personas. Vajilla incluida, oriente CDMX."
 keywords:

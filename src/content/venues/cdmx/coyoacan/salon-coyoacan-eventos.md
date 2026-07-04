@@ -95,7 +95,34 @@ eventechPartner: true
 
 rating: 4.5
 reviewCount: 178
+reviews:
+  - author: "Daniela y Héctor Ramírez Aguirre"
+    date: "2025-04"
+    rating: 5
+    text: "Nuestra boda en el Salón Coyoacán fue un sueño hecho realidad. El jardín interior de 400m² con las paredes de tepetate y pisos de barro nos dieron exactamente la estética que buscábamos —auténtica, cálida, coyoacanense— sin sacrificar comodidad. Varios de nuestros invitados de fuera de la ciudad aprovecharon para caminar al centro histórico de Coyoacán antes de la ceremonia. Lugar perfecto."
+    eventType: "boda"
+  - author: "Familia Villanueva Ríos"
+    date: "2024-10"
+    rating: 5
+    text: "Los XV años de mi hija Sofía fueron todo lo que siempre soñamos. El salón colonial de dos plantas en Francisco Ortiz 45 tiene una magia muy especial que no encontramos en otros salones modernos. Las vigas de madera y los pisos de barro le dieron un toque auténtico que encantó a todos los invitados. El staff fue muy atento durante toda la noche. ¡Totalmente recomendado!"
+    eventType: "xv-años"
+  - author: "Familia Domínguez Ochoa"
+    date: "2024-06"
+    rating: 4
+    text: "Hicimos la graduación de preparatoria de nuestra hija aquí y el ambiente del barrio de Del Carmen le dio al evento un encanto especial. La pista de baile de 100m² fue suficiente para todos, y el jardín interior funcionó perfecto para el cóctel de bienvenida. Estar a tres cuadras del centro de Coyoacán fue un plus enorme para los invitados que querían conocer el barrio."
+    eventType: "graduación"
 
+faqs:
+  - question: "¿Cuántas personas caben en Salón Coyoacán Eventos?"
+    answer: "Salón Coyoacán Eventos tiene capacidad para 300 personas en banquete y hasta 380 en cóctel. Para ceremonias puede alojar 240 personas sentadas. El aforo mínimo es de 80 invitados. El espacio distribuye 900 m² en dos plantas con jardín interior de 400 m²."
+  - question: "¿Dónde está Salón Coyoacán Eventos y cómo llegar?"
+    answer: "Se ubica en Francisco Ortiz 45, Colonia Del Carmen, Coyoacán, C.P. 04100, a solo 3 cuadras del Centro Histórico de Coyoacán. Tiene acceso desde Insurgentes Sur y División del Norte. Cuenta con estacionamiento propio. El Metro más cercano es Viveros (Línea 3), a 10 minutos caminando."
+  - question: "¿Qué incluye la renta de Salón Coyoacán Eventos?"
+    answer: "La renta incluye banquete completo con meseros, coordinador, mobiliario básico, mantelería, vajilla, iluminación básica, montaje y desmontaje, seguridad y limpieza. También incluye el uso de la cocina industrial, jardín interior de 400 m², pista de baile de 100 m² y vestidores."
+  - question: "¿Qué tipo de eventos acepta Salón Coyoacán Eventos?"
+    answer: "Salón Coyoacán Eventos acepta bodas, XV años, graduaciones, eventos corporativos, cumpleaños, aniversarios, bautizos y fiestas privadas. Su arquitectura colonial —paredes de tepetate, pisos de barro y vigas de madera— lo convierte en el venue más auténtico de la alcaldía para celebraciones con ambiente coyoacanense."
+  - question: "¿Cuál es el horario de Salón Coyoacán Eventos y puede entrar catering externo?"
+    answer: "El horario de operación es de 13:00 a 23:30 entre semana y de 12:00 a 02:00 los fines de semana, con un mínimo de 5 horas. El salón permite servicios adicionales como open bar con bartenders, DJ y sonido profesional EVENTECH, decoración estilo Coyoacán y fotografía. El estacionamiento es propio e incluido."
 seoTitle: "Salón Coyoacán Eventos"
 seoDescription: "Salón colonial 900m² con jardín interior en Coyoacán. Hasta 300 personas. Bodas, XV años y celebraciones en el barrio más bohemio de CDMX."
 keywords:

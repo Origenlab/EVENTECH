@@ -96,7 +96,29 @@ reviews:
     rating: 5
     text: "El lugar más romántico que he visto. Nuestra boda fue un sueño hecho realidad."
     eventType: "boda"
+  - author: "Familia Gutiérrez Peña"
+    date: "2025-01"
+    rating: 5
+    text: "Los XV años de mi hija en Hacienda San Ángel superaron todo lo que imaginamos. La capilla barroca del siglo XVII para la misa fue emocionante hasta las lágrimas, y pasar directamente al jardín de jacarandas para la recepción —sin que nadie tuviera que moverse a otro venue— fue una comodidad enorme. La suite nupcial permitió que ella se preparara ahí mismo. Absolutamente recomendable."
+    eventType: "xv-anos"
+  - author: "Padre Guillermo Arriaga Noriega"
+    date: "2024-09"
+    rating: 5
+    text: "Realicé el bautizo de mi nieto en la capilla de Hacienda San Ángel y la experiencia fue conmovedora. El retablo barroco original, los muros de adobe del siglo XVII y la solemnidad del espacio le dieron al sacramento una profundidad que las parroquias modernas difícilmente alcanzan. La familia extendida disfrutó después del jardín con fuentes de cantera rosa. Un lugar con alma."
+    eventType: "bautizo"
 
+
+faqs:
+  - question: "¿Cuántas personas caben en Hacienda San Ángel?"
+    answer: "Hacienda San Ángel tiene capacidad para 350 personas en banquete y hasta 450 en cóctel. Para ceremonias religiosas o civiles en la capilla y jardines, puede alojar hasta 200 invitados sentados. El aforo mínimo es de 40 personas."
+  - question: "¿Dónde está Hacienda San Ángel y cómo llegar?"
+    answer: "Hacienda San Ángel se ubica en Diego Rivera 50, Colonia San Ángel Inn, alcaldía Álvaro Obregón, C.P. 01060. Está en el corazón de San Ángel, a 5 minutos del Bazar del Sábado y del Museo Casa Estudio Diego Rivera. Se llega por Insurgentes Sur o Periférico. Cuenta con estacionamiento y servicio de valet parking."
+  - question: "¿Qué incluye la renta de Hacienda San Ángel?"
+    answer: "La renta incluye banquete completo con meseros, coordinador de bodas, mobiliario básico, mantelería, vajilla, seguridad y limpieza. El espacio cuenta con capilla colonial con retablo barroco, jardines con jacarandas centenarias, fuentes de cantera rosa, suite nupcial, vestidores y pista de baile."
+  - question: "¿Qué tipo de eventos se realizan en Hacienda San Ángel?"
+    answer: "Hacienda San Ángel está especializada en bodas, XV años, bautizos, primeras comuniones, aniversarios y celebraciones familiares de alto nivel. Su capilla barroca del siglo XVII la convierte en una de las pocas haciendas en CDMX donde se pueden realizar ceremonias religiosas sin salir del venue."
+  - question: "¿Cuál es el horario y política de música exterior en Hacienda San Ángel?"
+    answer: "El horario de eventos es de 14:00 a 23:00 entre semana y de 12:00 a 01:00 los fines de semana, con un mínimo de 5 horas de renta. La música en exteriores (jardines y terraza) tiene permitida su operación hasta las 22:00 horas, conforme a las normas ambientales de la zona. Después de esa hora, la celebración puede continuar en los salones interiores."
 seoTitle: "Hacienda San Ángel"
 seoDescription: "Hacienda del siglo XVII en San Ángel con capilla barroca y jardines centenarios. Bodas románticas hasta 350 personas."
 keywords:

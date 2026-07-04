@@ -9,6 +9,11 @@ zone: "Gustavo A. Madero"
 zoneSlug: "gustavo-a-madero"
 address: "D.G. Berlanga Mz.23 Lt.1, Amp. Gabriel Hernández"
 neighborhood: "Ampliación Gabriel Hernández"
+postalCode: "07080"
+coordinates:
+  lat: 19.4994284
+  lng: -99.1032894
+googleMapsUrl: "https://maps.google.com/?q=Salon+sarita+Gustavo+A+Madero+CDMX"
 
 type: "salon"
 
@@ -86,6 +91,17 @@ reviews:
     text: "Celebramos nuestra boda civil con 160 invitados y la experiencia fue excelente. El salón estaba impecable, la pista de baile es amplia y los dueños nos apoyaron en todo el proceso de organización. Lo recomendamos ampliamente para eventos familiares."
     eventType: "boda"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón de Fiestas Sarita?"
+    answer: "Salón de Fiestas Sarita tiene capacidad para hasta 180 personas en formato banquete y hasta 220 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salón de Fiestas Sarita y cómo llegar?"
+    answer: "Salón de Fiestas Sarita se encuentra en D.G. Berlanga Mz.23 Lt.1, Amp. Gabriel Hernández, colonia Ampliación Gabriel Hernández, alcaldía Gustavo A. Madero, Ciudad de México. La alcaldía cuenta con varias estaciones del Metro (Líneas 3 y 6) y amplia red de transporte público que facilita el acceso desde toda la CDMX."
+  - question: "¿Qué incluye la renta de Salón de Fiestas Sarita?"
+    answer: "La renta de Salón de Fiestas Sarita incluye mobiliario básico (mesas y sillas), mantelería, iluminación básica, montaje del evento, desmontaje. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón de Fiestas Sarita?"
+    answer: "Salón de Fiestas Sarita es apto para bodas, quinceañeras, bautizos, comuniones y cumpleaños. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Salón de Fiestas Sarita?"
+    answer: "Salón de Fiestas Sarita opera entre semana de 10:00 - 23:00 y fines de semana de 10:00 - 02:00 con un mínimo de 5 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Salón Sarita - Fiestas Familiares en GAM CDMX"
 seoDescription: "Salón de fiestas familiar en Amp. Gabriel Hernández, GAM. Bodas, XV años y bautizos hasta 180 personas. Precios accesibles."
 keywords:

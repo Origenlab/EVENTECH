@@ -119,6 +119,17 @@ reviews:
     text: "La graduación de sexto grado con 230 personas entre alumnos y familias salió muy bien. El salón se adaptó primero para la ceremonia de entrega de diplomas y después para la fiesta. El estacionamiento sobre Av. de las Granjas facilitó la llegada de todos. Buen espacio para eventos escolares."
     eventType: "graduaciones"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Dorado?"
+    answer: "Salón Dorado tiene capacidad para hasta 250 personas en formato banquete y hasta 300 en formato cóctel. Para ceremonias, el espacio acomoda hasta 150 invitados. El mínimo de invitados es de 50 personas."
+  - question: "¿Dónde está ubicado Salón Dorado y cómo llegar?"
+    answer: "Salón Dorado se encuentra en Av. de las Granjas 972, Ferrería, colonia Ferrería, alcaldía Azcapotzalco, Ciudad de México. Puedes llegar en Metro (línea 6, estación Vallejo o Ferrería) o en auto particular y Uber/DiDi. Cuenta con estacionamiento propio."
+  - question: "¿Qué está incluido en la renta de Salón Dorado?"
+    answer: "La renta de Salón Dorado incluye: mobiliario básico (mesas y sillas), mantelería, iluminación básica, montaje, desmontaje, limpieza post-evento y personal de seguridad. Las instalaciones cuentan además con cocina industrial, pista de baile, Wi-Fi, aire acondicionado."
+  - question: "¿Qué tipo de eventos se pueden realizar en Salón Dorado?"
+    answer: "Salón Dorado es ideal para bodas, XV años, bautizos, primeras comuniones, cumpleaños, graduaciones, aniversarios y eventos corporativos. Entre otros tipos de celebraciones y reuniones."
+  - question: "¿Cuál es el horario de eventos en Salón Dorado?"
+    answer: "Salón Dorado opera en los siguientes horarios: lunes a viernes de 10:00 - 23:00, sábados y domingos de 10:00 - 02:00. La renta mínima es de 5 horas. Respecto al catering: Catering externo permitido."
 seoTitle: "Salón Dorado Azcapotzalco"
 seoDescription: "Salón elegante en Ferrería, Azcapotzalco. Bodas, XV años y bautizos hasta 250 personas. Acabados dorados y buena ubicación."
 keywords:

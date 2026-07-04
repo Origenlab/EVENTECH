@@ -9,6 +9,11 @@ zone: "Milpa Alta"
 zoneSlug: "milpa-alta"
 address: "Doroteo Arango s/n, Mehiko"
 neighborhood: "Mehiko"
+postalCode: "12100"
+coordinates:
+  lat: 19.2148541
+  lng: -99.0029312
+googleMapsUrl: "https://maps.google.com/?q=Salon+faisanes+milpa+alta+CDMX"
 
 type: "salon"
 
@@ -88,6 +93,17 @@ reviews:
     text: "Primera comunión de nuestros dos hijos con 100 invitados. El espacio es funcional, limpio y nos dejaron decorar a nuestro gusto sin problema. El estacionamiento fue suficiente y el personal muy atento. Precio justo."
     eventType: "comunion"
 
+faqs:
+  - question: "¿Cuál es la capacidad de Salón de Eventos Faisanes?"
+    answer: "Salón de Eventos Faisanes puede recibir hasta 200 personas. La capacidad varía según el montaje: banquete, cóctel o teatro. Consulta con el equipo para el formato que mejor se adapte a tu evento."
+  - question: "¿Dónde está ubicado Salón de Eventos Faisanes y cómo llegar?"
+    answer: "Salón de Eventos Faisanes se ubica en Doroteo Arango s/n, Mehiko, colonia Mehiko, alcaldía CDMX, Ciudad de México. Si vas en auto, se recomienda verificar disponibilidad de estacionamiento directamente con el venue."
+  - question: "¿Qué incluye la renta de Salón de Eventos Faisanes?"
+    answer: "La renta de Salón de Eventos Faisanes incluye: mobiliario-basico, manteleria, iluminacion-basica, sonido-basico, montaje, desmontaje, limpieza. Además, el venue cuenta con las siguientes instalaciones y amenidades: estacionamiento, pista-baile, terraza, aire-acondicionado, acceso-discapacitados, wifi. Para paquetes personalizados o servicios adicionales, consulta directamente con el equipo."
+  - question: "¿Qué tipo de eventos se pueden realizar en Salón de Eventos Faisanes?"
+    answer: "Salón de Eventos Faisanes es apto para una amplia variedad de eventos, entre ellos: bodas, xv-anos, bautizos, cumpleanos, comuniones, fiestas-infantiles, fiestas-privadas, aniversarios. El equipo del venue puede orientarte sobre el montaje más adecuado para cada ocasión."
+  - question: "¿Salón de Eventos Faisanes cuenta con estacionamiento?"
+    answer: "Sí, estacionamiento. Además, el venue puede orientarte sobre opciones de acceso en transporte público o valet parking según disponibilidad. Consulta directamente para más detalles."
 seoTitle: "Salón Faisanes Milpa Alta Fiestas y Eventos"
 seoDescription: "Salón de eventos en Milpa Alta con terraza. Bodas, XV años y bautizos hasta 200 personas. Precios accesibles y aire de montaña."
 keywords:

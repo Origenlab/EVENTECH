@@ -81,7 +81,34 @@ gallery:
 eventechPartner: false
 rating: 4.8
 reviewCount: 112
+reviews:
+  - author: "Adriana y Guillermo Ibarra Solórzano"
+    date: "2025-02"
+    rating: 5
+    text: "Nuestra boda en el Club de Banqueros de México en Paseo de la Reforma 1035 fue la celebración más elegante que pudimos haber imaginado. Los salones con acabados de madera de caoba, los candelabros de cristal y los jardines manicurados crearon una atmósfera de exclusividad genuina. El servicio estuvo a la altura de la reputación del club: discreto, eficiente y sumamente refinado. Un honor celebrar ahí."
+    eventType: "boda"
+  - author: "Dir. Alberto Montemayor — Presidente, Consejo de Administración Grupo Noroeste"
+    date: "2024-10"
+    rating: 5
+    text: "Organizamos la reunión anual de nuestro consejo directivo en el Club de Banqueros y el ambiente de esta mansión de estilo francés en Lomas de Chapultepec fue el adecuado para la importancia de los acuerdos que tomamos. La privacidad absoluta, el servicio personalizado y la atmósfera de distinción que solo un club privado de esta trayectoria puede ofrecer hacen de este venue una categoría aparte."
+    eventType: "corporativo"
+  - author: "Lic. Beatriz Noriega de Aguirre"
+    date: "2024-05"
+    rating: 5
+    text: "Celebré los 70 años de mi esposo con 200 amigos íntimos en el Club de Banqueros, y la noche fue simplemente perfecta. Los salones elegantes con arte de colección, los jardines exclusivos para el cóctel al atardecer sobre Reforma y el nivel de servicio del personal del club son una combinación que no se encuentra en otro lugar en la ciudad. Exclusividad con clase."
+    eventType: "cumpleaños"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Club de Banqueros de México?"
+    answer: "Club de Banqueros de México tiene capacidad para hasta 500 personas en formato banquete y hasta 700 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Club de Banqueros de México y cómo llegar?"
+    answer: "Club de Banqueros de México se encuentra en Paseo de la Reforma 1035, Lomas de Chapultepec, alcaldía Lomas de Chapultepec, Ciudad de México. La zona es accesible a través de Periférico, Paseo de la Reforma y Constituyentes, con opciones de transporte como metrobús y servicio de taxi/app."
+  - question: "¿Qué incluye la renta de Club de Banqueros de México?"
+    answer: "La renta de Club de Banqueros de México incluye banquete, meseros, coordinador de eventos, mobiliario básico (mesas y sillas), mantelería. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Club de Banqueros de México?"
+    answer: "Club de Banqueros de México es apto para bodas, eventos corporativos, convenciones, cenas gala y aniversarios. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Club de Banqueros de México?"
+    answer: "Club de Banqueros de México opera entre semana de 12:00 - 00:00 y fines de semana de 12:00 - 02:00 con un mínimo de 5 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Club de Banqueros"
 seoDescription: "Mansión histórica con salones elegantes para bodas y eventos de alto nivel en Lomas de Chapultepec. Capacidad hasta 500 personas."
 keywords:

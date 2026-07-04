@@ -9,6 +9,11 @@ zone: "Gustavo A. Madero"
 zoneSlug: "gustavo-a-madero"
 address: "C. 303 #351, Nueva Atzacoalco"
 neighborhood: "Nueva Atzacoalco"
+postalCode: "07420"
+coordinates:
+  lat: 19.5029008
+  lng: -99.0825646
+googleMapsUrl: "https://maps.google.com/?q=Salon+sol+Gustavo+A+Madero+CDMX"
 
 type: "salon"
 
@@ -86,6 +91,17 @@ reviews:
     text: "Celebramos la posada familiar con 100 personas y todo estuvo perfecto. El salón estaba impecable, la cocina funcionó muy bien para nuestro catering y el estacionamiento fue un gran plus. Excelente opción económica en Nueva Atzacoalco."
     eventType: "fiestas-privadas"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Sol?"
+    answer: "Salón Sol tiene capacidad para hasta 180 personas en formato banquete y hasta 220 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salón Sol y cómo llegar?"
+    answer: "Salón Sol se encuentra en C. 303 #351, Nueva Atzacoalco, alcaldía Gustavo A. Madero, Ciudad de México. La alcaldía cuenta con varias estaciones del Metro (Líneas 3 y 6) y amplia red de transporte público que facilita el acceso desde toda la CDMX."
+  - question: "¿Qué incluye la renta de Salón Sol?"
+    answer: "La renta de Salón Sol incluye mobiliario básico (mesas y sillas), mantelería, iluminación básica, montaje del evento, desmontaje. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón Sol?"
+    answer: "Salón Sol es apto para bodas, quinceañeras, bautizos, comuniones y cumpleaños. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Salón Sol?"
+    answer: "Salón Sol opera entre semana de 10:00 - 23:00 y fines de semana de 10:00 - 02:00 con un mínimo de 5 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Salón Sol Fiestas en Nueva Atzacoalco GAM CDMX"
 seoDescription: "Salón de fiestas accesible en Nueva Atzacoalco, GAM. Bodas, XV años y bautizos hasta 180 personas. Precios transparentes."
 keywords:

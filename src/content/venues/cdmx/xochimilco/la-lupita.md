@@ -1,8 +1,17 @@
 ---
 name: "La Lupita Xochimilco"
 slug: "la-lupita"
-description: "La Lupita Xochimilco es un embarcadero privado con jardines de chinampa y salón rústico-elegante junto a los canales UNESCO de Xochimilco. Con muelle propio para trajineras, 3,000 m² de jardín sobre chinampa ancestral y un salón decorado con artesanía mexicana, ofrece la experiencia más auténtica de celebrar junto a un Patrimonio de la Humanidad vivo. Capacidad para 300 personas en banquete y hasta 400 en cóctel, con la posibilidad única de que los invitados lleguen navegando en trajineras decoradas."
-shortDescription: "Embarcadero privado con jardines de chinampa y salón junto a canales UNESCO en Xochimilco."
+description: >-
+  La Lupita Xochimilco es un embarcadero privado con jardines de chinampa y salón
+  rústico-elegante junto a los canales Patrimonio de la Humanidad UNESCO de
+  Xochimilco — la única zona lacustre activa de la Ciudad de México. Con muelle
+  propio para trajineras, 3,000 m² de jardín sobre chinampa ancestral (la misma
+  tecnología agrícola prehispánica que sobrevive 700 años después) y un salón
+  decorado con artesanía mexicana, ofrece la experiencia más auténtica de celebrar
+  inmerso en Patrimonio Mundial vivo. Capacidad para 300 personas en banquete y
+  hasta 400 en cóctel, con la posibilidad única de que los invitados lleguen
+  navegando en trajineras decoradas por los canales chinamperos.
+shortDescription: "Embarcadero privado con jardines de chinampa junto a los canales Patrimonio UNESCO en Xochimilco."
 
 region: "cdmx"
 zone: "Xochimilco"
@@ -105,6 +114,18 @@ reviews:
     text: "Evento corporativo con experiencia cultural para 80 ejecutivos. Las trajineras con mariachi, la comida de chinampa y el entorno fueron un éxito rotundo. Nuestros invitados internacionales quedaron fascinados con Xochimilco."
     eventType: "corporativo"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en La Lupita Xochimilco?"
+    answer: "La Lupita Xochimilco tiene capacidad para 300 personas en formato banquete y 400 en cóctel, con montaje para ceremonia de hasta 200 invitados. Sus 3,000 m² de jardín sobre chinampa ancestral ofrecen un escenario único junto a los canales UNESCO de San Gregorio Atlapulco."
+  - question: "¿Dónde está La Lupita y cómo llegar?"
+    answer: "La Lupita se encuentra en el Embarcadero La Lupita, San Gregorio Atlapulco, alcaldía Xochimilco, CDMX, C.P. 16600. Cuenta con estacionamiento propio y la característica única de que los invitados pueden llegar en trajineras decoradas directamente desde el embarcadero a través de los canales."
+  - question: "¿Qué incluye la renta de La Lupita Xochimilco?"
+    answer: "La renta incluye coordinador de eventos, mobiliario básico, iluminación básica, seguridad y limpieza. La Lupita cuenta con muelle propio para trajineras, jardín sobre chinampa, salón decorado con artesanía mexicana, terraza, vestidores y generador de emergencia."
+  - question: "¿Qué tipos de eventos se celebran en La Lupita Xochimilco?"
+    answer: "La Lupita es ideal para bodas con llegada en trajinera, XV años, cumpleaños, aniversarios, eventos corporativos, bautizos, sesiones fotográficas y fiestas privadas. Como socio EVENTECH con 15% de descuento en carpas e iluminación, los eventos aquí combinan tradición xochimilca con producción profesional."
+  - question: "¿Cuál es el horario y qué hace única a La Lupita?"
+    answer: "La Lupita opera de lunes a viernes de 14:00 a 23:00 y fines de semana de 12:00 a 00:00 horas, con mínimo de 5 horas. Su diferenciador absoluto es el muelle privado para trajineras decoradas: los invitados pueden llegar navegando por los canales Patrimonio de la Humanidad, creando una experiencia que ningún salón convencional puede ofrecer."
+
 seoTitle: "La Lupita Xochimilco"
 seoDescription: "Celebra en La Lupita Xochimilco: embarcadero privado con jardines de chinampa, trajineras y la magia de un Patrimonio UNESCO. Hasta 300 personas."
 keywords:
@@ -116,6 +137,9 @@ keywords:
   - jardin eventos xochimilco
   - renta embarcadero xochimilco fiestas
   - salon eventos xochimilco cdmx
+  - venue xochimilco patrimonio UNESCO
+  - eventos xochimilco trajineras
+  - jardín eventos zona lacustre cdmx
 
 featured: false
 premium: false

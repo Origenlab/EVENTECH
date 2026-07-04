@@ -9,6 +9,11 @@ zone: "Gustavo A. Madero"
 zoneSlug: "gustavo-a-madero"
 address: "Av. 510 mz3 lt10, Pueblo de San Juan de Aragón"
 neighborhood: "Pueblo de San Juan de Aragón"
+postalCode: "07950"
+coordinates:
+  lat: 19.4693271
+  lng: -99.0845932
+googleMapsUrl: "https://maps.google.com/?q=Salon+george+king+Gustavo+A+Madero+CDMX"
 
 type: "salon"
 
@@ -90,6 +95,17 @@ reviews:
     text: "Los XV años de mi hija con 170 invitados salieron muy bien. El diseño moderno del salón fue perfecto para la temática que queríamos, y aprovechamos la tarde para hacer fotos en el Bosque de Aragón. El coordinador fue muy atento y profesional durante todo el evento."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salon George King?"
+    answer: "Salon George King tiene capacidad para hasta 180 personas en formato banquete y hasta 230 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salon George King y cómo llegar?"
+    answer: "Salon George King se encuentra en Av. 510 mz3 lt10, Pueblo de San Juan de Aragón, alcaldía Gustavo A. Madero, Ciudad de México. La alcaldía cuenta con varias estaciones del Metro (Líneas 3 y 6) y amplia red de transporte público que facilita el acceso desde toda la CDMX."
+  - question: "¿Qué incluye la renta de Salon George King?"
+    answer: "La renta de Salon George King incluye coordinador de eventos, mobiliario básico (mesas y sillas), mantelería, iluminación básica, equipo de sonido básico. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salon George King?"
+    answer: "Salon George King es apto para bodas, quinceañeras, bautizos, cumpleaños y comuniones. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Salon George King?"
+    answer: "Salon George King opera entre semana de 10:00 - 23:00 y fines de semana de 10:00 - 02:00 con un mínimo de 4 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Salon George King - Eventos en Aragón GAM CDMX"
 seoDescription: "Salón moderno en San Juan de Aragón, GAM. Bodas, XV años y corporativos hasta 180 personas. Cerca del Bosque de Aragón."
 keywords:

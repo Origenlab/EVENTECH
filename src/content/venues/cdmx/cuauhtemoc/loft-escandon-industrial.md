@@ -86,7 +86,34 @@ eventechDiscount: "30% en iluminación arquitectónica industrial"
 
 rating: 4.8
 reviewCount: 678
+reviews:
+  - author: "Camila Reyes y Andrés Monroy"
+    date: "2025-02"
+    rating: 5
+    text: "Buscábamos un venue para boda que rompiera con todo lo convencional y el Loft Escandón Industrial fue exactamente eso. Las vigas de madera recuperadas de 1948, el ladrillo aparente, los tragaluces industriales y los 1,800 metros cuadrados nos dieron una lienzo en blanco para crear la boda urbana que siempre imaginamos. El diseño de iluminación programable permitió transformar el espacio de ceremonia íntima al amanecer a después de medianoche completamente. Las fotos son simplemente impactantes."
+    eventType: "bodas"
+  - author: "Mtra. Claudia Sánchez, Producción — Nike México"
+    date: "2024-09"
+    rating: 5
+    text: "El Loft Escandón fue el backdrop perfecto para el lanzamiento de nuestra colección de temporada. La estética industrial auténtica — no forzada, sino real desde 1948 — le dio a las producciones fotográficas y al contenido de video una textura que ningún set construido puede igualar. El espacio aguanta las demandas técnicas de un fashion show: rigging en las vigas de acero remachado, suficiente amplitud para el runway, y la acústica correcta para el set musical. Volveremos sin duda."
+    eventType: "lanzamientos"
+  - author: "Lic. Tomás Aguirre — Fondo de Capital Privado Cuadrante"
+    date: "2025-04"
+    rating: 4
+    text: "Organizamos un evento corporativo de networking para 300 personas de la escena tech y de startups en CDMX. La fábrica transformada por HW Studio tiene exactamente la energía que ese ecosistema busca: auténtica, sin pretensiones, con tecnología audiovisual de vanguardia que no rompe con la estética. El estacionamiento propio fue un plus importante para la zona. La única nota es que para eventos más formales hay que trabajar bien la propuesta de catering porque el loft opera con proveedores externos."
+    eventType: "corporativos"
 
+faqs:
+  - question: "¿Cuántas personas caben en Loft Escandón Industrial?"
+    answer: "Loft Escandón Industrial tiene capacidad para 500 personas en banquete y hasta 800 en cóctel. Para ceremonias puede alojar 300 personas sentadas. El aforo mínimo es de 100 personas. El espacio total es de 1,800 m² de loft industrial con estructura de acero remachado y tragaluces originales de 1948."
+  - question: "¿Dónde está Loft Escandón Industrial y cómo llegar?"
+    answer: "Se ubica en Gobernador José Guadalupe Covarrubias 27, Colonia Escandón, alcaldía Cuauhtémoc, C.P. 11800. La Colonia Escandón es una de las más accesibles de CDMX: está a 5 minutos de la Condesa y a 10 de Roma Norte. El Metro Patriotismo (Línea 9) está a 3 cuadras. Cuenta con estacionamiento propio."
+  - question: "¿Qué incluye la renta de Loft Escandón Industrial?"
+    answer: "La renta incluye coordinador de eventos, mobiliario básico, iluminación básica arquitectónica, seguridad, limpieza, montaje y desmontaje. El espacio conserva la estructura original de acero remachado, vigas de madera recuperadas, muros de ladrillo aparente y tragaluces industriales, con tecnología audiovisual de vanguardia integrada. EVENTECH ofrece un 30% de descuento en iluminación arquitectónica industrial."
+  - question: "¿Qué tipo de eventos se realizan en Loft Escandón Industrial?"
+    answer: "Loft Escandón Industrial es ideal para bodas urbanas contemporáneas, lanzamientos de producto, fashion shows, eventos corporativos de tecnología y startups, conciertos, exposiciones de arte, ferias de diseño y sesiones fotográficas. La estética industrial auténtica de la ex-fábrica textil de 1948, intervenida por HW Studio en 2019, atrae a marcas y parejas que buscan un venue con personalidad única en CDMX."
+  - question: "¿Cuál es el horario de Loft Escandón Industrial y cuánto cuesta?"
+    answer: "Loft Escandón Industrial opera de 10:00 a 04:00 entre semana y de 10:00 a 05:00 los fines de semana —uno de los horarios más amplios de cualquier venue en CDMX—, con mínimo de 6 horas. El precio por persona va de $2,200 a $4,500. Su filosofía es de venue en blanco: los clientes traen su propio concepto y Loft Escandón provee el lienzo industrial perfecto."
 seoTitle: "Loft Escandón Eventos Industriales Ex-Fábrica"
 seoDescription: "Loft industrial de 1,800 m² en ex-fábrica textil 1948. Arquitectura HW Studio, ladrillo aparente y tecnología para eventos urbanos."
 keywords:

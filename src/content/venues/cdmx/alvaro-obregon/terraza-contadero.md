@@ -84,7 +84,34 @@ eventechDiscount: "15% en calefacción para eventos de otoño-invierno"
 
 rating: 4.8
 reviewCount: 389
+reviews:
+  - author: "Valeria Montiel y Patricio Herrera"
+    date: "2025-03"
+    rating: 5
+    text: "La Terraza El Contadero fue el venue más auténtico y hermoso para nuestra boda íntima. Casarnos al atardecer en las alturas del Desierto de los Leones, con esas vistas panorámicas de 180 grados hacia el poniente y el valle tiñéndose de dorado y púrpura, produjo las fotografías más impactantes que jamás imaginamos. La arquitectura minimalista del espacio dejó que la naturaleza fuera la protagonista absoluta. Con 80 invitados la terraza se sintió exclusiva y perfecta; la calefacción integrada hizo confortable la noche de montaña."
+    eventType: "bodas"
+  - author: "Familia Leal Vargas"
+    date: "2024-08"
+    rating: 5
+    text: "Celebramos el aniversario de bodas de mis abuelos en la Terraza El Contadero y fue uno de los momentos más emotivos de la familia. Las vistas hacia el poniente durante el día son simplemente espectaculares, y el aire fresco de montaña en El Contadero hace la experiencia completamente distinta a cualquier terraza urbana. Para 80 personas el espacio boutique es perfecto: todo el mundo se conoce, la conversación fluye y el entorno natural hace el trabajo de ambientación solo."
+    eventType: "aniversarios"
+  - author: "Lic. Rodrigo Fuentes — Agencia de Innovación CreativeHive"
+    date: "2025-01"
+    rating: 5
+    text: "Llevamos nuestro equipo de 45 personas a la Terraza El Contadero para un día de estrategia fuera de la oficina y la decisión fue extraordinaria. El entorno de bosque con vistas panorámicas crea un estado mental completamente distinto al de cualquier sala de juntas. El espacio contemporáneo tiene la tecnología necesaria para las presentaciones y los descansos al aire libre con esas vistas al valle son un lujo que pocos venues pueden ofrecer. Fue el mejor team day que hemos tenido."
+    eventType: "corporativos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Terraza El Contadero?"
+    answer: "Terraza El Contadero tiene capacidad para hasta 120 personas en formato banquete y hasta 180 en formato cóctel. Para ceremonias, el espacio acomoda hasta 100 invitados. El mínimo de invitados es de 30 personas."
+  - question: "¿Dónde está ubicado Terraza El Contadero y cómo llegar?"
+    answer: "Terraza El Contadero se encuentra en Camino al Desierto de los Leones 5290, El Contadero, colonia El Contadero, alcaldía Álvaro Obregón, Ciudad de México. La zona es accesible en auto particular; se recomienda usar Uber o DiDi indicando el nombre del salón. Cuenta con estacionamiento propio."
+  - question: "¿Qué está incluido en la renta de Terraza El Contadero?"
+    answer: "La renta de Terraza El Contadero incluye: coordinador de evento, mobiliario básico (mesas y sillas), mantelería, iluminación básica, personal de seguridad, limpieza post-evento, montaje y desmontaje. Las instalaciones cuentan además con pista de baile, terraza, generador de emergencia, Wi-Fi."
+  - question: "¿Qué tipo de eventos se pueden realizar en Terraza El Contadero?"
+    answer: "Terraza El Contadero es ideal para bodas, eventos corporativos, aniversarios y cumpleaños."
+  - question: "¿Cuál es el horario de eventos en Terraza El Contadero?"
+    answer: "Terraza El Contadero opera en los siguientes horarios: lunes a viernes de 12:00 - 23:00, sábados y domingos de 11:00 - 00:00. La renta mínima es de 5 horas."
 seoTitle: "Terraza El Contadero"
 seoDescription: "Terraza boutique con vistas de 180° al poniente de CDMX. Atardeceres espectaculares y arquitectura contemporánea."
 keywords:

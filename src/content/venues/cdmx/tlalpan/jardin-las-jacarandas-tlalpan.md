@@ -116,6 +116,18 @@ reviews:
     text: "El baby shower de mi hija fue precioso. Éramos 60 personas y el jardín nos dio mucho espacio. Los arbolitos de jacaranda, aunque sin flor, daban buena sombra y el ambiente era muy relajado. Los niños corrieron libres todo el evento. Muy recomendable para eventos familiares."
     eventType: "baby-showers"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Jardín Las Jacarandas Tlalpan?"
+    answer: "Jardín Las Jacarandas tiene capacidad para 250 personas en formato banquete y 300 en cóctel, con montaje para ceremonia de hasta 180 invitados al aire libre entre la vegetación campestre de Pedregal de San Nicolás, Tlalpan."
+  - question: "¿Dónde está Jardín Las Jacarandas y cómo llegar?"
+    answer: "El jardín se ubica en Camino a Santa Teresa 380, colonia Pedregal de San Nicolás, alcaldía Tlalpan, CDMX, C.P. 14100. Se accede desde Santa Teresa y el Periférico Sur. Cuenta con estacionamiento propio en la zona de transición entre lo urbano y lo rural del sur de la CDMX."
+  - question: "¿Qué incluye la renta de Jardín Las Jacarandas?"
+    answer: "La renta incluye mobiliario básico, mantelería, iluminación básica, montaje, desmontaje y limpieza. El jardín cuenta con cocina industrial disponible. Se permiten caterings autorizados externos para el banquete, además de open bar, DJ y carpas para lluvia como servicios adicionales."
+  - question: "¿Qué tipo de eventos acepta Jardín Las Jacarandas?"
+    answer: "El jardín es perfecto para bodas al aire libre, XV años, bautizos, cumpleaños, aniversarios, comuniones, baby showers, fiestas privadas, sesiones fotográficas y despedidas. En temporada de floración (marzo-mayo) las jacarandas en flor crean un espectáculo visual púrpura único."
+  - question: "¿Cuál es la política de catering y horarios en Jardín Las Jacarandas?"
+    answer: "El jardín opera de lunes a viernes de 10:00 a 23:00 y fines de semana de 10:00 a 01:00 horas, con mínimo de 5 horas. Se requiere el uso de caterings autorizados para el banquete. La pirotecnia no está permitida para proteger la vegetación. Se puede contratar DJ, decoración floral y carpas de manera independiente."
+
 seoTitle: "Jardín Las Jacarandas Tlalpan"
 seoDescription: "Jardín campestre con jacarandas en Pedregal de San Nicolás, Tlalpan. Bodas al aire libre hasta 250 personas. Sur CDMX."
 keywords:

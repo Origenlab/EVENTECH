@@ -97,6 +97,18 @@ reviews:
     text: "Organizamos la graduación de 150 alumnos con sus familias. El salón tiene buena acústica, el estacionamiento es suficiente y los precios son muy competitivos. El acceso por Av. Tláhuac facilita que todos lleguen sin problema."
     eventType: "graduacion"
 
+faqs:
+  - question: "¿Cuántas personas admite Salón Paraíso Tláhuac?"
+    answer: "Salón Paraíso Tláhuac tiene capacidad para 250 personas en formato banquete y 300 en cóctel, con montaje para ceremonia de hasta 150 invitados. Es uno de los salones de mayor capacidad en la zona de San José, Tláhuac."
+  - question: "¿Dónde está ubicado Salón Paraíso Tláhuac y cómo llegar?"
+    answer: "El salón se localiza en Avenida Tláhuac 5890, colonia San José, alcaldía Tláhuac, CDMX, C.P. 13100. Su ubicación sobre Av. Tláhuac garantiza acceso directo desde las principales vías del suroriente de la CDMX. Cuenta con estacionamiento propio."
+  - question: "¿Qué servicios están incluidos en la renta?"
+    answer: "La renta incluye mobiliario básico, mantelería, iluminación básica, montaje, desmontaje y limpieza. El salón cuenta con cocina industrial equipada que permite la elaboración de banquetes frescos en sitio, y aire acondicionado."
+  - question: "¿Qué tipos de eventos acepta Salón Paraíso Tláhuac?"
+    answer: "El salón es perfecto para bodas, XV años, bautizos, comuniones, graduaciones, cumpleaños, aniversarios, fiestas privadas y fiestas infantiles. Su ambiente familiar y precios accesibles lo hacen ideal para celebraciones con grupos grandes."
+  - question: "¿Cuál es el horario de operación y la política de catering?"
+    answer: "El salón opera de lunes a viernes de 10:00 a 22:00, y fines de semana de 10:00 a 02:00 con mínimo 5 horas de renta. Cuenta con accesibilidad para personas con discapacidad y se permite catering externo para mayor flexibilidad en el menú."
+
 seoTitle: "Salón Paraíso Tláhuac"
 seoDescription: "Salón familiar en Tláhuac para bodas, XV años y graduaciones. Hasta 250 personas con cocina industrial y precios accesibles."
 keywords:

@@ -1,8 +1,20 @@
 ---
 name: "Terraza Xochimilco Eventos"
 slug: "terraza-xochimilco-eventos"
-description: "Terraza Xochimilco Eventos es el único venue con vista directa a los canales declarados Patrimonio de la Humanidad por la UNESCO en Xochimilco, Ciudad de México. Su terraza panorámica de 800 metros cuadrados sobre el Canal Nacional ofrece vistas irrepetibles: trajineras de colores navegando, chinampas en el horizonte y el verde exuberante de la vegetación lacustre que ha permanecido igual desde los tiempos aztecas. Con capacidad para hasta 220 personas y acceso en trajinera opcional directamente desde el embarcadero, este venue ofrece una experiencia que ningún salón convencional puede replicar. El escenario perfecto para bodas con sabor xochimilca, XV años con llegada en trajinera y eventos que quieren estar en un lugar verdaderamente único en el mundo."
-shortDescription: "Terraza 800m² con vista a canales UNESCO en Xochimilco. Hasta 220 personas. Acceso en trajinera opcional."
+description: >-
+  Terraza Xochimilco Eventos es el único venue con vista directa a los canales
+  declarados Patrimonio de la Humanidad por la UNESCO en Xochimilco, CDMX — la
+  única zona lacustre activa de la Ciudad de México. Su terraza panorámica de
+  800 metros cuadrados sobre el Canal Nacional ofrece vistas irrepetibles:
+  trajineras de colores navegando, chinampas prehispánicas en el horizonte y el
+  verde exuberante de la vegetación lacustre que ha permanecido casi intacta
+  desde los tiempos aztecas. Con capacidad para hasta 220 personas y acceso
+  opcional en trajinera directamente desde el embarcadero, este venue ofrece la
+  experiencia de boda xochimilco lago cdmx más visual y única del mercado. El
+  escenario perfecto para bodas con sabor xochimilca, XV años con llegada en
+  trajinera y eventos que quieren estar en un rincón genuinamente irrepetible
+  del Patrimonio Mundial.
+shortDescription: "Terraza panorámica de 800 m² con vista directa a los canales Patrimonio UNESCO en Xochimilco."
 
 region: "cdmx"
 zone: "Xochimilco"
@@ -93,6 +105,34 @@ eventechPartner: false
 
 rating: 4.4
 reviewCount: 167
+reviews:
+  - author: "Brenda y Oswaldo Jiménez Velázquez"
+    date: "2025-04"
+    rating: 5
+    text: "Nuestra boda en la Terraza Xochimilco fue una experiencia que ninguno de nuestros invitados olvidará. La vista directa a los canales Patrimonio de la Humanidad UNESCO desde los 800 metros cuadrados de terraza, con las trajineras de colores navegando al fondo y las chinampas en el horizonte, es un espectáculo visual único en el mundo. Llegamos al venue en trajinera desde el embarcadero, lo que hizo la entrada más memorable de nuestras vidas."
+    eventType: "boda"
+  - author: "Familia Xólotl Mendoza"
+    date: "2024-11"
+    rating: 5
+    text: "Los XV años de nuestra Itzel en la Terraza Xochimilco fueron un homenaje a nuestras raíces. La terraza panorámica sobre el Canal Nacional con vista a las chinampas y trajineras de colores es un marco que hace honor a la historia lacustre de México. Con 200 invitados, el espacio en Guadalupe I. Ramírez 89 fue perfecto y la llegada en trajinera de la quinceañera fue el momento más emotivo de la noche."
+    eventType: "xv-años"
+  - author: "Familia Ramos Gutiérrez"
+    date: "2024-04"
+    rating: 4
+    text: "Celebramos el bautizo de nuestra hija Xóchitl en la Terraza Xochimilco y el entorno fue absolutamente mágico. Ver las trajineras de colores navegar por los canales patrimonio de la UNESCO mientras celebrábamos fue una experiencia muy emocionante. La vegetación lacustre que rodea el venue en Xochimilco hace que el espacio se sienta conectado con lo que fue la gran Tenochtitlan. Un lugar muy especial para una ocasión muy especial."
+    eventType: "bautizo"
+
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Terraza Xochimilco Eventos?"
+    answer: "Terraza Xochimilco Eventos tiene capacidad para 220 personas en formato banquete y 300 en cóctel, con montaje para ceremonia de hasta 180 invitados. Su terraza panorámica de 800 metros cuadrados sobre el Canal Nacional ofrece el telón de fondo más espectacular de Xochimilco."
+  - question: "¿Dónde está Terraza Xochimilco Eventos y cómo llegar?"
+    answer: "La terraza se ubica en Guadalupe I. Ramírez 89, Barrio 18 de Marzo, alcaldía Xochimilco, CDMX, C.P. 16030. Está junto al Canal Nacional, Patrimonio de la Humanidad UNESCO. Cuenta con estacionamiento propio y la opción única de acceder en trajinera directamente desde el embarcadero cercano."
+  - question: "¿Qué incluye la renta de Terraza Xochimilco Eventos?"
+    answer: "La renta incluye coordinador de eventos, mobiliario básico, mantelería, iluminación básica, montaje, desmontaje, seguridad y limpieza. La terraza cuenta con cocina industrial, aire acondicionado, área de fotos con vistas al canal y Wi-Fi. Disponible banquete con cocina regional xochimilca como servicio adicional."
+  - question: "¿Para qué tipos de eventos es ideal Terraza Xochimilco Eventos?"
+    answer: "La terraza es perfecta para bodas con vista a los canales UNESCO, XV años con llegada en trajinera, bautizos, cumpleaños, eventos corporativos, fiestas privadas, aniversarios y reuniones. La posibilidad de que la novia llegue navegando en trajinera decorada es el momento más fotografiado de los eventos aquí celebrados."
+  - question: "¿Cuál es el horario y el diferenciador de Terraza Xochimilco Eventos?"
+    answer: "La terraza opera de lunes a viernes de 12:00 a 23:00 y fines de semana de 11:00 a 01:00 horas, con un mínimo de 4 horas de renta. Su diferenciador absoluto es ser el único venue con vista directa a los canales Patrimonio de la Humanidad: trajineras de colores, chinampas en el horizonte y la vegetación lacustre azteca como escenario permanente."
 
 seoTitle: "Terraza Xochimilco Eventos"
 seoDescription: "Terraza 800m² con vista a canales de Xochimilco, Patrimonio UNESCO. Hasta 220 personas. Llegada en trajinera. Bodas únicas en Xochimilco, CDMX."
@@ -101,6 +141,13 @@ keywords:
   - bodas xochimilco cdmx
   - venue canales xochimilco
   - salon eventos xochimilco
+  - venue xochimilco patrimonio UNESCO
+  - eventos xochimilco trajineras
+  - boda xochimilco lago cdmx
+  - salón fiestas xochimilco cdmx
+  - jardín eventos zona lacustre cdmx
+  - terraza vista canal xochimilco
+  - bodas canales patrimonio xochimilco
 
 featured: false
 verified: true

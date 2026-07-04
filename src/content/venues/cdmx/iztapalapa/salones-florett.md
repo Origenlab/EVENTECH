@@ -153,6 +153,17 @@ reviews:
     text: "Hicimos el baby shower de nuestra primera bebé en el salón Camelia con 90 invitados. La decoración en rosa y dorado quedó perfecta contra los muros neutros del salón. La iluminación LED la programaron en tonos rosados suaves que hacían todo más bonito para las fotos. Precio muy accesible para la calidad que ofrecen."
     eventType: "baby-shower"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salones Florett?"
+    answer: "Salones Florett tiene capacidad para hasta 400 personas en formato banquete y hasta 550 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salones Florett y cómo llegar?"
+    answer: "Salones Florett se encuentra en Av. Luis Hidalgo Monroy 573, Hidalgo Monroy, alcaldía Iztapalapa, Ciudad de México. La alcaldía cuenta con múltiples estaciones del Metro (Líneas 8, 9 y A) y es accesible desde Periférico, Canal de San Juan y otras vías principales."
+  - question: "¿Qué incluye la renta de Salones Florett?"
+    answer: "La renta de Salones Florett incluye coordinador de eventos, mobiliario básico (mesas y sillas), mantelería, vajilla completa, iluminación básica. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salones Florett?"
+    answer: "Salones Florett es apto para bodas, quinceañeras, bautizos, cumpleaños y aniversarios. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Se puede llevar catering externo a Salones Florett?"
+    answer: "Sí, Salones Florett permite el ingreso de catering externo, lo que te da libertad para elegir el servicio gastronómico que mejor se adapte a tu presupuesto y preferencias. Te recomendamos coordinar con anticipación los detalles logísticos de acceso para proveedores."
 seoTitle: "Salones Florett Iztapalapa - Elegancia CDMX"
 seoDescription: "Salón de fiestas premium renovado 2024 en Iztapalapa. Acabados de diseñador, iluminación LED. Bodas hasta 400 personas. Socio EVENTECH."
 keywords:

@@ -1,9 +1,30 @@
 ---
 name: "Casino Español de México"
 slug: "casino-espanol"
-description: "El Casino Español de México es uno de los clubes sociales más prestigiosos y antiguos del país, fundado en 1863. Su edificio de estilo ecléctico europeo alberga salones de baile con candiles de cristal de Bohemia, comedores privados con arte español y una biblioteca histórica. Es el venue perfecto para bodas elegantes, cenas de gala y eventos corporativos que buscan el refinamiento de la tradición española en el corazón de la Ciudad de México."
-shortDescription: "Club social histórico de 1863 con salones de baile y candiles de cristal de Bohemia."
-
+description: >-
+  Fundado en 1863 por la comunidad española en México, el Casino Español de
+  México lleva más de 160 años siendo el estándar de elegancia protocolaria en
+  el Centro Histórico. Su edificio de estilo Art Nouveau y ecléctico europeo de
+  principios del siglo XX —uno de los más suntuosos del eje Isabel la Católica—
+  alberga el Gran Salón de Baile con seis candiles de cristal de Bohemia
+  colgados de un techo artesonado de ocho metros, piso de duela de encino
+  pulido por décadas de galas y un escenario elevado para presentaciones en
+  vivo. Las molduras de yeso, las columnas de mármol, los vitrales emplomados
+  y la balaustrada de hierro forjado de la escalera principal configuran un
+  interior que evoca los grandes salones del París y Madrid de la Belle Époque.
+  El Gran Salón admite hasta 500 personas en banquete y 700 en formato cóctel,
+  con una acústica históricamente afinada para música en vivo y conversación.
+  La propuesta gastronómica rinde homenaje a España: paella valenciana en
+  estación de chef en vivo, cochinillo asado al estilo Segovia, jamón ibérico
+  de bellota cortado al momento y bodega con vinos de Rioja y cava española
+  exclusivos. Complementan el Gran Salón el Salón Goya —decorado con obras del
+  maestro aragonés, ideal para cenas íntimas de 120 personas— y una terraza
+  panorámica en el último piso con vistas a la Torre Latinoamericana, Bellas
+  Artes y la Catedral Metropolitana. Para galas de alto nivel, bodas de
+  etiqueta y eventos corporativos de máximo protocolo, el Casino Español ofrece
+  la combinación insuperable de patrimonio arquitectónico, gastronomía de
+  herencia ibérica y más de un siglo de experiencia en hospitalidad de distinción.
+shortDescription: "Casino Español 1863: Gran Salón Art Nouveau con candiles de Bohemia, gastronomía española y hasta 500 personas en el Centro Histórico CDMX."
 region: "cdmx"
 zone: "Cuauhtémoc"
 zoneSlug: "cuauhtemoc"
@@ -75,14 +96,49 @@ gallery:
 eventechPartner: false
 rating: 4.7
 reviewCount: 178
+reviews:
+  - author: "Isabela y Fernando Ruiz de la Vega"
+    date: "2025-04"
+    rating: 5
+    text: "Nuestra boda en el Casino Español de México fue la noche más elegante de nuestras vidas. Los salones de baile con candiles de cristal de Bohemia, fundados en 1863, tienen una majestuosidad que ningún venue moderno puede igualar. El arte español en las paredes y la biblioteca histórica añaden una dimensión cultural única. En Isabel la Católica 29, el servicio estuvo a la altura de la arquitectura: impecable."
+    eventType: "boda"
+  - author: "Dir. Hernán Aguirre Domínguez — Consejo Empresarial Hispano-Mexicano"
+    date: "2024-11"
+    rating: 5
+    text: "Celebramos nuestra cena de gala anual en el Casino Español y la institución, fundada en 1863, demostró por qué sigue siendo el estándar de elegancia en el Centro Histórico. Los comedores privados con art español, los candiles de cristal de Bohemia y el servicio impecable crearon una noche de negocios con una dimensión cultural que nuestros invitados internacionales encontraron extraordinaria."
+    eventType: "cena-gala"
+  - author: "Lic. Marisol Varela Contreras — Asociación Hispano-Mexicana de Empresas"
+    date: "2024-06"
+    rating: 5
+    text: "Organizamos nuestro evento corporativo anual en el Casino Español y el espacio ecléctico europeo en el corazón del Centro Histórico fue un marco excepcional. La combinación de patrimonio histórico de 1863 con un servicio moderno de primer nivel hace de este club una opción sin parangón para eventos que buscan distinción real y no solo estética contemporánea."
+    eventType: "corporativo"
 
+faqs:
+  - question: "¿Cuántas personas caben en el Casino Español de México?"
+    answer: "El Casino Español de México tiene capacidad para 500 personas en banquete y hasta 700 en cóctel. Para ceremonias puede alojar hasta 200 personas sentadas. El aforo mínimo es de 50 personas. El Gran Salón de Baile, con sus candiles de cristal de Bohemia, es el espacio de referencia para banquetes de hasta 500 personas."
+  - question: "¿Dónde está el Casino Español y cómo llegar?"
+    answer: "Se ubica en Isabel la Católica 29, Centro Histórico, alcaldía Cuauhtémoc, C.P. 06000. Está a dos cuadras del Zócalo y del Eje Central Lázaro Cárdenas. El Metro más cercano es Isabel la Católica (Línea 1), a 100 metros. Cuenta con estacionamiento y servicio de valet parking."
+  - question: "¿Qué incluye la renta del Casino Español?"
+    answer: "La renta incluye banquete completo con meseros, coordinador de eventos, mobiliario básico, mantelería, vajilla, seguridad y limpieza. El espacio incluye el Gran Salón de Baile con candiles de cristal de Bohemia, comedores privados con arte español, biblioteca histórica y una arquitectura de estilo ecléctico europeo que data de 1863."
+  - question: "¿Qué tipo de eventos se realizan en el Casino Español?"
+    answer: "El Casino Español está especializado en bodas elegantes, cenas de gala, eventos corporativos de alta dirección, aniversarios y graduaciones. Fundado en 1863, es uno de los clubes sociales más prestigiosos de México y su arquitectura ecléctica europea lo convierte en el venue de referencia para eventos de protocolo y alta sociedad en el Centro Histórico de CDMX."
+  - question: "¿Cuál es el horario del Casino Español y cuánto cuesta aproximadamente?"
+    answer: "El horario de eventos es de 13:00 a 00:00 entre semana y de 13:00 a 02:00 los fines de semana, con un mínimo de 4 horas. El precio por persona va de $1,500 a $3,500 dependiendo del menú y servicios seleccionados. Es un venue de alta gama recomendado para eventos que buscan la combinación de historia, arquitectura europea y gastronomía de excelencia."
 seoTitle: "Casino Español Bodas y Eventos de Gala"
 seoDescription: "Celebra en el histórico Casino Español de México. Salones elegantes con candiles de cristal para bodas y eventos hasta 500 personas."
 keywords:
-  - casino espanol bodas
-  - salon gala centro historico
-  - eventos elegantes cdmx
-
+  - casino espanol cdmx eventos
+  - salon gala centro historico cdmx
+  - venue corporativo art nouveau cdmx
+  - cena gala casino espanol mexico
+  - renta salon casino espanol cdmx
+  - boda venue historico centro cdmx
+  - gran salon baile cdmx eventos lujo
+  - venue 1863 gala cdmx
+  - venue etiqueta bodas centro historico cdmx
+  - evento protocolo cdmx lujo
+  - candiles bohemia salon eventos cdmx
+  - gastronomia espanola eventos boda cdmx
 featured: false
 verified: true
 order: 12

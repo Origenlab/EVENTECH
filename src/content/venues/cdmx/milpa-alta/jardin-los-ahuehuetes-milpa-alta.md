@@ -114,6 +114,17 @@ reviews:
     text: "Hicimos el bautizo de mi nieto con 100 personas. El aire fresco de Milpa Alta, los árboles enormes y la tranquilidad del lugar hicieron que todo fuera muy especial. Es diferente a los jardines de la ciudad: aquí se respira campo de verdad. Y el precio es imbatible."
     eventType: "bautizos"
 
+faqs:
+  - question: "¿Cuál es la capacidad de Jardín Los Ahuehuetes Milpa Alta?"
+    answer: "Jardín Los Ahuehuetes Milpa Alta puede recibir hasta 250 personas. La capacidad varía según el montaje: banquete, cóctel o teatro. Consulta con el equipo para el formato que mejor se adapte a tu evento."
+  - question: "¿Dónde está ubicado Jardín Los Ahuehuetes Milpa Alta y cómo llegar?"
+    answer: "Jardín Los Ahuehuetes Milpa Alta se ubica en Av. Constitución 10, Villa Milpa Alta, colonia Villa Milpa Alta, alcaldía CDMX, Ciudad de México. Si vas en auto, se recomienda verificar disponibilidad de estacionamiento directamente con el venue."
+  - question: "¿Qué incluye la renta de Jardín Los Ahuehuetes Milpa Alta?"
+    answer: "La renta de Jardín Los Ahuehuetes Milpa Alta incluye: mobiliario-basico, manteleria, iluminacion-basica, montaje, desmontaje, limpieza. Además, el venue cuenta con las siguientes instalaciones y amenidades: estacionamiento, pista-baile, jardin, cocina-industrial, area-fotos, acceso-discapacitados. Para paquetes personalizados o servicios adicionales, consulta directamente con el equipo."
+  - question: "¿Qué tipo de eventos se pueden realizar en Jardín Los Ahuehuetes Milpa Alta?"
+    answer: "Jardín Los Ahuehuetes Milpa Alta es apto para una amplia variedad de eventos, entre ellos: bodas, xv-anos, bautizos, cumpleanos, aniversarios, comuniones, baby-showers, fiestas-privadas, fiestas-infantiles, sesiones-foto. El equipo del venue puede orientarte sobre el montaje más adecuado para cada ocasión."
+  - question: "¿Jardín Los Ahuehuetes Milpa Alta cuenta con estacionamiento?"
+    answer: "Sí, estacionamiento. Además, el venue puede orientarte sobre opciones de acceso en transporte público o valet parking según disponibilidad. Consulta directamente para más detalles."
 seoTitle: "Jardín Los Ahuehuetes Milpa Alta"
 seoDescription: "Jardín campestre con ahuehuetes en Villa Milpa Alta. Bodas al aire libre hasta 250 personas. Los mejores precios del sur CDMX."
 keywords:

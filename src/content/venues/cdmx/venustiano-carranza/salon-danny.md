@@ -1,14 +1,30 @@
 ---
 name: "Salón de Fiestas y Eventos Sociales Danny"
 slug: "salon-danny"
-description: "Salón de Fiestas y Eventos Sociales Danny es un espacio versátil y bien mantenido en la colonia Moctezuma 2da Sección de Venustiano Carranza. Con capacidad para hasta 220 personas en formato banquete, Danny ofrece un salón amplio con pista de baile generosa, cocina industrial equipada, aire acondicionado eficiente y vestidores privados. Su ubicación sobre Calle Oriente 172, a minutos de Calzada Ignacio Zaragoza y Metro Moctezuma, le otorga excelente conectividad. Con una sólida reputación construida evento tras evento, Danny es sinónimo de celebraciones bien organizadas a precios justos en la zona oriente de la CDMX."
-shortDescription: "Salón de eventos en Moctezuma 2da Secc, Venustiano Carranza. Pista de baile y cocina industrial. Hasta 220 personas CDMX."
+description: >-
+  Salón de Fiestas y Eventos Sociales Danny es un espacio versátil y bien mantenido en la colonia
+  Moctezuma 2da Sección de Venustiano Carranza. Con capacidad para hasta 220 personas en formato
+  banquete, Danny ofrece un salón amplio con pista de baile generosa, cocina industrial equipada,
+  aire acondicionado eficiente y vestidores privados. Su ubicación sobre Calle Oriente 172, a
+  minutos de Calzada Ignacio Zaragoza y del Metro Moctezuma (Línea 1), le otorga una conectividad
+  excepcional en la zona oriente de la CDMX. Quienes llegan desde el AICM (Aeropuerto Internacional
+  de la Ciudad de México) alcanzan el salón en menos de 10 minutos, lo que hace de Danny una opción
+  especialmente conveniente para bodas y eventos con invitados que viajan desde otros estados o del
+  extranjero. Con una sólida reputación construida evento tras evento, Danny es sinónimo de
+  celebraciones bien organizadas a precios justos, respaldado por su cercanía a la red de Metro y
+  a la principal avenida de la zona, Calzada Ignacio Zaragoza.
+shortDescription: "Salón de eventos en Moctezuma 2da Secc, Venustiano Carranza, con excelente conectividad cerca del AICM. Pista de baile y cocina industrial."
 
 region: "cdmx"
 zone: "Venustiano Carranza"
 zoneSlug: "venustiano-carranza"
 address: "Calle Ote. 172 #349, Moctezuma 2da Secc"
 neighborhood: "Moctezuma 2da Sección"
+postalCode: "15530"
+coordinates:
+  lat: 19.4280689
+  lng: -99.1010273
+googleMapsUrl: "https://maps.google.com/?q=Salon+danny+Venustiano+Carranza+CDMX"
 
 type: "salon"
 
@@ -91,6 +107,18 @@ reviews:
     text: "Los XV años de Valentina fueron espectaculares. La pista de baile es amplia para la coreografía de chambelanes, los vestidores fueron perfectos para el cambio de vestido, y el coordinador nos ayudó con cada detalle del protocolo. Sin duda volveremos."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Danny Venustiano Carranza?"
+    answer: "Salón de Fiestas y Eventos Sociales Danny tiene capacidad para 220 personas en formato banquete y 280 en cóctel. Con pista de baile generosa y cocina industrial, es uno de los salones más funcionales de la colonia Moctezuma 2da Sección, Venustiano Carranza."
+  - question: "¿Dónde está Salón Danny y cómo llegar?"
+    answer: "El salón se ubica en Calle Oriente 172 #349, colonia Moctezuma 2da Sección, alcaldía Venustiano Carranza, CDMX, C.P. 15530. Está a minutos de Calzada Ignacio Zaragoza y del Metro Moctezuma (Línea 1), con excelente conectividad desde la zona oriente y el centro de la ciudad. Cuenta con estacionamiento propio."
+  - question: "¿Qué incluye la renta de Salón Danny?"
+    answer: "La renta incluye mobiliario básico, mantelería, iluminación básica, montaje, desmontaje, seguridad y limpieza. El salón cuenta con cocina industrial equipada, aire acondicionado eficiente, vestidores privados y Wi-Fi para el día de tu evento."
+  - question: "¿Para qué tipos de eventos es ideal Salón Danny?"
+    answer: "Salón Danny recibe bodas, XV años, bautizos, comuniones, cumpleaños, graduaciones, aniversarios, fiestas privadas, fiestas infantiles y eventos corporativos. Su reputación construida evento tras evento lo posiciona como opción confiable para celebraciones de 40 a 220 personas en Venustiano Carranza."
+  - question: "¿Cuál es el horario de operación de Salón Danny?"
+    answer: "El salón opera de lunes a viernes de 10:00 a 23:00 y fines de semana de 10:00 a 02:00 horas, con un mínimo de 5 horas de renta. Su precio accesible y excelente conectividad con el Metro Moctezuma lo convierten en una de las opciones mejor valoradas de la alcaldía Venustiano Carranza."
+
 seoTitle: "Salón Danny"
 seoDescription: "Salón de fiestas en Moctezuma, Venustiano Carranza. Bodas, XV años y graduaciones hasta 220 personas. Precios accesibles CDMX."
 keywords:
@@ -102,6 +130,12 @@ keywords:
   - renta salon eventos moctezuma
   - salon fiestas oriente cdmx accesible
   - salon con cocina industrial moctezuma
+  - venue eventos venustiano carranza
+  - salon bodas cerca aeropuerto cdmx
+  - eventos cerca aicm cdmx
+  - salon metro moctezuma venustiano carranza
+  - boda salon accesible aeropuerto cdmx
+  - venue corporativo zona aeropuerto cdmx
 
 featured: false
 premium: false

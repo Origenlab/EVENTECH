@@ -65,8 +65,7 @@ schedule:
   minHours: 5
 
 contact:
-  phone: ""
-  whatsapp: ""
+  phone: "55 5673 7298"
 
 image: "/images/venues/salon-las-fuentes-hero.avif"
 gallery:
@@ -102,6 +101,17 @@ reviews:
     text: "El bautizo de nuestra hija fue íntimo y elegante. Con 90 invitados el salón se sentía acogedor sin estar vacío. La fuente le dio un toque especial que otros salones no tienen. Buen servicio y precio justo para la zona."
     eventType: "bautizo"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Las Fuentes?"
+    answer: "Salón Las Fuentes tiene capacidad para hasta 220 personas en formato banquete y hasta 280 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salón Las Fuentes y cómo llegar?"
+    answer: "Salón Las Fuentes se encuentra en Calle Ayuntamiento 23, Barrio San Pablo, alcaldía Iztapalapa, Ciudad de México. La alcaldía cuenta con múltiples estaciones del Metro (Líneas 8, 9 y A) y es accesible desde Periférico, Canal de San Juan y otras vías principales."
+  - question: "¿Qué incluye la renta de Salón Las Fuentes?"
+    answer: "La renta de Salón Las Fuentes incluye coordinador de eventos, mobiliario básico (mesas y sillas), mantelería, iluminación básica, equipo de sonido básico. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón Las Fuentes?"
+    answer: "Salón Las Fuentes es apto para bodas, quinceañeras, bautizos, cumpleaños y comuniones. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Salón Las Fuentes?"
+    answer: "Salón Las Fuentes opera entre semana de 10:00 - 23:00 y fines de semana de 10:00 - 03:00 con un mínimo de 5 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Salón Las Fuentes Iztapalapa"
 seoDescription: "Salón de fiestas con fuente decorativa en Barrio San Pablo, Iztapalapa. Bodas y XV años hasta 220 personas. Ambiente único en CDMX."
 keywords:

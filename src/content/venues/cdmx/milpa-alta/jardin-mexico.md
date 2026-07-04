@@ -9,6 +9,11 @@ zone: "Milpa Alta"
 zoneSlug: "milpa-alta"
 address: "México Sur 7, Villa Milpa Alta"
 neighborhood: "Villa Milpa Alta"
+postalCode: "12000"
+coordinates:
+  lat: 19.1890426
+  lng: -99.0240305
+googleMapsUrl: "https://maps.google.com/?q=Jardin+mexico+milpa+alta+CDMX"
 
 type: "jardin"
 
@@ -92,6 +97,17 @@ reviews:
     text: "Reunión comunitaria con 280 personas. El Jardín México es el único espacio en Milpa Alta con capacidad real para eventos de este tamaño al aire libre. El estacionamiento amplio fue clave porque vinieron familias de varios pueblos. Buena organización."
     eventType: "reunion"
 
+faqs:
+  - question: "¿Cuál es la capacidad de Jardín de Fiestas México?"
+    answer: "Jardín de Fiestas México puede recibir hasta 300 personas. La capacidad varía según el montaje: banquete, cóctel o teatro. Consulta con el equipo para el formato que mejor se adapte a tu evento."
+  - question: "¿Dónde está ubicado Jardín de Fiestas México y cómo llegar?"
+    answer: "Jardín de Fiestas México se ubica en México Sur 7, Villa Milpa Alta, colonia Villa Milpa Alta, alcaldía CDMX, Ciudad de México. Si vas en auto, se recomienda verificar disponibilidad de estacionamiento directamente con el venue."
+  - question: "¿Qué incluye la renta de Jardín de Fiestas México?"
+    answer: "La renta de Jardín de Fiestas México incluye: mobiliario-basico, manteleria, iluminacion-basica, montaje, desmontaje, limpieza, seguridad. Además, el venue cuenta con las siguientes instalaciones y amenidades: estacionamiento, pista-baile, jardin, terraza, area-infantil, acceso-discapacitados, wifi, area-fotos. Para paquetes personalizados o servicios adicionales, consulta directamente con el equipo."
+  - question: "¿Qué tipo de eventos se pueden realizar en Jardín de Fiestas México?"
+    answer: "Jardín de Fiestas México es apto para una amplia variedad de eventos, entre ellos: bodas, xv-anos, bautizos, cumpleanos, comuniones, fiestas-privadas, aniversarios, fiestas-infantiles, reuniones. El equipo del venue puede orientarte sobre el montaje más adecuado para cada ocasión."
+  - question: "¿Jardín de Fiestas México cuenta con estacionamiento?"
+    answer: "Sí, estacionamiento. Además, el venue puede orientarte sobre opciones de acceso en transporte público o valet parking según disponibilidad. Consulta directamente para más detalles."
 seoTitle: "Jardín México Milpa Alta Fiestas al Aire Libre"
 seoDescription: "Jardín de fiestas en Villa Milpa Alta con 1,500 m². Bodas y XV años hasta 300 personas con clima de montaña y cielos limpios."
 keywords:
@@ -104,7 +120,7 @@ keywords:
   - jardin eventos montaña cdmx
   - salon fiestas milpa alta grande
 
-featured: false
+featured: true
 premium: false
 verified: false
 order: 0

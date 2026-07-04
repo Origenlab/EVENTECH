@@ -116,6 +116,17 @@ reviews:
     text: "Los XV de mi hija con temática de cristal y plata quedaron perfectos en este salón. La decoración del lugar ya aportaba el 50% de la ambientación que queríamos. La pista de baile con los espejos laterales hizo que el vals se viera espectacular desde cualquier mesa."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Crystal?"
+    answer: "Salón Crystal tiene capacidad para hasta 250 personas en formato banquete y hasta 300 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salón Crystal y cómo llegar?"
+    answer: "Salón Crystal se encuentra en Av. Tláhuac 1500, La Asunción, alcaldía Iztapalapa, Ciudad de México. La alcaldía cuenta con múltiples estaciones del Metro (Líneas 8, 9 y A) y es accesible desde Periférico, Canal de San Juan y otras vías principales."
+  - question: "¿Qué incluye la renta de Salón Crystal?"
+    answer: "La renta de Salón Crystal incluye coordinador de eventos, mobiliario básico (mesas y sillas), mantelería, iluminación básica, equipo de sonido básico. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón Crystal?"
+    answer: "Salón Crystal es apto para bodas, quinceañeras, bautizos, cumpleaños y baby showers. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Se puede llevar catering externo a Salón Crystal?"
+    answer: "Sí, Salón Crystal permite el ingreso de catering externo, lo que te da libertad para elegir el servicio gastronómico que mejor se adapte a tu presupuesto y preferencias. Te recomendamos coordinar con anticipación los detalles logísticos de acceso para proveedores."
 seoTitle: "Salón Crystal Iztapalapa Eventos Modernos CDMX"
 seoDescription: "Salón moderno con cristal y espejos en La Asunción, Iztapalapa. Bodas, XV años y baby showers hasta 250 personas."
 keywords:

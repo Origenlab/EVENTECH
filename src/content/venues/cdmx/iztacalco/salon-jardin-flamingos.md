@@ -154,6 +154,17 @@ reviews:
     text: "Organizamos nuestra posada corporativa para 180 colaboradores. El jardín tropical fue un éxito rotundo: montamos el cóctel entre las palmeras y la cena en el salón. La producción de EVENTECH con iluminación y sonido fue impecable. Único detalle: el estacionamiento se llena rápido con grupos grandes."
     eventType: "corporativo"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Jardín Flamingos?"
+    answer: "Salón Jardín Flamingos tiene capacidad para hasta 300 personas en formato banquete y hasta 400 en formato cóctel. El espacio al aire libre resulta ideal para celebraciones en un ambiente natural y tranquilo."
+  - question: "¿Dónde está ubicado Salón Jardín Flamingos y cómo llegar?"
+    answer: "Salón Jardín Flamingos se encuentra en Cjon. Hortaliza 88, Ex-Ejido Magdalena Mixhuca, alcaldía Iztacalco, Ciudad de México. La alcaldía está bien comunicada a través de las líneas del Metro (Línea 8 y 9) y vías principales como el Eje 4 y la Calzada de la Viga."
+  - question: "¿Qué incluye la renta de Salón Jardín Flamingos?"
+    answer: "La renta de Salón Jardín Flamingos incluye coordinador de eventos, mobiliario básico (mesas y sillas), mantelería, iluminación básica, equipo de sonido básico. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón Jardín Flamingos?"
+    answer: "Salón Jardín Flamingos es apto para bodas, quinceañeras, bautizos, cumpleaños y aniversarios. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Se puede llevar catering externo a Salón Jardín Flamingos?"
+    answer: "Sí, Salón Jardín Flamingos permite el ingreso de catering externo, lo que te da libertad para elegir el servicio gastronómico que mejor se adapte a tu presupuesto y preferencias. Te recomendamos coordinar con anticipación los detalles logísticos de acceso para proveedores."
 seoTitle: "Salón Jardín Flamingos Iztacalco"
 seoDescription: "Jardín tropical de 500 m² con palmeras y fuentes en Iztacalco. Bodas y XV años hasta 300 personas. Ubicación céntrica. Socio premium EVENTECH."
 keywords:

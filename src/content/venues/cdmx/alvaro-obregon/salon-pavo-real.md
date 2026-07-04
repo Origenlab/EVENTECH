@@ -110,6 +110,17 @@ reviews:
     text: "Organizamos el cumpleaños 60 de mi papá con 120 invitados. El salón se veía espectacular con la decoración que pusimos, el aire acondicionado funcionó toda la noche y el personal fue muy atento. Excelente opción sin gastar de más."
     eventType: "cumpleanos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón de Fiestas Pavo Real?"
+    answer: "Salón de Fiestas Pavo Real tiene capacidad para hasta 200 personas en formato banquete y hasta 250 en formato cóctel. Para ceremonias, el espacio acomoda hasta 120 invitados. El mínimo de invitados es de 40 personas."
+  - question: "¿Dónde está ubicado Salón de Fiestas Pavo Real y cómo llegar?"
+    answer: "Salón de Fiestas Pavo Real se encuentra en Pavoreal 100, José María Pino Suárez, colonia José María Pino Suárez, alcaldía Álvaro Obregón, Ciudad de México. La zona es accesible en auto particular; se recomienda usar Uber o DiDi indicando el nombre del salón. Cuenta con estacionamiento propio."
+  - question: "¿Qué está incluido en la renta de Salón de Fiestas Pavo Real?"
+    answer: "La renta de Salón de Fiestas Pavo Real incluye: mobiliario básico (mesas y sillas), mantelería, montaje, desmontaje y limpieza post-evento. Las instalaciones cuentan además con cocina industrial, pista de baile, Wi-Fi, aire acondicionado."
+  - question: "¿Qué tipo de eventos se pueden realizar en Salón de Fiestas Pavo Real?"
+    answer: "Salón de Fiestas Pavo Real es ideal para bodas, XV años, bautizos, cumpleaños, primeras comuniones, fiestas privadas, baby showers y aniversarios."
+  - question: "¿Cuál es el horario de eventos en Salón de Fiestas Pavo Real?"
+    answer: "Salón de Fiestas Pavo Real opera en los siguientes horarios: lunes a viernes de 10:00 - 23:00, sábados y domingos de 10:00 - 02:00. La renta mínima es de 5 horas. Respecto al catering: Catering externo permitido."
 seoTitle: "Salón Pavo Real Álvaro Obregón"
 seoDescription: "Salón de fiestas Pavo Real en Álvaro Obregón. Bodas, XV años y bautizos hasta 200 personas con pista de baile y cocina. Precios desde $8,000."
 keywords:

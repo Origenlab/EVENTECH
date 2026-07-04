@@ -9,6 +9,11 @@ zone: "Gustavo A. Madero"
 zoneSlug: "gustavo-a-madero"
 address: "Calz. de los Misterios 440, Industrial"
 neighborhood: "Industrial"
+postalCode: "07020"
+coordinates:
+  lat: 19.4807542
+  lng: -99.1202125
+googleMapsUrl: "https://maps.google.com/?q=Salon+villa+portilla+Gustavo+A+Madero+CDMX"
 
 type: "salon"
 
@@ -95,6 +100,17 @@ reviews:
     text: "Los XV de mi hija en Villa Portilla fueron inolvidables. Su entrada por los arcos de cantera fue espectacular, las fotos junto a la fuente quedaron preciosas, y el vestidor estilo hacienda la hizo sentir como una princesa mexicana. El coordinador se aseguró de que todo el protocolo saliera perfecto. Muy recomendable."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Villa Portilla?"
+    answer: "Salón Villa Portilla tiene capacidad para hasta 230 personas en formato banquete y hasta 300 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salón Villa Portilla y cómo llegar?"
+    answer: "Salón Villa Portilla se encuentra en Calz. de los Misterios 440, Industrial, alcaldía Gustavo A. Madero, Ciudad de México. La alcaldía cuenta con varias estaciones del Metro (Líneas 3 y 6) y amplia red de transporte público que facilita el acceso desde toda la CDMX."
+  - question: "¿Qué incluye la renta de Salón Villa Portilla?"
+    answer: "La renta de Salón Villa Portilla incluye coordinador de eventos, mobiliario básico (mesas y sillas), mantelería, vajilla completa, iluminación básica. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón Villa Portilla?"
+    answer: "Salón Villa Portilla es apto para bodas, quinceañeras, bautizos, cumpleaños y comuniones. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Salón Villa Portilla?"
+    answer: "Salón Villa Portilla opera entre semana de 10:00 - 23:00 y fines de semana de 10:00 - 03:00 con un mínimo de 5 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Salón Villa Portilla"
 seoDescription: "Salón estilo hacienda en Industrial, GAM. Arcos de cantera, patio con fuente. Bodas y XV años hasta 230 personas en CDMX."
 keywords:

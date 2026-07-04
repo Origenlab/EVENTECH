@@ -93,7 +93,34 @@ eventechPartner: true
 
 rating: 4.6
 reviewCount: 142
+reviews:
+  - author: "Dra. Patricia Olvera — Congreso Nacional de Medicina Interna"
+    date: "2025-04"
+    rating: 5
+    text: "Organizamos nuestro congreso anual con 550 asistentes en el Centro de Convenciones Insurgentes y fue una experiencia sin contratiempos. El salón plenario para 600 personas, las cuatro salas de sesión simultáneas y el área de exposición de 800m² nos permitieron correr tres tracks en paralelo. La conectividad de transporte desde Insurgentes Sur fue clave para los asistentes que llegaban de provincia."
+    eventType: "congreso"
+  - author: "Mtro. Jorge Villanueva — Cámara de Comercio CDMX"
+    date: "2024-10"
+    rating: 5
+    text: "Usamos las instalaciones en Guadalupe Inn para nuestra convención anual de socios y la infraestructura técnica fue sobresaliente: streaming de alta calidad para los asistentes remotos y sistema de traducción simultánea sin interrupciones. El equipo de coordinación de eventos resolvió cada requerimiento de último minuto con profesionalismo ejemplar."
+    eventType: "convención"
+  - author: "Ing. Carlos Montes de Oca — Asociación de Ingenieros Civiles"
+    date: "2024-03"
+    rating: 4
+    text: "Venue corporativo sólido en el corredor de Insurgentes Sur. El equipo técnico manejó sin problemas nuestra presentación con 14 pantallas simultáneas y transmisión en vivo. El acceso al metro facilita la asistencia de todos los sectores de la ciudad. Para congresos de gran formato en Benito Juárez, es la referencia."
+    eventType: "convención"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Centro de Convenciones Insurgentes?"
+    answer: "Centro de Convenciones Insurgentes tiene capacidad para hasta 600 personas en formato banquete y hasta 800 en formato cóctel. Para ceremonias, el espacio acomoda hasta 500 invitados. El mínimo de invitados es de 50 personas."
+  - question: "¿Dónde está ubicado Centro de Convenciones Insurgentes y cómo llegar?"
+    answer: "Centro de Convenciones Insurgentes se encuentra en Insurgentes Sur 1863, Guadalupe Inn, colonia Guadalupe Inn, alcaldía Benito Juárez, Ciudad de México. Cuenta con excelente acceso por transporte público (Metro línea 3 o 12) y por las principales vialidades de la ciudad. Cuenta con estacionamiento propio. Se ofrece servicio de valet parking."
+  - question: "¿Qué está incluido en la renta de Centro de Convenciones Insurgentes?"
+    answer: "La renta de Centro de Convenciones Insurgentes incluye: coordinador de evento, mobiliario básico (mesas y sillas), iluminación básica, equipo de sonido básico, montaje, desmontaje, personal de seguridad y limpieza post-evento. Las instalaciones cuentan además con cocina industrial, pista de baile, generador de emergencia, Wi-Fi."
+  - question: "¿Qué tipo de eventos se pueden realizar en Centro de Convenciones Insurgentes?"
+    answer: "Centro de Convenciones Insurgentes es ideal para eventos corporativos, convenciones, congresos, lanzamientos de producto, exposiciones, bodas, cenas de gala y graduaciones."
+  - question: "¿Cuál es el horario de eventos en Centro de Convenciones Insurgentes?"
+    answer: "Centro de Convenciones Insurgentes opera en los siguientes horarios: lunes a viernes de 07:00 - 23:00, sábados y domingos de 08:00 - 23:00. La renta mínima es de 4 horas."
 seoTitle: "Centro de Convenciones Insurgentes"
 seoDescription: "Centro de convenciones en Insurgentes Sur. Sala plenaria 600 personas, 4 salas. Congresos y corporativos en CDMX."
 keywords:

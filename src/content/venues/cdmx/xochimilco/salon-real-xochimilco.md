@@ -1,8 +1,18 @@
 ---
 name: "Salón Real Xochimilco"
 slug: "salon-real-xochimilco"
-description: "Salón Real Xochimilco es un espacio elegante para eventos sociales y familiares en la colonia Santiago Tulyehualco, alcaldía Xochimilco. Con un salón principal climatizado, acabados modernos, pista de baile amplia y capacidad para hasta 280 personas en banquete, este venue ofrece una propuesta de calidad para bodas, XV años, graduaciones y corporativos en la zona sureste de la Ciudad de México. Su ubicación sobre Avenida Guadalupe I. Ramírez le da accesibilidad directa desde Tláhuac, Milpa Alta y el sur de Iztapalapa."
-shortDescription: "Salón elegante en Santiago Tulyehualco, Xochimilco. Bodas y XV años hasta 280 personas con aire acondicionado y WiFi."
+description: >-
+  Salón Real Xochimilco es un espacio elegante para eventos sociales y familiares
+  en Santiago Tulyehualco, alcaldía Xochimilco — declarada Patrimonio de la
+  Humanidad por la UNESCO por su sistema de canales y chinampas prehispánicas,
+  la única zona lacustre activa de la Ciudad de México. Con salón principal
+  climatizado, acabados modernos, vajilla incluida y capacidad para hasta 280
+  personas en banquete, este venue ofrece calidad sólida para bodas, XV años,
+  graduaciones y corporativos en el sureste de la CDMX. Su ubicación sobre
+  Avenida Guadalupe I. Ramírez lo conecta directamente con Tláhuac, Milpa Alta
+  e Iztapalapa sur, y a pocos minutos de los embarcaderos de trajineras de
+  Xochimilco para complementar cualquier celebración.
+shortDescription: "Salón elegante con vajilla incluida en Santiago Tulyehualco, Xochimilco Patrimonio UNESCO."
 
 region: "cdmx"
 zone: "Xochimilco"
@@ -118,6 +128,18 @@ reviews:
     text: "Los XV de mi nieta con 260 invitados fueron una fiesta increíble. El salón tiene muy buena pista de baile, los meseros del catering pudieron trabajar bien con la cocina del lugar, y la decoración que pusimos lució mucho contra los acabados modernos del salón. Muy satisfechos."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Real Xochimilco?"
+    answer: "Salón Real Xochimilco tiene capacidad para 280 personas en formato banquete y 350 en cóctel, con montaje para ceremonia de hasta 170 invitados. Su salón principal climatizado con acabados modernos es uno de los espacios de mayor calidad en Santiago Tulyehualco, alcaldía Xochimilco."
+  - question: "¿Dónde está Salón Real Xochimilco y cómo llegar?"
+    answer: "El salón se ubica en Avenida Guadalupe I. Ramírez 400, barrio de Santiago Tulyehualco, alcaldía Xochimilco, CDMX, C.P. 16700. Su ubicación sobre Av. Guadalupe I. Ramírez ofrece acceso directo desde Tláhuac, Milpa Alta y el sur de Iztapalapa. Cuenta con estacionamiento propio."
+  - question: "¿Qué incluye la renta de Salón Real Xochimilco?"
+    answer: "La renta incluye mobiliario básico, mantelería, vajilla, iluminación básica, montaje, desmontaje, seguridad y limpieza. El salón cuenta con cocina industrial, aire acondicionado, área de fotos, Wi-Fi y pista de baile amplia para una experiencia completa desde el primer momento."
+  - question: "¿Qué tipos de eventos acepta Salón Real Xochimilco?"
+    answer: "El salón recibe bodas, XV años, bautizos, cumpleaños, aniversarios, graduaciones, eventos corporativos, comuniones, fiestas privadas y fiestas infantiles. Su diseño elegante, vajilla incluida y conectividad con la zona sureste de la CDMX lo posicionan como la mejor opción de calidad en Tulyehualco."
+  - question: "¿Cuál es el horario y la política de catering en Salón Real Xochimilco?"
+    answer: "El salón opera de lunes a viernes de 10:00 a 23:00 y fines de semana de 10:00 a 02:00 horas, con mínimo de 5 horas de renta. Se permiten caterings autorizados externos para el banquete, además de open bar, DJ y shows de entretenimiento contratados por el cliente. La pirotecnia interior no está permitida."
+
 seoTitle: "Salón Real Xochimilco"
 seoDescription: "Salón elegante en Santiago Tulyehualco, Xochimilco. Bodas y XV años hasta 280 personas. Vajilla incluida, sureste CDMX."
 keywords:
@@ -129,6 +151,9 @@ keywords:
   - renta salon elegante xochimilco
   - salon fiestas tulyehualco cdmx
   - salon corporativos sureste cdmx
+  - salón fiestas xochimilco cdmx
+  - venue xochimilco patrimonio UNESCO
+  - salon eventos zona lacustre cdmx
 
 featured: false
 premium: false

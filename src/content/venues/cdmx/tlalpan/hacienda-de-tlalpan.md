@@ -111,6 +111,24 @@ reviews:
     rating: 5
     text: "Los XV de mi hija fueron mágicos. El jardín es espectacular y el servicio impecable."
     eventType: "xv-anos"
+  - author: "Familia Morales Escalante"
+    date: "2025-03"
+    rating: 5
+    text: "Los XV años de Valentina en Hacienda de Tlalpan fueron lo que toda quinceañera merece: sin prisas, sin mirar el reloj. La fiesta empezó a las 7 de la tarde con la ceremonia en la capilla del siglo XVII y terminó a las 4 de la mañana bajo las estrellas del Ajusco —y nadie quería irse. Los 12,000 metros de jardín con los ahuehuetes centenarios son indescriptibles. El espectáculo de pirotecnia con el que cerramos la noche fue el colofón perfecto. Un venue sin comparación en el sur de la ciudad."
+    eventType: "xv-anos"
+
+
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Hacienda de Tlalpan?"
+    answer: "Hacienda de Tlalpan puede recibir desde 80 hasta 600 personas en formato banquete y hasta 900 en cóctel, con capacidad para ceremonia de 300 invitados. Sus 12,000 metros cuadrados de jardines centenarios en el Ajusco permiten celebraciones de gran escala con privacidad total."
+  - question: "¿Dónde está la Hacienda de Tlalpan y cómo llegar?"
+    answer: "La hacienda se localiza en Camino Real al Ajusco 850, colonia Héroes de Padierna, alcaldía Tlalpan, CDMX, C.P. 14200. Está a 30 minutos del centro de la ciudad, entre el bosque del Ajusco. Cuenta con estacionamiento propio y servicio de valet parking."
+  - question: "¿Qué incluye la renta de Hacienda de Tlalpan?"
+    answer: "La renta incluye banquete completo, meseros, coordinador, mobiliario básico, mantelería, vajilla, montaje, desmontaje, seguridad y limpieza. La hacienda además cuenta con capilla, suite nupcial, vestidores, lago ornamental y fuente originales del siglo XVII."
+  - question: "¿Qué tipo de eventos acepta la Hacienda de Tlalpan?"
+    answer: "La hacienda es la sede perfecta para bodas de hacienda, XV años, eventos corporativos de alto perfil, aniversarios y graduaciones. El mínimo en fin de semana es de 100 personas. La pirotecnia está permitida con autorización previa."
+  - question: "¿Cuáles son las restricciones y el horario de Hacienda de Tlalpan?"
+    answer: "Al estar rodeada de bosque sin vecinos cercanos, la hacienda opera entre semana de 11:00 a 03:00 y los fines de semana de 10:00 a 05:00 horas. Cuenta con calefacción para eventos nocturnos y área infantil. El acceso puede ser limitado en temporada de lluvias extremas."
 
 seoTitle: "Hacienda de Tlalpan"
 seoDescription: "Hacienda colonial del siglo XVII en Tlalpan. 12,000 m² de jardines, sin límite de horario. Bodas hasta 600 personas."

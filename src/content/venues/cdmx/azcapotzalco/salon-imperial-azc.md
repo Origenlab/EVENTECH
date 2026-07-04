@@ -122,6 +122,17 @@ reviews:
     text: "La cena de gala de fin de año con 280 colaboradores fue un éxito. El salón Imperial tiene una presencia formal que le da seriedad a eventos corporativos sin verse anticuado. El WiFi funcionó bien para nuestra transmisión en vivo y el estacionamiento fue suficiente. Buena opción para empresas en la zona norte."
     eventType: "cenas-gala"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Imperial Azcapotzalco?"
+    answer: "Salón Imperial Azcapotzalco tiene capacidad para hasta 300 personas en formato banquete y hasta 380 en formato cóctel. Para ceremonias, el espacio acomoda hasta 180 invitados. El mínimo de invitados es de 60 personas."
+  - question: "¿Dónde está ubicado Salón Imperial Azcapotzalco y cómo llegar?"
+    answer: "Salón Imperial Azcapotzalco se encuentra en Camarones 404, Cosmopolita, colonia Cosmopolita, alcaldía Azcapotzalco, Ciudad de México. Puedes llegar en Metro (línea 6, estación Vallejo o Ferrería) o en auto particular y Uber/DiDi. Cuenta con estacionamiento propio."
+  - question: "¿Qué está incluido en la renta de Salón Imperial Azcapotzalco?"
+    answer: "La renta de Salón Imperial Azcapotzalco incluye: mobiliario básico (mesas y sillas), mantelería, iluminación básica, montaje, desmontaje, limpieza post-evento y personal de seguridad. Las instalaciones cuentan además con cocina industrial, pista de baile, Wi-Fi, aire acondicionado."
+  - question: "¿Qué tipo de eventos se pueden realizar en Salón Imperial Azcapotzalco?"
+    answer: "Salón Imperial Azcapotzalco es ideal para bodas, XV años, bautizos, primeras comuniones, cumpleaños, graduaciones, aniversarios y eventos corporativos. Entre otros tipos de celebraciones y reuniones."
+  - question: "¿Cuál es el horario de eventos en Salón Imperial Azcapotzalco?"
+    answer: "Salón Imperial Azcapotzalco opera en los siguientes horarios: lunes a viernes de 10:00 - 23:00, sábados y domingos de 10:00 - 02:00. La renta mínima es de 5 horas. Respecto al catering: Catering externo permitido con caterings autorizados."
 seoTitle: "Salón Imperial Azcapotzalco"
 seoDescription: "Salón clásico elegante en Cosmopolita, Azcapotzalco. Bodas, XV años y galas hasta 300 personas. Área de fotos y pista de baile."
 keywords:

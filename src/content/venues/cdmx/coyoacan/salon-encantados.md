@@ -114,6 +114,17 @@ reviews:
     text: "Organizamos la graduación de secundaria con 200 alumnos y familias. El espacio fue más que suficiente, la ubicación sobre División del Norte facilitó que todos llegaran sin problema y el estacionamiento ayudó mucho. Buena opción para eventos escolares."
     eventType: "graduaciones"
 
+faqs:
+  - question: "¿Cuántas personas caben en Salón Encantados?"
+    answer: "Salón Encantados tiene capacidad para 250 personas en banquete y hasta 300 en cóctel. Para ceremonias puede alojar 150 personas sentadas. El aforo mínimo es de 50 personas, con una pista de baile central amplia y espacio generoso para todas las mesas."
+  - question: "¿Dónde está Salón Encantados y cómo llegar?"
+    answer: "Se ubica en Av. División del Norte 3165, Pedregal de Santo Domingo, Coyoacán, C.P. 04369. Su ubicación sobre División del Norte —una de las avenidas principales del sur de CDMX— facilita el acceso desde Insurgentes, el Periférico y Calzada de Tlalpan. Cuenta con estacionamiento propio y acceso para personas con discapacidad."
+  - question: "¿Qué incluye la renta de Salón Encantados?"
+    answer: "La renta incluye mobiliario básico, mantelería, iluminación básica, montaje, desmontaje y limpieza. El salón dispone de aire acondicionado, cocina industrial, área de fotos, pista de baile y WiFi. El catering externo está permitido y se pueden contratar banquetes, taquizas, meseros y DJ de manera independiente."
+  - question: "¿Qué tipo de eventos acepta Salón Encantados?"
+    answer: "Salón Encantados acepta bodas, XV años, bautizos, cumpleaños, comuniones, fiestas infantiles, graduaciones, fiestas privadas y aniversarios. Su diseño contemporáneo y amplio, con capacidad hasta 250 personas a precios accesibles, lo convierte en una de las opciones más completas del sur de Coyoacán."
+  - question: "¿Cuál es el horario de Salón Encantados y se permite catering externo?"
+    answer: "El horario de operación es de 10:00 a 23:00 entre semana y de 10:00 a 02:00 los fines de semana, con un mínimo de 5 horas. El catering externo está permitido: taquizas, banquetes y bebidas propias son bienvenidos. No se permite pirotecnia interior ni mascotas. Los precios de renta van de $8,000 a $28,000 por evento."
 seoTitle: "Salón Encantados Coyoacán"
 seoDescription: "Salón Encantados sobre División del Norte, Coyoacán. Bodas, XV años y graduaciones hasta 250 personas con zona de fotos. Desde $8,000."
 keywords:

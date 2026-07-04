@@ -9,6 +9,11 @@ zone: "Iztapalapa"
 zoneSlug: "iztapalapa"
 address: "Calz. Ignacio Zaragoza 1820, Ejército de Oriente"
 neighborhood: "Ejército de Oriente"
+postalCode: "09110"
+coordinates:
+  lat: 19.3862209
+  lng: -99.0369199
+googleMapsUrl: "https://maps.google.com/?q=Jardin+la+fuente+iztapalapa+CDMX"
 
 type: "jardin"
 
@@ -91,6 +96,17 @@ reviews:
     text: "Hicimos los XV años de mi hija y el jardín quedó espectacular con las luces que contratamos. La fuente iluminada fue el mejor backdrop para las fotos. Buen servicio y precio justo."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Jardín de Eventos La Fuente?"
+    answer: "Jardín de Eventos La Fuente tiene capacidad para hasta 300 personas en formato banquete y hasta 400 en formato cóctel. El espacio al aire libre resulta ideal para celebraciones en un ambiente natural y tranquilo."
+  - question: "¿Dónde está ubicado Jardín de Eventos La Fuente y cómo llegar?"
+    answer: "Jardín de Eventos La Fuente se encuentra en Calz. Ignacio Zaragoza 1820, Ejército de Oriente, alcaldía Iztapalapa, Ciudad de México. La alcaldía cuenta con múltiples estaciones del Metro (Líneas 8, 9 y A) y es accesible desde Periférico, Canal de San Juan y otras vías principales."
+  - question: "¿Qué incluye la renta de Jardín de Eventos La Fuente?"
+    answer: "La renta de Jardín de Eventos La Fuente incluye coordinador de eventos, mobiliario básico (mesas y sillas), mantelería, montaje del evento, desmontaje. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Jardín de Eventos La Fuente?"
+    answer: "Jardín de Eventos La Fuente es apto para bodas, quinceañeras, bautizos, cumpleaños y comuniones. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Jardín de Eventos La Fuente?"
+    answer: "Jardín de Eventos La Fuente opera entre semana de 10:00 - 22:00 y fines de semana de 10:00 - 03:00 con un mínimo de 5 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Jardín La Fuente Iztapalapa"
 seoDescription: "Jardín de eventos en Ejército de Oriente, Iztapalapa. Fuente decorativa y carpa fija. Bodas y XV años hasta 300 personas CDMX."
 keywords:

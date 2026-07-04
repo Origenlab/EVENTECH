@@ -124,6 +124,17 @@ reviews:
     text: "La fiesta de 50 años de mi esposo con 120 invitados en Belle Époque fue elegantísima. El ambiente de época combinó perfecto con su personalidad refinada. Los vestidores fueron muy prácticos y el coordinador del venue fue atento y profesional. El único punto a mejorar sería contar con estacionamiento propio, aunque los valet de la zona resolvieron bien."
     eventType: "cumpleanos"
 
+faqs:
+  - question: "¿Cuántas personas caben en Salón Belle Époque?"
+    answer: "Salón Belle Époque tiene capacidad para 200 personas en banquete y hasta 260 en cóctel. Para ceremonias puede alojar 120 personas sentadas. El aforo mínimo es de 40 personas. Su diseño art nouveau con vitrales decorativos, herrería artística y pisos geométricos crea un ambiente único que hace lucir espectacular cualquier evento, sin importar el tamaño."
+  - question: "¿Dónde está Salón Belle Époque y cómo llegar?"
+    answer: "Se ubica en Calle Versalles 62, Colonia Juárez, alcaldía Cuauhtémoc, C.P. 06600, en una de las colonias más elegantes y bien conectadas de CDMX. El Metrobús Reforma (estación Hamburgo) está a 3 cuadras. El Metro Cuauhtémoc (Línea 1) está a 5 minutos caminando. No cuenta con estacionamiento propio, pero hay varios estacionamientos públicos en la zona."
+  - question: "¿Qué incluye la renta de Salón Belle Époque?"
+    answer: "La renta incluye coordinador de eventos, mobiliario básico, mantelería, iluminación básica, montaje (desde 3 horas antes), desmontaje, limpieza y seguridad. El espacio cuenta con vestidores privados, pista de baile, cocina industrial, área de fotos, aire acondicionado y WiFi. El catering debe contratarse con proveedores autorizados por el venue."
+  - question: "¿Qué tipo de eventos se realizan en Salón Belle Époque?"
+    answer: "Salón Belle Époque es ideal para bodas con estética de época, XV años elegantes, cumpleaños de adultos, aniversarios, cenas de gala, eventos corporativos de diseño, sesiones fotográficas, lanzamientos creativos y despedidas de soltera. Su arquitectura art nouveau del Porfiriato —con vitrales, herrería artística y pisos geométricos— lo convierte en el venue más singular de la Colonia Juárez."
+  - question: "¿Cuál es el horario de Salón Belle Époque y qué se permite en decoración?"
+    answer: "El horario es de 10:00 a 00:00 entre semana y de 10:00 a 03:00 los fines de semana, con mínimo de 5 horas. La decoración requiere aprobación previa del venue para proteger los elementos arquitectónicos originales: no se permiten clavos, adhesivos en muros ni elementos que alteren los acabados art nouveau. Se prefieren cuartetos de cuerdas y música en vivo sobre DJ para mantener la atmósfera de época."
 seoTitle: "Salón Belle Époque Juárez"
 seoDescription: "Salón art nouveau en col. Juárez, Cuauhtémoc. Vitrales, herrería artística. Bodas y eventos exclusivos hasta 200 personas."
 keywords:

@@ -1,8 +1,18 @@
 ---
 name: "Jardín Los Manantiales"
 slug: "jardin-los-manantiales-xoch"
-description: "Jardín Los Manantiales es un espacio lacustre para eventos al aire libre en el Barrio 18 de Xochimilco. Ubicado en la zona de chinampas y canales que le dio a Xochimilco su declaración como Patrimonio de la Humanidad por la UNESCO, este jardín ofrece un entorno natural único con vegetación exuberante, proximidad al agua y un ambiente que evoca la tradición prehispánica del cultivo en chinampas. Con capacidad para hasta 250 personas y un lago ornamental como elemento central, es una opción incomparable para bodas, XV años y celebraciones que buscan un escenario natural auténtico."
-shortDescription: "Jardín lacustre con lago ornamental en Barrio 18, Xochimilco. Eventos al aire libre hasta 250 personas en zona de chinampas."
+description: >-
+  Jardín Los Manantiales es un espacio lacustre para eventos al aire libre en el
+  Barrio 18 de Xochimilco. Ubicado en la zona de chinampas y canales que le dio
+  a Xochimilco su declaración como Patrimonio de la Humanidad por la UNESCO en
+  1987, este jardín ofrece un entorno natural único con vegetación exuberante,
+  lago ornamental y un ambiente que evoca la tradición prehispánica del cultivo
+  en chinampas — la misma tecnología agrícola azteca que sobrevive hasta hoy.
+  A escasos minutos de los embarcaderos de trajineras, Con capacidad para hasta
+  250 personas y el lago como elemento central del escenario, es la opción más
+  auténticamente lacustre de Xochimilco para bodas, XV años y celebraciones que
+  buscan vivir la zona patrimonial desde adentro.
+shortDescription: "Jardín lacustre con lago ornamental en zona de chinampas Patrimonio UNESCO, Xochimilco."
 
 region: "cdmx"
 zone: "Xochimilco"
@@ -117,6 +127,18 @@ reviews:
     text: "El bautizo de mi nieto en este jardín fue muy emotivo. El entorno natural de Xochimilco le dio un significado especial a la celebración. Los 120 invitados disfrutaron mucho el ambiente al aire libre y los niños estaban fascinados con el lago. Muy bonito lugar."
     eventType: "bautizos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Jardín Los Manantiales Xochimilco?"
+    answer: "Jardín Los Manantiales tiene capacidad para 250 personas en formato banquete y 300 en cóctel, con montaje para ceremonia de hasta 180 invitados. Su lago ornamental como elemento central crea un escenario natural único en el Barrio 18 de Xochimilco, zona de chinampas UNESCO."
+  - question: "¿Dónde está Jardín Los Manantiales y cómo llegar?"
+    answer: "El jardín se ubica en Prolongación División del Norte s/n, Barrio 18, alcaldía Xochimilco, CDMX, C.P. 16034. Está en la zona de chinampas y canales que le valió a Xochimilco su declaración como Patrimonio de la Humanidad por la UNESCO. Cuenta con estacionamiento propio."
+  - question: "¿Qué incluye la renta de Jardín Los Manantiales?"
+    answer: "La renta incluye mobiliario básico, mantelería, iluminación básica, montaje, desmontaje y limpieza. El jardín cuenta con cocina industrial, pista de baile, lago ornamental y área de fotos. Se permiten caterings autorizados externos, open bar, DJ, carpas y decoración floral como servicios adicionales."
+  - question: "¿Qué tipos de eventos acepta Jardín Los Manantiales?"
+    answer: "El jardín es perfecto para bodas, XV años, bautizos, cumpleaños, aniversarios, comuniones, baby showers, fiestas privadas y sesiones fotográficas. La vegetación exuberante y el lago ornamental en la zona chinampera de Xochimilco crean un escenario natural incomparable para ceremonias al aire libre."
+  - question: "¿Cuáles son las restricciones ambientales de Jardín Los Manantiales?"
+    answer: "El jardín opera de lunes a viernes de 10:00 a 23:00 y fines de semana de 10:00 a 01:00 horas, con mínimo de 5 horas. Por encontrarse en zona ecológica protegida de Xochimilco, no se permite pirotecnia, ni arrojar objetos al lago. La música amplificada tiene límite de horario. Es obligatorio proteger el lago y la vegetación lacustre durante el evento."
+
 seoTitle: "Jardín Los Manantiales Xochimilco"
 seoDescription: "Jardín lacustre con lago ornamental en Barrio 18, Xochimilco. Bodas al aire libre hasta 250 personas. Zona chinampas CDMX."
 keywords:
@@ -128,6 +150,9 @@ keywords:
   - renta jardin xochimilco sur cdmx
   - jardin bautizos xochimilco
   - eventos aire libre xochimilco chinampas
+  - venue xochimilco patrimonio UNESCO
+  - boda xochimilco lago cdmx
+  - jardín eventos zona lacustre cdmx
 
 featured: false
 premium: false

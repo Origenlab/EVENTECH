@@ -111,6 +111,17 @@ reviews:
     text: "Realizamos nuestra convención anual con 400 asistentes. La nave principal para conferencias y la secundaria para la expo comercial. El mezzanine funcionó como sala VIP. Estacionamiento para 150 autos fue un diferenciador importante. Volveremos el próximo año."
     eventType: "convencion"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en La Industrial Eventos?"
+    answer: "La Industrial Eventos tiene capacidad para hasta 800 personas en formato banquete y hasta 1200 en formato cóctel. Para ceremonias, el espacio acomoda hasta 350 invitados. El mínimo de invitados es de 100 personas."
+  - question: "¿Dónde está ubicado La Industrial Eventos y cómo llegar?"
+    answer: "La Industrial Eventos se encuentra en Calz. Azcapotzalco La Villa 456, Col. Industrial Vallejo, colonia Industrial Vallejo, alcaldía Azcapotzalco, Ciudad de México. Puedes llegar en Metro (línea 6, estación Vallejo o Ferrería) o en auto particular y Uber/DiDi. Cuenta con estacionamiento propio."
+  - question: "¿Qué está incluido en la renta de La Industrial Eventos?"
+    answer: "La renta de La Industrial Eventos incluye: coordinador de evento, mobiliario básico (mesas y sillas), personal de seguridad, limpieza post-evento, montaje y desmontaje. Las instalaciones cuentan además con cocina industrial, pista de baile, terraza, Wi-Fi."
+  - question: "¿Qué tipo de eventos se pueden realizar en La Industrial Eventos?"
+    answer: "La Industrial Eventos es ideal para bodas, eventos corporativos, lanzamientos de producto, convenciones, aniversarios, cenas de gala, conciertos y exposiciones."
+  - question: "¿Cuál es el horario de eventos en La Industrial Eventos?"
+    answer: "La Industrial Eventos opera en los siguientes horarios: lunes a viernes de 10:00 - 02:00, sábados y domingos de 10:00 - 04:00. La renta mínima es de 5 horas. Respecto al catering: Catering externo permitido."
 seoTitle: "La Industrial - Fábrica de 1920 CDMX"
 seoDescription: "Fábrica textil convertida en venue industrial. 3,000 m², techos de 8m, estilo raw auténtico. Bodas y eventos hasta 800 personas."
 keywords:

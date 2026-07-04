@@ -99,6 +99,18 @@ reviews:
     text: "Hicimos el baby shower de mi hermana para 60 personas. El jardín es hermoso, muy verde y fresco gracias a los sauces. Las fotos quedaron espectaculares sin necesidad de mucha decoración. El espacio habla por sí solo. Precio muy accesible."
     eventType: "baby-shower"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Jardín Los Sauces?"
+    answer: "Jardín Los Sauces tiene capacidad para 250 personas en formato banquete y 300 en cóctel, con opción de ceremonia para hasta 180 invitados al aire libre bajo el dosel natural de sauces llorones."
+  - question: "¿Dónde está ubicado Jardín Los Sauces y cómo llegar?"
+    answer: "El jardín se encuentra en Independencia 12, Santa Catarina Yecahuizotl, alcaldía Tláhuac, CDMX, C.P. 13100. Se accede fácilmente desde la autopista México-Puebla y la Calzada Ermita-Iztapalapa. Cuenta con amplio estacionamiento propio."
+  - question: "¿Qué incluye la renta de Jardín Los Sauces?"
+    answer: "La renta incluye mobiliario básico (mesas y sillas), mantelería, iluminación básica, montaje, desmontaje y limpieza. El jardín cuenta con cocina industrial disponible para banquetes y pista de baile al aire libre."
+  - question: "¿Qué tipo de eventos se pueden celebrar en Jardín Los Sauces?"
+    answer: "Jardín Los Sauces es ideal para bodas al aire libre, ceremonias religiosas en jardín, XV años, bautizos, comuniones, baby showers, cumpleaños, aniversarios, fiestas infantiles y sesiones fotográficas con marco natural."
+  - question: "¿Cuál es el horario de uso de Jardín Los Sauces?"
+    answer: "Entre semana el jardín opera de 10:00 a 22:00 horas; los fines de semana el horario se extiende hasta las 02:00 horas, con un mínimo de 5 horas de uso. Se permiten caterings externos y la pirotecnia está sujeta a previa autorización."
+
 seoTitle: "Jardín Los Sauces Tláhuac"
 seoDescription: "Jardín campestre con sauces llorones en Tláhuac. Bodas y XV años al aire libre hasta 250 personas. Área de fotos natural."
 keywords:

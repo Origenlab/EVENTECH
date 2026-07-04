@@ -205,6 +205,22 @@ export const SERVICE_CATEGORIES = [
     ],
   },
   {
+    id: "computo",
+    name: "Cómputo",
+    description: "Laptops, iPads, PCs e impresoras",
+    excerpt: "Laptops empresariales, iPads, PCs de escritorio e impresoras para registro, congresos y capacitaciones. Configuradas, probadas e instaladas en tu evento.",
+    cta: "Cómputo",
+    icon: "laptop",
+    href: "/servicios/computo/",
+    image: "/images/audiovisual/monitor-pantalla-presentacion-congreso.avif",
+    subcategories: [
+      { name: "Laptops", href: "/servicios/computo/laptops/" },
+      { name: "iPads y Tablets", href: "/servicios/computo/ipads-tablets/" },
+      { name: "PCs de Escritorio", href: "/servicios/computo/pcs-escritorio/" },
+      { name: "Impresión y Periféricos", href: "/servicios/computo/impresion-perifericos/" },
+    ],
+  },
+  {
     id: "accesorios",
     name: "Accesorios",
     description: "Barras, calentadores, generadores",

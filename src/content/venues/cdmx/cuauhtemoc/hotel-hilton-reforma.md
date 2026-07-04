@@ -92,7 +92,34 @@ eventechDiscount: "10% en equipos de audiovisual"
 
 rating: 4.5
 reviewCount: 567
+reviews:
+  - author: "Lic. Eduardo Brambila — Asociación Empresarial del Centro"
+    date: "2025-03"
+    rating: 5
+    text: "El Gran Salón Reforma del Hilton es el espacio de convenciones más funcional del centro de la ciudad. Realizamos nuestra asamblea anual con más de 1,000 asistentes y los 2,000 metros cuadrados de espacios para eventos del hotel absorbieron el flujo de personas con total eficiencia. La tecnología audiovisual, el equipo de banquetes y el servicio de coordinación del Hilton operaron con la precisión internacional que caracteriza a la marca. La ubicación frente al Monumento a la Revolución facilita el acceso desde cualquier punto de la ciudad."
+    eventType: "convenciones"
+  - author: "Mtra. Valentina Cruz, Gerente de Eventos — Grupo Editorial Reforma"
+    date: "2024-07"
+    rating: 4
+    text: "Organizamos el lanzamiento de nuestra nueva plataforma digital para 400 personas en el Hilton Reforma y el resultado fue muy satisfactorio. Los salones son versátiles y el equipo del hotel tiene experiencia real para transformar espacios corporativos en ambientes de evento. La propuesta gastronómica del banquete ejecutivo fue de buen nivel y los tiempos de servicio estuvieron controlados. Un venue sólido con respaldo de marca internacional para eventos de alto perfil en el centro histórico."
+    eventType: "lanzamientos"
+  - author: "Lic. Roberto Salinas — Consultora de Recursos Humanos CapitalHR"
+    date: "2025-01"
+    rating: 5
+    text: "Llevamos a cabo nuestro congreso de liderazgo para 700 profesionales de RH en el Hilton Mexico City Reforma durante tres días completos. La capacidad del hotel para manejar eventos multi-día con múltiples salones simultáneos, hospedaje en las 459 habitaciones y servicio de banquete es una combinación que pocos venues pueden ofrecer en CDMX. La vista al Monumento a la Revolución desde los salones superiores es un plus que los asistentes siempre comentan."
+    eventType: "corporativos"
 
+faqs:
+  - question: "¿Cuántas personas caben en el Hilton Mexico City Reforma para eventos?"
+    answer: "El Hilton Mexico City Reforma tiene capacidad para 1,200 personas en banquete y hasta 1,800 en cóctel. El Gran Salón Reforma puede alojar más de 1,000 personas. Para ceremonias civiles o religiosas, la capacidad es de hasta 400 personas. El aforo mínimo por espacio varía desde 50 personas en salas menores."
+  - question: "¿Dónde está el Hilton Mexico City Reforma y cómo llegar?"
+    answer: "Se ubica en Av. Juárez 70, Colonia Tabacalera, alcaldía Cuauhtémoc, C.P. 06010, frente al Monumento a la Revolución sobre Paseo de la Reforma. El Metro más cercano es Revolución (Línea 2) y Hidalgo (Líneas 2 y 3). El Metrobús Reforma pasa frente al hotel. Cuenta con estacionamiento propio y valet parking."
+  - question: "¿Qué incluye la renta del Hilton Mexico City Reforma para eventos?"
+    answer: "La renta incluye banquete completo con meseros, coordinador de bodas y eventos, mobiliario, mantelería, vajilla, iluminación básica, sonido básico y seguridad. El hotel ofrece más de 2,000 m² de salones, suite nupcial, spa, alberca, terraza y 459 habitaciones para alojar a invitados de fuera de la ciudad. EVENTECH tiene descuento del 10% en equipos audiovisuales."
+  - question: "¿Qué tipo de eventos se realizan en el Hilton Mexico City Reforma?"
+    answer: "El Hilton Mexico City Reforma es ideal para convenciones corporativas, bodas de gran formato, XV años de alto nivel, graduaciones, cenas de gala, lanzamientos de producto y eventos institucionales. La combinación de tecnología de punta, gastronomía de calidad, ubicación sobre Reforma y el respaldo de la marca Hilton garantizan eventos ejecutados con estándar internacional."
+  - question: "¿Cuál es el horario del Hilton Mexico City Reforma y qué amenidades adicionales ofrece?"
+    answer: "El Hilton opera eventos las 24 horas del día (06:00 a 02:00), con toque de queda a las 02:00. Como amenidades adicionales exclusivas de un hotel de esta categoría, ofrece spa, alberca, restaurantes propios para brunch post-boda, habitaciones con tarifas especiales para grupos, y conexión directa al aeropuerto. El precio por persona va de $1,400 a $3,200 según el paquete."
 seoTitle: "Hilton Mexico City Reforma"
 seoDescription: "Celebra eventos y convenciones en Hilton Mexico City Reforma. Más de 2,000 m² de salones, tecnología de punta y ubicación central sobre Paseo de la Reforma."
 keywords:

@@ -109,6 +109,17 @@ reviews:
     text: "Organizamos nuestra convención anual con 300 asistentes. El espacio es profesional, el WiFi soportó todas las presentaciones sin caídas y la ubicación en Lindavista fue muy conveniente para nuestros ejecutivos. El servicio de coordinación nos resolvió la logística de registro y coffee break. Excelente opción corporativa."
     eventType: "corporativo"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Majestic?"
+    answer: "Salón Majestic tiene capacidad para hasta 320 personas en formato banquete y hasta 400 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salón Majestic y cómo llegar?"
+    answer: "Salón Majestic se encuentra en Av. IPN 3600, Lindavista, alcaldía Gustavo A. Madero, Ciudad de México. La alcaldía cuenta con varias estaciones del Metro (Líneas 3 y 6) y amplia red de transporte público que facilita el acceso desde toda la CDMX."
+  - question: "¿Qué incluye la renta de Salón Majestic?"
+    answer: "La renta de Salón Majestic incluye mobiliario básico (mesas y sillas), mantelería, vajilla completa, iluminación básica, equipo de sonido básico. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón Majestic?"
+    answer: "Salón Majestic es apto para bodas, quinceañeras, bautizos, comuniones y graduaciones. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Salón Majestic?"
+    answer: "Salón Majestic opera entre semana de 10:00 - 00:00 y fines de semana de 10:00 - 03:00 con un mínimo de 5 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Salón Majestic GAM Lindavista"
 seoDescription: "Salón premium en Lindavista, GAM. Bodas y eventos hasta 320 personas con vestidores, coordinador y acabados de lujo."
 keywords:

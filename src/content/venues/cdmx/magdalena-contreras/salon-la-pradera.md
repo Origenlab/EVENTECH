@@ -1,14 +1,29 @@
 ---
 name: "Salón de Fiestas La Pradera"
 slug: "salon-la-pradera"
-description: "Salón de Fiestas La Pradera es un espacio para celebraciones ubicado en San Jerónimo Lídice, La Magdalena Contreras, sobre el Camino Real a Contreras que conecta esta alcaldía verde con San Ángel y Pedregal. Con salón principal de 600 m² con doble altura de 5.5 metros, terraza de 120 m² con vista parcial a los cerros boscosos del Ajusco y capacidad para 250 personas en banquete, La Pradera ofrece coordinador incluido, vestidores privados y la mejor relación calidad-precio de la zona para bodas, XV años, graduaciones y eventos corporativos."
-shortDescription: "Salón con doble altura y terraza con vista boscosa en San Jerónimo Lídice, Contreras. Hasta 250 personas para bodas y eventos."
+description: >-
+  Salón de Fiestas La Pradera es un venue para celebraciones ubicado en San Jerónimo Lídice, La
+  Magdalena Contreras — el sur verde de la CDMX, a 20 minutos del Parque Nacional Desierto de los
+  Leones. Sobre el Camino Real a Contreras, la vía histórica que conecta esta alcaldía campestre
+  con San Ángel y Pedregal, La Pradera combina la comodidad de un salón cerrado con el entorno
+  natural privilegiado del sur CDMX. Salón principal de 600 m² con doble altura de 5.5 metros,
+  terraza de 120 m² con vista a los cerros boscosos del Ajusco y capacidad para 250 personas en
+  banquete. El microclima fresco y el aire puro de montaña característicos de Magdalena Contreras
+  se perciben desde la terraza, que enmarca bodas y XV años con el verde de la zona sur. La Pradera
+  ofrece coordinador incluido, vestidores privados y la mejor relación calidad-precio de la zona
+  para bodas, XV años, graduaciones y eventos corporativos en el sur CDMX.
+shortDescription: "Salón con doble altura y terraza con vista a los cerros boscosos en San Jerónimo Lídice, Magdalena Contreras, sur CDMX."
 
 region: "cdmx"
 zone: "La Magdalena Contreras"
 zoneSlug: "magdalena-contreras"
 address: "Camino Real a Contreras 287, San Jerónimo Lídice"
 neighborhood: "San Jerónimo Lídice"
+postalCode: "10740"
+coordinates:
+  lat: 19.3139822
+  lng: -99.2212703
+googleMapsUrl: "https://maps.google.com/?q=Salon+la+pradera+magdalena+contreras+CDMX"
 
 type: "salon"
 
@@ -92,6 +107,17 @@ reviews:
     text: "XV años con 230 invitados. La doble altura del salón hizo que la iluminación se viera espectacular y la pista de baile fue perfecta para la coreografía. Los vestidores le sirvieron mucho a mi hija para su cambio de vestido. Muy recomendable."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuál es la capacidad de Salón de Fiestas La Pradera?"
+    answer: "Salón de Fiestas La Pradera puede recibir hasta 250 personas. La capacidad varía según el montaje: banquete, cóctel o teatro. Consulta con el equipo para el formato que mejor se adapte a tu evento."
+  - question: "¿Dónde está ubicado Salón de Fiestas La Pradera y cómo llegar?"
+    answer: "Salón de Fiestas La Pradera se ubica en Camino Real a Contreras 287, San Jerónimo Lídice, colonia San Jerónimo Lídice, alcaldía CDMX, Ciudad de México. Si vas en auto, se recomienda verificar disponibilidad de estacionamiento directamente con el venue."
+  - question: "¿Qué incluye la renta de Salón de Fiestas La Pradera?"
+    answer: "La renta de Salón de Fiestas La Pradera incluye: coordinador, mobiliario-basico, manteleria, iluminacion-basica, sonido-basico, montaje, desmontaje, limpieza. Además, el venue cuenta con las siguientes instalaciones y amenidades: estacionamiento, pista-baile, terraza, aire-acondicionado, acceso-discapacitados, wifi, vestidores, vista-panoramica. Para paquetes personalizados o servicios adicionales, consulta directamente con el equipo."
+  - question: "¿Qué tipo de eventos se pueden realizar en Salón de Fiestas La Pradera?"
+    answer: "Salón de Fiestas La Pradera es apto para una amplia variedad de eventos, entre ellos: bodas, xv-anos, bautizos, cumpleanos, comuniones, aniversarios, fiestas-privadas, corporativos, graduaciones. El equipo del venue puede orientarte sobre el montaje más adecuado para cada ocasión."
+  - question: "¿Salón de Fiestas La Pradera cuenta con estacionamiento?"
+    answer: "Sí, estacionamiento. Además, el venue puede orientarte sobre opciones de acceso en transporte público o valet parking según disponibilidad. Consulta directamente para más detalles."
 seoTitle: "Salón La Pradera Contreras"
 seoDescription: "Salón con doble altura y terraza con vista boscosa en San Jerónimo Lídice. Bodas y XV años hasta 250 personas en Contreras CDMX."
 keywords:
@@ -103,6 +129,11 @@ keywords:
   - salon eventos sur cdmx vista
   - renta salon contreras doble altura
   - salon corporativos contreras cdmx
+  - venue eventos sur cdmx
+  - salon eventos naturaleza sur cdmx
+  - salon bodas sur cdmx
+  - eventos sur cdmx cerros ajusco
+  - salon desierto de los leones zona
 
 featured: false
 premium: false

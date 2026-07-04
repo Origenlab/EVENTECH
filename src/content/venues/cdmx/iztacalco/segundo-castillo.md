@@ -112,6 +112,17 @@ reviews:
     text: "La graduación de la secundaria con 180 alumnos y padres fue un éxito. La cocina industrial facilitó mucho el trabajo del catering y el salón tiene buena acústica para las ceremonias. Precio accesible y buen servicio."
     eventType: "graduacion"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Segundo Castillo?"
+    answer: "Segundo Castillo tiene capacidad para hasta 200 personas en formato banquete y hasta 250 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Segundo Castillo y cómo llegar?"
+    answer: "Segundo Castillo se encuentra en Sur 20-A 4, Agrícola Oriental, alcaldía Iztacalco, Ciudad de México. La alcaldía está bien comunicada a través de las líneas del Metro (Línea 8 y 9) y vías principales como el Eje 4 y la Calzada de la Viga."
+  - question: "¿Qué incluye la renta de Segundo Castillo?"
+    answer: "La renta de Segundo Castillo incluye mobiliario básico (mesas y sillas), mantelería, iluminación básica, montaje del evento, desmontaje. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Segundo Castillo?"
+    answer: "Segundo Castillo es apto para bodas, quinceañeras, bautizos, cumpleaños y comuniones. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Se puede llevar catering externo a Segundo Castillo?"
+    answer: "Sí, Segundo Castillo permite el ingreso de catering externo, lo que te da libertad para elegir el servicio gastronómico que mejor se adapte a tu presupuesto y preferencias. Te recomendamos coordinar con anticipación los detalles logísticos de acceso para proveedores."
 seoTitle: "Segundo Castillo"
 seoDescription: "Salón Segundo Castillo en Agrícola Oriental, Iztacalco. Bodas, XV años y graduaciones hasta 200 personas. Precios accesibles CDMX."
 keywords:

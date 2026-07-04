@@ -9,6 +9,11 @@ zone: "Cuauhtémoc"
 zoneSlug: "cuauhtemoc"
 address: "Salvador Díaz Mirón 127, Sta. María la Ribera"
 neighborhood: "Santa María la Ribera"
+postalCode: "06400"
+coordinates:
+  lat: 19.4482
+  lng: -99.1536
+googleMapsUrl: "https://maps.google.com/?q=Salon+Moriskos+Santa+Maria+la+Ribera+Cuauhtemoc+CDMX"
 
 type: "salon"
 
@@ -93,6 +98,17 @@ reviews:
     text: "Los XV años de mi hija fueron espectaculares en Morisko's. La vajilla incluida nos ahorró ese gasto, el área de fotos es muy bonita y la pista de baile tiene excelente tamaño. Los invitados se fueron encantados con el salón y con el barrio."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas caben en Salón Morisko's?"
+    answer: "Salón de Eventos Morisko's tiene capacidad para 200 personas en banquete y hasta 260 en cóctel. El aforo mínimo es de 40 personas. La pista de baile amplia y el área de fotos integrada permiten organizar eventos fluidos sin comprometer el espacio de las mesas."
+  - question: "¿Dónde está Salón Morisko's y cómo llegar?"
+    answer: "Se ubica en Salvador Díaz Mirón 127, Santa María la Ribera, alcaldía Cuauhtémoc, C.P. 06400, a pocos minutos del icónico Kiosco Morisco y de la Alameda de Santa María la Ribera. El Metro San Cosme (Línea 2) está a 3 cuadras. También es accesible por Insurgentes Norte y el Eje 1 Norte."
+  - question: "¿Qué incluye la renta de Salón Morisko's?"
+    answer: "La renta incluye mobiliario básico, mantelería, vajilla, iluminación básica, sonido básico, montaje, desmontaje, limpieza y seguridad. El salón dispone de pista de baile, cocina industrial, área de fotos, aire acondicionado, WiFi y acceso para personas con discapacidad. La vajilla incluida es un valor diferencial que reduce los costos de renta de equipo."
+  - question: "¿Qué tipo de eventos se realizan en Salón Morisko's?"
+    answer: "Salón Morisko's acepta bodas, XV años, bautizos, comuniones, cumpleaños, graduaciones, aniversarios, eventos corporativos, fiestas privadas, despedidas y reuniones de empresa. Su carácter propio inspirado en el barrio de Santa María la Ribera —uno de los más auténticos y culturalmente ricos de CDMX— lo diferencia de los salones genéricos de la zona centro."
+  - question: "¿Cuál es el horario de Salón Morisko's y se puede traer catering externo?"
+    answer: "El horario es de 10:00 a 23:00 entre semana y de 10:00 a 02:00 los fines de semana, con mínimo de 5 horas. El catering externo está permitido: los clientes pueden traer su propio servicio de banquetes, taquizas y bebidas. La vajilla incluida en la renta facilita la logística. El salón se ubica junto al Kiosco Morisco, por lo que los invitados pueden disfrutar del entorno del barrio antes o después del evento."
 seoTitle: "Salón Morisko's"
 seoDescription: "Salón de eventos en Santa María la Ribera, Cuauhtémoc. Bodas y eventos hasta 200 personas. Cerca del Kiosco Morisco CDMX."
 keywords:

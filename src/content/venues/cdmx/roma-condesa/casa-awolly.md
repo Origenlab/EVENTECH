@@ -67,6 +67,34 @@ gallery:
 eventechPartner: false
 rating: 4.7
 reviewCount: 94
+reviews:
+  - author: "Lic. Natalia Bravo — Directora Creativa, Estudio Bravo Design"
+    date: "2025-03"
+    rating: 5
+    text: "Realizamos el lanzamiento de nuestra nueva identidad de marca en Casa Awolly y el venue fue una extensión perfecta de nuestros valores estéticos. La residencia art déco de 1932 en Colima 124, con sus pisos de pasta hidráulica originales, herrería forjada a mano y rooftop con vistas del skyline capitalino, creó el escenario más coherente que hemos tenido para un evento de marca. Lo vintage y lo contemporáneo en perfecta armonía."
+    eventType: "lanzamiento"
+  - author: "Empresa Tequila Gran Cenizo"
+    date: "2024-10"
+    rating: 5
+    text: "Organizamos una experiencia gastronómica exclusiva para 80 distribuidores en Casa Awolly y el espacio superó todas nuestras expectativas. El patio interior con vegetación tropical fue perfecto para la recepción, y el rooftop panorámico sobre Roma Norte creó el cierre de noche ideal. El carácter auténtico de la casona restaurada transmitió exactamente los valores artesanales de nuestra marca."
+    eventType: "corporativo"
+  - author: "Rodrigo y Andrea Castellanos"
+    date: "2024-04"
+    rating: 4
+    text: "Celebramos el cumpleaños número 35 de mi esposa en Casa Awolly y fue una noche muy especial. El ambiente boutique de la residencia art déco —mobiliario de diseñadores mexicanos, muros de ladrillo aparente, el patio tropical— le dio al evento una personalidad que una sala de hotel nunca podría igualar. En el corazón de Roma Norte, el venue tiene todo el carácter bohemio y sofisticado del barrio."
+    eventType: "cumpleaños"
+
+faqs:
+  - question: "¿Cuántas personas pueden asistir a un evento en Casa Awolly?"
+    answer: "Casa Awolly tiene capacidad para 30 a 120 personas en formato banquete y hasta 180 en cóctel. Es un venue boutique de tres niveles en una residencia art déco de 1932, diseñado para eventos íntimos con carácter y diseño en el corazón de la Roma Norte."
+  - question: "¿Dónde se ubica Casa Awolly y cómo llegar?"
+    answer: "Casa Awolly está en Colima 124, Roma Norte, Cuauhtémoc, CP 06700. Es accesible en Metro Insurgentes (Línea 1) o Metrobús por Álvaro Obregón. La Roma Norte es una de las colonias más cotizadas y caminables de CDMX, con opciones de transporte y estacionamiento público en la zona."
+  - question: "¿Qué incluye la renta de Casa Awolly?"
+    answer: "La renta incluye coordinador de eventos, mobiliario básico y limpieza. El espacio cuenta con rooftop privado con vistas panorámicas del skyline capitalino, patio interior con vegetación tropical, pisos de pasta hidráulica originales y mobiliario contemporáneo de diseñadores mexicanos como parte del ambiente."
+  - question: "¿Qué tipo de eventos acepta Casa Awolly?"
+    answer: "Casa Awolly acepta eventos corporativos, lanzamientos de marca, cumpleaños, despedidas de soltera y baby showers. Su estética art déco restaurada y ambiente fotogénico lo hacen especialmente popular para sesiones editoriales, presentaciones de marca y experiencias gastronómicas con identidad visual."
+  - question: "¿Cuál es el horario de Casa Awolly y se pueden llevar proveedores externos?"
+    answer: "Casa Awolly opera entre semana de 10:00 a 00:00 horas y los fines de semana de 10:00 a 02:00, con duración mínima de 4 horas. El horario máximo es las 02:00. Los clientes pueden traer catering y proveedores externos coordinados previamente con el venue."
 
 seoTitle: "Casa Awolly Eventos Boutique en Roma Norte"
 seoDescription: "Venue boutique art déco en Roma Norte. Casa restaurada de 1932 con rooftop panorámico, patio tropical y diseño contemporáneo para eventos de hasta 180 pe..."

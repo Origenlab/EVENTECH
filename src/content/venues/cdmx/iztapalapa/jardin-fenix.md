@@ -9,6 +9,11 @@ zone: "Iztapalapa"
 zoneSlug: "iztapalapa"
 address: "10 de Agosto de 1860 #2050-A, Leyes de Reforma 3ra Secc"
 neighborhood: "Leyes de Reforma 3ra Sección"
+postalCode: "09225"
+coordinates:
+  lat: 19.3760519
+  lng: -99.060894
+googleMapsUrl: "https://maps.google.com/?q=Jardin+fenix+iztapalapa+CDMX"
 
 type: "jardin"
 
@@ -90,6 +95,17 @@ reviews:
     text: "Los XV de mi hija en el Jardín Fénix fueron un sueño. Las pérgolas decoradas con flores y luces crearon un ambiente mágico. El área de fotos natural es hermosa y todos los invitados quedaron encantados con el lugar."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Jardín de Fiestas Fénix?"
+    answer: "Jardín de Fiestas Fénix tiene capacidad para hasta 280 personas en formato banquete y hasta 350 en formato cóctel. El espacio al aire libre resulta ideal para celebraciones en un ambiente natural y tranquilo."
+  - question: "¿Dónde está ubicado Jardín de Fiestas Fénix y cómo llegar?"
+    answer: "Jardín de Fiestas Fénix se encuentra en 10 de Agosto de 1860 #2050-A, Leyes de Reforma 3ra Secc, colonia Leyes de Reforma 3ra Sección, alcaldía Iztapalapa, Ciudad de México. La alcaldía cuenta con múltiples estaciones del Metro (Líneas 8, 9 y A) y es accesible desde Periférico, Canal de San Juan y otras vías principales."
+  - question: "¿Qué incluye la renta de Jardín de Fiestas Fénix?"
+    answer: "La renta de Jardín de Fiestas Fénix incluye coordinador de eventos, mobiliario básico (mesas y sillas), mantelería, montaje del evento, desmontaje. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Jardín de Fiestas Fénix?"
+    answer: "Jardín de Fiestas Fénix es apto para bodas, quinceañeras, bautizos, cumpleaños y comuniones. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Jardín de Fiestas Fénix?"
+    answer: "Jardín de Fiestas Fénix opera entre semana de 10:00 - 22:00 y fines de semana de 10:00 - 03:00 con un mínimo de 5 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Jardín Fénix Iztapalapa"
 seoDescription: "Jardín de fiestas en Leyes de Reforma, Iztapalapa. Pérgolas, palapa y jardín arbolado. Bodas y XV años hasta 280 personas CDMX."
 keywords:

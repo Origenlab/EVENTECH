@@ -98,6 +98,34 @@ eventechDiscount: "10% en renta de equipo de iluminación LED"
 
 rating: 4.6
 reviewCount: 134
+reviews:
+  - author: "Karla y Diego Méndez Aguirre"
+    date: "2025-02"
+    rating: 5
+    text: "Celebramos nuestra boda en el Jardín Santa Fe Eventos y fue perfecta para los dos mundos que somos: él en Santa Fe corporativa, yo amante de los jardines. Los 2,000 metros cuadrados con carpa tensada permanente nos dieron la seguridad para planear sin miedo al clima, y las vistas a las torres corporativas de Santa Fe al atardecer crearon un escenario muy cinematográfico. La madera de la pista de 120m² fue perfecta para el baile."
+    eventType: "boda"
+  - author: "Familia Hernández Contreras"
+    date: "2024-10"
+    rating: 5
+    text: "Los XV años de Luisa en el Jardín Santa Fe fueron una fiesta increíble. La combinación de jardín con naturaleza urbana y la infraestructura profesional —iluminación LED integrada en la vegetación, carpa tensada para 350 personas— nos permitió tener el mejor de los mundos: al aire libre sin preocuparnos por la lluvia. El acceso directo desde Periférico fue muy cómodo para todos los invitados."
+    eventType: "xv-años"
+  - author: "Lic. Eduardo Talavera — Director de RH, Empresa Tecnológica Vertex"
+    date: "2024-05"
+    rating: 4
+    text: "Realizamos la convención anual de nuestra empresa en el Jardín Santa Fe Eventos y el contraste de naturaleza con el horizonte de torres corporativas de Santa Fe fue muy bien recibido por los 280 colaboradores. El jardín de 2,000m² con la carpa tensada y la iluminación LED integrada en la vegetación creó un ambiente de celebración distinto a cualquier salón de hotel que hemos usado. Precio muy competitivo en la zona."
+    eventType: "corporativo"
+
+faqs:
+  - question: "¿Cuántas personas puede recibir Jardín Santa Fe Eventos?"
+    answer: "Jardín Santa Fe Eventos tiene capacidad para 80 a 350 personas en banquete y hasta 450 en cóctel. Para ceremonias al aire libre, acepta hasta 280 personas. Sus 2,000 metros cuadrados con carpa tensada permanente y pista de madera de 120m² ofrecen flexibilidad para distintos formatos de evento."
+  - question: "¿Dónde está Jardín Santa Fe Eventos y cómo llegar?"
+    answer: "Se ubica en Av. Santa Fe 482, Santa Fe, Álvaro Obregón, CP 01210, con acceso directo desde Periférico. Está rodeado de áreas verdes en la zona corporativa más dinámica de CDMX, con vistas a las torres de Santa Fe. Cuenta con estacionamiento propio y valet parking para todos los asistentes."
+  - question: "¿Qué incluye la renta de Jardín Santa Fe Eventos?"
+    answer: "La renta incluye coordinador de eventos, mobiliario básico, mantelería, vajilla, iluminación básica integrada en la vegetación, montaje y desmontaje, seguridad y limpieza. La carpa tensada permanente, pista de madera de 120m², cocina industrial y generador de emergencia forman parte de la infraestructura."
+  - question: "¿Qué tipo de eventos se realizan en Jardín Santa Fe Eventos?"
+    answer: "Acepta bodas de jardín con toque contemporáneo, XV años, eventos corporativos, lanzamientos de productos, graduaciones, aniversarios, cenas de gala y fiestas privadas. Es el espacio al aire libre de alta gama más importante del corredor Santa Fe, ideal para empresas que buscan salir del salón convencional."
+  - question: "¿Cuál es la política de catering y el horario de Jardín Santa Fe Eventos?"
+    answer: "El banquete se coordina con caterings exclusivos autorizados. También se ofrece open bar premium con bartenders especializados. El jardín opera entre semana de 12:00 a 23:00 horas y los fines de semana de 11:00 a 02:00, con duración mínima de 5 horas y carpas adicionales disponibles para ampliar la capacidad."
 
 seoTitle: "Jardín Santa Fe Eventos CDMX"
 seoDescription: "Jardín de 2,000m² con carpa permanente en Santa Fe. Capacidad hasta 350 personas. Bodas, XV años y eventos corporativos en la zona más exclusiva de CDMX."

@@ -65,8 +65,7 @@ schedule:
   minHours: 5
 
 contact:
-  phone: ""
-  whatsapp: ""
+  phone: "55 4642 6744"
 
 image: "/images/venues/salon-victoria-hero.avif"
 gallery:
@@ -102,6 +101,17 @@ reviews:
     text: "Celebramos los XV de mi nieta con 160 invitados. El salón moderno le gustó mucho a la quinceañera porque se ve muy bien en las fotos y videos. La pista de baile es amplia para el vals con chambelanes. El estacionamiento es suficiente y la ubicación sobre Ermita es fácil de encontrar."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Victoria?"
+    answer: "Salón Victoria tiene capacidad para hasta 250 personas en formato banquete y hasta 300 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salón Victoria y cómo llegar?"
+    answer: "Salón Victoria se encuentra en Calz. Ermita Iztapalapa 3865, Santa Martha Acatitla, alcaldía Iztapalapa, Ciudad de México. La alcaldía cuenta con múltiples estaciones del Metro (Líneas 8, 9 y A) y es accesible desde Periférico, Canal de San Juan y otras vías principales."
+  - question: "¿Qué incluye la renta de Salón Victoria?"
+    answer: "La renta de Salón Victoria incluye coordinador de eventos, mobiliario básico (mesas y sillas), mantelería, iluminación básica, equipo de sonido básico. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón Victoria?"
+    answer: "Salón Victoria es apto para bodas, quinceañeras, bautizos, cumpleaños y graduaciones. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Salón Victoria?"
+    answer: "Salón Victoria opera entre semana de 10:00 - 23:00 y fines de semana de 10:00 - 03:00 con un mínimo de 5 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Salón Victoria Iztapalapa"
 seoDescription: "Salón moderno en Santa Martha Acatitla, Iztapalapa. Bodas, XV años y graduaciones hasta 250 personas. Acabados LED y WiFi."
 keywords:

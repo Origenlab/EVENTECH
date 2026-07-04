@@ -115,6 +115,17 @@ reviews:
     text: "Los XV años de mi sobrina fueron en Cristo Rey con 220 invitados. Los vestidores le permitieron prepararse tranquilamente antes de su entrada al salón, la pista es amplia para el vals y la seguridad nos dio mucha tranquilidad. Excelente opción."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Cristo Rey?"
+    answer: "Salón Cristo Rey tiene capacidad para hasta 250 personas en formato banquete y hasta 300 en formato cóctel. Para ceremonias, el espacio acomoda hasta 150 invitados. El mínimo de invitados es de 50 personas."
+  - question: "¿Dónde está ubicado Salón Cristo Rey y cómo llegar?"
+    answer: "Salón Cristo Rey se encuentra en Escuadrón 201, Cristo Rey, colonia Cristo Rey, alcaldía Álvaro Obregón, Ciudad de México. La zona es accesible en auto particular; se recomienda usar Uber o DiDi indicando el nombre del salón. Cuenta con estacionamiento propio."
+  - question: "¿Qué está incluido en la renta de Salón Cristo Rey?"
+    answer: "La renta de Salón Cristo Rey incluye: mobiliario básico (mesas y sillas), mantelería, iluminación básica, montaje, desmontaje, personal de seguridad y limpieza post-evento. Las instalaciones cuentan además con cocina industrial, pista de baile, Wi-Fi, aire acondicionado."
+  - question: "¿Qué tipo de eventos se pueden realizar en Salón Cristo Rey?"
+    answer: "Salón Cristo Rey es ideal para bodas, XV años, bautizos, cumpleaños, graduaciones, primeras comuniones, fiestas privadas y aniversarios. Entre otros tipos de celebraciones y reuniones."
+  - question: "¿Cuál es el horario de eventos en Salón Cristo Rey?"
+    answer: "Salón Cristo Rey opera en los siguientes horarios: lunes a viernes de 10:00 - 23:00, sábados y domingos de 10:00 - 02:00. La renta mínima es de 5 horas. Respecto al catering: Catering externo permitido."
 seoTitle: "Salón Cristo Rey Álvaro Obregón"
 seoDescription: "Salón Cristo Rey en Álvaro Obregón. Bodas, XV años y graduaciones hasta 250 personas con vestidores y seguridad. Desde $12,000 CDMX."
 keywords:

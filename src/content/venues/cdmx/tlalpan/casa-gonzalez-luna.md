@@ -103,6 +103,18 @@ reviews:
     text: "Organizamos nuestra cena de fin de año en el salón colonial. La chimenea de cantera, los techos de vigas de madera y los retratos de época crearon un ambiente que ningún hotel puede replicar. 80 personas, cena formal, y el encanto de la casa hizo todo el trabajo de ambientación."
     eventType: "corporativos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Casa González Luna?"
+    answer: "Casa González Luna tiene capacidad para 250 personas en formato banquete y 300 en cóctel, con espacio para ceremonia de hasta 150 invitados en sus jardines centenarios de 2,000 metros cuadrados en el centro de Tlalpan."
+  - question: "¿Dónde está ubicada Casa González Luna y cómo llegar?"
+    answer: "La mansión se ubica en Plaza de la Constitución 8, Centro de Tlalpan, alcaldía Tlalpan, CDMX, C.P. 14000. Está en el corazón del pueblo originario de Tlalpan, a unos minutos del Anillo Periférico. Cuenta con estacionamiento propio."
+  - question: "¿Qué incluye la renta de Casa González Luna?"
+    answer: "La renta incluye coordinador de eventos, mobiliario básico, iluminación básica, personal de seguridad y limpieza. La propiedad cuenta con capilla privada consagrada, salón colonial con chimenea de cantera, terraza y área de fotos con arquitectura histórica."
+  - question: "¿Qué tipos de eventos se celebran en Casa González Luna?"
+    answer: "La mansión es perfecta para bodas tradicionales mexicanas, bautizos familiares, XV años, aniversarios, cumpleaños y eventos corporativos. Su capilla privada consagrada la convierte en una opción única para ceremonias religiosas sin necesitar una iglesia externa."
+  - question: "¿Cuál es el horario de operación de Casa González Luna?"
+    answer: "Casa González Luna opera de lunes a viernes de 15:00 a 00:00 horas y los fines de semana de 12:00 a 01:00 horas, con un mínimo de 6 horas de renta. El salón colonial con chimenea, los vestidores privados y la Wi-Fi hacen de este un espacio completo con autenticidad histórica del siglo XIX."
+
 seoTitle: "Casa González Luna"
 seoDescription: "Mansión histórica con capilla consagrada y jardines centenarios en Tlalpan Centro. Bodas y bautizos hasta 250 personas en CDMX."
 keywords:

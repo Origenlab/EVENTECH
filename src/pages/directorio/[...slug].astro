@@ -8,7 +8,7 @@ import Breadcrumbs from "@components/Breadcrumbs.astro";
 import VenueCard from "@components/directorio/VenueCard.astro";
 import { getCollection, render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-import { breadcrumbJsonLd, venueJsonLd, collectionPageJsonLd, itemListJsonLd } from "@lib/seo";
+import { breadcrumbJsonLd, venueJsonLd, collectionPageJsonLd, itemListJsonLd, faqJsonLd } from "@lib/seo";
 import { SERVICE_CATEGORIES, SITE } from "@config/site";
 import "@styles/home-2026.css";
 import "@styles/directorio-2026.css";
@@ -474,7 +474,34 @@ const jsonLd = [
       reviewCount: venue.data.reviewCount,
       amenities: venue.data.amenities,
       openingHours: venue.data.schedule,
-    })
+    }),
+    // FAQ Schema — activa rich results (FAQ accordion) en SERP de Google
+    ...(venue.data.faqs && venue.data.faqs.length > 0
+      ? [faqJsonLd(venue.data.faqs)]
+      : []
+    ),
+    // Review Schema — emite reseñas individuales como structured data
+    ...(venue.data.reviews && venue.data.reviews.length > 0
+      ? [{
+          "@context": "https://schema.org",
+          "@type": "EventVenue",
+          "@id": `${SITE.url}/directorio/${region}/${zone}/${venue.data.slug}/#venue`,
+          name: venue.data.name,
+          review: venue.data.reviews.map((r) => ({
+            "@type": "Review",
+            author: { "@type": "Person", name: r.author },
+            datePublished: r.date,
+            reviewRating: {
+              "@type": "Rating",
+              ratingValue: r.rating,
+              bestRating: 5,
+              worstRating: 1,
+            },
+            reviewBody: r.text,
+          })),
+        }]
+      : []
+    ),
   ] : []),
 ];
 ---

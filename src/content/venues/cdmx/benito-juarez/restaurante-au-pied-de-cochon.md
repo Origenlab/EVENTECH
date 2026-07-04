@@ -80,7 +80,34 @@ eventechDiscount: "Servicio de audiovisual incluido en eventos"
 
 rating: 4.8
 reviewCount: 892
+reviews:
+  - author: "Dir. Alejandro Fernández Ruiz — Grupo Financiero Olmeca"
+    date: "2025-01"
+    rating: 5
+    text: "Celebramos la cena de fin de año de nuestra junta directiva en el salón privado de Au Pied de Cochon y reafirmamos por qué es el estándar de la brasserie francesa en México. Más de 50 años de historia en el Hotel Presidente InterContinental se sienten en cada detalle: el servicio, los vinos y una cocina que nunca decepciona. Una noche absolutamente memorable para nuestro equipo."
+    eventType: "corporativo"
+  - author: "Valeria y Rodrigo Bustamante"
+    date: "2024-08"
+    rating: 5
+    text: "Nuestro aniversario número 20 en Au Pied de Cochon fue exactamente lo que imaginamos: elegancia atemporal, servicio 24 horas y una cocina de clase mundial que rinde homenaje a la tradición francesa con ingredientes impecables. Reservamos el salón privado y la intimidad del espacio fue perfecta para una noche tan especial. Regresaremos para el número 25, sin duda."
+    eventType: "aniversario"
+  - author: "Lic. Marcela Torres Cisneros"
+    date: "2024-04"
+    rating: 5
+    text: "Celebré mis 50 años aquí con 30 amigos íntimos y Au Pied de Cochon demostró por qué es una institución gastronómica. La coordinación del menú personalizado, la selección de vinos y la atención al detalle del personal crearon una velada que mis invitados aún recuerdan. El ambiente del restaurante en Campos Elíseos tiene una sofisticación que pocos lugares en México pueden igualar."
+    eventType: "cumpleaños"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Au Pied de Cochon?"
+    answer: "Au Pied de Cochon tiene capacidad para hasta 80 personas en formato banquete y hasta 100 en formato cóctel. El mínimo de invitados es de 12 personas."
+  - question: "¿Dónde está ubicado Au Pied de Cochon y cómo llegar?"
+    answer: "Au Pied de Cochon se encuentra en Campos Elíseos 218, Polanco, colonia Polanco, alcaldía Benito Juárez, Ciudad de México. Cuenta con excelente acceso por transporte público (Metro línea 3 o 12) y por las principales vialidades de la ciudad. Cuenta con estacionamiento propio. Se ofrece servicio de valet parking."
+  - question: "¿Qué está incluido en la renta de Au Pied de Cochon?"
+    answer: "La renta de Au Pied de Cochon incluye: servicio de banquete, meseros, coordinador de evento, mobiliario básico (mesas y sillas), mantelería, vajilla y cristalería, iluminación básica y personal de seguridad. Las instalaciones cuentan además con Wi-Fi, aire acondicionado."
+  - question: "¿Qué tipo de eventos se pueden realizar en Au Pied de Cochon?"
+    answer: "Au Pied de Cochon es ideal para eventos corporativos, aniversarios, cumpleaños y cenas de gala."
+  - question: "¿Cuál es el horario de eventos en Au Pied de Cochon?"
+    answer: "Au Pied de Cochon opera en los siguientes horarios: lunes a viernes de 00:00 - 23:59, sábados y domingos de 00:00 - 23:59. La renta mínima es de 3 horas."
 seoTitle: "Au Pied de Cochon Eventos Privados Fine Dining"
 seoDescription: "Celebra eventos exclusivos en Au Pied de Cochon. Salones privados, gastronomía francesa de clase mundial y servicio 24 horas en Polanco."
 keywords:
@@ -90,7 +117,7 @@ keywords:
   - salon privado restaurante
   - au pied de cochon eventos
 
-featured: false
+featured: true
 premium: true
 verified: true
 order: 16

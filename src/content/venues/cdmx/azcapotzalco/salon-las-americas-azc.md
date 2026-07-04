@@ -119,6 +119,17 @@ reviews:
     text: "Los XV años de Sofía quedaron hermosos. Contratamos iluminación profesional con EVENTECH y el salón se transformó completamente. La cocina industrial permitió que nuestro banquetero trabajara sin problemas. El estacionamiento fue suficiente para nuestros invitados."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Las Américas?"
+    answer: "Salón Las Américas tiene capacidad para hasta 280 personas en formato banquete y hasta 350 en formato cóctel. Para ceremonias, el espacio acomoda hasta 170 invitados. El mínimo de invitados es de 50 personas."
+  - question: "¿Dónde está ubicado Salón Las Américas y cómo llegar?"
+    answer: "Salón Las Américas se encuentra en Av. Azcapotzalco 500, Azcapotzalco Centro, colonia Azcapotzalco Centro, alcaldía Azcapotzalco, Ciudad de México. Puedes llegar en Metro (línea 6, estación Vallejo o Ferrería) o en auto particular y Uber/DiDi. Cuenta con estacionamiento propio."
+  - question: "¿Qué está incluido en la renta de Salón Las Américas?"
+    answer: "La renta de Salón Las Américas incluye: mobiliario básico (mesas y sillas), mantelería, iluminación básica, montaje, desmontaje, limpieza post-evento y personal de seguridad. Las instalaciones cuentan además con cocina industrial, pista de baile, Wi-Fi, aire acondicionado."
+  - question: "¿Qué tipo de eventos se pueden realizar en Salón Las Américas?"
+    answer: "Salón Las Américas es ideal para bodas, XV años, bautizos, primeras comuniones, cumpleaños, graduaciones, aniversarios y eventos corporativos. Entre otros tipos de celebraciones y reuniones."
+  - question: "¿Cuál es el horario de eventos en Salón Las Américas?"
+    answer: "Salón Las Américas opera en los siguientes horarios: lunes a viernes de 10:00 - 23:00, sábados y domingos de 10:00 - 02:00. La renta mínima es de 5 horas. Respecto al catering: Catering externo permitido."
 seoTitle: "Salón Las Américas Azcapotzalco"
 seoDescription: "Salón moderno en Azcapotzalco Centro. Bodas, XV años y corporativos hasta 280 personas. Pista de baile, A/C y estacionamiento."
 keywords:

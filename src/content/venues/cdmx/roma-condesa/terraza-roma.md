@@ -73,6 +73,34 @@ gallery:
 eventechPartner: false
 rating: 4.6
 reviewCount: 112
+reviews:
+  - author: "Lic. Daniela Montoya — Gerente de Marketing, Cerveza Artesanal Tlalpan"
+    date: "2025-04"
+    rating: 5
+    text: "Lanzamos nuestra nueva línea de cervezas en la Terraza Roma y el escenario fue exactamente lo que necesitábamos. Los jardines verticales, el mobiliario de diseño contemporáneo y las vistas panorámicas del skyline de la Ciudad de México desde Orizaba 87 crearon un ambiente aspiracional y auténtico a la vez. En la Roma Norte, el venue captura perfectamente el espíritu del barrio: urbano, sofisticado y con carácter propio."
+    eventType: "lanzamiento"
+  - author: "Dir. Arturo Pedraza — CEO, Firma de Consultoría Nexus"
+    date: "2024-09"
+    rating: 5
+    text: "Organizamos nuestra cena de directivos en la Terraza Roma y el espacio cumplió con todo lo que necesitábamos. El rooftop con jardines verticales en la Roma Norte ofrece un ambiente de exclusividad urbana que contrasta muy bien con el ambiente de oficina. El skyline de CDMX como telón de fondo durante la cena convirtió una reunión corporativa en una experiencia memorable."
+    eventType: "corporativo"
+  - author: "Andrea y Marco Villalba"
+    date: "2024-04"
+    rating: 4
+    text: "Celebramos el cumpleaños de Marco en la Terraza Roma con unos 80 amigos y fue una noche muy divertida. El ambiente en Orizaba 87 tiene todo el encanto de la Roma Norte: sofisticado sin ser pretencioso, con las vistas de la ciudad de fondo y los jardines verticales como decoración natural. Para una fiesta privada en el corazón de la colonia más de moda de CDMX, difícil encontrar algo mejor."
+    eventType: "cumpleaños"
+
+faqs:
+  - question: "¿Cuántas personas puede recibir Terraza Roma en un evento?"
+    answer: "Terraza Roma tiene capacidad para 40 a 200 personas en formato banquete y hasta 300 en cóctel. El rooftop en Orizaba 87, Roma Norte, cuenta con jardines verticales y mobiliario de diseño contemporáneo, ofreciendo el skyline de la Ciudad de México como telón de fondo."
+  - question: "¿Dónde está Terraza Roma y cómo llegar?"
+    answer: "Terraza Roma se ubica en Orizaba 87, Roma Norte, Cuauhtémoc, CP 06700. Es accesible en Metro Insurgentes (Línea 1) o Metrobús por Álvaro Obregón, en el corazón de una de las colonias más bohemias de CDMX. La zona tiene amplia oferta de estacionamientos públicos cercanos."
+  - question: "¿Qué incluye la renta de Terraza Roma?"
+    answer: "La renta incluye coordinador de eventos, mobiliario básico, seguridad y limpieza. El espacio cuenta con vista panorámica de la ciudad, jardines verticales, área para fotos y conexión WiFi. El catering es libre con proveedores externos, lo que da libertad para elegir el servicio de alimentos y bebidas."
+  - question: "¿Qué tipo de eventos acepta Terraza Roma?"
+    answer: "Terraza Roma acepta eventos corporativos, lanzamientos de marca, cumpleaños, despedidas de soltera y aniversarios. Su ambiente urbano y sofisticado lo hace ideal para presentaciones de producto, experiencias de marca y celebraciones que buscan la autenticidad bohemia de la Roma Norte."
+  - question: "¿Cuál es el horario de Terraza Roma y qué restricciones aplican?"
+    answer: "Terraza Roma opera exclusivamente en horario vespertino y nocturno: entre semana de 17:00 a 02:00 horas y fines de semana de 14:00 a 03:00, con duración mínima de 4 horas. La capacidad está limitada por normativa de protección civil. El horario máximo (curfew) es las 03:00 los fines de semana."
 
 seoTitle: "Terraza Roma - Rooftop en Roma Norte | CDMX"
 seoDescription: "Rooftop exclusivo en la Roma Norte con vistas panorámicas de CDMX. Ideal para cócteles, fiestas y eventos corporativos hasta 200 personas."

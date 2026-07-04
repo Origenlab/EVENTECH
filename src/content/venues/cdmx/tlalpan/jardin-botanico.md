@@ -110,6 +110,18 @@ reviews:
     text: "Los XV de mi hija con 200 invitados bajo una carpa transparente junto al lago. Los niños disfrutaron el área infantil del bosque mientras los adultos cenábamos con vista al agua. El único detalle es que la música debe bajar a las 22:00, pero para entonces ya habíamos celebrado de sobra."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas caben en Jardín Botánico de Tlalpan?"
+    answer: "El Jardín Botánico de Tlalpan tiene capacidad para hasta 600 personas en formato banquete y 800 en cóctel, con espacio para ceremonia de 300 invitados. Sus 7 hectáreas con lagos, senderos y explanadas de césped lo convierten en el venue de naturaleza de mayor escala en Tlalpan."
+  - question: "¿Dónde está el Jardín Botánico de Tlalpan y cómo llegar?"
+    answer: "El jardín se encuentra en Avenida San Fernando 707, colonia Tlalpan Centro, alcaldía Tlalpan, CDMX, C.P. 14000. Está a minutos del centro histórico de Tlalpan y con acceso desde el Periférico y la Calzada de Tlalpan. Cuenta con estacionamiento propio."
+  - question: "¿Qué incluye la renta del Jardín Botánico de Tlalpan?"
+    answer: "La renta incluye coordinador de eventos, seguridad, limpieza, montaje y desmontaje. El jardín permite proveedores externos para banquete, mobiliario y decoración. Sus más de 3,000 especies de plantas nativas — incluyendo un jardín de rosas con 50 variedades — crean el escenario de manera natural."
+  - question: "¿Qué tipos de eventos se realizan en el Jardín Botánico de Tlalpan?"
+    answer: "El jardín botánico es ideal para bodas, XV años, bautizos, comuniones, fiestas infantiles, cumpleaños y baby showers. Su entorno natural con lagos, garzas y patos ofrece un ambiente único para ceremonias y celebraciones que buscan conexión con la naturaleza."
+  - question: "¿Cuáles son las restricciones y el horario del Jardín Botánico?"
+    answer: "El jardín opera de 10:00 a 22:00 horas entre semana y hasta las 23:00 los fines de semana, con un mínimo de 4 horas de renta y cierre a las 23:00. No se permite pirotecnia para proteger la biodiversidad, y la música amplificada está autorizada hasta las 22:00. Los proveedores externos son bienvenidos."
+
 seoTitle: "Jardín Botánico Tlalpan"
 seoDescription: "7 hectáreas de jardín botánico con lagos y vegetación nativa en Tlalpan. Bodas y eventos al aire libre hasta 600 personas en CDMX."
 keywords:

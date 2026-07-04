@@ -9,6 +9,11 @@ zone: "Cuauhtémoc"
 zoneSlug: "cuauhtemoc"
 address: "Salvador Díaz Mirón 182, Sta. María la Ribera"
 neighborhood: "Santa María la Ribera"
+postalCode: "06400"
+coordinates:
+  lat: 19.4490
+  lng: -99.1588
+googleMapsUrl: "https://maps.google.com/?q=Salon+Diamante+Azul+Santa+Maria+la+Ribera+Cuauhtemoc+CDMX"
 
 type: "salon"
 
@@ -93,6 +98,17 @@ reviews:
     text: "Organizamos nuestra cena de gala de fin de año para 140 personas. El esquema azul del salón combinado con nuestra decoración en plata y negro creó un ambiente que impresionó a todos. Los vestidores fueron muy útiles para el equipo directivo. Excelente servicio."
     eventType: "cena-gala"
 
+faqs:
+  - question: "¿Cuántas personas caben en Salón Diamante Azul?"
+    answer: "Salón Diamante Azul tiene capacidad para 180 personas en banquete y hasta 230 en cóctel. El aforo mínimo es de 30 personas. Su esquema de iluminación en tonalidades azul y blanco —que le da nombre y personalidad— crea una atmósfera de sofisticación que funciona espectacularmente para eventos de todos los tamaños."
+  - question: "¿Dónde está Salón Diamante Azul y cómo llegar?"
+    answer: "Se ubica en Salvador Díaz Mirón 182, Santa María la Ribera, alcaldía Cuauhtémoc, C.P. 06400. El Metro San Cosme (Línea 2) está a 3 cuadras, lo que facilita el acceso desde cualquier punto de la ciudad. También tiene buena conectividad por Insurgentes Norte y Avenida México-Coyoacán."
+  - question: "¿Qué incluye la renta de Salón Diamante Azul?"
+    answer: "La renta incluye mobiliario básico, mantelería, vajilla, iluminación básica (el sistema de luz azul distintivo), sonido básico, montaje, desmontaje, limpieza y seguridad. Los vestidores para festejados también están incluidos. Estos servicios hacen que Salón Diamante Azul ofrezca una de las rentas más completas de la colonia Santa María la Ribera."
+  - question: "¿Qué tipo de eventos se realizan en Salón Diamante Azul?"
+    answer: "Salón Diamante Azul acepta bodas, XV años, bautizos, comuniones, cumpleaños, graduaciones, aniversarios, eventos corporativos, cenas de gala y fiestas privadas. Su iluminación azul y blanca lo hace especialmente popular para bodas, XV años en tonos plata y cenas de gala donde los anfitriones buscan una atmósfera sofisticada a precio accesible en la zona centro de CDMX."
+  - question: "¿Cuál es el horario de Salón Diamante Azul y qué servicios adicionales se pueden contratar?"
+    answer: "El horario es de 10:00 a 23:00 entre semana y de 10:00 a 02:00 los fines de semana, con mínimo de 5 horas. Los servicios adicionales disponibles incluyen DJ y sonido amplificado, decoración personalizada, fotografía y video, banquetes con proveedores externos y catering propio —el salón permite ingreso de comida y bebida externa. Los vestidores privados para el festejado y su familia son un plus distintivo incluido en la renta."
 seoTitle: "Salón Diamante Azul"
 seoDescription: "Salón con iluminación azul en Santa María la Ribera, Cuauhtémoc. Bodas y XV años hasta 180 personas. Vestidores y vajilla incluidos."
 keywords:

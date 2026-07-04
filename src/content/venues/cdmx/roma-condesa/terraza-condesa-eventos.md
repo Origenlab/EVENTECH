@@ -98,6 +98,34 @@ eventechPartner: true
 
 rating: 4.7
 reviewCount: 98
+reviews:
+  - author: "Valeria y Emilio Sandoval Torres"
+    date: "2025-05"
+    rating: 5
+    text: "Nuestra boda en la Terraza La Condesa fue absolutamente perfecta. El rooftop art-déco de los años 40 en Av. Ámsterdam 223, con la vista de 360° sobre las copas de los ahuehuetes del Parque México al atardecer, fue el escenario más romántico que pudimos haber imaginado. La cubierta retráctil de cristal nos dio la seguridad de tener techo si llovía, pero el cielo estuvo perfecto toda la noche. Inmejorable."
+    eventType: "boda"
+  - author: "Lic. Mariana Reyes — Directora, Agencia de Comunicación Círculo"
+    date: "2024-08"
+    rating: 5
+    text: "Elegimos la Terraza Condesa para el lanzamiento de nuestro cliente de moda y la vista panorámica sobre el Parque México fue el telón de fondo perfecto para la colección. La cubierta retráctil de cristal, el sistema de climatización industrial y los 600m² del espacio nos dieron total libertad de montaje. En la Condesa, no existe mejor dirección para un evento de marca con ambición estética."
+    eventType: "lanzamiento"
+  - author: "Familia Orozco Peña"
+    date: "2024-02"
+    rating: 4
+    text: "Celebramos el cumpleaños de nuestra hija de 30 años en esta terraza y fue una noche especial que todos recordamos. La vista hacia el Cerro de la Estrella en los días despejados desde el piso 8 es impresionante, y el ambiente art-déco del edificio en la Condesa le da un carácter muy distinto a cualquier rooftop genérico. Para fiestas íntimas con buen gusto en la Condesa, una excelente opción."
+    eventType: "cumpleaños"
+
+faqs:
+  - question: "¿Cuántas personas tiene capacidad Terraza La Condesa Eventos?"
+    answer: "Terraza La Condesa Eventos tiene capacidad para 50 a 180 personas en banquete y hasta 250 en cóctel. Su cubierta retráctil de cristal y sistema de climatización industrial la hacen funcional los 12 meses del año, con 600 metros cuadrados en el último piso de un edificio art-déco de los años 40."
+  - question: "¿Dónde está Terraza La Condesa Eventos y cómo llegar?"
+    answer: "Se ubica en Av. Ámsterdam 223, Piso 8, Condesa, Cuauhtémoc, CP 06140, sobre una de las avenidas más icónicas de la Condesa, frente al Parque México. Es accesible en Metro Chilpancingo (Línea 9) o en bicicleta desde la ciclovía de Ámsterdam. Cuenta con valet parking para los asistentes."
+  - question: "¿Qué incluye la renta de Terraza La Condesa Eventos?"
+    answer: "La renta incluye coordinador de eventos, mobiliario básico, mantelería, iluminación básica, montaje y desmontaje, seguridad y limpieza. Las vistas de 360° a la copa de los ahuehuetes del Parque México y el skyline de CDMX son parte del espacio. El banquete se coordina con caterings autorizados y se puede contratar open bar con bartenders especializados."
+  - question: "¿Qué tipo de eventos realiza Terraza La Condesa Eventos?"
+    answer: "Acepta bodas íntimas de alto diseño, cumpleaños con personalidad, lanzamientos de productos creativos, eventos corporativos, aniversarios, cenas de gala, fiestas privadas y despedidas. El rooftop es especialmente popular para eventos que buscan una vista memorable sin el costo de un hotel de lujo."
+  - question: "¿Qué restricciones tiene Terraza La Condesa y cuál es su política de sonido?"
+    answer: "No se permiten fuegos artificiales. La música está sujeta a un límite de decibeles establecido por el edificio. La capacidad máxima es estrictamente de 250 personas. Opera entre semana de 14:00 a 00:00 horas y fines de semana de 13:00 a 02:00, con duración mínima de 4 horas."
 
 seoTitle: "Terraza La Condesa Eventos"
 seoDescription: "Rooftop art-déco 600m² con vista 360° al Parque México. Hasta 180 personas. Cubierta retráctil. Bodas y eventos en la Condesa, CDMX."

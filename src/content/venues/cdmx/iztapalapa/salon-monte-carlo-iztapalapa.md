@@ -103,6 +103,17 @@ reviews:
     text: "Realizamos nuestra cena de fin de año para 120 colaboradores. Las instalaciones son presentables y el servicio fue puntual. El estacionamiento es suficiente y la ubicación es accesible desde varias avenidas principales. Buena relación precio-calidad."
     eventType: "corporativo"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Monte Carlo?"
+    answer: "Salón Monte Carlo tiene capacidad para hasta 250 personas en formato banquete y hasta 300 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salón Monte Carlo y cómo llegar?"
+    answer: "Salón Monte Carlo se encuentra en Cda. Tenochtitlan 4, San Andrés Tetepilco, alcaldía Iztapalapa, Ciudad de México. La alcaldía cuenta con múltiples estaciones del Metro (Líneas 8, 9 y A) y es accesible desde Periférico, Canal de San Juan y otras vías principales."
+  - question: "¿Qué incluye la renta de Salón Monte Carlo?"
+    answer: "La renta de Salón Monte Carlo incluye coordinador de eventos, mobiliario básico (mesas y sillas), mantelería, iluminación básica, equipo de sonido básico. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón Monte Carlo?"
+    answer: "Salón Monte Carlo es apto para bodas, quinceañeras, bautizos, cumpleaños y aniversarios. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Salón Monte Carlo?"
+    answer: "Salón Monte Carlo opera entre semana de 10:00 - 23:00 y fines de semana de 10:00 - 03:00 con un mínimo de 5 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Salón Monte Carlo Iztapalapa"
 seoDescription: "Salón de fiestas elegante en San Andrés Tetepilco, Iztapalapa. Bodas, XV años y eventos hasta 250 personas. Acabados europeos y pista de baile."
 keywords:

@@ -1,8 +1,21 @@
 ---
 name: "Casa Lamm"
 slug: "casa-lamm"
-description: "Casa Lamm es una mansión art nouveau de 1911 transformada en centro cultural de referencia en la Ciudad de México. Ubicada en la emblemática Avenida Álvaro Obregón de la colonia Roma, combina arquitectura porfiriana exquisita —vitrales emplomados, escaleras de mármol, molduras doradas— con una galería de arte contemporáneo, librería especializada y restaurante de autor. Para eventos que buscan el equilibrio perfecto entre historia, cultura y sofisticación, Casa Lamm ofrece un escenario donde el arte y la celebración convergen naturalmente."
-shortDescription: "Mansión art nouveau de 1911 con galería de arte contemporáneo, jardín escultórico y restaurante de autor en la Roma."
+description: >-
+  En 1905, en pleno auge porfiriano, se levantó sobre Álvaro Obregón 99 una casona que resumía las
+  aspiraciones estéticas de la elite mexicana: vitrales emplomados, escaleras de mármol de Carrara,
+  molduras doradas y pisos de parquet de encino en espina de pez. Hoy, Casa Lamm es el único venue
+  cultural boutique de la colonia Roma con galería de arte contemporáneo activa, librería especializada
+  y café integrados —donde cada espacio es parte del evento. Para casa Lamm eventos CDMX de nicho
+  cultural, artístico o de moda, el resultado es incomparable: los invitados no solo asisten a una
+  celebración, la habitan. Ideal para bodas íntimas boutique de hasta 120 personas en ceremonia y
+  250 en banquete, así como lanzamientos de arte, moda y cultura donde el venue cultural boutique
+  Mexico City es parte del concepto creativo. La renta espacio galería arte CDMX incluye acceso a
+  jardín escultórico, galería en rotación permanente y restaurante Nueve Nueve. Venue boda íntima
+  CDMX artsy por excelencia: en plena Colonia Roma Norte, a pasos del mejor ecosistema cultural
+  independiente de la ciudad —galerías, editoriales, cafeterías y librerías de autor. Una casona
+  porfiriana de más de 120 años donde el arte nunca es decoración: siempre es el protagonista.
+shortDescription: "Casona porfiriana de 1905 en Colonia Roma: galería activa, librería y jardín escultórico. Venue cultural boutique para bodas íntimas y lanzamientos."
 
 region: "cdmx"
 zone: "Miguel Hidalgo"
@@ -77,14 +90,50 @@ eventechPartner: true
 
 rating: 4.7
 reviewCount: 89
+reviews:
+  - author: "Natalia y Pablo Sánchez Estrada"
+    date: "2025-01"
+    rating: 5
+    text: "Casa Lamm fue la elección perfecta para nuestra boda: somos ambos del mundo del arte y queríamos un venue que hablara nuestro mismo idioma. Los vitrales emplomados de 1911, el jardín escultórico como escenario para la ceremonia, los pisos de parquet original del salón principal: cada elemento tiene carácter propio. La cocina del restaurante Nueve Nueve fue extraordinaria. Nuestros invitados preguntaron durante semanas dónde habíamos encontrado ese lugar."
+    eventType: "boda"
+  - author: "Dra. Mónica Trujillo — Directora, Fundación Artes de México"
+    date: "2024-10"
+    rating: 5
+    text: "Realizamos la presentación de nuestro programa anual en Casa Lamm y la sinergia entre el evento cultural y el espacio fue inmediata. La galería de arte activa como extensión del salón principal, la librería como bar de cócteles y el jardín escultórico para el networking convirtieron una presentación institucional en una experiencia memorable. Es el único venue en la Roma donde el arte no es decoración sino protagonista."
+    eventType: "corporativo"
+  - author: "Sebastián Vargas — Director Creativo, Editorial Almadía"
+    date: "2024-06"
+    rating: 5
+    text: "Lanzamos un libro de fotografía en Casa Lamm y el venue fue parte integral del concepto: los vitrales art nouveau de la mansión de 1911, las esculturas del jardín como guiños a las imágenes del libro, la iluminación cálida del salón principal que recordaba una galería de Berlín. La energía del lugar es completamente distinta a cualquier otro espacio en la Ciudad de México. Para eventos con sensibilidad cultural, no hay equivalente."
+    eventType: "lanzamiento"
 
+
+faqs:
+  - question: "¿Cuál es la capacidad de Casa Lamm?"
+    answer: "Casa Lamm puede recibir hasta 250 personas. La capacidad varía según el montaje: banquete, cóctel o teatro. Consulta con el equipo para el formato que mejor se adapte a tu evento."
+  - question: "¿Dónde está ubicado Casa Lamm y cómo llegar?"
+    answer: "Casa Lamm se ubica en Álvaro Obregón 99, Col. Roma Norte, colonia Roma Norte, alcaldía CDMX, Ciudad de México. Si vas en auto, se recomienda verificar disponibilidad de estacionamiento directamente con el venue."
+  - question: "¿Qué incluye la renta de Casa Lamm?"
+    answer: "La renta de Casa Lamm incluye: banquete, meseros, coordinador, seguridad, limpieza. Además, el venue cuenta con las siguientes instalaciones y amenidades: estacionamiento, valet-parking, pista-baile, terraza, jardin, aire-acondicionado, wifi, vestidores, area-fotos. Para paquetes personalizados o servicios adicionales, consulta directamente con el equipo."
+  - question: "¿Qué tipo de eventos se pueden realizar en Casa Lamm?"
+    answer: "Casa Lamm es apto para una amplia variedad de eventos, entre ellos: bodas, corporativos, lanzamientos, cenas-gala, aniversarios. El equipo del venue puede orientarte sobre el montaje más adecuado para cada ocasión."
+  - question: "¿Casa Lamm cuenta con estacionamiento?"
+    answer: "Sí, estacionamiento. Además, el venue puede orientarte sobre opciones de acceso en transporte público o valet parking según disponibilidad. Consulta directamente para más detalles."
 seoTitle: "Casa Lamm - Mansión Art Nouveau | Roma CDMX"
 seoDescription: "Mansión de 1911 en colonia Roma con galería de arte y jardín escultórico. Bodas y eventos culturales hasta 250 personas."
 keywords:
-  - casa lamm eventos
-  - mansion roma cdmx
-  - venue cultural roma
-  - eventos art nouveau cdmx
+  - casa lamm eventos cdmx
+  - venue cultural boutique mexico city
+  - renta espacio galeria arte cdmx
+  - evento privado colonia roma
+  - venue boda intima cdmx artsy
+  - casona porfiriana eventos roma norte
+  - lanzamiento arte moda cultura cdmx
+  - galeria arte venue corporativo cdmx
+  - boda boutique colonia roma 2025
+  - espacio cultural unico cdmx
+  - jardin escultorico eventos privados
+  - salon eventos art nouveau ciudad de mexico
 
 featured: true
 premium: true

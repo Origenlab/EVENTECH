@@ -125,6 +125,17 @@ reviews:
     text: "El baby shower de mi hija con 80 invitadas fue precioso. El salón no se sintió vacío a pesar de ser un evento pequeño, los detalles del espacio son lindos y el área de fotos fue perfecta para las fotos de la futura mamá. La zona de Prados del Rosario es tranquila y segura, muy fácil de llegar."
     eventType: "baby-showers"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Fiesta Royal?"
+    answer: "Salón Fiesta Royal tiene capacidad para hasta 280 personas en formato banquete y hasta 340 en formato cóctel. Para ceremonias, el espacio acomoda hasta 170 invitados. El mínimo de invitados es de 50 personas."
+  - question: "¿Dónde está ubicado Salón Fiesta Royal y cómo llegar?"
+    answer: "Salón Fiesta Royal se encuentra en Av. Tezozómoc 225, Prados del Rosario, colonia Prados del Rosario, alcaldía Azcapotzalco, Ciudad de México. Puedes llegar en Metro (línea 6, estación Vallejo o Ferrería) o en auto particular y Uber/DiDi. Cuenta con estacionamiento propio."
+  - question: "¿Qué está incluido en la renta de Salón Fiesta Royal?"
+    answer: "La renta de Salón Fiesta Royal incluye: mobiliario básico (mesas y sillas), mantelería, iluminación básica, montaje, desmontaje, limpieza post-evento y personal de seguridad. Las instalaciones cuentan además con cocina industrial, pista de baile, Wi-Fi, aire acondicionado."
+  - question: "¿Qué tipo de eventos se pueden realizar en Salón Fiesta Royal?"
+    answer: "Salón Fiesta Royal es ideal para bodas, XV años, bautizos, primeras comuniones, cumpleaños, graduaciones, aniversarios y eventos corporativos. Entre otros tipos de celebraciones y reuniones."
+  - question: "¿Cuál es el horario de eventos en Salón Fiesta Royal?"
+    answer: "Salón Fiesta Royal opera en los siguientes horarios: lunes a viernes de 10:00 - 23:00, sábados y domingos de 10:00 - 02:00. La renta mínima es de 5 horas. Respecto al catering: Catering externo permitido."
 seoTitle: "Salón Fiesta Royal Azcapotzalco - Familiar"
 seoDescription: "Salón premium-familiar en Prados del Rosario, Azcapotzalco. Vestidores, área fotos. Bodas y XV años hasta 280 personas CDMX."
 keywords:

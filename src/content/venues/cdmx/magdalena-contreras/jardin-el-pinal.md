@@ -1,14 +1,28 @@
 ---
 name: "Jardín de Eventos El Pinal"
 slug: "jardin-el-pinal"
-description: "Jardín de Eventos El Pinal es un espacio al aire libre arbolado con pinos y encinos ubicado sobre Insurgentes Sur en La Magdalena Contreras, en la transición entre la zona urbana del sur de la CDMX y los bosques del Ajusco. Con 1,100 m² de jardín natural, zona techada de 180 m² y capacidad para 220 personas en banquete, El Pinal ofrece claros naturales entre árboles de 10-15 metros que funcionan como espacios diferenciados para ceremonia, banquete y convivencia. La luz filtrada por los pinos produce fotografías excepcionales y el clima fresco de montaña garantiza eventos cómodos."
-shortDescription: "Jardín arbolado con pinos y encinos en Contreras. Hasta 220 personas para bodas al aire libre con clima de montaña en CDMX sur."
+description: >-
+  Jardín de Eventos El Pinal es un espacio al aire libre arbolado con pinos y encinos ubicado sobre
+  Insurgentes Sur en La Magdalena Contreras, en la transición entre la zona urbana del sur de la
+  CDMX y los bosques del Ajusco — a escasos kilómetros del Parque Nacional Desierto de los Leones.
+  Con 1,100 m² de jardín natural, zona techada de 180 m² y capacidad para 220 personas en banquete,
+  El Pinal ofrece claros naturales entre árboles de 10-15 metros que funcionan como espacios
+  diferenciados para ceremonia, banquete y convivencia. La luz filtrada por los pinos produce
+  fotografías excepcionales y el clima fresco de montaña — característico del sur CDMX a esta
+  altitud — garantiza eventos cómodos todo el año. Un venue de eventos naturaleza sur CDMX con
+  acceso directo sobre Insurgentes Sur y el entorno campestre de Magdalena Contreras como telón.
+shortDescription: "Jardín arbolado con pinos y encinos en Magdalena Contreras, sur CDMX. Cerca del Desierto de los Leones."
 
 region: "cdmx"
 zone: "La Magdalena Contreras"
 zoneSlug: "magdalena-contreras"
 address: "Insurgentes Sur 6340, La Magdalena Contreras"
 neighborhood: "La Magdalena Contreras"
+postalCode: "10200"
+coordinates:
+  lat: 19.3047731
+  lng: -99.2413803
+googleMapsUrl: "https://maps.google.com/?q=Jardin+el+pinal+magdalena+contreras+CDMX"
 
 type: "jardin"
 
@@ -92,6 +106,17 @@ reviews:
     text: "XV años con 180 invitados. El vals entre los pinos con fairy lights fue espectacular — como un cuento de hadas. La terraza techada funcionó perfecto para la cena y la fiesta siguió en el jardín iluminado. Los invitados no dejaban de tomar fotos."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuál es la capacidad de Jardín de Eventos El Pinal?"
+    answer: "Jardín de Eventos El Pinal puede recibir hasta 220 personas. La capacidad varía según el montaje: banquete, cóctel o teatro. Consulta con el equipo para el formato que mejor se adapte a tu evento."
+  - question: "¿Dónde está ubicado Jardín de Eventos El Pinal y cómo llegar?"
+    answer: "Jardín de Eventos El Pinal se ubica en Insurgentes Sur 6340, La Magdalena Contreras, colonia La Magdalena Contreras, alcaldía CDMX, Ciudad de México. Si vas en auto, se recomienda verificar disponibilidad de estacionamiento directamente con el venue."
+  - question: "¿Qué incluye la renta de Jardín de Eventos El Pinal?"
+    answer: "La renta de Jardín de Eventos El Pinal incluye: coordinador, mobiliario-basico, manteleria, iluminacion-basica, montaje, desmontaje, limpieza, seguridad. Además, el venue cuenta con las siguientes instalaciones y amenidades: estacionamiento, pista-baile, jardin, terraza, area-fotos, acceso-discapacitados, wifi, area-infantil. Para paquetes personalizados o servicios adicionales, consulta directamente con el equipo."
+  - question: "¿Qué tipo de eventos se pueden realizar en Jardín de Eventos El Pinal?"
+    answer: "Jardín de Eventos El Pinal es apto para una amplia variedad de eventos, entre ellos: bodas, xv-anos, bautizos, cumpleanos, aniversarios, comuniones, fiestas-privadas, sesiones-foto. El equipo del venue puede orientarte sobre el montaje más adecuado para cada ocasión."
+  - question: "¿Jardín de Eventos El Pinal cuenta con estacionamiento?"
+    answer: "Sí, estacionamiento. Además, el venue puede orientarte sobre opciones de acceso en transporte público o valet parking según disponibilidad. Consulta directamente para más detalles."
 seoTitle: "Jardín El Pinal Contreras Bodas al Aire Libre"
 seoDescription: "Jardín de eventos con pinos y encinos en Contreras. Bodas y XV años hasta 220 personas con luz natural y clima de montaña en CDMX."
 keywords:
@@ -103,6 +128,11 @@ keywords:
   - jardin xv anos contreras
   - renta jardin contreras eventos
   - jardin bodas bosque cdmx
+  - salon fiestas magdalena contreras
+  - venue eventos sur cdmx
+  - eventos naturaleza sur cdmx
+  - boda jardín sur cdmx
+  - jardin pinos desierto de los leones
 
 featured: false
 premium: false

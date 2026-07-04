@@ -113,6 +113,17 @@ reviews:
     text: "Celebramos las bodas de plata de mis papás con 120 invitados. El ambiente del salón es precioso, los tonos cálidos combinaron perfecto con nuestra decoración en dorado y blanco. El área de fotos fue un éxito. Excelente relación calidad-precio."
     eventType: "aniversario"
 
+faqs:
+  - question: "¿Cuántas personas caben en Salón de Fiestas Romanza?"
+    answer: "Salón Romanza tiene capacidad para 180 personas en banquete y hasta 220 en cóctel. Para ceremonias puede alojar 120 personas sentadas. El aforo mínimo es de 40 personas. Sus acabados en tonos crema y dorado crean un ambiente romántico sin importar el tamaño del evento."
+  - question: "¿Dónde está Salón Romanza y cómo llegar?"
+    answer: "Se ubica en San Gabriel 99, Pedregal de Santa Úrsula, Coyoacán, C.P. 04600, en el sur de la Ciudad de México. El acceso es por Insurgentes Sur o Calzada de Tlalpan. Cuenta con estacionamiento propio y acceso para personas con discapacidad. La zona es tranquila y de fácil acceso vehicular."
+  - question: "¿Qué incluye la renta de Salón Romanza?"
+    answer: "La renta incluye mobiliario básico, mantelería, iluminación básica, montaje, desmontaje y limpieza. El salón dispone de aire acondicionado, pista de baile, cocina industrial y zona de fotos. El catering externo está permitido: pueden ingresar proveedores de banquetes, taquizas y pastel con mesa de postres."
+  - question: "¿Qué tipo de eventos acepta Salón Romanza?"
+    answer: "Salón Romanza acepta bodas, XV años, bautizos, baby showers, aniversarios, cumpleaños, comuniones, despedidas de soltera y fiestas privadas. Su ambiente romántico con acabados en crema y dorado lo hace especialmente popular para bodas y XV años que buscan elegancia a precio accesible en el sur de Coyoacán."
+  - question: "¿Cuál es el horario de Salón Romanza y qué está prohibido?"
+    answer: "El horario es de 10:00 a 23:00 entre semana y de 10:00 a 01:00 los fines de semana, con un mínimo de 5 horas. No se permite pirotecnia interior ni confeti metálico, ya que pueden dañar los acabados del salón. El catering externo está permitido. Los precios de renta van de $8,000 a $25,000 por evento."
 seoTitle: "Salón Romanza Coyoacán"
 seoDescription: "Salón Romanza en Pedregal Sta. Úrsula, Coyoacán. Bodas y XV años con decoración romántica hasta 180 personas. Precios desde $8,000."
 keywords:

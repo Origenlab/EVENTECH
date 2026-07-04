@@ -110,6 +110,17 @@ reviews:
     text: "Realizamos nuestra cena anual de reconocimiento para 300 empresarios de la zona oriente. Las instalaciones impresionaron a todos los asistentes — la mayoría no esperaba encontrar un salón de este nivel en Iztapalapa. La seguridad fue excelente, el servicio profesional y la capacidad sobrada. Definitivamente repetiremos."
     eventType: "corporativo"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Versalles?"
+    answer: "Salón Versalles tiene capacidad para hasta 350 personas en formato banquete y hasta 420 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salón Versalles y cómo llegar?"
+    answer: "Salón Versalles se encuentra en Calz. de la Viga 1850, El Manto, alcaldía Iztapalapa, Ciudad de México. La alcaldía cuenta con múltiples estaciones del Metro (Líneas 8, 9 y A) y es accesible desde Periférico, Canal de San Juan y otras vías principales."
+  - question: "¿Qué incluye la renta de Salón Versalles?"
+    answer: "La renta de Salón Versalles incluye coordinador de eventos, mobiliario básico (mesas y sillas), mantelería, vajilla completa, iluminación básica. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón Versalles?"
+    answer: "Salón Versalles es apto para bodas, quinceañeras, bautizos, cumpleaños y aniversarios. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Salón Versalles?"
+    answer: "Salón Versalles opera entre semana de 10:00 - 00:00 y fines de semana de 10:00 - 03:00 con un mínimo de 5 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Salón Versalles Iztapalapa"
 seoDescription: "Salón clásico europeo en El Manto, Iztapalapa. Bodas y XV años hasta 350 personas. Columnas, candelabros y área de fotos dedicada."
 keywords:

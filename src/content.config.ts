@@ -507,6 +507,12 @@ const venues = defineCollection({
       eventType: z.string().optional(),
     })).default([]),
 
+    // FAQs (FAQ Schema → rich results en SERP)
+    faqs: z.array(z.object({
+      question: z.string(),
+      answer: z.string(),
+    })).default([]),
+
     // SEO
     seoTitle: z.string().max(70).optional(),
     seoDescription: z.string().max(160).optional(),

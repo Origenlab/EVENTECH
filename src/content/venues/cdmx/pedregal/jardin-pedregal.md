@@ -85,7 +85,34 @@ eventechDiscount: "10% en carpas estructurales"
 
 rating: 4.6
 reviewCount: 187
+reviews:
+  - author: "Mariana y Luis Enrique Ochoa Fuentes"
+    date: "2025-03"
+    rating: 5
+    text: "Tuvimos nuestra boda en el Jardín del Pedregal y el escenario de roca volcánica con vegetación endémica es absolutamente extraordinario. En Cráter 220, el diseño orgánico que respeta y celebra la geología única del Pedregal de San Ángel crea un ambiente donde la naturaleza es la verdadera protagonista. Las fotos de ceremonia entre las rocas y la vegetación endémica son completamente irrepetibles."
+    eventType: "boda"
+  - author: "Familia Ortega Ramírez"
+    date: "2024-10"
+    rating: 5
+    text: "Los XV años de Renata en el Jardín del Pedregal fueron un sueño de principio a fin. La vegetación endémica y el paisaje de lava volcánica en los Jardines del Pedregal le dieron al evento una atmósfera completamente distinta a cualquier salón. Con 300 invitados, los espacios al aire libre funcionaron perfectamente. Un lugar donde la naturaleza hace la mayor parte del trabajo de decoración."
+    eventType: "xv-años"
+  - author: "Rodrigo y Sofía Altamirano Nava"
+    date: "2024-05"
+    rating: 4
+    text: "Celebramos nuestro aniversario número 10 en el Jardín del Pedregal con 80 amigos y fue una noche muy especial. El ambiente de oasis volcánico en una de las zonas residenciales más exclusivas de la ciudad tiene una magia muy particular. Los jardines con arquitectura orgánica que respeta la geología del lugar se sentían únicos. Para una celebración íntima al aire libre en el sur de CDMX, no hay mejor opción."
+    eventType: "aniversario"
 
+faqs:
+  - question: "¿Cuál es la capacidad de Jardín del Pedregal?"
+    answer: "Jardín del Pedregal puede recibir hasta 400 personas. La capacidad varía según el montaje: banquete, cóctel o teatro. Consulta con el equipo para el formato que mejor se adapte a tu evento."
+  - question: "¿Dónde está ubicado Jardín del Pedregal y cómo llegar?"
+    answer: "Jardín del Pedregal se ubica en Cráter 220, Jardines del Pedregal, colonia Jardines del Pedregal, alcaldía CDMX, Ciudad de México. Si vas en auto, se recomienda verificar disponibilidad de estacionamiento directamente con el venue."
+  - question: "¿Qué incluye la renta de Jardín del Pedregal?"
+    answer: "La renta de Jardín del Pedregal incluye: coordinador, mobiliario-basico, iluminacion-basica, seguridad, limpieza. Además, el venue cuenta con las siguientes instalaciones y amenidades: estacionamiento, valet-parking, jardin, pista-baile, terraza, acceso-discapacitados, generador-emergencia, vestidores, area-fotos, cocina-industrial. Para paquetes personalizados o servicios adicionales, consulta directamente con el equipo."
+  - question: "¿Qué tipo de eventos se pueden realizar en Jardín del Pedregal?"
+    answer: "Jardín del Pedregal es apto para una amplia variedad de eventos, entre ellos: bodas, xv-anos, aniversarios, cumpleanos, graduaciones, corporativos. El equipo del venue puede orientarte sobre el montaje más adecuado para cada ocasión."
+  - question: "¿Jardín del Pedregal cuenta con estacionamiento?"
+    answer: "Sí, estacionamiento. Además, el venue puede orientarte sobre opciones de acceso en transporte público o valet parking según disponibilidad. Consulta directamente para más detalles."
 seoTitle: "Jardín del Pedregal"
 seoDescription: "Celebra tu boda en Jardín del Pedregal. Paisaje volcánico único, vegetación endémica y arquitectura orgánica en la zona más exclusiva del sur de CDMX."
 keywords:

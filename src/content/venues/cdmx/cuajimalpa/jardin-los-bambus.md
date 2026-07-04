@@ -1,8 +1,14 @@
 ---
 name: "Jardín de Fiestas Los Bambús"
 slug: "jardin-los-bambus"
-description: "Jardín de Fiestas Los Bambús es un espacio natural para eventos al aire libre en Ahuatenco, una de las zonas más verdes de Cuajimalpa de Morelos. Rodeado de vegetación exuberante con bambúes que le dan su nombre, este jardín ofrece un entorno campestre y privado para bodas, XV años, bautizos y celebraciones familiares de hasta 250 personas, con el clima fresco y el aire puro que caracterizan a las partes altas del poniente de la Ciudad de México."
-shortDescription: "Jardín campestre con bambúes en Ahuatenco, Cuajimalpa. Naturaleza, privacidad y clima fresco para eventos hasta 250 personas."
+description: >-
+  Jardín de Fiestas Los Bambús es un espacio natural para eventos al aire libre en Ahuatenco, una de las zonas más verdes de Cuajimalpa
+  de Morelos, a 30 minutos de Santa Fe y con conexión directa a Interlomas por la carretera México-Toluca. Rodeado de vegetación
+  exuberante con bambúes que le dan su nombre y ubicado a los pies de los bosques que conectan con el Desierto de los Leones y el Ajusco,
+  este jardín ofrece un entorno campestre privado único en CDMX para bodas naturaleza, XV años, bautizos y celebraciones familiares
+  de hasta 250 personas. El venue eventos bosque cdmx más privado del poniente: aire puro de montaña, vistas panorámicas y una
+  escenografía de naturaleza viva que ningún salón urbano puede replicar, a acceso premium desde el corredor Santa Fe–Interlomas.
+shortDescription: "Jardín campestre con bambúes en Ahuatenco, Cuajimalpa, a 30 min de Santa Fe e Interlomas."
 
 region: "cdmx"
 zone: "Cuajimalpa de Morelos"
@@ -117,6 +123,17 @@ reviews:
     text: "Nuestra sesión de fotos pre-boda entre los bambúes fue mágica. La luz de la tarde filtrándose entre las cañas creó un efecto que el fotógrafo no dejaba de elogiar. Regresamos para la boda tres meses después y no nos arrepentimos. Un lugar único en la CDMX."
     eventType: "boda"
 
+faqs:
+  - question: "¿Cuántas personas caben en Jardín de Fiestas Los Bambús?"
+    answer: "Jardín de Fiestas Los Bambús tiene capacidad para 250 personas en banquete y hasta 300 en cóctel. Para ceremonias puede alojar 150 personas sentadas. El aforo mínimo es de 40 personas. El jardín cuenta con área infantil, zona de fotos y vistas panorámicas desde el mirador natural."
+  - question: "¿Dónde está Jardín Los Bambús y cómo llegar?"
+    answer: "Se ubica en Camino a Ahuatenco 193, Ahuatenco, Cuajimalpa, C.P. 05310, en una de las zonas más verdes y privadas de la alcaldía Cuajimalpa de Morelos. El acceso es por la carretera México-Toluca desviándose hacia Ahuatenco. Cuenta con amplio estacionamiento propio. Desde Santa Fe está a aproximadamente 20 minutos en auto."
+  - question: "¿Qué incluye la renta de Jardín Los Bambús?"
+    answer: "La renta incluye mobiliario básico, mantelería, montaje, desmontaje, limpieza y servicio de seguridad. El espacio cuenta con jardín rodeado de bambúes, pista de baile, cocina industrial, área infantil y área de fotos. El catering externo está permitido y se pueden contratar carpas transparentes, iluminación de jardín y sonido outdoor."
+  - question: "¿Qué tipo de eventos se realizan en Jardín Los Bambús?"
+    answer: "Jardín Los Bambús es ideal para bodas en naturaleza, XV años, bautizos, cumpleaños, fiestas infantiles, fiestas privadas, aniversarios, comuniones y sesiones fotográficas. La privacidad del entorno boscoso de Ahuatenco, los bambúes que rodean el jardín y el aire puro de Cuajimalpa crean una experiencia sensorial única que diferencia este venue de cualquier salón urbano."
+  - question: "¿Cuál es la política climática y de catering de Jardín Los Bambús?"
+    answer: "El horario es de 10:00 a 22:00 entre semana y de 10:00 a 01:00 los fines de semana, con mínimo de 5 horas. Al ser un jardín al aire libre en Cuajimalpa, se recomienda contratar carpas transparentes en temporada de lluvias (junio–octubre). El catering externo está permitido, incluyendo open bar propio. No se permite pirotecnia. Los precios van de $12,000 a $35,000 por evento."
 seoTitle: "Jardín Los Bambús Cuajimalpa"
 seoDescription: "Jardín campestre con bambúes en Ahuatenco, Cuajimalpa. Bodas y XV años al aire libre hasta 250 personas. Privacidad y naturaleza en CDMX."
 keywords:
@@ -128,6 +145,12 @@ keywords:
   - jardin aire libre cdmx
   - jardin bambus eventos cuajimalpa
   - bodas campestres cuajimalpa cdmx
+  - venue eventos cuajimalpa cdmx
+  - venue eventos bosque cdmx
+  - boda naturaleza cuajimalpa cdmx
+  - salon bodas cerca santa fe cdmx
+  - eventos cerca interlomas cdmx
+  - jardin bodas bosque desierto leones cdmx
 
 featured: false
 premium: false

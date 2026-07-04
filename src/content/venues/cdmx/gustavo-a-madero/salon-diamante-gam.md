@@ -63,8 +63,7 @@ schedule:
   minHours: 5
 
 contact:
-  phone: ""
-  whatsapp: ""
+  phone: "55 3513 3796"
 
 image: "/images/venues/salon-diamante-gam-hero.avif"
 gallery:
@@ -98,6 +97,17 @@ reviews:
     text: "Hicimos el cumpleaños de mi esposo con 120 invitados. El salón es bonito, moderno y limpio. La cocina nos permitió traer nuestro taquicero. El estacionamiento es algo limitado pero la ubicación facilita que lleguen por transporte. Buena opción en la zona."
     eventType: "cumpleanos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Diamante?"
+    answer: "Salón Diamante tiene capacidad para hasta 250 personas en formato banquete y hasta 300 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salón Diamante y cómo llegar?"
+    answer: "Salón Diamante se encuentra en Av. 608 #33, San Juan de Aragón, alcaldía Gustavo A. Madero, Ciudad de México. La alcaldía cuenta con varias estaciones del Metro (Líneas 3 y 6) y amplia red de transporte público que facilita el acceso desde toda la CDMX."
+  - question: "¿Qué incluye la renta de Salón Diamante?"
+    answer: "La renta de Salón Diamante incluye mobiliario básico (mesas y sillas), mantelería, iluminación básica, equipo de sonido básico, montaje del evento. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón Diamante?"
+    answer: "Salón Diamante es apto para bodas, quinceañeras, bautizos, comuniones y cumpleaños. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Salón Diamante?"
+    answer: "Salón Diamante opera entre semana de 10:00 - 22:00 y fines de semana de 10:00 - 03:00 con un mínimo de 5 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Salón Diamante GAM Eventos Modernos hasta 250"
 seoDescription: "Salón moderno con cristales y espejos en San Juan de Aragón. Bodas y XV años hasta 250 personas. Precios accesibles en GAM."
 keywords:

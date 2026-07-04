@@ -86,6 +86,28 @@ reviews:
     text: "Nos sentimos como en casa de la abuela, pero de una abuela muy elegante. Perfecto para nuestra boda íntima."
     eventType: "boda"
 
+  - author: "Rodrigo Espinoza Vargas"
+    date: "2025-03"
+    rating: 5
+    text: "Realizamos el evento corporativo de fin de año de nuestra empresa en el Salón del Parquet y fue un éxito rotundo. El parquet original y la chimenea de mármol le dieron una distinción que ningún hotel de Polanco podría igualar. El coordinador de la casa resolvió cada detalle sin que nosotros tuviéramos que preocuparnos por nada."
+    eventType: "corporativo"
+  - author: "Fernanda Ríos Castellanos"
+    date: "2025-05"
+    rating: 5
+    text: "Los XV de mi hija en el jardín de Casa Goldsmith fueron simplemente mágicos. Las bugambilias en plena floración, las mesas bajo las jacarandas y la terraza con vigas de cedro crearon un ambiente que ninguno de nuestros invitados olvidará. Gracias a la ubicación en Del Valle, nadie tuvo problema para llegar."
+    eventType: "xv-anos"
+
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Casa Goldsmith?"
+    answer: "Casa Goldsmith tiene capacidad para hasta 300 personas en formato banquete y hasta 400 en formato cóctel. Para ceremonias, el espacio acomoda hasta 150 invitados. El mínimo de invitados es de 50 personas."
+  - question: "¿Dónde está ubicado Casa Goldsmith y cómo llegar?"
+    answer: "Casa Goldsmith se encuentra en Adolfo Prieto 1536, Del Valle, colonia Del Valle Centro, alcaldía Benito Juárez, Ciudad de México. Cuenta con excelente acceso por transporte público (Metro línea 3 o 12) y por las principales vialidades de la ciudad. Cuenta con estacionamiento propio."
+  - question: "¿Qué está incluido en la renta de Casa Goldsmith?"
+    answer: "La renta de Casa Goldsmith incluye: coordinador de evento, mobiliario básico (mesas y sillas), montaje, desmontaje, personal de seguridad y limpieza post-evento. Las instalaciones cuentan además con cocina industrial, pista de baile, jardín, Wi-Fi."
+  - question: "¿Qué tipo de eventos se pueden realizar en Casa Goldsmith?"
+    answer: "Casa Goldsmith es ideal para bodas, XV años, cumpleaños, eventos corporativos y aniversarios."
+  - question: "¿Cuál es el horario de eventos en Casa Goldsmith?"
+    answer: "Casa Goldsmith opera en los siguientes horarios: lunes a viernes de 14:00 - 00:00, sábados y domingos de 12:00 - 01:00. La renta mínima es de 5 horas."
 seoTitle: "Casa Goldsmith"
 seoDescription: "Mansión californiana de 1942 en Del Valle. Parquet original, jardines maduros. Bodas y eventos elegantes hasta 300 personas."
 keywords:

@@ -1,8 +1,17 @@
 ---
 name: "Jardín Los Encinos"
 slug: "jardin-los-encinos-mc"
-description: "Jardín Los Encinos es un espacio natural para eventos al aire libre en la colonia La Magdalena, alcaldía Magdalena Contreras. Enmarcado por encinos nativos y la vegetación boscosa característica de esta zona alta del sur de la CDMX, el jardín ofrece un ambiente de bosque auténtico que resulta ideal para bodas al aire libre, bautizos, XV años y celebraciones familiares. Con capacidad para hasta 220 personas y proximidad al Desierto de los Leones, es una opción que combina naturaleza genuina con accesibilidad urbana."
-shortDescription: "Jardín de bosque con encinos en La Magdalena, Magdalena Contreras. Eventos al aire libre hasta 220 personas cerca del Desierto de los Leones."
+description: >-
+  Jardín Los Encinos es un espacio natural para eventos al aire libre en la colonia La Magdalena,
+  alcaldía Magdalena Contreras — el sur verde de la CDMX. Situado sobre el Camino al Desierto de
+  los Leones, a escasos minutos del Parque Nacional, el jardín está enmarcado por encinos nativos
+  y la vegetación boscosa característica de esta zona alta del sur CDMX. El resultado es un
+  ambiente de bosque auténtico con aire puro de montaña y temperatura fresca todo el año, ideal
+  para bodas al aire libre, bautizos, XV años y celebraciones familiares que quieren naturaleza
+  genuina sin alejarse de la ciudad. Con capacidad para hasta 220 personas, es el salon fiestas
+  magdalena contreras que conecta a los vecinos del sur con el espíritu campestre del Desierto
+  de los Leones — a 15 minutos de Periférico Sur y a un mundo de distancia del concreto urbano.
+shortDescription: "Jardín de bosque con encinos nativos en Magdalena Contreras, sur CDMX. Sobre el Camino al Desierto de los Leones."
 
 region: "cdmx"
 zone: "Magdalena Contreras"
@@ -116,6 +125,17 @@ reviews:
     text: "Hicimos la fiesta de XV años de mi nieta con 170 invitados. El jardín es amplio y los encinos le dan un toque muy especial. La única consideración es que en diciembre hace frío en la noche, así que tuvimos que prever cobijas y calentadores. Pero el ambiente valió cada peso."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuál es la capacidad de Jardín Los Encinos?"
+    answer: "Jardín Los Encinos puede recibir hasta 220 personas. La capacidad varía según el montaje: banquete, cóctel o teatro. Consulta con el equipo para el formato que mejor se adapte a tu evento."
+  - question: "¿Dónde está ubicado Jardín Los Encinos y cómo llegar?"
+    answer: "Jardín Los Encinos se ubica en Camino al Desierto de los Leones 45, La Magdalena, colonia La Magdalena, alcaldía CDMX, Ciudad de México. Si vas en auto, se recomienda verificar disponibilidad de estacionamiento directamente con el venue."
+  - question: "¿Qué incluye la renta de Jardín Los Encinos?"
+    answer: "La renta de Jardín Los Encinos incluye: mobiliario-basico, manteleria, iluminacion-basica, montaje, desmontaje, limpieza. Además, el venue cuenta con las siguientes instalaciones y amenidades: estacionamiento, pista-baile, jardin, cocina-industrial, area-fotos, acceso-discapacitados. Para paquetes personalizados o servicios adicionales, consulta directamente con el equipo."
+  - question: "¿Qué tipo de eventos se pueden realizar en Jardín Los Encinos?"
+    answer: "Jardín Los Encinos es apto para una amplia variedad de eventos, entre ellos: bodas, xv-anos, bautizos, cumpleanos, aniversarios, comuniones, baby-showers, fiestas-privadas, sesiones-foto. El equipo del venue puede orientarte sobre el montaje más adecuado para cada ocasión."
+  - question: "¿Jardín Los Encinos cuenta con estacionamiento?"
+    answer: "Sí, estacionamiento. Además, el venue puede orientarte sobre opciones de acceso en transporte público o valet parking según disponibilidad. Consulta directamente para más detalles."
 seoTitle: "Jardín Los Encinos Magdalena Contreras"
 seoDescription: "Jardín de bosque con encinos nativos en La Magdalena, Magdalena Contreras. Bodas al aire libre hasta 220 personas. Sur CDMX."
 keywords:
@@ -127,6 +147,12 @@ keywords:
   - renta jardin bosque sur cdmx
   - jardin bautizos magdalena contreras
   - eventos aire libre bosque cdmx
+  - salon fiestas magdalena contreras
+  - venue eventos sur cdmx
+  - eventos naturaleza sur cdmx
+  - boda jardín sur cdmx
+  - naturaleza desierto de los leones eventos
+  - jardin campestre sur cdmx
 
 featured: false
 premium: false

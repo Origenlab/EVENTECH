@@ -9,6 +9,11 @@ zone: "Iztapalapa"
 zoneSlug: "iztapalapa"
 address: "Eje 6 Sur Trabajadoras Sociales 1000, San Pedro"
 neighborhood: "San Pedro"
+postalCode: "09500"
+coordinates:
+  lat: 19.3561291
+  lng: -99.024224
+googleMapsUrl: "https://maps.google.com/?q=Salon+julis+iztapalapa+CDMX"
 
 type: "salon"
 
@@ -90,6 +95,17 @@ reviews:
     text: "Organizamos la cena de fin de año de la empresa con 120 personas. El WiFi funcionó bien, el aire acondicionado excelente y los vestidores fueron muy útiles para el cambio de vestuario del show. Muy recomendable para corporativos."
     eventType: "corporativo"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salon JULIS?"
+    answer: "Salon JULIS tiene capacidad para hasta 200 personas en formato banquete y hasta 260 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salon JULIS y cómo llegar?"
+    answer: "Salon JULIS se encuentra en Eje 6 Sur Trabajadoras Sociales 1000, San Pedro, alcaldía Iztapalapa, Ciudad de México. La alcaldía cuenta con múltiples estaciones del Metro (Líneas 8, 9 y A) y es accesible desde Periférico, Canal de San Juan y otras vías principales."
+  - question: "¿Qué incluye la renta de Salon JULIS?"
+    answer: "La renta de Salon JULIS incluye coordinador de eventos, mobiliario básico (mesas y sillas), mantelería, iluminación básica, equipo de sonido básico. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salon JULIS?"
+    answer: "Salon JULIS es apto para bodas, quinceañeras, bautizos, cumpleaños y comuniones. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Salon JULIS?"
+    answer: "Salon JULIS opera entre semana de 10:00 - 23:00 y fines de semana de 10:00 - 02:00 con un mínimo de 5 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Salon JULIS Iztapalapa"
 seoDescription: "Salon JULIS en San Pedro, Iztapalapa. Salón moderno con pista LED iluminada. Bodas, XV años y graduaciones hasta 200 personas."
 keywords:

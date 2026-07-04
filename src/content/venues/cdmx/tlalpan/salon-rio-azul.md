@@ -119,6 +119,18 @@ reviews:
     text: "Nuestra boda con 200 invitados fue en Río Azul y todo fluyó perfecto. La terraza nos sirvió para el cóctel mientras el salón se terminaba de montar. La vajilla incluida nos ahorró un gasto importante. El vestidor fue ideal para que me arreglara antes de la entrada."
     eventType: "boda"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón de Eventos Río Azul?"
+    answer: "Salón Río Azul tiene capacidad para 230 personas en formato banquete y 280 en cóctel, con montaje para ceremonia de hasta 140 invitados. La terraza adjunta brinda espacio adicional para cócteles y descanso en Pedregal de San Nicolás, Tlalpan."
+  - question: "¿Dónde está Salón Río Azul y cómo llegar?"
+    answer: "El salón se ubica en Periférico Sur 3720, colonia Pedregal de San Nicolás, alcaldía Tlalpan, CDMX, C.P. 14100. Su ubicación sobre Periférico Sur garantiza acceso directo desde Coyoacán, Tlalpan y el Estado de México. Cuenta con estacionamiento propio."
+  - question: "¿Qué incluye la renta de Salón Río Azul?"
+    answer: "La renta incluye mobiliario básico, mantelería, vajilla, iluminación básica, montaje, desmontaje, seguridad y limpieza. El salón cuenta con cocina industrial, aire acondicionado, vestidores privados, terraza y Wi-Fi. Se permiten caterings externos para el banquete."
+  - question: "¿Qué tipos de eventos acepta Salón Río Azul?"
+    answer: "Río Azul es apto para bodas, XV años, bautizos, cumpleaños, graduaciones, comuniones, fiestas privadas, aniversarios, eventos corporativos y despedidas. Su relación calidad-precio y la vajilla incluida lo posicionan como opción competitiva en el sur de la CDMX."
+  - question: "¿Cuál es el horario y la política de catering en Salón Río Azul?"
+    answer: "El salón opera de lunes a viernes de 10:00 a 23:00 y fines de semana de 10:00 a 02:00 horas, con mínimo de 5 horas de renta. La pirotecnia interior no está permitida. Se admiten caterings externos, open bar independiente y DJ contratado por el cliente. La decoración no debe dañar muros ni instalaciones."
+
 seoTitle: "Salón Río Azul Tlalpan"
 seoDescription: "Salón con terraza sobre Periférico Sur en Tlalpan. Bodas, XV años y graduaciones hasta 230 personas. Vajilla incluida, zona sur CDMX."
 keywords:

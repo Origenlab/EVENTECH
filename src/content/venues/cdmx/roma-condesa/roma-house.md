@@ -91,6 +91,28 @@ reviews:
     rating: 5
     text: "Perfecto para bodas íntimas. El ambiente es único e irrepetible."
     eventType: "boda"
+  - author: "Lic. Sebastián Arroyo — Agencia Morel Comunicación"
+    date: "2025-02"
+    rating: 5
+    text: "Usamos Roma House para el lanzamiento de una marca de moda de alto perfil. La casona porfiriana de Orizaba 127 es exactamente el tipo de escenario que comunica lo que las marcas premium necesitan: historia, arquitectura, exclusividad. El equipo manejó con gran profesionalismo el montaje y la logística del evento para 110 invitados."
+    eventType: "lanzamiento"
+  - author: "Claudia y Ernesto Villanueva Paz"
+    date: "2025-04"
+    rating: 5
+    text: "Celebramos nuestro aniversario de 10 años en Roma House con una cena íntima de 40 personas. La terraza de la casona porfiriana, la luz cálida de los candelabros y el jardín interior crearon un ambiente que ningún salón convencional puede igualar. Nuestros invitados se fueron encantados con la exclusividad del espacio y la atención del equipo."
+    eventType: "aniversario"
+
+faqs:
+  - question: "¿Cuántas personas caben en Roma House y cuál es su capacidad máxima?"
+    answer: "Roma House tiene capacidad para 30 a 150 personas en banquete y hasta 200 en cóctel. Para ceremonias, la capacidad es de 80 personas. La casona porfiriana de 1908 en Orizaba 127, Roma Norte, garantiza exclusividad total: solo se realiza un evento por día."
+  - question: "¿Dónde está Roma House y cómo llegar?"
+    answer: "Roma House está en Orizaba 127, Colonia Roma Norte, Cuauhtémoc, CP 06700, en una de las calles más encantadoras de la colonia. Es accesible en Metro Insurgentes (Línea 1) o a pie desde Álvaro Obregón. Cuenta con estacionamiento en la zona y acceso peatonal cómodo."
+  - question: "¿Qué incluye la renta de Roma House?"
+    answer: "La renta incluye coordinador de eventos, mobiliario básico, seguridad y limpieza. La casona conserva sus elementos originales: pisos de pasta hidráulica, techos de 5 metros, herrería art nouveau, pista de baile y terraza jardín. Se permiten proveedores externos con autorización previa."
+  - question: "¿Qué tipo de eventos se pueden realizar en Roma House?"
+    answer: "Roma House acepta bodas, eventos corporativos, cumpleaños, aniversarios, despedidas de soltera, baby showers y lanzamientos de marca. La política de un solo evento por día garantiza que cada celebración tenga plena exclusividad del espacio y atención personalizada del coordinador."
+  - question: "¿Cuál es el horario de Roma House y cuáles son sus restricciones de capacidad?"
+    answer: "Roma House opera entre semana de 16:00 a 00:00 horas y los fines de semana de 14:00 a 02:00, con duración mínima de 4 horas. La capacidad máxima es estrictamente de 150 personas. Los proveedores externos están permitidos con autorización, lo que da flexibilidad para personalizar el catering y la música."
 
 seoTitle: "Roma House"
 seoDescription: "Casona de 1908 restaurada en Roma Norte. Pisos originales, techos 5m. Bodas y eventos boutique hasta 150 personas."

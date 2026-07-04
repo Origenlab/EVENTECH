@@ -103,6 +103,17 @@ reviews:
     text: "Festejamos las bodas de plata de mis padres en esta casona maravillosa. La terraza superior fue ideal para el brindis y las fotos familiares con el atardecer quedaron preciosas. El vestidor es un detalle que se agradece mucho para las festejadas."
     eventType: "aniversario"
 
+faqs:
+  - question: "¿Cuántas personas caben en Casa del Sol Del Valle?"
+    answer: "Casa del Sol tiene capacidad para 150 personas en banquete y hasta 200 en cóctel. Para ceremonias puede alojar 100 personas sentadas en el jardín interior o el salón principal. El aforo mínimo es de 40 personas. Su carácter íntimo —residencia Art Déco de 1935— lo convierte en el venue boutique de referencia de Del Valle."
+  - question: "¿Dónde está Casa del Sol y cómo llegar?"
+    answer: "Se ubica en Adolfo Prieto 1530, Del Valle Centro, alcaldía Benito Juárez, C.P. 03100. El Metro División del Norte (Línea 3) está a 4 cuadras. El Metrobús Insurgentes (estación San Lorenzo) está a 5 minutos caminando. Cuenta con estacionamiento propio. La zona de Del Valle tiene excelente conectividad vial por Insurgentes Sur e Eje 8 Sur."
+  - question: "¿Qué incluye la renta de Casa del Sol?"
+    answer: "La renta incluye coordinador de eventos, mobiliario básico, iluminación básica, seguridad y limpieza. El espacio comprende salón principal con chimenea de cantera y vitrales emplomados originales, jardín interior con fuente octagonal de cantera, terraza, vestidores y área de fotos. El catering se puede contratar con proveedores externos. EVENTECH ofrece 10% de descuento en iluminación decorativa."
+  - question: "¿Qué tipo de eventos se realizan en Casa del Sol?"
+    answer: "Casa del Sol es ideal para bodas boutique, cenas de celebración íntimas, cumpleaños de adultos, aniversarios especiales, eventos corporativos de dirección, graduaciones, sesiones fotográficas y cenas de gala de pequeño formato. Su arquitectura Art Déco de 1935 —con vitrales emplomados originales de motivos solares y pisos de pasta hidráulica— crea una atmósfera de sofisticación retro imposible de replicar."
+  - question: "¿Cuál es el horario de Casa del Sol y cuánto cuesta?"
+    answer: "El horario es de 17:00 a 00:00 entre semana y de 14:00 a 01:00 los fines de semana, con mínimo de 5 horas. El precio por persona va de $950 a $2,000 dependiendo del menú y servicios seleccionados. La toque de queda es a la 01:00. El coordinador de eventos incluido en la renta es un diferencial clave para garantizar que cada detalle de la celebración esté perfectamente coordinado."
 seoTitle: "Casa del Sol"
 seoDescription: "Mansión Art Déco de 1935 con vitrales originales y jardín interior en Del Valle. Bodas y eventos íntimos hasta 150 personas."
 keywords:
@@ -115,7 +126,7 @@ keywords:
   - eventos arquitectura art deco cdmx
   - venue con jardin del valle
 
-featured: false
+featured: true
 premium: false
 verified: true
 order: 22

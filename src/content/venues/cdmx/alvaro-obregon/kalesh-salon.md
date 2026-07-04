@@ -157,6 +157,17 @@ reviews:
     text: "Organizamos el lanzamiento de producto para 120 ejecutivos. El salón funcionó perfecto como auditorio con pantalla y sonido EVENTECH, la terraza como zona de networking al atardecer, y el jardín para la cena posterior. Tres espacios, una experiencia impecable. Nuestros clientes quedaron impresionados."
     eventType: "corporativo"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Kalesh Salón de Fiestas?"
+    answer: "Kalesh Salón de Fiestas tiene capacidad para hasta 350 personas en formato banquete y hasta 450 en formato cóctel. Para ceremonias, el espacio acomoda hasta 200 invitados. El mínimo de invitados es de 50 personas."
+  - question: "¿Dónde está ubicado Kalesh Salón de Fiestas y cómo llegar?"
+    answer: "Kalesh Salón de Fiestas se encuentra en Av. 5 de Mayo 34, Rinconada de Tarango, colonia Rinconada de Tarango, alcaldía Álvaro Obregón, Ciudad de México. La zona es accesible en auto particular; se recomienda usar Uber o DiDi indicando el nombre del salón. Cuenta con estacionamiento propio."
+  - question: "¿Qué está incluido en la renta de Kalesh Salón de Fiestas?"
+    answer: "La renta de Kalesh Salón de Fiestas incluye: coordinador de evento, mobiliario básico (mesas y sillas), mantelería, vajilla y cristalería, iluminación básica, equipo de sonido básico, montaje, desmontaje, personal de seguridad y limpieza post-evento. Las instalaciones cuentan además con cocina industrial, pista de baile, jardín, terraza."
+  - question: "¿Qué tipo de eventos se pueden realizar en Kalesh Salón de Fiestas?"
+    answer: "Kalesh Salón de Fiestas es ideal para bodas, XV años, bautizos, cumpleaños, aniversarios, graduaciones, eventos corporativos y primeras comuniones. Entre otros tipos de celebraciones y reuniones."
+  - question: "¿Cuál es el horario de eventos en Kalesh Salón de Fiestas?"
+    answer: "Kalesh Salón de Fiestas opera en los siguientes horarios: lunes a viernes de 10:00 - 01:00, sábados y domingos de 10:00 - 04:00. La renta mínima es de 5 horas. Respecto al catering: Catering externo permitido con caterings autorizados premium."
 seoTitle: "Kalesh Salón Eventos Premium en Tarango"
 seoDescription: "Salón premium con jardín y terraza panorámica en Tarango, Álvaro Obregón. Naturaleza + elegancia. Eventos hasta 350 personas. Socio EVENTECH."
 keywords:

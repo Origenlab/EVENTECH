@@ -113,6 +113,17 @@ reviews:
     text: "El bautizo de mi hijo fue precioso en El Mexicanito. La decoración del salón ya tenía ese toque mexicano que buscábamos, solo agregamos flores y centros de mesa. La taquiza fue un éxito y el mariachi le dio el toque perfecto. Totalmente recomendable."
     eventType: "bautizo"
 
+faqs:
+  - question: "¿Cuántas personas caben en Salón Familiar El Mexicanito?"
+    answer: "Salón Familiar El Mexicanito tiene capacidad para 160 personas en banquete y hasta 200 en cóctel. Para ceremonias puede alojar 100 personas sentadas. El aforo mínimo es de 30 personas, lo que lo hace ideal para reuniones familiares desde grupos pequeños."
+  - question: "¿Dónde está Salón El Mexicanito y cómo llegar?"
+    answer: "Se ubica en 1a. Privada Benito Juárez 38, Santa Úrsula Coapa, Coyoacán, C.P. 04650, en el sur de la Ciudad de México. El acceso más práctico es por Insurgentes Sur o Calzada de Tlalpan. El Metro Tasqueña (Línea 2) es la estación más cercana. Cuenta con estacionamiento propio."
+  - question: "¿Qué incluye la renta de Salón El Mexicanito?"
+    answer: "La renta incluye mobiliario básico (mesas y sillas), mantelería, iluminación básica, montaje, desmontaje y limpieza. El salón cuenta con área infantil, pista de baile, zona de fotos con decoración permanente en tonos terracota y cocina equipada para taquizas. El catering externo está permitido."
+  - question: "¿Qué tipo de eventos se realizan en Salón El Mexicanito?"
+    answer: "Salón El Mexicanito está especializado en XV años con mariachi, bautizos tradicionales, cumpleaños familiares, fiestas infantiles, bodas y comuniones con temática mexicana. Su decoración permanente en tonos terracota, verde y mostaza crea el escenario perfecto para celebraciones con identidad mexicana en el sur de CDMX."
+  - question: "¿Cuál es el horario y la política de catering en Salón El Mexicanito?"
+    answer: "El horario es de 10:00 a 22:00 entre semana y de 10:00 a 01:00 los fines de semana, con un mínimo de 4 horas. El catering externo está completamente permitido: se pueden llevar taquizas, banquetes tradicionales y bebidas propias. No se permite pirotecnia interior. Los precios de renta van desde $6,000 hasta $20,000 por evento."
 seoTitle: "Salón El Mexicanito Coyoacán"
 seoDescription: "Salón El Mexicanito en Sta. Úrsula Coapa, Coyoacán. XV años con mariachi, bautizos y fiestas mexicanas hasta 160 personas. Desde $6,000."
 keywords:

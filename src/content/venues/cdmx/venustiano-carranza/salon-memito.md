@@ -1,14 +1,30 @@
 ---
 name: "Salón Fiestas Memito"
 slug: "salon-memito"
-description: "Salón Fiestas Memito es un espacio compacto y accesible para celebraciones familiares en la colonia Moctezuma 1ra Sección de Venustiano Carranza. Con capacidad para hasta 150 personas en formato banquete, Memito se especializa en eventos de formato íntimo: bautizos, comuniones, cumpleaños, fiestas infantiles y reuniones donde la cercanía y la calidez son más importantes que el tamaño. Con pista de baile funcional, cocina industrial y precios particularmente accesibles, este salón ofrece un espacio digno y bien atendido para familias con presupuestos ajustados que no renuncian a celebrar sus momentos especiales."
-shortDescription: "Salón compacto en Moctezuma 1ra Secc, Venustiano Carranza. Eventos íntimos hasta 150 personas. Precios muy accesibles CDMX."
+description: >-
+  Salón Fiestas Memito es un espacio compacto y accesible para celebraciones familiares en la
+  colonia Moctezuma 1ra Sección de Venustiano Carranza. Con capacidad para hasta 150 personas en
+  formato banquete, Memito se especializa en eventos de formato íntimo: bautizos, comuniones,
+  cumpleaños, fiestas infantiles y reuniones donde la cercanía y la calidez son más importantes que
+  el tamaño. Con pista de baile funcional, cocina industrial y precios particularmente accesibles,
+  este salón ofrece un espacio digno y bien atendido para familias que no renuncian a celebrar sus
+  momentos especiales. Su ubicación en Venustiano Carranza representa una ventaja logística concreta:
+  a minutos del Metro Moctezuma (Línea 1), con acceso por Calzada Ignacio Zaragoza y a corta
+  distancia del AICM (Aeropuerto Internacional de la Ciudad de México), la llegada de invitados
+  foráneos que vuelan a la CDMX es especialmente sencilla. Un salón íntimo y accesible en una
+  de las zonas mejor conectadas de la capital.
+shortDescription: "Salón compacto en Moctezuma 1ra Secc, Venustiano Carranza, con excelente conectividad cerca del AICM y Metro Moctezuma. Eventos íntimos hasta 150 personas."
 
 region: "cdmx"
 zone: "Venustiano Carranza"
 zoneSlug: "venustiano-carranza"
 address: "C. Carlos Santana 96, Moctezuma 1ra Secc"
 neighborhood: "Moctezuma 1ra Sección"
+postalCode: "15500"
+coordinates:
+  lat: 19.4272939
+  lng: -99.1091933
+googleMapsUrl: "https://maps.google.com/?q=Salon+memito+Venustiano+Carranza+CDMX"
 
 type: "salon"
 
@@ -86,6 +102,18 @@ reviews:
     text: "Celebramos nuestro aniversario 25 con 100 invitados. El espacio íntimo hizo que todos estuvieran cerca y la fiesta se sintiera muy animada. Excelente opción para eventos donde no necesitas un salón gigante."
     eventType: "aniversario"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Fiestas Memito?"
+    answer: "Salón Fiestas Memito tiene capacidad para 150 personas en formato banquete y 180 en cóctel. Es un espacio compacto especializado en eventos íntimos y familiares en la colonia Moctezuma 1ra Sección, alcaldía Venustiano Carranza, CDMX."
+  - question: "¿Dónde está Salón Memito y cómo llegar?"
+    answer: "El salón está en Calle Carlos Santana 96, colonia Moctezuma 1ra Sección, alcaldía Venustiano Carranza, CDMX, C.P. 15500. Se accede fácilmente desde Calzada Ignacio Zaragoza y el Metro Moctezuma (Línea 1). La ubicación en una colonia céntrica facilita la llegada de invitados desde toda la zona oriente."
+  - question: "¿Qué incluye la renta de Salón Memito?"
+    answer: "La renta incluye mobiliario básico, mantelería, iluminación básica, montaje, desmontaje y limpieza. El salón cuenta con pista de baile, cocina industrial y Wi-Fi. Sus precios particularmente accesibles lo convierten en la mejor opción para familias que buscan celebrar sin gastar de más."
+  - question: "¿Para qué tipos de eventos es ideal Salón Memito?"
+    answer: "Salón Memito está especializado en bautizos, comuniones, cumpleaños, fiestas infantiles, fiestas privadas, aniversarios y baby showers, aunque también recibe bodas y XV años. Su escala íntima de hasta 150 personas y la atención cálida y personalizada son sus principales atributos."
+  - question: "¿Cuál es el horario y qué lo hace especial Salón Memito?"
+    answer: "El salón opera de lunes a viernes de 10:00 a 23:00 y fines de semana de 10:00 a 01:00 horas, con un mínimo de 4 horas — el mínimo más corto entre los salones de la zona —. Su precio muy accesible y acceso para personas con discapacidad lo hacen la mejor opción para eventos íntimos con presupuesto ajustado en Venustiano Carranza."
+
 seoTitle: "Salón Memito"
 seoDescription: "Salón compacto en Moctezuma, Venustiano Carranza. Bautizos, cumpleaños y fiestas íntimas hasta 150 personas. Precios accesibles."
 keywords:
@@ -97,6 +125,11 @@ keywords:
   - salon eventos intimos moctezuma
   - salon comuniones zona oriente cdmx
   - salon accesible fiestas venustiano carranza
+  - venue eventos venustiano carranza
+  - salon bodas cerca aeropuerto cdmx
+  - eventos cerca aicm cdmx
+  - salon metro moctezuma venustiano carranza
+  - salon intimo cerca aicm cdmx
 
 featured: false
 premium: false

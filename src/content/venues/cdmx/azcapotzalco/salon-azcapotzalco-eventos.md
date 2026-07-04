@@ -99,7 +99,34 @@ eventechPartner: false
 
 rating: 4.2
 reviewCount: 298
+reviews:
+  - author: "Familia Gutiérrez Morales"
+    date: "2025-03"
+    rating: 5
+    text: "Celebramos el XV de nuestra hija Valeria aquí y fue lo que siempre soñamos. El salón de 1,000 metros cuadrados en Calzada Azcapotzalco-La Villa tiene una pista de baile enorme y el estacionamiento para 130 carros fue una bendición para nuestra familia que viene de toda la zona norte. El precio estuvo muy accesible para lo que ofrecen. ¡Regresaremos para el bautizo del bebé!"
+    eventType: "xv-años"
+  - author: "Sofía y Tomás Mendívil"
+    date: "2024-11"
+    rating: 5
+    text: "Nuestra boda en el Salón Azcapotzalco fue mejor de lo que esperábamos. Nos gustó mucho la ubicación a tres cuadras del Metro Camarones porque varios invitados vienen en transporte público. El ambiente climatizado aguantó perfecto las tres horas de baile y el staff siempre estuvo atento. Una opción muy honesta para celebrar sin gastar de más."
+    eventType: "boda"
+  - author: "Familia Reyes Castillo"
+    date: "2024-06"
+    rating: 4
+    text: "Organizamos la graduación de nuestra hija de la preparatoria y quedamos muy satisfechos. La cocina industrial del salón permitió que los alimentos llegaran calientes a todas las mesas —somos 280 personas— lo cual es difícil de lograr. El acceso desde Calzada Azcapotzalco-La Villa es muy fácil de encontrar para todos."
+    eventType: "graduación"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Azcapotzalco Eventos?"
+    answer: "Salón Azcapotzalco Eventos tiene capacidad para hasta 320 personas en formato banquete y hasta 420 en formato cóctel. Para ceremonias, el espacio acomoda hasta 260 invitados. El mínimo de invitados es de 80 personas."
+  - question: "¿Dónde está ubicado Salón Azcapotzalco Eventos y cómo llegar?"
+    answer: "Salón Azcapotzalco Eventos se encuentra en Calzada Azcapotzalco-La Villa 398, Santa Cruz Acayucan, colonia Santa Cruz Acayucan, alcaldía Azcapotzalco, Ciudad de México. Puedes llegar en Metro (línea 6, estación Vallejo o Ferrería) o en auto particular y Uber/DiDi. Cuenta con estacionamiento propio."
+  - question: "¿Qué está incluido en la renta de Salón Azcapotzalco Eventos?"
+    answer: "La renta de Salón Azcapotzalco Eventos incluye: servicio de banquete, meseros, coordinador de evento, mobiliario básico (mesas y sillas), mantelería, vajilla y cristalería, iluminación básica, montaje, desmontaje, personal de seguridad y limpieza post-evento. Las instalaciones cuentan además con cocina industrial, pista de baile, generador de emergencia, Wi-Fi."
+  - question: "¿Qué tipo de eventos se pueden realizar en Salón Azcapotzalco Eventos?"
+    answer: "Salón Azcapotzalco Eventos es ideal para bodas, XV años, graduaciones, bautizos, primeras comuniones, fiestas infantiles, cumpleaños y aniversarios. Entre otros tipos de celebraciones y reuniones."
+  - question: "¿Cuál es el horario de eventos en Salón Azcapotzalco Eventos?"
+    answer: "Salón Azcapotzalco Eventos opera en los siguientes horarios: lunes a viernes de 14:00 - 00:00, sábados y domingos de 12:00 - 02:00. La renta mínima es de 5 horas."
 seoTitle: "Salón Azcapotzalco Eventos"
 seoDescription: "Salón 1,000m² en Azcapotzalco. Hasta 320 personas. Acceso Metro Camarones. Bodas, XV años y graduaciones al mejor precio del norte de CDMX."
 keywords:

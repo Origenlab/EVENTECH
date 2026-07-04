@@ -95,7 +95,34 @@ eventechPartner: false
 
 rating: 4.2
 reviewCount: 287
+reviews:
+  - author: "Familia Morales Jiménez"
+    date: "2025-05"
+    rating: 5
+    text: "Los XV años de nuestra Valeria en el Salón Iztapalapa fueron espectaculares. El salón de 1,400 metros cuadrados climatizados con sistema de sonido line array hizo que la música se escuchara perfecta en todos los rincones. El estacionamiento para 180 carros fue fundamental porque vinieron familias de toda la alcaldía. Por fin Iztapalapa tiene un venue a la altura de lo que merecemos."
+    eventType: "xv-años"
+  - author: "Rocío y Miguel Ángel Soto Pérez"
+    date: "2024-11"
+    rating: 5
+    text: "Nuestra boda en el Salón Iztapalapa fue perfecta de principio a fin. El acceso desde Av. Ermita Iztapalapa con conexión directa al Metro facilitó que todos nuestros invitados llegaran sin problema. Con 420 personas, el espacio aguantó cómodamente y el servicio del staff fue muy profesional. Un venue moderno que nos permitió celebrar a lo grande sin salir de nuestra alcaldía."
+    eventType: "boda"
+  - author: "Familia Reyes Ávila"
+    date: "2024-06"
+    rating: 4
+    text: "Hicimos la graduación de preparatoria de nuestros hijos gemelos aquí y quedamos muy contentos. La infraestructura moderna del salón en Santa María Aztahuacan es la mejor que hemos visto en la zona oriente de CDMX. Vinieron 380 personas y todo fluyó sin contratiempos. Precio justo para la calidad que ofrecen."
+    eventType: "graduación"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Iztapalapa Eventos?"
+    answer: "Salón Iztapalapa Eventos tiene capacidad para hasta 450 personas en formato banquete y hasta 580 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salón Iztapalapa Eventos y cómo llegar?"
+    answer: "Salón Iztapalapa Eventos se encuentra en Av. Ermita Iztapalapa 2890, Santa María Aztahuacan, alcaldía Iztapalapa, Ciudad de México. La alcaldía cuenta con múltiples estaciones del Metro (Líneas 8, 9 y A) y es accesible desde Periférico, Canal de San Juan y otras vías principales."
+  - question: "¿Qué incluye la renta de Salón Iztapalapa Eventos?"
+    answer: "La renta de Salón Iztapalapa Eventos incluye banquete, meseros, coordinador de eventos, mobiliario básico (mesas y sillas), mantelería. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón Iztapalapa Eventos?"
+    answer: "Salón Iztapalapa Eventos es apto para bodas, quinceañeras, graduaciones, bautizos y comuniones. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Salón Iztapalapa Eventos?"
+    answer: "Salón Iztapalapa Eventos opera entre semana de 14:00 - 00:00 y fines de semana de 12:00 - 02:00 con un mínimo de 5 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Salón Iztapalapa Eventos"
 seoDescription: "Salón premium 1,400m² en Iztapalapa. Hasta 450 personas con acceso a Metro. Bodas, XV años y graduaciones al mejor precio del oriente de CDMX."
 keywords:

@@ -1,8 +1,19 @@
 ---
 name: "Salón Crystal Palace"
 slug: "salon-crystal-palace-vc"
-description: "Salón Crystal Palace es un espacio moderno-elegante de gran formato en la colonia Aviación Civil de Venustiano Carranza, sobre la transitada Calzada Ignacio Zaragoza. Con capacidad para hasta 350 personas en formato banquete y 420 en cóctel, Crystal Palace es uno de los salones de mayor capacidad de la zona oriente de la CDMX. Su diseño combina elementos contemporáneos con detalles de elegancia — candelabros de cristal, acabados luminosos y una pista de baile generosa — complementados con infraestructura profesional que incluye cocina industrial, aire acondicionado de alta capacidad, área de fotos, vestidores privados y accesibilidad completa. Su ubicación sobre una de las avenidas principales de la ciudad garantiza excelente conectividad desde toda la zona oriente y el Estado de México."
-shortDescription: "Salón moderno-elegante en Aviación Civil, Venustiano Carranza. Gran formato hasta 350 personas. Candelabros y pista amplia CDMX."
+description: >-
+  Salón Crystal Palace es un espacio moderno-elegante de gran formato en la colonia Aviación Civil
+  de Venustiano Carranza, sobre la transitada Calzada Ignacio Zaragoza — la arteria que conecta
+  directamente con el AICM (Aeropuerto Internacional de la Ciudad de México), a tan solo 5 minutos.
+  Con capacidad para hasta 350 personas en formato banquete y 420 en cóctel, Crystal Palace es uno
+  de los salones de mayor capacidad de la zona oriente de la CDMX. Su diseño combina elementos
+  contemporáneos con detalles de elegancia — candelabros de cristal, acabados luminosos y una pista
+  de baile generosa — complementados con infraestructura profesional que incluye cocina industrial,
+  aire acondicionado de alta capacidad, área de fotos, vestidores privados y accesibilidad completa.
+  Su ubicación privilegiada sobre Av. Zaragoza, con acceso a las estaciones de Metro Gómez Farías y
+  Zaragoza (Línea 1), lo convierte en el venue ideal para eventos con invitados foráneos: quienes
+  vuelan al AICM llegan al salón en minutos, sin necesidad de cruzar la ciudad.
+shortDescription: "Salón moderno-elegante en Aviación Civil, Venustiano Carranza, cerca del AICM. Gran formato hasta 350 personas."
 
 region: "cdmx"
 zone: "Venustiano Carranza"
@@ -127,6 +138,18 @@ reviews:
     text: "Nuestra convención anual con 340 asistentes entre directivos, operadores y aliados comerciales fue todo un éxito en Crystal Palace. El salón tiene la capacidad que necesitábamos, el WiFi funcionó para nuestra presentación, y la ubicación sobre Zaragoza fue perfecta para nuestro equipo que viene desde toda la zona oriente y el Estado de México. Lo usaremos de nuevo."
     eventType: "convenciones"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Crystal Palace Venustiano Carranza?"
+    answer: "Salón Crystal Palace tiene capacidad para 350 personas en formato banquete y hasta 420 en cóctel, con montaje para ceremonia de 200 invitados. Es uno de los salones de mayor capacidad en la zona oriente de la CDMX, ubicado en Aviación Civil, Venustiano Carranza."
+  - question: "¿Dónde está Salón Crystal Palace y cómo llegar?"
+    answer: "El salón se ubica en Calzada Ignacio Zaragoza 1711, colonia Aviación Civil, alcaldía Venustiano Carranza, CDMX, C.P. 15710. Está sobre la transitada Calzada Ignacio Zaragoza, con excelente conectividad desde toda la zona oriente y el Estado de México. Cuenta con estacionamiento propio."
+  - question: "¿Qué incluye la renta de Salón Crystal Palace?"
+    answer: "La renta incluye mobiliario básico, mantelería, iluminación básica, montaje, desmontaje, seguridad y limpieza. El salón cuenta con candelabros de cristal, cocina industrial, aire acondicionado de alta capacidad, área de fotos, vestidores privados y Wi-Fi."
+  - question: "¿Qué tipos de eventos acepta Salón Crystal Palace?"
+    answer: "Crystal Palace recibe bodas, XV años, bautizos, comuniones, cumpleaños, graduaciones, aniversarios, eventos corporativos, fiestas privadas, fiestas infantiles, cenas de gala y convenciones. Su gran formato de 350 personas y diseño moderno-elegante lo hacen ideal para celebraciones de alto impacto."
+  - question: "¿Cuál es el horario y las políticas de Salón Crystal Palace?"
+    answer: "El salón opera de lunes a viernes de 10:00 a 23:00 y fines de semana de 10:00 a 02:00 horas, con mínimo de 5 horas de renta. Se permite catering externo, confeti biodegradable y montaje desde 3 horas antes del evento. La pirotecnia interior no está permitida. La carga y descarga se realiza por el acceso lateral."
+
 seoTitle: "Salón Crystal Palace Venustiano Carranza"
 seoDescription: "Salón moderno-elegante en Aviación Civil. Bodas, XV años y convenciones hasta 350 personas. Zona oriente CDMX. Candelabros."
 keywords:
@@ -138,8 +161,15 @@ keywords:
   - renta salon aviacion civil cdmx
   - salon fiestas calzada zaragoza cdmx
   - salon elegante zona oriente mexico
+  - venue eventos venustiano carranza
+  - salon bodas cerca aeropuerto cdmx
+  - eventos cerca aicm cdmx
+  - boda salon accesible aeropuerto cdmx
+  - venue corporativo zona aeropuerto cdmx
+  - salon av zaragoza cdmx
+  - salon bodas cerca aicm venustiano carranza
 
-featured: false
+featured: true
 premium: false
 verified: false
 order: 76

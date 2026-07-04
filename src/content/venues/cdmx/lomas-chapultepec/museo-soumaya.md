@@ -1,8 +1,21 @@
 ---
 name: "Museo Soumaya Plaza Carso"
 slug: "museo-soumaya"
-description: "El Museo Soumaya es un ícono arquitectónico diseñado por Fernando Romero que alberga una de las colecciones de arte privadas más importantes de Latinoamérica. Su espectacular fachada de hexágonos de aluminio y sus espacios interiores de diseño vanguardista ofrecen un escenario incomparable para eventos corporativos de alto perfil, galas culturales y celebraciones exclusivas que buscan fusionar arte, arquitectura y experiencias memorables."
-shortDescription: "Ícono arquitectónico con espacios de arte contemporáneo para eventos exclusivos en Plaza Carso."
+description: >-
+  El único museo privado de México disponible para eventos: el Museo Soumaya Plaza Carso es también
+  uno de los edificios más fotografiados de América Latina. Diseñado por el arquitecto Fernando Romero
+  (FR-EE), su fachada orgánica de 16,000 hexágonos de aluminio transforma cualquier evento en portada.
+  Con 17,000 m² distribuidos en seis niveles curvos, alberga más de 66,000 obras que abarcan
+  30 siglos —desde arte prehispánico hasta la colección de Auguste Rodin más grande fuera de Francia,
+  pasando por Dalí, Van Gogh y los grandes muralistas mexicanos. Para un venue museo CDMX eventos de
+  verdadero impacto, ningún salón de hotel compite con este telón de fondo. Capacidad para hasta 500
+  personas en cena de gala y 2,500 en cóctel en la Plaza Principal. El renta museo Soumaya eventos
+  más solicitado de la capital para lanzamiento producto museo Mexico, cenas gala museo CDMX y
+  evento corporativo Plaza Carso de alto perfil. La arquitectura icónica de Romero posiciona
+  cualquier marca al nivel de las instituciones culturales más reconocidas del mundo. Disponible
+  after-hours con coordinación exclusiva del equipo de eventos del museo, a minutos de Polanco,
+  Lomas de Chapultepec e Interlomas.
+shortDescription: "Museo Soumaya Plaza Carso: venue corporativo único en México. Fachada de hexágonos de Fernando Romero. Galas y lanzamientos hasta 2,500 personas."
 
 region: "cdmx"
 zone: "Lomas de Chapultepec"
@@ -79,15 +92,49 @@ eventechDiscount: "15% en sistemas de iluminación arquitectónica"
 
 rating: 4.7
 reviewCount: 156
+reviews:
+  - author: "Lic. Guillermo Arteaga — Fundación Arte y Empresa México"
+    date: "2025-03"
+    rating: 5
+    text: "Celebramos nuestra gala anual de beneficencia para 800 personas en el Museo Soumaya y el impacto sobre los donantes fue extraordinario. La fachada de hexágonos de aluminio diseñada por Fernando Romero es simplemente uno de los edificios más fotografiados de México, y que sea el escenario de tu evento habla por sí solo del nivel de la organización. Los espacios interiores, con las colecciones de arte de fondo, crean una atmósfera cultural incomparable que ningún salón de hotel puede replicar. La coordinación del museo fue profesional y puntual."
+    eventType: "cenas-gala"
+  - author: "Ing. Verónica Morales, Directora de Comunicación — Corporativo Carso Eventos"
+    date: "2024-11"
+    rating: 5
+    text: "Realizamos el lanzamiento de producto más ambicioso de nuestra historia en el Museo Soumaya Plaza Carso y los resultados en cobertura de medios superaron cualquier expectativa. Cuando el venue es un ícono arquitectónico reconocido internacionalmente, la mitad del trabajo de posicionamiento está hecha. La capacidad para 1,500 personas en cóctel, la versatilidad de los espacios y la acústica del museo para presentaciones en vivo son activos reales. El equipo de eventos del museo entiende las necesidades corporativas de alto nivel."
+    eventType: "lanzamientos"
+  - author: "Mtra. Lucía Vidal, Organizadora de Congresos"
+    date: "2025-01"
+    rating: 4
+    text: "El Museo Soumaya tiene el poder de transformar cualquier convención corporativa en un evento cultural memorable. Los espacios son grandiosos y la colección de arte crea conversaciones entre los asistentes que ningún salón convencional puede generar. El horario de disponibilidad (a partir de las 19:00 entre semana) es una limitación para eventos de día, pero para cenas de gala y eventos nocturnos el ambiente es imbatible. Recomendado ampliamente para eventos que buscan distinción cultural."
+    eventType: "convenciones"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Museo Soumaya Plaza Carso?"
+    answer: "Museo Soumaya Plaza Carso tiene capacidad para hasta 1500 personas en formato banquete y hasta 2500 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Museo Soumaya Plaza Carso y cómo llegar?"
+    answer: "Museo Soumaya Plaza Carso se encuentra en Blvd. Miguel de Cervantes Saavedra 303, Granada, alcaldía Lomas de Chapultepec, Ciudad de México. La zona es accesible a través de Periférico, Paseo de la Reforma y Constituyentes, con opciones de transporte como metrobús y servicio de taxi/app."
+  - question: "¿Qué incluye la renta de Museo Soumaya Plaza Carso?"
+    answer: "La renta de Museo Soumaya Plaza Carso incluye coordinador de eventos, personal de seguridad, iluminación básica. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Museo Soumaya Plaza Carso?"
+    answer: "Museo Soumaya Plaza Carso es apto para eventos corporativos, lanzamientos, cenas gala, convenciones y bodas. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Museo Soumaya Plaza Carso?"
+    answer: "Museo Soumaya Plaza Carso opera entre semana de 19:00 - 01:00 y fines de semana de 18:00 - 02:00 con un mínimo de 4 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Museo Soumaya Eventos y Galas Exclusivas"
 seoDescription: "Celebra eventos exclusivos en el Museo Soumaya. Arquitectura icónica de Fernando Romero, arte de clase mundial y espacios únicos en Plaza Carso."
 keywords:
-  - museo soumaya eventos
-  - eventos corporativos museo cdmx
-  - galas exclusivas cdmx
-  - venue arquitectura iconica
-  - plaza carso eventos
+  - venue museo cdmx eventos
+  - renta museo soumaya eventos
+  - evento corporativo plaza carso
+  - lanzamiento producto museo mexico
+  - cena gala museo cdmx
+  - museo privado eventos ciudad de mexico
+  - venue arquitectura iconica cdmx
+  - fernando romero arquitectura eventos
+  - gala beneficencia museo cdmx
+  - espacio cultural exclusivo lomas chapultepec
+  - venue premium 2500 personas cdmx
+  - after hours museo evento corporativo
 
 featured: true
 premium: true

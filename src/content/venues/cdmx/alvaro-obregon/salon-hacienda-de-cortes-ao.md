@@ -129,6 +129,17 @@ reviews:
     text: "Realizamos el lanzamiento de nuestra nueva colección en Hacienda de Cortés y el espacio fue perfecto para la marca: arquitectura mexicana sofisticada, materiales nobles, una terraza ideal para networking y un salón que luce impresionante en fotos y video. La ubicación en San Ángel Inn le dio el contexto premium que necesitábamos."
     eventType: "lanzamientos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Hacienda de Cortés?"
+    answer: "Salón Hacienda de Cortés tiene capacidad para hasta 300 personas en formato banquete y hasta 380 en formato cóctel. Para ceremonias, el espacio acomoda hasta 200 invitados. El mínimo de invitados es de 60 personas."
+  - question: "¿Dónde está ubicado Salón Hacienda de Cortés y cómo llegar?"
+    answer: "Salón Hacienda de Cortés se encuentra en Av. Revolución 1680, San Ángel Inn, colonia San Ángel Inn, alcaldía Álvaro Obregón, Ciudad de México. La zona es accesible en auto particular; se recomienda usar Uber o DiDi indicando el nombre del salón. Cuenta con estacionamiento propio. Se ofrece servicio de valet parking."
+  - question: "¿Qué está incluido en la renta de Salón Hacienda de Cortés?"
+    answer: "La renta de Salón Hacienda de Cortés incluye: coordinador de evento, mobiliario básico (mesas y sillas), mantelería, iluminación básica, montaje, desmontaje, limpieza post-evento y personal de seguridad. Las instalaciones cuentan además con cocina industrial, pista de baile, jardín, terraza."
+  - question: "¿Qué tipo de eventos se pueden realizar en Salón Hacienda de Cortés?"
+    answer: "Salón Hacienda de Cortés es ideal para bodas, XV años, bautizos, primeras comuniones, cumpleaños, aniversarios, eventos corporativos y cenas de gala. Entre otros tipos de celebraciones y reuniones."
+  - question: "¿Cuál es el horario de eventos en Salón Hacienda de Cortés?"
+    answer: "Salón Hacienda de Cortés opera en los siguientes horarios: lunes a viernes de 10:00 - 00:00, sábados y domingos de 10:00 - 03:00. La renta mínima es de 6 horas. Respecto al catering: Catering con proveedores autorizados preferentemente."
 seoTitle: "Salón Hacienda de Cortés San Ángel - Bodas"
 seoDescription: "Salón estilo hacienda en San Ángel Inn. Jardín, terraza, arcos de cantera. Bodas y eventos premium hasta 300 personas CDMX."
 keywords:

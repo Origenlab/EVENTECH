@@ -85,7 +85,29 @@ reviews:
     rating: 5
     text: "Un lugar mágico. Los frescos del techo son impresionantes."
     eventType: "boda"
+  - author: "Lic. Gabriela Montes — Directora de Comunicación, UNAM"
+    date: "2025-02"
+    rating: 5
+    text: "El Palacio de la Autonomía fue el escenario perfecto para nuestra conferencia institucional. El Salón de los Frescos, con sus alegorías novohispanas en el techo y las columnas de piedra volcánica, comunicó en segundos la profundidad histórica de nuestra universidad. La escalera monumental de cantera rosa para las fotos protocolares fue el remate ideal. El coordinador del palacio conoce cada restricción del patrimonio y hace que todo fluya."
+    eventType: "corporativo"
+  - author: "Ramón y Lucía Cervantes Olvera"
+    date: "2024-09"
+    rating: 5
+    text: "Elegimos el Palacio de la Autonomía para nuestra boda porque queríamos un espacio con historia real, no un venue decorado con elementos coloniales de imitación. Los frescos del siglo XVIII en el techo del salón principal, el patio de doble arcada con la fuente de cantera, la escalera donde tomamos las fotos más impresionantes de nuestra vida: todo superó expectativas. Un venue que te hace sentir parte de la historia de México."
+    eventType: "boda"
 
+
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Palacio de la Autonomía?"
+    answer: "Palacio de la Autonomía tiene capacidad para hasta 500 personas en formato banquete y hasta 700 en formato cóctel. Para ceremonias, el espacio acomoda hasta 250 invitados. El mínimo de invitados es de 50 personas."
+  - question: "¿Dónde está ubicado Palacio de la Autonomía y cómo llegar?"
+    answer: "Palacio de la Autonomía se encuentra en Licenciado Primo Verdad 2, Col. Centro, colonia Centro Histórico, alcaldía Centro Histórico, Ciudad de México. Se ubica en el corazón del Centro Histórico de CDMX, accesible en Metro (línea 2, estación Zócalo) y en auto con valet parking disponible. Cuenta con estacionamiento propio. Se ofrece servicio de valet parking."
+  - question: "¿Qué está incluido en la renta de Palacio de la Autonomía?"
+    answer: "La renta de Palacio de la Autonomía incluye: coordinador de evento, personal de seguridad, limpieza post-evento, montaje y desmontaje. Las instalaciones cuentan además con cocina industrial, pista de baile, terraza, Wi-Fi."
+  - question: "¿Qué tipo de eventos se pueden realizar en Palacio de la Autonomía?"
+    answer: "Palacio de la Autonomía es ideal para bodas, eventos corporativos, convenciones, cenas de gala, aniversarios y lanzamientos de producto."
+  - question: "¿Cuál es el horario de eventos en Palacio de la Autonomía?"
+    answer: "Palacio de la Autonomía opera en los siguientes horarios: lunes a viernes de 10:00 - 00:00, sábados y domingos de 10:00 - 01:00. La renta mínima es de 5 horas."
 seoTitle: "Palacio de la Autonomía"
 seoDescription: "Palacio histórico del siglo XVIII en Centro Histórico. Frescos originales y arquitectura colonial. Bodas y eventos de gala."
 keywords:

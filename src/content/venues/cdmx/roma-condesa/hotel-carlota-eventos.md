@@ -89,6 +89,34 @@ eventechDiscount: "25% en equipamiento audiovisual para lanzamientos"
 
 rating: 4.9
 reviewCount: 412
+reviews:
+  - author: "Mariana Velázquez y Diego Castañeda"
+    date: "2025-04"
+    rating: 5
+    text: "Casarnos en el Hotel Carlota fue la decisión más acertada que tomamos. El jardín vertical de 17 metros diseñado por Fernando Ortega es una obra de arte en sí misma y transformó todas nuestras fotografías en algo verdaderamente único. El restaurante Peyote del Chef Vallejo diseñó un menú de autor que nuestros 120 invitados no han terminado de elogiar. La combinación de arte contemporáneo, arquitectura modernista y gastronomía de primer nivel en un hotel boutique en la Roma es algo que no encontramos en ningún otro venue."
+    eventType: "bodas"
+  - author: "Lic. Mónica Espinosa, Directora Creativa — Agencia Cromática"
+    date: "2024-10"
+    rating: 5
+    text: "Lanzamos nuestra colección anual de diseño en el Hotel Carlota y el venue superó las expectativas más creativas del equipo. Las galerías de arte con colecciones rotativas sirven como decoración intrínseca del espacio, las terrazas tienen una luz natural excepcional para fotografía, y el equipo de coordinación del hotel entendió desde el primer briefing la estética que buscábamos. Un venue boutique sin igual en CDMX para marcas que valoran el diseño y la autenticidad."
+    eventType: "lanzamientos"
+  - author: "Ing. Alejandro Fourzán — Startup Hub México"
+    date: "2025-01"
+    rating: 5
+    text: "Organizamos nuestro retiro de directivos para 80 personas en el Hotel Carlota y la experiencia fue transformadora en el sentido literal. El ambiente que crea la arquitectura de JSa — con ese diálogo entre el funcionalismo original de Villagrán García y las intervenciones contemporáneas — estimula la creatividad de una forma que un salón corporativo convencional jamás podría. El equipo de banquetes fue eficiente y la propuesta gastronómica del Peyote añadió un nivel de distinción que reforzó el posicionamiento de nuestra empresa ante los directivos invitados."
+    eventType: "corporativos"
+
+faqs:
+  - question: "¿Cuántas personas puede recibir Hotel Carlota para un evento?"
+    answer: "Hotel Carlota puede recibir de 50 a 200 personas en banquete y hasta 300 en cóctel, con capacidad para ceremonias de hasta 120 personas. El hotel boutique en Río Amazonas 73, Colonia Cuauhtémoc, ofrece jardín vertical de 17 metros, terraza y galería de arte como espacios disponibles."
+  - question: "¿Dónde está ubicado Hotel Carlota y cómo llegar?"
+    answer: "Se ubica en Río Amazonas 73, Colonia Cuauhtémoc (en la frontera con Roma Norte), CP 06500. Es accesible en Metro Insurgentes (Línea 1) o Metrobús Reforma, a pocas cuadras de Paseo de la Reforma. El hotel ofrece valet parking para todos los asistentes al evento."
+  - question: "¿Qué incluye la renta de Hotel Carlota para eventos?"
+    answer: "La renta incluye banquete con gastronomía del Chef Jorge Vallejo (ex-Quintonil) en el restaurante Peyote, coordinador de eventos, mobiliario básico, mantelería, vajilla, meseros, seguridad, limpieza, montaje y desmontaje. Las galerías de arte con colecciones rotativas y el jardín vertical de Fernando Ortega forman parte del ambiente."
+  - question: "¿Qué tipo de eventos realiza Hotel Carlota?"
+    answer: "Hotel Carlota acepta bodas contemporáneas, eventos corporativos, lanzamientos de marca, sesiones fotográficas y cenas de gala. Es el venue favorito de marcas de lujo, agencias creativas y parejas que buscan una boda con identidad artística y cultural, a diferencia de los hoteles tradicionales."
+  - question: "¿Cuál es el horario máximo en Hotel Carlota y ofrece alojamiento para invitados?"
+    answer: "Hotel Carlota opera entre semana de 09:00 a 02:00 horas y los fines de semana hasta las 03:00, con una duración mínima de 6 horas. Ofrece habitaciones y suite nupcial a tarifas preferenciales para grupos. El spa está disponible para paquetes especiales de bodas y retiros corporativos."
 
 seoTitle: "Hotel Carlota"
 seoDescription: "Hotel boutique de JSa arquitectos en la Roma. Jardín vertical, gastronomía de autor y arte contemporáneo para eventos sofisticados."

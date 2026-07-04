@@ -105,6 +105,17 @@ reviews:
     text: "Celebramos nuestro aniversario 25 en el patio colonial con una cena para 60 personas. Las arcadas de cantera, las bugambilias y la iluminación crearon una atmósfera mágica. Un espacio con alma que hace que cualquier celebración sea especial."
     eventType: "aniversario"
 
+faqs:
+  - question: "¿Cuántas personas caben en el Centro Cultural Elena Garro?"
+    answer: "El Centro Cultural Elena Garro tiene capacidad para 200 personas en banquete, 300 en cóctel y 120 en formato ceremonia. El aforo mínimo es de 30 personas, lo que lo convierte en una opción ideal para eventos íntimos y boutique."
+  - question: "¿Dónde está el Centro Cultural Elena Garro y cómo llegar?"
+    answer: "Se ubica en Fernández Leal 43, Barrio de la Concepción, Coyoacán, C.P. 04020. Está a cuatro cuadras del Centro Histórico de Coyoacán. Se puede llegar en Metrobús hasta CU o en Metro Universidad (Línea 3) y tomar un taxi o microbús hasta el centro de Coyoacán. También hay estacionamiento en la zona."
+  - question: "¿Qué incluye la renta del Centro Cultural Elena Garro?"
+    answer: "La renta incluye coordinador de eventos, servicio de seguridad, iluminación básica y limpieza. El espacio comprende jardín con espejo de agua, patios coloniales de cantera rosa, terraza con vistas a las cúpulas de Coyoacán y sala de eventos flexible. El catering debe contratarse con proveedores autorizados por el venue."
+  - question: "¿Qué tipo de eventos se realizan en el Centro Cultural Elena Garro?"
+    answer: "El Centro Cultural Elena Garro es ideal para bodas, eventos corporativos, lanzamientos de producto, cumpleaños, aniversarios y graduaciones. Su arquitectura fusión colonial-contemporánea lo hace especialmente popular para bodas íntimas y eventos culturales de entre 30 y 200 personas."
+  - question: "¿Cuál es la política de música y catering en el Centro Cultural Elena Garro?"
+    answer: "El horario de eventos es de 18:00 a 23:00 entre semana y de 14:00 a 00:00 los fines de semana, con mínimo de 4 horas. Por su entorno residencial en Coyoacán, se prefiere música en vivo (cuartetos, jazz) sobre DJ amplificado. El catering debe ser con proveedores autorizados y toda decoración requiere aprobación previa."
 seoTitle: "Centro Cultural Elena Garro Coyoacán"
 seoDescription: "Eventos únicos en el Centro Cultural Elena Garro, Coyoacán. Jardín colonial, terraza moderna y librería. Bodas y corporativos hasta 200 personas."
 keywords:

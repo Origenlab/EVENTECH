@@ -52,6 +52,12 @@ export const SERVICE_CATEGORIES = {
     keywords: ["catering", "vajilla", "cristalería", "cocina", "refrigeración"],
     icon: "utensils",
   },
+  computo: {
+    label: "Cómputo",
+    href: "/servicios/computo/",
+    keywords: ["laptop", "laptops", "computadora", "computadoras", "cómputo", "ipad", "tablet", "impresora", "registro de asistentes", "acreditación"],
+    icon: "laptop",
+  },
   accesorios: {
     label: "Accesorios",
     href: "/servicios/accesorios/",

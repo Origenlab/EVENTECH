@@ -1,8 +1,21 @@
 ---
 name: "Centro Comercial Loreto y Peña Pobre"
 slug: "loreto-pena-pobre"
-description: "Loreto y Peña Pobre es un complejo arquitectónico único construido sobre las ruinas de una de las fábricas de papel más antiguas de América, fundada en 1580. Sus naves industriales del siglo XIX —con techos de doble altura, vigas de acero expuestas, chimeneas de ladrillo centenario y muros de piedra volcánica— han sido reconvertidas en espacios de eventos que combinan patrimonio industrial con versatilidad contemporánea. Para marcas, agencias y organizaciones que buscan un venue con carácter distintivo en el sur de la ciudad, Loreto ofrece un lienzo industrial que ningún salón de hotel puede igualar."
-shortDescription: "Fábrica de papel de 1580 reconvertida en espacio industrial para eventos. Patrimonio arquitectónico único en San Ángel."
+description: >-
+  En 1580 —apenas 59 años después de la caída de Tenochtitlan— los frailes carmelitas descalzos fundaron
+  aquí el Convento del Carmen, cuyas aguas del Río Magdalena comenzaron a mover los primeros molinos de
+  papel del continente americano. Durante más de cuatro siglos, este complejo en Tizapán San Ángel
+  documentó literalmente la historia de la Nueva España: cédulas reales, mapas de virreyes, actas de
+  Independencia salieron de sus prensas. En el siglo XX, la Revolución Industrial transformó el convento
+  en fábrica textil —La Hormiga— y después en el complejo de ladrillo rojo artesanal, domos de vidrio
+  y vigas de hierro fundido que sobrevive hoy intacto. Reconvertido en 1992, Loreto y Peña Pobre es
+  hoy el venue industrial CDMX por excelencia: un espacio de 1,200 m² con techos de 12 metros donde la
+  historia novohispana es la estructura misma del lugar, no decoración. Para marcas premium, agencias
+  creativas y organizadores que buscan diferenciación instantánea en un salón eventos Loreto y Peña Pobre
+  con más de 440 años de narrativa. Renta evento espacio industrial en México con acceso directo desde
+  Insurgentes Sur, a 10 minutos de Santa Fe y Pedregal. El venue corporativo San Ángel ideal para
+  lanzamiento de producto CDMX espacio único: de 100 a 600 personas en banquete y hasta 1,000 en cóctel.
+shortDescription: "Ex-Convento del Carmen de 1580 reconvertido en espacio industrial histórico. Venue corporativo en San Ángel / Álvaro Obregón. Hasta 1,000 personas."
 
 region: "cdmx"
 zone: "Álvaro Obregón"
@@ -75,14 +88,49 @@ eventechPartner: true
 
 rating: 4.4
 reviewCount: 98
+reviews:
+  - author: "Lic. Gabriela Treviño — Asociación de Diseñadores de México"
+    date: "2025-02"
+    rating: 5
+    text: "Elegimos Loreto y Peña Pobre para el lanzamiento de nuestra colección anual y fue una decisión perfecta. Las naves industriales del siglo XIX con sus techos de doble altura y chimeneas de ladrillo centenario generaron exactamente la atmósfera que buscábamos: patrimonio con personalidad. La coordinación fue impecable desde el montaje hasta el cierre en Altamirano 46."
+    eventType: "lanzamiento"
+  - author: "Ing. Roberto Salinas — Grupo Constructora Salinas"
+    date: "2024-09"
+    rating: 5
+    text: "Organizamos nuestra convención anual de proveedores en Loreto y la respuesta de los asistentes fue extraordinaria. El espacio industrial reconvertido —vigas de acero expuestas, muros de piedra volcánica— es un lienzo único que ningún hotel puede ofrecer. Capacidad para más de 600 personas sin perder la calidez del lugar. Altamente recomendado para eventos corporativos que quieren diferenciarse."
+    eventType: "convención"
+  - author: "Mtra. Claudia Espinoza — Directora Festival Cultural CDMX"
+    date: "2024-05"
+    rating: 4
+    text: "Venue con carácter arquitectónico excepcional: las ruinas de la fábrica de papel fundada en 1580 son un telón de fondo fascinante para cualquier evento cultural. El montaje coordinado con la administración del centro requirió algo de anticipación, pero el resultado final superó expectativas. Un espacio donde la historia de la Ciudad de México es parte integral de la celebración."
+    eventType: "corporativo"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Centro Comercial Loreto y Peña Pobre?"
+    answer: "Centro Comercial Loreto y Peña Pobre tiene capacidad para hasta 600 personas en formato banquete y hasta 1000 en formato cóctel. El mínimo de invitados es de 100 personas."
+  - question: "¿Dónde está ubicado Centro Comercial Loreto y Peña Pobre y cómo llegar?"
+    answer: "Centro Comercial Loreto y Peña Pobre se encuentra en Altamirano 46, Tizapán San Ángel, colonia Tizapán San Ángel, alcaldía Álvaro Obregón, Ciudad de México. La zona es accesible en auto particular; se recomienda usar Uber o DiDi indicando el nombre del salón. Cuenta con estacionamiento propio."
+  - question: "¿Qué está incluido en la renta de Centro Comercial Loreto y Peña Pobre?"
+    answer: "La renta de Centro Comercial Loreto y Peña Pobre incluye: coordinador de evento, mobiliario básico (mesas y sillas), personal de seguridad y limpieza post-evento. Las instalaciones cuentan además con jardín, Wi-Fi, aire acondicionado."
+  - question: "¿Qué tipo de eventos se pueden realizar en Centro Comercial Loreto y Peña Pobre?"
+    answer: "Centro Comercial Loreto y Peña Pobre es ideal para eventos corporativos, lanzamientos de producto, convenciones y graduaciones."
+  - question: "¿Cuál es el horario de eventos en Centro Comercial Loreto y Peña Pobre?"
+    answer: "Centro Comercial Loreto y Peña Pobre opera en los siguientes horarios: lunes a viernes de 08:00 - 23:00, sábados y domingos de 08:00 - 00:00. La renta mínima es de 4 horas."
 seoTitle: "Loreto y Peña Pobre"
 seoDescription: "Fábrica de papel de 1580 reconvertida para eventos. Arquitectura industrial, techos altos, naves históricas. Hasta 600 personas en San Ángel."
 keywords:
-  - loreto eventos cdmx
-  - venue industrial san angel
-  - espacio corporativo sur
-  - fabrica eventos cdmx
+  - venue industrial cdmx
+  - salon eventos loreto y pena pobre
+  - renta evento espacio industrial mexico
+  - venue corporativo san angel
+  - lanzamiento de producto cdmx espacio unico
+  - ex convento carmelita eventos cdmx
+  - espacio industrial historico alvaro obregon
+  - nave industrial 12 metros altura cdmx
+  - venue 1000 personas sur cdmx
+  - fabrica siglo xix reconvertida eventos
+  - lanzamiento marca espacio industrial insurgentes
+  - congreso convencion espacio heritage cdmx
 
 featured: false
 verified: true

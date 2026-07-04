@@ -112,6 +112,17 @@ reviews:
     text: "Los XV años de mi hija en Salón Blancas quedaron muy bonitos. La pista de baile tiene buen tamaño para el vals y las coreografías. La cocina industrial facilitó mucho el trabajo del catering que contratamos. Buena relación calidad-precio."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuál es la capacidad de Salón de Eventos Blancas?"
+    answer: "Salón de Eventos Blancas puede recibir hasta 220 personas. La capacidad varía según el montaje: banquete, cóctel o teatro. Consulta con el equipo para el formato que mejor se adapte a tu evento."
+  - question: "¿Dónde está ubicado Salón de Eventos Blancas y cómo llegar?"
+    answer: "Salón de Eventos Blancas se ubica en Lago Atitlán 78, Deportivo Pensil, colonia Deportivo Pensil, alcaldía CDMX, Ciudad de México. Si vas en auto, se recomienda verificar disponibilidad de estacionamiento directamente con el venue."
+  - question: "¿Qué incluye la renta de Salón de Eventos Blancas?"
+    answer: "La renta de Salón de Eventos Blancas incluye: mobiliario-basico, manteleria, iluminacion-basica, sonido-basico, montaje, desmontaje, limpieza. Además, el venue cuenta con las siguientes instalaciones y amenidades: estacionamiento, pista-baile, aire-acondicionado, cocina-industrial, area-fotos, acceso-discapacitados, wifi. Para paquetes personalizados o servicios adicionales, consulta directamente con el equipo."
+  - question: "¿Qué tipo de eventos se pueden realizar en Salón de Eventos Blancas?"
+    answer: "Salón de Eventos Blancas es apto para una amplia variedad de eventos, entre ellos: bodas, xv-anos, bautizos, cumpleanos, comuniones, graduaciones, fiestas-privadas, aniversarios, corporativos. El equipo del venue puede orientarte sobre el montaje más adecuado para cada ocasión."
+  - question: "¿Salón de Eventos Blancas cuenta con estacionamiento?"
+    answer: "Sí, estacionamiento. Además, el venue puede orientarte sobre opciones de acceso en transporte público o valet parking según disponibilidad. Consulta directamente para más detalles."
 seoTitle: "Salón Blancas"
 seoDescription: "Salón de eventos Blancas en Deportivo Pensil, Miguel Hidalgo. Bodas, XV años y corporativos hasta 220 personas. Cerca de Polanco."
 keywords:

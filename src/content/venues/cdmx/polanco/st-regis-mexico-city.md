@@ -92,6 +92,34 @@ eventechDiscount: "15% en servicios de iluminación arquitectónica"
 
 rating: 4.9
 reviewCount: 312
+reviews:
+  - author: "Lic. Sofía Altamirano y Javier Altamirano de la Vega"
+    date: "2025-05"
+    rating: 5
+    text: "Nuestra boda en el St. Regis Mexico City estableció un estándar que difícilmente cualquier venue en Latinoamérica podría igualar. Las vistas panorámicas de 360° desde la Torre Libertad sobre Paseo de la Reforma — el Ángel de la Independencia, Chapultepec, los volcanes al fondo — son un patrimonio visual que se convirtió en el tema recurrente de nuestros invitados internacionales. El legendario servicio de mayordomo garantizó que cada uno de nuestros 180 invitados VIP se sintiera tratado de forma personalizada. La propuesta gastronómica de autor y la suite nupcial son simplemente en otra liga."
+    eventType: "bodas"
+  - author: "Lic. Manuel Orozco — Consejo de Directivos BBVA México"
+    date: "2024-09"
+    rating: 5
+    text: "El St. Regis Mexico City es el único venue en CDMX que puede dar a una convención corporativa de 500 personas el nivel de atención personalizada que normalmente solo existe en eventos íntimos. El equipo de banquetes anticipa necesidades que el organizador aún no ha verbalizado; esa es la diferencia entre servicio de lujo y servicio ultra-lujo. La tecnología de los salones, las vistas sobre Reforma y la gastronomía de autor conforman un tríptico de excelencia que justifica plenamente la inversión."
+    eventType: "corporativos"
+  - author: "Mtra. Renata Pacheco — Directora de Marca, Grupo Modelo"
+    date: "2025-02"
+    rating: 5
+    text: "Lanzamos una línea premium en el St. Regis y la coherencia entre el venue y el posicionamiento de producto fue perfecta desde el primer minuto. La atención personalizada de la coordinadora asignada, la calidad de los materiales de montaje que el hotel facilita, y la infraestructura tecnológica de los salones panorámicos son activos de comunicación reales. Cuando tu venue es el St. Regis en la Torre Libertad, el mensaje de exclusividad se comunica antes de que abras la boca."
+    eventType: "lanzamientos"
+
+faqs:
+  - question: "¿Cuántas personas puede recibir The St. Regis Mexico City en un evento?"
+    answer: "The St. Regis Mexico City tiene capacidad para 20 hasta 600 personas en banquete y hasta 800 en cóctel, con opción de ceremonia para 200 personas. Sus salones se encuentran en la icónica Torre Libertad sobre Paseo de la Reforma, con vistas panorámicas de 360° que incluyen el Ángel de la Independencia y los volcanes."
+  - question: "¿Dónde está ubicado The St. Regis Mexico City y cómo llegar?"
+    answer: "Se ubica en Paseo de la Reforma 439, Colonia Cuauhtémoc, CP 06500. Es accesible por Metrobús Reforma y Metro Insurgentes (Línea 1). La Torre Libertad es un punto de referencia icónico en la avenida más importante de la Ciudad de México. Cuenta con estacionamiento y valet parking."
+  - question: "¿Qué incluye la renta de espacios en The St. Regis Mexico City?"
+    answer: "La renta incluye banquete de autor, meseros, coordinador de eventos, mobiliario básico, mantelería, vajilla, iluminación básica, sonido básico y seguridad. El legendario servicio de mayordomo St. Regis está disponible para los eventos más exigentes, junto con la suite nupcial y acceso a spa."
+  - question: "¿Qué tipo de eventos acepta The St. Regis Mexico City?"
+    answer: "Acepta bodas, eventos corporativos, convenciones, lanzamientos de productos, cenas de gala y aniversarios. Su posicionamiento como hotel ultra-lujo lo hace ideal para bodas de altísimo perfil, galas de premiación, juntas de consejo y eventos donde la discreción y el servicio impecable son prioritarios."
+  - question: "¿Cuál es el horario máximo para eventos y qué incluye el servicio de alojamiento?"
+    answer: "The St. Regis opera entre semana de 07:00 a 02:00 horas y los fines de semana hasta las 03:00, con una duración mínima de 6 horas por evento. El hotel ofrece tarifas preferenciales para grupos de habitaciones, suite nupcial y spa disponibles para los eventos más completos."
 
 seoTitle: "St. Regis Mexico City"
 seoDescription: "Celebra eventos exclusivos en The St. Regis Mexico City. Salones con vista panorámica, servicio de mayordomo y gastronomía de autor en Reforma."

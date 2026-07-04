@@ -84,6 +84,34 @@ eventechDiscount: "10% en iluminación decorativa"
 
 rating: 4.8
 reviewCount: 176
+reviews:
+  - author: "Isabela y Javier Arredondo Morales"
+    date: "2025-04"
+    rating: 5
+    text: "Nuestra boda en la Ex-Hacienda de Gogorron en San Ángel fue un viaje al México virreinal en el corazón de la ciudad. Los patios coloniales, los jardines románticos y los salones con frescos originales del siglo XVIII crearon una atmósfera única que ninguna boda moderna puede replicar. La capilla consagrada en Calle de Juárez 2 fue el escenario más emotivo que podríamos haber elegido para nuestra ceremonia religiosa."
+    eventType: "boda"
+  - author: "Familia Estrada Villanueva"
+    date: "2024-11"
+    rating: 5
+    text: "El bautizo de nuestro hijo Leonardo en la hacienda pulquera del siglo XVIII fue una experiencia verdaderamente especial. La capilla y los jardines coloniales de la Ex-Hacienda de Gogorron transmiten una autenticidad y una dignidad histórica que hace que cualquier celebración se sienta trascendente. Estar en las calles empedradas de San Ángel añade una magia extra que conmueve a todos los invitados."
+    eventType: "bautizo"
+  - author: "Familia Quiroga Benítez"
+    date: "2024-06"
+    rating: 5
+    text: "Los XV años de mi hija Renata en la Ex-Hacienda de Gogorron fueron como saltar atrás en el tiempo. Los frescos originales, los muros coloniales y los jardines románticos en uno de los barrios más encantadores de CDMX generaron un ambiente que encantó a todos los invitados. El carácter histórico del lugar se integra perfectamente con las celebraciones familiares más significativas."
+    eventType: "xv-años"
+
+faqs:
+  - question: "¿Cuántas personas puede recibir la Ex-Hacienda de Gogorron para un evento?"
+    answer: "La Ex-Hacienda de Gogorron tiene capacidad para 40 a 200 personas en banquete y hasta 250 en cóctel. Para ceremonias religiosas o civiles en su capilla y jardines, acepta hasta 100 personas. Sus patios coloniales y jardines románticos con frescos originales del siglo XVIII ofrecen múltiples ambientes."
+  - question: "¿Dónde está la Ex-Hacienda de Gogorron y cómo llegar?"
+    answer: "Se encuentra en Calle de Juárez 2, San Ángel, Álvaro Obregón, CP 01000, en las calles empedradas del barrio más encantador de la Ciudad de México. Es accesible en Metrobús División del Norte o en auto por Insurgentes Sur. Cuenta con estacionamiento propio y acceso para personas con discapacidad."
+  - question: "¿Qué incluye la renta de la Ex-Hacienda de Gogorron?"
+    answer: "La renta incluye coordinador de eventos, mobiliario básico, iluminación básica, seguridad y limpieza. La hacienda cuenta con capilla consagrada disponible para ceremonias, jardines con áreas de fotografía, pista de baile, terraza cubierta y vestidores para novios o festejados."
+  - question: "¿Qué tipo de eventos acepta la Ex-Hacienda de Gogorron?"
+    answer: "Acepta bodas, bautizos, XV años, aniversarios, cumpleaños y eventos corporativos. Su capilla consagrada la hace especialmente popular para bodas religiosas íntimas y celebraciones con tradición. El ambiente virreinal auténtico es su principal atractivo diferenciador en San Ángel."
+  - question: "¿Cuál es el horario de la Ex-Hacienda de Gogorron y hasta qué hora puede durar el evento?"
+    answer: "Opera entre semana de 16:00 a 00:00 horas y los fines de semana de 13:00 a 01:00, con una duración mínima de 6 horas. El horario máximo es la 01:00. Para bodas con ceremonia religiosa, se recomienda iniciar a partir de las 13:00 los fines de semana para aprovechar la luz natural en los jardines."
 
 seoTitle: "Ex-Hacienda Gogorron"
 seoDescription: "Celebra tu boda en la Ex-Hacienda de Gogorron. Arquitectura del siglo XVIII, capilla consagrada y jardines románticos en el corazón de San Ángel."

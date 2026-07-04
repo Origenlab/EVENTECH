@@ -83,6 +83,34 @@ eventechDiscount: "25% en iluminación arquitectónica urbana"
 
 rating: 4.9
 reviewCount: 289
+reviews:
+  - author: "Valentina Rocha y Sebastián Mora"
+    date: "2025-03"
+    rating: 5
+    text: "Celebramos nuestro aniversario de bodas en la terraza de Azul Histórico y fue absolutamente mágico. Las vistas de 360° a la Catedral Metropolitana y al Palacio Nacional al anochecer crearon un telón de fondo irrepetible para las fotografías. La cocina del Chef Muñoz Zurita superó todas las expectativas: los platillos de alta cocina mexicana fueron el tema de conversación de toda la noche. Un venue boutique sin igual en el Centro Histórico."
+    eventType: "aniversarios"
+  - author: "Ing. Rodrigo Espinoza — Consorcio Financiero del Norte"
+    date: "2024-09"
+    rating: 5
+    text: "Organizamos una cena corporativa para 80 ejecutivos internacionales en el cuarto nivel del Palacio de los Condes de Valparaíso y el impacto fue inmediato. Nuestros visitantes de Nueva York y Londres quedaron impresionados ante la historia viva que los rodeaba. El equipo de coordinación fue impecable en tiempos y logística, y la propuesta gastronómica de autor elevó el evento a otro nivel."
+    eventType: "corporativos"
+  - author: "Fernanda Alcántara Torres"
+    date: "2025-01"
+    rating: 4
+    text: "La terraza del Azul Histórico es uno de esos espacios que genera expectativas altísimas y las cumple. La vista a la Torre Latinoamericana y al Templo Mayor simultáneamente mientras disfrutas cocina mexicana contemporánea es una experiencia que no existe en ningún otro venue de la ciudad. La única observación es que la capacidad es limitada, por lo que hay que planear con mucha anticipación."
+    eventType: "bodas"
+
+faqs:
+  - question: "¿Cuántas personas caben en Azul Histórico Terraza para un evento?"
+    answer: "Azul Histórico Terraza tiene capacidad para 80 a 120 personas en formato banquete y hasta 150 personas en cóctel. Es un espacio boutique en el cuarto nivel del Palacio de los Condes de Valparaíso, ideal para celebraciones íntimas y exclusivas."
+  - question: "¿Dónde está ubicado Azul Histórico Terraza y cómo llegar?"
+    answer: "El venue se encuentra en Isabel la Católica 30, Centro Histórico, Ciudad de México, CP 06000, en el interior de un palacio del siglo XVIII. Puedes llegar en Metro Zócalo (Línea 2) o en Metrobús por Eje Central. También cuenta con servicio de valet parking."
+  - question: "¿Qué incluye la renta de Azul Histórico Terraza?"
+    answer: "La renta incluye banquete del Chef Ricardo Muñoz Zurita, coordinador de eventos, mobiliario básico, mantelería, vajilla, meseros, iluminación básica, montaje y desmontaje. Las vistas de 360° a la Catedral Metropolitana, el Palacio Nacional y la Torre Latinoamericana son parte de la experiencia."
+  - question: "¿Qué tipo de eventos se pueden realizar en Azul Histórico Terraza?"
+    answer: "El venue acepta bodas, aniversarios, eventos corporativos y cenas de gala. Su ambiente gastronómico-cultural y las vistas al Centro Histórico lo hacen especialmente popular para celebraciones íntimas de alto nivel y cenas privadas de empresa."
+  - question: "¿Cuál es el horario de operación y hasta qué hora se puede tener el evento?"
+    answer: "Entre semana el venue opera de 14:00 a 23:00 horas, y los fines de semana de 12:00 a 01:00 horas. El horario máximo (curfew) es la 01:00, con una duración mínima de 4 horas. Para eventos nocturnos con vistas iluminadas de la Catedral Metropolitana, los fines de semana son la mejor opción."
 
 seoTitle: "Azul Histórico Terraza"
 seoDescription: "Rooftop del Chef Ricardo Muñoz Zurita con vistas a Catedral Metropolitana. Alta cocina mexicana y panorámicas del Centro Histórico."

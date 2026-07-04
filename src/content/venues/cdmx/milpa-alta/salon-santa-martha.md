@@ -9,6 +9,11 @@ zone: "Milpa Alta"
 zoneSlug: "milpa-alta"
 address: "Av. México Nte. 68, Santa Martha"
 neighborhood: "Santa Martha"
+postalCode: "12000"
+coordinates:
+  lat: 19.1980502
+  lng: -99.0233349
+googleMapsUrl: "https://maps.google.com/?q=Salon+santa+martha+milpa+alta+CDMX"
 
 type: "salon"
 
@@ -88,6 +93,17 @@ reviews:
     text: "XV años con 200 invitados. La pista de baile fue suficiente para la coreografía completa y el jardín trasero funcionó perfecto para las fotos al atardecer. El aire fresco de Milpa Alta fue un plus que todos agradecieron. Muy recomendable."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuál es la capacidad de Salón de Eventos Santa Martha?"
+    answer: "Salón de Eventos Santa Martha puede recibir hasta 220 personas. La capacidad varía según el montaje: banquete, cóctel o teatro. Consulta con el equipo para el formato que mejor se adapte a tu evento."
+  - question: "¿Dónde está ubicado Salón de Eventos Santa Martha y cómo llegar?"
+    answer: "Salón de Eventos Santa Martha se ubica en Av. México Nte. 68, Santa Martha, colonia Santa Martha, alcaldía CDMX, Ciudad de México. Si vas en auto, se recomienda verificar disponibilidad de estacionamiento directamente con el venue."
+  - question: "¿Qué incluye la renta de Salón de Eventos Santa Martha?"
+    answer: "La renta de Salón de Eventos Santa Martha incluye: mobiliario-basico, manteleria, iluminacion-basica, sonido-basico, montaje, desmontaje, limpieza. Además, el venue cuenta con las siguientes instalaciones y amenidades: estacionamiento, pista-baile, jardin, aire-acondicionado, acceso-discapacitados, wifi. Para paquetes personalizados o servicios adicionales, consulta directamente con el equipo."
+  - question: "¿Qué tipo de eventos se pueden realizar en Salón de Eventos Santa Martha?"
+    answer: "Salón de Eventos Santa Martha es apto para una amplia variedad de eventos, entre ellos: bodas, xv-anos, bautizos, cumpleanos, comuniones, fiestas-privadas, aniversarios, fiestas-infantiles. El equipo del venue puede orientarte sobre el montaje más adecuado para cada ocasión."
+  - question: "¿Salón de Eventos Santa Martha cuenta con estacionamiento?"
+    answer: "Sí, estacionamiento. Además, el venue puede orientarte sobre opciones de acceso en transporte público o valet parking según disponibilidad. Consulta directamente para más detalles."
 seoTitle: "Salón Santa Martha Milpa Alta"
 seoDescription: "Salón de eventos en Santa Martha, Milpa Alta. Bodas, XV años y bautizos hasta 220 personas con jardín trasero y precios accesibles."
 keywords:

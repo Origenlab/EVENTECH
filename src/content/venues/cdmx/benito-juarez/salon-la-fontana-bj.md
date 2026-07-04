@@ -118,6 +118,17 @@ reviews:
     text: "Los XV de Sofía fueron un sueño. El salón tiene una presencia impresionante con los acabados de mármol y la iluminación que pusimos con el equipo de producción complementó todo perfecto. La pista de baile es amplia y el vals quedó espectacular."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón La Fontana?"
+    answer: "Salón La Fontana tiene capacidad para hasta 250 personas en formato banquete y hasta 300 en formato cóctel. Para ceremonias, el espacio acomoda hasta 150 invitados. El mínimo de invitados es de 50 personas."
+  - question: "¿Dónde está ubicado Salón La Fontana y cómo llegar?"
+    answer: "Salón La Fontana se encuentra en Av. División del Norte 2831, Del Valle, colonia Del Valle, alcaldía Benito Juárez, Ciudad de México. Cuenta con excelente acceso por transporte público (Metro línea 3 o 12) y por las principales vialidades de la ciudad. Cuenta con estacionamiento propio."
+  - question: "¿Qué está incluido en la renta de Salón La Fontana?"
+    answer: "La renta de Salón La Fontana incluye: mobiliario básico (mesas y sillas), mantelería, vajilla y cristalería, iluminación básica, montaje, desmontaje, personal de seguridad y limpieza post-evento. Las instalaciones cuentan además con cocina industrial, pista de baile, Wi-Fi, aire acondicionado."
+  - question: "¿Qué tipo de eventos se pueden realizar en Salón La Fontana?"
+    answer: "Salón La Fontana es ideal para bodas, XV años, bautizos, cumpleaños, aniversarios, graduaciones, eventos corporativos y primeras comuniones. Entre otros tipos de celebraciones y reuniones."
+  - question: "¿Cuál es el horario de eventos en Salón La Fontana?"
+    answer: "Salón La Fontana opera en los siguientes horarios: lunes a viernes de 10:00 - 23:00, sábados y domingos de 10:00 - 02:00. La renta mínima es de 5 horas. Respecto al catering: Catering externo permitido con caterings autorizados."
 seoTitle: "Salón La Fontana Del Valle"
 seoDescription: "Salón elegante en Del Valle, Benito Juárez. Fuente ornamental, acabados cantera. Bodas y XV años hasta 250 personas. CDMX."
 keywords:

@@ -97,6 +97,18 @@ reviews:
     text: "Hicimos el cumpleaños de mi mamá con 120 invitados. El jardín le encantó porque tiene muchas plantas y flores. La cocina nos permitió traer nuestro taquicero y todo salió delicioso. Muy recomendable para fiestas familiares."
     eventType: "cumpleanos"
 
+faqs:
+  - question: "¿Cuántas personas caben en Salón Las Bugambilias Tláhuac?"
+    answer: "Salón Las Bugambilias tiene capacidad para 200 personas en formato banquete y 250 en cóctel. La combinación de salón techado y jardín exterior permite una distribución flexible con aforo de hasta 130 invitados en formato ceremonia."
+  - question: "¿Dónde está Salón Las Bugambilias y cómo se llega?"
+    answer: "El salón está ubicado en Avenida La Turba 800, colonia Miguel Hidalgo, alcaldía Tláhuac, CDMX, C.P. 13200. Es accesible desde las principales colonias de Tláhuac e Iztapalapa, y cuenta con estacionamiento propio."
+  - question: "¿Qué incluye la renta de Salón Las Bugambilias?"
+    answer: "La renta incluye mobiliario básico, mantelería, iluminación básica, montaje, desmontaje y limpieza. El salón cuenta con cocina industrial para elaboración de banquetes y pista de baile amplia."
+  - question: "¿Para qué tipo de eventos está disponible el salón?"
+    answer: "Salón Las Bugambilias es apto para bodas, XV años, bautizos, comuniones, cumpleaños, aniversarios, fiestas privadas, fiestas infantiles y baby showers. El doble ambiente interior-exterior permite diseñar celebraciones dinámicas."
+  - question: "¿Cuál es la política de horarios y catering en Salón Las Bugambilias?"
+    answer: "El salón opera de lunes a viernes de 10:00 a 22:00 horas, y los fines de semana hasta las 02:00 horas con un mínimo de 5 horas de renta. Se permiten caterings externos, lo que da libertad para elegir el menú y el presupuesto de banquete."
+
 seoTitle: "Salón Las Bugambilias Tláhuac Salón con Jardín"
 seoDescription: "Salón con jardín en Tláhuac para bodas, bautizos y fiestas. Hasta 200 personas con doble ambiente y precios desde $7,000."
 keywords:

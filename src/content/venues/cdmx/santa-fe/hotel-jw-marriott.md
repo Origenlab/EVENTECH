@@ -92,6 +92,34 @@ eventechDiscount: "12% en sistemas de audiovisual profesional"
 
 rating: 4.7
 reviewCount: 289
+reviews:
+  - author: "Lic. Jorge Villanueva — Directivo Banca de Inversión"
+    date: "2025-02"
+    rating: 5
+    text: "Nuestra convención corporativa anual para 800 ejecutivos se realizó en el JW Marriott Santa Fe y la experiencia superó los estándares más exigentes. Los salones ejecutivos con capacidad para 1,000 personas en el distrito financiero más importante de Latinoamérica son el escenario ideal para un evento de este calibre. La propuesta gastronómica del JW, el equipo de banquetes y la logística audiovisual fueron impecables. Los pisos con vistas panorámicas al poniente de la ciudad dejaron a nuestros delegados internacionales genuinamente impresionados."
+    eventType: "convenciones"
+  - author: "Ing. Sofía Mercado, VP de Marca — Corporativo Andina México"
+    date: "2024-06"
+    rating: 5
+    text: "Realizamos el lanzamiento regional más importante del año en el JW Marriott Santa Fe y la ejecución fue perfecta. La torre de cristal de 26 pisos ofrece una escenografía natural que cualquier equipo de producción envidiaría; las vistas desde los salones superiores al skyline de Santa Fe son un activo real de comunicación. El equipo del hotel trabajó de forma coordinada con nuestros proveedores externos sin fricciones, y la atención personalizada a los 350 asistentes VIP fue sobresaliente."
+    eventType: "lanzamientos"
+  - author: "Ana Cecilia Ramos y Arturo Peñaloza"
+    date: "2025-01"
+    rating: 5
+    text: "Elegimos el JW Marriott Santa Fe para nuestra boda porque queríamos modernidad, sofisticación y un servicio a la altura de nuestros invitados internacionales. La suite nupcial en los pisos superiores con vistas panorámicas es simplemente incomparable. El menú de banquete fue elaborado en conjunto con el Chef Ejecutivo del hotel y cada platillo fue un éxito rotundo. La atención personalizada de la coordinadora del hotel desde la firma del contrato hasta el último detalle del día fue extraordinaria."
+    eventType: "bodas"
+
+faqs:
+  - question: "¿Cuántas personas puede recibir JW Marriott Santa Fe para un evento?"
+    answer: "JW Marriott Hotel Mexico City Santa Fe tiene capacidad para 50 a 1,000 personas en banquete y hasta 1,500 en cóctel, con opción de ceremonia para 300 personas. Sus salones ejecutivos en una torre de cristal de 26 pisos en Av. Santa Fe 160 ofrecen vistas panorámicas hacia el poniente de la Ciudad de México."
+  - question: "¿Dónde está el JW Marriott Santa Fe y cómo llegar?"
+    answer: "Se ubica en Av. Santa Fe 160, Lomas de Santa Fe, Álvaro Obregón, CP 01219, en el distrito financiero de Santa Fe. Es accesible en auto por Periférico Sur o autopista Toluca-México. Cuenta con estacionamiento propio y valet parking. La zona de Santa Fe tiene conexión por transporte ejecutivo desde puntos clave de la ciudad."
+  - question: "¿Qué incluye la renta de espacios en JW Marriott Santa Fe?"
+    answer: "La renta incluye banquete JW Marriott, meseros, coordinador de eventos, mobiliario básico, mantelería, vajilla, iluminación básica, sonido básico y seguridad. La suite nupcial, terraza panorámica, spa y alberca están disponibles para complementar la experiencia de eventos y paquetes de noche de bodas."
+  - question: "¿Qué tipo de eventos acepta JW Marriott Santa Fe?"
+    answer: "Acepta eventos corporativos, convenciones, lanzamientos de productos, bodas contemporáneas, cenas de gala y graduaciones. Su posicionamiento ejecutivo y tecnología de vanguardia lo hacen la opción natural para empresas del corredor Santa Fe, embajadas y multinacionales con operaciones en la Ciudad de México."
+  - question: "¿Cuál es el horario del JW Marriott Santa Fe y ofrece alojamiento para invitados?"
+    answer: "Opera entre semana de 06:00 a 02:00 horas y los fines de semana de 07:00 a 02:00, con duración mínima de 5 horas. El hotel ofrece tarifas preferenciales para bloques de habitaciones en eventos con más de 50 invitados foráneos. La suite nupcial y spa están disponibles para paquetes completos de boda."
 
 seoTitle: "JW Marriott Santa Fe"
 seoDescription: "Celebra eventos corporativos y convenciones en JW Marriott Santa Fe. Salones panorámicos, tecnología de punta y servicio ejecutivo en el distrito financi..."

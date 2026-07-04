@@ -1,8 +1,23 @@
 ---
 name: "Jardín de Fiestas La Perita"
 slug: "jardin-la-perita"
-description: "Jardín de Fiestas La Perita es un santuario natural para celebraciones al aire libre en La Magdalena Contreras — una de las alcaldías más verdes de la Ciudad de México, donde los bosques de encino del Ajusco descienden hasta fundirse con la mancha urbana. Ubicado en la calle La Perita del barrio Pueblo Nuevo Bajo, a 2,500 metros sobre el nivel del mar, este jardín de 2,000 metros cuadrados ofrece lo que ningún salón urbano puede: árboles centenarios de troncos gruesos que crean un dosel natural, aire de montaña fresco incluso en primavera, privacidad absoluta rodeada de vegetación, y una vista panorámica al suroeste de la CDMX que captura atardeceres que hacen innecesaria cualquier decoración. Con una clientela que incluye familias de San Ángel, Pedregal, Coyoacán y Tlalpan que viajan específicamente para celebrar aquí, La Perita se ha posicionado como el jardín de eventos campestres de referencia del suroeste capitalino. Su alianza como socio premium de EVENTECH permite equipar el espacio al aire libre con carpas transparentes, iluminación de bosque, pisos profesionales y mobiliario rústico-elegante que convierten un evento campestre en una experiencia de producción completa sin sacrificar la autenticidad del entorno natural."
-shortDescription: "Jardín campestre de 2,000 m² en Contreras. Árboles centenarios, aire de montaña, vista panorámica. Eventos hasta 350 personas."
+description: >-
+  Jardín de Fiestas La Perita es un santuario natural para celebraciones al aire libre en La
+  Magdalena Contreras — una de las alcaldías más verdes de la Ciudad de México, en el corredor
+  sur CDMX que conecta con el Parque Nacional Desierto de los Leones. Ubicado en la calle La
+  Perita del barrio Pueblo Nuevo Bajo, a 2,500 metros sobre el nivel del mar y rodeado por los
+  bosques de encino del Ajusco, este jardín de 2,000 metros cuadrados ofrece lo que ningún salón
+  urbano puede: árboles centenarios de troncos gruesos que crean un dosel natural, aire de montaña
+  fresco incluso en primavera, privacidad absoluta rodeada de vegetación, y una vista panorámica
+  al suroeste de la CDMX que captura atardeceres que hacen innecesaria cualquier decoración. Con
+  una clientela que incluye familias de San Ángel, Pedregal, Coyoacán y Tlalpan que viajan
+  específicamente para celebrar en este venue eventos sur cdmx, La Perita se ha posicionado como
+  el jardín de eventos campestres y boda jardín sur cdmx de referencia del suroeste capitalino.
+  Su alianza como socio premium de EVENTECH permite equipar el espacio al aire libre con carpas
+  transparentes, iluminación de bosque, pisos profesionales y mobiliario rústico-elegante que
+  convierten un evento en naturaleza sur cdmx en una experiencia de producción completa sin
+  sacrificar la autenticidad del entorno natural.
+shortDescription: "Jardín campestre de 2,000 m² en Magdalena Contreras, sur CDMX. Encinos centenarios, aire puro de montaña próximo al Desierto de los Leones, vista panorámica."
 
 region: "cdmx"
 zone: "La Magdalena Contreras"
@@ -95,8 +110,7 @@ restrictions:
   - "Generadores eléctricos permitidos con autorización"
 
 contact:
-  phone: ""
-  whatsapp: ""
+  phone: "55 1675 1988"
 
 image: "/images/venues/jardin-la-perita-hero.avif"
 gallery:
@@ -154,6 +168,17 @@ reviews:
     text: "Celebramos nuestras bodas de plata — 25 años de casados — con nuestros 4 hijos y 90 invitados en La Perita. Fue como revivir nuestra boda pero mejor: los encinos iluminados, el atardecer desde el mirador donde renovamos votos, la cena bajo las estrellas. EVENTECH montó fairy lights en todo el dosel y la iluminación del camino con velas LED fue un detalle que todos admiraron. Una noche perfecta para celebrar el amor."
     eventType: "aniversario"
 
+faqs:
+  - question: "¿Cuál es la capacidad de Jardín de Fiestas La Perita?"
+    answer: "Jardín de Fiestas La Perita puede recibir hasta 350 personas. La capacidad varía según el montaje: banquete, cóctel o teatro. Consulta con el equipo para el formato que mejor se adapte a tu evento."
+  - question: "¿Dónde está ubicado Jardín de Fiestas La Perita y cómo llegar?"
+    answer: "Jardín de Fiestas La Perita se ubica en C. la Perita 87, Pueblo Nuevo Bajo, colonia Pueblo Nuevo Bajo, alcaldía CDMX, Ciudad de México. Si vas en auto, se recomienda verificar disponibilidad de estacionamiento directamente con el venue."
+  - question: "¿Qué incluye la renta de Jardín de Fiestas La Perita?"
+    answer: "La renta de Jardín de Fiestas La Perita incluye: coordinador, mobiliario-basico, manteleria, iluminacion-basica, montaje, desmontaje, seguridad, limpieza. Además, el venue cuenta con las siguientes instalaciones y amenidades: estacionamiento, pista-baile, jardin, cocina-industrial, area-fotos, area-infantil, acceso-discapacitados, vista-panoramica, wifi, vestidores. Para paquetes personalizados o servicios adicionales, consulta directamente con el equipo."
+  - question: "¿Qué tipo de eventos se pueden realizar en Jardín de Fiestas La Perita?"
+    answer: "Jardín de Fiestas La Perita es apto para una amplia variedad de eventos, entre ellos: bodas, xv-anos, bautizos, cumpleanos, aniversarios, comuniones, fiestas-privadas, sesiones-foto, reuniones, corporativos, graduaciones, baby-showers. El equipo del venue puede orientarte sobre el montaje más adecuado para cada ocasión."
+  - question: "¿Jardín de Fiestas La Perita cuenta con estacionamiento?"
+    answer: "Sí, estacionamiento. Además, el venue puede orientarte sobre opciones de acceso en transporte público o valet parking según disponibilidad. Consulta directamente para más detalles."
 seoTitle: "Jardín La Perita Contreras"
 seoDescription: "Jardín campestre de 2,000 m² con encinos centenarios y vista panorámica en Contreras. Bodas hasta 350 personas. Socio premium EVENTECH."
 keywords:
@@ -172,6 +197,11 @@ keywords:
   - eventos corporativos naturaleza cdmx sur
   - jardin bodas de plata cdmx
   - renta jardin bosque encinos cdmx
+  - venue eventos sur cdmx
+  - boda jardín sur cdmx
+  - eventos naturaleza sur cdmx
+  - salon fiestas magdalena contreras
+  - jardin desierto de los leones
 
 featured: true
 premium: true

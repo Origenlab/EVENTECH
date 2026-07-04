@@ -72,7 +72,8 @@ restrictions:
   - "No se permite fumar en interior"
 
 contact:
-  phone: ""
+  phone: "55 6914 5173"
+  whatsapp: "55 6914 5173"
 
 image: "/images/venues/salon-casa-angel-hero.avif"
 gallery:
@@ -106,6 +107,17 @@ reviews:
     text: "Festejamos la primera comunión de mi hijo con 70 invitados. El salón es sencillo pero muy funcional, la cocina nos sirvió perfecto para la taquiza y el trato de la administración fue cercano y amable. Lo recomiendo para eventos familiares."
     eventType: "comuniones"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón de Fiestas Casa Ángel?"
+    answer: "Salón de Fiestas Casa Ángel tiene capacidad para hasta 120 personas en formato banquete y hasta 150 en formato cóctel. Para ceremonias, el espacio acomoda hasta 80 invitados. El mínimo de invitados es de 20 personas."
+  - question: "¿Dónde está ubicado Salón de Fiestas Casa Ángel y cómo llegar?"
+    answer: "Salón de Fiestas Casa Ángel se encuentra en Escuadrón 201 #44 Local B, Cristo Rey, colonia Cristo Rey, alcaldía Álvaro Obregón, Ciudad de México. La zona es accesible en auto particular; se recomienda usar Uber o DiDi indicando el nombre del salón."
+  - question: "¿Qué está incluido en la renta de Salón de Fiestas Casa Ángel?"
+    answer: "La renta de Salón de Fiestas Casa Ángel incluye: mobiliario básico (mesas y sillas), mantelería, montaje, desmontaje y limpieza post-evento. Las instalaciones cuentan además con cocina industrial, pista de baile, aire acondicionado."
+  - question: "¿Qué tipo de eventos se pueden realizar en Salón de Fiestas Casa Ángel?"
+    answer: "Salón de Fiestas Casa Ángel es ideal para bautizos, cumpleaños, primeras comuniones, baby showers, fiestas privadas, aniversarios, reuniones y fiestas infantiles."
+  - question: "¿Cuál es el horario de eventos en Salón de Fiestas Casa Ángel?"
+    answer: "Salón de Fiestas Casa Ángel opera en los siguientes horarios: lunes a viernes de 10:00 - 22:00, sábados y domingos de 10:00 - 01:00. La renta mínima es de 4 horas. Respecto al catering: Catering externo permitido."
 seoTitle: "Salón Casa Ángel Cristo Rey"
 seoDescription: "Salón íntimo Casa Ángel en Cristo Rey, Álvaro Obregón. Bautizos, comuniones y cumpleaños hasta 120 personas. Precios desde $5,000 CDMX."
 keywords:

@@ -121,6 +121,18 @@ reviews:
     text: "Los XV de mi hija con 250 invitados. La pista de baile es de las más grandes que visitamos en Tlalpan, perfecta para la coreografía con chambelanes. El vestidor le dio a mi hija su momento especial antes de la entrada. 100% recomendado para eventos grandes."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas admite Salón de Fiestas Caripopi?"
+    answer: "Salón Caripopi tiene capacidad para 280 personas en formato banquete y 350 en cóctel, con montaje para ceremonia de hasta 160 invitados. Su amplia pista de baile y salón contemporáneo sobre Insurgentes Sur lo hacen uno de los venues más funcionales de Tlalpan."
+  - question: "¿Dónde se ubica Salón Caripopi y cómo llegar?"
+    answer: "El salón está en Insurgentes Sur 5280, colonia Pedregal de Carrasco, alcaldía Tlalpan, CDMX, C.P. 04700. La ubicación sobre Insurgentes Sur garantiza excelente conectividad desde todo el sur de la ciudad. Cuenta con estacionamiento propio y valet parking."
+  - question: "¿Qué incluye la renta de Salón Caripopi?"
+    answer: "La renta incluye mobiliario básico, mantelería, vajilla, iluminación básica, sonido básico, montaje, desmontaje, seguridad y limpieza. El salón también cuenta con cocina industrial, vestidores privados y área de fotos para aprovechar desde el primer momento."
+  - question: "¿Qué tipos de eventos acepta Salón Caripopi?"
+    answer: "Caripopi recibe bodas, XV años, bautizos, cumpleaños, graduaciones, comuniones, fiestas privadas, aniversarios, eventos corporativos y cenas de gala. Con más de una década de trayectoria, es referencia consolidada en el corredor Insurgentes para eventos de 50 a 280 invitados."
+  - question: "¿Cuál es el horario y política de catering en Salón Caripopi?"
+    answer: "El salón opera de lunes a viernes de 10:00 a 00:00 y fines de semana de 10:00 a 03:00 horas con mínimo 5 horas de renta. Se permiten caterings autorizados externos y open bar independiente. La pirotecnia interior no está permitida; se pueden contratar carpas, DJ y decoración floral de manera adicional."
+
 seoTitle: "Salón Caripopi Tlalpan"
 seoDescription: "Salón de fiestas sobre Insurgentes Sur en Tlalpan. Bodas, XV años y corporativos hasta 280 personas. Valet parking, zona sur CDMX."
 keywords:

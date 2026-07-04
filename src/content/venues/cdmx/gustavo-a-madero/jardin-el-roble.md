@@ -9,6 +9,11 @@ zone: "Gustavo A. Madero"
 zoneSlug: "gustavo-a-madero"
 address: "Calz. Vallejo 890, Industrial"
 neighborhood: "Industrial"
+postalCode: "07780"
+coordinates:
+  lat: 19.4717797
+  lng: -99.1451791
+googleMapsUrl: "https://maps.google.com/?q=Jardin+el+roble+Gustavo+A+Madero+CDMX"
 
 type: "jardin"
 
@@ -91,6 +96,17 @@ reviews:
     text: "Celebramos nuestro aniversario de bodas de plata con 200 invitados y fue inolvidable. El coordinador nos ayudó con toda la logística, las fairy lights de EVENTECH en el roble crearon un ambiente de ensueño, y los niños se divirtieron mucho en el área infantil. El mejor jardín de eventos en la zona norte."
     eventType: "aniversario"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Jardín de Eventos El Roble?"
+    answer: "Jardín de Eventos El Roble tiene capacidad para hasta 250 personas en formato banquete y hasta 320 en formato cóctel. Es un espacio al aire libre ideal para celebraciones medianas y grandes, con ambiente natural y tranquilo."
+  - question: "¿Dónde está ubicado Jardín de Eventos El Roble y cómo llegar?"
+    answer: "Jardín de Eventos El Roble se encuentra en Calz. Vallejo 890, Industrial, alcaldía Gustavo A. Madero, Ciudad de México. La alcaldía cuenta con varias estaciones del Metro (Líneas 3 y 6) y amplia red de transporte público que facilita el acceso desde toda la CDMX."
+  - question: "¿Qué incluye la renta de Jardín de Eventos El Roble?"
+    answer: "La renta de Jardín de Eventos El Roble incluye coordinador de eventos, mobiliario básico (mesas y sillas), mantelería, montaje del evento, desmontaje. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha."
+  - question: "¿Qué tipos de eventos se pueden realizar en Jardín de Eventos El Roble?"
+    answer: "Jardín de Eventos El Roble es apto para bodas, quinceañeras, bautizos, cumpleaños y comuniones. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Jardín de Eventos El Roble?"
+    answer: "Jardín de Eventos El Roble opera entre semana de 10:00 - 22:00 y fines de semana de 10:00 - 03:00 con un mínimo de 5 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Jardín El Roble"
 seoDescription: "Jardín de eventos con roble centenario en Industrial, GAM. Bodas y XV años al aire libre hasta 250 personas en CDMX."
 keywords:

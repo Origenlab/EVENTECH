@@ -96,6 +96,17 @@ reviews:
     text: "Nuestra boda civil con 120 invitados fue sencilla pero emotiva. Emmanuel nos dio la flexibilidad de meter nuestro propio banquete y DJ. El aire acondicionado funcionó toda la tarde, que en abril se agradece mucho. El salón cumple perfecto para quien busca algo funcional y económico."
     eventType: "boda"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón de Fiestas Emmanuel?"
+    answer: "Salón de Fiestas Emmanuel tiene capacidad para hasta 180 personas en formato banquete y hasta 220 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salón de Fiestas Emmanuel y cómo llegar?"
+    answer: "Salón de Fiestas Emmanuel se encuentra en Aldama s/n, Barrio San Lucas, alcaldía Iztapalapa, Ciudad de México. La alcaldía cuenta con múltiples estaciones del Metro (Líneas 8, 9 y A) y es accesible desde Periférico, Canal de San Juan y otras vías principales."
+  - question: "¿Qué incluye la renta de Salón de Fiestas Emmanuel?"
+    answer: "La renta de Salón de Fiestas Emmanuel incluye mobiliario básico (mesas y sillas), mantelería, iluminación básica, montaje del evento, desmontaje. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón de Fiestas Emmanuel?"
+    answer: "Salón de Fiestas Emmanuel es apto para bodas, quinceañeras, bautizos, cumpleaños y comuniones. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Salón de Fiestas Emmanuel?"
+    answer: "Salón de Fiestas Emmanuel opera entre semana de 10:00 - 22:00 y fines de semana de 10:00 - 02:00 con un mínimo de 4 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Salón Emmanuel Iztapalapa"
 seoDescription: "Salón de fiestas económico en Barrio San Lucas, Iztapalapa. Bodas, XV años y bautizos hasta 180 personas. Precios desde $7,000."
 keywords:

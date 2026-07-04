@@ -156,6 +156,17 @@ reviews:
     text: "Celebramos nuestras bodas de oro con 250 invitados. Nuestros hijos organizaron todo con el equipo de Monaco y el resultado fue conmovedor. La iluminación dorada en el salón, la música del cuarteto en el jardín y el video retrospectivo en pantalla LED nos hicieron llorar de emoción."
     eventType: "aniversario"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón de Fiestas Monaco Jardín?"
+    answer: "Salón de Fiestas Monaco Jardín tiene capacidad para hasta 500 personas en formato banquete y hasta 650 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salón de Fiestas Monaco Jardín y cómo llegar?"
+    answer: "Salón de Fiestas Monaco Jardín se encuentra en Eje 5 Norte, Calz. San Juan de Aragón 120, 15 de Agosto, alcaldía Gustavo A. Madero, Ciudad de México. La alcaldía cuenta con varias estaciones del Metro (Líneas 3 y 6) y amplia red de transporte público que facilita el acceso desde toda la CDMX."
+  - question: "¿Qué incluye la renta de Salón de Fiestas Monaco Jardín?"
+    answer: "La renta de Salón de Fiestas Monaco Jardín incluye coordinador de eventos, mobiliario básico (mesas y sillas), mantelería, vajilla completa, iluminación básica. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón de Fiestas Monaco Jardín?"
+    answer: "Salón de Fiestas Monaco Jardín es apto para bodas, quinceañeras, bautizos, cumpleaños y aniversarios. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Se puede llevar catering externo a Salón de Fiestas Monaco Jardín?"
+    answer: "Sí, Salón de Fiestas Monaco Jardín permite el ingreso de catering externo, lo que te da libertad para elegir el servicio gastronómico que mejor se adapte a tu presupuesto y preferencias. Te recomendamos coordinar con anticipación los detalles logísticos de acceso para proveedores."
 seoTitle: "Salón Monaco Jardín GAM"
 seoDescription: "Salón de fiestas premium con jardín en Gustavo A. Madero. 1,800 m², 25 años de experiencia. Bodas hasta 500 personas. Socio oficial EVENTECH."
 keywords:

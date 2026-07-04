@@ -118,6 +118,17 @@ reviews:
     text: "Celebramos el bautizo de mi hijo con 80 personas. El jardín estaba precioso con las luces entre los árboles. El servicio de montaje nos facilitó mucho la logística. Lo recomiendo para eventos familiares íntimos."
     eventType: "bautizo"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón-Jardín Los Pinos?"
+    answer: "Salón-Jardín Los Pinos tiene capacidad para hasta 300 personas en formato banquete y hasta 380 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salón-Jardín Los Pinos y cómo llegar?"
+    answer: "Salón-Jardín Los Pinos se encuentra en Av. Luis Hidalgo Monroy 100, San Miguel, alcaldía Iztapalapa, Ciudad de México. La alcaldía cuenta con múltiples estaciones del Metro (Líneas 8, 9 y A) y es accesible desde Periférico, Canal de San Juan y otras vías principales."
+  - question: "¿Qué incluye la renta de Salón-Jardín Los Pinos?"
+    answer: "La renta de Salón-Jardín Los Pinos incluye coordinador de eventos, mobiliario básico (mesas y sillas), mantelería, iluminación básica, equipo de sonido básico. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón-Jardín Los Pinos?"
+    answer: "Salón-Jardín Los Pinos es apto para bodas, quinceañeras, bautizos, cumpleaños y comuniones. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Salón-Jardín Los Pinos?"
+    answer: "Salón-Jardín Los Pinos opera entre semana de 10:00 - 23:00 y fines de semana de 10:00 - 03:00 con un mínimo de 5 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Salón-Jardín Los Pinos Iztapalapa Eventos CDMX"
 seoDescription: "Salón con jardín arbolado en San Miguel, Iztapalapa. Bodas, XV años y bautizos hasta 300 personas. Interior y exterior con pista de baile."
 keywords:

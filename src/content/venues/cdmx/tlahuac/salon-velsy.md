@@ -9,6 +9,11 @@ zone: "Tláhuac"
 zoneSlug: "tlahuac"
 address: "Av. Tláhuac 6520, San Miguel Zapotitla"
 neighborhood: "San Miguel Zapotitla"
+postalCode: "13450"
+coordinates:
+  lat: 19.2882843
+  lng: -99.0140762
+googleMapsUrl: "https://maps.google.com/?q=Salon+velsy+tlahuac+CDMX"
 
 type: "salon"
 
@@ -95,6 +100,18 @@ reviews:
     text: "Bautizo con 130 invitados. El paquete de banquete con mole y arroz fue delicioso. Los vestidores nos sirvieron mucho para cambiar al bebé y la familia. El precio es justo por todo lo que incluye. Muy recomendado."
     eventType: "bautizo"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón y Banquetes Velsy?"
+    answer: "Salón Velsy tiene capacidad para 300 personas en formato banquete y hasta 400 en cóctel. Su salón de doble altura de 700 m² y pista de baile de 70 m² lo posicionan como el espacio de mayor formato en San Miguel Zapotitla, Tláhuac."
+  - question: "¿Dónde se ubica Salón Velsy y cómo llegar?"
+    answer: "Salón Velsy está en Avenida Tláhuac 6520, colonia San Miguel Zapotitla, alcaldía Tláhuac, CDMX, C.P. 13450. La ubicación sobre Av. Tláhuac facilita el acceso desde toda la zona suroriente. Cuenta con estacionamiento propio amplio."
+  - question: "¿Qué incluye la renta de Salón Velsy?"
+    answer: "La renta incluye mobiliario básico, mantelería, vajilla, iluminación básica, sonido básico, coordinador de eventos, meseros, montaje, desmontaje y limpieza. Velsy ofrece paquetes todo-incluido con banquete propio que simplifican la organización."
+  - question: "¿Para qué tipos de eventos está disponible Salón Velsy?"
+    answer: "Salón Velsy acepta bodas, XV años, bautizos, graduaciones, cumpleaños, comuniones, eventos corporativos, fiestas privadas, aniversarios y despedidas. Sus paquetes integrales son especialmente populares para bodas y XV años con todo incluido."
+  - question: "¿Qué amenidades distintivas tiene Salón Velsy?"
+    answer: "Velsy cuenta con vestidores privados, área infantil, aire acondicionado industrial, Wi-Fi y acceso para personas con discapacidad. Los fines de semana opera hasta las 03:00 horas, y entre semana hasta las 23:00, con un mínimo de 5 horas de renta."
+
 seoTitle: "Salón Velsy Tláhuac"
 seoDescription: "Salón con banquete propio en Tláhuac. Bodas, XV años y graduaciones hasta 300 personas. Paquetes integrales con cocina propia."
 keywords:
@@ -107,7 +124,7 @@ keywords:
   - salon fiestas tlahuac paquetes
   - renta salon tlahuac todo incluido
 
-featured: false
+featured: true
 premium: false
 verified: false
 order: 0

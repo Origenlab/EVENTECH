@@ -101,7 +101,24 @@ reviews:
     rating: 5
     text: "Nuestro evento corporativo impresionó a todos. La arquitectura habla por sí sola."
     eventType: "corporativo"
+  - author: "Sofía y Andrés Pedraza"
+    date: "2025-02"
+    rating: 5
+    text: "Elegimos Casa de los Azulejos para nuestra boda civil y fue la decisión más acertada. Celebrar en el patio central, con la fachada de talavera iluminada como fondo y la fuente del siglo XVII murmurando, fue algo que ninguno de nuestros invitados olvidará. El equipo de coordinación nos guió en cada restricción del espacio histórico y el resultado fue impecable."
+    eventType: "boda"
 
+
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Casa de los Azulejos?"
+    answer: "Casa de los Azulejos tiene capacidad para hasta 250 personas en formato banquete y hasta 350 en formato cóctel. Para ceremonias, el espacio acomoda hasta 120 invitados. El mínimo de invitados es de 30 personas."
+  - question: "¿Dónde está ubicado Casa de los Azulejos y cómo llegar?"
+    answer: "Casa de los Azulejos se encuentra en Av. Francisco I. Madero 4, Col. Centro, colonia Centro Histórico, alcaldía Centro Histórico, Ciudad de México. Se ubica en el corazón del Centro Histórico de CDMX, accesible en Metro (línea 2, estación Zócalo) y en auto con valet parking disponible. Cuenta con estacionamiento propio. Se ofrece servicio de valet parking."
+  - question: "¿Qué está incluido en la renta de Casa de los Azulejos?"
+    answer: "La renta de Casa de los Azulejos incluye: servicio de banquete, meseros, coordinador de evento, mobiliario básico (mesas y sillas), mantelería, vajilla y cristalería, personal de seguridad y limpieza post-evento. Las instalaciones cuentan además con cocina industrial, pista de baile, Wi-Fi, aire acondicionado."
+  - question: "¿Qué tipo de eventos se pueden realizar en Casa de los Azulejos?"
+    answer: "Casa de los Azulejos es ideal para bodas, eventos corporativos, cenas de gala, aniversarios y lanzamientos de producto."
+  - question: "¿Cuál es el horario de eventos en Casa de los Azulejos?"
+    answer: "Casa de los Azulejos opera en los siguientes horarios: lunes a viernes de 19:00 - 00:00, sábados y domingos de 14:00 - 01:00. La renta mínima es de 4 horas. Respecto al catering: Catering exclusivo del venue."
 seoTitle: "Casa de los Azulejos"
 seoDescription: "Palacio barroco del siglo XVIII con azulejos talavera y murales de Orozco. Eventos hasta 250 personas en el Centro Histórico."
 keywords:

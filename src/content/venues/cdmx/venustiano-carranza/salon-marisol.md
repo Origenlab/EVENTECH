@@ -1,14 +1,30 @@
 ---
 name: "Salón de Fiestas Marisol"
 slug: "salon-marisol"
-description: "Salón de Fiestas Marisol es un espacio tradicional y bien establecido para eventos sociales en la colonia Damián Carmona de Venustiano Carranza. Con más de quince años de operación y cientos de celebraciones exitosas, Marisol ofrece capacidad para hasta 200 personas en formato banquete, con pista de baile amplia, aire acondicionado eficiente, cocina industrial, área de fotos permanente y un diferenciador clave: vajilla y cristalería de calidad incluidas en la renta. Su ubicación sobre la calle General Fortunato Zuazua facilita el acceso desde diferentes puntos de la zona oriente, y sus precios moderados lo posicionan como una de las opciones más equilibradas entre calidad y costo en la alcaldía."
-shortDescription: "Salón en Damián Carmona, Venustiano Carranza. Vajilla incluida y área de fotos. Bodas y XV años hasta 200 personas CDMX."
+description: >-
+  Salón de Fiestas Marisol es un espacio tradicional y bien establecido para eventos sociales en
+  la colonia Damián Carmona de Venustiano Carranza. Con más de quince años de operación y cientos
+  de celebraciones exitosas, Marisol ofrece capacidad para hasta 200 personas en formato banquete,
+  con pista de baile amplia, aire acondicionado eficiente, cocina industrial, área de fotos
+  permanente y un diferenciador clave: vajilla y cristalería de calidad incluidas en la renta.
+  Ubicado en Venustiano Carranza, a pocos minutos del AICM (Aeropuerto Internacional de la Ciudad
+  de México) y con fácil acceso por Calzada Ignacio Zaragoza, Marisol es una opción práctica para
+  celebraciones con invitados que llegan de fuera de la CDMX. Las estaciones Metro San Lázaro
+  (Línea 1 y Línea B) y Metro Moctezuma (Línea 1) hacen que llegar al salón sea sencillo desde
+  cualquier punto de la ciudad. Sus precios moderados y su trayectoria de 15 años lo posicionan
+  como una de las opciones más equilibradas entre calidad y costo en la alcaldía.
+shortDescription: "Salón en Damián Carmona, Venustiano Carranza, cerca del AICM y Metro San Lázaro. Vajilla incluida y área de fotos."
 
 region: "cdmx"
 zone: "Venustiano Carranza"
 zoneSlug: "venustiano-carranza"
 address: "Gral. Fortunato Zuazua 24, Damián Carmona"
 neighborhood: "Damián Carmona"
+postalCode: "15450"
+coordinates:
+  lat: 19.4428442
+  lng: -99.103104
+googleMapsUrl: "https://maps.google.com/?q=Salon+marisol+Venustiano+Carranza+CDMX"
 
 type: "salon"
 
@@ -92,6 +108,18 @@ reviews:
     text: "Organizamos la cena de fin de año de la empresa con 150 personas. La vajilla incluida nos ahorró contratar ese servicio aparte, la cocina industrial facilitó el trabajo del catering y el salón estaba impecable. Muy profesional."
     eventType: "corporativo"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Marisol Venustiano Carranza?"
+    answer: "Salón de Fiestas Marisol tiene capacidad para 200 personas en formato banquete y 250 en cóctel. Con más de quince años de operación y cientos de celebraciones exitosas, es uno de los salones más establecidos de la colonia Damián Carmona, Venustiano Carranza."
+  - question: "¿Dónde está Salón Marisol y cómo llegar?"
+    answer: "El salón se ubica en General Fortunato Zuazua 24, colonia Damián Carmona, alcaldía Venustiano Carranza, CDMX, C.P. 15450. Está accesible desde diferentes puntos de la zona oriente de la CDMX. Cuenta con estacionamiento propio y acceso para personas con discapacidad."
+  - question: "¿Qué incluye la renta de Salón Marisol?"
+    answer: "La renta incluye mobiliario básico, mantelería, vajilla y cristalería de calidad, iluminación básica, montaje, desmontaje, seguridad y limpieza. La vajilla incluida de buena calidad es uno de los diferenciadores clave de Marisol frente a otros salones de la zona."
+  - question: "¿Qué tipos de eventos se celebran en Salón Marisol?"
+    answer: "Salón Marisol recibe bodas, XV años, bautizos, comuniones, cumpleaños, graduaciones, aniversarios, fiestas privadas, eventos corporativos y despedidas. Su área de fotos permanente y cocina industrial permiten elaborar banquetes frescos en sitio para celebraciones completas."
+  - question: "¿Cuál es el horario de operación de Salón Marisol?"
+    answer: "El salón opera de lunes a viernes de 10:00 a 23:00 y fines de semana de 10:00 a 02:00 horas, con mínimo de 5 horas de renta. La vajilla incluida, el aire acondicionado eficiente y la trayectoria de 15 años en la colonia Damián Carmona lo posicionan como una de las mejores opciones calidad-precio en Venustiano Carranza."
+
 seoTitle: "Salón Marisol"
 seoDescription: "Salón de fiestas en Damián Carmona, Venustiano Carranza. Vajilla incluida, área de fotos. XV años y bodas hasta 200 personas."
 keywords:
@@ -103,6 +131,11 @@ keywords:
   - renta salon fiestas venustiano carranza
   - salon con vajilla incluida cdmx
   - salon eventos damian carmona accesible
+  - venue eventos venustiano carranza
+  - salon bodas cerca aeropuerto cdmx
+  - eventos cerca aicm cdmx
+  - salon metro san lazaro venustiano carranza
+  - boda salon accesible aeropuerto cdmx
 
 featured: false
 premium: false

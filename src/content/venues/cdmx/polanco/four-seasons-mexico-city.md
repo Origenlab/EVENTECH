@@ -93,6 +93,34 @@ eventechDiscount: "10% en mobiliario lounge premium"
 
 rating: 4.8
 reviewCount: 428
+reviews:
+  - author: "Lic. Carolina Mendoza Rivas y Rafael Mendoza"
+    date: "2025-04"
+    rating: 5
+    text: "Nuestra boda en el Four Seasons fue la experiencia más refinada que pudimos imaginar. Los jardines interiores del hotel, con esa arquitectura colonial que transporta a otro tiempo en pleno Paseo de la Reforma, son una locación cinematográfica. El equipo de banquetes lideró cada detalle con una precisión que nos dejó sin preocupaciones desde la primera reunión; la propuesta gastronómica fue extraordinaria. El servicio de suite nupcial y la atención personalizada para nuestros 180 invitados de diferentes países fue verdaderamente el estándar Five Diamond."
+    eventType: "bodas"
+  - author: "Lic. Armando Pedraza — Grupo Empresarial Pedraza & Asociados"
+    date: "2024-11"
+    rating: 5
+    text: "Llevamos a cabo nuestra convención anual de directivos para 450 personas en el Four Seasons y la logística fue impecable. La tecnología audiovisual, la coordinación de los espacios modulares y la calidad del banquete ejecutivo estuvieron al nivel de los mejores hoteles de Europa. El equipo de eventos del hotel anticipó cada necesidad antes de que pudiéramos verbalizarla; eso es lo que distingue al Four Seasons de cualquier competidor en CDMX."
+    eventType: "corporativos"
+  - author: "Mtra. Isabela Fuentes Castillo"
+    date: "2025-02"
+    rating: 5
+    text: "Celebramos nuestro aniversario de empresa de 25 años con una cena de gala para 300 personas en el Gran Salón. La atención personalizada desde la primera cotización hasta el montaje final fue incomparable. Los jardines sirven como escenario para el cóctel de bienvenida y las transiciones entre espacios son fluidas y elegantes. La gastronomía de autor disponible a través del hotel es un diferenciador real que eleva cualquier evento."
+    eventType: "corporativos"
+
+faqs:
+  - question: "¿Cuántas personas tiene capacidad el Four Seasons Hotel Mexico City para eventos?"
+    answer: "El Four Seasons Hotel Mexico City puede recibir de 30 hasta 500 personas en banquete y hasta 700 en formato cóctel. Para ceremonias, la capacidad es de hasta 180 personas, distribuidas en salones versátiles con arquitectura de palacio colonial y jardines interiores exuberantes."
+  - question: "¿Dónde se encuentra el Four Seasons Mexico City y cómo llegar?"
+    answer: "Está ubicado en Paseo de la Reforma 500, Colonia Juárez, CP 06600, en una de las avenidas más icónicas de la Ciudad de México. Es accesible por la Línea 1 del Metro (estación Insurgentes) y Metrobús Reforma. Cuenta con estacionamiento propio y servicio de valet parking."
+  - question: "¿Qué servicios incluye la renta de espacios en el Four Seasons Mexico City?"
+    answer: "La renta incluye banquete con gastronomía de primer nivel, meseros, coordinador de eventos, mobiliario básico, mantelería, vajilla, iluminación básica, sonido básico y seguridad. El uso de los jardines interiores, la suite nupcial y acceso a amenidades del hotel se coordinan según el paquete contratado."
+  - question: "¿Qué tipos de eventos acepta el Four Seasons Mexico City?"
+    answer: "El hotel acepta bodas, eventos corporativos, convenciones, lanzamientos de productos, cenas de gala, aniversarios y bautizos. Su legendario servicio Five Star y su arquitectura colonial lo convierten en la sede favorita de la élite empresarial y social de México."
+  - question: "¿El Four Seasons Mexico City tiene estacionamiento y cuáles son las políticas de catering?"
+    answer: "El hotel cuenta con estacionamiento propio y valet parking. El catering es exclusivo del Four Seasons, con menús elaborados por su brigade culinaria de lujo. Opera entre semana de 07:00 a 01:00 horas y fines de semana hasta las 02:00, con una duración mínima de 5 horas por evento."
 
 seoTitle: "Four Seasons Mexico City"
 seoDescription: "Celebra tu boda o evento corporativo en Four Seasons Hotel Mexico City. Jardines interiores, servicio excepcional y gastronomía de autor en Reforma."

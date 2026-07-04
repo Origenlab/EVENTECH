@@ -114,6 +114,17 @@ reviews:
     text: "Celebramos el cumpleaños de mi hija de 7 años con inflable en el área infantil. Los niños la pasaron increíble y los adultos pudieron disfrutar tranquilos en el salón. Muy buena distribución del espacio y precio accesible."
     eventType: "fiestas-infantiles"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Yaji?"
+    answer: "Salón Yaji tiene capacidad para hasta 200 personas en formato banquete y hasta 250 en formato cóctel. Para ceremonias, el espacio acomoda hasta 120 invitados. El mínimo de invitados es de 40 personas."
+  - question: "¿Dónde está ubicado Salón Yaji y cómo llegar?"
+    answer: "Salón Yaji se encuentra en C. 22 S/N, Olivar del Conde 1ra Secc, colonia Olivar del Conde 1ra Sección, alcaldía Álvaro Obregón, Ciudad de México. La zona es accesible en auto particular; se recomienda usar Uber o DiDi indicando el nombre del salón. Cuenta con estacionamiento propio."
+  - question: "¿Qué está incluido en la renta de Salón Yaji?"
+    answer: "La renta de Salón Yaji incluye: mobiliario básico (mesas y sillas), mantelería, iluminación básica, montaje, desmontaje y limpieza post-evento. Las instalaciones cuentan además con cocina industrial, pista de baile, aire acondicionado."
+  - question: "¿Qué tipo de eventos se pueden realizar en Salón Yaji?"
+    answer: "Salón Yaji es ideal para bodas, XV años, bautizos, cumpleaños, primeras comuniones, fiestas infantiles, graduaciones y aniversarios. Entre otros tipos de celebraciones y reuniones."
+  - question: "¿Cuál es el horario de eventos en Salón Yaji?"
+    answer: "Salón Yaji opera en los siguientes horarios: lunes a viernes de 10:00 - 23:00, sábados y domingos de 10:00 - 02:00. La renta mínima es de 5 horas. Respecto al catering: Catering externo permitido."
 seoTitle: "Salón Yaji Olivar del Conde"
 seoDescription: "Salón Yaji en Olivar del Conde, Álvaro Obregón. XV años, bodas y bautizos hasta 200 personas con área infantil. Precios desde $7,000."
 keywords:

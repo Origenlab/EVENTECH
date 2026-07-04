@@ -98,6 +98,17 @@ reviews:
     text: "Nuestra boda civil con 130 invitados fue perfecta para nuestro presupuesto. El salón es sencillo pero se transforma bien con decoración. La ubicación cerca del metro fue muy conveniente para nuestros invitados que venían de otras partes de la ciudad. Muy buena relación calidad-precio."
     eventType: "boda"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Los Girasoles?"
+    answer: "Salón Los Girasoles tiene capacidad para hasta 200 personas en formato banquete y hasta 250 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salón Los Girasoles y cómo llegar?"
+    answer: "Salón Los Girasoles se encuentra en Av. Canal de Garay 44, Constitución de 1917, alcaldía Iztapalapa, Ciudad de México. La alcaldía cuenta con múltiples estaciones del Metro (Líneas 8, 9 y A) y es accesible desde Periférico, Canal de San Juan y otras vías principales."
+  - question: "¿Qué incluye la renta de Salón Los Girasoles?"
+    answer: "La renta de Salón Los Girasoles incluye mobiliario básico (mesas y sillas), mantelería, iluminación básica, equipo de sonido básico, montaje del evento. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón Los Girasoles?"
+    answer: "Salón Los Girasoles es apto para bodas, quinceañeras, bautizos, cumpleaños y comuniones. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Salón Los Girasoles?"
+    answer: "Salón Los Girasoles opera entre semana de 10:00 - 22:00 y fines de semana de 10:00 - 02:00 con un mínimo de 4 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Salón Los Girasoles Iztapalapa"
 seoDescription: "Salón familiar en Constitución de 1917, Iztapalapa. Bodas, XV años y bautizos hasta 200 personas. Desde $8,000 cerca del Metro."
 keywords:

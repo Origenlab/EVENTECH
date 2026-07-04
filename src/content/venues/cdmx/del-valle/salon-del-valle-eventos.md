@@ -102,7 +102,34 @@ eventechPartner: true
 
 rating: 4.6
 reviewCount: 94
+reviews:
+  - author: "Carolina y Diego Espinosa Vega"
+    date: "2025-04"
+    rating: 5
+    text: "Celebramos nuestra boda en el Salón Del Valle y fue exactamente el venue boutique que buscábamos para 140 personas. El diseño mid-century moderno en Adolfo Prieto 1228, la terraza interior ajardinada para el cóctel y la pista de madera de 70m² crearon una atmósfera muy elegante y personal. A una cuadra del Parque Hundido, varios invitados llegaron caminando desde la estación de Metrobús. ¡Perfecto para bodas íntimas!"
+    eventType: "boda"
+  - author: "Lic. Sandra Mejía — Coordinadora de Recursos Humanos, Consultora BCG"
+    date: "2024-08"
+    rating: 5
+    text: "Organizamos la cena de fin de año de nuestro equipo de 120 personas en este salón boutique y el ambiente superó nuestras expectativas. La ubicación en Del Valle Centro, a tres estaciones del Metrobús Insurgentes, fue conveniente para todo el equipo. El diseño mid-century del espacio le da una personalidad que los salones de hotel no pueden replicar."
+    eventType: "corporativo"
+  - author: "Familia Herrera Sandoval"
+    date: "2024-03"
+    rating: 4
+    text: "Celebramos el cumpleaños de nuestra abuela —sus 80 años— en el Salón Del Valle y el espacio fue ideal para la escala íntima del evento. La terraza ajardinada interior fue perfecta para las fotos familiares y el personal del salón fue muy amable y atento con los adultos mayores. La ubicación cerca del Parque Hundido en Benito Juárez es muy accesible para toda la familia."
+    eventType: "cumpleaños"
 
+faqs:
+  - question: "¿Cuántas personas caben en Salón Del Valle Eventos?"
+    answer: "Salón Del Valle Eventos tiene capacidad para 180 personas en banquete y hasta 230 en cóctel. Para ceremonias puede alojar 120 personas sentadas. El aforo mínimo es de 40 personas. El espacio de 650 m² incluye terraza interior ajardinada y pista de madera de 70 m², permitiendo distintos ambientes simultáneos."
+  - question: "¿Dónde está Salón Del Valle Eventos y cómo llegar?"
+    answer: "Se ubica en Adolfo Prieto 1228, Del Valle Centro, alcaldía Benito Juárez, C.P. 03100, a una cuadra del Parque Hundido. El Metrobús Insurgentes (estación San Lorenzo) está a 3 cuadras. El Metro División del Norte (Línea 3) está a 5 minutos caminando. El salón ofrece servicio de valet parking. Es accesible desde Roma, Condesa, Narvarte y Del Valle en menos de 15 minutos."
+  - question: "¿Qué incluye la renta de Salón Del Valle Eventos?"
+    answer: "La renta incluye banquete completo con meseros, coordinador, mobiliario básico, mantelería, vajilla, iluminación básica, montaje, desmontaje, seguridad y limpieza. También incluye el uso de la cocina de producción, pista de baile de madera de 70 m², terraza interior ajardinada, vestidores y área de fotos. El valet parking también está incluido."
+  - question: "¿Qué tipo de eventos se realizan en Salón Del Valle Eventos?"
+    answer: "Salón Del Valle Eventos es ideal para bodas íntimas con diseño, cenas de compromiso, cumpleaños de adultos, corporativos boutique, aniversarios, despedidas de soltera o soltero, baby showers, cenas de gala y lanzamientos creativos. Su diseño mid-century moderno y su ubicación en Del Valle lo convierten en el venue favorito de parejas jóvenes de la Roma, Condesa y Narvarte."
+  - question: "¿Cuál es el horario de Salón Del Valle Eventos y qué restricciones tiene?"
+    answer: "El horario es de 14:00 a 00:00 entre semana y de 13:00 a 01:00 los fines de semana, con mínimo de 4 horas. La capacidad máxima es estricta: 230 personas en ningún formato. Después de las 23:00 la música tiene límite de decibeles. El salón permite open bar con coctelería artesanal y DJ y sonido EVENTECH como servicios adicionales. Los precios van de $25,000 a $65,000 por evento."
 seoTitle: "Salón Del Valle Eventos"
 seoDescription: "Salón boutique 650m² en Del Valle Centro, a una cuadra del Parque Hundido. Hasta 180 personas. Bodas íntimas y eventos con diseño en Benito Juárez, CDMX."
 keywords:

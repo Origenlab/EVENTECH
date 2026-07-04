@@ -1,8 +1,14 @@
 ---
 name: "Salón Los Colorines"
 slug: "salon-los-colorines"
-description: "Salón Los Colorines es un espacio accesible y bien ubicado para eventos sociales en el centro del pueblo de Cuajimalpa de Morelos. Con instalaciones funcionales y un ambiente agradable, este salón ofrece una opción práctica para bodas, XV años, bautizos, cumpleaños y todo tipo de celebraciones familiares de hasta 160 personas, con la ventaja del clima fresco que caracteriza a esta alcaldía de la zona alta del poniente de la Ciudad de México."
-shortDescription: "Salón funcional y económico en el centro de Cuajimalpa. Eventos sociales hasta 160 personas con catering libre."
+description: >-
+  Salón Los Colorines es un espacio accesible y bien ubicado para eventos sociales en el centro del pueblo de Cuajimalpa de Morelos,
+  a 20-25 minutos de Santa Fe y con fácil acceso desde Interlomas por la carretera México-Toluca. Con instalaciones funcionales y un
+  ambiente agradable, este salón ofrece la opción más práctica y económica de Cuajimalpa para bodas, XV años, bautizos, cumpleaños
+  y todo tipo de celebraciones familiares de hasta 160 personas. Combina la ventaja del clima fresco de montaña que caracteriza a la
+  alcaldía más verde del poniente de CDMX con la comodidad de estar a minutos del corredor Santa Fe–Interlomas y en el corazón de un
+  pueblo con iglesias coloniales, proveedores locales y ambiente auténtico.
+shortDescription: "Salón funcional y económico en el centro de Cuajimalpa, a 20 min de Santa Fe e Interlomas."
 
 region: "cdmx"
 zone: "Cuajimalpa de Morelos"
@@ -108,6 +114,17 @@ reviews:
     text: "Hicimos los XV de mi hija con 140 invitados. El salón se ve muy bien decorado con las luces que contratamos aparte. La pista de baile tiene buen tamaño para el vals y la coreografía. Todo limpio y el personal muy atento. Precio excelente para Cuajimalpa."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas caben en Salón Los Colorines?"
+    answer: "Salón Los Colorines tiene capacidad para 160 personas en banquete y hasta 200 en cóctel. Para ceremonias puede alojar 100 personas sentadas. El aforo mínimo es de 30 personas, lo que lo hace una opción flexible para desde reuniones pequeñas hasta eventos familiares completos."
+  - question: "¿Dónde está Salón Los Colorines y cómo llegar?"
+    answer: "Se ubica en Guerrero 22, Cuajimalpa, C.P. 05000, en el centro del pueblo de Cuajimalpa de Morelos. Su ubicación central en la alcaldía facilita la llegada de invitados desde todas las colonias de Cuajimalpa, Santa Fe y zonas del poniente de CDMX. Cuenta con estacionamiento propio y buena conectividad vehicular."
+  - question: "¿Qué incluye la renta de Salón Los Colorines?"
+    answer: "La renta incluye mobiliario básico, mantelería, montaje, desmontaje y limpieza. El salón cuenta con pista de baile, cocina industrial, WiFi y acceso para personas con discapacidad. El catering externo está completamente permitido: pueden ingresar proveedores propios de banquetes, pastel y postres sin restricciones."
+  - question: "¿Qué tipo de eventos se realizan en Salón Los Colorines?"
+    answer: "Salón Los Colorines acepta bodas, XV años, bautizos, cumpleaños, comuniones, fiestas privadas, aniversarios y fiestas infantiles. Su accesibilidad económica —con precios desde $7,000— y su ubicación céntrica en Cuajimalpa lo convierten en la opción más práctica y asequible de la alcaldía para todo tipo de celebraciones familiares."
+  - question: "¿Cuál es el horario de Salón Los Colorines y qué restricciones tiene?"
+    answer: "El horario es de 10:00 a 22:00 entre semana y de 10:00 a 01:00 los fines de semana, con mínimo de 4 horas. Entre semana la música amplificada tiene tope a las 22:00. No se permite fumar en el interior ni usar pirotecnia. Los precios de renta van de $7,000 a $20,000 por evento, con la posibilidad de traer catering propio para reducir costos."
 seoTitle: "Salón Los Colorines Cuajimalpa"
 seoDescription: "Salón de fiestas en el centro de Cuajimalpa. Bodas, XV años y bautizos hasta 160 personas. Precios desde $7,000 zona poniente CDMX."
 keywords:
@@ -119,6 +136,10 @@ keywords:
   - salon xv anos cuajimalpa precios
   - salon bautizos cuajimalpa barato
   - salon eventos poniente cdmx economico
+  - venue eventos cuajimalpa cdmx
+  - salon bodas cerca santa fe cdmx
+  - eventos cerca interlomas cdmx
+  - salon eventos cuajimalpa economico santa fe
 
 featured: false
 premium: false

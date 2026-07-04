@@ -113,6 +113,17 @@ reviews:
     text: "Los XV años de mi hija fueron aquí con 130 invitados. El salón se vio precioso con la decoración, la pista fue suficiente para el vals y los chambelanes, y el área infantil nos sirvió para los sobrinos pequeños. Todo bien organizado."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas caben en Salón de Fiestas Jimmy?"
+    answer: "Salón de Fiestas Jimmy tiene capacidad para 150 personas en banquete y hasta 180 en cóctel. Para ceremonias puede alojar 80 personas sentadas. El aforo mínimo es de 30 personas. Cuenta con área infantil dedicada y suficiente espacio para convivencia simultánea de niños y adultos."
+  - question: "¿Dónde está Salón Jimmy y cómo llegar?"
+    answer: "Se ubica en Calle San Celso Mz. 610 Lt. 12, Pedregal de Santa Úrsula, Coyoacán, C.P. 04600, en el sur de la Ciudad de México. El acceso más práctico es por Insurgentes Sur o Calzada de Tlalpan. Cuenta con estacionamiento propio y acceso para personas con discapacidad."
+  - question: "¿Qué incluye la renta de Salón Jimmy?"
+    answer: "La renta incluye mobiliario básico, mantelería, iluminación básica, montaje, desmontaje y limpieza. El salón cuenta con área infantil dedicada, pista de baile, zona de fotos y cocina industrial. El catering externo está permitido y se pueden contratar inflables, brincolines, shows infantiles y DJ de forma independiente."
+  - question: "¿Qué tipo de eventos se realizan en Salón Jimmy?"
+    answer: "Salón Jimmy está especializado en fiestas infantiles, XV años, bautizos, comuniones, cumpleaños familiares y aniversarios. Su área infantil dedicada —pensada para que los niños jueguen de forma segura mientras los adultos disfrutan— lo convierte en una de las opciones más populares para fiestas de niños en el sur de Coyoacán."
+  - question: "¿Cuál es el horario de Salón Jimmy y se permiten bebidas alcohólicas?"
+    answer: "El horario es de 10:00 a 22:00 entre semana y de 10:00 a 01:00 los fines de semana, con un mínimo de 4 horas. Las bebidas alcohólicas están permitidas únicamente con autorización previa del salón. No se permite pirotecnia. Los precios de renta van desde $5,000 hasta $18,000 por evento, lo que lo convierte en una de las opciones más accesibles de la zona."
 seoTitle: "Salón Jimmy Coyoacán"
 seoDescription: "Salón Jimmy en Pedregal Sta. Úrsula, Coyoacán. Fiestas infantiles, XV años y bautizos hasta 150 personas con área infantil. Desde $5,000."
 keywords:

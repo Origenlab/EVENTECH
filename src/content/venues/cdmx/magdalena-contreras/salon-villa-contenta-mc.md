@@ -1,8 +1,18 @@
 ---
 name: "Salón Villa Contenta"
 slug: "salon-villa-contenta-mc"
-description: "Salón Villa Contenta es un espacio residencial adaptado para eventos sociales en la colonia San Jerónimo Lídice, alcaldía Magdalena Contreras. La conversión de una antigua residencia en venue le otorga un carácter íntimo y acogedor que se diferencia de los salones comerciales convencionales. Con jardín privado, salón climatizado con capacidad para hasta 180 personas y la tranquilidad de una de las colonias residenciales más exclusivas del sur de la CDMX, Villa Contenta es ideal para bodas íntimas, bautizos elegantes y celebraciones familiares que buscan un ambiente de casa sin las limitaciones de una casa."
-shortDescription: "Salón residencial con jardín en San Jerónimo Lídice, Magdalena Contreras. Eventos íntimos hasta 180 personas con aire acondicionado."
+description: >-
+  Salón Villa Contenta es un espacio residencial adaptado para eventos sociales en la colonia San
+  Jerónimo Lídice, alcaldía Magdalena Contreras — el sur verde de la CDMX, rodeada de bosques y
+  en la ruta al Parque Nacional Desierto de los Leones. La conversión de una antigua residencia en
+  venue le otorga un carácter íntimo y acogedor que los salones comerciales convencionales no
+  pueden replicar. Con jardín privado donde el aire puro y la frescura del microclima de montaña
+  del sur CDMX se hacen presentes, salón climatizado con capacidad para hasta 180 personas y la
+  tranquilidad característica de San Jerónimo Lídice, Villa Contenta es ideal para bodas íntimas,
+  bautizos elegantes y celebraciones familiares que buscan el ambiente acogedor de una casa en la
+  zona más campestre y arbolada de la capital. Un salon fiestas magdalena contreras de carácter
+  residencial que combina la calidez de un hogar con la naturaleza del sur CDMX.
+shortDescription: "Salón residencial con jardín privado en San Jerónimo Lídice, Magdalena Contreras, sur CDMX. Aire puro de montaña y ambiente campestre."
 
 region: "cdmx"
 zone: "Magdalena Contreras"
@@ -115,6 +125,17 @@ reviews:
     text: "Celebramos los 80 años de mi mamá con 150 invitados. El ambiente residencial del lugar le encantó porque se sentía como estar en una casa bonita, no en un salón comercial. El aire acondicionado funcionó bien y la comida del catering pudo prepararse sin problema en la cocina."
     eventType: "cumpleanos"
 
+faqs:
+  - question: "¿Cuál es la capacidad de Salón Villa Contenta?"
+    answer: "Salón Villa Contenta puede recibir hasta 180 personas. La capacidad varía según el montaje: banquete, cóctel o teatro. Consulta con el equipo para el formato que mejor se adapte a tu evento."
+  - question: "¿Dónde está ubicado Salón Villa Contenta y cómo llegar?"
+    answer: "Salón Villa Contenta se ubica en Av. Luis Cabrera 260, San Jerónimo Lídice, colonia San Jerónimo Lídice, alcaldía CDMX, Ciudad de México. Si vas en auto, se recomienda verificar disponibilidad de estacionamiento directamente con el venue."
+  - question: "¿Qué incluye la renta de Salón Villa Contenta?"
+    answer: "La renta de Salón Villa Contenta incluye: mobiliario-basico, manteleria, iluminacion-basica, montaje, desmontaje, limpieza. Además, el venue cuenta con las siguientes instalaciones y amenidades: estacionamiento, pista-baile, jardin, cocina-industrial, aire-acondicionado, area-fotos, acceso-discapacitados. Para paquetes personalizados o servicios adicionales, consulta directamente con el equipo."
+  - question: "¿Qué tipo de eventos se pueden realizar en Salón Villa Contenta?"
+    answer: "Salón Villa Contenta es apto para una amplia variedad de eventos, entre ellos: bodas, bautizos, cumpleanos, aniversarios, comuniones, baby-showers, fiestas-privadas, sesiones-foto, despedidas, primeras-comuniones. El equipo del venue puede orientarte sobre el montaje más adecuado para cada ocasión."
+  - question: "¿Salón Villa Contenta cuenta con estacionamiento?"
+    answer: "Sí, estacionamiento. Además, el venue puede orientarte sobre opciones de acceso en transporte público o valet parking según disponibilidad. Consulta directamente para más detalles."
 seoTitle: "Salón Villa Contenta"
 seoDescription: "Salón residencial con jardín en San Jerónimo Lídice, Magdalena Contreras. Bodas íntimas y eventos hasta 180 personas. CDMX."
 keywords:
@@ -126,6 +147,11 @@ keywords:
   - renta salon residencial sur cdmx
   - salon comuniones magdalena contreras
   - salon fiestas san jeronimo lidice
+  - salon fiestas magdalena contreras
+  - venue eventos sur cdmx
+  - boda jardín sur cdmx intimo
+  - eventos naturaleza sur cdmx
+  - salon jardin sur cdmx
 
 featured: false
 premium: false

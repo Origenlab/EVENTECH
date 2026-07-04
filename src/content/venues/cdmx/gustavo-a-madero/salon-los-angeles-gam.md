@@ -102,6 +102,17 @@ reviews:
     text: "Los XV años de Sofía quedaron espectaculares. La iluminación LED del salón se veía increíble con los colores que programaron para el vals. La pista es amplia para la coreografía con chambelanes y el servicio fue bueno. Lo recomendamos."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Los Ángeles?"
+    answer: "Salón Los Ángeles tiene capacidad para hasta 300 personas en formato banquete y hasta 380 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salón Los Ángeles y cómo llegar?"
+    answer: "Salón Los Ángeles se encuentra en Av. San Juan de Aragón 505, DM Nacional, alcaldía Gustavo A. Madero, Ciudad de México. La alcaldía cuenta con varias estaciones del Metro (Líneas 3 y 6) y amplia red de transporte público que facilita el acceso desde toda la CDMX."
+  - question: "¿Qué incluye la renta de Salón Los Ángeles?"
+    answer: "La renta de Salón Los Ángeles incluye mobiliario básico (mesas y sillas), mantelería, vajilla completa, iluminación básica, equipo de sonido básico. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón Los Ángeles?"
+    answer: "Salón Los Ángeles es apto para bodas, quinceañeras, bautizos, comuniones y graduaciones. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Salón Los Ángeles?"
+    answer: "Salón Los Ángeles opera entre semana de 10:00 - 23:00 y fines de semana de 10:00 - 03:00 con un mínimo de 5 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Salón Los Ángeles GAM"
 seoDescription: "Salón moderno en Gustavo A. Madero para bodas y eventos. Hasta 300 personas con aire acondicionado, WiFi y acabados contemporáneos."
 keywords:

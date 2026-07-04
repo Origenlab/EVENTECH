@@ -9,6 +9,11 @@ zone: "Gustavo A. Madero"
 zoneSlug: "gustavo-a-madero"
 address: "Calle 306 #4, Nueva Atzacoalco"
 neighborhood: "Nueva Atzacoalco"
+postalCode: "07410"
+coordinates:
+  lat: 19.5041375
+  lng: -99.0857752
+googleMapsUrl: "https://maps.google.com/?q=Salon+los+arcos+Gustavo+A+Madero+CDMX"
 
 type: "salon"
 
@@ -90,6 +95,17 @@ reviews:
     text: "Festejamos los XV de mi sobrina con 220 invitados y el salón lució espectacular. Los arcos crearon marcos perfectos para las fotos y el vestidor fue muy útil para que se preparara antes de su entrada. El personal de seguridad nos dio mucha tranquilidad durante toda la noche."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Los Arcos?"
+    answer: "Salón Los Arcos tiene capacidad para hasta 250 personas en formato banquete y hasta 300 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salón Los Arcos y cómo llegar?"
+    answer: "Salón Los Arcos se encuentra en Calle 306 #4, Nueva Atzacoalco, alcaldía Gustavo A. Madero, Ciudad de México. La alcaldía cuenta con varias estaciones del Metro (Líneas 3 y 6) y amplia red de transporte público que facilita el acceso desde toda la CDMX."
+  - question: "¿Qué incluye la renta de Salón Los Arcos?"
+    answer: "La renta de Salón Los Arcos incluye mobiliario básico (mesas y sillas), mantelería, iluminación básica, montaje del evento, desmontaje. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón Los Arcos?"
+    answer: "Salón Los Arcos es apto para bodas, quinceañeras, bautizos, comuniones y cumpleaños. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Salón Los Arcos?"
+    answer: "Salón Los Arcos opera entre semana de 10:00 - 23:00 y fines de semana de 10:00 - 02:00 con un mínimo de 5 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Salón Los Arcos"
 seoDescription: "Salón con arcos decorativos en Nueva Atzacoalco, GAM. Bodas, XV años y graduaciones hasta 250 personas. Norte CDMX."
 keywords:

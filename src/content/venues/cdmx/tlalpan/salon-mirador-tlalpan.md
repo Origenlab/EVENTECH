@@ -124,6 +124,18 @@ reviews:
     text: "La cena de fin de año familiar con 180 personas fue espectacular. La vista nocturna de la ciudad desde la terraza es impresionante, los niños estaban fascinados con las luces. El salón estaba calentito con el aire acondicionado y la comida del catering fue excelente."
     eventType: "aniversarios"
 
+faqs:
+  - question: "¿Cuántas personas caben en Salón Mirador Tlalpan?"
+    answer: "Salón Mirador Tlalpan tiene capacidad para 300 personas en formato banquete y 380 en cóctel, con montaje para ceremonia de hasta 200 invitados. La terraza panorámica con capacidad máxima para 200 personas ofrece vistas del sur de CDMX y los volcanes."
+  - question: "¿Dónde está Salón Mirador Tlalpan y cómo llegar?"
+    answer: "El salón se ubica en Carretera Picacho-Ajusco km 5, colonia Héroes de Padierna, alcaldía Tlalpan, CDMX, C.P. 14200. Se accede desde la Carretera Picacho-Ajusco. Cuenta con estacionamiento propio y acceso para personas con discapacidad."
+  - question: "¿Qué incluye la renta de Salón Mirador Tlalpan?"
+    answer: "La renta incluye mobiliario básico, mantelería, vajilla, iluminación básica, sonido básico, montaje, desmontaje, seguridad y limpieza. El salón cuenta con cocina industrial, aire acondicionado, terraza panorámica, área de fotos y Wi-Fi. Se permiten caterings autorizados externos."
+  - question: "¿Para qué tipos de eventos es ideal Salón Mirador Tlalpan?"
+    answer: "Mirador Tlalpan es perfecto para bodas, XV años, cumpleaños, aniversarios, graduaciones, eventos corporativos, cenas de gala, fiestas privadas, lanzamientos de productos y sesiones fotográficas. La vista panorámica al sur de la CDMX es el factor diferenciador para eventos que buscan un entorno impactante."
+  - question: "¿Cuál es el horario y política de pirotecnia en Salón Mirador Tlalpan?"
+    answer: "El salón opera de lunes a viernes de 10:00 a 00:00 y fines de semana de 10:00 a 02:00 horas, con mínimo 5 horas de renta. La pirotecnia fría (sparklers) está permitida únicamente en la terraza con autorización previa. Se pueden contratar carpas para terraza, DJ y shows de entretenimiento como servicios adicionales."
+
 seoTitle: "Salón Mirador Tlalpan"
 seoDescription: "Salón con terraza y vista panorámica en Picacho-Ajusco, Tlalpan. Bodas y eventos hasta 300 personas. Sur CDMX con volcanes."
 keywords:

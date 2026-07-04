@@ -9,6 +9,11 @@ zone: "Gustavo A. Madero"
 zoneSlug: "gustavo-a-madero"
 address: "Unión 216, Tepeyac Insurgentes"
 neighborhood: "Tepeyac Insurgentes"
+postalCode: "07020"
+coordinates:
+  lat: 19.4871079
+  lng: -99.1195764
+googleMapsUrl: "https://maps.google.com/?q=Salon+tepeyac+inn+Gustavo+A+Madero+CDMX"
 
 type: "salon"
 
@@ -87,6 +92,17 @@ reviews:
     text: "Hicimos el bautizo de mi nieta después de la misa en la Basílica y fue muy práctico. El salón queda a minutos de la iglesia, el aire acondicionado funcionó perfecto y el catering que contratamos trabajó sin problemas en la cocina. Excelente relación calidad-precio."
     eventType: "bautizo"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón de Fiestas Tepeyac Inn?"
+    answer: "Salón de Fiestas Tepeyac Inn tiene capacidad para hasta 200 personas en formato banquete y hasta 250 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salón de Fiestas Tepeyac Inn y cómo llegar?"
+    answer: "Salón de Fiestas Tepeyac Inn se encuentra en Unión 216, Tepeyac Insurgentes, alcaldía Gustavo A. Madero, Ciudad de México. La alcaldía cuenta con varias estaciones del Metro (Líneas 3 y 6) y amplia red de transporte público que facilita el acceso desde toda la CDMX."
+  - question: "¿Qué incluye la renta de Salón de Fiestas Tepeyac Inn?"
+    answer: "La renta de Salón de Fiestas Tepeyac Inn incluye mobiliario básico (mesas y sillas), mantelería, iluminación básica, montaje del evento, desmontaje. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón de Fiestas Tepeyac Inn?"
+    answer: "Salón de Fiestas Tepeyac Inn es apto para bodas, quinceañeras, bautizos, comuniones y cumpleaños. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Salón de Fiestas Tepeyac Inn?"
+    answer: "Salón de Fiestas Tepeyac Inn opera entre semana de 10:00 - 23:00 y fines de semana de 10:00 - 02:00 con un mínimo de 5 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Salón Tepeyac Inn"
 seoDescription: "Salón de fiestas en Tepeyac Insurgentes, GAM. Bodas, XV años y bautizos hasta 200 personas. Cerca de Basílica de Guadalupe."
 keywords:

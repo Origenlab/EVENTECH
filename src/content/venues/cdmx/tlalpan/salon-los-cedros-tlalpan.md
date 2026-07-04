@@ -113,6 +113,18 @@ reviews:
     text: "Celebramos los 50 años de mi esposo con 120 invitados. El estilo rústico del salón con la piedra y la madera le dio un toque muy especial a la fiesta. La ubicación cerca del centro de Tlalpan permitió que algunos invitados caminaran desde los restaurantes de la zona."
     eventType: "cumpleanos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Los Cedros Tlalpan?"
+    answer: "Salón Los Cedros tiene capacidad para 200 personas en formato banquete y 250 en cóctel, con montaje para ceremonia de hasta 130 invitados. Su jardín de cedros centenarios ofrece un ambiente rústico-elegante único en Tlalpan Centro."
+  - question: "¿Dónde está Salón Los Cedros y cómo llegar?"
+    answer: "El salón se ubica en Avenida San Fernando 555, Tlalpan Centro, alcaldía Tlalpan, CDMX, C.P. 14000. Está a minutos del centro histórico de Tlalpan y del Periférico. Cuenta con estacionamiento propio y accesibilidad para personas con discapacidad."
+  - question: "¿Qué incluye la renta de Salón Los Cedros?"
+    answer: "La renta incluye mobiliario básico, mantelería, iluminación básica, montaje, desmontaje y limpieza. El salón cuenta con cocina industrial, área de fotos con los cedros centenarios como telón de fondo y pista de baile. Los caterings autorizados externos son bienvenidos."
+  - question: "¿Qué tipos de eventos se celebran en Salón Los Cedros Tlalpan?"
+    answer: "El salón es ideal para bodas, XV años, bautizos, cumpleaños, aniversarios, comuniones, baby showers, fiestas privadas y sesiones fotográficas. El entorno rústico con elementos de madera, piedra y cedros centenarios lo convierte en un escenario especial para ceremonias íntimas."
+  - question: "¿Cuál es la política de horarios y restricciones en Salón Los Cedros?"
+    answer: "El salón opera de lunes a viernes de 10:00 a 23:00 y fines de semana de 10:00 a 01:00 horas, con un mínimo de 5 horas de renta. La pirotecnia no está permitida para proteger los cedros centenarios. La música amplificada tiene límite de horario. Se permiten caterings autorizados y decoración floral externa."
+
 seoTitle: "Salón Los Cedros Tlalpan"
 seoDescription: "Salón rústico-elegante con jardín de cedros en Tlalpan Centro. Bodas y eventos hasta 200 personas. Ambiente de pueblo, CDMX."
 keywords:

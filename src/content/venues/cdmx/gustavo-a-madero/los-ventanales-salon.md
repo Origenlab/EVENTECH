@@ -9,6 +9,11 @@ zone: "Gustavo A. Madero"
 zoneSlug: "gustavo-a-madero"
 address: "Calz. de los Misterios 320, Vallejo"
 neighborhood: "Vallejo"
+postalCode: "07020"
+coordinates:
+  lat: 19.4846894
+  lng: -99.1188814
+googleMapsUrl: "https://maps.google.com/?q=los+ventanales+salon+Gustavo+A+Madero+CDMX"
 
 type: "salon"
 
@@ -96,6 +101,17 @@ reviews:
     text: "Hicimos nuestra cena de aniversario con 180 invitados al atardecer. Ver cómo la luz natural se transformaba en las luces de la ciudad a través de los ventanales fue una experiencia única. Las fotos con la iluminación natural son espectaculares. El coordinador fue impecable y la vajilla incluida nos ahorró mucho presupuesto."
     eventType: "aniversario"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Los Ventanales Salón?"
+    answer: "Los Ventanales Salón tiene capacidad para hasta 260 personas en formato banquete y hasta 340 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Los Ventanales Salón y cómo llegar?"
+    answer: "Los Ventanales Salón se encuentra en Calz. de los Misterios 320, Vallejo, alcaldía Gustavo A. Madero, Ciudad de México. La alcaldía cuenta con varias estaciones del Metro (Líneas 3 y 6) y amplia red de transporte público que facilita el acceso desde toda la CDMX."
+  - question: "¿Qué incluye la renta de Los Ventanales Salón?"
+    answer: "La renta de Los Ventanales Salón incluye coordinador de eventos, mobiliario básico (mesas y sillas), mantelería, vajilla completa, iluminación básica. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha."
+  - question: "¿Qué tipos de eventos se pueden realizar en Los Ventanales Salón?"
+    answer: "Los Ventanales Salón es apto para bodas, quinceañeras, bautizos, cumpleaños y comuniones. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Los Ventanales Salón?"
+    answer: "Los Ventanales Salón opera entre semana de 10:00 - 23:00 y fines de semana de 10:00 - 03:00 con un mínimo de 5 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Los Ventanales"
 seoDescription: "Salón con ventanales de piso a techo en Vallejo, GAM. Luz natural, techos de 5m. Bodas y eventos hasta 260 personas CDMX."
 keywords:

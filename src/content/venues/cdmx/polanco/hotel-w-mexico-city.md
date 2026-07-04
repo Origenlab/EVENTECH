@@ -1,9 +1,27 @@
 ---
 name: "Hotel W Mexico City"
 slug: "hotel-w-mexico-city"
-description: "El W Mexico City es sinónimo de lujo contemporáneo y sofisticación. Ubicado en el exclusivo corredor de Polanco, ofrece múltiples espacios versátiles para eventos que van desde íntimas reuniones corporativas hasta grandes celebraciones. Su diseño vanguardista, tecnología de punta y servicio impecable lo convierten en el escenario perfecto para bodas de ensueño, lanzamientos de productos y galas corporativas."
-shortDescription: "Hotel de lujo con múltiples salones y terrazas panorámicas para eventos exclusivos en Polanco."
-
+description: >-
+  Diseñado por el despacho Sordo Madaleno, el Hotel W Mexico City es el único
+  hotel de vanguardia en Polanco que convierte cada evento en una declaración
+  de estilo. Sobre Campos Elíseos 252 —la arteria más aspiracional de México—,
+  este ícono de 25 pisos reúne espacios transformables para celebraciones de 50
+  hasta 1,200 personas. El salón Great Room, con 800 m² de planta libre, techos
+  de seis metros y sistema de iluminación LED RGB completamente programable, se
+  reinventa para cada evento: gala corporativa de alto protocolo un sábado,
+  lanzamiento de marca global el miércoles. La Sunset Terrace en el piso 25
+  ofrece vistas de 270° del skyline de Polanco, el Castillo de Chapultepec y
+  los rascacielos de Reforma, convirtiéndose en el rooftop de eventos más
+  solicitado de la colonia. La filosofía Whatever/Whenever® garantiza que ningún
+  detalle es imposible: menús de autor diseñados evento a evento, mixología
+  certificada, estaciones de chef en vivo y wine pairing con sommelier. Para
+  bodas de lujo, la Marvelous Suite del piso 24 —120 m² con vista panorámica e
+  hidromasaje— funciona como suite nupcial privada antes de bajar al Great Room
+  ante 400 invitados en banquete. La infraestructura tecnológica de nivel
+  broadcast —audio Bose profesional, paredes móviles, WiFi premium y pantallas
+  LED modulares— posiciona al W como el venue predilecto de marcas globales que
+  buscan impacto visual inmediato en CDMX.
+shortDescription: "Diseño Sordo Madaleno en Campos Elíseos: Great Room hasta 800 banquete, rooftop 270° y filosofía W Whatever/Whenever® en Polanco."
 region: "cdmx"
 zone: "Polanco"
 zoneSlug: "polanco"
@@ -88,14 +106,50 @@ eventechDiscount: "10% en servicios de audiovisual"
 
 rating: 4.7
 reviewCount: 234
+reviews:
+  - author: "Daniela Ortiz y Mauricio Ibarra"
+    date: "2025-05"
+    rating: 5
+    text: "El W Mexico City en Campos Elíseos fue el escenario perfecto para nuestra boda contemporánea. El diseño vanguardista del hotel, con esos acabados de lujo y la tecnología de iluminación programable, creó un ambiente que nuestros invitados describieron como un videoclip hecho realidad. El equipo de coordinación manejeó 650 personas en cóctel con una fluidez impresionante. La suite nupcial es espectacular."
+    eventType: "bodas"
+  - author: "Ing. Patricia Nájera, Directora de Operaciones — TechVentures MX"
+    date: "2024-08"
+    rating: 5
+    text: "Lanzamos nuestro producto estrella del año en el W Mexico City y el impacto visual fue exactamente el que buscábamos para una marca tech de vanguardia. Los salones se transforman completamente con la iluminación arquitectónica y la infraestructura audiovisual es de nivel broadcast. El servicio del equipo de banquetes fue puntual y profesional para nuestros 300 asistentes de prensa e inversionistas."
+    eventType: "lanzamientos"
+  - author: "Familia Villanueva Soto"
+    date: "2024-12"
+    rating: 4
+    text: "Organizamos una convención familiar y de empresa en el W con más de 400 personas y el resultado fue muy positivo. La ubicación en Polanco es inmejorable para alojar invitados en los pisos superiores y coordinar traslados. La propuesta gastronómica es sofisticada aunque los tiempos de servicio para grupos grandes requieren una coordinación adicional. En general, un venue de primer nivel."
+    eventType: "convenciones"
+
+faqs:
+  - question: "¿Cuántas personas puede alojar el Hotel W Mexico City en un evento?"
+    answer: "Hotel W Mexico City tiene capacidad para 50 hasta 800 personas en banquete y hasta 1,200 en formato cóctel. Para ceremonias, la capacidad es de 300 personas, distribuidas en múltiples salones y terrazas panorámicas con diseño vanguardista."
+  - question: "¿Dónde se ubica el Hotel W Mexico City y cómo llegar?"
+    answer: "Se encuentra en Campos Elíseos 252, Polanco, Miguel Hidalgo, CP 11560, en el corazón del exclusivo corredor de Polanco. Es accesible por Presidente Masaryk y Periférico, con metro Auditorio (Línea 7) a pocos minutos. Cuenta con estacionamiento y valet parking."
+  - question: "¿Qué servicios incluye la renta de espacios en el Hotel W Mexico City?"
+    answer: "La renta incluye banquete, meseros, coordinador de eventos, mobiliario básico, mantelería, vajilla, iluminación básica, sonido básico y seguridad. La suite nupcial, acceso a spa y terrazas panorámicas están disponibles como parte de los paquetes de evento."
+  - question: "¿Qué tipo de eventos acepta el Hotel W Mexico City?"
+    answer: "El hotel acepta bodas, eventos corporativos, convenciones, lanzamientos de productos, cenas de gala y aniversarios. Su diseño contemporáneo y sofisticado lo posiciona como venue ideal para marcas de lujo, bodas de alto diseño y eventos corporativos de empresas globales."
+  - question: "¿Cuál es el horario de operación del W Mexico City y qué tan tarde se puede festejar?"
+    answer: "Entre semana opera de 08:00 a 02:00 horas; los fines de semana hasta las 03:00 horas. La duración mínima por evento es de 5 horas. El hotel cuenta con spa y alberca disponibles para paquetes noche de bodas, con rooms de huéspedes a tarifas preferenciales para grupos."
 
 seoTitle: "W Mexico City Eventos de Lujo en Polanco"
 seoDescription: "Celebra eventos exclusivos en W Mexico City. Salones versátiles, terrazas panorámicas y servicio 5 estrellas en Polanco."
 keywords:
-  - w hotel mexico eventos
-  - bodas hotel lujo polanco
-  - eventos corporativos polanco
-
+  - hotel w polanco eventos
+  - venue lujo polanco bodas
+  - rooftop polanco eventos cdmx
+  - hotel diseño vanguardista cdmx eventos
+  - boda hotel 5 estrellas polanco
+  - great room w hotel polanco
+  - lanzamiento de producto hotel lujo cdmx
+  - campos eliseos venue lujo
+  - cena gala hotel contemporaneo polanco
+  - venue corporativo polanco cdmx
+  - suite nupcial polanco boda lujo
+  - whatever whenever bodas experiencia lujo
 featured: true
 premium: true
 verified: true

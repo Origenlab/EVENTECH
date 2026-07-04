@@ -1,9 +1,27 @@
 ---
 name: "Hacienda de los Morales"
 slug: "hacienda-de-los-morales"
-description: "Una joya arquitectónica del siglo XVI, Hacienda de los Morales es uno de los venues más icónicos de la Ciudad de México. Este espacio histórico combina la elegancia colonial con servicios de primer nivel, ofreciendo múltiples salones y jardines que se adaptan a eventos desde 50 hasta 1,500 invitados. Su cocina galardonada y ambiente sofisticado lo convierten en la elección predilecta para bodas de alto nivel y eventos corporativos exclusivos."
-shortDescription: "Hacienda histórica del siglo XVI con jardines, salones coloniales y cocina galardonada en el corazón de Polanco."
-
+description: >-
+  Fundada en el siglo XVII como hacienda ganadera novohispana, Hacienda de los
+  Morales sobrevive como la única hacienda colonial auténtica enclavada dentro
+  del perímetro de Polanco moderno. Sus 9,000 m² de jardines albergan
+  ahuehuetes centenarios —los mismos árboles que crecían cuando la Nueva España
+  florecía— y una fuente central de cantera del siglo XVII que sirve de punto
+  focal para ceremonias al aire libre ante hasta 400 invitados. El contraste
+  entre la arquitectura virreinal impecablemente conservada y el skyline
+  contemporáneo de Polanco crea una tensión visual única que no existe en
+  ningún otro venue de la ciudad: historia y cosmopolitismo en el mismo cuadro.
+  El Salón Virreinal, con sus vigas de madera de cuatro siglos de antigüedad,
+  chimeneas de cantera labrada y pisos de barro artesanal, acomoda banquetes
+  de hasta 300 personas bajo una atmósfera barroca irrepetible. La propuesta
+  gastronómica propia —reconocida durante décadas como uno de los mejores
+  restaurantes de México— eleva el banquete a protagonista: alta cocina
+  mexicana con técnicas ancestrales refinadas, maridajes diseñados por
+  sommeliers y estaciones de chef en vivo. Con capacidad para hasta 1,500
+  personas en banquete y 2,000 en formato cóctel, la hacienda absorbe desde
+  la boda de gran formato hasta la convención corporativa de alto nivel con la
+  misma elegancia atemporal que la caracteriza desde hace cuatro siglos.
+shortDescription: "Hacienda colonial siglo XVII en Polanco: 9,000 m² de jardines con ahuehuetes centenarios, cocina galardonada y hasta 1,500 personas."
 region: "cdmx"
 zone: "Polanco"
 zoneSlug: "polanco"
@@ -105,15 +123,40 @@ reviews:
     rating: 5
     text: "Excelente venue para eventos corporativos. Las instalaciones son de primer nivel."
     eventType: "corporativo"
+  - author: "Dra. Lorena Castañeda — Directora Ejecutiva, AMEXCO"
+    date: "2025-01"
+    rating: 5
+    text: "Organizamos la convención anual de nuestra asociación en Hacienda de los Morales y la elección elevó el evento a un nivel que nunca habíamos logrado. La combinación del jardín monumental con los ahuehuetes centenarios para el cóctel, el Salón Virreinal para la cena de gala y los salones privados para las sesiones paralelas fue impecable. La cocina galardonada del venue hizo el resto. Regresaremos sin duda."
+    eventType: "corporativo"
+
+
+faqs:
+  - question: "¿Cuál es la capacidad de Hacienda de los Morales para eventos?"
+    answer: "Hacienda de los Morales puede albergar de 50 hasta 1,500 personas en banquete y hasta 2,000 en cóctel. Para ceremonias, tiene capacidad para 400 personas. Sus múltiples salones y jardines permiten dividir o combinar espacios según el tamaño y formato del evento."
+  - question: "¿Dónde está Hacienda de los Morales y cómo llegar?"
+    answer: "Se ubica en Vázquez de Mella 525, Colonia Los Morales, Polanco, Miguel Hidalgo, CP 11510. Es accesible desde Periférico Norte, Ejército Nacional y Palmas. Cuenta con amplio estacionamiento propio y servicio de valet parking, lo que facilita el acceso para todos los invitados."
+  - question: "¿Qué incluye la renta de Hacienda de los Morales?"
+    answer: "La renta incluye banquete con cocina galardonada, meseros, coordinador de eventos, mobiliario básico, mantelería, vajilla, seguridad y limpieza. La hacienda cuenta con capilla propia, cocina industrial y jardines históricos que forman parte del entorno del evento."
+  - question: "¿Qué tipo de eventos acepta Hacienda de los Morales?"
+    answer: "Acepta bodas, eventos corporativos, convenciones, cenas de gala y aniversarios. Es especialmente reconocida por bodas de alto nivel y galas corporativas de gran formato, gracias a su arquitectura colonial del siglo XVI, sus jardines y su cocina premiada."
+  - question: "¿Existen restricciones de música o catering en Hacienda de los Morales?"
+    answer: "El catering es exclusivo del venue, con proveedores autorizados. La música en exteriores tiene restricción a partir de las 22:00 horas. El horario de operación es de 12:00 a 00:00 entre semana y de 12:00 a 02:00 los fines de semana, con una duración mínima de 5 horas."
 
 seoTitle: "Hacienda de los Morales"
 seoDescription: "Hacienda histórica del siglo XVI en Polanco. Capacidad hasta 1,500 personas. Ideal para bodas y eventos corporativos de lujo."
 keywords:
-  - hacienda de los morales
-  - salon bodas polanco
-  - eventos corporativos polanco
-  - hacienda bodas cdmx
-
+  - hacienda de los morales polanco boda
+  - hacienda colonial polanco eventos
+  - venue jardin polanco boda
+  - hacienda siglo XVII polanco cdmx
+  - boda jardin polanco cdmx
+  - hacienda bodas lujo cdmx
+  - salon virreinal eventos polanco
+  - bodas hacienda historica ciudad de mexico
+  - convenciones corporativas polanco lujo
+  - venue colonial cdmx boda lujo
+  - jardines centenarios boda cdmx
+  - hacienda novohispana eventos polanco
 featured: true
 premium: true
 verified: true

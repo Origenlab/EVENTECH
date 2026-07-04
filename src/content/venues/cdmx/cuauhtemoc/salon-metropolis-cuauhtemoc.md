@@ -124,6 +124,17 @@ reviews:
     text: "Los XV años de Isabela con temática contemporánea quedaron preciosos. Queríamos algo diferente a un salón clásico y Metrópolis fue la respuesta perfecta. La pista de baile LED de EVENTECH fue el hit de la fiesta y la terraza fue perfecta para las fotos de protocolo con las luces de la ciudad de fondo."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas caben en Salón Metrópolis Roma Norte?"
+    answer: "Salón Metrópolis tiene capacidad para 250 personas en banquete y hasta 320 en cóctel. Para ceremonias puede alojar 150 personas sentadas. El aforo mínimo es de 50 personas. El espacio incluye terraza urbana y pista de baile, lo que permite manejar diferentes ambientes dentro del mismo evento."
+  - question: "¿Dónde está Salón Metrópolis y cómo llegar?"
+    answer: "Se ubica en Av. Chapultepec 480, Roma Norte, alcaldía Cuauhtémoc, C.P. 06700. Su ubicación sobre Av. Chapultepec garantiza una conectividad excepcional: el Metro Chilpancingo (Línea 9) está a 3 cuadras, el Metrobús Insurgentes pasa a una cuadra y es accesible en bicicleta desde Roma, Condesa y Escandón. Cuenta con estacionamiento propio."
+  - question: "¿Qué incluye la renta de Salón Metrópolis?"
+    answer: "La renta incluye coordinador de eventos, mobiliario básico, mantelería, iluminación básica, montaje (desde 3 horas antes), desmontaje, limpieza y seguridad. El espacio cuenta con terraza urbana, pista de baile, cocina industrial, aire acondicionado, área de fotos, WiFi y acceso para discapacitados. El catering debe contratarse con proveedores autorizados."
+  - question: "¿Qué tipo de eventos se realizan en Salón Metrópolis?"
+    answer: "Salón Metrópolis es ideal para bodas contemporáneas, XV años modernos, cumpleaños de adultos, aniversarios, eventos corporativos, lanzamientos de producto, cenas de gala, sesiones fotográficas y despedidas de soltera o soltero. Su diseño actual y su ubicación en Roma Norte lo posicionan como el venue favorito de parejas y empresas que buscan un espacio con personalidad metropolitana en el corazón de CDMX."
+  - question: "¿Cuál es el horario de Salón Metrópolis y qué servicios adicionales ofrece?"
+    answer: "El horario es de 10:00 a 00:00 entre semana y de 10:00 a 03:00 los fines de semana, con mínimo de 5 horas. Los servicios adicionales incluyen open bar con coctelería artesanal, DJ y sonido EVENTECH, iluminación arquitectónica EVENTECH, pistas de baile LED, food trucks y estaciones gourmet. Se respetan las normas de convivencia vecinal de Roma Norte."
 seoTitle: "Salón Metrópolis Roma Norte"
 seoDescription: "Salón contemporáneo en Roma Norte, Cuauhtémoc. Terraza urbana, diseño actual. Bodas y corporativos hasta 250 personas CDMX."
 keywords:

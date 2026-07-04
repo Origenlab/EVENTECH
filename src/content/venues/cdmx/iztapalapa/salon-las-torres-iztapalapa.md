@@ -124,6 +124,17 @@ reviews:
     text: "Celebramos nuestro aniversario 25 con 200 familiares y amigos. El salón tiene esa elegancia clásica que buscábamos, con candelabros en el techo y detalles dorados. La vajilla incluida está en buen estado y el montaje fue impecable. Muy recomendable para eventos formales."
     eventType: "aniversario"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Las Torres?"
+    answer: "Salón Las Torres tiene capacidad para hasta 350 personas en formato banquete y hasta 420 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salón Las Torres y cómo llegar?"
+    answer: "Salón Las Torres se encuentra en Ermita Iztapalapa 3000, Granjas Estrella, alcaldía Iztapalapa, Ciudad de México. La alcaldía cuenta con múltiples estaciones del Metro (Líneas 8, 9 y A) y es accesible desde Periférico, Canal de San Juan y otras vías principales."
+  - question: "¿Qué incluye la renta de Salón Las Torres?"
+    answer: "La renta de Salón Las Torres incluye coordinador de eventos, mobiliario básico (mesas y sillas), mantelería, vajilla completa, iluminación básica. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón Las Torres?"
+    answer: "Salón Las Torres es apto para bodas, quinceañeras, bautizos, cumpleaños y graduaciones. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Salón Las Torres?"
+    answer: "Salón Las Torres opera entre semana de 10:00 - 00:00 y fines de semana de 10:00 - 03:00 con un mínimo de 5 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Salón Las Torres Iztapalapa"
 seoDescription: "Salón clásico en Granjas Estrella, Iztapalapa. Bodas, XV años y graduaciones hasta 350 personas. Wifi, área de fotos y coordinador."
 keywords:

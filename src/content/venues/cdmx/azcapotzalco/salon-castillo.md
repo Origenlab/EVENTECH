@@ -154,6 +154,17 @@ reviews:
     text: "Realizamos nuestro lanzamiento de producto anual en Salón Castillo y fue un acierto total. La fachada del castillo como backdrop para la alfombra roja generó contenido viral en LinkedIn. El Salón de la Torre funcionó perfecto como sala VIP para clientes premium. El sistema eléctrico soportó toda nuestra producción sin problemas. Repetiremos."
     eventType: "corporativos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Castillo?"
+    answer: "Salón Castillo tiene capacidad para hasta 400 personas en formato banquete y hasta 500 en formato cóctel. Para ceremonias, el espacio acomoda hasta 250 invitados. El mínimo de invitados es de 60 personas."
+  - question: "¿Dónde está ubicado Salón Castillo y cómo llegar?"
+    answer: "Salón Castillo se encuentra en Centeotl 61, La Preciosa, colonia La Preciosa, alcaldía Azcapotzalco, Ciudad de México. Puedes llegar en Metro (línea 6, estación Vallejo o Ferrería) o en auto particular y Uber/DiDi. Cuenta con estacionamiento propio."
+  - question: "¿Qué está incluido en la renta de Salón Castillo?"
+    answer: "La renta de Salón Castillo incluye: coordinador de evento, mobiliario básico (mesas y sillas), mantelería, iluminación básica, equipo de sonido básico, montaje, desmontaje, personal de seguridad y limpieza post-evento. Las instalaciones cuentan además con cocina industrial, pista de baile, Wi-Fi, aire acondicionado."
+  - question: "¿Qué tipo de eventos se pueden realizar en Salón Castillo?"
+    answer: "Salón Castillo es ideal para bodas, XV años, bautizos, cumpleaños, aniversarios, fiestas infantiles, graduaciones y primeras comuniones. Entre otros tipos de celebraciones y reuniones."
+  - question: "¿Cuál es el horario de eventos en Salón Castillo?"
+    answer: "Salón Castillo opera en los siguientes horarios: lunes a viernes de 10:00 - 00:00, sábados y domingos de 10:00 - 03:00. La renta mínima es de 5 horas. Respecto al catering: Catering externo permitido con caterings autorizados."
 seoTitle: "Salón Castillo Azcapotzalco"
 seoDescription: "Salón temático castillo medieval en Azcapotzalco. Torres, arcos góticos, escalinata. Eventos hasta 400 personas. Socio EVENTECH."
 keywords:

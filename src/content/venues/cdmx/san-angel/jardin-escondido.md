@@ -75,6 +75,34 @@ eventechPartner: true
 
 rating: 4.6
 reviewCount: 87
+reviews:
+  - author: "Sofía y Rodrigo Pérez Gutiérrez"
+    date: "2025-03"
+    rating: 5
+    text: "Nuestra boda en el Jardín Escondido de San Ángel fue íntima, mágica y completamente diferente a todo lo que habíamos visto. La casona del siglo XIX en Amargura 25, con sus muros de piedra volcánica, el laberinto de jardines secretos y las terrazas cubiertas de buganvilias, captura exactamente la esencia bohemia y artística de San Ángel. Cada rincón del espacio es una foto irrepetible."
+    eventType: "boda"
+  - author: "Claudia Ramos y sus amigas"
+    date: "2024-08"
+    rating: 5
+    text: "Celebramos la despedida de soltera de mi mejor amiga en el Jardín Escondido y fue simplemente perfecta. El ambiente bohemio de la casona con jardines secretos y buganvilias en el barrio más romántico de CDMX creó una atmósfera de cuento. Somos 40 personas y el espacio nos hizo sentir como si tuviéramos todo San Ángel para nosotras. Una noche que todas guardaremos en el corazón."
+    eventType: "despedida"
+  - author: "Familia Serrano Aguilar"
+    date: "2024-03"
+    rating: 4
+    text: "Celebramos el cumpleaños de nuestra madre en el Jardín Escondido San Ángel con 120 invitados y el espacio boutique fue perfecto para la escala del evento. El tiempo parece detenerse dentro de la casona de piedra volcánica, en Amargura 25 —las buganvilias, los jardines secretos, el silencio de San Ángel. Es un espacio que te hace sentir muy lejos del caos de la ciudad sin haber salido de ella."
+    eventType: "cumpleaños"
+
+faqs:
+  - question: "¿Cuántas personas puede alojar Jardín Escondido San Ángel?"
+    answer: "Jardín Escondido tiene capacidad para 30 a 150 personas en banquete y hasta 200 en cóctel. Para ceremonias al aire libre, la capacidad es de 100 personas en sus jardines secretos y terrazas cubiertas de buganvilias. Es un venue boutique para eventos íntimos en San Ángel."
+  - question: "¿Dónde está Jardín Escondido San Ángel y cómo llegar?"
+    answer: "Se ubica en Amargura 25, San Ángel, Álvaro Obregón, CP 01000, en el corazón del barrio histórico de San Ángel. Es accesible en Metrobús División del Norte o en auto por Insurgentes Sur. El venue cuenta con estacionamiento propio para los asistentes."
+  - question: "¿Qué incluye la renta de Jardín Escondido?"
+    answer: "La renta incluye coordinador de eventos, mobiliario básico, montaje y desmontaje, y limpieza. El espacio comprende jardines secretos con muros de piedra volcánica, terrazas con buganvilias, vestidores y áreas fotogénicas únicas. Los proveedores de catering externos son bienvenidos."
+  - question: "¿Qué tipo de eventos se realizan en Jardín Escondido San Ángel?"
+    answer: "Jardín Escondido acepta bodas íntimas, despedidas de soltera, cumpleaños, baby showers y aniversarios. Su atmósfera bohemia y secreta lo hace especialmente popular para bodas pequeñas donde la experiencia sensorial y la intimidad son más importantes que la escala."
+  - question: "¿Cuál es el horario de Jardín Escondido y tiene restricción de ruido?"
+    answer: "Opera entre semana de 14:00 a 23:00 horas y los fines de semana de 12:00 a 00:00, con duración mínima de 4 horas. El horario máximo (curfew) es medianoche. Al ser un espacio abierto en zona residencial de San Ángel, se respetan las normas de convivencia vecinal en niveles de música."
 
 seoTitle: "Jardín Escondido"
 seoDescription: "Casona del siglo XIX con jardines secretos en San Ángel. Bodas íntimas, despedidas y celebraciones para 30-150 personas."

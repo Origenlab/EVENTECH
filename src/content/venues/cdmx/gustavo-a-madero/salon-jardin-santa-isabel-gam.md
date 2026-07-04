@@ -101,6 +101,17 @@ reviews:
     text: "El baby shower de mi amiga fue en el jardín de Santa Isabel y quedó precioso. Los árboles dan sombra perfecta, el césped está bien cuidado y la decoración con globos y flores se veía increíble con el fondo verde. Para 50 personas fue ideal. Lo super recomiendo para eventos íntimos."
     eventType: "baby-shower"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón-Jardín Santa Isabel?"
+    answer: "Salón-Jardín Santa Isabel tiene capacidad para hasta 220 personas en formato banquete y hasta 280 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salón-Jardín Santa Isabel y cómo llegar?"
+    answer: "Salón-Jardín Santa Isabel se encuentra en Cantera 189, Santa Isabel Tola, alcaldía Gustavo A. Madero, Ciudad de México. La alcaldía cuenta con varias estaciones del Metro (Líneas 3 y 6) y amplia red de transporte público que facilita el acceso desde toda la CDMX."
+  - question: "¿Qué incluye la renta de Salón-Jardín Santa Isabel?"
+    answer: "La renta de Salón-Jardín Santa Isabel incluye mobiliario básico (mesas y sillas), mantelería, iluminación básica, montaje del evento, desmontaje. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón-Jardín Santa Isabel?"
+    answer: "Salón-Jardín Santa Isabel es apto para bodas, quinceañeras, bautizos, comuniones y primeras comuniones. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Salón-Jardín Santa Isabel?"
+    answer: "Salón-Jardín Santa Isabel opera entre semana de 10:00 - 22:00 y fines de semana de 10:00 - 02:00 con un mínimo de 5 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Salón-Jardín Santa Isabel GAM"
 seoDescription: "Salón con jardín en Santa Isabel Tola, GAM. Bodas y bautizos hasta 220 personas con área de fotos natural desde $10,000."
 keywords:

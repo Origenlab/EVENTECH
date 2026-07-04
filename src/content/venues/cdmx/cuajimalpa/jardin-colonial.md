@@ -1,8 +1,13 @@
 ---
 name: "Jardín Colonial"
 slug: "jardin-colonial"
-description: "Jardín Colonial es un espacio al aire libre con encanto rústico en el pueblo de Cuajimalpa de Morelos. Rodeado de vegetación natural y con arquitectura de estilo colonial, este jardín ofrece un escenario campestre para bodas, bautizos, XV años y celebraciones familiares de hasta 180 personas, aprovechando el clima fresco y el paisaje boscoso de la zona alta del poniente de la Ciudad de México."
-shortDescription: "Jardín con estilo colonial en Cuajimalpa. Arcos de cantera y clima fresco de montaña para eventos hasta 180 personas."
+description: >-
+  Jardín Colonial es un espacio al aire libre con encanto rústico en el pueblo de Cuajimalpa de Morelos, a menos de 25 minutos de
+  Santa Fe y con acceso directo desde Interlomas por la carretera México-Toluca. Rodeado de vegetación natural y con arquitectura
+  de estilo colonial, este jardín ofrece un escenario campestre-boscoso para bodas, bautizos, XV años y celebraciones familiares
+  de hasta 180 personas, aprovechando el clima fresco de montaña y el paisaje natural que caracteriza a la alcaldía más verde de
+  la CDMX. Ideal para quienes buscan un venue eventos bosque cdmx a precio accesible, sin alejarse del corredor Santa Fe–Interlomas.
+shortDescription: "Jardín colonial en Cuajimalpa, a 25 min de Santa Fe e Interlomas. Arcos de cantera, naturaleza boscosa y clima fresco para eventos hasta 180 personas."
 
 region: "cdmx"
 zone: "Cuajimalpa de Morelos"
@@ -110,6 +115,17 @@ reviews:
     text: "Hicimos la sesión pre-boda de mi hermana en el jardín y las fotos quedaron increíbles. Los arcos de cantera y la vegetación dan fondos naturales que no necesitan nada más. El fotógrafo dijo que la luz de Cuajimalpa por la tarde es de las mejores que ha trabajado."
     eventType: "sesion-foto"
 
+faqs:
+  - question: "¿Cuántas personas caben en Jardín Colonial Cuajimalpa?"
+    answer: "Jardín Colonial tiene capacidad para 180 personas en banquete y hasta 220 en cóctel. Para ceremonias puede alojar 120 personas sentadas. El aforo mínimo es de 30 personas. Los arcos de cantera y la vegetación natural del jardín crean un escenario campestre único."
+  - question: "¿Dónde está Jardín Colonial y cómo llegar?"
+    answer: "Se ubica en Lerdo 26, Cuajimalpa, C.P. 05000, en el centro del pueblo de Cuajimalpa de Morelos, alcaldía del poniente de la Ciudad de México. El acceso es por la carretera México-Toluca. Cuenta con estacionamiento propio. Desde Santa Fe se llega en aproximadamente 15 minutos en auto."
+  - question: "¿Qué incluye la renta de Jardín Colonial?"
+    answer: "La renta incluye mobiliario básico, mantelería, montaje, desmontaje y limpieza. El espacio cuenta con jardín con arquitectura colonial, arcos de cantera, pista de baile y cocina industrial. El catering externo está permitido. Se pueden contratar carpas y toldos como servicio adicional para protegerse del clima fresco de Cuajimalpa."
+  - question: "¿Qué tipo de eventos se realizan en Jardín Colonial?"
+    answer: "Jardín Colonial acepta bodas al aire libre, XV años, bautizos, cumpleaños, comuniones, fiestas privadas, aniversarios y sesiones fotográficas. Su arquitectura colonial con arcos de cantera y el clima fresco y bosquecino de Cuajimalpa lo hacen especialmente atractivo para bodas y XV años con ambiente campestre a precios accesibles."
+  - question: "¿Qué debo saber sobre el clima y la política de catering en Jardín Colonial?"
+    answer: "Jardín Colonial es un espacio predominantemente al aire libre ubicado en Cuajimalpa, donde el clima puede ser frío y lluvioso, especialmente de junio a octubre. Se recomienda reservar una carpa o toldo para eventos en temporada de lluvias. El horario es de 10:00 a 22:00 entre semana y de 10:00 a 01:00 los fines de semana. El catering externo está permitido y no se autoriza pirotecnia."
 seoTitle: "Jardín Colonial Cuajimalpa"
 seoDescription: "Jardín colonial en Cuajimalpa para bodas, bautizos y XV años al aire libre. Arcos de cantera, clima fresco y hasta 180 personas."
 keywords:
@@ -121,6 +137,11 @@ keywords:
   - salon jardin cuajimalpa precios
   - eventos al aire libre cuajimalpa
   - jardin colonial bautizos xv anos cdmx
+  - venue eventos cuajimalpa cdmx
+  - salon bodas cerca santa fe cdmx
+  - jardin bodas naturaleza cuajimalpa
+  - eventos cerca interlomas cdmx
+  - venue eventos bosque cdmx
 
 featured: false
 premium: false

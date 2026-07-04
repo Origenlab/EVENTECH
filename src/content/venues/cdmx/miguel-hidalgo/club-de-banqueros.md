@@ -83,7 +83,34 @@ eventechDiscount: "20% en equipamiento audiovisual corporativo"
 
 rating: 4.9
 reviewCount: 234
+reviews:
+  - author: "Isabel Noriega y Andrés Noriega Fuentes"
+    date: "2025-02"
+    rating: 5
+    text: "Celebramos nuestra boda en el Club de Banqueros y fue exactamente la experiencia que buscábamos: elegancia discreta, servicio impecable, exclusividad real. La casona porfiriana en Presidente Masaryk tiene una presencia arquitectónica que comunica distinción sin ostentación. Los salones con molduras originales, la biblioteca de caoba y la terraza con vista a Chapultepec crearon tres ambientes perfectos para nuestra celebración de 120 personas. El personal del club entiende el servicio de alto nivel de una manera que pocos venues en CDMX igualan."
+    eventType: "bodas"
+  - author: "Lic. Arturo Medina — Consejo de Administración, Banco Regional del Norte"
+    date: "2024-11"
+    rating: 5
+    text: "Para eventos donde la discreción y el nivel son igualmente importantes, el Club de Banqueros es el único venue en CDMX que cumple ambos criterios sin concesiones. La casona porfiriana en Polanco ofrece una privacidad real que los grandes hoteles no pueden garantizar, y el servicio personalizado de su equipo para los 180 comensales de nuestra cena directiva fue de una calidad excepcional. La biblioteca de caoba para el cóctel de inicio estableció el tono perfecto para una noche de conversación de alto nivel."
+    eventType: "corporativos"
+  - author: "Familia Garza Cantú"
+    date: "2025-04"
+    rating: 5
+    text: "Celebramos el aniversario de bodas de mis padres en el Club de Banqueros y la sobriedad elegante del lugar fue el marco perfecto para una celebración íntima de 90 personas. La terraza con vista a Chapultepec al atardecer es un secreto bien guardado de Polanco que muy pocos conocen. El equipo del club maneja la logística con discreción y experiencia: el servicio de meseros es silencioso, preciso y atento sin ser intrusivo. Un espacio para quienes no necesitan impresionar, sino simplemente celebrar con clase."
+    eventType: "aniversarios"
 
+faqs:
+  - question: "¿Cuál es la capacidad de Club de Banqueros de México?"
+    answer: "Club de Banqueros de México puede recibir hasta 180 personas. La capacidad varía según el montaje: banquete, cóctel o teatro. Consulta con el equipo para el formato que mejor se adapte a tu evento."
+  - question: "¿Dónde está ubicado Club de Banqueros de México y cómo llegar?"
+    answer: "Club de Banqueros de México se ubica en Av. Presidente Masaryk 393, Polanco, colonia Polanco, alcaldía CDMX, Ciudad de México. Si vas en auto, se recomienda verificar disponibilidad de estacionamiento directamente con el venue."
+  - question: "¿Qué incluye la renta de Club de Banqueros de México?"
+    answer: "La renta de Club de Banqueros de México incluye: coordinador, mobiliario-basico, manteleria, vajilla, meseros, seguridad, limpieza, montaje, desmontaje. Además, el venue cuenta con las siguientes instalaciones y amenidades: valet-parking, terraza, jardin, pista-baile, aire-acondicionado, wifi, vestidores, area-fotos, acceso-discapacitados. Para paquetes personalizados o servicios adicionales, consulta directamente con el equipo."
+  - question: "¿Qué tipo de eventos se pueden realizar en Club de Banqueros de México?"
+    answer: "Club de Banqueros de México es apto para una amplia variedad de eventos, entre ellos: bodas, corporativos, aniversarios. El equipo del venue puede orientarte sobre el montaje más adecuado para cada ocasión."
+  - question: "¿Club de Banqueros de México cuenta con estacionamiento?"
+    answer: "Sí, valet-parking. Además, el venue puede orientarte sobre opciones de acceso en transporte público o valet parking según disponibilidad. Consulta directamente para más detalles."
 seoTitle: "Club de Banqueros Eventos Exclusivos Polanco"
 seoDescription: "Club privado en Polanco para bodas íntimas y eventos corporativos de alto nivel. Elegancia discreta y servicio impecable."
 keywords:

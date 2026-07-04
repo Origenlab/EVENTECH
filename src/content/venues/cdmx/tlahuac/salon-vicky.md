@@ -9,6 +9,11 @@ zone: "Tláhuac"
 zoneSlug: "tlahuac"
 address: "C. Sebastián Trejo Mz. 107 Lt. 3, Conchita B"
 neighborhood: "Conchita B"
+postalCode: "13509"
+coordinates:
+  lat: 19.2411387
+  lng: -98.9960494
+googleMapsUrl: "https://maps.google.com/?q=Salon+vicky+tlahuac+CDMX"
 
 type: "salon"
 
@@ -87,6 +92,18 @@ reviews:
     rating: 4
     text: "Boda con 150 invitados. El salón tiene buen tamaño, la pista de baile fue suficiente para el vals y la fiesta. Lo que más valoramos fue la atención de Doña Vicky — nos resolvió todo el día del evento sin que tuviéramos que preocuparnos por nada."
     eventType: "boda"
+
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Vicky Tláhuac?"
+    answer: "Salón Vicky Tláhuac tiene capacidad para 180 personas en formato banquete y 220 en cóctel. Su superficie de 380 m² con pista de baile de 45 m² lo convierte en una excelente opción para celebraciones familiares e íntimas en la alcaldía Tláhuac."
+  - question: "¿Dónde está Salón Vicky y cómo se llega?"
+    answer: "El salón se encuentra en Calle Sebastián Trejo Mz. 107 Lt. 3, colonia Conchita B, alcaldía Tláhuac, CDMX, C.P. 13509. Está ubicado sobre vía principal, accesible desde Tláhuac, Iztapalapa y Xochimilco. Cuenta con estacionamiento propio."
+  - question: "¿Qué incluye la renta de Salón Vicky?"
+    answer: "La renta incluye mobiliario básico, mantelería, iluminación básica, sonido básico, montaje, desmontaje y limpieza. El salón cuenta con aire acondicionado y decoración versátil en tonos neutros que se adapta a cualquier temática."
+  - question: "¿Qué tipos de eventos se realizan en Salón Vicky Tláhuac?"
+    answer: "El salón es ideal para bodas, XV años, bautizos, cumpleaños, comuniones, fiestas infantiles, fiestas privadas y aniversarios. La atención personalizada de su propietaria, quien supervisa cada evento, es uno de sus grandes diferenciadores."
+  - question: "¿Qué facilidades adicionales ofrece Salón Vicky?"
+    answer: "Salón Vicky cuenta con área infantil, Wi-Fi y acceso para personas con discapacidad. Opera de lunes a viernes de 10:00 a 23:00 y fines de semana hasta las 03:00 horas, con un mínimo de 5 horas de renta. Sus precios accesibles son ideales para familias de Tláhuac e Iztapalapa."
 
 seoTitle: "Salón Vicky Tláhuac"
 seoDescription: "Salón de fiestas familiar en Tláhuac. Bodas, XV años y bautizos hasta 180 personas con atención personalizada y precio accesible."

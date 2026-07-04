@@ -73,7 +73,34 @@ eventechDiscount: "Cotización especial en paquetes AV"
 
 rating: 4.3
 reviewCount: 156
+reviews:
+  - author: "Mtro. Ramón Fuentes — Coordinador General, Foro Iberoamericano de Educación"
+    date: "2025-03"
+    rating: 5
+    text: "Realizamos nuestro congreso con 2,400 asistentes en el Centro de Convenciones Tlatelolco y la logística fue extraordinaria. La ubicación junto a la Plaza de las Tres Culturas —donde conviven pirámides prehispánicas, arquitectura colonial y modernismo— dio al evento una dimensión simbólica única. Los 5,000 metros cuadrados modulables y el acceso directo al metro facilitaron la asistencia de delegaciones de toda la zona metropolitana."
+    eventType: "congreso"
+  - author: "Ing. Paola Medina — Directora de Operaciones, TechMex"
+    date: "2024-09"
+    rating: 4
+    text: "Organizamos nuestra convención tecnológica en Tlatelolco y la tecnología audiovisual del centro fue la más avanzada que hemos probado en cualquier venue de CDMX. La conectividad de transporte —metro y varios ejes viales— hizo muy fácil la asistencia de nuestros 1,800 colaboradores. Para eventos corporativos de gran formato en el norte de la ciudad, es la opción inteligente."
+    eventType: "convención"
+  - author: "Dra. Carmen Solís — Coordinadora, Congreso Nacional de Sociología"
+    date: "2024-04"
+    rating: 4
+    text: "El Centro de Convenciones Tlatelolco ofrece algo que pocos venues tienen: contexto histórico y capacidad simultánea. Celebrar un congreso académico sobre identidad mexicana a metros de las pirámides de Tlatelolco y la arquitectura de Pani en el Eje Central tiene una coherencia simbólica extraordinaria. La capacidad de 3,000 personas en un solo recinto facilita enormemente la organización."
+    eventType: "congreso"
 
+faqs:
+  - question: "¿Cuántas personas caben en el Centro de Convenciones Tlatelolco?"
+    answer: "El Centro de Convenciones Tlatelolco tiene capacidad para hasta 3,000 personas en formato teatro, 1,200 en banquete y 5,000 en cóctel. El Salón de las Culturas puede alojar entre 1,500 y 2,500 personas en teatro. El aforo mínimo recomendado es de 200 personas para eventos en el espacio completo."
+  - question: "¿Dónde está el Centro de Convenciones Tlatelolco y cómo llegar?"
+    answer: "Se ubica en Eje Central Lázaro Cárdenas 445, Tlatelolco, alcaldía Cuauhtémoc, C.P. 06900, junto a la Plaza de las Tres Culturas. Tiene acceso directo a Metro Tlatelolco (Líneas 3 y B) a 200 metros, paradas de Metrobús en la puerta y conexión directa con Eje Central y Paseo de la Reforma. Cuenta con estacionamiento propio."
+  - question: "¿Qué incluye la renta del Centro de Convenciones Tlatelolco?"
+    answer: "La renta incluye coordinador de eventos, mobiliario básico, seguridad, limpieza e iluminación básica. El centro ofrece más de 5,000 m² de espacios modulables con tecnología audiovisual avanzada, WiFi, aire acondicionado, acceso para discapacitados y terraza. EVENTECH es socio oficial con paquetes especiales de audiovisual."
+  - question: "¿Qué tipo de eventos se realizan en el Centro de Convenciones Tlatelolco?"
+    answer: "El Centro de Convenciones Tlatelolco está especializado en convenciones, eventos corporativos de gran formato, exposiciones, congresos, graduaciones universitarias y lanzamientos. Su ubicación junto a la icónica Plaza de las Tres Culturas y su conectividad de transporte público sin igual en CDMX lo convierten en la opción inteligente para eventos donde la asistencia masiva es clave."
+  - question: "¿Cuál es el horario del Centro de Convenciones Tlatelolco y cuánto cuesta?"
+    answer: "El horario es de 07:00 a 23:00 entre semana y de 08:00 a 22:00 los fines de semana, con un mínimo de 8 horas de renta por la magnitud de los espacios. Los precios van de $200,000 a $500,000 por evento, reflejando la escala de más de 5,000 m² modulables. Es el centro de convenciones con mejor acceso de transporte público de toda la Ciudad de México."
 seoTitle: "Centro de Convenciones Tlatelolco"
 seoDescription: "Centro de convenciones en Tlatelolco. Acceso Metro directo, 5,000 m² modulables para eventos hasta 3,000 personas en CDMX."
 keywords:

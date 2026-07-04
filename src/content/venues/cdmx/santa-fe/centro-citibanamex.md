@@ -74,6 +74,35 @@ eventechPartner: true
 
 rating: 4.6
 reviewCount: 312
+reviews:
+  - author: "Ing. Carlos Delgado Ibarra — VP de Operaciones, Oracle México"
+    date: "2025-02"
+    rating: 5
+    text: "Organizamos Oracle CloudWorld México en Centro Citibanamex con 4,200 asistentes y fue la primera vez que ningún detalle logístico fue motivo de preocupación. La subestación eléctrica propia aguantó toda nuestra producción audiovisual sin una sola caída. El sistema WiFi de alta densidad con 50,000 conexiones disponibles fue crítico para nuestra app del evento. Los 24 andenes de carga resolvieron la logística del montaje en tiempo récord. El estándar que pone Citibanamex es inalcanzable en otro venue."
+    eventType: "corporativo"
+  - author: "Lic. Adriana Soto Cárdenas — Coordinadora, Expo Salud México"
+    date: "2024-11"
+    rating: 5
+    text: "Llevamos Expo Salud México al Centro Citibanamex por tercer año consecutivo y la razón es simple: no existe en México otro recinto que maneje 12,000 metros cuadrados de piso de exposición sin que se sienta congestionado. Los cuatro pabellones independientes nos permiten segmentar perfectamente las áreas de la expo. El equipo de logística del venue entiende las necesidades de un evento médico-científico: certificaciones sanitarias, control de temperatura, acceso vehicular controlado."
+    eventType: "lanzamiento"
+  - author: "Mtro. Fernando Ríos — Director, Asociación Mexicana de Franquicias"
+    date: "2024-08"
+    rating: 4
+    text: "ExpoFranquicias 2024 fue nuestro evento más grande en 20 años gracias al espacio que nos dio Citibanamex. 8,000 asistentes en dos días, 400 stands activos, tres escenarios simultáneos con conferencias. La infraestructura nunca fue el problema — el centro está diseñado exactamente para esto. El Teatro Metropolitano fue perfecto para las keynotes de alto perfil. Para cualquier convención o expo de escala nacional, este es el único recinto que lo resuelve todo."
+    eventType: "convención"
+
+
+faqs:
+  - question: "¿Cuántas personas puede recibir Centro Citibanamex para un evento?"
+    answer: "Centro Citibanamex es el centro de convenciones más grande de América Latina, con 70,000 metros cuadrados de espacios interiores y capacidad para hasta 30,000 asistentes simultáneos en banquete o 40,000 en cóctel. Acepta desde 100 hasta 30,000 personas, adaptando sus múltiples pabellones al tamaño de cada evento."
+  - question: "¿Dónde está ubicado Centro Citibanamex y cómo llegar?"
+    answer: "Se ubica en Av. del Conscripto 311, Colonia Lomas de Sotelo, Miguel Hidalgo, CP 11200, cerca de Santa Fe y Lomas de Chapultepec. Es accesible en auto por Periférico Norte y cuenta con estacionamiento para miles de vehículos. También opera servicio de valet parking y hay opciones de traslado desde el Metro Tacuba (Línea 2 y 7)."
+  - question: "¿Qué incluye la renta de Centro Citibanamex?"
+    answer: "La renta incluye seguridad, limpieza, montaje y desmontaje de los espacios. El venue cuenta con generador de emergencia, aire acondicionado industrial, cocinas industriales y WiFi en todo el recinto. Para convenciones y exposiciones, EVENTECH ofrece servicios adicionales de iluminación, audiovisual, pantallas LED, carpas y mobiliario."
+  - question: "¿Qué tipo de eventos acepta Centro Citibanamex?"
+    answer: "Centro Citibanamex acepta eventos corporativos, convenciones internacionales, lanzamientos de productos y cenas de gala de gran escala. Es la sede habitual de las ferias más importantes de México como Expo Mueble, ANTAD y eventos de la talla de grandes congresos médicos y tecnológicos internacionales."
+  - question: "¿Cuál es el horario de Centro Citibanamex y cuánto cuesta rentar el espacio?"
+    answer: "Opera entre semana de 06:00 a 00:00 horas y los fines de semana de 06:00 a 02:00. Los precios de renta van desde $150,000 hasta $2,500,000 MXN por evento, dependiendo del pabellón, los días de montaje y los servicios contratados. Para solicitar cotización personalizada, se contacta directamente al equipo de eventos."
 
 seoTitle: "Centro Citibanamex"
 seoDescription: "70,000 m² para eventos épicos. Convenciones hasta 30,000 personas. El venue más grande de América Latina en Santa Fe CDMX."

@@ -72,6 +72,34 @@ gallery:
 eventechPartner: false
 rating: 4.9
 reviewCount: 89
+reviews:
+  - author: "Dir. Alejandra Villanueva — CEO, Grupo Media Capital"
+    date: "2025-02"
+    rating: 5
+    text: "Organicé la cena privada de cierre de nuestra ronda de inversión en Pujol y fue la decisión perfecta. El Chef Enrique Olvera creó un menú de degustación personalizado que tomó a nuestros socios internacionales en un viaje por los sabores ancestrales de México reinterpretados con técnicas de vanguardia. El legendario Mole Madre —que lleva más de una década envejeciendo— fue el momento cumbre de la noche. Un evento irrepetible."
+    eventType: "corporativo"
+  - author: "Carlos y Gabriela Montoya Reyes"
+    date: "2024-09"
+    rating: 5
+    text: "Celebramos nuestro aniversario número 25 con una cena privada en Pujol y fue la experiencia gastronómica más extraordinaria de nuestra vida. El espacio minimalista diseñado por Javier Sánchez en Tennyson 133, la maestría de la cocina y el servicio absolutamente preciso del equipo crearon una velada que volveremos a contarle a nuestros nietos. Consistentemente entre los 10 mejores restaurantes del mundo, y con razón."
+    eventType: "aniversario"
+  - author: "Embajada de Francia en México"
+    date: "2024-05"
+    rating: 5
+    text: "Elegimos Pujol para una cena de gala diplomática y el restaurante del Chef Olvera demostró que la nueva cocina mexicana tiene el nivel y la sofisticación para cualquier protocolo internacional. La experiencia sensorial —el viaje por los sabores ancestrales de México en el menú de degustación— fue un tributo a la cultura mexicana que nuestros invitados encontraron emocionante. Un embajador cultural en formato gastronómico."
+    eventType: "cena-gala"
+
+faqs:
+  - question: "¿Cuántas personas puede recibir Pujol para un evento privado?"
+    answer: "Pujol acepta eventos privados de 20 a 60 personas en formato banquete y hasta 80 en formato cóctel. Es un espacio íntimo y exclusivo, ubicado en Tennyson 133, Polanco IV Sección, CP 11550, consistentemente clasificado entre los 10 mejores restaurantes del mundo."
+  - question: "¿Cómo llegar a Pujol y cuenta con estacionamiento?"
+    answer: "Pujol se localiza en Tennyson 133, Polanco IV Sección, Miguel Hidalgo, CP 11550. Es accesible a pie desde Presidente Masaryk y cuenta con valet parking para los invitados. La zona es una de las más exclusivas de la Ciudad de México, con opciones de transporte como Uber y metro Polanco (Línea 7)."
+  - question: "¿Qué incluye la experiencia de evento privado en Pujol?"
+    answer: "Todos los eventos incluyen menú degustación diseñado personalmente por el Chef Enrique Olvera, meseros especializados, coordinador de sala, vajilla y mantelería exclusivas del restaurante. El legendario 'Mole Madre', que envejece de forma continua desde hace más de una década, forma parte de la experiencia."
+  - question: "¿Qué tipo de eventos acepta Pujol?"
+    answer: "Pujol acepta eventos corporativos exclusivos, cenas de gala, aniversarios y cumpleaños. No realiza bodas ni XV años. Solo se organizan eventos privados con menú degustación y se requiere reservación con mínimo 30 días de anticipación. No se permiten decoraciones externas para preservar el diseño minimalista del espacio."
+  - question: "¿Cuál es el horario de Pujol para eventos privados?"
+    answer: "Pujol opera todos los días de 13:00 a 23:00 horas, con una duración mínima de 3 horas por evento. El horario máximo (curfew) es las 23:00. Para garantizar la disponibilidad del espacio completo, se recomienda reservar con al menos un mes de anticipación."
 
 seoTitle: "Pujol"
 seoDescription: "Eventos exclusivos en Pujol, top 10 mundial. Chef Enrique Olvera, Mole Madre, alta cocina mexicana. 20-60 personas en Polanco."

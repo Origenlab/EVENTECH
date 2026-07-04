@@ -101,6 +101,24 @@ reviews:
     rating: 5
     text: "Flexibilidad total para crear el ambiente que necesitábamos. Equipo muy profesional."
     eventType: "convención"
+  - author: "Mtro. Alejandro Ruiz Montoya — Director de Mercadotecnia, Grupo Salinas"
+    date: "2025-03"
+    rating: 5
+    text: "Organizamos nuestra convención nacional de distribuidores en Foro Kaluz y la infraestructura técnica no nos falló en ningún momento. Los 12 metros de altura libre y el grid de rigging nos permitieron una producción visual que en cualquier otro recinto de Santa Fe hubiera sido imposible. El gerente de producción del venue fue un partner real durante toda la planeación. El WiFi de alta densidad aguantó perfectamente las 700 conexiones simultáneas."
+    eventType: "convención"
+
+
+faqs:
+  - question: "¿Cuántas personas puede albergar Foro Kaluz Santa Fe para un evento?"
+    answer: "Foro Kaluz Santa Fe tiene capacidad para 100 a 1,000 personas en banquete y hasta 1,500 en cóctel. Para ceremonias, acepta hasta 500 personas. Sus 2,500 metros cuadrados con techos de 12 metros de altura y tecnología audiovisual de última generación permiten configuraciones muy diversas."
+  - question: "¿Dónde está Foro Kaluz Santa Fe y cómo llegar?"
+    answer: "Se ubica en Av. Vasco de Quiroga 3800, Colonia Santa Fe, Cuajimalpa, CP 05348, en el corazón del distrito corporativo más dinámico de Latinoamérica. Es accesible en auto por Periférico Sur o Santa Fe. Cuenta con estacionamiento propio y valet parking para todos los asistentes."
+  - question: "¿Qué incluye la renta de Foro Kaluz?"
+    answer: "La renta incluye coordinador de eventos, mobiliario básico, seguridad, limpieza, montaje y desmontaje. La tecnología audiovisual de punta, iluminación completamente programable y sonido profesional son parte de la infraestructura. Se requiere día previo para montajes complejos y seguro de responsabilidad civil para todos los eventos."
+  - question: "¿Qué tipo de eventos se realizan en Foro Kaluz Santa Fe?"
+    answer: "Foro Kaluz acepta eventos corporativos, convenciones, lanzamientos de productos, cenas de gala y aniversarios. Su tecnología audiovisual de vanguardia lo convierte en la opción favorita para lanzamientos de marca, conferencias tecnológicas y eventos donde la producción visual es protagonista."
+  - question: "¿Cuál es la política de catering y el horario de Foro Kaluz?"
+    answer: "El catering externo está permitido con autorización previa del venue. Foro Kaluz opera entre semana de 07:00 a 00:00 horas y los fines de semana de 07:00 a 02:00, con duración mínima de 6 horas. Los montajes complejos requieren contratación del día anterior para instalación de producción audiovisual y decoración."
 
 seoTitle: "Foro Kaluz Santa Fe"
 seoDescription: "Foro de 2,500 m² con tecnología de punta en Santa Fe. Techos de 12m, iluminación programable. Eventos hasta 1,000 personas."

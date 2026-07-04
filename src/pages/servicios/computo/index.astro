@@ -1,0 +1,732 @@
+---
+/**
+ * ─── EVENTECH.MX — Cómputo para Eventos (L3, rediseño 2026) ───
+ * Renta de computadoras para eventos CDMX: laptops, iPads, PCs e impresoras.
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import { SITE } from "@config/site";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from "@lib/seo";
+import "@styles/home-2026.css";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const SUB_SERVICES = [
+  {
+    id: "laptops",
+    name: "Laptops",
+    badge: "El caballo de batalla del congreso",
+    excerpt: "Laptops empresariales Core i5 e i7 y MacBooks, entregadas con Windows u macOS configurado, Office instalado y batería al 100%. Desde una laptop para el ponente hasta 50 unidades para una capacitación corporativa.",
+    href: "/servicios/computo/laptops/",
+    image: "/images/audiovisual/monitor-pantalla-presentacion-congreso.avif",
+    subcategories: [
+      { name: "Laptop Empresarial", href: "/servicios/computo/laptops/#empresarial-heading" },
+      { name: "Alto Rendimiento", href: "/servicios/computo/laptops/#alto-rendimiento-heading" },
+      { name: "MacBook", href: "/servicios/computo/laptops/#macbook-heading" },
+      { name: "Kits de Registro", href: "/servicios/computo/laptops/#kits-registro-heading" },
+    ],
+  },
+  {
+    id: "ipads-tablets",
+    name: "iPads y Tablets",
+    badge: "Registro y votaciones sin filas",
+    excerpt: "iPads y tablets Android con la app de tu evento precargada, soportes antirrobo y carga completa. La herramienta estándar para check-in de asistentes, encuestas en vivo y votaciones interactivas.",
+    href: "/servicios/computo/ipads-tablets/",
+    image: "/images/eventos/corporativos-hero.avif",
+    subcategories: [
+      { name: "iPads", href: "/servicios/computo/ipads-tablets/#ipads-heading" },
+      { name: "Tablets Android", href: "/servicios/computo/ipads-tablets/#tablets-android-heading" },
+      { name: "Kioscos y Soportes", href: "/servicios/computo/ipads-tablets/#kioscos-heading" },
+      { name: "Votaciones Interactivas", href: "/servicios/computo/ipads-tablets/#votaciones-heading" },
+    ],
+  },
+  {
+    id: "pcs-escritorio",
+    name: "PCs de Escritorio",
+    badge: "Estaciones fijas de trabajo",
+    excerpt: "PCs completas, All-in-One y workstations con monitor, teclado y mouse, listas para operar en salas de prensa, call centers temporales, mesas de acreditación y centros de cómputo para capacitación.",
+    href: "/servicios/computo/pcs-escritorio/",
+    image: "/images/blog/evento-corporativo-cdmx-produccion.avif",
+    subcategories: [
+      { name: "All-in-One", href: "/servicios/computo/pcs-escritorio/#aio-heading" },
+      { name: "Workstations", href: "/servicios/computo/pcs-escritorio/#workstation-heading" },
+      { name: "Call Centers", href: "/servicios/computo/pcs-escritorio/#call-center-heading" },
+      { name: "Monitores", href: "/servicios/computo/pcs-escritorio/#monitores-heading" },
+    ],
+  },
+  {
+    id: "impresion-perifericos",
+    name: "Impresión y Periféricos",
+    badge: "Acreditación e infraestructura",
+    excerpt: "Impresoras láser de alto volumen, impresoras de gafetes y credenciales, kits de WiFi temporal, lectores de código QR y todos los periféricos que hacen funcionar el módulo de registro de un congreso.",
+    href: "/servicios/computo/impresion-perifericos/",
+    image: "/images/carpas/carpa-estructural-grande-congreso.avif",
+    subcategories: [
+      { name: "Impresoras Láser", href: "/servicios/computo/impresion-perifericos/#laser-heading" },
+      { name: "Gafetes y Credenciales", href: "/servicios/computo/impresion-perifericos/#gafetes-heading" },
+      { name: "WiFi Temporal", href: "/servicios/computo/impresion-perifericos/#wifi-heading" },
+      { name: "Periféricos", href: "/servicios/computo/impresion-perifericos/#perifericos-heading" },
+    ],
+  },
+];
+
+const whyFeatures = [
+  {
+    icon: "💻",
+    title: "Equipo configurado antes de llegar al venue",
+    body: "Cada laptop, iPad o PC se entrega con el sistema operativo actualizado, el software que tu evento necesita instalado y probado, y una imagen limpia sin cuentas ni archivos de terceros. Llegas, enciendes y trabajas — no pierdes la primera hora del evento instalando programas.",
+  },
+  {
+    icon: "🔁",
+    title: "Unidades de respaldo incluidas en pedidos de volumen",
+    body: "En rentas de 10 unidades o más incluimos equipo de respaldo sin costo adicional. Si una laptop falla en pleno registro de asistentes, se reemplaza en minutos con una unidad idéntica ya configurada — el módulo de acreditación no se detiene.",
+  },
+  {
+    icon: "🛠️",
+    title: "Soporte técnico durante el evento",
+    body: "Para congresos y capacitaciones ofrecemos técnico en sitio que resuelve conexiones, impresoras, red y cualquier imprevisto durante el evento. Para rentas menores, soporte remoto por WhatsApp con respuesta inmediata en horario del evento.",
+  },
+  {
+    icon: "🔒",
+    title: "Borrado seguro de datos al finalizar",
+    body: "Al recolectar el equipo realizamos borrado seguro de toda la información generada durante tu evento: registros de asistentes, archivos de trabajo y credenciales de red. Ningún dato de tu empresa o de tus asistentes permanece en las unidades.",
+  },
+  {
+    icon: "📦",
+    title: "Integración con el resto del evento",
+    body: "Somos el mismo proveedor del audio, las pantallas, el mobiliario y las carpas. El cómputo llega coordinado con el resto del montaje: la laptop del ponente ya conectada al proyector, las mesas de registro con su mobiliario y su red funcionando.",
+  },
+  {
+    icon: "🧾",
+    title: "CFDI y condiciones claras",
+    body: "Emitimos factura CFDI en todas las rentas. Reservas con 50% de anticipo, puedes hacer cambios sin costo hasta 72 horas antes del evento y la entrega, instalación y recolección están incluidas en CDMX y zona metropolitana.",
+  },
+];
+
+const steps = [
+  { n: 1, t: "Levantamiento de requerimientos", p: "Revisamos cuántas estaciones necesitas, qué software debe correr, si habrá impresión de gafetes y qué conectividad ofrece el venue para dimensionar el equipo y la red." },
+  { n: 2, t: "Propuesta y configuración", p: "Cotizamos en menos de 24 horas por WhatsApp. Confirmado el pedido, configuramos cada unidad con tu software, tu red y tus accesos antes de salir del almacén." },
+  { n: 3, t: "Entrega e instalación", p: "Instalamos el equipo en el venue antes del evento: estaciones conectadas, red probada, impresoras calibradas y todo verificado con tu equipo de producción." },
+  { n: 4, t: "Soporte y recolección", p: "Durante el evento tienes soporte técnico disponible. Al finalizar recolectamos las unidades, hacemos conteo conjunto y borrado seguro de la información." },
+];
+
+const faqs = [
+  {
+    question: "¿Cuánto cuesta la renta de computadoras para eventos en CDMX?",
+    answer: "Los precios orientativos de renta por día son: laptop empresarial de $450 a $800, iPad de $350 a $600, PC de escritorio o All-in-One de $500 a $900, impresora láser de $600 a $1,200 y kit de WiFi temporal de $1,500 a $3,500. A partir de 10 unidades aplicamos descuentos por volumen que crecen con la cantidad. La cotización exacta depende del modelo, los días de renta y la configuración requerida — la recibes en menos de 24 horas por WhatsApp al 55 6432 8954.",
+  },
+  {
+    question: "¿El equipo llega configurado con el software que necesito?",
+    answer: "Sí. Antes de cada entrega instalamos y probamos el software que tu evento requiere: la plataforma de registro de asistentes, la suite de Office, navegadores con los accesos precargados, apps de votación o el sistema que uses para acreditación. Las laptops salen con Windows 11 Pro actualizado (o macOS en MacBooks), antivirus activo y una imagen limpia. Si tu software es propietario, coordinamos una sesión previa de instalación y prueba con tu equipo de TI sin costo adicional.",
+  },
+  {
+    question: "¿Qué pasa si una computadora falla durante mi evento?",
+    answer: "En rentas de 10 unidades o más incluimos equipo de respaldo idéntico y ya configurado sin costo: el reemplazo toma minutos y el registro o la capacitación no se detienen. En rentas menores, nuestro soporte por WhatsApp responde de inmediato y, si el problema no se resuelve en remoto, enviamos una unidad de reemplazo el mismo día dentro de CDMX y zona metropolitana. Para congresos con módulos críticos de acreditación recomendamos técnico en sitio, disponible como complemento.",
+  },
+  {
+    question: "¿En qué zonas entregan el equipo de cómputo?",
+    answer: "Cubrimos todas las alcaldías de la Ciudad de México y los municipios de Naucalpan, Huixquilucan y Tlalnepantla con entrega, instalación y recolección incluidas. También atendemos Toluca, Metepec y Cuernavaca con costo logístico detallado desde la cotización. Para eventos de varios días, el equipo puede quedarse instalado en el venue durante toda la vigencia de la renta — solo se requiere un espacio con acceso controlado para resguardo nocturno.",
+  },
+  {
+    question: "¿Cómo se reserva y qué pasa si cambian los planes de mi evento?",
+    answer: "La reserva se confirma con el 50% de anticipo y el resto se liquida contra entrega. Puedes hacer cambios sin costo hasta 72 horas antes del evento: ajustar cantidades, cambiar modelos, sumar impresoras o mover el horario de entrega. Emitimos factura CFDI en todas las rentas, útil para eventos corporativos que requieren comprobación de gastos. Recomendamos reservar con 1 a 2 semanas de anticipación; para congresos de más de 30 unidades, ideal 3 a 4 semanas.",
+  },
+  {
+    question: "¿Rentan computadoras para registro de asistentes con impresión de gafetes?",
+    answer: "Sí, es uno de nuestros casos más solicitados. El kit típico de acreditación incluye laptops o iPads con tu plataforma de registro precargada, impresoras de gafetes térmicas o láser, lectores de código QR y la red WiFi temporal que conecta todo el módulo, independiente del internet del venue. Lo dimensionamos según asistentes esperados y horas pico de llegada: como regla, una estación procesa entre 60 y 80 acreditaciones por hora con impresión incluida.",
+  },
+];
+
+const jsonLd = [
+  serviceJsonLd({
+    name: "Renta de Computadoras para Eventos en CDMX",
+    description: "Renta de computadoras para eventos CDMX: laptops, iPads, PCs de escritorio e impresoras para registro de asistentes, congresos y capacitaciones. Entrega e instalación incluidas.",
+    url: "/servicios/computo/",
+    image: "/images/audiovisual/monitor-pantalla-presentacion-congreso.avif",
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Cómputo", url: "/servicios/computo/" },
+  ]),
+  faqJsonLd(faqs),
+];
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Cómputo" },
+];
+---
+
+<PageLayout
+  title="Renta de Computadoras para Eventos CDMX"
+  image="/images/audiovisual/monitor-pantalla-presentacion-congreso.avif"
+  description="Renta de computadoras para eventos CDMX: laptops, iPads, PCs e impresoras configuradas y con soporte. Registro, congresos y capacitaciones. Cotización en 24h."
+  jsonLd={jsonLd}
+>
+
+  <Breadcrumbs items={breadcrumbItems} slot="breadcrumbs" />
+  <div class="hm">
+
+    <!-- HERO -->
+    <section class="hm-hero" aria-labelledby="computo-hero-heading">
+      <div class="hm__wrap hm-hero__wrap">
+        <div class="hm-hero__grid">
+          <div class="hm-hero__main">
+            <p class="hm__eyebrow hm-hero__eyebrow">Cómputo para eventos · CDMX y ZMVM</p>
+            <h1 id="computo-hero-heading">
+              El cómputo de tu evento, <em>configurado, instalado y con soporte</em>
+            </h1>
+            <p class="hm-hero__lead">
+              Laptops, iPads, PCs de escritorio e impresoras entregadas con el software
+              de tu evento ya instalado y probado. Registro de asistentes, congresos,
+              capacitaciones y salas de prensa — con equipo de respaldo y técnico disponible.
+            </p>
+            <div class="sv-hero__ctas">
+              <a
+                class="hm__btn hm__btn--gold"
+                href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola,%20quiero%20cotizar%20equipo%20de%20c%C3%B3mputo%20para%20mi%20evento`}
+                target="_blank" rel="noopener noreferrer"
+              >
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.23 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+                Cotizar ahora
+              </a>
+              <a class="hm__btn hm__btn--ghost" href="#catalogo">
+                Ver el equipo disponible
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="hm-hero__seo">
+            <p>
+              EVENTECH ofrece <strong>renta de computadoras para eventos CDMX</strong> como
+              parte de su catálogo integral de equipamiento. La <strong>renta de laptops
+              para eventos</strong>, la <strong>renta de iPads para eventos</strong>, las PCs
+              de escritorio y las impresoras de gafetes se entregan configuradas, probadas
+              y con soporte durante el evento. Cotización en menos de 24 horas por WhatsApp
+              (55 6432 8954), reserva con 50% de anticipo, cambios sin costo hasta 72 horas
+              antes y factura CFDI en todas las rentas. Para el <a href="/servicios/audiovisual/">audio,
+              las pantallas y los proyectores</a> del mismo evento, coordinamos todo en paralelo.
+            </p>
+            <p>
+              Cubrimos todas las alcaldías de CDMX y los municipios de Naucalpan,
+              Huixquilucan y Tlalnepantla con entrega, instalación y recolección incluidas —
+              y llegamos también a Toluca, Metepec y Cuernavaca. Registro de asistentes,
+              congresos, capacitaciones, call centers temporales, salas de prensa y
+              votaciones interactivas: si tu evento necesita cómputo, lo dimensionamos,
+              lo configuramos y lo dejamos funcionando antes de que llegue el primer asistente.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NAV SUBCATEGORÍAS -->
+    <nav class="hm-menu" aria-label="Equipo de cómputo disponible">
+      <ul class="hm-menu__grid" style="grid-template-columns: repeat(5, 1fr);">
+        {SUB_SERVICES.map((s) => (
+          <li><a class="hm-menu__item" href={s.href}>{s.name}</a></li>
+        ))}
+        <li>
+          <a
+            class="hm-menu__item hm-menu__item--cta"
+            href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola,%20quiero%20cotizar%20equipo%20de%20c%C3%B3mputo%20para%20mi%20evento`}
+            target="_blank" rel="noopener noreferrer"
+          >Cotizar ahora</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- CATÁLOGO -->
+    <section id="catalogo" class="hm__section" aria-labelledby="catalogo-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Toda la tecnología, un solo proveedor</p>
+            <h2 id="catalogo-heading">¿Qué cómputo necesita tu evento?</h2>
+            <p class="hm__head-sub">Laptops, iPads, PCs de escritorio o impresión y periféricos — o el módulo completo de registro.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              La diferencia entre un registro de asistentes que fluye y uno que forma
+              filas de veinte minutos casi nunca está en la plataforma de software —
+              está en el equipo con que se opera. Una laptop lenta convierte cada
+              acreditación en un trámite. Una impresora de gafetes sin calibrar
+              detiene la fila completa. Una red saturada tira el sistema justo en
+              la hora pico de llegada.
+            </p>
+            <p>
+              El equipo correcto, configurado y probado antes del evento, es lo que
+              permite que la tecnología pase desapercibida. Eso es lo que rentamos.
+            </p>
+          </div>
+        </div>
+        <div class="hm-cat-grid">
+          {SUB_SERVICES.map((s) => (
+            <article class="hm-cat">
+              <a class="hm-cat__media" href={s.href} aria-label={`Ver ${s.name}`}>
+                <img class="hm-cat__img" src={s.image} alt={`${s.name} en renta para eventos en CDMX — EVENTECH`} loading="lazy" decoding="async" />
+                <span class="hm-cat__badge">{s.badge}</span>
+                <span class="hm-cat__name">{s.name}</span>
+              </a>
+              <div class="hm-cat__body">
+                <p class="hm-cat__sub">{s.excerpt}</p>
+                <ul class="hm-cat__menu">
+                  {s.subcategories.map((sc) => (
+                    <li>
+                      <a href={sc.href}>
+                        <span>{sc.name}</span>
+                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <a class="hm-cat__cta" href={s.href}>
+                  Ver {s.name}
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- MÓDULOS DESTACADOS -->
+    <section class="hm__section hm__section--ivory" aria-labelledby="detalle-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Cada línea, a fondo</p>
+            <h2 id="detalle-heading">Equipo de cómputo en detalle</h2>
+            <p class="hm__head-sub">Qué incluye cada categoría y para qué tipo de evento funciona mejor.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Un congreso de 800 personas, una capacitación de 25 y una sala de prensa
+              de 10 necesitan cómputo distinto: distinto equipo, distinta red, distinto
+              soporte. Por eso no rentamos "computadoras" a secas — dimensionamos la
+              solución completa según los asistentes, el software y el venue, y la
+              entregamos funcionando.
+            </p>
+          </div>
+        </div>
+
+        <!-- Laptops -->
+        <article class="hm-feat" aria-labelledby="feat-laptops">
+          <div class="hm-feat__text">
+            <p class="hm__eyebrow">Laptops</p>
+            <h3 class="hm-feat__title" id="feat-laptops">Renta de laptops para eventos — de la laptop del ponente al aula móvil de 50 estaciones</h3>
+            <p class="hm-feat__lead">La laptop es el equipo más versátil del evento: registra asistentes en la entrada, corre la presentación del keynote y equipa la capacitación completa en el salón contiguo.</p>
+            <p>
+              Nuestras <strong>laptops empresariales</strong> (Core i5, 8 GB de RAM,
+              SSD y Windows 11 Pro) rentan desde <strong>$450 por día</strong> y cubren
+              el uso típico de eventos: registro, navegación, ofimática y plataformas
+              web de acreditación. Para edición, streaming o software de ingeniería,
+              las unidades de <strong>alto rendimiento</strong> (Core i7, 16 GB) van de
+              <strong>$650 a $800 por día</strong>, y contamos con <strong>MacBooks</strong>
+              para producción y presentaciones que lo requieren.
+            </p>
+            <p>
+              Cada unidad se entrega con el software de tu evento instalado y probado,
+              batería al 100%, cargador y mouse. En pedidos de <strong>10 unidades o
+              más aplican descuentos por volumen</strong> e incluimos equipo de respaldo
+              configurado sin costo. Para congresos armamos <strong>kits de registro
+              completos</strong>: laptops + impresora de gafetes + lectores QR + red
+              WiFi temporal, todo conectado y verificado antes de abrir puertas.
+            </p>
+            <ul class="hm-feat__chips">
+              {[
+                { name: "Laptop Empresarial", href: "/servicios/computo/laptops/#empresarial-heading" },
+                { name: "Alto Rendimiento", href: "/servicios/computo/laptops/#alto-rendimiento-heading" },
+                { name: "MacBook", href: "/servicios/computo/laptops/#macbook-heading" },
+                { name: "Kits de Registro", href: "/servicios/computo/laptops/#kits-registro-heading" },
+              ].map((sc) => (<li><a href={sc.href}>{sc.name}</a></li>))}
+            </ul>
+            <a class="hm-feat__cta" href="/servicios/computo/laptops/">
+              Ver renta de laptops
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <div class="hm-feat__media">
+            <img src="/images/audiovisual/monitor-pantalla-presentacion-congreso.avif" alt="Presentación en congreso con equipo de cómputo y pantalla en CDMX" loading="lazy" decoding="async" />
+          </div>
+        </article>
+
+        <!-- iPads y Tablets -->
+        <article class="hm-feat" aria-labelledby="feat-ipads">
+          <div class="hm-feat__text">
+            <p class="hm__eyebrow">iPads y Tablets</p>
+            <h3 class="hm-feat__title" id="feat-ipads">Renta de iPads para eventos — check-in ágil, encuestas en vivo y votaciones interactivas</h3>
+            <p class="hm-feat__lead">Un iPad en la entrada procesa el check-in en segundos y proyecta una imagen profesional que una laptop sobre la mesa no logra. Por eso es el estándar de acreditación en congresos.</p>
+            <p>
+              Rentamos <strong>iPads desde $350 y hasta $600 por día</strong> según
+              generación y capacidad, entregados con la app de tu evento precargada,
+              modo kiosco activado (el asistente no puede salir de la aplicación) y
+              carga completa. Los <strong>soportes antirrobo</strong> de mostrador,
+              pedestal o pared convierten cada tablet en un módulo de autoservicio
+              seguro para registro, encuestas de satisfacción o directorio del evento.
+            </p>
+            <p>
+              Para <strong>votaciones interactivas</strong> en asambleas, premiaciones
+              y sesiones de Q&A configuramos la flota completa con la plataforma que
+              elijas y la red que la soporta — los resultados aparecen en la
+              <a href="/servicios/audiovisual/pantallas-led/">pantalla principal</a>
+              en tiempo real. También manejamos <strong>tablets Android</strong> como
+              alternativa económica para captura de datos, menús digitales y control
+              de accesos con lector QR integrado.
+            </p>
+            <ul class="hm-feat__chips">
+              {[
+                { name: "iPads", href: "/servicios/computo/ipads-tablets/#ipads-heading" },
+                { name: "Tablets Android", href: "/servicios/computo/ipads-tablets/#tablets-android-heading" },
+                { name: "Kioscos y Soportes", href: "/servicios/computo/ipads-tablets/#kioscos-heading" },
+                { name: "Votaciones", href: "/servicios/computo/ipads-tablets/#votaciones-heading" },
+              ].map((sc) => (<li><a href={sc.href}>{sc.name}</a></li>))}
+            </ul>
+            <a class="hm-feat__cta" href="/servicios/computo/ipads-tablets/">
+              Ver iPads y tablets
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <div class="hm-feat__media">
+            <img src="/images/eventos/corporativos-hero.avif" alt="Evento corporativo en CDMX con registro de asistentes y tecnología" loading="lazy" decoding="async" />
+          </div>
+        </article>
+
+        <!-- PCs de Escritorio -->
+        <article class="hm-feat" aria-labelledby="feat-pcs">
+          <div class="hm-feat__text">
+            <p class="hm__eyebrow">PCs de Escritorio</p>
+            <h3 class="hm-feat__title" id="feat-pcs">PCs y All-in-One — estaciones fijas para call centers temporales, prensa y capacitación</h3>
+            <p class="hm-feat__lead">Cuando la estación de trabajo no se mueve durante todo el evento, la PC de escritorio ofrece más pantalla, más ergonomía y más horas de operación continua que cualquier laptop.</p>
+            <p>
+              Las <strong>PCs de escritorio y All-in-One</strong> rentan de
+              <strong>$500 a $900 por día</strong> e incluyen monitor, teclado, mouse
+              y todo el cableado. Son la base de los <strong>call centers
+              temporales</strong> para campañas, ventas de temporada y mesas de ayuda
+              de grandes eventos: filas de estaciones idénticas, con diadema
+              telefónica, software de marcación y red dimensionada para operar
+              jornadas completas.
+            </p>
+            <p>
+              En <strong>salas de prensa</strong> de congresos y eventos deportivos
+              montamos estaciones con monitor de 24", puertos para tarjetas de
+              memoria y conexión cableada de alta velocidad. Para
+              <strong>centros de capacitación</strong> replicamos la misma imagen de
+              software en todas las unidades, de modo que cada participante encuentra
+              exactamente el mismo entorno. Complementa con
+              <a href="/servicios/mobiliario/mesas/">mesas y sillas de trabajo</a> y
+              <a href="/servicios/accesorios/plantas-energia/">energía de respaldo</a>
+              del mismo pedido.
+            </p>
+            <ul class="hm-feat__chips">
+              {[
+                { name: "All-in-One", href: "/servicios/computo/pcs-escritorio/#aio-heading" },
+                { name: "Workstations", href: "/servicios/computo/pcs-escritorio/#workstation-heading" },
+                { name: "Call Centers", href: "/servicios/computo/pcs-escritorio/#call-center-heading" },
+                { name: "Monitores", href: "/servicios/computo/pcs-escritorio/#monitores-heading" },
+              ].map((sc) => (<li><a href={sc.href}>{sc.name}</a></li>))}
+            </ul>
+            <a class="hm-feat__cta" href="/servicios/computo/pcs-escritorio/">
+              Ver PCs de escritorio
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <div class="hm-feat__media">
+            <img src="/images/blog/evento-corporativo-cdmx-produccion.avif" alt="Producción de evento corporativo en CDMX con estaciones de trabajo" loading="lazy" decoding="async" />
+          </div>
+        </article>
+
+        <!-- Impresión y Periféricos -->
+        <article class="hm-feat" aria-labelledby="feat-impresion">
+          <div class="hm-feat__text">
+            <p class="hm__eyebrow">Impresión y Periféricos</p>
+            <h3 class="hm-feat__title" id="feat-impresion">Impresoras, gafetes y WiFi temporal — la infraestructura que sostiene el módulo de registro</h3>
+            <p class="hm-feat__lead">La acreditación con impresión de gafetes es el primer contacto del asistente con tu evento. Si la impresora falla o la red se cae, la primera impresión es una fila.</p>
+            <p>
+              Rentamos <strong>impresoras láser</strong> monocromáticas y a color de
+              <strong>$600 a $1,200 por día</strong>, con tóner y papel incluidos según
+              el volumen contratado — para programas, listas de asistencia, diplomas
+              de capacitación y materiales de última hora. Las <strong>impresoras de
+              gafetes y credenciales</strong> se calibran con tu diseño antes del
+              evento y se integran a la plataforma de registro para imprimir al
+              momento del check-in.
+            </p>
+            <p>
+              El <strong>kit de WiFi temporal</strong> (de $1,500 a $3,500 por día
+              según cobertura y número de dispositivos) crea una red exclusiva para
+              tu operación, independiente del internet del venue: módems 4G/5G de
+              respaldo, ruteadores profesionales y puntos de acceso distribuidos.
+              Completamos el módulo con <strong>lectores de código QR y de banda
+              magnética, hubs USB, multicontactos regulados y cableado</strong> —
+              los detalles que nadie recuerda hasta que faltan.
+            </p>
+            <ul class="hm-feat__chips">
+              {[
+                { name: "Impresoras Láser", href: "/servicios/computo/impresion-perifericos/#laser-heading" },
+                { name: "Gafetes", href: "/servicios/computo/impresion-perifericos/#gafetes-heading" },
+                { name: "WiFi Temporal", href: "/servicios/computo/impresion-perifericos/#wifi-heading" },
+                { name: "Periféricos", href: "/servicios/computo/impresion-perifericos/#perifericos-heading" },
+              ].map((sc) => (<li><a href={sc.href}>{sc.name}</a></li>))}
+            </ul>
+            <a class="hm-feat__cta" href="/servicios/computo/impresion-perifericos/">
+              Ver impresión y periféricos
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <div class="hm-feat__media">
+            <img src="/images/carpas/carpa-estructural-grande-congreso.avif" alt="Congreso de gran formato en CDMX con módulo de acreditación de asistentes" loading="lazy" decoding="async" />
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ESTADÍSTICAS -->
+    <section class="sv-stats" aria-label="Indicadores de cómputo EVENTECH">
+      <div class="hm__wrap sv-stats__wrap">
+        <dl class="sv-stats__grid">
+          <div class="sv-stats__item">
+            <dt class="sv-stats__num">24<span>h</span></dt>
+            <dd class="sv-stats__label">Cotización por WhatsApp</dd>
+          </div>
+          <div class="sv-stats__item">
+            <dt class="sv-stats__num">72<span>h</span></dt>
+            <dd class="sv-stats__label">Cambios sin costo antes del evento</dd>
+          </div>
+          <div class="sv-stats__item">
+            <dt class="sv-stats__num">10<span>+</span></dt>
+            <dd class="sv-stats__label">Unidades con descuento por volumen</dd>
+          </div>
+          <div class="sv-stats__item">
+            <dt class="sv-stats__num">30<span>+</span></dt>
+            <dd class="sv-stats__label">Años de experiencia</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- POR QUÉ ELEGIRNOS -->
+    <section class="hm__section hm__section--navy" aria-labelledby="porque-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">La diferencia EVENTECH</p>
+            <h2 id="porque-heading">Cómputo que llega listo, no en cajas</h2>
+            <p class="hm__head-sub">Configuración previa, respaldo incluido y el mismo proveedor del resto del evento.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              El problema clásico de rentar computadoras con un proveedor de TI genérico
+              es que el equipo llega en cajas: sin el software del evento, sin probar la
+              red del venue y sin nadie que responda cuando algo falla a las 8:55 con el
+              registro abriendo a las 9:00. Nuestro enfoque es el opuesto — el cómputo
+              es parte del montaje del evento, con los mismos estándares de puntualidad
+              y verificación que el audio o el mobiliario.
+            </p>
+            <p>
+              Un solo proveedor, una sola cotización, una sola entrega: desde la laptop
+              del ponente hasta la impresora de gafetes, pasando por la carpa, las
+              pantallas y el sonido.
+            </p>
+          </div>
+        </div>
+        <ul class="hm-why">
+          {whyFeatures.map((f) => (
+            <li class="hm-why__item">
+              <div class="hm-why__ic" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <div>
+                <h3>{f.title}</h3>
+                <p>{f.body}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROCESO -->
+    <section class="hm__section" aria-labelledby="proceso-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Del levantamiento a la recolección</p>
+            <h2 id="proceso-heading">Cómo funciona la renta</h2>
+            <p class="hm__head-sub">4 pasos para que el cómputo de tu evento funcione desde el primer minuto.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              El objetivo es que tu equipo de producción llegue al venue y encuentre
+              las estaciones encendidas, el software abierto y la red funcionando.
+              Sin instalar programas de madrugada, sin descubrir que faltó un cable,
+              sin depender del WiFi del salón. Eso es lo que garantizamos con la
+              configuración previa y la instalación verificada.
+            </p>
+          </div>
+        </div>
+        <ol class="hm-steps">
+          {steps.map((s) => (
+            <li class="hm-step">
+              <div class="hm-step__num">{s.n}</div>
+              <h3>{s.t}</h3>
+              <p>{s.p}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- FAQ + FORM -->
+    <section class="hm__section hm__section--ivory" aria-labelledby="faq-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Antes de cotizar</p>
+            <h2 id="faq-heading">Preguntas frecuentes</h2>
+            <p class="hm__head-sub">Precios, configuración de software, respaldo y cobertura de entrega.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Las dudas más comunes sobre cuánto cuesta la renta de computadoras para
+              eventos, qué incluye la configuración, qué pasa si un equipo falla y
+              hasta dónde llegamos con la entrega. Si tu caso específico no está aquí,
+              un asesor te responde en minutos por WhatsApp.
+            </p>
+          </div>
+        </div>
+
+        <div class="hm-faqx">
+          <div class="hm-faq">
+            {faqs.map((f) => (
+              <details class="hm-faq__item">
+                <summary>{f.question}</summary>
+                <p>{f.answer}</p>
+              </details>
+            ))}
+          </div>
+
+          <aside class="hm-faqx__aside" aria-labelledby="computoform-heading">
+            <form id="computoForm" class="hm-form" data-wa={SITE.contact.whatsapp}>
+              <p class="hm-form__eyebrow">Respuesta en minutos</p>
+              <h3 id="computoform-heading" class="hm-form__title">Cotiza tu equipo de cómputo</h3>
+              <p class="hm-form__sub">Cuéntanos cuántas estaciones necesitas y qué debe correr en ellas — te respondemos al instante.</p>
+
+              <label class="hm-form__field">
+                <span>Nombre</span>
+                <input type="text" name="nombre" autocomplete="name" placeholder="Tu nombre" required />
+              </label>
+
+              <label class="hm-form__field">
+                <span>Tipo de evento</span>
+                <select name="tipo">
+                  <option value="">Selecciona…</option>
+                  <option>Congreso / convención</option>
+                  <option>Capacitación</option>
+                  <option>Registro / acreditación</option>
+                  <option>Call center temporal</option>
+                  <option>Sala de prensa</option>
+                  <option>Otro</option>
+                </select>
+              </label>
+
+              <label class="hm-form__field">
+                <span>Equipo que necesitas</span>
+                <select name="equipo_computo">
+                  <option value="">No sé aún / necesito asesoría</option>
+                  <option>Laptops</option>
+                  <option>iPads / tablets</option>
+                  <option>PCs de escritorio</option>
+                  <option>Impresoras y periféricos</option>
+                  <option>Kit de registro completo</option>
+                </select>
+              </label>
+
+              <label class="hm-form__field">
+                <span>Fecha del evento</span>
+                <input type="date" name="fecha" />
+              </label>
+
+              <label class="hm-form__field">
+                <span>Detalles</span>
+                <textarea name="mensaje" rows="3" placeholder="Número de estaciones, software requerido, días de renta, venue…"></textarea>
+              </label>
+
+              <button type="submit" class="hm-form__btn">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.23 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+                Enviar por WhatsApp
+              </button>
+              <p class="hm-form__note">Se abrirá WhatsApp con tu información. Sin compromiso.</p>
+            </form>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="hm-cta" aria-labelledby="cta-computo-heading">
+      <div class="hm__wrap" style="text-align:center;">
+        <p class="hm__eyebrow" style="color:rgba(255,255,255,.55); margin-bottom:.75rem;">Cómputo para eventos · CDMX y ZMVM</p>
+        <h2 id="cta-computo-heading">Tu evento abre puertas — y el cómputo ya está encendido</h2>
+        <p>Laptops, iPads, PCs e impresoras configuradas con tu software, instaladas en el venue y con soporte durante el evento. Cotización en menos de 24 horas, reserva con 50% de anticipo y factura CFDI.</p>
+        <div class="hm-cta__row" style="margin-top:2rem;">
+          <a
+            class="hm__btn hm__btn--gold"
+            href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola,%20quiero%20cotizar%20equipo%20de%20c%C3%B3mputo%20para%20mi%20evento`}
+            target="_blank" rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.23 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+            Solicitar cotización
+          </a>
+          <a class="hm__btn hm__btn--ghost" href="/servicios/audiovisual/" style="border-color:rgba(255,255,255,.35); color:#fff;">
+            Ver equipo audiovisual
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /hm -->
+
+  <script>
+    const computoForm = document.getElementById("computoForm");
+    if (computoForm) {
+      computoForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const f = e.currentTarget as HTMLFormElement;
+        const wa = f.dataset.wa;
+        const data = new FormData(f);
+        const get = (k: string) => (data.get(k) || "").toString().trim();
+        let t = "Hola, quiero cotizar equipo de cómputo para mi evento.";
+        if (get("nombre"))         t += `\nNombre: ${get("nombre")}`;
+        if (get("tipo"))           t += `\nTipo de evento: ${get("tipo")}`;
+        if (get("equipo_computo")) t += `\nEquipo: ${get("equipo_computo")}`;
+        if (get("fecha"))          t += `\nFecha: ${get("fecha")}`;
+        if (get("mensaje"))        t += `\nDetalles: ${get("mensaje")}`;
+        window.open(`https://wa.me/${wa}?text=${encodeURIComponent(t)}`, "_blank", "noopener");
+      });
+    }
+  </script>
+
+</PageLayout>
+
+<style>
+  .hm-menu__item--cta { background: var(--color-gold, #c2a24a); color: #1c1607 !important; font-weight: 700; }
+  .hm-menu__item--cta:hover { background: var(--color-gold-deep, #a9883a) !important; border-top-color: transparent !important; }
+  .sv-stats { background: var(--color-ivory-alt, #f3efe7); border-block: 1px solid var(--color-hairline, #e7e1d6); }
+  .sv-stats__wrap { padding-block: clamp(36px, 5vw, 52px); }
+  .sv-stats__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin: 0; }
+  .sv-stats__item { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 clamp(16px, 2.5vw, 32px); border-left: 1px solid var(--color-hairline, #e7e1d6); }
+  .sv-stats__item:first-child { border-left: 0; }
+  .sv-stats__num { font-family: var(--font-display, "Cormorant Garamond", Georgia, serif); font-weight: 600; font-size: clamp(2.8rem, 5vw, 4rem); line-height: 1; color: var(--color-primary, #1a1a2e); margin: 0; }
+  .sv-stats__num span { font-size: 0.55em; vertical-align: super; color: var(--color-gold, #c2a24a); }
+  .sv-stats__label { margin-top: 8px; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-gold-deep, #a9883a); }
+  @media (max-width: 680px) {
+    .sv-stats__grid { grid-template-columns: repeat(2, 1fr); gap: clamp(20px, 4vw, 32px) 0; }
+    .sv-stats__item:nth-child(2n+1) { border-left: 0; }
+    .sv-stats__item:nth-child(3), .sv-stats__item:nth-child(4) { padding-top: clamp(20px, 4vw, 32px); border-top: 1px solid var(--color-hairline, #e7e1d6); }
+  }
+</style>

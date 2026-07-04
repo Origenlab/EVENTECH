@@ -9,6 +9,11 @@ zone: "Gustavo A. Madero"
 zoneSlug: "gustavo-a-madero"
 address: "Av. Insurgentes Norte 1587, Lindavista"
 neighborhood: "Lindavista"
+postalCode: "07760"
+coordinates:
+  lat: 19.4837665
+  lng: -99.127529
+googleMapsUrl: "https://maps.google.com/?q=Salon+galaxia+Gustavo+A+Madero+CDMX"
 
 type: "salon"
 
@@ -94,6 +99,17 @@ reviews:
     text: "Nuestra boda con 280 invitados fue perfecta en Galaxia. El cielo estrellado del techo creó un ambiente romántico increíble para el primer baile. La cocina industrial permitió que nuestro banquetero trabajara sin problemas y el estacionamiento fue suficiente para todos. Totalmente recomendable."
     eventType: "boda"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón de Fiestas Galaxia?"
+    answer: "Salón de Fiestas Galaxia tiene capacidad para hasta 300 personas en formato banquete y hasta 400 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salón de Fiestas Galaxia y cómo llegar?"
+    answer: "Salón de Fiestas Galaxia se encuentra en Av. Insurgentes Norte 1587, Lindavista, alcaldía Gustavo A. Madero, Ciudad de México. La alcaldía cuenta con varias estaciones del Metro (Líneas 3 y 6) y amplia red de transporte público que facilita el acceso desde toda la CDMX."
+  - question: "¿Qué incluye la renta de Salón de Fiestas Galaxia?"
+    answer: "La renta de Salón de Fiestas Galaxia incluye coordinador de eventos, mobiliario básico (mesas y sillas), mantelería, vajilla completa, iluminación básica. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón de Fiestas Galaxia?"
+    answer: "Salón de Fiestas Galaxia es apto para bodas, quinceañeras, bautizos, cumpleaños y comuniones. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Salón de Fiestas Galaxia?"
+    answer: "Salón de Fiestas Galaxia opera entre semana de 10:00 - 23:00 y fines de semana de 10:00 - 03:00 con un mínimo de 5 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Salón Galaxia"
 seoDescription: "Salón de fiestas en Lindavista, GAM. Techo estrellado LED y pista de 70 m². Bodas, XV años y corporativos hasta 300 personas."
 keywords:

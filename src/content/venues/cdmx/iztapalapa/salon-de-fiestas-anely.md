@@ -110,6 +110,17 @@ reviews:
     text: "Celebramos la primera comunión de mi nieta con 100 invitados. El salón estaba impecable, la decoración que llevamos se montó sin problemas y el personal nos ayudó con las mesas. Es un lugar sencillo pero muy digno. Lo recomiendo mucho para eventos familiares."
     eventType: "primera-comunion"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón de Fiestas Anely?"
+    answer: "Salón de Fiestas Anely tiene capacidad para hasta 150 personas en formato banquete y hasta 180 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salón de Fiestas Anely y cómo llegar?"
+    answer: "Salón de Fiestas Anely se encuentra en Calle 25 de Julio 33, Leyes de Reforma, alcaldía Iztapalapa, Ciudad de México. La alcaldía cuenta con múltiples estaciones del Metro (Líneas 8, 9 y A) y es accesible desde Periférico, Canal de San Juan y otras vías principales."
+  - question: "¿Qué incluye la renta de Salón de Fiestas Anely?"
+    answer: "La renta de Salón de Fiestas Anely incluye mobiliario básico (mesas y sillas), mantelería, iluminación básica, equipo de sonido básico, montaje del evento. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón de Fiestas Anely?"
+    answer: "Salón de Fiestas Anely es apto para bautizos, comuniones, primeras comuniones, cumpleaños y fiestas infantiles. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Salón de Fiestas Anely?"
+    answer: "Salón de Fiestas Anely opera entre semana de 11:00 - 22:00 y fines de semana de 10:00 - 01:00 con un mínimo de 4 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Salón de Fiestas Anely Iztapalapa Eventos CDMX"
 seoDescription: "Salón familiar en Leyes de Reforma, Iztapalapa. Bautizos, comuniones y cumpleaños hasta 150 personas. Precios desde $6,000."
 keywords:

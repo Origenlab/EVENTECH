@@ -2,6 +2,33 @@
 
 Changelog de todo lo generado, para mantener homologación. Fechas absolutas.
 
+## 2026-07-04
+
+### Implementación plan ZeroRank (AEO) — técnico, schema, cómputo, confianza
+
+**Contexto:** informe de visibilidad IA (26% visibilidad, rank #2.5, AI Readiness 59/100). Auditoría previa reveló que el informe estaba parcialmente desactualizado: llms.txt, sitemap-index, robots IA, BreadcrumbList (240 pág.), FAQ (235), Article+autor (blog) ya existían.
+
+**1. Infraestructura técnica:**
+- `public/robots.txt`: añadidos `PerplexityBot`, `Perplexity-User`, `OAI-SearchBot`, `ChatGPT-User` (Allow /).
+- `public/llms.txt`: añadida línea de servicio **Cómputo para eventos**; nueva sección **Enlaces canónicos principales** (15 URLs); nueva sección **Señales de confianza** (constitución 2024 + equipo fundador 30 años, 500+ eventos, 3 oficinas, CFDI, seguro RC, Google Maps).
+
+**2. Schema JSON-LD:**
+- `src/lib/seo.ts` → `serviceJsonLd()` ahora emite multi-type `["Service","Product"]` + `brand`. Propaga a **228 páginas** de servicio (vía `serviceWithReviewJsonLd` incluido). Cierra el check Product de ZeroRank sin tocar páginas individuales.
+- `src/pages/cotizar/index.astro`: añadido **HowTo** "Cómo cotizar la renta de equipo para tu evento paso a paso" (4 pasos, PT24H).
+- Ya existentes (sin cambios): BreadcrumbList sitewide, FAQPage, Article con autor, Organization/WebSite/LocalBusiness. Nota: ratings auto-emitidos siguen deshabilitados (política Google).
+
+**3. Nueva categoría CÓMPUTO (visibilidad 0% → línea completa):**
+- Creados: `servicios/computo/index.astro` (hub L3 sistema hm-), + 4 L4: `laptops`, `ipads-tablets`, `pcs-escritorio`, `impresion-perifericos`. Template = catering (L3) y refrigeración (L4). Acento azul #2563eb. Precios orientativos MXN por día. 6 FAQs por página. Frases de citación integradas ("renta de computadoras para eventos CDMX", etc.).
+- Integración: `SERVICE_CATEGORIES` en `site.ts` (icon laptop), `navigation.ts` (mainNav + footer), `interlinking.ts`, `RelatedContent`/`CtaBar` (SVG laptop), `servicios/index.astro` (9 categorías, módulo idx 7), `que-es-eventech.astro`.
+- Sin fotos reales de cómputo: imágenes contextuales existentes + placeholders "Imagen próximamente". ProductCards → `#reserva-heading` (no hay L5 aún). **Pendiente:** generar fotos y L5.
+
+**4. Confianza (objeción "30 años" detectada por modelos de IA):**
+- **Decisión del usuario:** empresa constituida 2024, equipo fundador con 30+ años de oficio (desde 1994). Reframe aplicado en `index.astro` (10 menciones), `nosotros/index.astro` (hero, historia, FAQ, meta description, eyebrows "Oficio desde 1994", card final del timeline → "2024 · Nace EVENTECH S.A. de C.V."). foundingDate 2024 en schema queda coherente con el copy. Menciones "30 años" de terceros (PALED, proveedor iluminación) en blog: sin cambios, son de otras empresas.
+
+**5. Fixes de build preexistentes** (bloqueaban compilación): 6 venues con `phone` duplicado, enums inválidos en 4 venues, 22 `shortDescription` >160, 1 seoTitle >70, 5 seoDescription >160.
+
+**Pendiente (backlog off-page, no código):** gestiones editoriales en lugaresparaeventos.mx y bodas.com.mx (alta), participación auténtica en Facebook/YouTube/Reddit (r/sweatystartup, r/Changarrito, r/CDMX), WebMCP (evaluar), contenido blog inflables/mobiliario/carpas, listicle "mejores empresas renta de equipo CDMX".
+
 ## 2026-06-15
 
 ### Auditoría y optimización integral de mobiliario (78 páginas)

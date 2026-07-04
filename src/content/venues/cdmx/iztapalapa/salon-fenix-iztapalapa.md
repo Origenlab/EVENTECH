@@ -112,6 +112,17 @@ reviews:
     text: "Hicimos los XV años de mi sobrina con 160 invitados. El salón se llenó pero estaba bien distribuido. La pista de baile alcanzó para el vals y luego para la fiesta. Para el precio que pagamos, el servicio fue muy bueno. Lo recomiendo para familias con presupuesto ajustado."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Fénix?"
+    answer: "Salón Fénix tiene capacidad para hasta 200 personas en formato banquete y hasta 250 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Salón Fénix y cómo llegar?"
+    answer: "Salón Fénix se encuentra en Av. de las Torres 45, Peña Alta, alcaldía Iztapalapa, Ciudad de México. La alcaldía cuenta con múltiples estaciones del Metro (Líneas 8, 9 y A) y es accesible desde Periférico, Canal de San Juan y otras vías principales."
+  - question: "¿Qué incluye la renta de Salón Fénix?"
+    answer: "La renta de Salón Fénix incluye mobiliario básico (mesas y sillas), mantelería, iluminación básica, equipo de sonido básico, montaje del evento. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Salón Fénix?"
+    answer: "Salón Fénix es apto para bautizos, comuniones, primeras comuniones, cumpleaños y fiestas infantiles. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Se puede llevar catering externo a Salón Fénix?"
+    answer: "Sí, Salón Fénix permite el ingreso de catering externo, lo que te da libertad para elegir el servicio gastronómico que mejor se adapte a tu presupuesto y preferencias. Te recomendamos coordinar con anticipación los detalles logísticos de acceso para proveedores."
 seoTitle: "Salón Fénix Iztapalapa Fiestas Accesibles CDMX"
 seoDescription: "Salón familiar en Peña Alta, Iztapalapa. Bautizos, cumpleaños y fiestas infantiles hasta 200 personas. Precios desde $8,000."
 keywords:

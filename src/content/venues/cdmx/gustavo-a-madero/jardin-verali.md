@@ -9,6 +9,11 @@ zone: "Gustavo A. Madero"
 zoneSlug: "gustavo-a-madero"
 address: "Río San Javier 12, Acueducto de Guadalupe"
 neighborhood: "Acueducto de Guadalupe"
+postalCode: "07279"
+coordinates:
+  lat: 19.5300544
+  lng: -99.1545512
+googleMapsUrl: "https://maps.google.com/?q=Jardin+verali+Gustavo+A+Madero+CDMX"
 
 type: "jardin"
 
@@ -93,6 +98,17 @@ reviews:
     text: "Hicimos los XV de Valeria con 200 invitados y el jardín se veía espectacular de noche. Las fairy lights de EVENTECH en las pérgolas y los árboles transformaron todo el espacio. La zona infantil fue perfecta para los niños mientras los adultos disfrutaban. Sin duda el mejor jardín de eventos en GAM."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Jardín Veralí?"
+    answer: "Jardín Veralí tiene capacidad para hasta 220 personas en formato banquete y hasta 280 en formato cóctel. Es un espacio al aire libre ideal para celebraciones medianas y grandes, con ambiente natural y tranquilo."
+  - question: "¿Dónde está ubicado Jardín Veralí y cómo llegar?"
+    answer: "Jardín Veralí se encuentra en Río San Javier 12, Acueducto de Guadalupe, alcaldía Gustavo A. Madero, Ciudad de México. La alcaldía cuenta con varias estaciones del Metro (Líneas 3 y 6) y amplia red de transporte público que facilita el acceso desde toda la CDMX."
+  - question: "¿Qué incluye la renta de Jardín Veralí?"
+    answer: "La renta de Jardín Veralí incluye mobiliario básico (mesas y sillas), mantelería, iluminación básica, montaje del evento, desmontaje. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha."
+  - question: "¿Qué tipos de eventos se pueden realizar en Jardín Veralí?"
+    answer: "Jardín Veralí es apto para bodas, quinceañeras, bautizos, comuniones y cumpleaños. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Jardín Veralí?"
+    answer: "Jardín Veralí opera entre semana de 10:00 - 23:00 y fines de semana de 10:00 - 02:00 con un mínimo de 5 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Jardín Veralí"
 seoDescription: "Jardín de eventos en Acueducto de Guadalupe, GAM. Bodas y XV años al aire libre hasta 220 personas. Pérgolas y naturaleza."
 keywords:

@@ -24,6 +24,7 @@ export const mainNav: NavItem[] = [
       { label: "Pistas de Baile", href: "/servicios/pistas-baile/" },
       { label: "Inflables", href: "/servicios/inflables/" },
       { label: "Catering", href: "/servicios/catering/" },
+      { label: "Cómputo", href: "/servicios/computo/" },
       { label: "Accesorios", href: "/servicios/accesorios/" },
       { label: "Ver todos", href: "/servicios/" },
     ],
@@ -51,6 +52,7 @@ export const footerNav: Record<string, NavItem[]> = {
     { label: "Pistas de Baile", href: "/servicios/pistas-baile/" },
     { label: "Inflables", href: "/servicios/inflables/" },
     { label: "Catering", href: "/servicios/catering/" },
+    { label: "Cómputo", href: "/servicios/computo/" },
     { label: "Accesorios", href: "/servicios/accesorios/" },
   ],
   empresa: [

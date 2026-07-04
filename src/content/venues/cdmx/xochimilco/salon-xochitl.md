@@ -1,14 +1,29 @@
 ---
 name: "Salón de Fiestas Xóchitl"
 slug: "salon-xochitl"
-description: "Salón de Fiestas Xóchitl es un espacio tradicional para celebraciones familiares ubicado sobre la Avenida Guadalupe I. Ramírez en el corazón de Xochimilco, una de las alcaldías con mayor identidad cultural de la Ciudad de México. Con capacidad para hasta 200 personas en banquete, el salón combina 450 metros cuadrados de interior climatizado con aire acondicionado, pista de baile central, sonido básico incluido y una terraza lateral de 80 m² para cóctel y descanso. Con más de una década sirviendo a las familias xochimilcas, el Salón Xóchitl ofrece un espacio funcional y accesible para bodas, XV años, bautizos y reuniones familiares."
-shortDescription: "Salón con terraza y sonido incluido en Xochimilco Centro. Bodas, XV años y bautizos hasta 200 personas. Precio accesible."
+description: >-
+  Salón de Fiestas Xóchitl es un espacio tradicional para celebraciones familiares
+  ubicado sobre la Avenida Guadalupe I. Ramírez en el corazón de Xochimilco,
+  alcaldía declarada Patrimonio de la Humanidad por la UNESCO por sus canales y
+  chinampas prehispánicas — la única zona lacustre activa de la Ciudad de México.
+  Con capacidad para hasta 200 personas en banquete, el salón combina 450 metros
+  cuadrados de interior climatizado, pista de baile central, sonido básico incluido
+  y una terraza lateral de 80 m² para cóctel. A pasos de las iglesias del centro
+  de Xochimilco y a minutos de los embarcaderos de trajineras, el Salón Xóchitl
+  es referencia de precio accesible para bodas, XV años, bautizos y reuniones
+  familiares en la alcaldía patrimonial del sur de la CDMX.
+shortDescription: "Salón con terraza y sonido incluido en el centro de Xochimilco Patrimonio UNESCO."
 
 region: "cdmx"
 zone: "Xochimilco"
 zoneSlug: "xochimilco"
 address: "Av. Guadalupe I. Ramírez 23, Xochimilco"
 neighborhood: "Centro de Xochimilco"
+postalCode: "16000"
+coordinates:
+  lat: 19.2652597
+  lng: -99.1118211
+googleMapsUrl: "https://maps.google.com/?q=Salon+xochitl+xochimilco+CDMX"
 
 type: "salon"
 
@@ -89,6 +104,18 @@ reviews:
     text: "Los XV de mi hija con 180 invitados. La pista de baile tiene buen tamaño para el vals y la coreografía, y el sonido básico incluido nos ahorró ese gasto. El aire acondicionado mantuvo al salón fresco toda la noche. Muy recomendable para familias de Xochimilco."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón de Fiestas Xóchitl?"
+    answer: "Salón de Fiestas Xóchitl tiene capacidad para 200 personas en formato banquete y 260 en cóctel. Sus 450 metros cuadrados de interior climatizado más terraza lateral de 80 m² ofrecen flexibilidad para bodas, XV años y bautizos en el centro de Xochimilco."
+  - question: "¿Dónde está Salón Xóchitl y cómo llegar?"
+    answer: "El salón se ubica en Avenida Guadalupe I. Ramírez 23, Centro de Xochimilco, alcaldía Xochimilco, CDMX, C.P. 16000. Está en el corazón de Xochimilco, accesible desde la Calzada de Xochimilco, el Tren Ligero y la Av. Guadalupe I. Ramírez. Cuenta con estacionamiento propio."
+  - question: "¿Qué incluye la renta de Salón Xóchitl?"
+    answer: "La renta incluye mobiliario básico, mantelería, iluminación básica, sonido básico, montaje, desmontaje y limpieza. El salón cuenta con aire acondicionado, terraza lateral para cóctel, pista de baile central, área infantil y Wi-Fi. El sonido básico incluido es un diferenciador que evita la contratación de un equipo adicional para eventos sencillos."
+  - question: "¿Para qué tipos de eventos es ideal Salón Xóchitl?"
+    answer: "Salón Xóchitl es ideal para bodas, XV años, bautizos, comuniones, cumpleaños, fiestas infantiles, fiestas privadas y aniversarios. Con más de una década sirviendo a las familias xochimilcas, es una opción confiable y funcional para celebraciones de 40 a 200 invitados en la zona."
+  - question: "¿Cuál es el horario y la política de catering de Salón Xóchitl?"
+    answer: "El salón opera de lunes a viernes de 10:00 a 23:00 y fines de semana de 10:00 a 03:00 horas, con un mínimo de 5 horas de renta — uno de los cierres más tardíos para salones de precio accesible en Xochimilco. Se permite catering externo y la contratación libre de DJ, decoración y pastel."
+
 seoTitle: "Salón Xóchitl"
 seoDescription: "Salón con terraza en Xochimilco Centro. Bodas, XV años y bautizos hasta 200 personas. Sonido incluido y precio accesible en CDMX."
 keywords:
@@ -100,6 +127,9 @@ keywords:
   - renta salon xochimilco centro
   - salon bautizos xochimilco cdmx
   - salon fiestas sur cdmx economico
+  - salón fiestas xochimilco cdmx
+  - venue xochimilco patrimonio UNESCO
+  - eventos xochimilco trajineras
 
 featured: false
 premium: false

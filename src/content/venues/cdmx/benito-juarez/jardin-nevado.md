@@ -111,6 +111,17 @@ reviews:
     text: "Los XV años de mi sobrina en Jardín Nevado fueron memorables. La terraza cubierta nos salvó de un aguacero inesperado y la pista de baile es amplia. El mantenimiento del jardín es impecable, todo verde y bien podado."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Jardín Nevado?"
+    answer: "Jardín Nevado tiene capacidad para hasta 180 personas en formato banquete y hasta 220 en formato cóctel. Para ceremonias, el espacio acomoda hasta 120 invitados. El mínimo de invitados es de 40 personas."
+  - question: "¿Dónde está ubicado Jardín Nevado y cómo llegar?"
+    answer: "Jardín Nevado se encuentra en Av. Nevado 172, Portales Sur, colonia Portales Sur, alcaldía Benito Juárez, Ciudad de México. Cuenta con excelente acceso por transporte público (Metro línea 3 o 12) y por las principales vialidades de la ciudad. Cuenta con estacionamiento propio."
+  - question: "¿Qué está incluido en la renta de Jardín Nevado?"
+    answer: "La renta de Jardín Nevado incluye: mobiliario básico (mesas y sillas), mantelería, iluminación básica, montaje, desmontaje y limpieza post-evento. Las instalaciones cuentan además con pista de baile, jardín, terraza, Wi-Fi."
+  - question: "¿Qué tipo de eventos se pueden realizar en Jardín Nevado?"
+    answer: "Jardín Nevado es ideal para bodas, XV años, bautizos, cumpleaños, primeras comuniones, baby showers, aniversarios y fiestas privadas. Entre otros tipos de celebraciones y reuniones."
+  - question: "¿Cuál es el horario de eventos en Jardín Nevado?"
+    answer: "Jardín Nevado opera en los siguientes horarios: lunes a viernes de 10:00 - 23:00, sábados y domingos de 10:00 - 01:00. La renta mínima es de 5 horas. Respecto al catering: Catering externo permitido con caterings autorizados."
 seoTitle: "Jardín Nevado"
 seoDescription: "Jardín para eventos en Portales Sur, Benito Juárez. Bodas y XV años al aire libre hasta 180 personas. Cerca del Metro Portales CDMX."
 keywords:

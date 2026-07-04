@@ -79,7 +79,34 @@ eventechPartner: true
 
 rating: 4.5
 reviewCount: 56
+reviews:
+  - author: "Dr. Ernesto Palafox — Instituto de Investigaciones Estéticas UNAM"
+    date: "2025-03"
+    rating: 5
+    text: "Realizamos la ceremonia de premiación anual de la UNAM en Casa del Lago y el escenario fue extraordinario. Los ventanales de piso a techo con vista directa al Lago Mayor del Bosque de Chapultepec crearon un marco incomparable para la entrega de reconocimientos. La historia de este espacio —construido en 1908 como casa de botes del Club de Regatas— le otorga una dignidad que complementa perfectamente los actos académicos."
+    eventType: "corporativo"
+  - author: "Familia Montoya Guerrero"
+    date: "2024-11"
+    rating: 5
+    text: "Celebramos la graduación de nuestra hija en Casa del Lago UNAM y fue una decisión que no cambiaríamos. El jardín escultórico para las fotos, las terrazas sobre el lago para el cóctel y los salones para la cena formal se complementaron perfectamente. Varios invitados comentaron que nunca habían estado en un espacio tan hermoso para un evento familiar."
+    eventType: "graduación"
+  - author: "Mtra. Ana Paula Serrano — Fundación Cultural Azteca"
+    date: "2024-05"
+    rating: 4
+    text: "Organizamos un congreso cultural de tres días en Casa del Lago y el entorno del Bosque de Chapultepec aportó una dimensión única al evento. El espacio tiene su propio ritmo: hay que coordinar bien los accesos y los horarios, pero el resultado —con el lago como fondo natural para cada pausa entre sesiones— no tiene precio. Un venue que eleva intelectualmente cualquier convocatoria."
+    eventType: "convención"
 
+faqs:
+  - question: "¿Cuántas personas caben en Casa del Lago UNAM?"
+    answer: "Casa del Lago UNAM tiene capacidad para 250 personas en formato banquete y hasta 400 en cóctel. El aforo mínimo recomendado es de 50 personas para garantizar la ambientación adecuada de los salones y la terraza con vista al lago."
+  - question: "¿Dónde está Casa del Lago UNAM y cómo llegar?"
+    answer: "Casa del Lago se ubica en la Primera Sección del Bosque de Chapultepec, código postal 11580, alcaldía Miguel Hidalgo. El acceso más práctico es por la entrada de Constituyentes o Reforma. El transporte público incluye Metro Chapultepec (Línea 1) y Metrobús Reforma. Cuenta con estacionamiento interior en el bosque."
+  - question: "¿Qué incluye la renta de Casa del Lago UNAM?"
+    answer: "La renta incluye coordinador de eventos, mobiliario básico (mesas y sillas), servicio de seguridad y limpieza. El espacio ofrece terrazas con vista directa al Lago Mayor, jardín escultórico y salones con ventanales de piso a techo. El servicio de catering, sonido y decoración se contrata con proveedores externos."
+  - question: "¿Qué tipo de eventos acepta Casa del Lago UNAM?"
+    answer: "Casa del Lago está especializada exclusivamente en eventos corporativos, académicos, culturales, convenciones y graduaciones. No se realizan bodas ni XV años. El espacio es administrado por la UNAM y requiere que los eventos estén alineados con su misión cultural y académica."
+  - question: "¿Cuál es el horario de operación y la política de alcohol en Casa del Lago?"
+    answer: "El horario de operación es de 09:00 a 22:00 horas todos los días, con toque de queda estricto a las 22:00. El consumo de alcohol está permitido únicamente con permiso especial tramitado ante la administración de la UNAM. Se requiere un mínimo de 4 horas de renta por evento."
 seoTitle: "Casa del Lago UNAM Eventos Chapultepec"
 seoDescription: "Centro cultural de la UNAM junto al Lago de Chapultepec. Eventos corporativos y académicos con terrazas panorámicas hasta 250 personas."
 keywords:

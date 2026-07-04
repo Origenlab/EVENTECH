@@ -158,11 +158,17 @@ export function serviceJsonLd(service: {
 }) {
   return {
     "@context": "https://schema.org",
-    "@type": "Service",
+    // Multi-type Service+Product: los motores de IA (ZeroRank check) buscan
+    // Product en páginas de equipo rentable; Service describe la renta.
+    "@type": ["Service", "Product"],
     name: service.name,
     description: service.description,
     url: canonicalURL(service.url),
     image: service.image ? canonicalURL(service.image) : undefined,
+    brand: {
+      "@type": "Brand",
+      name: SITE.organization.name,
+    },
     provider: {
       "@type": "LocalBusiness",
       "@id": `${SITE.url}/#localbusiness`,

@@ -96,7 +96,29 @@ reviews:
     rating: 5
     text: "No puedo creer que esta hacienda exista en medio de Lomas. Nuestra boda fue mágica."
     eventType: "boda"
+  - author: "Valentina y Diego Armenta"
+    date: "2025-03"
+    rating: 5
+    text: "Encontrar una hacienda colonial auténtica en pleno Lomas de Chapultepec fue una sorpresa enorme. Celebramos nuestra boda en el Jardín de las Palmeras y las palmeras datileras de 200 años fueron el backdrop más impresionante que cualquier decoración hubiera podido crear. La capilla de San José es preciosa y el coordinador dominaba cada rincón del espacio. Lo recomendamos sin reservas."
+    eventType: "boda"
+  - author: "Lic. Bernardo Fuentes — Dir. de Recursos Humanos, Grupo Intermex"
+    date: "2024-07"
+    rating: 4
+    text: "Realizamos aquí el retiro ejecutivo anual de nuestra empresa y el ambiente colonial fue un cambio total de paradigma para el equipo. Los salones con vigas de cedro y los corredores de arcos de cantera dieron un carácter muy especial a las sesiones de trabajo. La logística fue fluida y el personal sumamente atento. Un venue que transforma la dinámica de cualquier reunión."
+    eventType: "corporativo"
 
+
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Hacienda de la Palma?"
+    answer: "Hacienda de la Palma tiene capacidad para hasta 600 personas en formato banquete y hasta 800 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+  - question: "¿Dónde está ubicado Hacienda de la Palma y cómo llegar?"
+    answer: "Hacienda de la Palma se encuentra en Sierra Gorda 150, Lomas de Chapultepec, alcaldía Lomas de Chapultepec, Ciudad de México. La zona es accesible a través de Periférico, Paseo de la Reforma y Constituyentes, con opciones de transporte como metrobús y servicio de taxi/app."
+  - question: "¿Qué incluye la renta de Hacienda de la Palma?"
+    answer: "La renta de Hacienda de la Palma incluye banquete, meseros, coordinador de eventos, mobiliario básico (mesas y sillas), mantelería. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
+  - question: "¿Qué tipos de eventos se pueden realizar en Hacienda de la Palma?"
+    answer: "Hacienda de la Palma es apto para bodas, quinceañeras, eventos corporativos, bautizos y aniversarios. Su versatilidad lo convierte en una excelente opción para todo tipo de celebraciones sociales y eventos especiales en la zona."
+  - question: "¿Cuál es el horario de operación de Hacienda de la Palma?"
+    answer: "Hacienda de la Palma opera entre semana de 11:00 - 00:00 y fines de semana de 11:00 - 02:00 con un mínimo de 5 horas de renta. Te recomendamos reservar con anticipación, especialmente para fechas de fin de semana y temporadas de alta demanda como mayo, junio y diciembre."
 seoTitle: "Hacienda de la Palma"
 seoDescription: "Hacienda auténtica del siglo XVIII en Lomas de Chapultepec. Capilla consagrada, jardines centenarios. Bodas hasta 600 personas."
 keywords:

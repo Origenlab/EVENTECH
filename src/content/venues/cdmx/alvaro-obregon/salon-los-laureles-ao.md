@@ -121,6 +121,17 @@ reviews:
     text: "Como fotógrafa profesional, Los Laureles es uno de mis venues favoritos en Álvaro Obregón. El jardín ofrece luz natural excepcional para sesiones de fotos hasta las 6pm, y los árboles maduros crean fondos hermosos. El área de fotos interior también tiene buena iluminación. Lo recomiendo mucho para bodas y XV años donde las fotos son prioridad."
     eventType: "sesiones-foto"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Los Laureles?"
+    answer: "Salón Los Laureles tiene capacidad para hasta 250 personas en formato banquete y hasta 300 en formato cóctel. Para ceremonias, el espacio acomoda hasta 160 invitados. El mínimo de invitados es de 50 personas."
+  - question: "¿Dónde está ubicado Salón Los Laureles y cómo llegar?"
+    answer: "Salón Los Laureles se encuentra en Av. Centenario 1320, Pueblo de Axotla, colonia Pueblo de Axotla, alcaldía Álvaro Obregón, Ciudad de México. La zona es accesible en auto particular; se recomienda usar Uber o DiDi indicando el nombre del salón. Cuenta con estacionamiento propio."
+  - question: "¿Qué está incluido en la renta de Salón Los Laureles?"
+    answer: "La renta de Salón Los Laureles incluye: mobiliario básico (mesas y sillas), mantelería, iluminación básica, montaje, desmontaje, limpieza post-evento y personal de seguridad. Las instalaciones cuentan además con cocina industrial, pista de baile, jardín, aire acondicionado."
+  - question: "¿Qué tipo de eventos se pueden realizar en Salón Los Laureles?"
+    answer: "Salón Los Laureles es ideal para bodas, XV años, bautizos, primeras comuniones, cumpleaños, graduaciones, aniversarios y eventos corporativos. Entre otros tipos de celebraciones y reuniones."
+  - question: "¿Cuál es el horario de eventos en Salón Los Laureles?"
+    answer: "Salón Los Laureles opera en los siguientes horarios: lunes a viernes de 10:00 - 23:00, sábados y domingos de 10:00 - 02:00. La renta mínima es de 5 horas. Respecto al catering: Catering externo permitido."
 seoTitle: "Salón Los Laureles Álvaro Obregón"
 seoDescription: "Salón con jardín en Pueblo de Axotla, Álvaro Obregón. Ceremonias al aire libre, bodas y XV años hasta 250 personas CDMX."
 keywords:

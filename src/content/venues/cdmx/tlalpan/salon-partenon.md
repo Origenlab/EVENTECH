@@ -155,6 +155,18 @@ reviews:
     text: "Nuestra posada empresarial con 450 colaboradores superó todas las expectativas. El espacio permitió montar escenario para el show, pista de baile, zona de cena y área lounge sin que se sintiera saturado. La logística del estacionamiento y la seguridad fueron impecables para un evento de esta magnitud."
     eventType: "corporativo"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Partenón Tlalpan?"
+    answer: "Salón de Fiestas Partenón tiene capacidad para hasta 500 personas en formato banquete y 650 en cóctel, con montaje para ceremonia de 300 invitados. Con sus 2,000 metros cuadrados y más de 25 años de operación, es el salón de mayor formato y prestigio de Huipulco, Tlalpan."
+  - question: "¿Dónde está Salón Partenón y cómo llegar?"
+    answer: "El salón se ubica en Viaducto Tlalpan 329 (Calzada de Tlalpan 329), colonia Huipulco, alcaldía Tlalpan, CDMX, C.P. 14370. Está sobre Viaducto Tlalpan, una de las arterias principales del sur de la ciudad, con excelente acceso y valet parking disponible."
+  - question: "¿Qué incluye la renta de Salón Partenón?"
+    answer: "La renta incluye coordinador de eventos, mobiliario básico, mantelería, iluminación básica, sonido básico, montaje, desmontaje, seguridad y limpieza. Como socio premium de EVENTECH, el Partenón ofrece acceso a iluminación arquitectónica monumental, sonido line array y mobiliario premium."
+  - question: "¿Qué tipos de eventos acepta Salón Partenón?"
+    answer: "Partenón recibe bodas, XV años, bautizos, cumpleaños, aniversarios, graduaciones, eventos corporativos, comuniones, fiestas privadas, cenas de gala, convenciones, congresos, lanzamientos y fiestas infantiles. Más de 5,000 eventos realizados avalan su versatilidad para celebraciones de toda escala."
+  - question: "¿Cuáles son el horario y los servicios distintivos de Salón Partenón?"
+    answer: "El salón opera de lunes a viernes de 10:00 a 00:00 y fines de semana de 10:00 a 04:00 horas — uno de los cierres más tardíos en Tlalpan —, con mínimo de 5 horas. Cuenta con generador de emergencia, área infantil, terraza, vestidores y Wi-Fi. Los sparklers (pirotecnia fría) están disponibles como espectáculo."
+
 seoTitle: "Salón Partenón Tlalpan"
 seoDescription: "Salón monumental estilo clásico en Huipulco, Tlalpan. 2,000 m², 16 columnas griegas de 7m, frontones. Bodas hasta 500 personas. Socio premium EVENTECH."
 keywords:

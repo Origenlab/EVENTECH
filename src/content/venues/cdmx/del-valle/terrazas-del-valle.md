@@ -109,6 +109,17 @@ reviews:
     text: "Los XV años de mi hija en Terrazas del Valle superaron todas las expectativas. La combinación de la terraza al atardecer para las fotos y el salón Metropolitan para la cena y fiesta fue perfecta. El valet parking facilitó todo para los 200 invitados."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas caben en Terrazas del Valle?"
+    answer: "Terrazas del Valle tiene capacidad para 400 personas en banquete y hasta 500 en cóctel. Para ceremonias puede alojar 200 personas sentadas en terraza. El aforo mínimo es de 50 personas. El venue combina terrazas al aire libre con salones interiores de estética minimalista, ofreciendo vistas panorámicas de 270° de la Ciudad de México."
+  - question: "¿Dónde está Terrazas del Valle y cómo llegar?"
+    answer: "Se ubica en Av. Insurgentes Sur 1457, Colonia Del Valle, alcaldía Benito Juárez, C.P. 03100. Su ubicación sobre Insurgentes Sur garantiza una de las mejores conectividades de cualquier venue de CDMX: el Metrobús Insurgentes (estación Colonia del Valle) está a 200 metros. También tiene fácil acceso en auto desde el Periférico, Eje 8 Sur y División del Norte. Cuenta con estacionamiento propio y valet parking."
+  - question: "¿Qué incluye la renta de Terrazas del Valle?"
+    answer: "La renta incluye banquete completo con meseros, coordinador, mobiliario básico, mantelería, vajilla, iluminación básica, sonido básico, seguridad y limpieza. El espacio incluye terrazas panorámicas de 270°, salones interiores minimalistas, cocina industrial, pista de baile, vestidores, aire acondicionado y valet parking. EVENTECH es socio oficial del venue."
+  - question: "¿Qué tipo de eventos se realizan en Terrazas del Valle?"
+    answer: "Terrazas del Valle es ideal para bodas modernas con atardecer y vistas nocturnas, XV años sofisticados, eventos corporativos que buscan impresionar con panorámicas de la ciudad, cenas de gala, graduaciones, cumpleaños de adultos, aniversarios y lanzamientos de producto. Su ventaja competitiva única son las vistas de 270° de CDMX que convierten el atardecer en un momento espectacular para cualquier celebración."
+  - question: "¿Cuál es el horario de Terrazas del Valle y qué servicios adicionales ofrece?"
+    answer: "El horario es de 14:00 a 00:00 entre semana y de 12:00 a 02:00 los fines de semana, con mínimo de 5 horas. Como servicios adicionales ofrecen pantallas LED, pistas de baile LED y mobiliario de diseño a través de EVENTECH. La toque de queda es a las 02:00 los fines de semana. El precio por persona va de $850 a $1,800, siendo una de las mejores relaciones calidad-vista-precio de toda la zona sur de CDMX."
 seoTitle: "Terrazas del Valle"
 seoDescription: "Terrazas con vista 270° de CDMX en Insurgentes Sur. Diseño contemporáneo, banquete incluido. Bodas y eventos hasta 400 personas."
 keywords:

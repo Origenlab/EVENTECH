@@ -102,6 +102,18 @@ reviews:
     text: "Las bodas de oro de mis padres en Salón Prim fueron memorables. La intimidad del espacio, los pisos originales, la iluminación cálida por la noche... todo creó un ambiente de elegancia y calidez. El coordinador del venue facilitó cada detalle. Altamente recomendable."
     eventType: "aniversario"
 
+faqs:
+  - question: "¿Cuántas personas puede albergar Salón Prim en un evento?"
+    answer: "Salón Prim tiene capacidad para 30 a 120 personas en banquete y hasta 150 en cóctel. Para ceremonias, acepta hasta 80 personas. Es una casona Porfiriana restaurada en Calle Prim 45, Roma Norte, con chimenea de mármol, terraza jardín con fuente de cantera y techos de doble altura."
+  - question: "¿Dónde se encuentra Salón Prim y cómo llegar?"
+    answer: "Salón Prim se ubica en Calle Prim 45, Roma Norte, Cuauhtémoc, CP 06700. Es accesible desde Metro Insurgentes (Línea 1) o Metrobús Álvaro Obregón, en el corazón de la Roma Norte. La colonia ofrece múltiples opciones de transporte público y cuenta con acceso para personas con discapacidad."
+  - question: "¿Qué incluye la renta de Salón Prim?"
+    answer: "La renta incluye coordinador de eventos, mobiliario básico, iluminación básica y limpieza. El salón cuenta con pista de baile, terraza jardín con fuente, cocina industrial para el servicio de catering y vestidores. La estética romántica de principios del siglo XX, con chimenea y pisos hidráulicos originales, forma parte de la experiencia."
+  - question: "¿Qué tipo de eventos acepta Salón Prim?"
+    answer: "Salón Prim acepta bodas, cumpleaños, aniversarios, eventos corporativos, graduaciones, lanzamientos, sesiones fotográficas y cenas de gala. Su ambiente boutique y accesible lo hace popular para eventos íntimos donde la personalidad del espacio es tan importante como la logística."
+  - question: "¿Cuál es el horario de Salón Prim y cuáles son los precios por persona?"
+    answer: "Salón Prim opera entre semana de 17:00 a 00:00 horas y los fines de semana de 14:00 a 01:00, con duración mínima de 5 horas. Los precios oscilan entre $900 y $2,200 MXN por persona, lo que lo posiciona como una de las opciones más accesibles de la Roma con coordinador incluido."
+
 seoTitle: "Salón Prim"
 seoDescription: "Casona Porfiriana restaurada en Roma Norte para bodas y eventos íntimos. Pisos originales y terraza jardín. Hasta 120 personas."
 keywords:

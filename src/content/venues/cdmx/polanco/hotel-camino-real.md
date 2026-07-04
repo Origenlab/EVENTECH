@@ -99,6 +99,29 @@ reviews:
     rating: 5
     text: "El diseño arquitectónico hizo que nuestras fotos de boda fueran espectaculares."
     eventType: "boda"
+  - author: "Ing. Rodrigo Méndez Salazar — Gerente de Eventos, Samsung México"
+    date: "2025-02"
+    rating: 5
+    text: "Lanzamos nuestro nuevo producto en el Gran Salón Polanco y el impacto fue extraordinario. La infraestructura técnica del hotel, con sus 8 metros de altura libre y capacidad de rigging, nos permitió una producción de nivel internacional que cualquier sala de hotel convencional hubiera rechazado. El Jardín Escultórico con las obras de Tamayo y Calder fue el escenario perfecto para el cóctel de prensa. El equipo de eventos fue un aliado real."
+    eventType: "corporativo"
+  - author: "Claudia e Ignacio Villareal Montoya"
+    date: "2024-08"
+    rating: 5
+    text: "Para nuestra boda queríamos un venue que no necesitara decoración adicional, y el Camino Real cumplió exactamente eso. El rosa mexicano de Legorreta en los muros, la escultura de Calder en el jardín como backdrop para las fotos, la suite nupcial impecable. El coordinador del hotel anticipó cada detalle. Nuestros invitados siguen comentando que fue la boda más original que han vivido."
+    eventType: "boda"
+
+
+faqs:
+  - question: "¿Cuántas personas puede recibir Hotel Camino Real Polanco en un evento?"
+    answer: "Hotel Camino Real Polanco tiene capacidad para 30 hasta 2,000 personas en banquete y hasta 2,500 en cóctel, distribuidas en el Gran Salón y múltiples espacios versátiles. Para ceremonias, la capacidad máxima es de 500 personas."
+  - question: "¿Dónde está ubicado Hotel Camino Real Polanco y cómo llegar?"
+    answer: "Se encuentra en Mariano Escobedo 700, Colonia Nueva Anzures, Miguel Hidalgo, CP 11590, entre Polanco y la zona de Reforma. Está a pocos minutos de Periférico y Ejército Nacional. Cuenta con estacionamiento propio y valet parking para todos los asistentes."
+  - question: "¿Qué incluye la renta del Hotel Camino Real Polanco?"
+    answer: "La renta incluye banquete, meseros, coordinador de eventos, mobiliario básico, mantelería, vajilla, iluminación básica, sonido básico, seguridad, limpieza, montaje y desmontaje. El hotel cuenta con generador de emergencia y acceso para personas con discapacidad."
+  - question: "¿Qué tipos de eventos acepta Hotel Camino Real Polanco?"
+    answer: "Acepta bodas, XV años, eventos corporativos, convenciones, lanzamientos de productos, cenas de gala y aniversarios. Su Gran Salón para 2,000 personas lo hace ideal para convenciones internacionales, y sus espacios más íntimos son perfectos para bodas y celebraciones familiares de alto nivel."
+  - question: "¿Cuál es el horario de operación de Hotel Camino Real Polanco?"
+    answer: "Opera entre semana de 07:00 a 02:00 horas y los fines de semana de 07:00 a 03:00 horas, con duración mínima de 4 horas por evento. La obra maestra arquitectónica de Ricardo Legorreta —con jardines que albergan esculturas de Rufino Tamayo y Alexander Calder— está disponible todo el año."
 
 seoTitle: "Hotel Camino Real Polanco"
 seoDescription: "Hotel icónico de Ricardo Legorreta con esculturas de Tamayo y Calder. Eventos hasta 2,000 personas. Arquitectura única en el mundo."

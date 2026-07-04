@@ -102,7 +102,24 @@ reviews:
     rating: 5
     text: "Nuestro lanzamiento de marca en la cantera generó más impacto que cualquier campaña publicitaria."
     eventType: "lanzamiento"
+  - author: "Lic. Tomás Herrera — Director Creativo, Agencia Vértice"
+    date: "2025-04"
+    rating: 5
+    text: "Buscábamos un venue que fuera, en sí mismo, el concepto visual del evento. La Cantera lo fue. Las paredes de roca volcánica de dos mil años como backdrop, el techo de cristal mostrando el cielo, los jardines escalonados entre formaciones del Pedregal: ninguna producción artística podría igualar lo que la naturaleza construyó aquí. Nuestros clientes quedaron impactados. El espacio hace el trabajo por ti."
+    eventType: "corporativo"
 
+
+faqs:
+  - question: "¿Cuál es la capacidad de La Cantera Pedregal?"
+    answer: "La Cantera Pedregal puede recibir hasta 400 personas. La capacidad varía según el montaje: banquete, cóctel o teatro. Consulta con el equipo para el formato que mejor se adapte a tu evento."
+  - question: "¿Dónde está ubicado La Cantera Pedregal y cómo llegar?"
+    answer: "La Cantera Pedregal se ubica en Cráter 245, Col. Jardines del Pedregal, colonia Jardines del Pedregal, alcaldía CDMX, Ciudad de México. Si vas en auto, se recomienda verificar disponibilidad de estacionamiento directamente con el venue."
+  - question: "¿Qué incluye la renta de La Cantera Pedregal?"
+    answer: "La renta de La Cantera Pedregal incluye: coordinador, mobiliario-basico, seguridad, limpieza, montaje, desmontaje. Además, el venue cuenta con las siguientes instalaciones y amenidades: estacionamiento, valet-parking, pista-baile, cocina-industrial, terraza, jardin, acceso-discapacitados, aire-acondicionado, wifi, vestidores, area-fotos, vista-panoramica. Para paquetes personalizados o servicios adicionales, consulta directamente con el equipo."
+  - question: "¿Qué tipo de eventos se pueden realizar en La Cantera Pedregal?"
+    answer: "La Cantera Pedregal es apto para una amplia variedad de eventos, entre ellos: bodas, corporativos, lanzamientos, cenas-gala, aniversarios. El equipo del venue puede orientarte sobre el montaje más adecuado para cada ocasión."
+  - question: "¿La Cantera Pedregal cuenta con estacionamiento?"
+    answer: "Sí, estacionamiento. Además, el venue puede orientarte sobre opciones de acceso en transporte público o valet parking según disponibilidad. Consulta directamente para más detalles."
 seoTitle: "La Cantera Pedregal"
 seoDescription: "Espacio de eventos construido en una cantera volcánica del Pedregal. Arquitectura única con techos de cristal hasta 400 personas."
 keywords:

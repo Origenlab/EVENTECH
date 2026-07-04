@@ -1,8 +1,22 @@
 ---
 name: "Salón Venecia"
 slug: "salon-venecia"
-description: "Salón Venecia es una institución de las celebraciones en Xochimilco — la alcaldía más emblemática y tradicional de la Ciudad de México, declarada Patrimonio de la Humanidad por la UNESCO. Ubicado sobre la Avenida 20 de Noviembre en el histórico barrio de La Noria, este venue de 1,500 metros cuadrados combina un salón interior renovado con aire acondicionado y acabados contemporáneos, un jardín de 500 m² con pérgolas y vegetación exuberante beneficiada por el microclima de Xochimilco, y un área de cócteles que conecta ambos espacios. Con más de 20 años de trayectoria, más de 3,500 eventos realizados y una clientela que abarca desde familias locales hasta parejas que viajan desde otras alcaldías atraídas por el encanto de Xochimilco, Venecia se ha consolidado como el salón de mayor prestigio y capacidad de la alcaldía. Su alianza como socio premium de EVENTECH potencia cada celebración con producción profesional que complementa la tradición y la naturaleza del espacio."
-shortDescription: "Salón institucional en La Noria, Xochimilco UNESCO. Jardín de 500 m², salón renovado. Bodas y eventos hasta 400 personas."
+description: >-
+  Salón Venecia es una institución de las celebraciones en Xochimilco — la
+  alcaldía más emblemática de la Ciudad de México, declarada Patrimonio de la
+  Humanidad por la UNESCO por su sistema de canales y chinampas prehispánicas,
+  la única zona lacustre activa de la CDMX. Ubicado sobre la Avenida 20 de
+  Noviembre en el histórico barrio de La Noria, a minutos de los embarcaderos
+  de trajineras, este venue de 1,500 metros cuadrados combina un salón interior
+  renovado con aire acondicionado y acabados contemporáneos, un jardín de 500 m²
+  con pérgolas y vegetación exuberante beneficiada por el microclima lacustre de
+  Xochimilco, y un área de cócteles que conecta ambos espacios. Con más de 20
+  años de trayectoria, más de 3,500 eventos realizados y clientela que viaja
+  desde otras alcaldías atraída por el encanto del Patrimonio UNESCO, Venecia es
+  el salón de mayor prestigio y capacidad de la zona. Su alianza como socio
+  premium de EVENTECH potencia cada celebración con producción profesional que
+  amplifica la tradición y la naturaleza lacustre del entorno.
+shortDescription: "Salón institucional en La Noria, Xochimilco Patrimonio UNESCO, a minutos de los embarcaderos de trajineras. Jardín de 500 m² con pérgolas, salón renovado."
 
 region: "cdmx"
 zone: "Xochimilco"
@@ -156,6 +170,18 @@ reviews:
     text: "Nuestra cena anual de gala para 350 socios fue impecable. El salón renovado luce moderno y elegante, la logística del estacionamiento funcionó sin problemas, y la iluminación EVENTECH transformó el espacio. Es el único salón en la zona sur con capacidad profesional para eventos de esta escala."
     eventType: "corporativo"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Venecia Xochimilco?"
+    answer: "Salón Venecia tiene capacidad para 400 personas en formato banquete y hasta 500 en cóctel, con montaje para ceremonia de hasta 250 invitados. Su salón de 1,500 m² con jardín de 500 m² y pérgolas lo posicionan como el salón de mayor prestio y capacidad de la alcaldía Xochimilco."
+  - question: "¿Dónde está Salón Venecia y cómo llegar?"
+    answer: "El salón se ubica en Avenida 20 de Noviembre 515, barrio La Noria, alcaldía Xochimilco, CDMX, C.P. 16030. Está en el histórico barrio de La Noria, dentro de la zona Patrimonio de la Humanidad UNESCO. Se accede desde la Calzada de Xochimilco y en Tren Ligero. Cuenta con estacionamiento propio."
+  - question: "¿Qué incluye la renta de Salón Venecia?"
+    answer: "La renta incluye coordinador de eventos, mobiliario básico, mantelería, iluminación básica, sonido básico, montaje, desmontaje, seguridad y limpieza. Como socio premium EVENTECH, el salón ofrece acceso a sonido profesional, iluminación de jardín, carpas, mobiliario rústico-elegante y pista LED EVENTECH."
+  - question: "¿Qué tipos de eventos acepta Salón Venecia Xochimilco?"
+    answer: "Venecia recibe bodas, XV años, bautizos, cumpleaños, aniversarios, comuniones, graduaciones, fiestas infantiles, fiestas privadas, cenas de gala, baby showers, despedidas, sesiones fotográficas y reuniones. Con más de 20 años de trayectoria y 3,500 eventos realizados, es la institución de celebraciones de Xochimilco."
+  - question: "¿Cuáles son las amenidades distintivas de Salón Venecia?"
+    answer: "Salón Venecia cuenta con jardín de 500 m² con vegetación beneficiada por el microclima de Xochimilco, fuente ornamental, generador de emergencia, vestidores y área infantil. Los fines de semana opera hasta las 03:00 horas — el cierre más tardío en Xochimilco —. Disponible también pulquería artesanal y decoración con flores de Xochimilco."
+
 seoTitle: "Salón Venecia Xochimilco"
 seoDescription: "Salón con jardín en La Noria, Xochimilco Patrimonio UNESCO. 20 años de experiencia. Bodas hasta 400 personas. Socio premium EVENTECH."
 keywords:
@@ -174,6 +200,10 @@ keywords:
   - salon fiestas tradicion mexicana cdmx
   - venue bodas canales xochimilco
   - salon eventos la noria pergolas
+  - venue xochimilco patrimonio UNESCO
+  - eventos xochimilco trajineras
+  - boda xochimilco lago cdmx
+  - salón fiestas xochimilco cdmx
 
 featured: true
 premium: true

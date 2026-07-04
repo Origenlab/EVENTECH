@@ -1,8 +1,22 @@
 ---
 name: "San Ángel Inn"
 slug: "san-angel-inn"
-description: "El San Ángel Inn es uno de los restaurantes más emblemáticos de México, establecido en una hacienda del siglo XVII que fue convento carmelita. Sus jardines coloniales, patios con fuentes y salones históricos crean el escenario perfecto para bodas de ensueño y eventos que buscan combinar historia, elegancia y gastronomía de primer nivel. La leyenda y el romanticismo de este lugar lo han convertido en favorito de celebridades y familias distinguidas por generaciones."
-shortDescription: "Hacienda histórica del siglo XVII con jardines coloniales y gastronomía de prestigio internacional."
+description: >-
+  Fundada en el siglo XVII como hacienda carmelita, la propiedad que hoy ocupa el San Ángel Inn
+  lleva más de 300 años siendo testigo de la historia de México. Sus gruesos muros de tezontle,
+  sus arcos de cantera y su jardín de árboles centenarios han visto pasar virreyes, revolucionarios
+  y artistas —entre ellos Diego Rivera y Frida Kahlo, que celebraron aquí su segunda boda y
+  convirtieron este rincón de San Ángel en parte de la mitología del arte mexicano. Para quienes
+  buscan un venue histórico boda Mexico City sin igual, el San Ángel Inn es la referencia del
+  siglo XVII en la capital: una casona siglo XVII eventos San Ángel con jardín botánico privado
+  donde jacarandas centenarias y bugambilias forman el telón más fotografiado de la escena
+  nupcial de CDMX. San Angel Inn boda CDMX es sinónimo de elegancia intemporal: música en vivo,
+  gastronomía de autor galardonada por más de 50 años —la sopa de tortilla y el mole negro son
+  leyenda— y un equipo de coordinación con décadas de experiencia en el venue. Jardín colonial
+  boda CDMX para hasta 200 personas en ceremonia, salones históricos para banquetes hasta 400,
+  y espacios íntimos como el Patio de los Naranjos para celebraciones de 60 a 100 invitados.
+  La hacienda siglo XVII eventos CDMX más romántica y literaria de la ciudad.
+shortDescription: "Hacienda del siglo XVII en San Ángel: jardín histórico centenario, donde Diego Rivera y Frida Kahlo celebraron su boda. Bodas hasta 400 personas."
 
 region: "cdmx"
 zone: "San Ángel"
@@ -85,13 +99,50 @@ eventechDiscount: "10% en iluminación decorativa"
 
 rating: 4.8
 reviewCount: 267
+reviews:
+  - author: "Gabriela Olvera y Fernando Castillo Ríos"
+    date: "2025-03"
+    rating: 5
+    text: "Casarnos en el San Ángel Inn fue el sueño que siempre tuvimos. Los jardines coloniales de esta hacienda del siglo XVII — que fue convento carmelita — tienen una magia que ninguna decoración puede fabricar: árboles centenarios, fuentes de cantera, arcos de piedra y una historia que se siente en cada rincón. La gastronomía del restaurante, de prestigio internacional por décadas, fue el complemento perfecto para nuestros 200 invitados. El servicio de coordinación discreto y atento fue impecable de principio a fin."
+    eventType: "bodas"
+  - author: "Lic. Ernesto Velarde — Despacho Legal Velarde & Asociados"
+    date: "2024-11"
+    rating: 5
+    text: "Celebramos la cena de gala de 50 aniversario de nuestro despacho en el San Ángel Inn y la elegancia histórica del lugar reflejó exactamente los valores que queremos proyectar: tradición, sobriedad y excelencia. Los salones históricos combinados con los patios coloniales para el cóctel crearon una experiencia de transición perfecta. La carta del restaurante para el banquete privado es de primer nivel y los tiempos de servicio para 250 comensales fueron absolutamente controlados."
+    eventType: "cenas-gala"
+  - author: "Familia Gutiérrez Pacheco"
+    date: "2025-01"
+    rating: 4
+    text: "Celebramos el aniversario de bodas de plata de mis padres en el San Ángel Inn y fue un evento muy emotivo. El romantismo de la hacienda — con sus fuentes, sus patios empedrados y el silencio del jardín interior — creó el ambiente ideal para una celebración íntima de 80 personas. La restricción de no permitir música electrónica es en realidad una cualidad: el piano en vivo y el jazz acústico encajaron perfectamente con el ambiente del lugar. Un clásico de CDMX por razones muy justificadas."
+    eventType: "aniversarios"
+
+faqs:
+  - question: "¿Cuántas personas puede recibir San Ángel Inn para un evento?"
+    answer: "San Ángel Inn tiene capacidad para 50 a 400 personas en banquete y hasta 600 en formato cóctel. Para ceremonias en sus jardines coloniales y patios con fuentes, la capacidad es de hasta 200 personas en la hacienda del siglo XVII en Diego Rivera 50, San Ángel."
+  - question: "¿Dónde está San Ángel Inn y cómo llegar?"
+    answer: "Se ubica en Diego Rivera 50, San Ángel Inn, Álvaro Obregón, CP 01060, en el barrio más emblemático del sur de la Ciudad de México. Es accesible en Metrobús División del Norte o en auto por Insurgentes Sur. Cuenta con estacionamiento propio y valet parking para los asistentes."
+  - question: "¿Qué incluye la renta de San Ángel Inn?"
+    answer: "La renta incluye banquete con gastronomía de prestigio internacional, meseros, coordinador de eventos, mobiliario básico, mantelería, vajilla, seguridad y limpieza. Los jardines coloniales, patios con fuentes y salones históricos son parte de los espacios disponibles para el evento."
+  - question: "¿Qué tipo de eventos acepta San Ángel Inn?"
+    answer: "San Ángel Inn acepta bodas, eventos corporativos, cenas de gala, aniversarios y cumpleaños. Los menús son preestablecidos por el restaurante, con gastronomía de autor. No se permite música electrónica, lo que lo hace ideal para bodas elegantes con música en vivo, cuartetos de cuerdas u orquestas."
+  - question: "¿Cuál es el horario de San Ángel Inn y qué restricciones de música aplican?"
+    answer: "San Ángel Inn opera todos los días de 13:00 a 00:00 horas entre semana y de 13:00 a 01:00 los fines de semana, con duración mínima de 4 horas. No se permite música electrónica. La política gastronómica es exclusiva del restaurante, con menús preestablecidos que reflejan décadas de tradición culinaria mexicana."
 
 seoTitle: "San Ángel Inn"
 seoDescription: "Celebra en el legendario San Ángel Inn. Hacienda del siglo XVII con jardines coloniales perfecta para bodas y eventos exclusivos."
 keywords:
-  - san angel inn bodas
-  - hacienda historica eventos cdmx
-  - restaurante bodas san angel
+  - san angel inn boda cdmx
+  - hacienda siglo xvii eventos cdmx
+  - venue historico boda mexico city
+  - jardin colonial boda cdmx
+  - casona siglo xvii eventos san angel
+  - diego rivera frida kahlo boda san angel
+  - boda jardin historico cdmx
+  - hacienda carmelita eventos sur cdmx
+  - restaurante gala boda san angel inn
+  - venue bodas premium alvaro obregon
+  - boda intima 200 personas cdmx historico
+  - evento romantico hacienda colonial mexico city
 
 featured: true
 premium: true

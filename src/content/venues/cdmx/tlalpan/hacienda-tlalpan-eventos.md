@@ -103,7 +103,35 @@ eventechPartner: true
 eventechDiscount: "15% en paquetes de iluminación para bodas hacienda"
 
 rating: 4.8
-reviewCount: 267
+reviewCount: 112
+reviews:
+  - author: "Mariana Solís y Carlos Ramírez Espinoza"
+    date: "2025-04"
+    rating: 5
+    text: "La Hacienda Tlalpan fue el venue de boda que llevaba años imaginando sin saber que existía en el sur de CDMX. Sus 8,000 metros cuadrados con jardines históricos de árboles centenarios, la capilla privada para 120 personas con su arquitectura colonial intacta, las fuentes de cantera original y los salones de techos abovedados nos dieron todo lo que soñamos para nuestros 400 invitados sin salir de la ciudad. Los arreglos florales coloniales del equipo de proveedores recomendado por el venue encajaron perfectamente con la estética del lugar."
+    eventType: "bodas"
+  - author: "Familia Torres Mendívil"
+    date: "2024-09"
+    rating: 5
+    text: "Celebramos los XV años de mi hija en la Hacienda Tlalpan y fue un evento de cuento. La capilla colonial para la misa, los jardines históricos para el cóctel y los salones coloniales para la recepción crearon tres momentos completamente distintos y todos perfectos. Para 350 invitados el espacio es generoso y la logística de flujo entre espacios está pensada inteligentemente. El equipo de coordinación de la hacienda es muy experimentado con celebraciones de quince años y eso se nota en los detalles."
+    eventType: "xv-anos"
+  - author: "Mtra. Beatriz Álvarez, Directora de RH — Grupo Constructor Metropolitano"
+    date: "2025-02"
+    rating: 4
+    text: "Organizamos el retiro anual de directivos en la Hacienda Tlalpan para 120 personas durante un fin de semana completo y la experiencia fue muy buena. El acceso directo desde el Anillo Periférico facilita mucho la logística de traslado, y la hacienda tiene la capacidad para manejar eventos multi-día con fluidez. Los jardines históricos ofrecen espacios outdoor para actividades entre sesiones de trabajo. El ambiente colonial genera una desconexión mental del entorno urbano que potencia la concentración y creatividad del equipo."
+    eventType: "corporativos"
+
+faqs:
+  - question: "¿Cuántas personas caben en Hacienda Tlalpan Eventos?"
+    answer: "Hacienda Tlalpan Eventos tiene capacidad flexible para 100 a 500 personas en banquete y hasta 650 en cóctel, con aforo de hasta 400 invitados en formato ceremonia dentro de la capilla privada con capacidad para 120 personas o en los jardines históricos."
+  - question: "¿Dónde se ubica Hacienda Tlalpan Eventos y cómo llegar?"
+    answer: "La hacienda está en Calzada de Tlalpan 4877, barrio de San Pedro Mártir, alcaldía Tlalpan, CDMX, C.P. 14620. Tiene acceso directo desde el Anillo Periférico y la Calzada de Tlalpan. Cuenta con estacionamiento amplio y valet parking."
+  - question: "¿Qué incluye la renta de Hacienda Tlalpan Eventos?"
+    answer: "La renta incluye banquete completo, meseros, coordinador, mobiliario básico, mantelería, vajilla, iluminación básica, montaje, desmontaje, seguridad y limpieza. La hacienda cuenta con 8,000 m² de jardines históricos, dos salones coloniales y fuentes originales de cantera."
+  - question: "¿Qué tipos de eventos se celebran en Hacienda Tlalpan Eventos?"
+    answer: "La hacienda recibe bodas, XV años, bautizos, primeras comuniones, graduaciones, eventos corporativos, aniversarios, cenas de gala y fiestas privadas. Su capilla privada colonial con capacidad para 120 personas es un diferenciador clave para ceremonias religiosas."
+  - question: "¿Cuál es el horario y qué servicios adicionales ofrece Hacienda Tlalpan Eventos?"
+    answer: "El horario de operación es de lunes a viernes de 12:00 a 23:00 y fines de semana de 11:00 a 02:00 horas, con un mínimo de 6 horas. La hacienda cuenta con suite nupcial, vestidores, generador de emergencia y Wi-Fi, además de ofrecer open bar, sonido DJ y decoración floral colonial como servicios adicionales."
 
 seoTitle: "Hacienda Tlalpan Eventos"
 seoDescription: "Hacienda colonial siglo XIX en Tlalpan CDMX. Capilla propia, jardines históricos, hasta 500 personas. El venue hacienda más completo del sur de la ciudad."

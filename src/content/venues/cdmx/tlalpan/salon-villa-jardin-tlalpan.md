@@ -116,6 +116,18 @@ reviews:
     text: "Celebramos los XV años de mi hija con 250 invitados. El salón cerrado fue ideal para la cena y el baile, mientras que el jardín funcionó como escape para los que querían aire fresco. La pista de baile tiene buen tamaño para el vals con chambelanes."
     eventType: "xv-anos"
 
+faqs:
+  - question: "¿Cuántas personas tienen capacidad en Salón Villa Jardín Tlalpan?"
+    answer: "Salón Villa Jardín Tlalpan tiene capacidad para 280 personas en formato banquete y 350 en cóctel, con montaje para ceremonia de hasta 180 invitados. La combinación de salón interior climatizado y jardín exterior permite una distribución versátil del evento."
+  - question: "¿Dónde está Salón Villa Jardín Tlalpan y cómo llegar?"
+    answer: "El salón se ubica en Calzada de Tlalpan 4750, colonia Toriello Guerra, alcaldía Tlalpan, CDMX, C.P. 14050. Está sobre la Calzada de Tlalpan, una de las vías principales del sur de la CDMX, con acceso fácil desde el Anillo Periférico y el Metro Taxqueña. Cuenta con estacionamiento propio."
+  - question: "¿Qué incluye la renta de Salón Villa Jardín Tlalpan?"
+    answer: "La renta incluye mobiliario básico, mantelería, iluminación básica, montaje, desmontaje y limpieza. El salón cuenta con cocina industrial, aire acondicionado, jardín exterior, área de fotos y pista de baile. Se permiten caterings autorizados externos para el banquete."
+  - question: "¿Qué tipos de eventos acepta Salón Villa Jardín Tlalpan?"
+    answer: "El salón es ideal para bodas, XV años, bautizos, cumpleaños, aniversarios, comuniones, graduaciones, fiestas privadas, baby showers y sesiones fotográficas. La flexibilidad de usar interior, jardín o ambos espacios lo convierte en una opción versátil para diferentes tipos de celebración."
+  - question: "¿Cuál es el horario y la política de restricciones en Salón Villa Jardín Tlalpan?"
+    answer: "El salón opera de lunes a viernes de 10:00 a 23:00 y fines de semana de 10:00 a 02:00 horas, con un mínimo de 5 horas de renta. La pirotecnia no está permitida para proteger el jardín y la vegetación. La música amplificada tiene límite de horario. Se requiere cuidado obligatorio del jardín durante el evento."
+
 seoTitle: "Salón Villa Jardín Tlalpan"
 seoDescription: "Salón con jardín en Toriello Guerra, Tlalpan. Bodas y XV años hasta 280 personas. Interior y exterior sobre Calzada Tlalpan."
 keywords:
