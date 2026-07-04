@@ -27,6 +27,8 @@ Changelog de todo lo generado, para mantener homologación. Fechas absolutas.
 
 **5. Fixes de build preexistentes** (bloqueaban compilación): 6 venues con `phone` duplicado, enums inválidos en 4 venues, 22 `shortDescription` >160, 1 seoTitle >70, 5 seoDescription >160.
 
+**6. Incidente de deploy descubierto y resuelto:** eventech.mx (DNS → GH Pages via proxy Cloudflare) estaba **congelado en el build del 16-jun** porque el pipeline se migró a Cloudflare Pages y GH Pages dejó de recibir deploys — llms.txt y los artículos del 27-jun nunca estuvieron live. Fix: restaurado `deploy-ghpages.yml` (dual deploy temporal). **Pendiente: migrar DNS a eventech.pages.dev y retirar dual deploy.** Verificado live: computo 200, llms.txt 200, PerplexityBot en robots, HowTo en /cotizar, Product schema en L5.
+
 **Pendiente (backlog off-page, no código):** gestiones editoriales en lugaresparaeventos.mx y bodas.com.mx (alta), participación auténtica en Facebook/YouTube/Reddit (r/sweatystartup, r/Changarrito, r/CDMX), WebMCP (evaluar), contenido blog inflables/mobiliario/carpas, listicle "mejores empresas renta de equipo CDMX".
 
 ## 2026-06-15
