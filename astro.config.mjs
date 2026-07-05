@@ -175,7 +175,7 @@ export default defineConfig({
 
   // ─── Vite (cache en /tmp para evitar EPERM en sandbox) ───
   vite: {
-    cacheDir: "/tmp/vite-eventech",
+    cacheDir: process.env.VITE_CACHE_DIR || "/tmp/vite-eventech",
     resolve: {
       alias: {
         "@": fileURLToPath(new URL("./src", import.meta.url)),

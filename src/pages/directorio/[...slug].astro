@@ -89,6 +89,20 @@ if (type === "venue" && venue) {
   VenueContent = Content;
 }
 
+// ── Imágenes verificadas en build (evita imgs rotas en producción) ──
+import fs from "node:fs";
+import path from "node:path";
+const imgExists = (p: string | undefined): boolean => {
+  if (!p) return false;
+  try { return fs.existsSync(path.join(process.cwd(), "public", p)); } catch { return false; }
+};
+const heroSrc: string = (type === "venue" && venue && imgExists(venue.data.image))
+  ? venue.data.image
+  : "/images/placeholder-venue.avif";
+const galleryImgs: string[] = (type === "venue" && venue && venue.data.gallery)
+  ? venue.data.gallery.filter(imgExists)
+  : [];
+
 // Labels
 const regionLabels: Record<string, string> = {
   "cdmx": "Ciudad de México",
@@ -458,7 +472,7 @@ const jsonLd = [
       name: venue.data.name,
       description: venue.data.seoDescription || venue.data.shortDescription,
       url: `/directorio/${region}/${zone}/${venue.data.slug}/`,
-      image: venue.data.image,
+      image: heroSrc,
       address: {
         street: venue.data.address,
         locality: venue.data.zone,
@@ -856,13 +870,13 @@ const jsonLd = [
             <main class="dr-vp__main">
 
               {/* Galería */}
-              <div class={`dr-vgal${venue.data.gallery && venue.data.gallery.length > 0 ? "" : " dr-vgal--solo"}`}>
+              <div class={`dr-vgal${galleryImgs.length > 0 ? "" : " dr-vgal--solo"}`}>
                 <div class="dr-vgal__main">
-                  <img src={venue.data.image || "/images/placeholder-venue.avif"} alt={venue.data.name} width="800" height="550" />
+                  <img src={heroSrc} alt={venue.data.name} width="800" height="550" />
                 </div>
-                {venue.data.gallery && venue.data.gallery.length > 0 && (
+                {galleryImgs.length > 0 && (
                   <div class="dr-vgal__thumbs">
-                    {venue.data.gallery.slice(0, 2).map((img: string, i: number) => (
+                    {galleryImgs.slice(0, 2).map((img: string, i: number) => (
                       <div class="dr-vgal__thumb">
                         <img src={img} alt={`${venue.data.name} — ${i + 1}`} loading="lazy" width="300" height="220" />
                       </div>
