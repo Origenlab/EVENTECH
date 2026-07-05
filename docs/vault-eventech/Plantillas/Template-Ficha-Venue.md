@@ -67,7 +67,7 @@
 - **El flag `verified` legacy NO atestigua nada**: se repartió en 128 fichas sin verificación real. Para fichas nuevas: `verified: true` solo con validación EVENTECH en sitio.
 - **48 contactos placeholder eliminados**: WhatsApps `55 1234 5xxx` secuenciales (39), `55 5555 xxxx` (4) y números compartidos entre venues distintos (9). Un número fabricado en producción = usuarios escribiendo a desconocidos.
 - **Pendiente continuo**: verificar teléfono principal de cada ficha legacy contra fuente oficial al retrabajarla. Los de marcas grandes (Four Seasons, St. Regis, W, Pujol, Camino Real, Hacienda de los Morales, San Ángel Inn) ya se cotejaron y son correctos.
-- **Regla para reviews legacy**: las fichas con testimonios sin fuente siguen mostrándolos en UI (decisión de producto pendiente con Frank), pero ya NO se emiten a Google. Fichas nuevas: cero reviews sin fuente.
+- **Gate `reviewsSource` (decisión de Frank 2026-07-05)**: rating, estrellas y sección "Opiniones" solo se muestran en UI y se emiten en JSON-LD si la ficha tiene `reviewsSource` (fuente real citable). Las 128 fichas legacy con reviews fabricadas quedaron ocultas hasta reemplazarlas con reseñas reales. Fichas con fuente hoy: salones-centenario (bodas.com.mx), grupo-elite-anzures (especialevento.com). Al retrabajar una ficha legacy: buscar reseñas reales en Google/bodas.com.mx, sustituir las inventadas y agregar `reviewsSource`; si no hay, eliminar `reviews`/`rating`.
 
 ## Checklist pre-commit
 

@@ -70,6 +70,7 @@ eventechServices:
   - "pistas-baile"
   - "audiovisual"
 
+reviewsSource: "https://especialevento.com/ciudad-de-mexico/miguel-hidalgo/organizadoras-de-eventos/salones-para-fiestas-anzures/"
 rating: 4.7
 
 faqs:

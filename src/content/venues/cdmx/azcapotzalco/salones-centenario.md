@@ -115,6 +115,7 @@ eventechServices:
   - "mobiliario"
 eventechPartner: false
 
+reviewsSource: "bodas.com.mx (29 reseñas verificadas, Wedding Awards 2020/2021/2025)"
 rating: 4.9
 reviewCount: 29
 reviews:

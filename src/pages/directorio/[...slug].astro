@@ -484,13 +484,11 @@ const jsonLd = [
       email: venue.data.contact?.email,
       priceRange: venue.data.priceRange,
       capacity: venue.data.capacity,
-      // aggregateRating OMITIDO deliberadamente (mismo criterio que
-      // serviceWithReviewJsonLd en lib/seo.ts): los ratings legacy no tienen
-      // fuente verificable y emitirlos en structured data viola las guías de
-      // Google (fake reviews) — riesgo de acción manual. Reactivar solo cuando
-      // exista pipeline de reseñas reales con fuente citable.
-      rating: undefined,
-      reviewCount: undefined,
+      // aggregateRating solo si la ficha tiene reviewsSource (fuente real
+      // citable). Ratings sin fuente en structured data = fake reviews para
+      // Google, riesgo de acción manual. Ver vault Template-Ficha-Venue.
+      rating: venue.data.reviewsSource ? venue.data.rating : undefined,
+      reviewCount: venue.data.reviewsSource ? venue.data.reviewCount : undefined,
       amenities: venue.data.amenities,
       openingHours: venue.data.schedule,
     }),
@@ -499,9 +497,8 @@ const jsonLd = [
       ? [faqJsonLd(venue.data.faqs)]
       : []
     ),
-    // Review Schema — DESACTIVADO (misma regla que aggregateRating): las
-    // reseñas legacy no tienen fuente verificable. Reactivar con pipeline real.
-    ...(false && venue.data.reviews && venue.data.reviews.length > 0
+    // Review Schema — solo fichas con reviewsSource (misma regla que aggregateRating)
+    ...(venue.data.reviewsSource && venue.data.reviews && venue.data.reviews.length > 0
       ? [{
           "@context": "https://schema.org",
           "@type": "EventVenue",
@@ -862,7 +859,7 @@ const jsonLd = [
           <p class="dr-vhero__location">
             <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             {venue.data.address}, {venue.data.zone}
-            {venue.data.rating && (
+            {venue.data.reviewsSource && venue.data.rating && (
               <span class="dr-vhero__rating">★ {venue.data.rating}{venue.data.reviewCount ? ` (${venue.data.reviewCount})` : ""}</span>
             )}
           </p>
@@ -990,8 +987,8 @@ const jsonLd = [
                 </div>
               )}
 
-              {/* Reviews */}
-              {venue.data.reviews && venue.data.reviews.length > 0 && (
+              {/* Reviews — solo con fuente real citable (reviewsSource) */}
+              {venue.data.reviewsSource && venue.data.reviews && venue.data.reviews.length > 0 && (
                 <div class="dr-vsec">
                   <h2 class="dr-vsec__title">Opiniones</h2>
                   <div class="dr-reviews">
@@ -1057,7 +1054,7 @@ const jsonLd = [
                     <span class="dr-quick__stat-value">{venue.data.capacity.max}</span>
                     <span class="dr-quick__stat-label">Cap. máx.</span>
                   </div>
-                  {venue.data.rating && (
+                  {venue.data.reviewsSource && venue.data.rating && (
                     <div class="dr-quick__stat">
                       <span class="dr-quick__stat-value">
                         <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>

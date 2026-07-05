@@ -497,6 +497,11 @@ const venues = defineCollection({
     eventechDiscount: z.string().optional(), // Special discount for EVENTECH clients
 
     // Reviews
+    // reviewsSource: URL/nombre de la fuente real de las reseñas (bodas.com.mx,
+    // Google, etc.). Sin este campo, rating y reviews NO se muestran en UI ni
+    // se emiten en JSON-LD — política anti reseñas fabricadas (ver vault
+    // Template-Ficha-Venue).
+    reviewsSource: z.string().optional(),
     rating: z.number().min(1).max(5).optional(),
     reviewCount: z.number().default(0),
     reviews: z.array(z.object({
