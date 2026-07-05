@@ -1,5 +1,5 @@
 ---
-name: "Hacienda de Tlalpan"
+name: "Antigua Hacienda de Tlalpan"
 slug: "hacienda-de-tlalpan"
 description: "Hacienda de Tlalpan es un secreto bien guardado del sur de la Ciudad de México: una hacienda pulquera del siglo XVII perfectamente restaurada, oculta entre los bosques de encinos del Ajusco, donde el tiempo parece haberse detenido. A solo 30 minutos del centro de la ciudad pero a mundos de distancia de su ruido, este venue ofrece lo que pocas propiedades en México pueden: 12,000 metros cuadrados de jardines centenarios, arquitectura colonial auténtica, y la tranquilidad absoluta de un refugio campestre. Aquí, los eventos no tienen hora de término porque no hay vecinos que molestar —solo el bosque, las estrellas, y la magia de una hacienda que ha celebrado fiestas por más de 300 años."
 shortDescription: "Hacienda pulquera del siglo XVII en el Ajusco. 12,000 m² de jardines, arquitectura colonial y tranquilidad absoluta."
@@ -7,27 +7,25 @@ shortDescription: "Hacienda pulquera del siglo XVII en el Ajusco. 12,000 m² de 
 region: "cdmx"
 zone: "Tlalpan"
 zoneSlug: "tlalpan"
-address: "Camino Real al Ajusco 850, Col. Héroes de Padierna"
-neighborhood: "Héroes de Padierna"
-postalCode: "14200"
+address: "Calzada de Tlalpan 4619, Tlalpan Centro"
+neighborhood: "Tlalpan Centro"
+postalCode: "14000"
 coordinates:
-  lat: 19.2845
-  lng: -99.2012
+  lat: 19.2887
+  lng: -99.1632
 googleMapsUrl: "https://maps.google.com/?q=Hacienda+de+Tlalpan"
 
 type: "hacienda"
 subtype: "colonial"
 
 capacity:
-  min: 80
-  max: 600
-  cocktail: 900
-  ceremony: 300
+  min: 100
+  max: 450
 
 priceRange: "$$$"
 pricePerPerson:
-  min: 1200
-  max: 2800
+  min: 1620
+  max: 2090
 
 amenities:
   - estacionamiento
@@ -98,26 +96,9 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "15% en renta de carpas"
 
-rating: 4.8
-reviewCount: 267
-reviews:
-  - author: "Fernanda y Miguel"
-    date: "2024-12"
-    rating: 5
-    text: "Nuestra boda terminó a las 4am bailando bajo las estrellas. Fue perfecta en todos los sentidos."
-    eventType: "boda"
-  - author: "Claudia Reyes"
-    date: "2024-10"
-    rating: 5
-    text: "Los XV de mi hija fueron mágicos. El jardín es espectacular y el servicio impecable."
-    eventType: "xv-anos"
-  - author: "Familia Morales Escalante"
-    date: "2025-03"
-    rating: 5
-    text: "Los XV años de Valentina en Hacienda de Tlalpan fueron lo que toda quinceañera merece: sin prisas, sin mirar el reloj. La fiesta empezó a las 7 de la tarde con la ceremonia en la capilla del siglo XVII y terminó a las 4 de la mañana bajo las estrellas del Ajusco —y nadie quería irse. Los 12,000 metros de jardín con los ahuehuetes centenarios son indescriptibles. El espectáculo de pirotecnia con el que cerramos la noche fue el colofón perfecto. Un venue sin comparación en el sur de la ciudad."
-    eventType: "xv-anos"
-
-
+reviewsSource: "https://www.bodas.com.mx/haciendas-para-bodas/antigua-hacienda-de-tlalpan--e159636"
+rating: 4.5
+reviewCount: 7
 faqs:
   - question: "¿Cuántas personas tienen capacidad en Hacienda de Tlalpan?"
     answer: "Hacienda de Tlalpan puede recibir desde 80 hasta 600 personas en formato banquete y hasta 900 en cóctel, con capacidad para ceremonia de 300 invitados. Sus 12,000 metros cuadrados de jardines centenarios en el Ajusco permiten celebraciones de gran escala con privacidad total."
