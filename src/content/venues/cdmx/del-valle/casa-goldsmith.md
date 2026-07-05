@@ -5,8 +5,8 @@ description: "Casa Goldsmith es una mansión californiana de 1942 que representa
 shortDescription: "Mansión californiana de 1942 con parquet original y jardines maduros en Del Valle. Elegancia mid-century accesible."
 
 region: "cdmx"
-zone: "Benito Juárez"
-zoneSlug: "benito-juarez"
+zone: "Del Valle"
+zoneSlug: "del-valle"
 address: "Adolfo Prieto 1536, Del Valle"
 neighborhood: "Del Valle Centro"
 postalCode: "03100"

@@ -208,7 +208,7 @@ Como partner oficial de EVENTECH, ofrecemos soluciones que respetan y realzan el
 
 Si buscas la grandeza de espacios históricos en el Centro:
 
-- **[Palacio de Minería](/directorio/cdmx/cuauhtemoc/palacio-de-mineria/)** — Obra maestra de Tolsá, mayor capacidad, más formal
-- **[Casino Español](/directorio/cdmx/cuauhtemoc/casino-espanol/)** — Club histórico de 1863, candiles de Bohemia
+- **[Palacio de Minería](/directorio/cdmx/centro-historico/palacio-de-mineria/)** — Obra maestra de Tolsá, mayor capacidad, más formal
+- **[Casino Español](/directorio/cdmx/centro-historico/casino-espanol/)** — Club histórico de 1863, candiles de Bohemia
 - **[Casa de los Azulejos](/directorio/cdmx/centro-historico/casa-de-los-azulejos/)** — Palacio del siglo XVIII con talavera icónica
 - **[Hacienda de los Morales](/directorio/cdmx/polanco/hacienda-de-los-morales/)** — Colonial del siglo XVI, jardines monumentales

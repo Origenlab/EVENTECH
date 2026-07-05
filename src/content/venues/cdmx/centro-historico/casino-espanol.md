@@ -26,8 +26,8 @@ description: >-
   herencia ibérica y más de un siglo de experiencia en hospitalidad de distinción.
 shortDescription: "Casino Español 1863: Gran Salón Art Nouveau con candiles de Bohemia, gastronomía española y hasta 500 personas en el Centro Histórico CDMX."
 region: "cdmx"
-zone: "Cuauhtémoc"
-zoneSlug: "cuauhtemoc"
+zone: "Centro Histórico"
+zoneSlug: "centro-historico"
 address: "Isabel la Católica 29, Centro Histórico"
 neighborhood: "Centro Histórico"
 postalCode: "06000"
@@ -229,7 +229,7 @@ Desde 1863, el Casino Español ha sido el escenario de **momentos que definen la
 
 Si buscas la sofisticación de los grandes salones históricos:
 
-- **[Palacio de Minería](/directorio/cdmx/cuauhtemoc/palacio-de-mineria/)** — Neoclásico monumental, frescos de Ximeno y Planes
+- **[Palacio de Minería](/directorio/cdmx/centro-historico/palacio-de-mineria/)** — Neoclásico monumental, frescos de Ximeno y Planes
 - **[Palacio de la Autonomía](/directorio/cdmx/centro-historico/palacio-autonomia/)** — Siglo XVIII, frescos coloniales, ambiente académico
 - **[Club de Banqueros](/directorio/cdmx/lomas-chapultepec/club-de-banqueros/)** — Elegancia de club privado en Lomas
 - **[Hacienda de los Morales](/directorio/cdmx/polanco/hacienda-de-los-morales/)** — Colonial del siglo XVI, gastronomía galardonada

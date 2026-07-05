@@ -280,9 +280,9 @@ Aunque Le Crillon incluye iluminación y sonido en sus paquetes, **EVENTECH** pu
 ## Venues Cercanos en Benito Juárez
 
 - **[Jardín Nevado](/directorio/cdmx/benito-juarez/jardin-nevado/)** — Jardín arbolado para eventos al aire libre en Portales Sur
-- **[Casa Goldsmith](/directorio/cdmx/benito-juarez/casa-goldsmith/)** — Espacio boutique con personalidad en Benito Juárez
-- **[Salón La Fontana](/directorio/cdmx/benito-juarez/salon-la-fontana-bj/)** — Elegancia clásica con fuente ornamental en Del Valle
-- **[Gran Salón del Valle](/directorio/cdmx/benito-juarez/gran-salon-del-valle/)** — 30 años de tradición con capacidad hasta 1,200 personas
+- **[Casa Goldsmith](/directorio/cdmx/del-valle/casa-goldsmith/)** — Espacio boutique con personalidad en Benito Juárez
+- **[Salón La Fontana](/directorio/cdmx/del-valle/salon-la-fontana-bj/)** — Elegancia clásica con fuente ornamental en Del Valle
+- **[Gran Salón del Valle](/directorio/cdmx/del-valle/gran-salon-del-valle/)** — 30 años de tradición con capacidad hasta 1,200 personas
 
 ## 24 Años Creando Celebraciones Memorables
 

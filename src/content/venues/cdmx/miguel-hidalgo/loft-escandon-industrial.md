@@ -5,8 +5,8 @@ description: "Loft Escandón Industrial es una antigua fábrica textil de 1948 e
 shortDescription: "Ex-fábrica textil 1948 transformada en loft industrial de 1,800 m² en Escandón."
 
 region: "cdmx"
-zone: "Cuauhtémoc"
-zoneSlug: "cuauhtemoc"
+zone: "Miguel Hidalgo"
+zoneSlug: "miguel-hidalgo"
 address: "Gobernador José Guadalupe Covarrubias 27, Escandón"
 neighborhood: "Escandón"
 postalCode: "11800"

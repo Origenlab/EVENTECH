@@ -5,8 +5,8 @@ description: "Salón La Fontana es un espacio elegante para eventos sociales y c
 shortDescription: "Salón elegante con fuente ornamental en Del Valle, Benito Juárez. Eventos hasta 250 personas con aire acondicionado."
 
 region: "cdmx"
-zone: "Benito Juárez"
-zoneSlug: "benito-juarez"
+zone: "Del Valle"
+zoneSlug: "del-valle"
 address: "Av. División del Norte 2831, Del Valle"
 neighborhood: "Del Valle Centro"
 postalCode: "03100"
@@ -220,7 +220,7 @@ La colonia Del Valle es una de las mejor conectadas de la Ciudad de México:
 Si buscas más opciones para tu evento en la CDMX:
 
 - **[Jardín Nevado](/directorio/cdmx/benito-juarez/jardin-nevado/)** — Jardín arbolado para eventos al aire libre en Portales Sur
-- **[Casa Goldsmith](/directorio/cdmx/benito-juarez/casa-goldsmith/)** — Espacio con personalidad en Benito Juárez
+- **[Casa Goldsmith](/directorio/cdmx/del-valle/casa-goldsmith/)** — Espacio con personalidad en Benito Juárez
 - **[Casa del Sol](/directorio/cdmx/del-valle/casa-del-sol/)** — Opción cercana en Del Valle con ambiente acogedor
 - **[Terrazas del Valle](/directorio/cdmx/del-valle/terrazas-del-valle/)** — Terraza con vista para eventos en la misma zona
 

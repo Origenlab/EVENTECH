@@ -5,8 +5,8 @@ description: "Hyatt Regency Mexico City Insurgentes es el hotel de lujo más nue
 shortDescription: "Hotel 5★ inaugurado 2023 en Insurgentes Sur. 9 salones hasta 220 personas, Chef Daniel Silva, vistas al Polyforum Siqueiros."
 
 region: "cdmx"
-zone: "Benito Juárez"
-zoneSlug: "benito-juarez"
+zone: "Del Valle"
+zoneSlug: "del-valle"
 address: "Av. Insurgentes Sur 724, Col. Del Valle, CP 03100, Benito Juárez, CDMX"
 neighborhood: "Del Valle Centro"
 postalCode: "03100"
@@ -213,9 +213,9 @@ El Hyatt Regency Mexico City Insurgentes gestiona cada evento con un **planifica
 
 Si buscas comparar opciones en la misma alcaldía:
 
-- **[Centro de Convenciones Insurgentes](/directorio/cdmx/benito-juarez/centro-convenciones-insurgentes/)** — Para convenciones de gran formato (600+ personas)
-- **[Salón La Fontana](/directorio/cdmx/benito-juarez/salon-la-fontana-bj/)** — Salón elegante en Del Valle para eventos sociales
-- **[Casa Goldsmith](/directorio/cdmx/benito-juarez/casa-goldsmith/)** — Espacio boutique con carácter para eventos creativos
+- **[Centro de Convenciones Insurgentes](/directorio/cdmx/alvaro-obregon/centro-convenciones-insurgentes/)** — Para convenciones de gran formato (600+ personas)
+- **[Salón La Fontana](/directorio/cdmx/del-valle/salon-la-fontana-bj/)** — Salón elegante en Del Valle para eventos sociales
+- **[Casa Goldsmith](/directorio/cdmx/del-valle/casa-goldsmith/)** — Espacio boutique con carácter para eventos creativos
 
 ## La Apuesta Más Reciente de Hyatt en la Ciudad de México
 

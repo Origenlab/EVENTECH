@@ -265,6 +265,6 @@ Como partner de EVENTECH, potenciamos la arquitectura del museo:
 Si buscas espacios arquitectónicamente distintivos:
 
 - **[Centro Citibanamex](/directorio/cdmx/miguel-hidalgo/centro-citibanamex/)** — Convenciones de gran escala
-- **[Palacio de Minería](/directorio/cdmx/cuauhtemoc/palacio-de-mineria/)** — Arquitectura neoclásica
+- **[Palacio de Minería](/directorio/cdmx/centro-historico/palacio-de-mineria/)** — Arquitectura neoclásica
 - **[Foro Kaluz](/directorio/cdmx/santa-fe/foro-kaluz/)** — Arte contemporáneo y diseño
 - **[La Industrial](/directorio/cdmx/azcapotzalco/la-industrial/)** — Arquitectura industrial renovada

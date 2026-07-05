@@ -238,7 +238,7 @@ Esta guía te presenta los **12 venues más destacados** de CDMX y Estado de Mé
 | [Mobiliario elegante](/servicios/mobiliario/) | Sillas Chiavari doradas complementan la estética |
 | [Pantallas LED discretas](/servicios/audiovisual/pantallas-led/) | Para proyecciones sin afectar el patrimonio |
 
-[Ver ficha completa →](/directorio/cdmx/cuauhtemoc/palacio-de-mineria/)
+[Ver ficha completa →](/directorio/cdmx/centro-historico/palacio-de-mineria/)
 
 ---
 

@@ -232,6 +232,6 @@ Como partner oficial de EVENTECH, ofrecemos soluciones que complementan el ambie
 Si buscas espacios donde el arte y la arquitectura histórica convergen:
 
 - **[Casa del Lago UNAM](/directorio/cdmx/miguel-hidalgo/casa-del-lago/)** — Centro cultural con jardín escultórico junto al lago
-- **[Palacio de Minería](/directorio/cdmx/cuauhtemoc/palacio-de-mineria/)** — Neoclásico monumental en el Centro Histórico
-- **[Casino Español](/directorio/cdmx/cuauhtemoc/casino-espanol/)** — Elegancia histórica con salones de época
+- **[Palacio de Minería](/directorio/cdmx/centro-historico/palacio-de-mineria/)** — Neoclásico monumental en el Centro Histórico
+- **[Casino Español](/directorio/cdmx/centro-historico/casino-espanol/)** — Elegancia histórica con salones de época
 - **[Roma House](/directorio/cdmx/roma-condesa/roma-house/)** — Casona porfiriana 1908 en la Roma Norte

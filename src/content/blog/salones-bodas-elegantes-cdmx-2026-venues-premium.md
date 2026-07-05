@@ -300,7 +300,7 @@ Los pisos de mármol de D'Valle al final de la noche, con las luces bajas, las v
 
 ## 4. Salón Hacienda de Cortés — Elegancia Colonial con Alma de Jardín
 
-**Ubicación:** San Ángel Inn, Álvaro Obregón | [Ver perfil completo](/directorio/cdmx/alvaro-obregon/salon-hacienda-de-cortes-ao/)
+**Ubicación:** San Ángel Inn, Álvaro Obregón | [Ver perfil completo](/directorio/cdmx/san-angel/salon-hacienda-de-cortes-ao/)
 
 ### La Experiencia
 
@@ -355,7 +355,7 @@ El patio colonial de Hacienda de Cortés durante la hora dorada, con la fuente c
 
 > **Tip profesional:** La zona de San Ángel Inn tiene restricciones de ruido a partir de las 22:00. Planifica la transición de música en vivo a DJ con sistema de sonido direccional antes de esa hora. EVENTECH utiliza subwoofers cardióides que dirigen el bajo hacia el interior del salón, reduciendo la dispersión exterior en un 60%.
 
-**Venues alternativos en la zona:** [Salón Los Laureles](/directorio/cdmx/alvaro-obregon/salon-los-laureles-ao/) | [Salón Pavo Real](/directorio/cdmx/alvaro-obregon/salon-pavo-real/) | [Salón La Fontana](/directorio/cdmx/benito-juarez/salon-la-fontana-bj/)
+**Venues alternativos en la zona:** [Salón Los Laureles](/directorio/cdmx/alvaro-obregon/salon-los-laureles-ao/) | [Salón Pavo Real](/directorio/cdmx/alvaro-obregon/salon-pavo-real/) | [Salón La Fontana](/directorio/cdmx/del-valle/salon-la-fontana-bj/)
 
 ---
 
@@ -417,7 +417,7 @@ El brindis al atardecer en la terraza de Mirador Tlalpan. Los novios de pie fren
 
 > **Tip profesional:** Mirador Tlalpan está a 2,600 msnm. La temperatura cae 8-10 grados entre las 18:00 y las 22:00. Planifica la transición de la terraza al salón antes de las 20:30, y ten preparadas mantas decorativas o un sistema de calefacción exterior si deseas extender el uso de la terraza. EVENTECH coordina la logística de [carpa con laterales](/servicios/carpas/) para convertir la terraza en espacio semicerrado cuando la temperatura lo requiere.
 
-**Venues alternativos en la zona:** [Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/) | [Jardín Las Jacarandas](/directorio/cdmx/tlalpan/jardin-las-jacarandas-tlalpan/) | [Salón Metrópolis](/directorio/cdmx/cuauhtemoc/salon-metropolis-cuauhtemoc/)
+**Venues alternativos en la zona:** [Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/) | [Jardín Las Jacarandas](/directorio/cdmx/tlalpan/jardin-las-jacarandas-tlalpan/) | [Salón Metrópolis](/directorio/cdmx/roma-condesa/salon-metropolis-cuauhtemoc/)
 
 ---
 
@@ -428,7 +428,7 @@ El brindis al atardecer en la terraza de Mirador Tlalpan. Los novios de pie fren
 | **[Kalesh](/directorio/cdmx/alvaro-obregon/kalesh-salon/)** | 50–350 | $35K–$95K | Contemporáneo premium | Jardín 500 m² + Terraza panorámica | Bodas con ceremonia outdoor y recepción en salón |
 | **[Partenón](/directorio/cdmx/tlalpan/salon-partenon/)** | 80–500 | $25K–$90K | Neoclásico monumental | No | Bodas de gran formato, 300+ invitados |
 | **[D'Valle](/directorio/cdmx/iztapalapa/salon-dvalle/)** | 60–350 | $20K–$70K | Palacio europeo | No | Mejor relación elegancia-precio |
-| **[Hacienda de Cortés](/directorio/cdmx/alvaro-obregon/salon-hacienda-de-cortes-ao/)** | 60–300 | $25K–$80K | Colonial mexicano | Patio + Jardín + Terraza | Bodas garden party elevado, estilo hacienda |
+| **[Hacienda de Cortés](/directorio/cdmx/san-angel/salon-hacienda-de-cortes-ao/)** | 60–300 | $25K–$80K | Colonial mexicano | Patio + Jardín + Terraza | Bodas garden party elevado, estilo hacienda |
 | **[Mirador Tlalpan](/directorio/cdmx/tlalpan/salon-mirador-tlalpan/)** | 60–300 | $22K–$70K | Contemporáneo minimalista | Terraza panorámica | Bodas sunset con vista a volcanes y CDMX |
 
 ---
@@ -573,7 +573,7 @@ Para fechas en temporada alta (mayo, junio, octubre, noviembre, diciembre), reco
 
 ### ¿Es mejor mesa imperial o mesas redondas para mi boda?
 
-Depende del venue, el número de invitados y la estética deseada. La mesa imperial crea un efecto de banquete formal y funciona espectacularmente en venues con techos de viga (como [Hacienda de Cortés](/directorio/cdmx/alvaro-obregon/salon-hacienda-de-cortes-ao/)) para grupos de hasta 120 personas. Las [mesas redondas](/servicios/mobiliario/mesas/redondas/) son más versátiles, facilitan la conversación y optimizan el espacio en salones con columnas. La combinación de ambas — imperial para novios, redondas para invitados — es la configuración más solicitada en bodas elegantes.
+Depende del venue, el número de invitados y la estética deseada. La mesa imperial crea un efecto de banquete formal y funciona espectacularmente en venues con techos de viga (como [Hacienda de Cortés](/directorio/cdmx/san-angel/salon-hacienda-de-cortes-ao/)) para grupos de hasta 120 personas. Las [mesas redondas](/servicios/mobiliario/mesas/redondas/) son más versátiles, facilitan la conversación y optimizan el espacio en salones con columnas. La combinación de ambas — imperial para novios, redondas para invitados — es la configuración más solicitada en bodas elegantes.
 
 ### ¿Qué tipo de silla es la más elegante para una boda?
 
@@ -591,7 +591,7 @@ Ambos modelos funcionan. Si tienes wedding planner, coordinamos directamente con
 
 ## Tu Boda Elegante Comienza con una Conversación
 
-Los 5 venues de esta guía representan lo más sofisticado que ofrece la Ciudad de México para bodas en 2026 — desde la terraza panorámica de [Mirador Tlalpan](/directorio/cdmx/tlalpan/salon-mirador-tlalpan/) hasta el palacio europeo de [D'Valle](/directorio/cdmx/iztapalapa/salon-dvalle/), desde la grandeza monumental del [Partenón](/directorio/cdmx/tlalpan/salon-partenon/) hasta la elegancia colonial de [Hacienda de Cortés](/directorio/cdmx/alvaro-obregon/salon-hacienda-de-cortes-ao/) y la versatilidad premium de [Kalesh](/directorio/cdmx/alvaro-obregon/kalesh-salon/).
+Los 5 venues de esta guía representan lo más sofisticado que ofrece la Ciudad de México para bodas en 2026 — desde la terraza panorámica de [Mirador Tlalpan](/directorio/cdmx/tlalpan/salon-mirador-tlalpan/) hasta el palacio europeo de [D'Valle](/directorio/cdmx/iztapalapa/salon-dvalle/), desde la grandeza monumental del [Partenón](/directorio/cdmx/tlalpan/salon-partenon/) hasta la elegancia colonial de [Hacienda de Cortés](/directorio/cdmx/san-angel/salon-hacienda-de-cortes-ao/) y la versatilidad premium de [Kalesh](/directorio/cdmx/alvaro-obregon/kalesh-salon/).
 
 Pero un venue extraordinario sin producción profesional es solo un espacio vacío con potencial. La iluminación que transforma columnas en esculturas de luz, el mobiliario que comunica tu estilo en cada silla, el sonido que envuelve sin invadir, la pista que invita a bailar hasta el amanecer — eso es lo que convierte un salón en una experiencia que tus invitados recordarán durante años.
 

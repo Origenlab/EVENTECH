@@ -239,10 +239,10 @@ Monarquía Coronado Imperial gestiona sus cotizaciones por teléfono y formulari
 
 Para comparar opciones en la misma alcaldía:
 
-- **[Salón La Fontana](/directorio/cdmx/benito-juarez/salon-la-fontana-bj/)** — Salón elegante con fuente ornamental en Del Valle
+- **[Salón La Fontana](/directorio/cdmx/del-valle/salon-la-fontana-bj/)** — Salón elegante con fuente ornamental en Del Valle
 - **[Jardín Nevado](/directorio/cdmx/benito-juarez/jardin-nevado/)** — Jardín arbolado para eventos al aire libre en Portales Sur
-- **[Hyatt Regency Insurgentes](/directorio/cdmx/benito-juarez/hyatt-regency-insurgentes/)** — Hotel 5 estrellas con 9 salones configurables en Insurgentes Sur
-- **[Casa Goldsmith](/directorio/cdmx/benito-juarez/casa-goldsmith/)** — Espacio boutique con personalidad para eventos creativos
+- **[Hyatt Regency Insurgentes](/directorio/cdmx/del-valle/hyatt-regency-insurgentes/)** — Hotel 5 estrellas con 9 salones configurables en Insurgentes Sur
+- **[Casa Goldsmith](/directorio/cdmx/del-valle/casa-goldsmith/)** — Espacio boutique con personalidad para eventos creativos
 
 ## Instalaciones Nuevas, Servicio con Trayectoria
 

@@ -5,8 +5,8 @@ description: "Salón Metrópolis es un espacio contemporáneo en el corazón de 
 shortDescription: "Salón contemporáneo en Roma Norte, Cuauhtémoc. Terraza urbana, diseño actual. Bodas y eventos hasta 250 personas CDMX."
 
 region: "cdmx"
-zone: "Cuauhtémoc"
-zoneSlug: "cuauhtemoc"
+zone: "Roma-Condesa"
+zoneSlug: "roma-condesa"
 address: "Av. Chapultepec 480, Roma Norte"
 neighborhood: "Roma Norte"
 postalCode: "06700"
@@ -255,7 +255,7 @@ La ubicación en Roma Norte es uno de los mayores activos de Metrópolis: es una
 Explora más opciones para tu evento en Cuauhtémoc y la zona centro:
 
 - **[Salón Belle Époque Cuauhtémoc](/directorio/cdmx/cuauhtemoc/salon-belle-epoque/)** — Espacio art nouveau en la colonia Juárez para eventos con estética de época
-- **[Casino Español Cuauhtémoc](/directorio/cdmx/cuauhtemoc/casino-espanol/)** — Venue histórico monumental en el Centro Histórico
+- **[Casino Español Cuauhtémoc](/directorio/cdmx/centro-historico/casino-espanol/)** — Venue histórico monumental en el Centro Histórico
 - **[Hotel Hilton Reforma](/directorio/cdmx/cuauhtemoc/hotel-hilton-reforma/)** — Venue hotelero de cadena internacional sobre Paseo de la Reforma
 - **[Salón Moriskos Cuauhtémoc](/directorio/cdmx/cuauhtemoc/salon-moriskos/)** — Espacio con carácter arquitectónico en la alcaldía Cuauhtémoc
 

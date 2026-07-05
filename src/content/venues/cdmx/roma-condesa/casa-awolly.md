@@ -176,5 +176,5 @@ Si buscas espacios con personalidad única para eventos íntimos:
 
 - **[Roma House](/directorio/cdmx/roma-condesa/roma-house/)** — Casona porfiriana de 1908, mayor capacidad, ambiente histórico
 - **[Terraza Roma](/directorio/cdmx/roma-condesa/terraza-roma/)** — Rooftop con vistas, enfoque en fiestas y cócteles
-- **[Casa Goldsmith](/directorio/cdmx/benito-juarez/casa-goldsmith/)** — Mansión contemporánea, jardines privados
+- **[Casa Goldsmith](/directorio/cdmx/del-valle/casa-goldsmith/)** — Mansión contemporánea, jardines privados
 - **[Jardín Escondido](/directorio/cdmx/san-angel/jardin-escondido/)** — Oasis verde en San Ángel, ambiente romántico

@@ -216,4 +216,4 @@ Si buscas espacios con prestigio y elegancia comparable:
 - **[Hacienda de la Palma](/directorio/cdmx/lomas-chapultepec/hacienda-de-la-palma/)** — Colonial auténtica en Lomas, capilla del siglo XVIII
 - **[San Ángel Inn](/directorio/cdmx/san-angel/san-angel-inn/)** — Hacienda histórica con gastronomía legendaria
 - **[Hacienda de los Morales](/directorio/cdmx/polanco/hacienda-de-los-morales/)** — Colonial en Polanco, prestigio comparable
-- **[Casino Español](/directorio/cdmx/cuauhtemoc/casino-espanol/)** — Club histórico en el Centro, arquitectura monumental
+- **[Casino Español](/directorio/cdmx/centro-historico/casino-espanol/)** — Club histórico en el Centro, arquitectura monumental

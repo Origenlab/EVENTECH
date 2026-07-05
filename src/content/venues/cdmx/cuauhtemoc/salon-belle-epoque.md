@@ -250,9 +250,9 @@ La colonia Juárez tiene la ventaja de ser una de las zonas mejor comunicadas de
 
 Explora más opciones para tu evento en Cuauhtémoc y la zona centro:
 
-- **[Salón Metrópolis Roma Norte](/directorio/cdmx/cuauhtemoc/salon-metropolis-cuauhtemoc/)** — Espacio contemporáneo con terraza urbana para eventos modernos
-- **[Casino Español Cuauhtémoc](/directorio/cdmx/cuauhtemoc/casino-espanol/)** — Venue histórico monumental en el Centro Histórico de la CDMX
-- **[Palacio de Minería Cuauhtémoc](/directorio/cdmx/cuauhtemoc/palacio-de-mineria/)** — Monumento neoclásico para eventos de gran escala
+- **[Salón Metrópolis Roma Norte](/directorio/cdmx/roma-condesa/salon-metropolis-cuauhtemoc/)** — Espacio contemporáneo con terraza urbana para eventos modernos
+- **[Casino Español Cuauhtémoc](/directorio/cdmx/centro-historico/casino-espanol/)** — Venue histórico monumental en el Centro Histórico de la CDMX
+- **[Palacio de Minería Cuauhtémoc](/directorio/cdmx/centro-historico/palacio-de-mineria/)** — Monumento neoclásico para eventos de gran escala
 - **[Hotel Hilton Reforma](/directorio/cdmx/cuauhtemoc/hotel-hilton-reforma/)** — Venue hotelero de cadena internacional sobre Paseo de la Reforma
 
 ## Donde el Tiempo Se Detiene para Celebrar

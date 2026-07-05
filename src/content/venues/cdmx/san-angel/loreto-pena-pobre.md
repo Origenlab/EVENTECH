@@ -18,8 +18,8 @@ description: >-
 shortDescription: "Ex-Convento del Carmen de 1580 reconvertido en espacio industrial histórico. Venue corporativo en San Ángel / Álvaro Obregón. Hasta 1,000 personas."
 
 region: "cdmx"
-zone: "Álvaro Obregón"
-zoneSlug: "alvaro-obregon"
+zone: "San Ángel"
+zoneSlug: "san-angel"
 address: "Altamirano 46, Tizapán San Ángel"
 neighborhood: "Tizapán San Ángel"
 postalCode: "01090"

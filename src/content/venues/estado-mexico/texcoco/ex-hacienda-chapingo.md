@@ -211,5 +211,5 @@ Si buscas espacios históricos con arte y arquitectura excepcional:
 
 - **[Ex Hacienda de Tepotzotlán](/directorio/estado-mexico/tepotzotlan/ex-hacienda-tepotzotlan/)** — Barroco churrigueresco, Museo del Virreinato
 - **[Hacienda Santa Cecilia](/directorio/estado-mexico/huixquilucan/hacienda-santa-cecilia/)** — Colonial con lago y jardines monumentales
-- **[Palacio de Minería](/directorio/cdmx/cuauhtemoc/palacio-de-mineria/)** — Arquitectura neoclásica del siglo XVIII en CDMX
-- **[Casino Español](/directorio/cdmx/cuauhtemoc/casino-espanol/)** — Patrimonio ecléctico en Centro Histórico
+- **[Palacio de Minería](/directorio/cdmx/centro-historico/palacio-de-mineria/)** — Arquitectura neoclásica del siglo XVIII en CDMX
+- **[Casino Español](/directorio/cdmx/centro-historico/casino-espanol/)** — Patrimonio ecléctico en Centro Histórico

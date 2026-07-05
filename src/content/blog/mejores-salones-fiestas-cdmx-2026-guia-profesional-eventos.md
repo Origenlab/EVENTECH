@@ -165,7 +165,7 @@ La combinación de espacios interiores y exteriores de Kalesh exige producción 
 ### Venues similares en Álvaro Obregón
 
 - **[Salón Los Laureles](/directorio/cdmx/alvaro-obregon/salon-los-laureles-ao/)** — Salón con jardín en Pueblo de Axotla
-- **[Salón Hacienda de Cortés](/directorio/cdmx/alvaro-obregon/salon-hacienda-de-cortes-ao/)** — Estilo hacienda en San Ángel Inn
+- **[Salón Hacienda de Cortés](/directorio/cdmx/san-angel/salon-hacienda-de-cortes-ao/)** — Estilo hacienda en San Ángel Inn
 - **[Salón Pavo Real](/directorio/cdmx/alvaro-obregon/salon-pavo-real/)** — Opción accesible hasta 200 personas
 
 ---

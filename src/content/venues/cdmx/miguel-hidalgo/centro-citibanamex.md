@@ -284,5 +284,5 @@ Si buscas espacios para eventos corporativos de diferentes escalas:
 
 - **[Foro Kaluz Santa Fe](/directorio/cdmx/santa-fe/foro-kaluz/)** — Formato más manejable (1,000 personas), misma zona
 - **[Centro de Convenciones Tlatelolco](/directorio/cdmx/cuauhtemoc/centro-convenciones-tlatelolco/)** — Alternativa en zona centro, capacidad media
-- **[Loreto y Peña Pobre](/directorio/cdmx/alvaro-obregon/loreto-pena-pobre/)** — Industrial histórico para eventos de 600 personas
+- **[Loreto y Peña Pobre](/directorio/cdmx/san-angel/loreto-pena-pobre/)** — Industrial histórico para eventos de 600 personas
 - **[Hotel W Mexico City](/directorio/cdmx/polanco/hotel-w-mexico-city/)** — Salones de hotel de lujo para eventos premium

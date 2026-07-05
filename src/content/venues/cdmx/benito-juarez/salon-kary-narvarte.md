@@ -253,8 +253,8 @@ Si buscas opciones complementarias para tu evento en Benito Juárez o Narvarte:
 
 - **[Jardín Narvarte](/directorio/cdmx/benito-juarez/jardin-narvarte/)** — Jardín con alberca para eventos íntimos en la misma colonia
 - **[Jardín Nevado](/directorio/cdmx/benito-juarez/jardin-nevado/)** — Jardín arbolado en Portales Sur para celebraciones al aire libre
-- **[Salón La Fontana](/directorio/cdmx/benito-juarez/salon-la-fontana-bj/)** — Salón con acabados de cantera en Del Valle para eventos más formales
-- **[Centro de Convenciones Insurgentes](/directorio/cdmx/benito-juarez/centro-convenciones-insurgentes/)** — Para eventos corporativos y sociales de mayor escala
+- **[Salón La Fontana](/directorio/cdmx/del-valle/salon-la-fontana-bj/)** — Salón con acabados de cantera en Del Valle para eventos más formales
+- **[Centro de Convenciones Insurgentes](/directorio/cdmx/alvaro-obregon/centro-convenciones-insurgentes/)** — Para eventos corporativos y sociales de mayor escala
 
 ## Una Boda Sencilla Pero Bonita — Exactamente Como la Imaginaste
 

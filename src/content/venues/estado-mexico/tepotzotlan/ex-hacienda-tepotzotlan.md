@@ -202,5 +202,5 @@ Si buscas espacios de valor patrimonial excepcional:
 
 - **[Ex-Hacienda Chapingo](/directorio/estado-mexico/texcoco/ex-hacienda-chapingo/)** — Murales de Diego Rivera, patrimonio universitario
 - **[Hacienda Santa Cecilia](/directorio/estado-mexico/huixquilucan/hacienda-santa-cecilia/)** — Hacienda colonial con lago y capilla histórica
-- **[Palacio de Minería](/directorio/cdmx/cuauhtemoc/palacio-de-mineria/)** — Neoclásico del siglo XVIII en Centro Histórico
-- **[Casino Español](/directorio/cdmx/cuauhtemoc/casino-espanol/)** — Patrimonio arquitectónico ecléctico
+- **[Palacio de Minería](/directorio/cdmx/centro-historico/palacio-de-mineria/)** — Neoclásico del siglo XVIII en Centro Histórico
+- **[Casino Español](/directorio/cdmx/centro-historico/casino-espanol/)** — Patrimonio arquitectónico ecléctico

@@ -5,8 +5,8 @@ description: "Gran Salón del Valle, parte del Grupo Estrada, es un venue de 30 
 shortDescription: "30+ años en Del Valle Norte, BJ. 2 salones hasta 1,200 personas. Escaleras de presentación, pantalla gigante. Desde $487/persona."
 
 region: "cdmx"
-zone: "Benito Juárez"
-zoneSlug: "benito-juarez"
+zone: "Del Valle"
+zoneSlug: "del-valle"
 address: "Av. Coyoacán 39, entre Viaducto y Xola, Col. Del Valle Norte, CP 03010, Benito Juárez, CDMX"
 neighborhood: "Del Valle Norte"
 postalCode: "03010"
@@ -266,8 +266,8 @@ La libertad de contratar música externa hace de Gran Salón del Valle un venue 
 ## Venues Cercanos en Benito Juárez
 
 - **[Le Crillon Salones & Banquetes](/directorio/cdmx/benito-juarez/le-crillon/)** — 9 salones de inspiración francesa, hasta 1,500 personas
-- **[Salón La Fontana](/directorio/cdmx/benito-juarez/salon-la-fontana-bj/)** — Elegancia clásica con fuente ornamental en División del Norte
-- **[Casa Goldsmith](/directorio/cdmx/benito-juarez/casa-goldsmith/)** — Espacio boutique con personalidad para eventos íntimos
+- **[Salón La Fontana](/directorio/cdmx/del-valle/salon-la-fontana-bj/)** — Elegancia clásica con fuente ornamental en División del Norte
+- **[Casa Goldsmith](/directorio/cdmx/del-valle/casa-goldsmith/)** — Espacio boutique con personalidad para eventos íntimos
 - **[Jardín Nevado](/directorio/cdmx/benito-juarez/jardin-nevado/)** — Jardín arbolado para eventos al aire libre en Portales Sur
 
 ## La Mejor Relación Calidad-Precio en Del Valle Norte

@@ -24,8 +24,8 @@ description: >-
   menos 90 días de anticipación.
 shortDescription: "Obra maestra de Manuel Tolsá (1797): Patio Central hasta 1,200 cóctel, Sala Tolsá 800 banquete y la escalera icónica del Centro Histórico CDMX."
 region: "cdmx"
-zone: "Cuauhtémoc"
-zoneSlug: "cuauhtemoc"
+zone: "Centro Histórico"
+zoneSlug: "centro-historico"
 address: "Tacuba 5, Centro Histórico"
 neighborhood: "Centro Histórico"
 postalCode: "06000"
@@ -222,6 +222,6 @@ Cada evento aquí se convierte en parte de una historia de más de dos siglos, d
 Si buscas espacios monumentales con historia:
 
 - **[Palacio de la Autonomía](/directorio/cdmx/centro-historico/palacio-autonomia/)** — Siglo XVIII, frescos coloniales, más accesible
-- **[Casino Español](/directorio/cdmx/cuauhtemoc/casino-espanol/)** — Club de 1863, candiles de Bohemia, gastronomía española
+- **[Casino Español](/directorio/cdmx/centro-historico/casino-espanol/)** — Club de 1863, candiles de Bohemia, gastronomía española
 - **[Casa de los Azulejos](/directorio/cdmx/centro-historico/casa-de-los-azulejos/)** — Palacio del siglo XVIII, fachada de talavera
 - **[Hacienda Panoaya](/directorio/estado-mexico/amecameca/hacienda-panoaya/)** — Siglo XVII donde vivió Sor Juana, 80 hectáreas

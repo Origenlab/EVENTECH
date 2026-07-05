@@ -253,8 +253,8 @@ Si buscas opciones complementarias para tu evento en Benito Juárez:
 
 - **[Salón Kary](/directorio/cdmx/benito-juarez/salon-kary-narvarte/)** — Salón familiar 40+ años en Narvarte con catering propio y precios muy accesibles
 - **[Jardín Nevado](/directorio/cdmx/benito-juarez/jardin-nevado/)** — Jardín arbolado en Portales Sur para eventos al aire libre hasta 180 personas
-- **[Salón La Fontana](/directorio/cdmx/benito-juarez/salon-la-fontana-bj/)** — Salón con acabados elegantes en Del Valle para eventos de mayor formalidad
-- **[Centro de Convenciones Insurgentes](/directorio/cdmx/benito-juarez/centro-convenciones-insurgentes/)** — Opción de gran escala para corporativos y sociales masivos
+- **[Salón La Fontana](/directorio/cdmx/del-valle/salon-la-fontana-bj/)** — Salón con acabados elegantes en Del Valle para eventos de mayor formalidad
+- **[Centro de Convenciones Insurgentes](/directorio/cdmx/alvaro-obregon/centro-convenciones-insurgentes/)** — Opción de gran escala para corporativos y sociales masivos
 
 ## Tu Celebración Más Personal en el Corazón de Narvarte
 

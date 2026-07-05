@@ -224,7 +224,7 @@ Como partner de EVENTECH, ofrecemos servicios especializados para este venue his
 Si buscas opciones en la misma zona con diferentes características:
 
 - **[Palacio de la Autonomía](/directorio/cdmx/centro-historico/palacio-autonomia/)** — Mayor capacidad (hasta 500), frescos novohispanos, patios más amplios
-- **[Casino Español](/directorio/cdmx/cuauhtemoc/casino-espanol/)** — Arquitectura porfiriana, salones de gran formato, cerca de Bellas Artes
+- **[Casino Español](/directorio/cdmx/centro-historico/casino-espanol/)** — Arquitectura porfiriana, salones de gran formato, cerca de Bellas Artes
 
 ## La Experiencia de Celebrar en un Monumento
 

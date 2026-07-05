@@ -255,4 +255,4 @@ Si buscas sofisticación moderna en ubicaciones premium:
 - **[Hotel Camino Real Polanco](/directorio/cdmx/polanco/hotel-camino-real-polanco/)** — Arquitectura icónica, mayor capacidad
 - **[Terrazas del Valle](/directorio/cdmx/del-valle/terrazas-del-valle/)** — Vistas panorámicas, precio más accesible
 - **[Club de Banqueros](/directorio/cdmx/lomas-chapultepec/club-de-banqueros/)** — Elegancia clásica, Lomas de Chapultepec
-- **[Casa Goldsmith](/directorio/cdmx/benito-juarez/casa-goldsmith/)** — Mansión contemporánea, ambiente exclusivo
+- **[Casa Goldsmith](/directorio/cdmx/del-valle/casa-goldsmith/)** — Mansión contemporánea, ambiente exclusivo

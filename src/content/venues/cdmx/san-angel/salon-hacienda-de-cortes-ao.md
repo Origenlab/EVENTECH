@@ -5,8 +5,8 @@ description: "Salón Hacienda de Cortés es un venue de estilo hacienda ubicado 
 shortDescription: "Salón estilo hacienda en San Ángel Inn, Álvaro Obregón. Jardín, terraza, valet parking. Bodas y eventos hasta 300 personas CDMX."
 
 region: "cdmx"
-zone: "Álvaro Obregón"
-zoneSlug: "alvaro-obregon"
+zone: "San Ángel"
+zoneSlug: "san-angel"
 address: "Av. Revolución 1680, San Ángel Inn"
 neighborhood: "San Ángel Inn"
 postalCode: "01060"
@@ -270,7 +270,7 @@ Explora más opciones para tu evento en Álvaro Obregón y el sur de la CDMX:
 - **[Kalesh Salón Álvaro Obregón](/directorio/cdmx/alvaro-obregon/kalesh-salon/)** — Venue premium con producción integrada y alianza EVENTECH en la misma alcaldía
 - **[Salón Los Laureles Álvaro Obregón](/directorio/cdmx/alvaro-obregon/salon-los-laureles-ao/)** — Salón con jardín para ceremonias al aire libre en Pueblo de Axotla
 - **[Terraza Contadero Álvaro Obregón](/directorio/cdmx/alvaro-obregon/terraza-contadero/)** — Terraza panorámica en la zona alta de la alcaldía
-- **[Loreto y Peña Pobre Álvaro Obregón](/directorio/cdmx/alvaro-obregon/loreto-pena-pobre/)** — Espacio cultural con historia en la zona de San Ángel
+- **[Loreto y Peña Pobre Álvaro Obregón](/directorio/cdmx/san-angel/loreto-pena-pobre/)** — Espacio cultural con historia en la zona de San Ángel
 
 ## Donde la Cantera Cuenta Historias
 

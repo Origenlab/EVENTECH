@@ -493,7 +493,7 @@ El mobiliario dorado de EVENTECH — [sillas Chiavari](/servicios/mobiliario/sil
 - **[Salón La Cascada Iztapalapa](/directorio/cdmx/iztapalapa/salon-la-cascada/)** — Estilo contemporáneo con elementos acuáticos, misma alcaldía
 - **[Salón Partenón Tlalpan](/directorio/cdmx/tlalpan/salon-partenon/)** — Estilo clásico con columnas, formato más grande, zona sur
 - **[Hacienda de los Morales Polanco](/directorio/cdmx/polanco/hacienda-de-los-morales/)** — Colonial premium, precio $$$$, si se busca lo máximo en elegancia clásica
-- **[Casino Español Cuauhtémoc](/directorio/cdmx/cuauhtemoc/casino-espanol/)** — Clásico histórico del centro, patrimonio real, precio $$$
+- **[Casino Español Cuauhtémoc](/directorio/cdmx/centro-historico/casino-espanol/)** — Clásico histórico del centro, patrimonio real, precio $$$
 
 ## La Elegancia como Derecho, No como Privilegio Geográfico
 

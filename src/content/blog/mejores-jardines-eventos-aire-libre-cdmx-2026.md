@@ -245,7 +245,7 @@ La ventaja logística de Jardín Nevado es su acceso urbano: nuestros camiones d
 
 Benito Juárez tiene opciones adicionales con formato similar:
 
-- [Salón La Fontana](/directorio/cdmx/benito-juarez/salon-la-fontana-bj/) — Salón con jardín interior, ideal para eventos que priorizan área techada con acceso a zona verde
+- [Salón La Fontana](/directorio/cdmx/del-valle/salon-la-fontana-bj/) — Salón con jardín interior, ideal para eventos que priorizan área techada con acceso a zona verde
 
 Para más opciones de [salones en la CDMX](/blog/mejores-salones-fiestas-cdmx-2026-guia-profesional-eventos/), consulta nuestra guía comparativa completa.
 

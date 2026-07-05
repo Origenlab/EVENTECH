@@ -5,8 +5,8 @@ description: "Centro de Convenciones Insurgentes es el venue corporativo de refe
 shortDescription: "Centro de convenciones 3,200m² en Insurgentes Sur. Sala plenaria 600 personas, 4 salas de sesión. Benito Juárez."
 
 region: "cdmx"
-zone: "Benito Juárez"
-zoneSlug: "benito-juarez"
+zone: "Álvaro Obregón"
+zoneSlug: "alvaro-obregon"
 address: "Insurgentes Sur 1863, Guadalupe Inn"
 neighborhood: "Guadalupe Inn"
 postalCode: "01020"
