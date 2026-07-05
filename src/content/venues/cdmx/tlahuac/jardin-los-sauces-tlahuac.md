@@ -168,7 +168,7 @@ La cocina en sitio cuenta con **estufa industrial, parrilla, refrigerador y mesa
 - **Estacionamiento** para aproximadamente 35 vehículos
 - **Acceso al área de fotos** bajo los sauces
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Los jardines son los espacios donde la producción profesional de **EVENTECH** genera el impacto más espectacular, especialmente al caer la noche:
 
@@ -219,14 +219,10 @@ Para eventos en temporada de lluvias (mayo a septiembre), se recomienda contrata
 - **Transporte público**: Metro Tláhuac (Línea 12) a 12 minutos, rutas de transporte público sobre Av. Tláhuac
 - **Estacionamiento**: Superficie propia para aproximadamente 35 vehículos
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si estás comparando opciones en Tláhuac:
 
-- **[Salón Los Olivos Tláhuac](/directorio/cdmx/tlahuac/salon-los-olivos-tlahuac/)** — Salón techado para eventos que requieren espacio cerrado en Tláhuac
-- **[Salón La Hacienda Tláhuac](/directorio/cdmx/tlahuac/salon-la-hacienda-tlahuac/)** — Ambiente hacienda con detalles rústicos, opción de interior y exterior
-- **[Jardín Los Ahuehuetes](/directorio/cdmx/tlahuac/jardin-los-ahuehuetes/)** — Jardín con árboles centenarios para ceremonias al aire libre
-- **[Salón Santa Cecilia Tláhuac](/directorio/cdmx/tlahuac/salon-santa-cecilia-tlahuac/)** — Espacio familiar techado con tradición en la zona
 
 ## Un Jardín que Habla por Sí Solo
 

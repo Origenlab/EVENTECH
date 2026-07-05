@@ -188,7 +188,7 @@ Hay algo **mágico en celebrar sobre los techos de la ciudad**. Mientras el sol 
 
 **Terraza Roma no es solo un venue: es el lugar donde los momentos memorables tienen la ciudad entera como testigo.**
 
-## Venues Similares con Vistas Panorámicas
+## Venues similares
 
 Si buscas rooftops y terrazas con vistas espectaculares:
 

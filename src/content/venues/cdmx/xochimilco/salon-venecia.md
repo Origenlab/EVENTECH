@@ -363,7 +363,7 @@ A diferencia de venues de estética minimalista, Venecia abraza el color como pa
 
 Las pérgolas cubiertas de bugambilia son el **elemento decorativo más poderoso del venue** — y son gratuitas. La estrategia decorativa inteligente: dejar que las pérgolas sean las protagonistas y complementar con [iluminación decorativa de EVENTECH](/servicios/iluminacion/decorativa/) que potencie los colores naturales. Las [fairy lights](/servicios/iluminacion/decorativa/) tejidas entre las pérgolas crean un efecto de **túnel de luz** que es la foto más compartida en redes sociales de cada evento.
 
-## Producción Profesional EVENTECH — Tradición Amplificada
+## Producción EVENTECH
 
 ### Paquetes Exclusivos para Salón Venecia
 
@@ -379,7 +379,7 @@ Las pérgolas cubiertas de bugambilia son el **elemento decorativo más poderoso
 
 **Descuento exclusivo: 15% en iluminación decorativa de jardín, carpas y mobiliario rústico.**
 
-## Checklist EVENTECH para tu Evento en Venecia
+## Producción EVENTECH
 
 Servicios recomendados según tipo de evento para maximizar la experiencia en Salón Venecia:
 
@@ -501,7 +501,7 @@ Sí. Con 400 personas en banquete y 500 en formato cóctel, Venecia es el **sal�
 ### ¿Cómo se accede a las sesiones fotográficas en los canales de Xochimilco?
 Los embarcaderos de Cuemanco y Nativitas están a 10 minutos en auto desde Venecia. Se pueden reservar trajineras privadas decoradas para sesiones pre-boda, día-después o incluso durante el mismo evento (para la pareja que desee escaparse brevemente con el fotógrafo). El coordinador de Venecia puede ayudar con la reservación y logística.
 
-## Venues Recomendados para Comparar
+## Venues similares
 
 - **[Jardines Nativitas Xochimilco](/directorio/cdmx/xochimilco/nativitas/)** — Junto a canales, trajineras, experiencia más rústica y cultural
 - **[La Lupita Xochimilco](/directorio/cdmx/xochimilco/la-lupita/)** — Otro referente de la alcaldía, formato diferente

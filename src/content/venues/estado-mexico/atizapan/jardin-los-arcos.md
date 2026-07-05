@@ -167,7 +167,7 @@ Hay venues donde eres un número de contrato. Y hay lugares como Jardín Los Arc
 
 Cuando tus invitados comenten lo bonito que estuvo tu evento, cuando las fotos bajo los arcos se conviertan en las favoritas del álbum, cuando mires hacia atrás y recuerdes lo fluido y relajado que fue todo, entenderás por qué **tres generaciones de familias han elegido este lugar para sus momentos más importantes**.
 
-## Venues Similares para Eventos Familiares Accesibles
+## Venues similares
 
 Si buscas opciones en el norte del Estado de México con diferentes características:
 

@@ -139,7 +139,7 @@ Zona especialmente equipada con juegos para niños, separada del área de adulto
 
 La explanada de entrada de **400m²** para el cóctel de bienvenida mientras el jardín se monta para la cena.
 
-## Servicios de EVENTECH para Jardín Ecatepec
+## Producción EVENTECH
 
 - **[Sonido para exteriores](/servicios/audiovisual/sonido/)** — Sistemas compactos y resistentes para jardines
 - **[Iluminación de jardín](/servicios/iluminacion/decorativa/)** — Caminos, árboles y estructuras iluminadas para la noche

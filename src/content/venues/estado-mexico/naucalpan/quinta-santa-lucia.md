@@ -193,7 +193,7 @@ Quinta Santa Lucía ofrece paquetes diseñados por la familia propietaria para c
 - **Pago diferido** con plan de apartado desde 12 meses antes
 - **Descuento** del 10% para eventos de lunes a jueves
 
-## Producción con EVENTECH
+## Producción EVENTECH
 
 El encanto colonial y campestre de la quinta alcanza su máximo potencial con la producción profesional de EVENTECH, con **10% de descuento** en iluminación de jardín:
 
@@ -225,11 +225,10 @@ Quinta Santa Lucía se ubica sobre la **Calzada de los Remedios**, una de las zo
 - **Atizapán** — 20 minutos
 - **Centro Histórico CDMX** — 30 minutos
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Descubre más opciones en Naucalpan, el norte del Edomex y CDMX cercana:
 
-- **[Jardines de México Naucalpan](/directorio/estado-mexico/naucalpan/jardines-de-mexico-naucalpan/)** — Complejo versátil con paquetes todo incluido a 10 minutos, ideal para eventos grandes
 - **[Gran Terraza Atizapán](/directorio/estado-mexico/atizapan/gran-terraza-atizapan/)** — Jardín de gran capacidad con capilla propia en Atizapán vecino
 - **[Jardín Las Fuentes Tlalnepantla](/directorio/estado-mexico/tlalnepantla/jardin-las-fuentes/)** — Jardín campestre con fuentes de cantera y precios muy accesibles
 - **[Salón Castillo Azcapotzalco](/directorio/cdmx/azcapotzalco/salon-castillo/)** — Opción premium en CDMX a minutos por Periférico

@@ -174,7 +174,7 @@ Todo lo anterior más banquete de 5 tiempos y maridaje de vinos premium.
 ### Paquete Consejo ($4,200/persona)
 Todo lo anterior más open bar ultra premium y acceso a todos los espacios.
 
-## Servicios de EVENTECH
+## Producción EVENTECH
 
 - **[Audiovisual discreto](/servicios/audiovisual/)** profesional
 - **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** que realza molduras

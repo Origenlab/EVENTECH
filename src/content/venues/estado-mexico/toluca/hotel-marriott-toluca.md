@@ -167,7 +167,7 @@ Hay venues donde organizas un evento y cruzas los dedos esperando que todo salga
 
 Cuando tu CEO esté presentando ante 300 inversionistas, cuando tu equipo comercial esté recibiendo sus premios anuales, cuando el producto que desarrollaste durante años finalmente se lance al mercado, quieres que el venue sea **invisible**: que todo funcione tan perfectamente que nadie lo note. Eso es lo que Marriott ofrece: la tranquilidad de lo profesional.
 
-## Servicios de EVENTECH para Marriott Toluca
+## Producción EVENTECH
 
 Como partner de EVENTECH, complementamos la tecnología del hotel con soluciones de alto impacto:
 
@@ -176,7 +176,7 @@ Como partner de EVENTECH, complementamos la tecnología del hotel con soluciones
 - **[Iluminación de escenario](/servicios/iluminacion/escenario/)** para galas y premiaciones corporativas
 - **[Efectos especiales](/servicios/iluminacion/efectos-especiales/)** para lanzamientos de alto impacto
 
-## Venues Similares para Eventos Corporativos
+## Venues similares
 
 Si buscas espacios de primer nivel para convenciones y eventos de negocios:
 

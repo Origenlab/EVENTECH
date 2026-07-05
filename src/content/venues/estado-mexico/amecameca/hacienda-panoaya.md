@@ -230,7 +230,7 @@ Con 80 hectáreas de locaciones diversas —lagos, bosques, arquitectura colonia
 
 Panoaya cuenta con **suites coloniales dentro del casco histórico** disponibles para los novios y familiares cercanos. Despertar el día de tu boda en una habitación con chimenea, vigas de madera del siglo XVII, y vista a los volcanes es el inicio perfecto.
 
-## Servicios de EVENTECH para Hacienda Panoaya
+## Producción EVENTECH
 
 Como partner estratégico de EVENTECH, ofrecemos soluciones especializadas que respetan y realzan el patrimonio histórico:
 
@@ -256,7 +256,7 @@ Como partner estratégico de EVENTECH, ofrecemos soluciones especializadas que r
 - **Generador de emergencia** industrial
 - **Acceso al parque temático** para invitados
 
-## Venues Similares para Bodas Monumentales
+## Venues similares
 
 Si buscas grandeza histórica y natural, considera también:
 

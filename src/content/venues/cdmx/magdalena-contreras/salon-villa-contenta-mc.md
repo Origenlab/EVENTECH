@@ -199,7 +199,7 @@ Los rincones del jardín, los detalles arquitectónicos de la casa y la fachada 
 - **Limpieza** posterior al evento
 - **Estacionamiento** con capacidad limitada; estacionamiento en vía pública amplia
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 El carácter residencial de Villa Contenta se beneficia de producción que realce sin sobrecargar:
 
@@ -225,7 +225,7 @@ El carácter residencial de Villa Contenta se beneficia de producción que realc
 - **Estacionamiento**: Limitado en el venue; vía pública amplia y segura en la zona
 - **Zona**: San Jerónimo Lídice es una de las colonias más seguras y tranquilas del sur de la CDMX
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas más opciones para tu evento:
 

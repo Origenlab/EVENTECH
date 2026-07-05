@@ -199,7 +199,7 @@ En Hacienda San Antonio, cuando pronuncies tus votos con el Nevado de Toluca obs
 
 **El volcán no es decoración: es testigo. Y su presencia hace de cada celebración algo legendario.**
 
-## Servicios de EVENTECH para Hacienda San Antonio
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, ofrecemos soluciones para eventos de gran escala con vistas espectaculares:
 
@@ -209,7 +209,7 @@ Como partner oficial de EVENTECH, ofrecemos soluciones para eventos de gran esca
 - **[Mobiliario elegante](/servicios/mobiliario/)** que complementa el ambiente colonial
 - **[Pistas de baile LED](/servicios/pistas-baile/pistas-led/)** espectaculares bajo las estrellas del Valle de Toluca
 
-## Venues Similares con Vistas Espectaculares
+## Venues similares
 
 Si buscas haciendas con paisajes naturales extraordinarios:
 

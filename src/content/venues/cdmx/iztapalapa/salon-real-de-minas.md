@@ -196,7 +196,7 @@ Real de Minas incluye un paquete completo de servicios:
 - **Estacionamiento** para aproximadamente 40 vehículos
 - **Wifi** de alta velocidad
 
-## Producción EVENTECH para tu Evento
+## Producción EVENTECH
 
 La estética colonial de Real de Minas se potencia de forma excepcional con producción profesional. **EVENTECH** ofrece servicios que complementan y respetan la identidad del venue:
 
@@ -233,7 +233,7 @@ Empresas que buscan salir de los salones genéricos de hotel encuentran en Real 
 - **Transporte público**: Rutas sobre Ermita Iztapalapa, Metro Constitución de 1917 a 15 minutos
 - **Estacionamiento**: Superficie pavimentada para 40 vehículos con seguridad
 
-## Venues Recomendados en Iztapalapa
+## Venues similares
 
 Si deseas comparar opciones para tu evento, te sugerimos estos espacios cercanos:
 

@@ -237,7 +237,7 @@ Para eventos que incluyen invitados de fuera de la ciudad, el W ofrece **tarifas
 
 Celebrar en el W Mexico City es elegir un venue que entiende que **los eventos modernos son experiencias multisensoriales**. Aquí, cada elemento —desde la iluminación hasta el último detalle del menú— está diseñado para crear una atmósfera que tus invitados no olvidarán. Es lujo, pero con actitud. Es sofisticación, pero con alma. Es el W.
 
-## Servicios de EVENTECH para Hotel W Mexico City
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, ofrecemos soluciones que amplifican la experiencia sensorial del W:
 
@@ -248,11 +248,11 @@ Como partner oficial de EVENTECH, ofrecemos soluciones que amplifican la experie
 - **[Pistas de baile LED](/servicios/pistas-baile/pistas-led/)** que complementan la estética contemporánea
 - **[Mobiliario lounge premium](/servicios/mobiliario/salas-lounge/)** para áreas VIP
 
-## Venues Similares de Lujo Contemporáneo
+## Venues similares
 
 Si buscas sofisticación moderna en ubicaciones premium:
 
-- **[Hotel Camino Real Polanco](/directorio/cdmx/polanco/hotel-camino-real-polanco/)** — Arquitectura icónica, mayor capacidad
+- **[Hotel Camino Real Polanco](/directorio/cdmx/polanco/hotel-camino-real/)** — Arquitectura icónica, mayor capacidad
 - **[Terrazas del Valle](/directorio/cdmx/del-valle/terrazas-del-valle/)** — Vistas panorámicas, precio más accesible
 - **[Club de Banqueros](/directorio/cdmx/lomas-chapultepec/club-de-banqueros/)** — Elegancia clásica, Lomas de Chapultepec
 - **[Casa Goldsmith](/directorio/cdmx/del-valle/casa-goldsmith/)** — Mansión contemporánea, ambiente exclusivo

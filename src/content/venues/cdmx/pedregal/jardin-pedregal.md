@@ -234,7 +234,7 @@ Un espacio donde tus invitados pueden **desconectarse de la ciudad y reconectars
 ### Versatilidad
 Con carpa puede usarse **los 365 días del año**, protegiendo del sol, lluvia o frío sin perder la conexión visual con el paisaje.
 
-## Servicios de EVENTECH para Jardín del Pedregal
+## Producción EVENTECH
 
 Como partner de EVENTECH, complementamos la belleza natural:
 
@@ -245,7 +245,7 @@ Como partner de EVENTECH, complementamos la belleza natural:
 - **[Mobiliario lounge boho](/servicios/mobiliario/salas-lounge/boho/)** que complementa el estilo orgánico
 - **[Calefacción de exterior](/servicios/accesorios/calefaccion-clima/)** para eventos en temporada fría
 
-## Venues Similares con Naturaleza Protagonista
+## Venues similares
 
 Si buscas espacios donde la naturaleza sea el escenario principal:
 

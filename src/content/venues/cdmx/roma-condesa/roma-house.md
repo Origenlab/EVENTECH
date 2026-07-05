@@ -231,7 +231,7 @@ Un evento en Roma House no se siente como un evento en un salón. Se siente como
 
 Eso es lo que hace a Roma House diferente: **no es un espacio que alquilas, es una experiencia que vives**.
 
-## Servicios de EVENTECH para Roma House
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, ofrecemos soluciones que respetan y realzan el carácter histórico del espacio:
 
@@ -240,7 +240,7 @@ Como partner oficial de EVENTECH, ofrecemos soluciones que respetan y realzan el
 - **[Mobiliario vintage](/servicios/mobiliario/)** que armoniza con la estética porfiriana
 - **[Pistas de baile portátiles](/servicios/pistas-baile/madera-clasica/)** sobre los pisos de pasta originales
 
-## Venues Similares con Carácter Histórico
+## Venues similares
 
 Si buscas la autenticidad de espacios con historia:
 

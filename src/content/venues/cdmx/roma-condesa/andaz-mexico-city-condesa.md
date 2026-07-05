@@ -112,7 +112,7 @@ El hotel opera con un **equipo de especialistas en bodas** que acompaña desde e
 
 Aguascalientes 158, **Hipódromo Condesa** (CP 06100), a pocas cuadras del **Parque México** — el corazón caminable de la Condesa, con acceso rápido por Av. Insurgentes Sur y Av. Nuevo León.
 
-## Servicios EVENTECH para este venue
+## Producción EVENTECH
 
 - **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** complementaria para eventos en terraza
 - **[Audiovisual](/servicios/audiovisual/)** para congresos y lanzamientos

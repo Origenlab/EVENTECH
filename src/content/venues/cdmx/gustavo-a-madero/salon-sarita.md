@@ -185,7 +185,7 @@ La renta de Salón Sarita incluye todo lo necesario para una celebración sin co
 - Estacionamiento sin costo adicional
 - WiFi para invitados
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Los clientes de Sarita pueden elevar significativamente la experiencia de su evento con producción profesional de **EVENTECH**, transformando un salón sencillo en un espacio con ambiente profesional:
 
@@ -247,7 +247,7 @@ Salón Sarita se encuentra en la colonia Ampliación Gabriel Hernández, una zon
 - **Zona residencial** — Entorno tranquilo y seguro para eventos nocturnos
 - **Estacionamiento** — Espacio propio incluido en la renta
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si Salón Sarita no se ajusta a tus necesidades o buscas explorar otras opciones en Gustavo A. Madero, te recomendamos considerar:
 

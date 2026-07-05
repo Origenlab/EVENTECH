@@ -188,7 +188,7 @@ Salón Esmeralda incluye en su tarifa base:
 - **Estacionamiento** para aproximadamente 35 vehículos
 - **Wifi** de alta velocidad para invitados y proveedores
 
-## Producción EVENTECH para tu Evento
+## Producción EVENTECH
 
 La estética elegante de Salón Esmeralda se potencia enormemente con producción profesional. **EVENTECH** ofrece servicios que complementan y elevan el ambiente del venue:
 
@@ -225,7 +225,7 @@ Para celebraciones de aniversario que merecen un marco especial, el ambiente ele
 - **Transporte público**: Rutas sobre Ermita Iztapalapa, Metro Constitución de 1917 a 20 minutos
 - **Estacionamiento**: Superficie pavimentada para 35 vehículos
 
-## Venues Recomendados en Iztapalapa
+## Venues similares
 
 Si deseas comparar opciones para tu evento, te sugerimos estos espacios cercanos:
 

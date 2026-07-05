@@ -337,7 +337,7 @@ Cuando cae la noche, el jardín tropical se transforma con la producción de EVE
 - **[Balizas LED](/servicios/iluminacion/arquitectonica/)** en senderos de adoquín — caminos de luz entre la vegetación
 - **Linternas colgantes** entre ramas — ambiente de bazar nocturno tropical
 
-## Checklist EVENTECH para Tu Evento en Flamingos
+## Producción EVENTECH
 
 Servicios recomendados según el tipo de evento, todos disponibles con **15% de descuento** como socio premium:
 
@@ -363,7 +363,7 @@ Servicios recomendados según el tipo de evento, todos disponibles con **15% de 
 - [ ] [Iluminación LED de fuentes](/servicios/iluminacion/arquitectonica/) en colores personalizados
 - [ ] [Mesas cocktail iluminadas](/servicios/mobiliario/mesas/cocktail/) para zona de bar
 
-## Producción Profesional EVENTECH — Iluminando el Trópico
+## Producción EVENTECH
 
 ### Paquetes Exclusivos para Flamingos
 
@@ -469,7 +469,7 @@ En temporada alta (noviembre-marzo), se recomienda reservar con **4-6 meses de a
 
 No se realizan ceremonias religiosas oficiales (misa), pero sí ceremonias simbólicas, civiles y de votos. El espacio junto a la fuente central es el punto más solicitado para este tipo de ceremonias, con capacidad para 180 invitados sentados.
 
-## Venues Recomendados para Comparar
+## Venues similares
 
 - **[Jardines Nativitas Xochimilco](/directorio/cdmx/xochimilco/nativitas/)** — Jardín junto a canales, tradición mexicana vs. tropical, formato similar pero más lejos del centro
 - **[Salón La Cascada Iztapalapa](/directorio/cdmx/iztapalapa/salon-la-cascada/)** — Elemento agua como diferenciador, zona oriente cercana

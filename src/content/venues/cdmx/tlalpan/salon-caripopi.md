@@ -204,7 +204,7 @@ La **pista de baile** es uno de los activos principales de Caripopi: amplia, bie
 - **Cenas de gala** — Formato formal con vajilla incluida
 - **Bautizos, comuniones y aniversarios** — Configuración adaptable para diferentes tamaños
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Para eventos que requieran mayor impacto, **EVENTECH** ofrece producción profesional:
 
@@ -236,7 +236,7 @@ Más de una década operando eventos en la zona sur respalda la confiabilidad de
 - **Valet parking**: Servicio disponible que elimina la preocupación del estacionamiento
 - **Accesibilidad**: Acceso para personas con movilidad reducida
 
-## Venues Recomendados en Tlalpan
+## Venues similares
 
 Si buscas más opciones en la zona sur de la CDMX:
 

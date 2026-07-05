@@ -211,7 +211,7 @@ Desde conferencias de 100 personas hasta festivales de 1,500, el espacio se adap
 ### Estacionamiento Masivo
 Más de 500 cajones en estacionamiento propio, más convenios con estacionamientos adyacentes para eventos de mayor capacidad. Valet parking profesional incluido.
 
-## Servicios de EVENTECH para Foro Kaluz
+## Producción EVENTECH
 
 Como partner preferente de EVENTECH, ofrecemos paquetes especializados:
 
@@ -232,7 +232,7 @@ Como partner preferente de EVENTECH, ofrecemos paquetes especializados:
 - **Estacionamiento** con control vehicular
 - **WiFi de alta velocidad** para todos los asistentes
 
-## Venues Similares para Eventos Corporativos
+## Venues similares
 
 - **[Centro Citibanamex](/directorio/cdmx/miguel-hidalgo/centro-citibanamex/)** — Para eventos de +3,000 personas, expos masivas
 - **[La Industrial Azcapotzalco](/directorio/cdmx/azcapotzalco/la-industrial/)** — Estilo industrial, precio más accesible, hasta 800 personas

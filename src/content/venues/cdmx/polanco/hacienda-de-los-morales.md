@@ -248,7 +248,7 @@ Imagina a tus invitados cruzando el mismo portal que han atravesado generaciones
 
 **Hacienda de los Morales no es solo un venue: es la definición de lo que significa celebrar con grandeza en México**.
 
-## Servicios de EVENTECH para Hacienda de los Morales
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, ofrecemos soluciones premium que complementan la elegancia histórica de este venue:
 
@@ -259,7 +259,7 @@ Como partner oficial de EVENTECH, ofrecemos soluciones premium que complementan 
 - **[Mobiliario de lujo](/servicios/mobiliario/salas-lounge/)** que complementa la estética colonial
 - **[Pistas de baile de madera](/servicios/pistas-baile/madera-clasica/)** sobre el césped del jardín
 
-## Venues Similares con Historia Colonial
+## Venues similares
 
 Si buscas la grandeza de las haciendas históricas:
 

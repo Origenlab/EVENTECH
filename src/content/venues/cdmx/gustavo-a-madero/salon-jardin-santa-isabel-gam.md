@@ -170,7 +170,7 @@ Cocina equipada con **estufa industrial, horno, refrigerador y mesas de preparac
 - **Acceso completo al jardín** con área de fotos
 - **Estacionamiento** para aproximadamente 25 vehículos
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 La combinación salón-jardín de Santa Isabel se transforma con la producción de **EVENTECH**, especialmente al caer la tarde:
 
@@ -221,14 +221,11 @@ Las lluvias vespertinas pueden afectar los eventos al aire libre. El salón inte
 - **Transporte público**: Metro La Villa-Basílica (Línea 6) a 12 minutos en transporte, rutas sobre Calzada de los Misterios
 - **Estacionamiento**: Superficie propia para aproximadamente 25 vehículos
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas opciones con jardín o precio accesible en GAM:
 
 - **[Salón Monaco Jardín](/directorio/cdmx/gustavo-a-madero/salon-monaco-jardin/)** — El salón premium de GAM con jardín profesional, socio EVENTECH, hasta 500 personas
-- **[Salón Las Palmas GAM](/directorio/cdmx/gustavo-a-madero/salon-las-palmas-gam/)** — Salón accesible con buena capacidad para eventos familiares
-- **[Salón Bugambilias GAM](/directorio/cdmx/gustavo-a-madero/salon-bugambilias-gam/)** — Espacio familiar con opciones de jardín en la zona norte
-- **[Salón Los Arcos GAM](/directorio/cdmx/gustavo-a-madero/salon-los-arcos-gam/)** — Salón clásico con arcos decorativos y ambiente acogedor
 
 ## Jardín y Salón al Precio Justo
 

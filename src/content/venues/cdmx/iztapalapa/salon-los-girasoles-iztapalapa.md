@@ -171,7 +171,7 @@ El estacionamiento propio tiene capacidad para aproximadamente 25 vehículos en 
 
 Los Girasoles ofrece total flexibilidad para contratar proveedores externos de banquete, DJ, decoración, fotografía y pastelería, permitiendo a las familias armar paquetes personalizados que se ajusten a su presupuesto.
 
-## Producción EVENTECH para tu Evento en Los Girasoles
+## Producción EVENTECH
 
 El ahorro en la renta de Los Girasoles permite destinar presupuesto a producción profesional que transforma la experiencia. **EVENTECH** ofrece servicios que elevan cualquier celebración:
 
@@ -213,13 +213,11 @@ Para baby showers de 40 a 80 personas, Los Girasoles ofrece un espacio acogedor 
 - **Transporte público**: Múltiples rutas de microbús y RTP por la zona centro de Iztapalapa
 - **Estacionamiento**: Superficie para 25 vehículos con vigilancia
 
-## Venues Recomendados en Iztapalapa
+## Venues similares
 
 Compara opciones para tu evento en la zona:
 
-- **[Salón Las Palmas](/directorio/cdmx/iztapalapa/salon-las-palmas-iztapalapa/)** — Salón familiar con terraza techada y precios accesibles en San Andrés Tetepilco
 - **[Salón de Fiestas Anely](/directorio/cdmx/iztapalapa/salon-de-fiestas-anely/)** — Opción económica con buen servicio para eventos familiares
-- **[Salón Río Azul](/directorio/cdmx/iztapalapa/salon-rio-azul/)** — Salón con buena relación precio-calidad en Iztapalapa
 - **[Salón Fénix](/directorio/cdmx/iztapalapa/salon-fenix-iztapalapa/)** — Espacio versátil con buen servicio y ubicación accesible
 
 ## Celebra sin Complicaciones en Los Girasoles

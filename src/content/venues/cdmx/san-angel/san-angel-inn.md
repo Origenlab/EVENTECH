@@ -226,7 +226,7 @@ Hay lugares y hay **lugares con alma**. El San Ángel Inn pertenece a la segunda
 
 **No es solo un evento. Es un viaje en el tiempo. Es romance materializado. Es el San Ángel Inn.**
 
-## Servicios de EVENTECH para San Ángel Inn
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, ofrecemos soluciones que realzan la belleza histórica del venue:
 
@@ -235,7 +235,7 @@ Como partner oficial de EVENTECH, ofrecemos soluciones que realzan la belleza hi
 - **[Sonido discreto](/servicios/audiovisual/sonido/)** que respeta la acústica del espacio histórico
 - **[Pistas de baile portátiles](/servicios/pistas-baile/madera-clasica/)** sobre el césped del jardín
 
-## Venues Similares con Historia y Romance
+## Venues similares
 
 Si buscas la magia de espacios históricos con gastronomía excepcional:
 

@@ -180,7 +180,7 @@ La política de **proveedores externos libres** permite a cada familia elegir su
 - **Acceso al estacionamiento** durante el horario del evento
 - **Uso de cocina industrial** para proveedores de alimentos
 
-## Producción Profesional con EVENTECH
+## Producción EVENTECH
 
 Para elevar la experiencia visual y sonora de tu evento en Pavo Real, los servicios de EVENTECH se adaptan a cualquier presupuesto:
 
@@ -231,7 +231,7 @@ La colonia José María Pino Suárez se sitúa en una zona residencial consolida
 - **Estacionamiento**: Incluido en la renta del salón
 - **Accesibilidad**: Entrada a nivel de calle para personas con movilidad reducida
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas otras opciones para tu evento en el poniente de la CDMX:
 

@@ -232,7 +232,7 @@ Hay venues que ofrecen elegancia. Hay venues que ofrecen servicio. Y hay **Jardi
 
 Cuando tus invitados vean llegar las trajineras adornadas con cempasúchil, cuando escuchen al mariachi cantando mientras navega hacia el embarcadero, cuando brinden bajo ahuehuetes que ya estaban aquí cuando Cortés llegó a estas tierras, sabrán que están en un lugar **donde la tradición mexicana no es decoración: es la esencia misma del espacio**.
 
-## Servicios de EVENTECH para Jardines Nativitas
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, ofrecemos soluciones que complementan la tradición del espacio:
 
@@ -241,7 +241,7 @@ Como partner oficial de EVENTECH, ofrecemos soluciones que complementan la tradi
 - **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** con antorchas LED y linternas estilo mexicano
 - **[Pisos de duela](/servicios/carpas/pisos-complementos/)** para crear superficies de baile sobre el jardín
 
-## Venues Similares con Tradición Mexicana
+## Venues similares
 
 Si buscas espacios con autenticidad cultural y conexión con la naturaleza:
 

@@ -182,7 +182,7 @@ La renta de Jardín Real de Oriente incluye los siguientes servicios sin costo a
 
 Los clientes pueden contratar servicios adicionales como banquete, DJ, decoración y fotografía con los proveedores de su preferencia, lo que permite un control total del presupuesto.
 
-## Producción EVENTECH para tu Evento
+## Producción EVENTECH
 
 Los eventos al aire libre se transforman con producción profesional. **EVENTECH** ofrece servicios especializados que elevan cualquier celebración en Jardín Real de Oriente:
 
@@ -227,7 +227,7 @@ El formato de jardín es ideal para celebraciones de cumpleaños de adultos que 
 - **Estacionamiento**: Disponible con capacidad limitada y vigilancia durante el evento
 - **Transporte público**: Múltiples rutas de microbús sobre las avenidas principales de la zona
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas más opciones para tu evento en Iztacalco y la zona oriente, conoce estos espacios:
 

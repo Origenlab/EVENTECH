@@ -223,7 +223,7 @@ No hay paquetes complicados, no hay requisitos excesivos, no hay letra pequeña.
 - **Mínimo de horas**: 4 horas — uno de los mínimos más bajos de la zona, ideal para eventos de corta duración como bautizos y primeras comuniones
 - **Montaje anticipado**: Disponible previa coordinación con la administración
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Para darle un toque profesional a tu evento en Los Colorines, **EVENTECH** ofrece servicios compatibles con salones de este formato:
 
@@ -242,7 +242,7 @@ La diferencia entre un evento con mobiliario básico y uno con sillas Chiavari y
 - **Servicios cercanos**: Tiendas, farmacias y servicios del centro del pueblo
 - **Estacionamiento**: Propio, incluido en la renta
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas opciones adicionales en Cuajimalpa y alrededores:
 

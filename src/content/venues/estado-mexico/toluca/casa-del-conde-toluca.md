@@ -150,7 +150,7 @@ Todo lo anterior más banquete de 4 tiempos y barra de vinos.
 ### Paquete Imperial ($2,000/persona - mínimo 80 pax)
 Todo lo anterior más open bar premium y acceso a todos los espacios.
 
-## Servicios de EVENTECH
+## Producción EVENTECH
 
 - **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** que realza molduras
 - **[Audiovisual discreto](/servicios/audiovisual/)** integrado

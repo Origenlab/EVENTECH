@@ -201,7 +201,7 @@ Gran Terraza se especializa en **paquetes que eliminan complicaciones** y permit
 - **Decoración libre** con aprobación previa del coordinador
 - **Pagos a meses** sin intereses en tarjetas participantes
 
-## Producción Profesional con EVENTECH
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, Gran Terraza ofrece acceso preferencial a equipo profesional de producción con descuentos exclusivos del **15% en paquetes completos**:
 
@@ -234,11 +234,10 @@ Gran Terraza se ubica en el **corazón de Ciudad López Mateos, Atizapán de Zar
 
 El estacionamiento para más de 200 vehículos elimina la preocupación de encontrar lugar, y el servicio de valet parking agiliza la llegada de los invitados.
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si deseas explorar más opciones en el norte metropolitano con diferentes estilos y capacidades:
 
-- **[Jardines de México Naucalpan](/directorio/estado-mexico/naucalpan/jardines-de-mexico-naucalpan/)** — Complejo versátil a 20 min de Polanco con paquetes todo incluido
 - **[Quinta Santa Lucía](/directorio/estado-mexico/naucalpan/quinta-santa-lucia/)** — Quinta colonial con casona histórica y bugambilias centenarias
 - **[Jardín Las Fuentes Tlalnepantla](/directorio/estado-mexico/tlalnepantla/jardin-las-fuentes/)** — 5,000 m² con fuentes de cantera y precios accesibles
 - **[Salón Castillo Azcapotzalco](/directorio/cdmx/azcapotzalco/salon-castillo/)** — Opción premium en CDMX, ideal para invitados de la capital

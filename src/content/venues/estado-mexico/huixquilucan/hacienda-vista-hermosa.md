@@ -329,7 +329,7 @@ Todo lo anterior más:
 - Shuttle service desde 2 puntos de CDMX
 - Carroza histórica para novios (calesa del siglo XIX)
 
-## Servicios EVENTECH para Vista Hermosa
+## Producción EVENTECH
 
 Como partners de esta hacienda histórica, EVENTECH ofrece equipamiento que respeta y realza el patrimonio:
 
@@ -384,7 +384,7 @@ Se requiere **acceso 48 horas antes** para montaje complejo (carpas, iluminació
 - **Certificación CERTIMEX** como jardines orgánicos libres de pesticidas (2022)
 - **Wedding Industry Award México** - Mejor Venue Histórico 2023, 2024
 
-## Haciendas y Venues Similares
+## Venues similares
 
 Si buscas opciones similares de ultra lujo e historia:
 

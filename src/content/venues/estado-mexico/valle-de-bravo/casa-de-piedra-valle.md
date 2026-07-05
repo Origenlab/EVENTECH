@@ -388,7 +388,7 @@ Todo lo anterior más:
 - Maridaje con vinos de colección privada
 - Cena omakase en Jardín Secreto
 
-## Servicios EVENTECH para Casa de Piedra
+## Producción EVENTECH
 
 ### Iluminación Arquitectónica de Diseño
 - **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** que respeta la estética minimalista de Kalach
@@ -406,8 +406,7 @@ Todo lo anterior más:
 - **Condé Nast Traveler** — "Best Wedding Destinations Mexico" (2023)
 - **World Architecture Festival** — Shortlist Villa Category (2019)
 
-## Venues Similares de Diseño
+## Venues similares
 
-- **[Hacienda Vista Hermosa](/directorio/estado-mexico/huixquilucan/hacienda-vista-hermosa-huixquilucan/)** — Arquitectura colonial restaurada
 - **[Museo Soumaya](/directorio/cdmx/miguel-hidalgo/museo-soumaya/)** — Arquitectura contemporánea icónica
 - **[St. Regis](/directorio/cdmx/cuauhtemoc/st-regis-mexico-city/)** — Lujo hotelero internacional

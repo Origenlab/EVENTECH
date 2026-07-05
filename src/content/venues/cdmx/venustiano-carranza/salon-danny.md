@@ -187,7 +187,7 @@ La renta del salón Danny incluye sin costo adicional:
 - **Estacionamiento** con vigilancia
 - **WiFi** disponible para invitados
 
-## Producción EVENTECH para Salón Danny
+## Producción EVENTECH
 
 Los clientes de Danny pueden elevar la experiencia de su evento con servicios profesionales de **EVENTECH**:
 
@@ -242,7 +242,7 @@ Lo que ha convertido a Salón Danny en referente de la zona Moctezuma son sus ve
 - **Circuito Interior**: Acceso rápido a través del Boulevard Puerto Aéreo
 - **AICM**: Cercanía al Aeropuerto Internacional, conveniente para invitados foráneos
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Explora más opciones para tu evento en Venustiano Carranza y la zona oriente:
 

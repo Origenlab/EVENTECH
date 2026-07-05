@@ -166,7 +166,7 @@ El paquete de renta de Salón Emmanuel incluye:
 
 Emmanuel ofrece la flexibilidad de permitir proveedores externos para banquete, DJ, decoración y fotografía, lo que permite a las familias armar su evento a la medida de su presupuesto.
 
-## Producción EVENTECH para tu Evento en Emmanuel
+## Producción EVENTECH
 
 Aunque Emmanuel es un espacio sencillo, la producción profesional puede transformar por completo la experiencia. **EVENTECH** ofrece servicios que elevan cualquier celebración:
 
@@ -207,13 +207,10 @@ Para celebraciones de baby shower de 30 a 80 personas, el salón se adapta cómo
 - **Transporte público**: Rutas de microbús sobre Ermita, estación del Metro Iztapalapa a 10 minutos
 - **Estacionamiento**: Estacionamiento en calle con disponibilidad variable
 
-## Venues Recomendados en Iztapalapa
+## Venues similares
 
 Si deseas explorar más opciones para tu evento en Iztapalapa, te recomendamos estos espacios:
 
-- **[Salón Las Palmas](/directorio/cdmx/iztapalapa/salon-las-palmas-iztapalapa/)** — Espacio versátil con terraza techada y área infantil, precios accesibles en la misma zona
-- **[Salón San Lorenzo](/directorio/cdmx/iztapalapa/salon-san-lorenzo/)** — Salón familiar con buena capacidad y ambiente acogedor en Iztapalapa
-- **[Salón Río Azul](/directorio/cdmx/iztapalapa/salon-rio-azul/)** — Salón con buena relación precio-calidad para eventos familiares
 - **[Salón de Fiestas Anely](/directorio/cdmx/iztapalapa/salon-de-fiestas-anely/)** — Opción económica con buen servicio para celebraciones familiares
 
 ## Tu Celebración Merece un Buen Espacio

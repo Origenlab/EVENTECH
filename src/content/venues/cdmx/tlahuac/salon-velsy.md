@@ -178,7 +178,7 @@ Los paquetes más completos incluyen open bar con opciones de bebidas nacionales
 - **Limpieza** posterior al evento
 - **Estacionamiento** para aproximadamente 45 vehículos
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Para complementar la oferta integral de Velsy con producción de alto nivel, **EVENTECH** ofrece servicios que aprovechan la doble altura del salón:
 
@@ -235,7 +235,7 @@ Velsy ofrece degustación de menú previa al evento para que la familia confirme
 ### ¿Se puede traer DJ y equipo de sonido externo?
 Sí. El sonido básico incluido funciona como respaldo, pero para bodas y XV años la mayoría de las familias contratan DJ profesional. El sistema eléctrico del salón soporta equipos de alta potencia y los servicios de EVENTECH están calibrados para aprovechar la acústica de la doble altura.
 
-## Venues Recomendados
+## Venues similares
 
 Si buscas opciones en Tláhuac y alcaldías vecinas del suroriente:
 

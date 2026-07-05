@@ -225,7 +225,7 @@ Desde 1863, el Casino Español ha sido el escenario de **momentos que definen la
 
 **El Casino Español no es solo un venue: es un pasaje directo a la grandeza del pasado, ejecutada con la perfección del presente.**
 
-## Venues Similares con Elegancia Clásica
+## Venues similares
 
 Si buscas la sofisticación de los grandes salones históricos:
 

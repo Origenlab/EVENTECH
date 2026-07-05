@@ -171,7 +171,7 @@ Techos abovedados de 6 metros, arcos de cantera y pisos de barro cocido original
 
 Un salón más íntimo, ideal para eventos de 80-120 personas que quieren la experiencia hacienda en escala boutique.
 
-## Servicios de EVENTECH para Hacienda Tlalpan
+## Producción EVENTECH
 
 - **[Iluminación de jardín](/servicios/iluminacion/decorativa/)** — Uplighting en árboles centenarios, caminos y fuentes
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** — Sistemas para espacios abiertos e interiores coloniales

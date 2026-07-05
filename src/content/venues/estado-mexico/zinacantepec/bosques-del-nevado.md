@@ -225,7 +225,7 @@ El resort cuenta con **25 cabañas de diferentes capacidades** (2-8 personas cad
 
 El chef del resort se especializa en **cocina de altura**: ingredientes locales del bosque (hongos silvestres, trucha de río, hierbas de montaña) transformados en menús gourmet que honran el entorno. Los banquetes pueden personalizarse completamente.
 
-## Servicios de EVENTECH para Bosques del Nevado
+## Producción EVENTECH
 
 Como partner de EVENTECH, ofrecemos soluciones especializadas para este venue de montaña:
 
@@ -248,7 +248,7 @@ Como partner de EVENTECH, ofrecemos soluciones especializadas para este venue de
 - **Seguridad** 24 horas
 - **Generador** de respaldo
 
-## Venues Similares para Bodas de Naturaleza
+## Venues similares
 
 Si buscas conexión profunda con la naturaleza:
 

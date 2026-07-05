@@ -174,7 +174,7 @@ El estacionamiento propio de Las Fuentes tiene capacidad para aproximadamente 30
 - **Aire acondicionado** centralizado
 - **Operación de la fuente** con iluminación de color
 
-## Producción EVENTECH para tu Evento en Las Fuentes
+## Producción EVENTECH
 
 La fuente de Las Fuentes es un elemento escenográfico que se potencia exponencialmente con producción profesional. **EVENTECH** ofrece servicios que transforman este espacio único:
 
@@ -211,13 +211,11 @@ La fuente es un escenario ideal para sesiones de fotos de pre-boda, quinceañera
 - **Transporte público**: Rutas de microbús sobre Ermita, Metro Iztapalapa a 10 minutos
 - **Estacionamiento**: Superficie pavimentada para 30 vehículos con vigilancia
 
-## Venues Recomendados en Iztapalapa
+## Venues similares
 
 Explora más opciones para tu evento en la zona oriente de la CDMX:
 
 - **[Salón La Cascada](/directorio/cdmx/iztapalapa/salon-la-cascada/)** — Jardín con cascada natural y ambiente único para bodas al aire libre en Iztapalapa
-- **[Salón Jardín Esmeralda](/directorio/cdmx/iztapalapa/salon-jardin-esmeralda/)** — Espacio con jardín y salón integrado para eventos versátiles
-- **[Salón Paraíso](/directorio/cdmx/iztapalapa/salon-paraiso/)** — Salón amplio con buena capacidad y servicios completos
 - **[Salón Platino](/directorio/cdmx/iztapalapa/salon-platino/)** — Espacio moderno con acabados contemporáneos en Iztapalapa
 
 ## El Agua como Protagonista de tu Celebración

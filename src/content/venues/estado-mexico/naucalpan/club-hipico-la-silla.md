@@ -221,7 +221,7 @@ A **20 minutos de Polanco y Santa Fe**, combina ambiente campestre con acceso ur
 - **Fuegos artificiales** prohibidos
 - **Mascota** previa autorización
 
-## Servicios de EVENTECH para Club Hípico La Silla
+## Producción EVENTECH
 
 Como partner de EVENTECH, complementamos la elegancia ecuestre:
 
@@ -232,7 +232,7 @@ Como partner de EVENTECH, complementamos la elegancia ecuestre:
 - **[Calefacción de exterior](/servicios/accesorios/calefaccion-clima/)** para eventos de invierno
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** calibrado para espacios abiertos
 
-## Venues Similares con Carácter Campestre
+## Venues similares
 
 Si buscas espacios con ambiente de rancho o campo:
 

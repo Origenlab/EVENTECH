@@ -172,7 +172,7 @@ El acceso al salón incluye un **lobby de 40 metros cuadrados** con iluminación
 - **WiFi** de alta velocidad
 - **Estacionamiento** para aproximadamente 40 vehículos
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 El diseño moderno del Salón Los Ángeles se potencia con la producción profesional de **EVENTECH**:
 
@@ -209,14 +209,11 @@ La capacidad para 300 personas, el servicio de vajilla incluido y la ubicación 
 - **Transporte público**: Metro Deportivo Oceanía (Línea 5) a 10 minutos en auto, Metrobús Línea 4
 - **Estacionamiento**: Superficie propia para aproximadamente 40 vehículos
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas opciones en Gustavo A. Madero y alrededores:
 
 - **[Salón Monaco Jardín](/directorio/cdmx/gustavo-a-madero/salon-monaco-jardin/)** — El salón premium de GAM con jardín, socio EVENTECH, hasta 500 personas
-- **[Salón Las Palmas GAM](/directorio/cdmx/gustavo-a-madero/salon-las-palmas-gam/)** — Salón tradicional con buena capacidad y precios accesibles
-- **[Salón Victoria GAM](/directorio/cdmx/gustavo-a-madero/salon-victoria-gam/)** — Espacio elegante para eventos familiares en la zona norte
-- **[Salón Los Arcos GAM](/directorio/cdmx/gustavo-a-madero/salon-los-arcos-gam/)** — Salón clásico con arcos decorativos y ambiente acogedor
 
 ## Modernidad y Accesibilidad en Gustavo A. Madero
 

@@ -186,7 +186,7 @@ Varios rincones del salón ofrecen **fondos elegantes para fotografía**: la fue
 - **Estacionamiento** propio incluido
 - **WiFi** para invitados y proveedores
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Para transformar la elegancia natural de La Fontana en una experiencia inmersiva, **EVENTECH** ofrece servicios de producción profesional:
 
@@ -215,7 +215,7 @@ La colonia Del Valle es una de las mejor conectadas de la Ciudad de México:
 - **Estacionamiento** propio incluido en la renta
 - **Zona céntrica**: accesible desde Coyoacán, Narvarte, Roma, Condesa y Tlalpan en menos de 20 minutos
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas más opciones para tu evento en la CDMX:
 

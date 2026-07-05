@@ -181,7 +181,7 @@ Los cedros son el **fondo fotográfico estrella** del venue. La escala de los á
 - **Limpieza** posterior al evento
 - **Estacionamiento** con capacidad limitada
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 El estilo rústico de Los Cedros se potencia con producción que respete y realce su carácter natural:
 
@@ -207,7 +207,7 @@ El estilo rústico de Los Cedros se potencia con producción que respete y realc
 - **Estacionamiento**: Propio con capacidad limitada; estacionamiento público cercano
 - **Zona histórica**: A minutos del centro de Tlalpan con restaurantes y comercios
 
-## Venues Recomendados en Tlalpan
+## Venues similares
 
 Si buscas más opciones en la zona:
 

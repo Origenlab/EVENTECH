@@ -242,7 +242,7 @@ Esta flexibilidad permite que la paleta de color del evento se exprese desde el 
 - **89% de recomendación** entre parejas que celebraron su boda aquí
 - **Más de 80 bodas** documentadas en la plataforma
 
-## Servicios EVENTECH en Gran Salón del Valle
+## Producción EVENTECH
 
 La libertad de contratar música externa hace de Gran Salón del Valle un venue ideal para integrar los servicios especializados de **EVENTECH**:
 

@@ -188,7 +188,7 @@ Cocina de **45 metros cuadrados** con **doble línea de estufas industriales, ho
 - **WiFi** empresarial
 - **Estacionamiento** para aproximadamente 50 vehículos
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 El nivel premium del Majestic se eleva aún más con la producción de **EVENTECH**:
 
@@ -225,14 +225,11 @@ Los acabados premium, la iluminación controlable y el servicio de vajilla inclu
 - **Transporte público**: Metro Lindavista (Línea 6) a 8 minutos caminando, Metrobús Línea 1 sobre Insurgentes
 - **Estacionamiento**: Superficie propia para aproximadamente 50 vehículos
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas opciones premium en GAM y alrededores:
 
 - **[Salón Monaco Jardín](/directorio/cdmx/gustavo-a-madero/salon-monaco-jardin/)** — El salón de referencia de GAM con jardín, socio premium EVENTECH, hasta 500 personas
-- **[Salón Crystal GAM](/directorio/cdmx/gustavo-a-madero/salon-crystal-gam/)** — Espacio cristalino para eventos elegantes en la zona norte
-- **[Salón Real GAM](/directorio/cdmx/gustavo-a-madero/salon-real-gam/)** — Salón con tradición y buena capacidad en Gustavo A. Madero
-- **[Salón Victoria GAM](/directorio/cdmx/gustavo-a-madero/salon-victoria-gam/)** — Espacio versátil con servicio profesional en GAM
 
 ## La Experiencia Premium que Lindavista Merece
 

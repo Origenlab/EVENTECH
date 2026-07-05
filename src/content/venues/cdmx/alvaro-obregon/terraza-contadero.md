@@ -206,7 +206,7 @@ Todo lo anterior más banquete de 4 tiempos y barra de bebidas.
 ### Paquete Horizonte ($2,300/persona - mínimo 50 pax)
 Todo lo anterior más open bar premium, DJ y iluminación completa.
 
-## Servicios de EVENTECH
+## Producción EVENTECH
 
 - **[Calefacción exterior](/servicios/accesorios/calefaccion-clima/calentadores-patio/)** para noches frescas
 - **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** que no compite con la vista

@@ -341,7 +341,7 @@ Con la [iluminación arquitectónica de EVENTECH](/servicios/iluminacion/arquite
 - **Hollywood glamour** — Alfombra roja entre columnas, iluminación dorada, [salas lounge estilo elegante](/servicios/mobiliario/salas-lounge/elegante/)
 - **Bosque encantado** — Para XV años: columnas como árboles con ramas LED y follaje artificial
 
-## Producción Profesional EVENTECH — Iluminación Monumental para Columnas Monumentales
+## Producción EVENTECH
 
 La escala del Partenón exige producción de escala equivalente. Un par de bocinas y unas luces decorativas se pierden en 1,200 m² con techos de 7 metros. Por eso la alianza con EVENTECH es **particularmente poderosa** para este venue: el equipo y la experiencia técnica de EVENTECH están diseñados para llenar espacios monumentales.
 
@@ -359,7 +359,7 @@ La escala del Partenón exige producción de escala equivalente. Un par de bocin
 
 **Descuento exclusivo: 15% en paquetes de iluminación monumental, sonido line array y mobiliario para todos los clientes del Partenón.**
 
-## Checklist EVENTECH — Servicios Recomendados para Partenón
+## Producción EVENTECH
 
 Para maximizar el potencial de un espacio de esta magnitud, EVENTECH recomienda la siguiente selección de servicios según el tipo de evento:
 
@@ -490,7 +490,7 @@ En la confluencia de Viaducto Tlalpan, Calzada de Tlalpan, Insurgentes y Perifé
 ### Socio Premium EVENTECH
 Para un espacio de esta escala, se necesita producción de escala equivalente. EVENTECH es el único proveedor en la CDMX con la capacidad para **llenar 1,200 m² con iluminación monumental, sonido line array y mobiliario por cientos** — con 15% de descuento garantizado.
 
-## Venues Recomendados para Comparar
+## Venues similares
 
 - **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — Colonial, al aire libre, sin límite horario, estilo opuesto pero mismo prestigio en Tlalpan
 - **[Salón Monaco Jardín GAM](/directorio/cdmx/gustavo-a-madero/salon-monaco-jardin/)** — Salón + jardín, formato grande, zona norte

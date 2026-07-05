@@ -217,7 +217,7 @@ Imagina a tus invitados ascendiendo por la escalera que caminó Humboldt, brinda
 
 Cada evento aquí se convierte en parte de una historia de más de dos siglos, donde la arquitectura, el arte y la celebración se fusionan para crear momentos verdaderamente irrepetibles.
 
-## Venues Similares de Patrimonio Histórico
+## Venues similares
 
 Si buscas espacios monumentales con historia:
 

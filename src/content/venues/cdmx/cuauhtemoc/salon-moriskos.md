@@ -178,7 +178,7 @@ La renta de Morisko's incluye un paquete completo que facilita significativament
 - Cocina industrial completa disponible para caterings externos
 - WiFi de cortesía para todos los invitados
 
-## Producción EVENTECH para Morisko's
+## Producción EVENTECH
 
 Para eventos que buscan una producción más elaborada, EVENTECH ofrece servicios profesionales que potencian la estética y la experiencia del salón:
 
@@ -233,7 +233,7 @@ Para sesiones fotográficas previas al evento, las calles arboladas y la arquite
 
 Para invitados foráneos, la cercanía de Santa María la Ribera al Centro Histórico y a la Zona Rosa ofrece múltiples opciones de hospedaje en todos los rangos de precio, desde hoteles boutique hasta cadenas nacionales. La estación Buenavista con el Tren Suburbano facilita además la conexión con el aeropuerto para invitados que llegan de otras ciudades.
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas opciones en Cuauhtémoc y zonas cercanas:
 

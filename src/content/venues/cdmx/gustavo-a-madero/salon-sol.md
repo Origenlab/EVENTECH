@@ -186,7 +186,7 @@ La renta del salón incluye todo lo básico necesario para una celebración sin 
 - Estacionamiento incluido
 - WiFi para invitados
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Para quienes desean dar un toque especial a su celebración y transformar el espacio, **EVENTECH** ofrece servicios de producción profesional que elevan cualquier evento:
 
@@ -253,7 +253,7 @@ La colonia Nueva Atzacoalco es una zona residencial consolidada en la alcaldía 
 - **Comercios cercanos** — Pastelerías, floristerías y tiendas de conveniencia en la zona inmediata
 - **Estacionamiento** — Área propia incluida en la renta del salón
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si deseas comparar opciones o explorar alternativas en Gustavo A. Madero, te sugerimos:
 

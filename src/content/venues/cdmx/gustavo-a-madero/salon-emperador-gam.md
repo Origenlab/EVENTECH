@@ -176,7 +176,7 @@ La cocina de **40 metros cuadrados** está equipada para banquetes de gran forma
 - **Área de fotos** integrada
 - **Estacionamiento** para aproximadamente 50 vehículos
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Los espacios grandes como el Emperador requieren producción profesional para llenarse de energía y ambiente. **EVENTECH** ofrece:
 
@@ -213,14 +213,11 @@ La pista de baile de 100 m² es un escenario que permite coreografías ambiciosa
 - **Transporte público**: Metro Bosque de Aragón (Línea 5) a 12 minutos, rutas de transporte sobre Av. 608
 - **Estacionamiento**: Superficie propia para aproximadamente 50 vehículos
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas opciones de gran formato en GAM y alrededores:
 
 - **[Salón Monaco Jardín](/directorio/cdmx/gustavo-a-madero/salon-monaco-jardin/)** — El salón premium de GAM con jardín, hasta 500 personas, socio EVENTECH
-- **[Salón Jardín Paradise GAM](/directorio/cdmx/gustavo-a-madero/salon-jardin-paradise-gam/)** — Salón con jardín para eventos grandes en la zona norte
-- **[Salón Victoria GAM](/directorio/cdmx/gustavo-a-madero/salon-victoria-gam/)** — Espacio versátil con buena capacidad en Gustavo A. Madero
-- **[Salón Los Faroles](/directorio/cdmx/gustavo-a-madero/salon-los-faroles/)** — Salón con tradición y ambiente clásico en GAM
 
 ## La Majestuosidad del Gran Formato
 

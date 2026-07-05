@@ -211,7 +211,7 @@ Al ser un jardín con catering libre, Del Arenal permite a las familias elegir s
 - **Decoración**: La vegetación natural reduce la necesidad de decoración excesiva; flores de temporada y elementos rústicos complementan sin competir
 - **Pastelería**: Pastelerías de Xochimilco con tradición en pasteles para bodas, XV años y bautizos
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Los eventos al aire libre se benefician especialmente de producción profesional. **EVENTECH** ofrece servicios diseñados para jardines:
 
@@ -244,7 +244,7 @@ Desde bodas campestres hasta fiestas infantiles, el formato jardín + palapa se 
 - **Estacionamiento**: Superficie amplia para aproximadamente 40 vehículos
 - **Referencia**: A 15 minutos del centro de Xochimilco y los embarcaderos
 
-## Venues Recomendados en Xochimilco
+## Venues similares
 
 Si buscas más opciones en Xochimilco y alrededores:
 

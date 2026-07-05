@@ -191,7 +191,7 @@ La renta de Diamante Azul incluye un paquete completo:
 - Cocina industrial para caterings
 - WiFi de cortesía
 
-## Producción EVENTECH para Diamante Azul
+## Producción EVENTECH
 
 La iluminación azul existente del salón se puede complementar y potenciar con servicios profesionales de EVENTECH:
 
@@ -239,7 +239,7 @@ Los invitados pueden llegar desde prácticamente cualquier punto de la CDMX en t
 
 La colonia Santa María la Ribera ha experimentado un renacimiento cultural significativo. Sus calles arboladas, el icónico Kiosco Morisco, los museos cercanos y las cafeterías de especialidad crean un contexto urbano atractivo que enriquece la experiencia del evento. Para sesiones fotográficas previas, la arquitectura del barrio y la Alameda ofrecen fondos extraordinarios.
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas opciones en Cuauhtémoc y zonas cercanas:
 

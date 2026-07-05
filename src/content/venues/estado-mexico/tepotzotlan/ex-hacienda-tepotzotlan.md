@@ -187,7 +187,7 @@ En la Ex Hacienda de Tepotzotlán, tu evento no sucede en un espacio vacío deco
 
 Cuando tus invitados levanten la vista hacia la fachada churrigueresca iluminada, cuando brinden bajo los arcos del Claustro de los Naranjos, cuando caminen por los mismos corredores que caminaron novicios hace siglos, entenderán que están en un lugar **donde el presente honra al pasado mientras crea memorias para el futuro**.
 
-## Servicios de EVENTECH para Ex Hacienda de Tepotzotlán
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, ofrecemos soluciones que respetan y realzan el patrimonio histórico:
 
@@ -196,7 +196,7 @@ Como partner oficial de EVENTECH, ofrecemos soluciones que respetan y realzan el
 - **[Mobiliario elegante](/servicios/mobiliario/)** que armoniza con el contexto colonial
 - **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** con velas LED y elementos no invasivos
 
-## Venues Similares con Patrimonio Histórico
+## Venues similares
 
 Si buscas espacios de valor patrimonial excepcional:
 

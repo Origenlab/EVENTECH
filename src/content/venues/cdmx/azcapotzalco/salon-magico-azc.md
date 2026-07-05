@@ -171,7 +171,7 @@ La descripción verificada de Bodas.com lo confirma: el Salón Mágico **adapta 
 
 **Graduaciones** — Eventos de gran formato donde el espacio y los techos altos facilitan tanto la ceremonia como el banquete posterior.
 
-## Producción EVENTECH — Lo que Hace la Diferencia
+## Producción EVENTECH
 
 El Salón Mágico tiene la base correcta: espacio, altura, instalaciones modernas. La producción profesional de EVENTECH toma esa base y la convierte en experiencia:
 

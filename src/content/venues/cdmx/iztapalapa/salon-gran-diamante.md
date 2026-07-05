@@ -187,7 +187,7 @@ La cocina industrial de Gran Diamante está dimensionada para atender banquetes 
 - **WiFi** de alta velocidad
 - **Cocina industrial** certificada
 
-## Producción EVENTECH para tu Evento en Gran Diamante
+## Producción EVENTECH
 
 Los acabados modernos y la capacidad de Gran Diamante lo convierten en un lienzo ideal para producción profesional. **EVENTECH** ofrece servicios que aprovechan las características del espacio:
 
@@ -228,7 +228,7 @@ Para eventos formales de 150 a 300 personas, Gran Diamante ofrece el ambiente de
 - **Transporte público**: Rutas de microbús y RTP sobre Av. Tláhuac, conexión con estaciones de Tren Ligero
 - **Estacionamiento**: Superficie pavimentada para 45 vehículos con vigilancia y seguridad
 
-## Venues Recomendados en Iztapalapa
+## Venues similares
 
 Si buscas más opciones para tu evento en la zona sur-oriente:
 

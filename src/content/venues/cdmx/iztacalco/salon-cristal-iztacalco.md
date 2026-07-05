@@ -181,7 +181,7 @@ La **pista de baile** central tiene dimensiones generosas con acabado especial a
 - **Estacionamiento** incluido
 - **WiFi** de alta velocidad
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 El sistema LED integrado del salón se complementa con la producción profesional de EVENTECH:
 
@@ -219,7 +219,7 @@ Para eventos que sí requieren producción avanzada, el sistema LED integrado fu
 - **Estacionamiento**: Incluido con capacidad adecuada
 - **Radio de captación**: Accesible para familias de Iztacalco, Iztapalapa, Venustiano Carranza y oriente del Estado de México
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas más opciones para tu evento en la zona oriente:
 

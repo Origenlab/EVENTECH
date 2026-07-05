@@ -188,7 +188,7 @@ Sin restricciones de proveedores obligatorios, las familias organizan su evento 
 - Reservar con al menos un mes de anticipación para fines de semana
 - Considerar decoración en tonos claros que amplíen visualmente el espacio
 
-## Producción Profesional con EVENTECH
+## Producción EVENTECH
 
 Para eventos que busquen un toque profesional en Casa Ángel, EVENTECH ofrece servicios adaptados a espacios íntimos:
 
@@ -222,7 +222,7 @@ La colonia Cristo Rey ofrece buena conectividad para invitados de toda la alcald
 - **Zona residencial**: Entorno tranquilo y seguro para eventos familiares
 - **Accesibilidad**: Entrada a nivel de calle
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Otras opciones para celebraciones en Álvaro Obregón y alrededores:
 

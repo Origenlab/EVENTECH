@@ -193,7 +193,7 @@ Las instalaciones se mantienen en condiciones adecuadas: baños limpios, mobilia
 - Para eventos de más de 120 personas, considerar contratar meseros adicionales
 - Confirmar detalles de decoración y montaje al menos dos semanas antes
 
-## Producción Profesional con EVENTECH
+## Producción EVENTECH
 
 Para familias que desean elevar la presentación de su evento en Kristel, EVENTECH ofrece servicios profesionales adaptados al espacio:
 
@@ -228,7 +228,7 @@ La colonia José María Pino Suárez está bien comunicada con el resto de la al
 - **Estacionamiento**: Incluido con la renta del salón
 - **Accesibilidad**: Entrada a nivel de calle para movilidad reducida
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Explora otras opciones para tu evento en Álvaro Obregón y alrededores:
 

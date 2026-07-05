@@ -197,7 +197,7 @@ La reputación de Cristo Rey se ha construido evento a evento, recomendación a 
 - Para graduaciones, confirmar configuración de audio para discursos y presentaciones
 - Para eventos de más de 200 personas, considerar servicio de valet parking adicional
 
-## Producción Profesional con EVENTECH
+## Producción EVENTECH
 
 Para eventos que requieran mayor impacto visual y sonoro, EVENTECH transforma el espacio de Cristo Rey:
 
@@ -231,7 +231,7 @@ La avenida Escuadrón 201 facilita el acceso desde diferentes puntos de la ciuda
 - **WiFi**: Disponible para invitados
 - **Accesibilidad**: Acceso para personas con movilidad reducida
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Otras opciones para tu evento en Álvaro Obregón y alcaldías cercanas:
 

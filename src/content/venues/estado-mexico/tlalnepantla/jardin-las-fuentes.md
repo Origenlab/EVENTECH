@@ -193,7 +193,7 @@ Jardín Las Fuentes ofrece tres paquetes diseñados para cubrir desde lo esencia
 - **Sin cargos ocultos**: el precio incluye todo lo listado
 - **Pagos diferidos** con plan de apartado hasta 12 meses
 
-## Producción Profesional con EVENTECH
+## Producción EVENTECH
 
 Como partner de EVENTECH, Jardín Las Fuentes ofrece un **12% de descuento** en paquetes completos de iluminación para transformar el jardín:
 
@@ -226,14 +226,12 @@ Jardín Las Fuentes se ubica sobre la **Avenida Mario Colin en la colonia San Ja
 - **Periférico Norte** — acceso directo sin desviaciones
 - **Azcapotzalco y GAM (CDMX)** — 20 minutos
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Descubre más opciones en Tlalnepantla, el norte del Edomex y CDMX cercana:
 
 - **[Gran Terraza Atizapán](/directorio/estado-mexico/atizapan/gran-terraza-atizapan/)** — Jardín versátil en Atizapán vecino con capilla y salón climatizado
 - **[Quinta Santa Lucía Naucalpan](/directorio/estado-mexico/naucalpan/quinta-santa-lucia/)** — Quinta colonial con bugambilias centenarias y casona histórica
-- **[Jardines de México Naucalpan](/directorio/estado-mexico/naucalpan/jardines-de-mexico-naucalpan/)** — Complejo con paquetes todo incluido y salón climatizado
-- **[Jardín Las Fuentes Tultitlán](/directorio/estado-mexico/tultitlan/jardin-las-fuentes-tultitlan/)** — Jardín monumental con cinco fuentes para eventos hasta 1,200 personas
 - **[Salón Castillo Azcapotzalco](/directorio/cdmx/azcapotzalco/salon-castillo/)** — Opción premium en CDMX a 20 minutos por Periférico
 - **[Monaco Jardín GAM](/directorio/cdmx/gustavo-a-madero/salon-monaco-jardin/)** — Salón con jardín en Gustavo A. Madero, muy cercano
 

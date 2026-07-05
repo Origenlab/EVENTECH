@@ -205,7 +205,7 @@ La renta de Salón Belle Époque incluye:
 
 **Nota sobre estacionamiento**: Belle Époque no cuenta con estacionamiento propio. La colonia Juárez ofrece estacionamientos públicos cercanos y servicios de valet parking contratables. La excelente conectividad por Metrobús y Metro compensa esta limitación.
 
-## Producción EVENTECH para Belle Époque
+## Producción EVENTECH
 
 Los elementos arquitectónicos de Belle Époque responden espectacularmente a la producción profesional de **EVENTECH**:
 
@@ -246,7 +246,7 @@ Los fotógrafos de moda, bodas editoriales y contenido de lifestyle valoran Bell
 
 La colonia Juárez tiene la ventaja de ser una de las zonas mejor comunicadas de la CDMX, con acceso a Metro, Metrobús y múltiples vías principales. La cercanía a Paseo de la Reforma facilita la orientación de invitados que no conocen la zona.
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Explora más opciones para tu evento en Cuauhtémoc y la zona centro:
 

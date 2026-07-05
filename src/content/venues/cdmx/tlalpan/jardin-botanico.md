@@ -188,7 +188,7 @@ Sección con **juegos integrados en la naturaleza** — casas en árboles, puent
 - **Fiestas infantiles** — Área de bosque con juegos naturales para los más pequeños
 - **Baby showers** — Jardín de Rosas como escenario íntimo y fotogénico
 
-## Producción EVENTECH para Jardín Botánico
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, ofrecemos soluciones que complementan y protegen el entorno natural:
 
@@ -235,7 +235,7 @@ La vegetación abundante y los cuerpos de agua crean un **microclima naturalment
 - **Estacionamiento**: Propio para 120 vehículos
 - **Referencia**: A 10 minutos del centro histórico de Tlalpan
 
-## Venues Recomendados en Tlalpan
+## Venues similares
 
 Si buscas espacios con naturaleza o historia en la zona sur:
 

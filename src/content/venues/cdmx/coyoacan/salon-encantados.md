@@ -197,7 +197,7 @@ El área de fotografía con iluminación favorable permite a los invitados captu
 - Para eventos de más de 200 personas, considerar indicaciones de estacionamiento alternativo
 - Aprovechar los muros claros para maximizar el impacto de la decoración con inversión moderada
 
-## Producción Profesional con EVENTECH
+## Producción EVENTECH
 
 Para potenciar la experiencia visual y sonora de tu evento en Encantados, EVENTECH ofrece:
 
@@ -231,7 +231,7 @@ La posición sobre Avenida División del Norte ofrece conectividad directa con t
 - **Desde Coyoacán centro**: 10 minutos en automóvil
 - **Estacionamiento**: Propio sobre la avenida
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Explora otras opciones para tu evento en Coyoacán y alrededores:
 

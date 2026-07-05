@@ -193,7 +193,7 @@ Entre libros, patios coloniales de cantera rosa, arcadas centenarias y arquitect
 ### Intimidad Sofisticada
 Para eventos de 30 a 200 personas que buscan calidad sobre cantidad, sustancia sobre espectacularidad vacía. El formato del espacio garantiza que cada invitado viva una experiencia memorable.
 
-## Producción Profesional con EVENTECH
+## Producción EVENTECH
 
 Como **partner de EVENTECH** (10% de descuento en iluminación decorativa), realzamos la belleza natural del espacio:
 
@@ -227,7 +227,7 @@ A pasos del corazón cultural de Coyoacán:
 - **Estacionamiento**: Disponible para invitados
 - **Vestidores**: Área de preparación para novias y festejados
 
-## Venues Recomendados con Ambiente Cultural
+## Venues similares
 
 Si buscas espacios con personalidad única en la CDMX:
 

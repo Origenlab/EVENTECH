@@ -187,7 +187,7 @@ Al rentar el salón, los clientes reciben un paquete base que incluye:
 - WiFi básico
 - Aire acondicionado central
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Para elevar la producción del evento y transformar el espacio en algo memorable, los clientes de Tepeyac Inn pueden contratar servicios profesionales de **EVENTECH**:
 
@@ -250,7 +250,7 @@ La ubicación de Tepeyac Inn sobre Calle Unión en la colonia Tepeyac Insurgente
 - **Transporte público** — Múltiples rutas de camión y microbús sobre Insurgentes Norte
 - **Comercios cercanos** — Floristerías, pastelerías y tiendas de decoración en la zona del Tepeyac
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas explorar más opciones en Gustavo A. Madero o zonas aledañas, considera estos venues:
 

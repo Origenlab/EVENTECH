@@ -175,7 +175,7 @@ La libertad de contratar caterers externos es una ventaja clave en Santa Martha.
 
 Para eventos que requieren servicio de caterer profesional, el salón ofrece conexiones eléctricas suficientes y espacio operativo para que los proveedores trabajen con comodidad. La combinación de comida tradicional servida en un salón bien presentado con producción profesional crea una experiencia completa que honra las tradiciones culinarias milpaltenses.
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Para elevar la producción del evento, **EVENTECH** lleva servicios profesionales hasta Milpa Alta con equipos y personal especializado:
 
@@ -240,7 +240,7 @@ El estacionamiento propio acomoda aproximadamente 30 vehículos. Para eventos de
 ### ¿Se puede decorar libremente el salón?
 Sí. Las paredes en tonos neutros permiten cualquier tipo de decoración. Se permite colgar elementos del techo, instalar arcos, backdrops fotográficos y toda la decoración que la familia desee. La única restricción es no dañar la estructura permanente del salón.
 
-## Venues Recomendados
+## Venues similares
 
 Si buscas opciones en Milpa Alta y el sur de la CDMX:
 

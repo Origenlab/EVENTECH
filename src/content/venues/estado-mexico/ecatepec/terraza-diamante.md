@@ -196,7 +196,7 @@ Terraza Diamante ofrece paquetes transparentes sin costos ocultos ni mínimos ad
 - **Proveedores externos** permitidos para banquete y decoración
 - **Múltiples opciones de menú** adaptables a restricciones alimentarias
 
-## Producción Premium con EVENTECH
+## Producción EVENTECH
 
 Como partner de EVENTECH, Terraza Diamante ofrece un **10% de descuento** en paquetes de iluminación LED que elevan cualquier celebración:
 
@@ -229,12 +229,11 @@ Terraza Diamante se ubica sobre la **Avenida Central en la colonia Jardines de M
 
 Rampa de acceso universal y estacionamiento vigilado para 80 vehículos completan la accesibilidad del venue.
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Descubre más opciones con diferentes estilos en el norte metropolitano y CDMX cercana:
 
 - **[Quinta Jardines del Edén Coacalco](/directorio/estado-mexico/coacalco/quinta-jardines-eden/)** — Quinta campestre con jardines centenarios y capilla, ambiente rústico
-- **[Jardín Las Fuentes Tultitlán](/directorio/estado-mexico/tultitlan/jardin-las-fuentes-tultitlan/)** — Gran jardín con cinco fuentes para eventos masivos hasta 1,200 personas
 - **[Jardín Las Fuentes Tlalnepantla](/directorio/estado-mexico/tlalnepantla/jardin-las-fuentes/)** — Jardín amplio con fuentes de cantera y precios muy accesibles
 - **[Salón Castillo Azcapotzalco](/directorio/cdmx/azcapotzalco/salon-castillo/)** — Opción premium en CDMX a 25 minutos por Periférico
 - **[Monaco Jardín GAM](/directorio/cdmx/gustavo-a-madero/salon-monaco-jardin/)** — Salón con jardín en Gustavo A. Madero, cercano por Insurgentes

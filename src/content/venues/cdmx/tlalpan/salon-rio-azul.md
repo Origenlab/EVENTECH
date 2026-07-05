@@ -205,7 +205,7 @@ Para maximizar la experiencia en Río Azul, algunas sugerencias prácticas:
 - **Cambio de formato**: Para graduaciones y corporativos, Río Azul facilita el cambio de formato teatro a banquete durante el intermedio
 - **Reserva anticipada**: Los fines de semana se agotan con 2-3 meses de antelación en temporada alta
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Para elevar la experiencia en Río Azul, **EVENTECH** ofrece servicios profesionales:
 
@@ -237,7 +237,7 @@ La ubicación sobre Periférico Sur elimina el problema de "cómo llego". Es una
 - **Accesibilidad**: Acceso para personas con movilidad reducida
 - **Referencia**: Periférico Sur 3720, a la altura de Pedregal de San Nicolás
 
-## Venues Recomendados en Tlalpan
+## Venues similares
 
 Si buscas más opciones en la zona sur de la CDMX:
 

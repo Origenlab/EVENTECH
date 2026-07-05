@@ -199,7 +199,7 @@ Para un espacio de esta escala y carácter, los precios son significativamente m
 - **WiFi** de alta velocidad en todo el espacio
 - **Acceso** a mezzanine y zona de fotografía
 
-## Producción EVENTECH para La Industrial
+## Producción EVENTECH
 
 Como partner de EVENTECH con 20% de descuento en iluminación industrial, ofrecemos paquetes especializados:
 
@@ -231,7 +231,7 @@ A 15 minutos del Centro Histórico por Eje Central, con fácil acceso desde cual
 - **Circuito Interior** — A pocos minutos para acceso desde el poniente
 - **Estacionamiento propio** para 150 vehículos incluido en la renta
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas opciones en Azcapotzalco y la CDMX:
 

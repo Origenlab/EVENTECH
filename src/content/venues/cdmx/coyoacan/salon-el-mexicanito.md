@@ -194,7 +194,7 @@ La cocina está especialmente adaptada para el tipo de servicio de alimentos que
 - Reservar con anticipación para temporada alta (mayo-diciembre)
 - Para fiestas patrias, coordinar decoración complementaria tricolor
 
-## Producción Profesional con EVENTECH
+## Producción EVENTECH
 
 Para complementar la atmósfera mexicana de El Mexicanito, EVENTECH ofrece:
 
@@ -229,7 +229,7 @@ Santa Úrsula Coapa está bien conectada con el sur de la CDMX:
 - **Desde Coyoacán centro**: 12-15 minutos
 - **Estacionamiento**: Disponible con capacidad limitada
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Otras opciones para tu celebración en Coyoacán y alrededores:
 

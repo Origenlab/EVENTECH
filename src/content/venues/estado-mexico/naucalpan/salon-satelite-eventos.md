@@ -131,7 +131,7 @@ Salón independiente para eventos corporativos, reuniones de trabajo o como exte
 
 Terraza exterior de 200m² con vista a la Av. Gustavo Baz y capacidad para cócteles de bienvenida o áreas de fumadores.
 
-## Servicios de EVENTECH para Salón Satélite
+## Producción EVENTECH
 
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** — Para eventos de hasta 380 personas
 - **[Iluminación LED](/servicios/iluminacion/decorativa/)** — Para personalizar el color del salón según el tema del evento

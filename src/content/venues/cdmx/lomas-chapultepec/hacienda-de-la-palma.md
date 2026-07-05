@@ -218,7 +218,7 @@ Hay venues donde organizas un evento. Y hay lugares donde **tu celebración se c
 
 Hacienda de la Palma no ofrece una experiencia de evento: ofrece **un viaje en el tiempo donde tu celebración se une al legado de generaciones**.
 
-## Servicios de EVENTECH para Hacienda de la Palma
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, ofrecemos soluciones que respetan y realzan la arquitectura colonial:
 
@@ -228,7 +228,7 @@ Como partner oficial de EVENTECH, ofrecemos soluciones que respetan y realzan la
 - **[Mobiliario elegante](/servicios/mobiliario/)** que complementa sin competir con los acabados coloniales
 - **[Pantallas LED](/servicios/audiovisual/pantallas-led/)** para presentaciones que respetan el ambiente
 
-## Venues Similares con Historia Colonial
+## Venues similares
 
 Si buscas haciendas auténticas con capilla y jardines centenarios:
 

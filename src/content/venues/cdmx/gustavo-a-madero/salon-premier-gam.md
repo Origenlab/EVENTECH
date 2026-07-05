@@ -173,7 +173,7 @@ La cocina está equipada con **doble estufa industrial, horno de convección, c�
 - **WiFi** de alta velocidad
 - **Área de fotos** profesional
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 La elegancia inherente del Salón Premier se multiplica con la producción de **EVENTECH**:
 
@@ -210,14 +210,11 @@ La estética profesional del salón, combinada con WiFi, sonido y la capacidad p
 - **Transporte público**: Metro Martín Carrera (Línea 6 / Línea 4) a 8 minutos caminando
 - **Estacionamiento**: Superficie propia para aproximadamente 35 vehículos
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas opciones elegantes en GAM:
 
 - **[Salón Monaco Jardín](/directorio/cdmx/gustavo-a-madero/salon-monaco-jardin/)** — Salón premium con jardín, el referente de GAM, socio EVENTECH
-- **[Salón Crystal GAM](/directorio/cdmx/gustavo-a-madero/salon-crystal-gam/)** — Espacio con acabados cristalinos para eventos de alto nivel
-- **[Salón Real GAM](/directorio/cdmx/gustavo-a-madero/salon-real-gam/)** — Salón con tradición y capacidad amplia en la zona norte
-- **[Salón Bugambilias GAM](/directorio/cdmx/gustavo-a-madero/salon-bugambilias-gam/)** — Opción familiar con buena relación calidad-precio
 
 ## Elegancia que No Necesita Código Postal Premium
 

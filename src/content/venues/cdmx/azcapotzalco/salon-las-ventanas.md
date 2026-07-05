@@ -206,7 +206,7 @@ El mismo espacio funciona igual de bien para una boda de 200 personas que para u
 - Aire acondicionado
 - WiFi de cortesía
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Para potenciar tu evento en Las Ventanas, EVENTECH ofrece producción profesional adaptable:
 
@@ -246,7 +246,7 @@ Azcapotzalco cuenta con excelente conectividad vial y de transporte público:
 
 Para familias de Azcapotzalco, GAM y zonas cercanas, Las Ventanas evita el traslado al centro o sur de la ciudad — un venue que está donde viven sus clientes.
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas opciones en Azcapotzalco y zonas cercanas:
 

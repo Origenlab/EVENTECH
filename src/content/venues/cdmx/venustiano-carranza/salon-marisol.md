@@ -190,7 +190,7 @@ La renta de Salón Marisol incluye sin costo adicional:
 - **Estacionamiento** con vigilancia
 - **WiFi** disponible para invitados
 
-## Producción EVENTECH para Salón Marisol
+## Producción EVENTECH
 
 Para elevar la producción del evento en Marisol, los clientes tienen acceso a servicios profesionales de **EVENTECH**:
 
@@ -248,7 +248,7 @@ Para obtener la mejor experiencia en Salón Marisol:
 - **Circuito Interior**: Acceso rápido por Boulevard Puerto Aéreo
 - **TAPO**: Cercanía a la Terminal de Autobuses del Oriente, conveniente para invitados foráneos
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Conoce más opciones para tu evento en Venustiano Carranza y la zona oriente:
 

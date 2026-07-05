@@ -258,7 +258,7 @@ Le Crillon cuenta con espacios habilitados para realizar **ceremonias civiles de
 - **84% de recomendación** entre parejas que celebraron su boda aquí
 - **Más de 240 bodas** documentadas en la plataforma
 
-## Servicios EVENTECH en Le Crillon
+## Producción EVENTECH
 
 Aunque Le Crillon incluye iluminación y sonido en sus paquetes, **EVENTECH** puede complementar la producción con elementos especializados según las necesidades del evento:
 

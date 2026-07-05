@@ -196,7 +196,7 @@ Varios puntos de la terraza están diseñados como **fondos fotográficos natura
 - **Estacionamiento** amplio incluido
 - **WiFi** para invitados y proveedores
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 La vista panorámica merece una producción que la complemente sin competir:
 
@@ -229,7 +229,7 @@ Para eventos que inician por la tarde, la secuencia ideal es: cóctel en terraza
 - **Estacionamiento**: Amplio, pavimentado, incluido en la renta
 - **Nota de altitud**: El venue está a mayor elevación que el resto de Tlalpan; las noches pueden ser frescas (12-16°C)
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas más opciones para tu evento en el sur de la CDMX:
 

@@ -186,7 +186,7 @@ No hay proveedores exclusivos obligatorios excepto la cocina del venue. Puedes *
 ### Transparencia Total
 El precio incluye todo lo listado sin letra pequeña. **Sin sorpresas de último minuto, sin cargos adicionales por concepto de servicio**, sin mínimos de consumo más allá del número de invitados contratado.
 
-## Producción Profesional con EVENTECH
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, Jardines de México ofrece soluciones de producción para todos los tamaños de evento, incluyendo **carpa 6x6 sin costo** en eventos de más de 200 personas:
 
@@ -228,7 +228,7 @@ Jardines de México se ubica sobre la **Avenida Gustavo Baz en Naucalpan**, una 
 - **Periférico e Insurgentes** — acceso directo sin desvíos
 - **Tlalnepantla y Atizapán** — 15 minutos
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Explora más opciones en Naucalpan, el norte del Edomex y CDMX cercana:
 

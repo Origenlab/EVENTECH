@@ -196,7 +196,7 @@ Salón Las Torres ofrece uno de los paquetes de servicios incluidos más complet
 - **Estacionamiento** pavimentado para aproximadamente 50 vehículos
 - **Wifi** de alta velocidad para invitados
 
-## Producción EVENTECH para tu Evento
+## Producción EVENTECH
 
 Para eventos de la escala que Las Torres maneja, la producción profesional no es un lujo sino una necesidad. **EVENTECH** ofrece servicios diseñados para espacios amplios y de gran capacidad:
 
@@ -233,7 +233,7 @@ La elegancia clásica del salón, con sus candelabros y acabados dorados, crea e
 - **Transporte público**: Múltiples rutas sobre Ermita Iztapalapa, estación Constitución de 1917 del Metro a 20 minutos
 - **Estacionamiento**: Superficie pavimentada con capacidad para 50 vehículos y seguridad en puerta
 
-## Venues Recomendados en Iztapalapa
+## Venues similares
 
 Si buscas opciones adicionales para tu evento, te invitamos a conocer estos espacios en la zona:
 

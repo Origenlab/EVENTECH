@@ -226,7 +226,7 @@ Para eventos con invitados de fuera de la ciudad, el hotel ofrece **tarifas pref
 
 Hay hoteles donde celebras eventos. Y hay un lugar donde cada evento se convierte en una experiencia arquitectónica, artística y gastronómica que tus invitados recordarán por siempre. **El Camino Real Polanco no es solo un venue: es un destino en sí mismo**, un lugar donde la visión de Ricardo Legorreta sigue viva en cada rincón, en cada juego de luz, en cada muro de ese rosa mexicano que cambió la arquitectura latinoamericana para siempre.
 
-## Servicios de EVENTECH para Hotel Camino Real
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, ofrecemos soluciones de producción para eventos de gran escala:
 
@@ -237,7 +237,7 @@ Como partner oficial de EVENTECH, ofrecemos soluciones de producción para event
 - **[Proyectores profesionales](/servicios/audiovisual/proyectores/)** para mapping sobre los muros icónicos
 - **[Pistas de baile LED](/servicios/pistas-baile/pistas-led/)** que dialogan con la estética contemporánea
 
-## Venues Similares de Gran Formato
+## Venues similares
 
 Si buscas capacidad para eventos masivos con arquitectura distintiva:
 

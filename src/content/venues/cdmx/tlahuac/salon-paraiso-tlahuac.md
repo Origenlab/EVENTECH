@@ -165,7 +165,7 @@ El estacionamiento propio tiene capacidad para aproximadamente **30 vehículos**
 - **Estacionamiento** para aproximadamente 30 vehículos
 - **Acceso para personas con discapacidad**
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Para transformar el Salón Paraíso en un espacio espectacular, **EVENTECH** ofrece servicios de producción profesional que elevan cualquier celebración:
 
@@ -202,14 +202,10 @@ La capacidad para 250 personas y la ubicación accesible hacen del Paraíso una 
 - **Transporte público**: Metro Tláhuac (Línea 12) a 10 minutos en transporte, rutas de microbús sobre Av. Tláhuac con parada cercana
 - **Estacionamiento**: Superficie propia para aproximadamente 30 vehículos
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si estás comparando opciones en Tláhuac y alcaldías vecinas:
 
-- **[Salón Los Olivos Tláhuac](/directorio/cdmx/tlahuac/salon-los-olivos-tlahuac/)** — Salón con tradición en Tláhuac para eventos familiares y sociales
-- **[Salón La Hacienda Tláhuac](/directorio/cdmx/tlahuac/salon-la-hacienda-tlahuac/)** — Ambiente tipo hacienda con detalles rústicos para celebraciones con personalidad
-- **[Jardín Los Ahuehuetes](/directorio/cdmx/tlahuac/jardin-los-ahuehuetes/)** — Jardín al aire libre para ceremonias y recepciones en contacto con la naturaleza
-- **[Salón Santa Cecilia Tláhuac](/directorio/cdmx/tlahuac/salon-santa-cecilia-tlahuac/)** — Espacio tradicional con servicio familiar para eventos de la zona
 
 ## Tu Celebración con Calidez y Buen Precio
 

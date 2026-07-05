@@ -194,7 +194,7 @@ La cocina industrial de Versalles está dimensionada para atender banquetes de h
 - **WiFi** para invitados
 - **Cocina industrial** certificada
 
-## Producción EVENTECH para tu Evento en Versalles
+## Producción EVENTECH
 
 La arquitectura clásica de Versalles se potencia extraordinariamente con producción profesional. **EVENTECH** ofrece servicios que amplifican la grandeza del espacio:
 
@@ -231,7 +231,7 @@ Graduaciones de preparatorias y universidades de 200 a 350 personas encuentran e
 - **Transporte público**: Múltiples rutas sobre Calz. de la Viga, Metro Apatlaco (Línea 8) a 15 minutos
 - **Estacionamiento**: Superficie pavimentada para 50 vehículos con vigilancia y seguridad
 
-## Venues Recomendados en Iztapalapa
+## Venues similares
 
 Si buscas comparar opciones para tu evento de gran formato en la zona oriente:
 

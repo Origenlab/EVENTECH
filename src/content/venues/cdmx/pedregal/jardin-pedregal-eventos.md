@@ -160,7 +160,7 @@ El espacio de ceremonia entre muros de roca volcánica es el momento más fotogr
 
 Terraza elevada con vista al jardín principal, ideal para el cóctel mientras se montan las mesas de cena.
 
-## Servicios de EVENTECH para Jardín Pedregal
+## Producción EVENTECH
 
 - **[Iluminación exterior](/servicios/iluminacion/decorativa/)** — Spotlights en roca volcánica, caminos iluminados y uplighting en árboles
 - **[Sonido para exteriores](/servicios/audiovisual/sonido/)** — Line arrays climatológicamente resistentes

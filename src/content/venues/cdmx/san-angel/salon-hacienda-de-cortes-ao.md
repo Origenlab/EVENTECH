@@ -222,7 +222,7 @@ La renta de Hacienda de Cortés incluye:
 - **WiFi** de alta velocidad
 - **Accesibilidad universal** en planta baja
 
-## Producción EVENTECH para Hacienda de Cortés
+## Producción EVENTECH
 
 La arquitectura noble de Hacienda de Cortés es un lienzo excepcional para producción profesional de **EVENTECH**:
 
@@ -263,7 +263,7 @@ Para celebraciones de alto nivel — aniversarios significativos, cenas de gala 
 
 San Ángel Inn es una de las colonias más reconocidas de la CDMX, lo que facilita que invitados de cualquier parte de la ciudad ubiquen la zona sin dificultad.
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Explora más opciones para tu evento en Álvaro Obregón y el sur de la CDMX:
 

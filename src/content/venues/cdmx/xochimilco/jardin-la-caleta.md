@@ -219,7 +219,7 @@ Para eventos de más de 150 personas, La Caleta recomienda considerar:
 - **Sonido potente**: Los espacios abiertos absorben el sonido; se recomienda equipo profesional para eventos de más de 150 personas
 - **Coordinación de acceso**: Planificar la llegada de proveedores en horarios escalonados para evitar congestión en el estacionamiento
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Para transformar el jardín campestre en un escenario profesional, **EVENTECH** ofrece servicios especializados para espacios al aire libre:
 
@@ -246,7 +246,7 @@ Al ser un jardín con catering libre, La Caleta permite a las familias elegir su
 - **Distancia al centro de Xochimilco**: Aproximadamente 20 minutos en automóvil
 - **Referencia cercana**: A 10 minutos de la zona de Nativitas por Av. Tláhuac
 
-## Venues Recomendados en Xochimilco
+## Venues similares
 
 Si buscas más opciones en Xochimilco y el sur de la CDMX:
 

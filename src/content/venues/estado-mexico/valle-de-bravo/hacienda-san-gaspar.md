@@ -213,7 +213,7 @@ Sin restricciones de ruido urbano, tu fiesta puede **extenderse hasta la madruga
 - **Limpieza** pre y post evento
 - **Cocina equipada** para catering
 
-## Servicios de EVENTECH para Hacienda San Gaspar
+## Producción EVENTECH
 
 Como partner de EVENTECH, complementamos la magia de la hacienda:
 
@@ -224,7 +224,7 @@ Como partner de EVENTECH, complementamos la magia de la hacienda:
 - **[Calefacción de exterior](/servicios/accesorios/calefaccion-clima/)** para eventos de invierno
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** discreto pero potente
 
-## Venues Similares de Hacienda con Historia
+## Venues similares
 
 Si buscas la autenticidad de haciendas coloniales:
 

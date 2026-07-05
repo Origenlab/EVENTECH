@@ -157,7 +157,7 @@ Salón separado para eventos más pequeños o como área de niños durante bodas
 
 Lobby climatizado de 150m² para el registro de invitados y recepción de regalo. Con barra de bebidas de bienvenida integrada.
 
-## Servicios de EVENTECH para Salón Iztapalapa
+## Producción EVENTECH
 
 - **[Sonido line array](/servicios/audiovisual/sonido/)** — Para eventos de 300-450 personas con calidad de concierto
 - **[Iluminación programable](/servicios/iluminacion/decorativa/)** — Para personalizar el ambiente del salón en cada evento

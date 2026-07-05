@@ -233,7 +233,7 @@ El equipo de Salones Centenario aporta una operación completa que reduce la nec
 - **Estacionamiento privado propio** con vigilancia
 - **Acceso para personas con discapacidad**
 
-## Servicios de EVENTECH para Salones Centenario
+## Producción EVENTECH
 
 La infraestructura sólida de Salones Centenario es la base perfecta sobre la cual EVENTECH construye experiencias extraordinarias. Los cuatro espacios del complejo ofrecen condiciones ideales para producción profesional:
 
@@ -286,7 +286,7 @@ Salones Centenario se encuentra en una posición estratégica dentro de la alcal
 - **Instagram**: [@salonescentenario](https://www.instagram.com/salonescentenario)
 - **Horario de oficina**: Lun-Vie 10:00-19:00 / Sáb 10:00-18:00 / Dom cerrado
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Explora más opciones para tu evento en Azcapotzalco:
 

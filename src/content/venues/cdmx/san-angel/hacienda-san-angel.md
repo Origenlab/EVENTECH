@@ -220,7 +220,7 @@ Hay bodas que se celebran en lugares bonitos. Y hay bodas que se celebran en **l
 
 Cuando pronuncies tus votos bajo el retablo dorado de la capilla, cuando bailes tu primera pieza bajo las jacarandas centenarias, cuando brindes con tus seres queridos junto a la fuente colonial, **no estarás simplemente celebrando tu boda: estarás uniéndote a una tradición de romance que comenzó hace cuatro siglos**.
 
-## Servicios de EVENTECH para Hacienda San Ángel
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, ofrecemos paquetes completos para bodas en haciendas:
 
@@ -230,7 +230,7 @@ Como partner oficial de EVENTECH, ofrecemos paquetes completos para bodas en hac
 - **[Mobiliario de época](/servicios/mobiliario/)** que complementa la estética colonial
 - **[Pistas de baile de madera](/servicios/pistas-baile/madera-clasica/)** sobre el césped centenario
 
-## Venues Similares con Capilla y Jardines Históricos
+## Venues similares
 
 Si buscas el romance de haciendas coloniales con capilla:
 

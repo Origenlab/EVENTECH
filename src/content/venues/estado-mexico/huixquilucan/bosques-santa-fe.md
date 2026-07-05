@@ -220,7 +220,7 @@ A **10 minutos de Santa Fe** por autopista, conveniente para invitados de toda l
 - **Música en vivo y DJ** hasta la hora de curfew
 - **Eventos de día completo** disponibles
 
-## Servicios de EVENTECH para Bosques de Santa Fe
+## Producción EVENTECH
 
 Como partner estratégico de EVENTECH, ofrecemos paquetes integrados:
 
@@ -231,7 +231,7 @@ Como partner estratégico de EVENTECH, ofrecemos paquetes integrados:
 - **[Pantallas LED](/servicios/audiovisual/pantallas-led/)** de gran formato
 - **[Mobiliario lounge](/servicios/mobiliario/salas-lounge/)** para áreas de cóctel
 
-## Venues Similares de Gran Escala
+## Venues similares
 
 Si buscas jardines para eventos de gran formato:
 

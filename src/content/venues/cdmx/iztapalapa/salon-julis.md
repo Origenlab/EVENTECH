@@ -175,7 +175,7 @@ El estacionamiento con capacidad para 25 vehículos cuenta con vigilancia perman
 - **Estacionamiento** para aproximadamente 25 vehículos
 - **WiFi** disponible para invitados
 
-## Producción EVENTECH para Salon JULIS
+## Producción EVENTECH
 
 Salon JULIS tiene la infraestructura eléctrica y el espacio necesario para integrar producción profesional de **EVENTECH** que lleve cada evento al siguiente nivel:
 
@@ -232,7 +232,7 @@ La ubicación sobre el Eje 6 Sur Trabajadoras Sociales ofrece excelente conectiv
 - **Transporte público**: Múltiples rutas de microbús sobre Eje 6 Sur, Metro Constitución de 1917 (Línea 8) a 20 minutos
 - **Estacionamiento**: Superficie con vigilancia permanente para 25 vehículos
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si deseas explorar más opciones para tu evento en Iztapalapa y la zona oriente, conoce estos espacios:
 

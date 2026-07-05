@@ -190,7 +190,7 @@ La renta del Salón Dorado incluye:
 - **WiFi** para invitados
 - **Accesibilidad universal** con rampa y sanitarios adaptados
 
-## Producción EVENTECH para Salón Dorado
+## Producción EVENTECH
 
 Los acabados dorados del salón son un lienzo excepcional para la producción profesional de **EVENTECH**:
 
@@ -231,7 +231,7 @@ La capacidad y ubicación de Dorado sobre Av. de las Granjas lo hacen funcional 
 
 La ubicación sobre Av. de las Granjas es una ventaja significativa: es una de las vías más conocidas de Azcapotzalco, fácil de ubicar en aplicaciones de navegación y con buen flujo vehicular incluso en fines de semana.
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Explora más opciones para tu evento en Azcapotzalco y la zona noroeste:
 

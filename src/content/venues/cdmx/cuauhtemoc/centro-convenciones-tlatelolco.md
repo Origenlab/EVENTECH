@@ -251,7 +251,7 @@ Cuando tus 1,500 asistentes salgan del Metro y caminen 3 minutos hasta el venue,
 
 Un gran evento no se define solo por lo que pasa dentro del salón. Se define también por **cómo llegan y cómo se van los asistentes**. En Tlatelolco, ambas experiencias son excepcionales.
 
-## Servicios de EVENTECH para Centro de Convenciones Tlatelolco
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, complementamos la infraestructura técnica del centro:
 
@@ -261,11 +261,11 @@ Como partner oficial de EVENTECH, complementamos la infraestructura técnica del
 - **[Mobiliario corporativo](/servicios/mobiliario/)** premium para zonas VIP y networking
 - **[Carpas de conexión](/servicios/carpas/estructurales/)** para expandir áreas de registro o catering
 
-## Venues Similares para Convenciones y Eventos Corporativos
+## Venues similares
 
 Si buscas espacios de gran formato para eventos masivos:
 
 - **[Centro Citibanamex](/directorio/cdmx/miguel-hidalgo/centro-citibanamex/)** — El más grande de México, expos internacionales
-- **[Hotel Camino Real Polanco](/directorio/cdmx/polanco/hotel-camino-real-polanco/)** — Arquitectura icónica, hasta 2,000 personas
+- **[Hotel Camino Real Polanco](/directorio/cdmx/polanco/hotel-camino-real/)** — Arquitectura icónica, hasta 2,000 personas
 - **[Foro Kaluz Santa Fe](/directorio/cdmx/santa-fe/foro-kaluz/)** — Industrial contemporáneo, alta tecnología
 - **[Hotel Marriott Toluca](/directorio/estado-mexico/toluca/hotel-marriott-toluca/)** — Convenciones con hospedaje integrado

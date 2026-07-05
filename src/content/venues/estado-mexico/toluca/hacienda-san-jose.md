@@ -187,7 +187,7 @@ Hay bodas que suceden y terminan. Y hay **bodas que se convierten en leyenda fam
 
 Hacienda San José no ofrece solo un espacio para tu boda: ofrece **300 años de historia como escenario**, la posibilidad de que tu familia comparta algo más que una fiesta, y la experiencia irrepetible de despertar como recién casados en una suite colonial donde virreyes, hacendados y ahora tú han comenzado nuevos capítulos de sus vidas.
 
-## Servicios de EVENTECH para Hacienda San José
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, ofrecemos soluciones que realzan la autenticidad histórica del espacio:
 
@@ -196,11 +196,10 @@ Como partner oficial de EVENTECH, ofrecemos soluciones que realzan la autenticid
 - **[Mobiliario elegante](/servicios/mobiliario/)** que complementa el estilo colonial del espacio
 - **[Carpas estructurales](/servicios/carpas/estructurales/)** transparentes para el jardín con vista al cielo
 
-## Venues Similares para Bodas de Destino con Hospedaje
+## Venues similares
 
 Si buscas haciendas coloniales con experiencia de fin de semana completo:
 
 - **[Hotel Avándaro](/directorio/estado-mexico/valle-de-bravo/hotel-avandaro-golf-spa/)** — Resort de lujo con vista al lago, spa y golf en Valle de Bravo
 - **[Hacienda Panoaya](/directorio/estado-mexico/amecameca/hacienda-panoaya/)** — Vista a los volcanes, 80 hectáreas, patrimonio de Sor Juana
-- **[Hacienda San Antonio Metepec](/directorio/estado-mexico/metepec/hacienda-san-antonio-metepec/)** — Vistas al Nevado de Toluca, capilla colonial
 - **[Hacienda Santa Cecilia](/directorio/estado-mexico/huixquilucan/hacienda-santa-cecilia/)** — Lago, capilla del XVII, más cerca de CDMX

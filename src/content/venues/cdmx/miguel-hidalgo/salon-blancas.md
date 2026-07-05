@@ -203,7 +203,7 @@ La administración del salón ofrece orientación sobre proveedores de la zona q
 - El horario de acceso para montaje de decoración por parte de proveedores debe coordinarse previamente
 - La cocina industrial facilita considerablemente la logística de caterings que manejan menús de varios tiempos
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Para eventos que buscan una producción más elaborada en Salón Blancas, EVENTECH ofrece:
 
@@ -235,7 +235,7 @@ La colonia Deportivo Pensil goza de excelente comunicación vial en Miguel Hidal
 - **Estacionamiento** disponible en el salón
 - Cercanía con servicios de hospedaje para invitados foráneos
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas opciones adicionales para tu evento en la CDMX:
 

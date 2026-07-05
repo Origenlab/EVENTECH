@@ -208,7 +208,7 @@ La renta de Salón Metrópolis incluye:
 - **WiFi** de alta velocidad
 - **Accesibilidad universal** completa
 
-## Producción EVENTECH para Metrópolis
+## Producción EVENTECH
 
 El diseño contemporáneo de Metrópolis es el canvas perfecto para producción de vanguardia con **EVENTECH**:
 
@@ -250,7 +250,7 @@ Para familias que buscan una celebración de XV años diferente — contemporán
 
 La ubicación en Roma Norte es uno de los mayores activos de Metrópolis: es una zona que todos conocen, a la que todos quieren ir, y desde la que se accede fácilmente desde cualquier punto de la ciudad.
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Explora más opciones para tu evento en Cuauhtémoc y la zona centro:
 

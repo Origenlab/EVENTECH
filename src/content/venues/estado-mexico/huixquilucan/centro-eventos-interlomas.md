@@ -138,7 +138,7 @@ El lobby de **500m²** puede transformarse en área de exposición con hasta 50 
 
 Terraza de 400m² para cócteles al aire libre o actividades paralelas al evento principal.
 
-## Servicios de EVENTECH para Centro de Eventos Interlomas
+## Producción EVENTECH
 
 - **[Audiovisual corporativo](/servicios/audiovisual/)** — Pantallas LED, proyectores, sistemas de conferencia
 - **[Iluminación de escenario](/servicios/iluminacion/escenario/)** — Para presentaciones y shows de gran formato

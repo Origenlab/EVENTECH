@@ -202,7 +202,7 @@ El rango de precios va de **$500 a $2,500 MXN por persona** dependiendo del paqu
 
 Formas de pago aceptadas: efectivo, transferencia bancaria o depósito.
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Para transformar Jardín Narvarte en el escenario perfecto de tu celebración, EVENTECH ofrece servicios de producción especializados para espacios al aire libre con área acuática:
 
@@ -247,7 +247,7 @@ Enrique Rébsamen es una de las calles características de la Colonia Narvarte P
 
 La Colonia Narvarte Poniente tiene una identidad particular que sus habitantes y visitantes reconocen de inmediato: es urbana pero tranquila, cosmopolita pero con aire de barrio, moderna pero con historia. Celebrar un evento en Narvarte es una declaración de estilo para los anfitriones que valoran el entorno tanto como el espacio.
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas opciones complementarias para tu evento en Benito Juárez:
 

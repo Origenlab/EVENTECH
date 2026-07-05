@@ -193,7 +193,7 @@ George King se mantiene en la categoría de precios accesibles ($), ofreciendo u
 
 Para cotización actualizada, contacta al **55 5551 4905** por teléfono o WhatsApp.
 
-## Producción EVENTECH en George King
+## Producción EVENTECH
 
 El diseño neutro de George King es la base ideal para producción profesional **EVENTECH** que personalice completamente el espacio según la visión de cada cliente:
 
@@ -251,7 +251,7 @@ Muchos clientes de George King programan su sesión fotográfica en el bosque du
 - **Estacionamiento**: 25 vehículos con vigilancia durante eventos
 - **Bosque de San Juan de Aragón**: A 5 minutos para sesiones fotográficas
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si deseas explorar más opciones en Gustavo A. Madero o zonas cercanas:
 

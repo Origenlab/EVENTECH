@@ -255,7 +255,7 @@ El **estándar Hilton** garantiza consistencia en servicio, calidad y ejecución
 
 Celebrar en Hilton Mexico City Reforma es elegir la **confiabilidad de una marca global** con más de un siglo de experiencia en hospitalidad. Es la certeza de que cada detalle —desde el registro de asistentes hasta el último café del día— será ejecutado con profesionalismo y precisión.
 
-## Servicios de EVENTECH para Hilton Reforma
+## Producción EVENTECH
 
 Como partner de EVENTECH, potenciamos las capacidades del hotel:
 
@@ -266,11 +266,10 @@ Como partner de EVENTECH, potenciamos las capacidades del hotel:
 - **[Equipos de traducción](/servicios/audiovisual/)** simultánea adicionales
 - **[Efectos especiales](/servicios/iluminacion/efectos-especiales/)** para momentos clave
 
-## Venues Similares para Convenciones
+## Venues similares
 
 Si buscas hoteles de convenciones en CDMX:
 
 - **[JW Marriott Santa Fe](/directorio/cdmx/santa-fe/hotel-jw-marriott/)** — Premium en zona poniente
 - **[Centro Citibanamex](/directorio/cdmx/miguel-hidalgo/centro-citibanamex/)** — Mayor capacidad
-- **[Hotel Marriott Reforma](/directorio/cdmx/cuauhtemoc/hotel-marriott-reforma/)** — Alternativa cercana
 - **[Centro de Convenciones Tlatelolco](/directorio/cdmx/cuauhtemoc/centro-convenciones-tlatelolco/)** — Capacidad masiva

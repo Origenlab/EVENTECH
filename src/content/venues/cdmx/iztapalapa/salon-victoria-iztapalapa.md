@@ -174,7 +174,7 @@ Equipada con estufa industrial de seis quemadores, horno de convección, plancha
 - **Aire acondicionado** de alta capacidad
 - **WiFi** de alta velocidad para invitados
 
-## Producción EVENTECH para tu Evento en Victoria
+## Producción EVENTECH
 
 Los acabados modernos de Victoria son el lienzo perfecto para producción profesional. **EVENTECH** ofrece servicios que transforman el espacio:
 
@@ -211,12 +211,11 @@ La imagen profesional de Victoria, combinada con WiFi de alta velocidad y buena 
 - **Transporte público**: Rutas de microbús y RTP sobre Ermita Iztapalapa, estación del Metro Santa Martha a 15 minutos
 - **Estacionamiento**: Superficie pavimentada para 40 vehículos con vigilancia
 
-## Venues Recomendados en Iztapalapa
+## Venues similares
 
 Explora más opciones para tu evento en la zona oriente:
 
 - **[Salones Florett](/directorio/cdmx/iztapalapa/salones-florett/)** — Salón premium renovado 2024 con iluminación LED DMX y acabados de diseñador, socio EVENTECH
-- **[Salón Jardín Santa Martha](/directorio/cdmx/iztapalapa/salon-jardin-santa-martha/)** — Espacio con jardín y salón integrado en la misma zona de Santa Martha
 - **[Salón Crystal](/directorio/cdmx/iztapalapa/salon-crystal-iztapalapa/)** — Salón con acabados modernos y buena capacidad en Iztapalapa
 - **[Salón Real de Minas](/directorio/cdmx/iztapalapa/salon-real-de-minas/)** — Espacio elegante con estilo colonial para eventos formales
 

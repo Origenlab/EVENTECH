@@ -230,7 +230,7 @@ La renta de Salón Crystal Palace incluye:
 - **WiFi** para invitados
 - **Accesibilidad universal** completa
 
-## Producción EVENTECH para Crystal Palace
+## Producción EVENTECH
 
 La escala y los acabados de Crystal Palace se potencian espectacularmente con producción profesional de **EVENTECH**:
 
@@ -272,7 +272,7 @@ Para preparatorias, universidades y escuelas que necesitan espacio para 300+ per
 
 La ubicación sobre Calzada Zaragoza es el mayor activo logístico de Crystal Palace: es la vía principal del oriente de la CDMX, conocida por todos, con opciones de transporte público y fácil acceso desde el Estado de México.
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Explora más opciones para tu evento en Venustiano Carranza y la zona oriente:
 

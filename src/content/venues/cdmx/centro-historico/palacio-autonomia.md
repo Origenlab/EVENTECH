@@ -179,7 +179,7 @@ Para ser un palacio histórico del siglo XVIII, los costos de renta son **signif
 - **Iluminación arquitectónica** de base
 - **Acceso a cocina** industrial para catering externo
 
-## Servicios de EVENTECH Disponibles
+## Producción EVENTECH
 
 Como **partner de EVENTECH**, el Palacio de la Autonomía ofrece integración perfecta con nuestros servicios:
 
@@ -194,7 +194,7 @@ Imagina a tus invitados entrando por el portal colonial, sus pasos resonando en 
 
 El Palacio de la Autonomía no es solo un venue: es un **viaje en el tiempo donde el presente y el pasado se encuentran para crear momentos inolvidables**.
 
-## Servicios de EVENTECH para Palacio de la Autonomía
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, ofrecemos soluciones que respetan y realzan el patrimonio histórico:
 
@@ -204,7 +204,7 @@ Como partner oficial de EVENTECH, ofrecemos soluciones que respetan y realzan el
 - **[Mobiliario de época](/servicios/mobiliario/)** que complementa el estilo colonial del palacio
 - **[Pistas de baile portátiles](/servicios/pistas-baile/madera-clasica/)** sobre la cantera histórica
 
-## Venues Similares con Historia Colonial
+## Venues similares
 
 Si buscas la grandeza de espacios históricos en el Centro:
 

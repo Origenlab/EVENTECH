@@ -314,7 +314,7 @@ La neutralidad cromática de los interiores de Kalesh (concreto pulido, muros te
 
 La vegetación natural del jardín no necesita decoración adicional — necesita **iluminación profesional** que la potencie. El [sistema de fairy lights de EVENTECH](/servicios/iluminacion/decorativa/) tejido entre los encinos, combinado con [uplighting verde-ámbar](/servicios/iluminacion/arquitectonica/uplighting/) en los troncos, transforma el jardín en un espacio de ensueño visible desde el salón. Los ventanales panorámicos convierten esta iluminación exterior en parte integral de la decoración interior.
 
-## Producción Profesional EVENTECH — Potenciando lo Natural sin Competir
+## Producción EVENTECH
 
 La filosofía de producción EVENTECH para Kalesh es **"amplificar, no sustituir"**. La naturaleza del espacio es tan potente que la tecnología debe realzarla, no opacarla.
 
@@ -332,7 +332,7 @@ La filosofía de producción EVENTECH para Kalesh es **"amplificar, no sustituir
 
 **Descuento exclusivo: 15% en paquetes de iluminación de jardín, mobiliario premium y carpas.**
 
-## Checklist EVENTECH para tu Evento en Kalesh
+## Producción EVENTECH
 
 Al contratar Kalesh como venue, estos son los servicios EVENTECH que recomendamos evaluar según tu tipo de evento:
 
@@ -452,7 +452,7 @@ Sí, y con tarifas preferenciales. Los eventos corporativos (lanzamientos, cenas
 ### ¿Es posible hacer la ceremonia religiosa en Kalesh?
 No hay capilla en el venue, pero el jardín es un espacio ideal para ceremonias civiles y simbólicas. Para ceremonias religiosas católicas, la Parroquia de Tarango se encuentra a 5 minutos. La coordinación logística entre iglesia y venue es parte del servicio del coordinador incluido.
 
-## Venues Recomendados para Comparar
+## Venues similares
 
 - **[Terraza Contadero Álvaro Obregón](/directorio/cdmx/alvaro-obregon/terraza-contadero/)** — Terraza con vista, misma alcaldía, formato más reducido
 - **[Jardín Escondido San Ángel](/directorio/cdmx/san-angel/jardin-escondido/)** — Jardín boutique, zona premium, estilo más urbano

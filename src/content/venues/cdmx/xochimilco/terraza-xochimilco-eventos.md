@@ -175,7 +175,7 @@ La terraza de **800m²** con barandal de cristal y vista panorámica al canal. L
 
 Espacio climatizado de 200m² para uso en temporada de lluvia o como área de recepción VIP.
 
-## Servicios de EVENTECH para Terraza Xochimilco
+## Producción EVENTECH
 
 - **[Iluminación de terraza](/servicios/iluminacion/decorativa/)** — Luces cálidas para resaltar la vista nocturna de los canales
 - **[Sonido compacto](/servicios/audiovisual/sonido/)** — Para no perturbar el ambiente lacustre y cumplir normativa de ruido

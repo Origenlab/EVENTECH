@@ -228,7 +228,7 @@ Con lago, isla, jardín francés, capilla barroca, arquitectura colonial, y fres
 
 San Martín es uno de los pocos venues en la región que **permite pirotecnia**, específicamente sobre el lago donde el riesgo es mínimo y el efecto visual —con reflejos en el agua— es espectacular. EVENTECH puede coordinar con proveedores autorizados de [efectos especiales](/servicios/iluminacion/efectos-especiales/).
 
-## Servicios de EVENTECH para Hacienda San Martín
+## Producción EVENTECH
 
 Como partner estratégico de EVENTECH, ofrecemos soluciones premium para este venue:
 
@@ -253,7 +253,7 @@ Como partner estratégico de EVENTECH, ofrecemos soluciones premium para este ve
 - **Seguridad** 24 horas
 - **Generador** de respaldo industrial
 
-## Venues Similares con Grandeza Colonial
+## Venues similares
 
 Si buscas la majestuosidad de las grandes haciendas:
 

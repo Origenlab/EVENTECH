@@ -204,7 +204,7 @@ La hora de cierre de las 22:00 hrs requiere un programa bien estructurado. Para 
 
 Este cronograma es factible si el programa se cuida desde la logística. Eventos que empiezan tarde o tienen retrasos en la cena sentirán la presión del cierre. Si tu evento suele extenderse o tu cultura familiar celebra hasta la madrugada, considera si el horario de Melody es compatible con lo que quieres.
 
-## Producción EVENTECH para Salón Melody
+## Producción EVENTECH
 
 Con un salón de techo alto, pista con esferas y fuentes decorativas, la producción profesional tiene un espacio con buena base arquitectónica:
 
@@ -227,7 +227,7 @@ Con un salón de techo alto, pista con esferas y fuentes decorativas, la producc
 - **Calzada México-Tacuba**: Conectividad desde Miguel Hidalgo y Cuauhtémoc
 - **Estacionamiento propio**: Aprox. $30-35 por auto
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas más opciones para tu evento en Azcapotzalco:
 

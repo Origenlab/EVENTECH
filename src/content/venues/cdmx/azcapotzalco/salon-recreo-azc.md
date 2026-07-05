@@ -187,7 +187,7 @@ No todo evento necesita 200 personas para ser memorable. Las fiestas privadas de
 - Email: **piter135plf@gmail.com**
 - Sitio web: [salon-de-eventos-recreo.ueniweb.com](https://salon-de-eventos-recreo.ueniweb.com/)
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si necesitas un venue de mayor capacidad en Azcapotzalco:
 

@@ -183,7 +183,7 @@ La **pista de baile** se instala en zona firme del jardín con espacio amplio pa
 
 Con rentas que van de **$8,000 a $28,000**, Jardín Los Ahuehuetes ofrece el precio más competitivo de cualquier venue de 250 personas en la CDMX. Esto no es un reflejo de menor calidad — es el beneficio de una ubicación donde los costos de terreno son significativamente menores que en zonas urbanas. La diferencia de precio respecto a un salón equivalente en Coyoacán o Benito Juárez puede ser de **$20,000 a $40,000**, dinero que las familias pueden invertir en mejor catering, decoración más elaborada, mejor música o más invitados.
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Para transformar el jardín campestre en un espacio de producción profesional:
 
@@ -216,7 +216,7 @@ Para transformar el jardín campestre en un espacio de producción profesional:
 - **Estacionamiento**: Muy amplio, sobre terreno natural, incluido
 - **Distancia al centro CDMX**: Aproximadamente 35 km, 45-60 minutos en auto
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas más opciones para tu evento en el sureste de la CDMX:
 

@@ -268,7 +268,7 @@ Cuando el éxito de tu evento se mide en miles de asistentes y millones en inver
 
 Ese lugar es Centro Citibanamex.
 
-## Servicios de EVENTECH para Centro Citibanamex
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, ofrecemos soluciones de escala industrial para este venue masivo:
 
@@ -278,7 +278,7 @@ Como partner oficial de EVENTECH, ofrecemos soluciones de escala industrial para
 - **[Carpas estructurales](/servicios/carpas/estructurales/)** — Para expansión en jardines y terrazas exteriores
 - **[Mobiliario de gran formato](/servicios/mobiliario/)** — Miles de sillas y mesas para convenciones masivas
 
-## Venues Similares para Eventos de Gran Escala
+## Venues similares
 
 Si buscas espacios para eventos corporativos de diferentes escalas:
 

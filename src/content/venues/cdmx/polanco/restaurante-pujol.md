@@ -202,7 +202,7 @@ Pujol opera bajo estándares que garantizan la experiencia excepcional:
 
 Hay restaurantes donde comes bien. Hay restaurantes con ambiente agradable. Y luego está Pujol: un lugar donde cada bocado cuenta una historia de **miles de años de cultura mexicana**, filtrada a través de la visión de uno de los chefs más brillantes de su generación. Un evento aquí no es solo una cena —es un **hito que tus invitados nunca olvidarán**.
 
-## Venues Similares para Eventos Gastronómicos
+## Venues similares
 
 Si buscas experiencias culinarias exclusivas para grupos íntimos:
 

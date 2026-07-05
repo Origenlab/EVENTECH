@@ -173,7 +173,7 @@ La Colonia Del Valle es quizás la zona más **práctica** de la Ciudad de Méxi
 - **Hoteles** de todas las categorías en un radio de 2 km
 - **Restaurantes y bares** para el after-party a pie
 
-## Servicios de EVENTECH para Salón Del Valle
+## Producción EVENTECH
 
 - **[Iluminación boutique](/servicios/iluminacion/decorativa/)** — LED cálidos que complementan la estética mid-century
 - **[Sonido compacto](/servicios/audiovisual/sonido/)** — Sistemas discretos para espacios íntimos

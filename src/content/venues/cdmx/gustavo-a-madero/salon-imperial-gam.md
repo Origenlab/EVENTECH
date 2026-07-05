@@ -172,7 +172,7 @@ El acceso al salón cuenta con un **lobby de recepción de 35 metros cuadrados**
 - **WiFi** de alta velocidad
 - **Estacionamiento** para aproximadamente 40 vehículos
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 La estética clásica del Imperial se enriquece con la producción de **EVENTECH**:
 
@@ -214,14 +214,11 @@ La capacidad para 300 personas y la ubicación sobre Insurgentes Norte hacen del
 - **Transporte público**: Metro La Villa-Basílica (Línea 6) a 10 minutos caminando, Metrobús Línea 1 sobre Insurgentes con parada cercana
 - **Estacionamiento**: Superficie propia para aproximadamente 40 vehículos
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas opciones en la zona Tepeyac-Basilica de GAM:
 
 - **[Salón Monaco Jardín](/directorio/cdmx/gustavo-a-madero/salon-monaco-jardin/)** — El salón premium de GAM con jardín, socio EVENTECH, hasta 500 personas
-- **[Salón Los Faroles](/directorio/cdmx/gustavo-a-madero/salon-los-faroles/)** — Salón con ambiente cálido y tradición en la zona norte de GAM
-- **[Salón Villa Jardín](/directorio/cdmx/gustavo-a-madero/salon-villa-jardin/)** — Opción con jardín para eventos con doble ambiente
-- **[Salón Real GAM](/directorio/cdmx/gustavo-a-madero/salon-real-gam/)** — Espacio con capacidad amplia y servicio profesional
 
 ## Donde la Fe y la Celebración se Encuentran
 

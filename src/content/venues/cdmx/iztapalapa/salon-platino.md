@@ -178,7 +178,7 @@ La tarifa de renta de Salón Platino incluye:
 - **Limpieza** posterior al evento
 - **Estacionamiento** para aproximadamente 25 vehículos
 
-## Producción EVENTECH para tu Evento
+## Producción EVENTECH
 
 Para quienes desean maximizar el impacto de su celebración en Salón Platino, **EVENTECH** ofrece servicios profesionales que potencian la estética moderna del espacio:
 
@@ -215,13 +215,11 @@ Para celebraciones de 50 a 150 personas, el salón ofrece un ambiente moderno y 
 - **Transporte público**: Rutas de microbús y autobús sobre Av. Tláhuac, Tren Ligero Periférico Oriente a 15 minutos
 - **Estacionamiento**: Superficie para aproximadamente 25 vehículos
 
-## Venues Recomendados en Iztapalapa
+## Venues similares
 
 Si buscas más opciones en la zona oriente, te invitamos a conocer estos espacios:
 
 - **[Salón Fénix](/directorio/cdmx/iztapalapa/salon-fenix-iztapalapa/)** — Salón familiar accesible en Peña Alta con capacidad para 200 personas
-- **[Salón Río Azul](/directorio/cdmx/iztapalapa/salon-rio-azul/)** — Espacio con ambiente acuático decorativo para eventos en Iztapalapa
-- **[Salón San Lorenzo](/directorio/cdmx/iztapalapa/salon-san-lorenzo/)** — Salón clásico en San Lorenzo Tezonco para celebraciones familiares
 - **[Salón de Fiestas Anely](/directorio/cdmx/iztapalapa/salon-de-fiestas-anely/)** — Opción económica en Leyes de Reforma para eventos íntimos hasta 150 personas
 
 ## Modernidad Accesible en la Zona Oriente

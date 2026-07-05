@@ -200,7 +200,7 @@ Salón Galaxia se posiciona en la categoría de precios moderados ($$), justific
 
 Para cotización actualizada, contacta al **55 5555 1234** por teléfono o WhatsApp.
 
-## Producción EVENTECH para Salón Galaxia
+## Producción EVENTECH
 
 El techo estrellado de Galaxia es un punto de partida excepcional que se potencia enormemente con producción profesional **EVENTECH**:
 
@@ -257,7 +257,7 @@ La cocina industrial de Galaxia está diseñada para que los servicios de banque
 - **Metro**: Lindavista (Línea 6) a 15 minutos caminando, Indios Verdes (Línea 3) a distancia accesible
 - **Estacionamiento**: Superficie pavimentada con capacidad para 40+ vehículos con vigilancia
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si deseas explorar más opciones en Gustavo A. Madero y zonas cercanas:
 

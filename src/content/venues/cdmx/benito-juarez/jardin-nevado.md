@@ -195,7 +195,7 @@ El ambiente natural reduce considerablemente la necesidad de decoración excesiv
 - Coordinar con la administración los horarios de acceso para montaje de decoración y proveedores
 - Aprovechar la luz natural del jardín para la sesión de fotos principal antes del atardecer
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Para elevar tu evento en Jardín Nevado, EVENTECH ofrece servicios de producción especializados para espacios al aire libre:
 
@@ -231,7 +231,7 @@ La colonia Portales Sur ofrece una de las mejores ubicaciones para eventos en la
 
 La colonia Portales Sur es un barrio residencial tranquilo y consolidado de la alcaldía Benito Juárez. La zona cuenta con servicios completos: restaurantes, cafeterías, tiendas de conveniencia y estacionamientos públicos cercanos. La tranquilidad del entorno complementa la experiencia del jardín, creando un ambiente de calma que contrasta con el ritmo de la ciudad.
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas opciones adicionales para tu evento en la CDMX:
 

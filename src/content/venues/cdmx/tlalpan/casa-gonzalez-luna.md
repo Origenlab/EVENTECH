@@ -193,7 +193,7 @@ Casa González Luna recomienda caterers especializados en **cocina mexicana trad
 - **Postres conventuales**: Chongos zamoranos, jamoncillo, ate con queso
 - **Open bar mexicano**: Mezcal, tequila, pulque curado, margaritas artesanales
 
-## Producción EVENTECH para Casa González Luna
+## Producción EVENTECH
 
 Como partner de EVENTECH, complementamos la tradición con producción profesional:
 
@@ -229,13 +229,12 @@ Tlalpan ofrece un **contexto único** que enriquece cualquier celebración:
 - **Transporte**: Tren Ligero hasta Tlalpan Centro, Uber disponible
 - **Estacionamiento**: Plaza cercana a 50 metros
 
-## Venues Recomendados en Tlalpan
+## Venues similares
 
 Si buscas opciones similares con historia y capilla:
 
 - **[Salón Partenón](/directorio/cdmx/tlalpan/salon-partenon/)** — Salón monumental estilo clásico en Huipulco, hasta 500 personas
 - **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — Capilla mayor, jardines de 12,000 m² y más capacidad
-- **[Jardín Botánico de Tlalpan](/directorio/cdmx/tlalpan/jardin-botanico-tlalpan/)** — 7 hectáreas de naturaleza con lagos y senderos botánicos
 - **[Jardín La Perita](/directorio/cdmx/magdalena-contreras/jardin-la-perita/)** — Jardín campestre en la alcaldía vecina
 
 ## Donde la Historia Abraza tu Celebración

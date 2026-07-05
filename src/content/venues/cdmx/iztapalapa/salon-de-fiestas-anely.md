@@ -177,7 +177,7 @@ Salón de Fiestas Anely incluye en su tarifa:
 
 La ausencia de cargos por coordinador, seguridad u otros conceptos administrativos contribuye a mantener las tarifas en el rango más accesible de la zona.
 
-## Producción EVENTECH para tu Evento
+## Producción EVENTECH
 
 Incluso en un espacio íntimo como Anely, la producción profesional marca una diferencia notable. **EVENTECH** ofrece servicios que se adaptan a espacios de menor escala:
 
@@ -213,7 +213,7 @@ El tamaño compacto de Anely es ideal para baby showers, despedidas y reuniones 
 - **Transporte público**: Rutas de microbús sobre Ermita Iztapalapa, a 5 minutos caminando del salón
 - **Estacionamiento**: Disponibilidad limitada en vía pública; se recomienda llegar con anticipación
 
-## Venues Recomendados en Iztapalapa
+## Venues similares
 
 Si necesitas mayor capacidad o un espacio con características diferentes, te recomendamos estas opciones cercanas:
 

@@ -198,7 +198,7 @@ La Lupita trabaja con cocineras tradicionales de Xochimilco y caterers profesion
 - **Generador** de respaldo eléctrico
 - **Limpieza** completa posterior
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Como partner de EVENTECH, maximizamos la magia del lugar con producción especializada para exteriores y espacios de agua:
 
@@ -263,7 +263,7 @@ El Salón Las Chinampas ofrece respaldo cerrado y climatizado para 180 personas.
 ### ¿Se puede contratar caterer externo?
 Sí. La Lupita permite caterers externos y también trabaja con cocineras tradicionales de Xochimilco para menús con identidad cultural local.
 
-## Venues Recomendados
+## Venues similares
 
 Si buscas opciones en Xochimilco y el sur de la CDMX con carácter auténtico:
 

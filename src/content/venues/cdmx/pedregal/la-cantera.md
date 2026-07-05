@@ -209,7 +209,7 @@ Cada ángulo, cada rincón, cada formación rocosa es **dramáticamente fotogén
 ### Ubicación Premium
 En el corazón de Jardines del Pedregal, una de las zonas más exclusivas de la Ciudad de México. Acceso fácil desde San Ángel, Coyoacán y el sur de la ciudad.
 
-## Servicios de EVENTECH para La Cantera
+## Producción EVENTECH
 
 Como partner de EVENTECH, ofrecemos soluciones especializadas que realzan la arquitectura única de este venue:
 
@@ -230,7 +230,7 @@ Como partner de EVENTECH, ofrecemos soluciones especializadas que realzan la arq
 - **Limpieza** especializada en espacios de piedra
 - **Acceso exclusivo** a todo el venue
 
-## Venues Similares con Arquitectura Única
+## Venues similares
 
 Si buscas espacios con carácter arquitectónico distintivo:
 

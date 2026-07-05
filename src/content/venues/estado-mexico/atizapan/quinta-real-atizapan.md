@@ -182,7 +182,7 @@ Hay venues que prometen experiencia. Y hay venues como Quinta Real Atizapán que
 
 Cuando eliges Quinta Real, no solo eliges un espacio bonito: **eliges la tranquilidad de saber que tu evento está en manos de profesionales que han visto todo, resuelto todo, y entregado miles de celebraciones perfectas**.
 
-## Servicios de EVENTECH para Quinta Real Atizapán
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, ofrecemos soluciones que complementan la elegancia del venue:
 
@@ -190,7 +190,7 @@ Como partner oficial de EVENTECH, ofrecemos soluciones que complementan la elega
 - **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** con fairy lights para los jardines y fuentes
 - **[Iluminación de escenario](/servicios/iluminacion/escenario/)** profesional para shows de vals y presentaciones
 
-## Venues Similares con Capilla y Elegancia
+## Venues similares
 
 Si buscas quintas con capilla y servicio completo en el norte del Estado de México:
 

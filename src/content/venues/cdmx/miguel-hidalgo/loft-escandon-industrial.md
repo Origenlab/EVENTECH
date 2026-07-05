@@ -426,7 +426,7 @@ Todo lo anterior más:
 - **Maridaje con vinos** mexicanos o internacionales
 - **Barra de mezcales** artesanales
 
-## Servicios EVENTECH para Loft Escandón
+## Producción EVENTECH
 
 ### Iluminación Arquitectónica Industrial
 - **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** que resalta el acero y ladrillo
@@ -447,7 +447,7 @@ Todo lo anterior más:
 - **Revista Local** — "Los 10 Mejores Espacios Industriales para Eventos CDMX" (2022)
 - **Time Out Mexico City** — "Best Unusual Wedding Venues" (2023)
 
-## Venues Industriales y Contemporáneos Similares
+## Venues similares
 
 - **[Hotel Carlota](/directorio/cdmx/roma-condesa/hotel-carlota-eventos/)** — Hotel boutique con arte contemporáneo
 - **[Azul Histórico Terraza](/directorio/cdmx/centro-historico/azul-historico-terraza/)** — Rooftop gastronómico histórico

@@ -209,7 +209,7 @@ La renta de Salón Los Laureles incluye:
 - **Estacionamiento** con vigilancia
 - **Accesibilidad universal** en salón interior
 
-## Producción EVENTECH para Los Laureles
+## Producción EVENTECH
 
 La dualidad jardín-salón de Los Laureles permite configuraciones de producción únicas con **EVENTECH**:
 
@@ -251,7 +251,7 @@ Los fotógrafos profesionales valoran Los Laureles como locación para sesiones 
 
 La ubicación sobre Av. Centenario es estratégica: conecta directamente con San Ángel, Coyoacán y el corredor sur de la CDMX, facilitando la llegada de invitados desde toda la ciudad.
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Explora más opciones para tu evento en Álvaro Obregón y alrededores:
 

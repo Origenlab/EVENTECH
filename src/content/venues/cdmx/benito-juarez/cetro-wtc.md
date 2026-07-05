@@ -302,7 +302,7 @@ El WTC está a menos de 30 minutos del Aeropuerto Internacional Felipe Ángeles 
 
 ---
 
-## Servicios de EVENTECH para CETRO
+## Producción EVENTECH
 
 EVENTECH es el socio de producción audiovisual recomendado para eventos en CETRO, con experiencia de integración nativa al sistema de pantalla perimetral de 360 grados.
 

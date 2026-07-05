@@ -242,7 +242,7 @@ Para eventos de **40-200 personas** que buscan calidad histórica sobre cantidad
 - **Fuegos artificiales** prohibidos
 - **Velas reales** solo en contenedores
 
-## Servicios de EVENTECH para Ex-Hacienda de Gogorron
+## Producción EVENTECH
 
 Como partner de EVENTECH, realzamos la historia:
 
@@ -253,7 +253,7 @@ Como partner de EVENTECH, realzamos la historia:
 - **[Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/)** para el jardín
 - **[Carpas transparentes](/servicios/carpas/)** que mantienen la vista de los muros
 
-## Venues Similares Coloniales en CDMX
+## Venues similares
 
 Si buscas historia colonial dentro de la ciudad:
 

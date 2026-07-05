@@ -196,7 +196,7 @@ Para parejas que consideran a sus mascotas parte de la familia, El Encinar **per
 ### Autenticidad sobre Perfección
 Aquí no encontrarás césped artificial ni decoración de revista. Encontrarás **naturaleza real**: hojas que caen en otoño, flores silvestres en primavera, y la belleza imperfecta de un bosque vivo que no necesita retoque.
 
-## Producción Especializada con EVENTECH
+## Producción EVENTECH
 
 Como partner de EVENTECH, Quinta El Encinar ofrece el **paquete bosque con iluminación y calefacción combinadas** para eventos que aprovechan al máximo el entorno natural:
 
@@ -230,7 +230,7 @@ Quinta El Encinar se ubica en el **Camino a San José del Vidrio**, en la zona b
 
 La propiedad es completamente privada y exclusiva: cuando reservas, **el bosque entero es tuyo**. Sin otros eventos, sin curiosos, sin interrupciones. Mascotas bienvenidas para parejas que las consideran parte de la familia.
 
-## Venues Recomendados para Amantes de la Naturaleza
+## Venues similares
 
 Si buscas conexión con la naturaleza en diferentes estilos y ubicaciones:
 

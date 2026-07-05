@@ -196,7 +196,7 @@ El personal de Jimmy conoce bien las necesidades específicas de las celebracion
 - Reservar con al menos un mes de anticipación para fines de semana
 - Verificar la capacidad del área infantil para elegir el tamaño adecuado de inflable
 
-## Producción Profesional con EVENTECH
+## Producción EVENTECH
 
 Para potenciar la experiencia en Salón Jimmy, EVENTECH ofrece servicios adaptados a celebraciones familiares:
 
@@ -230,7 +230,7 @@ El Pedregal de Santa Úrsula ofrece entorno residencial tranquilo con buena cone
 - **Desde Coyoacán centro**: 12 minutos en automóvil
 - **Estacionamiento**: Disponible con capacidad limitada
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Explora otras opciones para tu celebración en Coyoacán y el sur de la CDMX:
 

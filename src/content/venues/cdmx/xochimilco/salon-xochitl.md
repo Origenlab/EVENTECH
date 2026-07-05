@@ -222,7 +222,7 @@ Para maximizar la experiencia en el Salón Xóchitl, algunas recomendaciones pr�
 - **Proveedores locales**: El mercado de Xochimilco ofrece flores frescas a precios accesibles para centros de mesa y decoración
 - **Transporte de invitados**: Considerar servicio de transporte colectivo desde puntos céntricos para invitados que no manejan
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Para elevar la producción de cualquier evento, **EVENTECH** ofrece servicios profesionales compatibles con el Salón Xóchitl:
 
@@ -250,7 +250,7 @@ El Salón Xóchitl permite proveedores externos para complementar los servicios 
 - **Estacionamiento**: Superficie para aproximadamente 25 vehículos
 - **Referencia**: Sobre la avenida principal de Xochimilco, fácil de localizar
 
-## Venues Recomendados en Xochimilco
+## Venues similares
 
 Si buscas más opciones en Xochimilco y la zona sur:
 

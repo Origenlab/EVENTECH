@@ -170,7 +170,7 @@ Casa Awolly se ha convertido en el **espacio favorito de marcas de diseño, agen
 
 No es el venue más grande de la Roma. No es el más económico. Pero para quienes valoran **la autenticidad, el diseño y la atmósfera**, no hay otro lugar igual.
 
-## Venues Similares con Estilo Boutique en Roma-Condesa
+## Venues similares
 
 Si buscas espacios con personalidad única para eventos íntimos:
 

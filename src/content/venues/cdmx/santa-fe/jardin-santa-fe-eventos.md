@@ -171,7 +171,7 @@ La **pista de madera premium de 120m²** es suficientemente amplia para eventos 
 - **Naturaleza real:** No jardín artificial, sino vegetación viva y cuidada
 - **Vista nocturna:** Las torres de Santa Fe iluminadas crean un backdrop urbano único
 
-## Servicios de EVENTECH para Jardín Santa Fe
+## Producción EVENTECH
 
 Como partner oficial, EVENTECH ofrece soluciones especiales para este venue:
 

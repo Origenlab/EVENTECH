@@ -240,7 +240,7 @@ Asociar tu evento con Au Pied de Cochon comunica **un mensaje claro de gusto y s
 - **Wine Spectator Award of Excellence**
 - Referencia obligada en **guías gastronómicas internacionales**
 
-## Servicios de EVENTECH para Au Pied de Cochon
+## Producción EVENTECH
 
 Para eventos que requieran producción adicional:
 
@@ -249,7 +249,7 @@ Para eventos que requieran producción adicional:
 - **[Iluminación personalizada](/servicios/iluminacion/decorativa/)** para fotografía
 - **[Micrófonos inalámbricos](/servicios/audiovisual/microfonos-dj/)** para brindis
 
-## Venues Similares de Fine Dining
+## Venues similares
 
 Si buscas experiencias gastronómicas excepcionales:
 

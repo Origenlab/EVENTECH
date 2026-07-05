@@ -182,7 +182,7 @@ Una zona del jardín bajo un arco natural de jacarandas funciona como **espacio 
 - **Limpieza** posterior al evento
 - **Estacionamiento** con espacio amplio
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 La magia de Las Jacarandas se multiplica al anochecer con la producción adecuada:
 
@@ -215,7 +215,7 @@ Fuera de la temporada de floración, el jardín sigue ofreciendo un espacio verd
 - **Estacionamiento**: Amplio, incluido en la renta
 - **Accesibilidad**: Acceso adaptado sobre césped compactado
 
-## Venues Recomendados en Tlalpan
+## Venues similares
 
 Si buscas más opciones para tu evento al aire libre:
 

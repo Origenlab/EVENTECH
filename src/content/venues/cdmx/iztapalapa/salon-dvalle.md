@@ -339,7 +339,7 @@ Los 12 candelabros de cristal cortado no son solo luminarias — son **elementos
 
 Esa capacidad de transformar la atmósfera del mismo espacio de palacio formal a club elegante es una ventaja técnica que pocos salones en la zona poseen.
 
-## Producción Profesional EVENTECH — Potenciando lo Clásico con Tecnología
+## Producción EVENTECH
 
 La estética clásica de D'Valle ofrece una base excepcional que la tecnología de EVENTECH **amplifica sin competir**. El concepto es "clásico potenciado": la producción profesional realza los candelabros, las molduras y las columnas sin romper la coherencia del diseño.
 
@@ -356,7 +356,7 @@ La estética clásica de D'Valle ofrece una base excepcional que la tecnología 
 
 **Descuento exclusivo: 15% en mobiliario dorado premium y paquetes de iluminación para clientes de D'Valle.**
 
-## Checklist EVENTECH — Servicios Recomendados para D'Valle
+## Producción EVENTECH
 
 ### Boda de Gala (200-350 invitados)
 - [Uplighting dorado en columnas corintias](/servicios/iluminacion/arquitectonica/uplighting/)
@@ -487,7 +487,7 @@ D'Valle ofrece acabados que compiten con venues de zonas como Polanco o San Ange
 ### Socio Premium EVENTECH
 El mobiliario dorado de EVENTECH — [sillas Chiavari](/servicios/mobiliario/sillas/chiavari/), [sillas Tiffany](/servicios/mobiliario/sillas/tiffany/), [barras doradas](/servicios/mobiliario/barras/barras-bebidas/) — fue **diseñado para espacios exactamente como D'Valle**. La sinergia entre los candelabros dorados del venue y el mobiliario dorado de EVENTECH crea una coherencia visual que es imposible de replicar con proveedores genéricos.
 
-## Venues Recomendados para Comparar
+## Venues similares
 
 - **[Salones Florett Iztapalapa](/directorio/cdmx/iztapalapa/salones-florett/)** — Moderno contemporáneo vs. clásico europeo, misma zona, acabados premium
 - **[Salón La Cascada Iztapalapa](/directorio/cdmx/iztapalapa/salon-la-cascada/)** — Estilo contemporáneo con elementos acuáticos, misma alcaldía

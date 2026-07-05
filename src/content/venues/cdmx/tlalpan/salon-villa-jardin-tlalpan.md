@@ -185,7 +185,7 @@ Tanto el jardín como el interior del salón ofrecen **rincones para sesiones fo
 - **Estacionamiento** propio incluido
 - **Acceso al jardín** incluido sin costo adicional
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Para maximizar el potencial del espacio interior-exterior, **EVENTECH** ofrece servicios de producción adaptados:
 
@@ -212,7 +212,7 @@ Para maximizar el potencial del espacio interior-exterior, **EVENTECH** ofrece s
 - **Estacionamiento**: Propio, incluido en la renta
 - **Accesibilidad**: Rampas de acceso y circulación adaptada
 
-## Venues Recomendados en Tlalpan
+## Venues similares
 
 Si buscas más opciones en la zona sur de la CDMX:
 

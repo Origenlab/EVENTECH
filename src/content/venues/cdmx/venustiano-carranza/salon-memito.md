@@ -176,7 +176,7 @@ La renta de Salón Memito incluye:
 - **Acceso a cocina industrial** para caterings
 - **WiFi** disponible para invitados
 
-## Producción EVENTECH para Eventos Íntimos
+## Producción EVENTECH
 
 Incluso en un espacio compacto, la producción profesional puede marcar una diferencia significativa. **EVENTECH** ofrece servicios que se adaptan a espacios de menor tamaño:
 
@@ -250,7 +250,7 @@ Muchos clientes descubren durante su evento que el formato compacto de Memito ti
 - **Circuito Interior**: Acceso por Boulevard Puerto Aéreo
 - **Transporte público**: Abundantes rutas de microbús y camión en la zona
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si necesitas más capacidad o buscas otras opciones, conoce estos espacios cercanos:
 

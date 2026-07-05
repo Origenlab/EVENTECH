@@ -173,7 +173,7 @@ Hay familias que se dividen para celebrar porque "no caben en ningún lado". Hay
 
 Cuando tus 500 invitados estén bailando juntos en la misma pista, cuando tu equipo completo de 400 colaboradores esté brindando en el mismo espacio, cuando toda la familia extendida finalmente quepa en una sola foto, entenderás el valor de un venue que **no le tiene miedo a la escala**.
 
-## Servicios de EVENTECH para Salón Tlalnepantla Real
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, ofrecemos soluciones de gran escala:
 
@@ -182,7 +182,7 @@ Como partner oficial de EVENTECH, ofrecemos soluciones de gran escala:
 - **[Pantallas LED](/servicios/audiovisual/pantallas-led/)** para eventos corporativos y convenciones
 - **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** para transformar el ambiente del salón
 
-## Venues Similares para Eventos de Gran Formato
+## Venues similares
 
 Si buscas espacios con alta capacidad en el norte del Estado de México:
 

@@ -189,7 +189,7 @@ Salón-Jardín Los Pinos incluye en su tarifa base:
 
 La cocina industrial está disponible para los servicios de catering contratados, equipada con estufa industrial, refrigeración y espacio de preparación.
 
-## Producción EVENTECH para tu Evento
+## Producción EVENTECH
 
 Para transformar tu celebración en Los Pinos en una experiencia de producción profesional, **EVENTECH** ofrece servicios especializados que se integran con las instalaciones del venue:
 
@@ -226,7 +226,7 @@ El jardín ofrece espacio seguro para juegos, inflables y actividades infantiles
 - **Transporte público**: Rutas de microbús sobre Luis Hidalgo Monroy, Metro Constitución de 1917 a 20 minutos
 - **Estacionamiento**: Superficie pavimentada con capacidad para 40 vehículos
 
-## Venues Recomendados en Iztapalapa
+## Venues similares
 
 Si estás comparando opciones para tu evento en la zona oriente de la CDMX, te recomendamos conocer estos espacios cercanos:
 

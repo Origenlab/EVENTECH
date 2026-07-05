@@ -205,7 +205,7 @@ El menú de Elia — tomate relleno de queso gouda, crema de calabaza con tocino
 
 El equipo de cocina de Monarquía Coronado Imperial trabaja con el menú de banquete estándar y también acepta adaptaciones personalizadas según el perfil del evento.
 
-## Producción EVENTECH en Monarquía Coronado Imperial
+## Producción EVENTECH
 
 Para llevar la producción visual y técnica al siguiente nivel:
 

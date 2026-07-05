@@ -248,7 +248,7 @@ Celebrar en Four Seasons Mexico City es elegir un venue donde **la elegancia cl�
 
 Es la tranquilidad de saber que todo está en manos de profesionales que han perfeccionado el arte de la hospitalidad durante décadas.
 
-## Servicios de EVENTECH para Four Seasons Mexico City
+## Producción EVENTECH
 
 Como partner de EVENTECH, complementamos la elegancia inherente del Four Seasons:
 
@@ -259,7 +259,7 @@ Como partner de EVENTECH, complementamos la elegancia inherente del Four Seasons
 - **[Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/)** para ceremonias nocturnas en el jardín
 - **[Pistas de baile elegantes](/servicios/pistas-baile/madera-clasica/)** que complementan el entorno
 
-## Venues Similares de Elegancia Clásica
+## Venues similares
 
 Si buscas sofisticación atemporal en CDMX:
 

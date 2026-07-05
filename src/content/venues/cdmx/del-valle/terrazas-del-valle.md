@@ -192,7 +192,7 @@ La combinación de terrazas al aire libre y salón climatizado permite planifica
 - **Seguridad** discreta durante el evento
 - **Limpieza** pre y post evento
 
-## Producción EVENTECH para Terrazas del Valle
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, ofrecemos soluciones que complementan la estética contemporánea del venue:
 
@@ -231,7 +231,7 @@ La ubicación en Del Valle ofrece un ecosistema completo para los invitados: dec
 
 Para ser un venue con estas vistas panorámicas, servicio de banquete incluido y ubicación sobre Insurgentes Sur, los precios son significativamente más accesibles que rooftops de hoteles de lujo comparables en Polanco o Santa Fe. La relación calidad-precio-ubicación es difícil de igualar en la CDMX.
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas espacios con carácter en Del Valle y alrededores:
 

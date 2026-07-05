@@ -302,7 +302,7 @@ Todo lo anterior más:
 - Álbum de boda en pergamino con caligrafía artística
 - Video documental del evento estilo cinematográfico
 
-## Servicios EVENTECH para el Ex-Convento
+## Producción EVENTECH
 
 Equipamiento especializado para monumentos históricos del siglo XVI:
 
@@ -325,7 +325,7 @@ Equipamiento especializado para monumentos históricos del siglo XVI:
 - **Premio Nacional de Restauración de Monumentos Históricos** por la restauración de frescos (2012)
 - **Nominado a Patrimonio Mundial de la UNESCO** dentro de la ruta de Conventos Agustinos del Siglo XVI
 
-## Venues Históricos Similares
+## Venues similares
 
 - **[Casa del Conde Toluca](/directorio/estado-mexico/toluca/casa-del-conde-toluca/)** — Palacete porfiriano en Toluca
 - **[Hacienda Vista Hermosa](/directorio/estado-mexico/huixquilucan/hacienda-vista-hermosa/)** — Hacienda del XVIII con capilla

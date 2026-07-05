@@ -194,7 +194,7 @@ A diferencia de salones que entregan un espacio con iluminación genérica de fl
 - Reservar con anticipación para meses de alta demanda: abril-junio y octubre-diciembre
 - Visitar el salón previamente para planificar la distribución ideal entre mesas, pista y área de fotos
 
-## Producción Profesional con EVENTECH
+## Producción EVENTECH
 
 Para eventos que requieran mayor impacto visual y sonoro, EVENTECH ofrece servicios profesionales para Salón Yaji:
 
@@ -228,7 +228,7 @@ Olivar del Conde cuenta con buena conectividad vial con todo el poniente de la c
 - **Metro Barranca del Muerto**: Línea 7, accesible en transporte público
 - **Estacionamiento**: Disponible en el salón
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Explora otras opciones para tu evento en el poniente de la CDMX:
 

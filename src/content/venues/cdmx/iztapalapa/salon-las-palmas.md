@@ -173,7 +173,7 @@ Salón de Fiestas Las Palmas incluye los siguientes servicios sin costo adiciona
 - **Estacionamiento** vigilado para aproximadamente 30 vehículos
 - **Acceso para personas con movilidad reducida** en todo el salón
 
-## Producción EVENTECH para tu Evento
+## Producción EVENTECH
 
 Para quienes buscan elevar la producción de su evento en Las Palmas, **EVENTECH** ofrece servicios profesionales que se integran perfectamente con las instalaciones del salón:
 
@@ -223,7 +223,7 @@ La cercanía con la Calzada Ermita Iztapalapa y el Eje 5 Sur facilita la llegada
 
 Salón de Fiestas Las Palmas ofrece paquetes flexibles que se adaptan al tamaño del evento y al día de la semana. Los eventos entre semana suelen tener tarifas más accesibles que los fines de semana, y la temporada baja (enero-marzo) ofrece mejores precios que la temporada alta de bodas y XV años. Se recomienda agendar una visita presencial para conocer el espacio, revisar disponibilidad de fechas y obtener una cotización personalizada.
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas más opciones para tu evento en la zona oriente de la CDMX, te recomendamos conocer estos espacios destacados:
 

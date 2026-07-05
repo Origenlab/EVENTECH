@@ -177,7 +177,7 @@ El Jardín México permite caterers externos, lo que abre la posibilidad de ofre
 
 La combinación de comida tradicional milpaltense con un entorno de jardín al aire libre crea una experiencia gastronómica y ambiental que las familias de la zona valoran profundamente. Para eventos más formales, los caterers profesionales de la CDMX también operan sin problema en el espacio gracias a las conexiones eléctricas disponibles.
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 **EVENTECH** lleva servicios de producción profesional hasta Milpa Alta para transformar el Jardín México en un escenario de evento completo:
 
@@ -249,7 +249,7 @@ El jardín cuenta con área infantil delimitada sobre césped natural. El espaci
 ### ¿A qué hora se recomienda iniciar el evento?
 Para aprovechar la luz natural y el atardecer, se recomienda iniciar entre las 15:00 y las 16:00. Esto permite sesión fotográfica con luz natural, cena al atardecer y fiesta nocturna bajo el cielo estrellado.
 
-## Venues Recomendados
+## Venues similares
 
 Si buscas opciones en Milpa Alta y el sur de la CDMX:
 

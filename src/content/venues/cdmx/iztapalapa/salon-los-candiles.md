@@ -196,7 +196,7 @@ Los Candiles incluye un paquete completo de servicios:
 - **Estacionamiento** pavimentado para aproximadamente 35 vehículos
 - **Wifi** de alta velocidad
 
-## Producción EVENTECH para tu Evento
+## Producción EVENTECH
 
 Los candelabros de cristal de Los Candiles crean una base de iluminación excepcional que se potencia de forma extraordinaria con producción profesional. **EVENTECH** ofrece servicios diseñados para complementar esta característica única:
 
@@ -233,7 +233,7 @@ Con wifi estable, coordinador profesional y un ambiente que inspira formalidad, 
 - **Transporte público**: Rutas sobre Ermita Iztapalapa a 5 minutos, Metro Constitución de 1917 a 15 minutos
 - **Estacionamiento**: Superficie pavimentada para 35 vehículos con seguridad
 
-## Venues Recomendados en Iztapalapa
+## Venues similares
 
 Si deseas comparar opciones para tu evento, te invitamos a conocer estos espacios cercanos:
 

@@ -132,7 +132,7 @@ El jardín de **300m²** con cubierta retráctil es perfecto para el cóctel de 
 - Coordinador presente todo el evento
 - Estacionamiento para 100 vehículos en calle privada
 
-## Servicios de EVENTECH para Salón Lomas Verdes
+## Producción EVENTECH
 
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** — Para bodas y XV años de hasta 280 personas
 - **[Iluminación LED](/servicios/iluminacion/decorativa/)** — Para transformar el salón clásico con colores modernos

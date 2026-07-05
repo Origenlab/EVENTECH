@@ -218,7 +218,7 @@ En Casa Lamm, un evento no es solo una reunión de personas: es una **experienci
 
 Esto es Casa Lamm: donde **el arte de celebrar se encuentra con la celebración del arte**.
 
-## Servicios de EVENTECH para Casa Lamm
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, ofrecemos soluciones que complementan el ambiente artístico del venue:
 
@@ -227,7 +227,7 @@ Como partner oficial de EVENTECH, ofrecemos soluciones que complementan el ambie
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** discreto para espacios con acústica de galería
 - **[Pantallas LED](/servicios/audiovisual/pantallas-led/)** para presentaciones de arte y contenido cultural
 
-## Venues Similares con Carácter Cultural
+## Venues similares
 
 Si buscas espacios donde el arte y la arquitectura histórica convergen:
 

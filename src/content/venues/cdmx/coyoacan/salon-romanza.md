@@ -196,7 +196,7 @@ El equipo del salón colabora activamente en la coordinación logística, facili
 - Considerar una coordinadora de eventos si el número de invitados supera los 150
 - Para bodas, coordinar la ceremonia simbólica con la configuración del salón
 
-## Producción Profesional con EVENTECH
+## Producción EVENTECH
 
 Para potenciar la atmósfera romántica de Romanza, EVENTECH ofrece servicios que complementan la estética del salón:
 
@@ -230,7 +230,7 @@ El Pedregal de Santa Úrsula ofrece un entorno residencial tranquilo con buena a
 - **Estacionamiento**: Disponible con capacidad para vehículos de los invitados
 - **Zona segura**: Entorno residencial tranquilo para llegada y salida cómodas
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Otras opciones para tu evento en Coyoacán y alrededores:
 

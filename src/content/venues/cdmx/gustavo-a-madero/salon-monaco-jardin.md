@@ -323,7 +323,7 @@ La versatilidad del espacio permite adaptarse a prácticamente cualquier temáti
 
 El jardín de Monaco cuenta con un **área de fotos dedicada** de 25 m² con pared verde natural de bugambilia que funciona como backdrop permanente. EVENTECH complementa con [iluminación de acento](/servicios/iluminacion/arquitectonica/wash-lights/) que resalta la vegetación y crea iluminación favorecedora para retratos.
 
-## Checklist EVENTECH — Servicios Recomendados para Monaco Jardín
+## Producción EVENTECH
 
 Para aprovechar al máximo tu evento en Monaco Jardín con el **15% de descuento exclusivo** como socio EVENTECH, nuestro equipo recomienda:
 
@@ -338,7 +338,7 @@ Para aprovechar al máximo tu evento en Monaco Jardín con el **15% de descuento
 - [ ] **[Pistas de baile LED](/servicios/pistas-baile/pistas-led/)** — Personalizada con iniciales, monogramas o diseños temáticos
 - [ ] **[Inflables decorativos](/servicios/inflables/)** — Para fiestas infantiles y baby showers en el jardín
 
-## Producción Profesional EVENTECH — La Diferencia Premium
+## Producción EVENTECH
 
 Como **socio premium de EVENTECH**, cada evento en Monaco Jardín tiene acceso exclusivo a los servicios de producción más completos de la Ciudad de México. Esta alianza no es un simple acuerdo comercial — es una **integración técnica** donde el equipo de EVENTECH conoce cada toma de corriente, cada punto de rigging y cada ángulo del venue para maximizar el impacto de cada instalación.
 

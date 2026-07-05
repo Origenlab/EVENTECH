@@ -212,7 +212,7 @@ El único elemento no incluido es el pastel de bodas, que puede llevarse o contr
 
 **Medios de pago:** Tarjetas de crédito y débito aceptadas.
 
-## Producción EVENTECH — Potenciando la Atmósfera Soñada
+## Producción EVENTECH
 
 La estética orgánica de Casa Nextengo es el lienzo ideal para producción profesional con carácter. EVENTECH puede añadir capas de experiencia sin competir con el ambiente del espacio:
 

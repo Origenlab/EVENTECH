@@ -197,7 +197,7 @@ El paquete incluye banquete, coordinación, montaje y desmontaje. **No tienes qu
 
 Imagina el momento: el sol se pone detrás de las montañas, pintando el cielo de naranja y rosa. Los ahuehuetes centenarios filtran la última luz del día mientras cientos de velas comienzan a iluminar el jardín. La música suena suave mientras tus invitados brindan con champagne, maravillados por la belleza del lugar. **Esto es Hacienda Santa Cecilia: donde los sueños de boda más ambiciosos se hacen realidad.**
 
-## Servicios de EVENTECH para Hacienda Santa Cecilia
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, ofrecemos soluciones de gran escala para este venue monumental:
 
@@ -208,7 +208,7 @@ Como partner oficial de EVENTECH, ofrecemos soluciones de gran escala para este 
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** calibrado para jardines de 5,000 m²
 - **[Mobiliario elegante](/servicios/mobiliario/)** que complementa la estética colonial
 
-## Venues Similares con Grandeza Colonial
+## Venues similares
 
 Si buscas haciendas históricas con capilla y jardines monumentales:
 

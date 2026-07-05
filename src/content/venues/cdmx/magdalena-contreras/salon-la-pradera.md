@@ -193,7 +193,7 @@ San Jerónimo Lídice es una colonia residencial que ofrece calles tranquilas, a
 - **Limpieza** posterior al evento
 - **Estacionamiento** para aproximadamente 35 vehículos
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 La doble altura de La Pradera y su terraza con vista hacen que los servicios profesionales de EVENTECH tengan un impacto visual excepcional:
 
@@ -255,7 +255,7 @@ Sí. La Pradera cuenta con acceso para sillas de ruedas y cumple con las normati
 ### ¿Hay prueba del espacio antes de reservar?
 Sí. La administración de La Pradera ofrece visitas al espacio de lunes a sábado con cita previa. Se recomienda visitar el salón a la hora aproximada del evento para apreciar la iluminación natural y la vista desde la terraza.
 
-## Venues Recomendados
+## Venues similares
 
 Si buscas opciones en Contreras y el sur de la CDMX:
 

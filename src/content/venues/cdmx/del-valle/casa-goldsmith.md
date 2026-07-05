@@ -199,7 +199,7 @@ Hay algo especial en celebrar en una casa. No es solo cuestión de escala o de e
 
 Cuando tus invitados recuerden tu celebración, no dirán "fuimos a un salón bonito". Dirán: "**fuimos a una casa increíble, y nos sentimos como parte de la familia**".
 
-## Servicios de EVENTECH para Casa Goldsmith
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, ofrecemos soluciones que complementan la elegancia mid-century del espacio:
 
@@ -208,7 +208,7 @@ Como partner oficial de EVENTECH, ofrecemos soluciones que complementan la elega
 - **[Salas lounge](/servicios/mobiliario/salas-lounge/)** que combinan con el mobiliario original de la casa
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** discreto para espacios residenciales
 
-## Venues Similares con Ambiente de Casa
+## Venues similares
 
 Si buscas mansiones históricas con carácter residencial auténtico:
 

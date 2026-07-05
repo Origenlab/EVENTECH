@@ -219,7 +219,7 @@ Para fotógrafos profesionales, Los Volcanes es un sueño: **la combinación de 
 
 A 1 hora de Santa Fe y 1:20 de Polanco, el venue es suficientemente cercano para que tus invitados lleguen sin problema, pero suficientemente elevado (2,600m) para que sientan que **escaparon de la ciudad hacia las montañas**.
 
-## Servicios de EVENTECH para Quinta Los Volcanes
+## Producción EVENTECH
 
 Como partner estratégico de EVENTECH, ofrecemos soluciones que complementan la estética contemporánea:
 
@@ -243,7 +243,7 @@ Como partner estratégico de EVENTECH, ofrecemos soluciones que complementan la 
 - **Seguridad** 24 horas
 - **Generador** de respaldo
 
-## Venues Similares con Arquitectura Distintiva
+## Venues similares
 
 Si buscas espacios con carácter arquitectónico fuerte:
 

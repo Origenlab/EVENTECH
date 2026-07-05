@@ -202,7 +202,7 @@ Jardín Veralí se mantiene en la categoría de precios accesibles ($), una prop
 
 Para cotización actualizada, contacta al **55 4054 2299** por teléfono o WhatsApp.
 
-## Producción EVENTECH para Eventos en Jardín
+## Producción EVENTECH
 
 El entorno al aire libre de Veralí se potencia de manera espectacular con la producción profesional de **EVENTECH**, transformando el jardín de día en un espacio mágico de noche:
 
@@ -247,7 +247,7 @@ La Ciudad de México tiene un clima privilegiado para eventos al aire libre dura
 - **Zona residencial**: Entorno tranquilo que permite celebraciones con música hasta la hora permitida
 - **Estacionamiento**: Espacio propio incluido en la renta
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si deseas explorar más opciones en Gustavo A. Madero, tanto jardines como salones cerrados:
 

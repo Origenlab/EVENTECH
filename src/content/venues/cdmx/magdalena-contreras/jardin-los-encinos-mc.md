@@ -196,7 +196,7 @@ La **pista de baile** se instala en la zona más abierta del jardín, con superf
 - **Limpieza** posterior al evento
 - **Estacionamiento** incluido
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 El bosque de encinos se transforma al anochecer con la producción adecuada:
 
@@ -231,7 +231,7 @@ La zona alta de Magdalena Contreras presenta **temperaturas más frescas** que e
 - **Estacionamiento**: Incluido con capacidad amplia sobre terreno natural
 - **Distancia al Desierto de los Leones**: 15 minutos en auto
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas más opciones para tu evento:
 

@@ -161,7 +161,7 @@ Jardín Milán cuenta con salones interiores que garantizan la continuidad de lo
 
 La pista de baile tiene dimensiones para coreografías de XV años, vals nupcial y las horas de fiesta que caracterizan a las celebraciones mexicanas. Con la [producción de iluminación de EVENTECH](/servicios/iluminacion/), el área de baile puede convertirse en el punto focal del evento durante la noche.
 
-## Producción EVENTECH para Jardín Milán
+## Producción EVENTECH
 
 Un jardín con vegetación real es el lienzo ideal para la producción de luz profesional:
 
@@ -196,7 +196,7 @@ La flexibilidad del espacio lo hace ideal también para bautizos, primeras comun
 
 San Juan Tlihuaca es una colonia residencial consolidada en Azcapotzalco, con buen acceso desde Calzada Vallejo y conectividad hacia el norte de la CDMX y el Estado de México.
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Más opciones para tu evento en Azcapotzalco:
 

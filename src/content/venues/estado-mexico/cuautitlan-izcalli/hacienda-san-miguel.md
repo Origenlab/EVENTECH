@@ -210,7 +210,7 @@ Todo lo anterior más:
 - Coordinación con sacerdote
 - Ensayo previo incluido
 
-## Servicios de EVENTECH para Hacienda San Miguel
+## Producción EVENTECH
 
 Como partner de EVENTECH, realzamos la historia:
 
@@ -235,7 +235,7 @@ Como partner de EVENTECH, realzamos la historia:
 - Bautizos y primeras comuniones
 - Eventos corporativos elegantes
 
-## Venues Similares Coloniales
+## Venues similares
 
 Si buscas haciendas con historia:
 

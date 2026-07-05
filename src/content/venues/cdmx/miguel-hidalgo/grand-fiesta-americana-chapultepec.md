@@ -103,7 +103,7 @@ El hotel opera con **equipo profesional de planeación de eventos**: banquete, c
 
 Calz. Gral. Mariano Escobedo 756, **Anzures**, CP 11590 — a pasos del Bosque de Chapultepec, 5 minutos de Polanco y con acceso directo por Circuito Interior.
 
-## Servicios EVENTECH para este venue
+## Producción EVENTECH
 
 - **[Audiovisual](/servicios/audiovisual/)** para congresos y convenciones
 - **[Iluminación](/servicios/iluminacion/)** ambiental para cenas de gala

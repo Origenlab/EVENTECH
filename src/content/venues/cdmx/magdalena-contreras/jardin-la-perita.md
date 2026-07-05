@@ -382,7 +382,7 @@ Clientes de La Perita reportan consistentemente **ahorros de 50-70% en decoraci�
 - **Minimalista Natural:** [Sillas ghost transparentes](/servicios/mobiliario/sillas/ghost/), [mesas de vidrio](/servicios/mobiliario/mesas/cocktail/), iluminación blanca fría, cero decoración adicional. Dejar que el bosque hable solo.
 - **Vintage Campestre:** [Salas lounge vintage](/servicios/mobiliario/salas-lounge/vintage/), [sillas plegables de madera](/servicios/mobiliario/sillas/plegables/), maletas antiguas, marcos dorados, tonos pastel. Nostalgia con estilo.
 
-## Checklist EVENTECH para Tu Evento en La Perita
+## Producción EVENTECH
 
 Servicios recomendados según necesidad, todos con **15% de descuento exclusivo** como socio premium:
 
@@ -409,7 +409,7 @@ Servicios recomendados según necesidad, todos con **15% de descuento exclusivo*
 - [ ] [Tablones rústicos](/servicios/mobiliario/mesas/tablones/) para mesa de postres y centro de mesa imperial
 - [ ] [Iluminación de caminos](/servicios/iluminacion/arquitectonica/) con balizas LED
 
-## Producción Profesional EVENTECH — Equipando el Bosque para Celebrar
+## Producción EVENTECH
 
 Un evento al aire libre en un jardín natural a 2,500 metros de altitud requiere producción especializada que entienda los desafíos técnicos del entorno. EVENTECH ha desarrollado **protocolos específicos para venues como La Perita** que resuelven cada reto:
 
@@ -518,7 +518,7 @@ Catering externo permitido siempre que sea un catering autorizado o se tramite l
 
 No se realizan misas católicas formales, pero sí **ceremonias simbólicas, civiles, ecuménicas y de renovación de votos**. El Altar Natural entre los tres encinos centenarios es perfecto para estos formatos. Muchas parejas realizan su ceremonia religiosa en una iglesia cercana (hay varias en Contreras y San Ángel) y la celebración en La Perita.
 
-## Venues Recomendados para Comparar
+## Venues similares
 
 - **[Kalesh Tarango Álvaro Obregón](/directorio/cdmx/alvaro-obregon/kalesh-salon/)** — Naturaleza del poniente con salón cerrado de lujo, precio $$$
 - **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — Arquitectura colonial, jardines formales, formato de hacienda clásica

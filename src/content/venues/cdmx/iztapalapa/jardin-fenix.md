@@ -169,7 +169,7 @@ El jardín permite instalar un altar temporal bajo la palapa o entre las pérgol
 - **Seguridad** permanente durante la celebración
 - **Estacionamiento** para 35 vehículos aproximadamente
 
-## Producción EVENTECH para Jardín Fénix
+## Producción EVENTECH
 
 Los jardines al aire libre como Fénix se transforman dramáticamente con producción profesional. **EVENTECH** ofrece servicios especializados para eventos en exteriores:
 
@@ -227,7 +227,7 @@ La ubicación en Leyes de Reforma 3ra Sección ofrece acceso desde las principal
 - **Transporte público**: Rutas de transporte sobre Ermita Iztapalapa y Eje 6 Sur, Metro Constitución de 1917 accesible
 - **Estacionamiento**: Superficie vigilada para 35 vehículos con iluminación
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Explora más opciones para tu evento en Iztapalapa y la zona oriente de la CDMX:
 

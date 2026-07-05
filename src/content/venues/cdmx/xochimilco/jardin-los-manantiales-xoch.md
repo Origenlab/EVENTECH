@@ -196,7 +196,7 @@ La **pista de baile** se instala en la zona más firme del jardín, alejada de l
 - **Limpieza** posterior al evento
 - **Estacionamiento** amplio incluido
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 La presencia del lago multiplica el impacto de cualquier iluminación:
 
@@ -235,7 +235,7 @@ Esta propiedad natural del agua hace que la inversión en iluminación en Los Ma
 - **Estacionamiento**: Amplio, incluido en la renta
 - **Zona**: Barrio 18 es una zona residencial-rural de Xochimilco
 
-## Venues Recomendados en Xochimilco
+## Venues similares
 
 Si buscas más opciones para tu evento:
 

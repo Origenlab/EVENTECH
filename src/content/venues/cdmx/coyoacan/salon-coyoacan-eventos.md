@@ -157,7 +157,7 @@ Un jardín clausurado de 400m² con naranjos y bugambilias, fuente de cantera y 
 
 Mesanine con barandal de hierro forjado, ideal para grupos secundarios, mesa de honor elevada o área VIP durante eventos grandes.
 
-## Servicios de EVENTECH para Salón Coyoacán
+## Producción EVENTECH
 
 - **[Iluminación colonial](/servicios/iluminacion/decorativa/)** — Candiles, uplighting cálido y velas LED para ambientar el espacio colonial
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** — Sistemas adaptados a espacios con techos altos y materiales naturales

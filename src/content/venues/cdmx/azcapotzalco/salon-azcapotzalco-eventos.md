@@ -173,7 +173,7 @@ Vestíbulo de **120m²** con área de regalos, mesa de dulces y barra de bienven
 - **Estacionamiento:** 130 cajones propios, sin pagar extra
 - **Trayectoria:** Más de 1,500 eventos realizados con 4.2 de calificación promedio
 
-## Servicios de EVENTECH para Salón Azcapotzalco
+## Producción EVENTECH
 
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** — Para que la música suene como en concierto
 - **[Iluminación LED](/servicios/iluminacion/decorativa/)** — Para transformar el salón con los colores de cada evento

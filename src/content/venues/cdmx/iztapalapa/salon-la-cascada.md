@@ -347,7 +347,7 @@ La cocina cuenta con acceso independiente para proveedores, lo que permite carga
 
 La cascada y el jardin tropical hacen entre el **40% y 60% del trabajo decorativo** por si solos. Los clientes que decoran La Cascada como si fuera un salon neutro terminan gastando de mas. La estrategia inteligente es **complementar el agua y la vegetacion**, no competir con ellos. Tonos que armonizan con el azul del agua y el verde del jardin siempre funcionan mejor que colores que intentan opacarlos.
 
-## Produccion Profesional EVENTECH — Potenciando el Elemento Agua
+## Producción EVENTECH
 
 ### Paquetes Exclusivos para La Cascada
 
@@ -361,7 +361,7 @@ La cascada y el jardin tropical hacen entre el **40% y 60% del trabajo decorativ
 
 **Descuento exclusivo para clientes de La Cascada: 15% en iluminacion premium para cascada y carpas para jardin.**
 
-## Checklist EVENTECH — Servicios Recomendados para La Cascada
+## Producción EVENTECH
 
 Para aprovechar al maximo el potencial de este venue, el equipo EVENTECH recomienda los siguientes servicios segun el tipo de evento:
 
@@ -490,7 +490,7 @@ Muchos salones de Iztapalapa y Xochimilco ofrecen jardin, pero ninguno tiene veg
 
 Un salon premium de Polanco o Santa Fe cobra $80,000-$200,000 de renta. La Cascada ofrece un elemento escenico (la cascada) que esos venues no tienen, con una renta de $18,000-$65,000. La relacion impacto visual / precio es significativamente superior.
 
-## Venues Recomendados para Comparar
+## Venues similares
 
 - **[Salones Florett Iztapalapa](/directorio/cdmx/iztapalapa/salones-florett/)** — Moderno, renovado 2024, sin elemento acuatico pero con iluminacion DMX premium
 - **[Salon Venecia Xochimilco](/directorio/cdmx/xochimilco/salon-venecia/)** — Cerca de canales, tradicion xochimilca, gran formato hasta 500 personas

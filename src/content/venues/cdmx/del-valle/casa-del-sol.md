@@ -186,7 +186,7 @@ Para proteger los elementos originales de la casona:
 - **Seguridad** durante el evento
 - **Limpieza** pre y post evento
 
-## Producción EVENTECH para Casa del Sol
+## Producción EVENTECH
 
 Como partner de EVENTECH, realzamos la arquitectura Art Déco con producción profesional:
 
@@ -232,7 +232,7 @@ La ubicación en Del Valle Centro combina accesibilidad con contexto arquitectó
 
 Del Valle conserva un rico patrimonio arquitectónico de los años 30-50, creando un contexto visual coherente para eventos en Casa del Sol. La zona ofrece decenas de restaurantes de autor y cafeterías especializadas para brunch post-evento.
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas espacios con historia y personalidad:
 

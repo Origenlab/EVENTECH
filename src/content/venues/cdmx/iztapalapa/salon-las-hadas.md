@@ -172,7 +172,7 @@ Espacio dedicado para la preparación de la quinceañera, la novia o el festejad
 - **Seguridad** durante el evento
 - **Estacionamiento** para 25 vehículos
 
-## Producción EVENTECH para Las Hadas
+## Producción EVENTECH
 
 Para llevar la experiencia en Las Hadas a otro nivel, **EVENTECH** ofrece servicios profesionales que potencian la decoración elegante existente:
 
@@ -230,7 +230,7 @@ Este ahorro en decoración base permite a las familias destinar mayor presupuest
 - **Transporte público**: Rutas de transporte sobre Ermita Iztapalapa y Calz. Ignacio Zaragoza
 - **Estacionamiento**: Superficie vigilada para 25 vehículos
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Conoce más opciones para tu evento en Iztapalapa y la zona oriente de la CDMX:
 

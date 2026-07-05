@@ -191,7 +191,7 @@ El salón principal con techos de vigas de madera de 6 metros, chimenea de cante
 
 Salón más íntimo para eventos boutique o como sala de usos múltiples durante convenciones y retiros corporativos.
 
-## Servicios de EVENTECH para Hacienda Cuajimalpa
+## Producción EVENTECH
 
 - **[Iluminación de hacienda](/servicios/iluminacion/decorativa/)** — Uplighting en paredes coloniales, antorchas LED, iluminación de bosque
 - **[Sonido para hacienda](/servicios/audiovisual/sonido/)** — Sistemas inalámbricos adaptados a espacios abiertos entre árboles

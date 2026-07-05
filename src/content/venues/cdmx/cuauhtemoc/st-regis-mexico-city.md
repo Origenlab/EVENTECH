@@ -256,7 +256,7 @@ Celebrar en The St. Regis Mexico City es elegir un venue donde **cada detalle ha
 
 Es la diferencia entre un evento elegante y **un evento que tus invitados recordarán para siempre**.
 
-## Servicios de EVENTECH para The St. Regis Mexico City
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, potenciamos la elegancia inherente del St. Regis con tecnología de última generación:
 
@@ -267,11 +267,11 @@ Como partner oficial de EVENTECH, potenciamos la elegancia inherente del St. Reg
 - **[Pistas de baile elegantes](/servicios/pistas-baile/)** que complementan el diseño clásico
 - **[Efectos especiales sofisticados](/servicios/iluminacion/efectos-especiales/)** para momentos clave
 
-## Venues Similares de Ultra Lujo
+## Venues similares
 
 Si buscas la máxima exclusividad en ubicaciones premium:
 
 - **[Hotel W Mexico City](/directorio/cdmx/polanco/hotel-w-mexico-city/)** — Lujo contemporáneo, estética moderna
-- **[Four Seasons Hotel Mexico City](/directorio/cdmx/reforma/four-seasons-mexico-city/)** — Elegancia clásica, servicio impecable
+- **[Four Seasons Hotel Mexico City](/directorio/cdmx/cuauhtemoc/four-seasons-mexico-city/)** — Elegancia clásica, servicio impecable
 - **[Hotel Camino Real Polanco](/directorio/cdmx/polanco/hotel-camino-real/)** — Arquitectura icónica de Ricardo Legorreta
 - **[Club de Banqueros](/directorio/cdmx/lomas-chapultepec/club-de-banqueros/)** — Exclusividad social, Lomas de Chapultepec

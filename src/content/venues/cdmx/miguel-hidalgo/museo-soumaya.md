@@ -249,7 +249,7 @@ Desde cenas íntimas de 50 personas hasta eventos de 2,500+ invitados, con **inf
 
 Celebrar en el Museo Soumaya es elegir un venue donde **el arte, la arquitectura y tu evento se fusionan** en una experiencia multisensorial única. Es la oportunidad de que tus invitados caminen entre obras de Rodin, brinden bajo la geometría imposible de Fernando Romero, y recuerden tu evento como algo verdaderamente extraordinario.
 
-## Servicios de EVENTECH para Museo Soumaya
+## Producción EVENTECH
 
 Como partner de EVENTECH, potenciamos la arquitectura del museo:
 
@@ -260,7 +260,7 @@ Como partner de EVENTECH, potenciamos la arquitectura del museo:
 - **[Escenarios profesionales](/servicios/pistas-baile/tarimas-escenarios/)** para presentaciones
 - **[Iluminación de escenario](/servicios/iluminacion/escenario/)** de producción
 
-## Venues Similares de Arquitectura Icónica
+## Venues similares
 
 Si buscas espacios arquitectónicamente distintivos:
 

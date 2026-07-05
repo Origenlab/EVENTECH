@@ -217,7 +217,7 @@ Los jardines no son ornamentales: son un **ecosistema vivo** con árboles centen
 ### Accesibilidad
 A solo 30 minutos del centro de la ciudad por Periférico Sur, la hacienda combina lo mejor de ambos mundos: **tranquilidad rural con acceso urbano**.
 
-## Servicios de EVENTECH para Hacienda de Tlalpan
+## Producción EVENTECH
 
 Como partner de EVENTECH, ofrecemos soluciones completas para este venue de gran formato:
 
@@ -240,7 +240,7 @@ Como partner de EVENTECH, ofrecemos soluciones completas para este venue de gran
 - **Valet parking** ilimitado
 - **Seguridad** perimetral discreta
 
-## Venues Similares con Encanto Colonial
+## Venues similares
 
 - **[San Ángel Inn](/directorio/cdmx/san-angel/san-angel-inn/)** — Más urbano, gastronomía gourmet, restricción de horario 1am
 - **[Hacienda de los Morales](/directorio/cdmx/polanco/hacienda-de-los-morales/)** — En Polanco, mayor prestigio, precio premium

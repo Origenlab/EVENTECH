@@ -180,7 +180,7 @@ La renta de Segundo Castillo incluye:
 - **Estacionamiento** propio con capacidad limitada
 - **Zona de fotos** disponible para decorar
 
-## Producción EVENTECH para Segundo Castillo
+## Producción EVENTECH
 
 Eleva la experiencia de tu evento con servicios profesionales de **EVENTECH** que se integran perfectamente con las instalaciones del salón:
 
@@ -223,7 +223,7 @@ Desde fiestas infantiles con shows y actividades hasta celebraciones de cumplea�
 - **Estacionamiento**: Propio con capacidad limitada e iluminación
 - **Transporte público**: Múltiples rutas sobre las avenidas principales de la zona
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Conoce más opciones para tu evento en Iztacalco y la zona oriente de la CDMX:
 

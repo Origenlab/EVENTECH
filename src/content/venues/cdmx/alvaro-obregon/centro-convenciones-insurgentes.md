@@ -157,7 +157,7 @@ El espacio de **800m²** para exposiciones comerciales puede configurarse con ha
 
 Terraza exterior de **250m²** para coffee breaks, cócteles de networking y bienvenidas al aire libre.
 
-## Servicios de EVENTECH para Centro de Convenciones Insurgentes
+## Producción EVENTECH
 
 Como partner premium para producción audiovisual:
 

@@ -267,7 +267,7 @@ A pasos del **Centro Comercial Santa Fe**, restaurantes de primer nivel, y ofici
 
 Celebrar en JW Marriott Santa Fe es elegir un venue donde **la eficiencia corporativa se encuentra con la sofisticación de clase mundial**. Es la tranquilidad de saber que cada detalle técnico está cubierto, cada servicio está sincronizado, y cada participante será atendido con el estándar que espera de la marca JW Marriott.
 
-## Servicios de EVENTECH para JW Marriott Santa Fe
+## Producción EVENTECH
 
 Como partner de EVENTECH, potenciamos las capacidades del hotel:
 
@@ -278,11 +278,10 @@ Como partner de EVENTECH, potenciamos las capacidades del hotel:
 - **[Equipos de DJ profesional](/servicios/audiovisual/microfonos-dj/equipo-dj/)** para after parties
 - **[Efectos especiales](/servicios/iluminacion/efectos-especiales/)** para momentos de impacto
 
-## Venues Similares para Eventos Corporativos
+## Venues similares
 
 Si buscas sedes para convenciones y eventos empresariales:
 
 - **[Centro Citibanamex](/directorio/cdmx/miguel-hidalgo/centro-citibanamex/)** — Convenciones masivas, capacidad máxima
 - **[Hotel W Mexico City](/directorio/cdmx/polanco/hotel-w-mexico-city/)** — Lujo contemporáneo, Polanco
-- **[Hotel Marriott Reforma](/directorio/cdmx/cuauhtemoc/hotel-marriott-reforma/)** — Centro de la ciudad
 - **[Centro de Convenciones Tlatelolco](/directorio/cdmx/cuauhtemoc/centro-convenciones-tlatelolco/)** — Mayor capacidad

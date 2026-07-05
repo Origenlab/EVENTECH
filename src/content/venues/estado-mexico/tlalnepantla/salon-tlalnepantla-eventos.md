@@ -132,7 +132,7 @@ El espacio de **800m²** con techos de 5.5 metros, paredes de concreto aparente 
 
 El jardín de **400m²** con cubierta de pérgola y iluminación exterior para cócteles al aire libre en los meses sin lluvia.
 
-## Servicios de EVENTECH para Salón Tlalnepantla
+## Producción EVENTECH
 
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** — Para complementar el sistema Bose integrado con refuerzo line array
 - **[Iluminación de efectos](/servicios/iluminacion/decorativa/)** — Para sincronizar con la pista de vidrio iluminado

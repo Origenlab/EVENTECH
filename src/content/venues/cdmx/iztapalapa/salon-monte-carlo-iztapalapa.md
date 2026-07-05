@@ -174,7 +174,7 @@ Salón Monte Carlo incluye los siguientes servicios sin costo adicional:
 - **Aire acondicionado** centralizado
 - **WiFi** para invitados
 
-## Producción EVENTECH para tu Evento en Monte Carlo
+## Producción EVENTECH
 
 La estética elegante de Monte Carlo se potencia extraordinariamente con servicios profesionales de producción. **EVENTECH** ofrece soluciones que se integran perfectamente con el estilo del salón:
 
@@ -211,14 +211,12 @@ La presentación impecable de Monte Carlo proyecta profesionalismo y seriedad. C
 - **Transporte público**: Rutas de microbús sobre Ermita Iztapalapa, Metro UAM-Iztapalapa a 12 minutos
 - **Estacionamiento**: Superficie pavimentada para 35 vehículos con vigilancia
 
-## Venues Recomendados en Iztapalapa
+## Venues similares
 
 Si estás comparando opciones para tu evento en la zona oriente de la CDMX, te recomendamos visitar estos espacios:
 
 - **[Salones Florett](/directorio/cdmx/iztapalapa/salones-florett/)** — Salón premium renovado 2024 con acabados de diseñador e iluminación LED DMX, socio EVENTECH
 - **[Salón D'Valle](/directorio/cdmx/iztapalapa/salon-dvalle/)** — Estilo clásico europeo con acabados dorados y capacidad para grandes eventos
-- **[Salón Las Palmas](/directorio/cdmx/iztapalapa/salon-las-palmas-iztapalapa/)** — Espacio versátil con terraza techada y precios accesibles en la misma zona
-- **[Salón Los Arcos](/directorio/cdmx/iztapalapa/salon-los-arcos/)** — Salón tradicional con arquitectura de arcos y buen espacio para bodas
 
 ## Celebra con Elegancia en Monte Carlo
 

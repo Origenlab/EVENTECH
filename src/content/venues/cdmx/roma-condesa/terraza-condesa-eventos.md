@@ -159,7 +159,7 @@ La **cubierta retráctil de policarbonato transparente** permite operar bajo cua
 
 Un espacio interior de **120m²** con pisos de mosaico hidráulico original, molduras art-déco restauradas y bar fijo, ideal para el cóctel de llegada o como área de reposo durante el evento.
 
-## Servicios de EVENTECH para Terraza La Condesa
+## Producción EVENTECH
 
 - **[Iluminación LED para rooftop](/servicios/iluminacion/decorativa/)** — Luces colgantes, uplighting y proyecciones
 - **[Sonido compacto para terrazas](/servicios/audiovisual/sonido/)** — Sistemas sin estructuras permanentes que dañen el edificio

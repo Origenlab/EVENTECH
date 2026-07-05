@@ -160,7 +160,7 @@ Ideal para eventos íntimos de alta gama o como extensión del salón principal 
 
 La terraza arbolada de **300m²** con vista protegida de la calle es el espacio favorito para los cócteles de bienvenida durante los meses templados.
 
-## Servicios de EVENTECH para Salón Chapultepec
+## Producción EVENTECH
 
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** — Line arrays para eventos de 400 personas
 - **[Iluminación de escenario](/servicios/iluminacion/escenario/)** — Para shows y primeros bailes memorables

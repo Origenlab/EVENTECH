@@ -205,7 +205,7 @@ Al ser un jardín con catering libre, Jardín Colonial permite libertad total de
 - **Fotografía**: La hora dorada en Cuajimalpa (1 hora antes del atardecer) ofrece la mejor luz natural; aprovechar los múltiples fondos del jardín para sesiones variadas
 - **Música**: Tríos, cuartetos de cuerdas y marimba se integran naturalmente con el ambiente colonial
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Para elevar la producción de tu evento al aire libre, **EVENTECH** ofrece servicios especializados para jardines:
 
@@ -244,7 +244,7 @@ Para un jardín con el encanto y las características que Jardín Colonial ofrec
 - **Estacionamiento**: Incluido en la renta del jardín
 - **Accesibilidad**: Acceso a nivel de terreno para personas con movilidad reducida
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas más opciones en Cuajimalpa y el sur de la CDMX:
 

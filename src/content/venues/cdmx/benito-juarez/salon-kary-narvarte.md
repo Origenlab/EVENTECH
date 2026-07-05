@@ -216,7 +216,7 @@ El testimonio de quienes han organizado su boda en Salón Kary dice más que cua
 
 Tres bodas, tres reseñas, tres estrellas perfectas. Los tres testimonios comparten el mismo elemento central: la dupla Pablo–Gabriel como garantía de que todo saldrá bien.
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Para elevar el nivel visual y sonoro de tu evento en Salón Kary, EVENTECH ofrece servicios de producción que se adaptan al carácter íntimo y cálido del salón:
 
@@ -247,7 +247,7 @@ La Colonia Narvarte Poniente ofrece una de las mejores relaciones entre calidad 
 - **Estacionamientos públicos cercanos** en la zona Narvarte — la colonia cuenta con múltiples opciones a distancia caminable
 - **Zona peatonal amigable**: la colonia Narvarte es reconocida por su ambiente de barrio cosmopolita accesible
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas opciones complementarias para tu evento en Benito Juárez o Narvarte:
 

@@ -185,7 +185,7 @@ Para parejas que buscan incorporar **rituales ancestrales** en su celebración, 
 
 El spa no es solo para la novia: los novios pueden disfrutar de las pozas termales antes de la ceremonia, y los invitados que lleguen temprano pueden acceder a tratamientos a tarifas preferenciales.
 
-## Servicios de EVENTECH para Hacienda Vista Hermosa
+## Producción EVENTECH
 
 Como partner de EVENTECH, ofrecemos soluciones completas para este venue wellness:
 
@@ -208,7 +208,7 @@ Como partner de EVENTECH, ofrecemos soluciones completas para este venue wellnes
 - **Estacionamiento** amplio
 - **Seguridad** durante el evento
 
-## Venues Similares con Encanto Colonial
+## Venues similares
 
 Si te atrae el estilo hacienda con elementos especiales:
 

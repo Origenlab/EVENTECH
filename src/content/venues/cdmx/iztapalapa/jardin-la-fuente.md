@@ -172,7 +172,7 @@ Jardín de Eventos La Fuente incluye los siguientes servicios en la renta:
 - **Seguridad** durante todo el evento
 - **Estacionamiento** para aproximadamente 40 vehículos con vigilancia
 
-## Producción EVENTECH para Eventos al Aire Libre
+## Producción EVENTECH
 
 Los eventos al aire libre tienen un potencial enorme cuando se complementan con producción profesional. **EVENTECH** ofrece servicios que transforman el jardín de La Fuente:
 
@@ -231,7 +231,7 @@ La ubicación sobre la Calzada Ignacio Zaragoza facilita la llegada de invitados
 - **Estacionamiento**: Superficie con capacidad para 40 vehículos con vigilancia permanente durante el evento
 - **Conectividad**: Acceso desde Iztacalco, Venustiano Carranza y Nezahualcóyotl por la misma Calzada Zaragoza
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas otras opciones para tu evento en la zona oriente, te invitamos a conocer estos espacios:
 

@@ -205,7 +205,7 @@ Cuando tus invitados caminen por los corredores coloniales, cuando vean los jard
 
 Un evento aquí no se olvida. Y más importante aún: **no se olvida por las razones correctas**.
 
-## Venues Similares con Patrimonio Cultural
+## Venues similares
 
 Si buscas espacios históricos con arte y arquitectura excepcional:
 

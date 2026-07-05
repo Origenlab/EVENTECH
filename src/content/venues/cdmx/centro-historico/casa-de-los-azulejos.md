@@ -200,7 +200,7 @@ La cocina de la Casa de los Azulejos tiene más de 100 años de experiencia. Los
 ### Exclusividad Garantizada
 Los eventos se realizan **después del horario comercial**, asegurando privacidad total. El palacio es tuyo por una noche.
 
-## Servicios de EVENTECH para Casa de los Azulejos
+## Producción EVENTECH
 
 Como partner de EVENTECH, ofrecemos servicios especializados para este venue histórico:
 
@@ -219,7 +219,7 @@ Como partner de EVENTECH, ofrecemos servicios especializados para este venue his
 - **Valet parking** con servicio en calle Madero
 - **Seguridad** discreta durante el evento
 
-## Venues Similares en el Centro Histórico
+## Venues similares
 
 Si buscas opciones en la misma zona con diferentes características:
 

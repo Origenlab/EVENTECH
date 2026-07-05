@@ -180,7 +180,7 @@ Salón Fénix mantiene sus tarifas bajas incluyendo exclusivamente los servicios
 - **Limpieza** posterior al evento
 - **Estacionamiento** para aproximadamente 20 vehículos
 
-## Producción EVENTECH para tu Evento
+## Producción EVENTECH
 
 Para familias que desean dar un toque especial a su celebración en Fénix, **EVENTECH** ofrece paquetes adaptados a espacios de menor escala y presupuestos moderados:
 
@@ -216,14 +216,12 @@ Fénix permite organizar unos XV años dignos para hasta 200 invitados a una fra
 - **Transporte público**: Rutas de microbús sobre Av. de las Torres y Av. Tláhuac
 - **Estacionamiento**: Superficie para 20 vehículos, estacionamiento adicional en vía pública
 
-## Venues Recomendados en Iztapalapa
+## Venues similares
 
 Si buscas opciones adicionales en la zona, te invitamos a conocer estos espacios:
 
 - **[Salón Platino](/directorio/cdmx/iztapalapa/salon-platino/)** — Salón moderno y accesible en Santiago Acahualtepec con acabados contemporáneos
 - **[Salón de Fiestas Anely](/directorio/cdmx/iztapalapa/salon-de-fiestas-anely/)** — Espacio íntimo para eventos hasta 150 personas en Leyes de Reforma
-- **[Salón San Lorenzo](/directorio/cdmx/iztapalapa/salon-san-lorenzo/)** — Salón familiar en San Lorenzo Tezonco para celebraciones de la zona sur
-- **[Salón Río Azul](/directorio/cdmx/iztapalapa/salon-rio-azul/)** — Espacio con decoración temática acuática para eventos en Iztapalapa
 
 ## Celebrar es lo que Importa
 

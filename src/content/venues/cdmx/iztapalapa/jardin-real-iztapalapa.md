@@ -178,7 +178,7 @@ La cocina industrial está equipada para atender banquetes de hasta 280 personas
 - **Aire acondicionado** en el salón techado
 - **Mantenimiento del jardín** (césped, arbustos, limpieza)
 
-## Producción EVENTECH para tu Evento en Jardín Real
+## Producción EVENTECH
 
 La combinación de jardín y salón abre posibilidades de producción extraordinarias. **EVENTECH** ofrece servicios especializados para ambos espacios:
 
@@ -229,13 +229,11 @@ Las lluvias vespertinas son frecuentes pero generalmente se concentran entre las
 - **Transporte público**: Rutas de microbús sobre Av. México 68, conexión con estación Metro Santa Martha
 - **Estacionamiento**: Superficie para 35 vehículos con vigilancia durante el evento
 
-## Venues Recomendados en Iztapalapa
+## Venues similares
 
 Si buscas más opciones con jardín o espacio al aire libre en la zona:
 
 - **[Salón La Cascada](/directorio/cdmx/iztapalapa/salon-la-cascada/)** — Jardín con cascada natural para bodas al aire libre en Iztapalapa
-- **[Jardín Tepetongo](/directorio/cdmx/iztapalapa/jardin-tepetongo/)** — Jardín amplio con palapa y zona verde para eventos al aire libre
-- **[Salón Jardín Santa Martha](/directorio/cdmx/iztapalapa/salon-jardin-santa-martha/)** — Espacio con jardín y salón integrado en la misma colonia
 - **[Salón Jardín Los Pinos](/directorio/cdmx/iztapalapa/salon-jardin-los-pinos/)** — Venue con áreas verdes y salón techado en Iztapalapa
 
 ## La Naturaleza como Escenario de tu Celebración

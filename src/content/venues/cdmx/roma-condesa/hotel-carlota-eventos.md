@@ -433,7 +433,7 @@ Todo lo anterior más:
 - Iluminación mapping en jardín vertical
 - Pirotecnia fría
 
-## Servicios EVENTECH para Hotel Carlota
+## Producción EVENTECH
 
 ### Iluminación Contemporánea
 - **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** que resalta el jardín vertical
@@ -456,7 +456,7 @@ Todo lo anterior más:
 - **Travel + Leisure** — "#3 Best Hotels in Mexico City" (2023)
 - **The New York Times** — "36 Hours in Mexico City" (mención, 2022)
 
-## Hoteles y Venues Similares
+## Venues similares
 
 - **[Azul Histórico Terraza](/directorio/cdmx/centro-historico/azul-historico-terraza/)** — Rooftop gastronómico Centro Histórico
 - **[Casa de Piedra Valle](/directorio/estado-mexico/valle-de-bravo/casa-de-piedra-valle/)** — Villa de Alberto Kalach

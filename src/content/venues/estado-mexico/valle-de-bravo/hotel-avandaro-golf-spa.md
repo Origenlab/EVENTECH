@@ -191,7 +191,7 @@ Mientras la novia se prepara o los novios descansan, los invitados pueden disfru
 - **Paseos en lancha** por el lago (con proveedores locales)
 - **Caminatas** por los senderos boscosos del resort
 
-## Servicios de EVENTECH para Hotel Avándaro
+## Producción EVENTECH
 
 Como partner de EVENTECH, ofrecemos soluciones especializadas para este venue de destino:
 
@@ -213,7 +213,7 @@ Como partner de EVENTECH, ofrecemos soluciones especializadas para este venue de
 - **Valet parking** y transporte interno en carrito de golf
 - **Seguridad** 24 horas
 
-## Venues Similares para Bodas Destino
+## Venues similares
 
 Si buscas experiencias de boda destino en la región:
 

@@ -191,7 +191,7 @@ El acceso al **Regency Club del piso 14** puede incorporarse como área exclusiv
 
 Para eventos con invitados foráneos, el hotel gestiona **bloques de habitaciones** a tarifas preferenciales. Las **8 suites con terrazas privadas** son ideales para la pareja en bodas, el keynote speaker en congresos o el director general en retiros ejecutivos.
 
-## Producción EVENTECH en el Hyatt Insurgentes
+## Producción EVENTECH
 
 La altura de 3.96 metros y la configuración modular de los salones permiten desplegar producción técnica de alto nivel:
 

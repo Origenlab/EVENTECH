@@ -186,7 +186,7 @@ Al atardecer, la golden hour en El Pinal tiene una duración prolongada gracias 
 - **Seguridad** con personal durante el evento
 - **Estacionamiento** para aproximadamente 30 vehículos
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Los eventos al aire libre entre pinos requieren producción especializada. **EVENTECH** ofrece servicios diseñados para jardines arbolados como El Pinal:
 
@@ -252,7 +252,7 @@ Sí. Muchas parejas realizan ceremonias simbólicas bajo los pinos. Para ceremon
 ### ¿A qué hora se recomienda llegar para fotos?
 Para sesiones fotográficas, la hora ideal es entre las 16:00 y las 18:00, cuando la luz se filtra horizontalmente entre los pinos creando la famosa "luz de catedral" que los fotógrafos de la CDMX buscan activamente.
 
-## Venues Recomendados
+## Venues similares
 
 Si buscas opciones en Contreras y el sur de la CDMX:
 

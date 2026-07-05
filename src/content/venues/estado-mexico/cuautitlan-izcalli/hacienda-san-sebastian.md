@@ -179,7 +179,7 @@ Hay quienes piensan que para tener una boda en hacienda necesitas gastar una for
 
 Cuando tus invitados vean los arcos iluminados por primera vez, cuando tu novia camine bajo ellos hacia el altar, cuando bailen su primer baile en el salón virreinal, nadie preguntará si la hacienda es del siglo XVIII o del XXI. **Solo verán la belleza, sentirán la magia, y recordarán tu celebración como algo especial**.
 
-## Servicios de EVENTECH para Hacienda San Sebastián
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, ofrecemos soluciones que realzan la arquitectura colonial del espacio:
 
@@ -188,7 +188,7 @@ Como partner oficial de EVENTECH, ofrecemos soluciones que realzan la arquitectu
 - **[Pantallas LED](/servicios/audiovisual/pantallas-led/)** para presentaciones corporativas y ceremonias
 - **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** con fairy lights en corredores y terraza mirador
 
-## Venues Similares con Arquitectura Colonial
+## Venues similares
 
 Si buscas espacios con estética de hacienda en el norte del Estado de México:
 

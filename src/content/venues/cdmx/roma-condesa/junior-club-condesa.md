@@ -103,7 +103,7 @@ El salón se especializa en **bodas, graduaciones y XV años**. Para bodas, el o
 
 Sindicalismo 3, **Hipódromo Condesa**, CP 06170 — al poniente de la colonia, con acceso por Av. Jalisco y Viaducto Miguel Alemán.
 
-## Servicios EVENTECH para este venue
+## Producción EVENTECH
 
 - **[Iluminación decorativa](/servicios/iluminacion/)** para ambientar el salón
 - **[Pistas de baile](/servicios/pistas-baile/)** iluminadas para bodas y XV años

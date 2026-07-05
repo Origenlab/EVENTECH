@@ -182,7 +182,7 @@ El salón permite la entrada de equipo de catering sin restricciones y cuenta co
 
 La ausencia de banquete obligatorio también beneficia al presupuesto: las familias invierten exactamente lo que desean en alimentos y pueden destinar el ahorro a otros servicios como iluminación profesional, DJ o decoración.
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Para darle un toque profesional a cualquier celebración en el Salón Vicky, **EVENTECH** ofrece servicios que transforman el espacio:
 
@@ -238,7 +238,7 @@ En fin de semana, los eventos pueden extenderse hasta las 03:00 AM, uno de los h
 ### ¿Hay acceso para sillas de ruedas?
 Sí. El Salón Vicky cuenta con acceso a nivel de calle sin escalones y espacio suficiente para la circulación de sillas de ruedas dentro del salón.
 
-## Venues Recomendados
+## Venues similares
 
 Si buscas opciones en Tláhuac y el suroriente de la CDMX:
 

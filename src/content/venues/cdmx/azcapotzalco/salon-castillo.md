@@ -371,7 +371,7 @@ Salon Castillo trabaja con caterings autorizados que conocen la logistica del es
 
 La regla de oro es: **no compitas con la arquitectura, complementala**. Los arcos ojivales, las antorchas, los vitrales y la escalinata ya generan el 50-70% del impacto visual. La decoracion mas efectiva es la que resalta estos elementos, no la que intenta taparlos. Flores en los arcos, tela en la escalinata, velas en las mesas — elementos que enmarcan la arquitectura, no que la ocultan.
 
-## Produccion Profesional EVENTECH — Donde la Tecnologia Potencia la Fantasia
+## Producción EVENTECH
 
 La arquitectura tematica del Castillo es una base excepcional. Pero cuando EVENTECH integra su produccion profesional, la fantasia se convierte en **experiencia cinematografica inmersiva**:
 
@@ -389,7 +389,7 @@ La arquitectura tematica del Castillo es una base excepcional. Pero cuando EVENT
 
 **Descuento exclusivo para clientes de Salon Castillo: 15% en iluminacion tematica, efectos especiales y mobiliario premium.**
 
-## Checklist EVENTECH — Servicios Recomendados para Salon Castillo
+## Producción EVENTECH
 
 Para aprovechar al maximo el potencial de este venue unico, el equipo EVENTECH recomienda:
 
@@ -519,7 +519,7 @@ Un venue premium en Polanco cobra $150,000-$300,000 de renta y ofrece elegancia 
 
 Segundo Castillo es un venue tematico interesante pero de menor escala. Salon Castillo supera en: superficie (1,500 vs ~800 m²), altura de arcos (6m vs ~4m), escalinata ceremonial dedicada, Salon de la Torre como espacio independiente, y alianza premium con EVENTECH para produccion profesional. Para eventos de mas de 200 personas, Salon Castillo es la opcion superior.
 
-## Venues Recomendados para Comparar
+## Venues similares
 
 - **[La Industrial Azcapotzalco](/directorio/cdmx/azcapotzalco/la-industrial/)** — Industrial contemporaneo vs. medieval gotico, misma alcaldia, concepto opuesto para quien busca comparar estilos
 - **[Salon Partenon Tlalpan](/directorio/cdmx/tlalpan/salon-partenon/)** — Clasico griego vs. medieval gotico, formato tematico similar pero estetica completamente diferente

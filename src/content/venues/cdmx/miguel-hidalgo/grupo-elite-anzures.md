@@ -126,7 +126,7 @@ Ceremonia, decoración, música, fotografía y transporte se contratan en el mis
 
 Cto. Interior Melchor Ocampo 193, **Verónica Anzures**, CP 11300 — acceso directo por Circuito Interior, cerca del Metro San Cosme y de la zona hotelera de Reforma.
 
-## Servicios EVENTECH para este venue
+## Producción EVENTECH
 
 - **[Pistas de baile iluminadas](/servicios/pistas-baile/)** para bodas y XV años
 - **[Iluminación decorativa](/servicios/iluminacion/)** para jardín y terraza

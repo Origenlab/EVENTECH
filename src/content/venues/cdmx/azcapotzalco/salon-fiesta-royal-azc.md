@@ -210,7 +210,7 @@ La renta de Salón Fiesta Royal incluye:
 - **WiFi** para invitados
 - **Accesibilidad universal** completa
 
-## Producción EVENTECH para Fiesta Royal
+## Producción EVENTECH
 
 El ambiente cuidado de Fiesta Royal se potencia extraordinariamente con producción profesional de **EVENTECH**:
 
@@ -251,7 +251,7 @@ Bautizos, comuniones, cumpleaños y aniversarios encuentran en Fiesta Royal un e
 
 La colonia Prados del Rosario ofrece un entorno residencial tranquilo con buena seguridad, ideal para eventos que se extienden hasta tarde sin las complicaciones de tráfico y ruido que caracterizan a zonas más comerciales.
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Explora más opciones para tu evento en Azcapotzalco:
 

@@ -160,7 +160,7 @@ La cocina equipada con **estufa industrial, horno, refrigerador y mesas de prepa
 - **Aire acondicionado** durante todo el evento
 - **Estacionamiento** para aproximadamente 30 vehículos
 
-## Producción Profesional EVENTECH
+## Producción EVENTECH
 
 Las superficies reflectantes del Diamante hacen que la producción profesional de **EVENTECH** tenga un impacto multiplicado:
 
@@ -197,14 +197,11 @@ El brillo y la luminosidad del espacio crean un ambiente mágico para las fiesta
 - **Transporte público**: Metro Deportivo Oceanía (Línea 5) a 15 minutos, rutas sobre Av. 608 y Av. San Juan de Aragón
 - **Estacionamiento**: Superficie propia para aproximadamente 30 vehículos
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas opciones en San Juan de Aragón y GAM:
 
 - **[Salón Monaco Jardín](/directorio/cdmx/gustavo-a-madero/salon-monaco-jardin/)** — Salón premium con jardín en GAM, socio EVENTECH, hasta 500 personas
-- **[Salón Las Palmas GAM](/directorio/cdmx/gustavo-a-madero/salon-las-palmas-gam/)** — Salón accesible con buena capacidad en la zona norte
-- **[Salón Los Arcos GAM](/directorio/cdmx/gustavo-a-madero/salon-los-arcos-gam/)** — Estilo clásico con arcos decorativos, ambiente acogedor
-- **[Salón Crystal GAM](/directorio/cdmx/gustavo-a-madero/salon-crystal-gam/)** — Espacio con acabados cristalinos para eventos elegantes
 
 ## Donde la Luz se Multiplica
 

@@ -184,7 +184,7 @@ El Centro Cultural Mexiquense está equipado para **eventos de producción a esc
 - **Decoración** especializada con coordinación institucional
 - **Permisos** de venta de bebidas alcohólicas para eventos privados
 
-## Producción de Gran Formato con EVENTECH
+## Producción EVENTECH
 
 Como partner de EVENTECH, el Centro Cultural ofrece un **15% de descuento** en producción audiovisual profesional para potenciar las capacidades del complejo:
 
@@ -228,7 +228,7 @@ El Centro Cultural Mexiquense se ubica sobre el **Boulevard Jesús Reyes Heroles
 
 El estacionamiento para más de 2,000 vehículos es uno de los más amplios de cualquier venue en el Estado de México.
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Descubre más opciones para eventos de escala en Toluca, Metepec y CDMX:
 

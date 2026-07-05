@@ -210,7 +210,7 @@ Villa Portilla se posiciona en la categoría de precios moderados ($$), un rango
 
 Para cotización actualizada, contacta al **55 3478 0299** por teléfono o WhatsApp.
 
-## Producción EVENTECH en Villa Portilla
+## Producción EVENTECH
 
 La arquitectura de cantera y el patio interior de Villa Portilla son el escenario perfecto para producción profesional **EVENTECH** que potencie la esencia mexicana del espacio:
 
@@ -249,7 +249,7 @@ Eventos íntimos de 50 a 120 personas se benefician del patio interior como espa
 - **Estacionamiento**: Superficie vigilada para 30 vehículos
 - **Acceso proveedores**: Entrada lateral independiente para carga y descarga de caterings
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas explorar más opciones en Gustavo A. Madero y alrededores:
 

@@ -197,7 +197,7 @@ Techos abovedados de 5 metros con vigas de madera original, dos chimeneas de can
 
 Salón más íntimo junto al arroyo que cruza la propiedad. El sonido del agua corriente crea una ambientación natural única.
 
-## Servicios de EVENTECH para Hacienda Contreras
+## Producción EVENTECH
 
 - **[Iluminación de bosque](/servicios/iluminacion/decorativa/)** — Spotlights en troncos, caminos de luz y uplighting en copas de árboles
 - **[Sonido inalámbrico](/servicios/audiovisual/sonido/)** — Sistemas sin cables adaptados al terreno boscoso

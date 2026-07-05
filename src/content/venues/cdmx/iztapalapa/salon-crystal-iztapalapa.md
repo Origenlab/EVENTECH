@@ -185,7 +185,7 @@ Salón Crystal incluye en su tarifa:
 - **Limpieza** posterior al evento
 - **Estacionamiento** para aproximadamente 30 vehículos
 
-## Producción EVENTECH para tu Evento
+## Producción EVENTECH
 
 Las superficies reflectantes de Salón Crystal crean un efecto multiplicador para cualquier elemento de producción profesional. **EVENTECH** ofrece servicios que aprovechan esta característica única:
 
@@ -222,14 +222,13 @@ La zona de cristal y los paneles de espejo convierten a Crystal en una locación
 - **Transporte público**: Rutas de microbús sobre Av. Tláhuac, Tren Ligero a 15 minutos
 - **Estacionamiento**: Superficie para aproximadamente 30 vehículos
 
-## Venues Recomendados en Iztapalapa
+## Venues similares
 
 Si deseas explorar más opciones para tu evento, te recomendamos estos espacios en la zona:
 
 - **[Salón Esmeralda](/directorio/cdmx/iztapalapa/salon-esmeralda-iztapalapa/)** — Salón elegante con acabados en esmeralda y dorado en Santa María Aztahuacán
 - **[Salón Platino](/directorio/cdmx/iztapalapa/salon-platino/)** — Espacio moderno y accesible con acabados contemporáneos en Santiago Acahualtepec
 - **[Salones Florett](/directorio/cdmx/iztapalapa/salones-florett/)** — Salón premium renovado 2024 con acabados de diseñador y socio EVENTECH
-- **[Salón Los Arcos](/directorio/cdmx/iztapalapa/salon-los-arcos/)** — Espacio clásico con arcos decorativos para eventos tradicionales en Iztapalapa
 
 ## Un Espacio que Multiplica la Celebración
 

@@ -220,7 +220,7 @@ Hay venues modernos que intentan verse industriales con decoración. Y hay **Lor
 
 Cuando tus invitados entren a la nave principal y levanten la vista hacia esos techos de 12 metros sostenidos por cerchas centenarias, cuando caminen por la plaza empedrada bajo la sombra de chimeneas que vieron nacer la industria de este país, sabrán que están en un lugar **donde la historia no es decoración: es la estructura misma del espacio**.
 
-## Servicios de EVENTECH para Loreto y Peña Pobre
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, ofrecemos soluciones que complementan la estética industrial del venue:
 
@@ -229,7 +229,7 @@ Como partner oficial de EVENTECH, ofrecemos soluciones que complementan la esté
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** calibrado para espacios de gran altura con superficies duras
 - **[Pantallas LED](/servicios/audiovisual/pantallas-led/)** de alto brillo para naves industriales
 
-## Venues Similares con Carácter Industrial
+## Venues similares
 
 Si buscas espacios con arquitectura industrial distintiva:
 

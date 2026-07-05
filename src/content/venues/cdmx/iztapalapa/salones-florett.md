@@ -344,7 +344,7 @@ La renovación 2024 de Florett fue diseñada con una filosofía decorativa delib
 
 La mayoría de los salones ofrecen iluminación fija — generalmente blanca o de un solo color. El sistema DMX de Florett permite que la iluminación **sea parte integral de la decoración**. Si tu concepto es blush y dorado, las 48 luminarias se programan en esos tonos exactos. Si quieres transiciones — cena en tono cálido, vals en azul, fiesta en multicolor — el controlador DMX lo ejecuta con precisión. Esta capacidad elimina la necesidad de contratar iluminación decorativa adicional para el ambiente base, aunque EVENTECH puede complementar con [uplighting](/servicios/iluminacion/arquitectonica/uplighting/), [wash lights](/servicios/iluminacion/arquitectonica/wash-lights/) y [efectos robóticos](/servicios/iluminacion/escenario/) para llevar la producción al siguiente nivel.
 
-## Checklist EVENTECH — Servicios Recomendados para Florett
+## Producción EVENTECH
 
 Para aprovechar al máximo tu evento en Salones Florett con el **15% de descuento exclusivo** como socio EVENTECH:
 
@@ -358,7 +358,7 @@ Para aprovechar al máximo tu evento en Salones Florett con el **15% de descuent
 - [ ] **[Pista de baile LED](/servicios/pistas-baile/pistas-led/)** — Con iniciales, monogramas, animaciones o diseños que reaccionan al ritmo
 - [ ] **[Mesa de postres](/servicios/mobiliario/barras/postres/)** — [Mesa acrílico LED](/servicios/mobiliario/barras/postres/), [mesa vintage](/servicios/mobiliario/barras/postres/), o [kit candy bar completo](/servicios/mobiliario/barras/postres/)
 
-## Producción Profesional EVENTECH — El Upgrade que Marca la Diferencia
+## Producción EVENTECH
 
 La alianza entre Florett y EVENTECH no es superficial. El equipo técnico de EVENTECH ha **mapeado cada punto eléctrico, cada ángulo de montaje y cada posibilidad acústica** del venue durante más de 150 instalaciones realizadas desde la reapertura en 2024. Esta experiencia se traduce en montajes más rápidos, configuraciones optimizadas y resultados superiores.
 

@@ -200,7 +200,7 @@ La renta del Salón Imperial incluye:
 - **WiFi** para invitados
 - **Accesibilidad universal** con rampa y baños adaptados
 
-## Producción EVENTECH para Salón Imperial
+## Producción EVENTECH
 
 La estética clásica de Imperial se potencia espectacularmente con producción profesional de **EVENTECH**:
 
@@ -240,7 +240,7 @@ Imperial funciona excelentemente para graduaciones que combinan ceremonia formal
 
 La colonia Cosmopolita es una zona residencial bien consolidada con buena infraestructura vial y acceso a transporte público, lo que facilita la llegada de invitados desde diferentes puntos de la ciudad.
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Explora más opciones para tu evento en Azcapotzalco y alrededores:
 

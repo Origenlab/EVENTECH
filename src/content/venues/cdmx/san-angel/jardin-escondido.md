@@ -194,7 +194,7 @@ En un mundo de bodas de 300 invitados y salones idénticos, **Jardín Escondido 
 
 Cuando cierras la puerta de madera de Jardín Escondido y entras a ese mundo secreto de buganvilias y piedra volcánica, **dejas atrás las expectativas de otros y abrazas la celebración que siempre soñaste**.
 
-## Servicios de EVENTECH para Jardín Escondido
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, ofrecemos soluciones que complementan el ambiente bohemio del espacio:
 
@@ -202,7 +202,7 @@ Como partner oficial de EVENTECH, ofrecemos soluciones que complementan el ambie
 - **[Mobiliario vintage](/servicios/mobiliario/)** que armoniza con la estética del espacio
 - **[Carpas transparentes](/servicios/carpas/estructurales/)** discretas para protección contra lluvia sin perder la magia
 
-## Venues Similares para Bodas Íntimas y Románticas
+## Venues similares
 
 Si buscas espacios con alma para celebraciones pequeñas:
 

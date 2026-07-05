@@ -191,7 +191,7 @@ Salón Prim trabaja con un modelo de caterers autorizados que permite personaliz
 - **Limpieza** pre y post evento
 - **WiFi** para invitados
 
-## Producción EVENTECH para Salón Prim
+## Producción EVENTECH
 
 Como partner de EVENTECH, realzamos la belleza de la casona Porfiriana con producción profesional:
 
@@ -236,7 +236,7 @@ La ubicación en el corazón de la Roma no es solo conveniente — es parte inte
 - Decenas de restaurantes, bares, galerías de arte y cafeterías a pasos del venue
 - Arquitectura Porfiriana en todo el barrio para fotos adicionales antes y después del evento
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si buscas espacios íntimos con personalidad:
 

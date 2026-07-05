@@ -192,7 +192,7 @@ Para aprovechar al máximo la experiencia en El Roble, el equipo coordinador sug
 - **Considerar fairy lights EVENTECH** como elemento indispensable para eventos que se extienden después del atardecer
 - **Aprovechar el área infantil** para familias con niños pequeños
 
-## Producción EVENTECH para Jardín El Roble
+## Producción EVENTECH
 
 El Roble es un jardín que se transforma radicalmente con producción profesional. **EVENTECH** ofrece servicios que potencian la naturaleza del espacio de manera espectacular:
 
@@ -248,7 +248,7 @@ Para cotización actualizada, contacta al **55 6677 8899** por teléfono o Whats
 - **Transporte público**: Metro Vallejo (Línea 6) a 15 minutos, rutas de transporte sobre Calz. Vallejo
 - **Estacionamiento**: Superficie para 30 vehículos con vigilancia durante eventos
 
-## Venues Recomendados en la Zona
+## Venues similares
 
 Si deseas explorar otras opciones en Gustavo A. Madero o buscas un espacio cerrado como alternativa:
 

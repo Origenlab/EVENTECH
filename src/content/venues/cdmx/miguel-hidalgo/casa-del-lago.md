@@ -202,7 +202,7 @@ En Casa del Lago, las juntas de trabajo se interrumpen cuando un pato cruza nada
 
 Este es un venue para organizaciones que entienden que **los mejores eventos no son los más lujosos, sino los más memorables** —y que pocas cosas son más memorables que terminar una conferencia viendo el atardecer reflejado en las aguas del lago que ha visto pasar 700 años de historia de esta ciudad.
 
-## Servicios de EVENTECH para Casa del Lago
+## Producción EVENTECH
 
 Como partner oficial de EVENTECH, ofrecemos soluciones que respetan el entorno natural y cultural:
 
@@ -211,11 +211,11 @@ Como partner oficial de EVENTECH, ofrecemos soluciones que respetan el entorno n
 - **[Pantallas LED](/servicios/audiovisual/pantallas-led/)** para presentaciones con vista al lago
 - **[Mobiliario corporativo](/servicios/mobiliario/)** elegante para conferencias y cócteles
 
-## Venues Similares con Naturaleza y Cultura
+## Venues similares
 
 Si buscas espacios donde naturaleza y eventos corporativos convergen:
 
 - **[Jardín Botánico Tlalpan](/directorio/cdmx/tlalpan/jardin-botanico/)** — Naturaleza espectacular, ambiente académico
-- **[Hotel Camino Real Polanco](/directorio/cdmx/polanco/hotel-camino-real-polanco/)** — Jardín escultórico con obras de Tamayo y Calder
+- **[Hotel Camino Real Polanco](/directorio/cdmx/polanco/hotel-camino-real/)** — Jardín escultórico con obras de Tamayo y Calder
 - **[Centro Citibanamex](/directorio/cdmx/miguel-hidalgo/centro-citibanamex/)** — Convenciones de gran formato, más capacidad
 - **[Loreto y Peña Pobre](/directorio/cdmx/san-angel/loreto-pena-pobre/)** — Jardines y arquitectura histórica

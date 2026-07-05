@@ -184,7 +184,7 @@ En un mundo donde parece que necesitas una hipoteca para celebrar una boda, Sal�
 
 Cuando veas a tu hija bailar el vals, cuando brindes con tu familia en tu boda, cuando todos tus seres queridos estén reunidos celebrando contigo, no pensarás en el precio por persona. Pensarás en lo afortunado que eres de tener a esta gente en tu vida. **Y eso es exactamente como debe ser.**
 
-## Venues Similares con Precios Accesibles
+## Venues similares
 
 Si buscas opciones económicas en el norte y oriente del Estado de México:
 

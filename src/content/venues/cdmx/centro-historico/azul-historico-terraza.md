@@ -409,7 +409,7 @@ Todo lo anterior más:
 - **Música en vivo**: Mariachi tradicional + DJ
 - **Fuegos artificiales fríos** sincronizados con primer baile
 
-## Servicios EVENTECH para Azul Histórico
+## Producción EVENTECH
 
 Equipamiento especializado para rooftops en el Centro Histórico:
 
@@ -432,9 +432,9 @@ Equipamiento especializado para rooftops en el Centro Histórico:
 - **Award of Excellence** — Wine Spectator 2022, 2023, 2024
 - **Mención** — The New York Times "36 Hours in Mexico City" (2023)
 
-## Rooftops y Restaurantes Similares
+## Venues similares
 
-- **[Club de Banqueros](/directorio/cdmx/polanco/club-de-banqueros/)** — Club privado exclusivo en Polanco
+- **[Club de Banqueros](/directorio/cdmx/lomas-chapultepec/club-de-banqueros/)** — Club privado exclusivo en Polanco
 - **[Terraza El Contadero](/directorio/cdmx/alvaro-obregon/terraza-contadero/)** — Vistas a volcanes en El Contadero
 - **[St. Regis](/directorio/cdmx/cuauhtemoc/st-regis-mexico-city/)** — Ultra-lujo hotelero
 - **[Four Seasons](/directorio/cdmx/cuauhtemoc/four-seasons-mexico-city/)** — Elegancia con jardines
