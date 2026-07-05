@@ -29,23 +29,23 @@ address: "Vázquez de Mella 525, Col. Los Morales"
 neighborhood: "Los Morales"
 postalCode: "11510"
 coordinates:
-  lat: 19.4389
-  lng: -99.2156
+  lat: 19.4346
+  lng: -99.2084
 googleMapsUrl: "https://maps.google.com/?q=Hacienda+de+los+Morales"
 
 type: "hacienda"
 subtype: "colonial"
 
 capacity:
-  min: 50
-  max: 1500
-  cocktail: 2000
-  ceremony: 400
+  min: 20
+  max: 1000
+  cocktail: 1200
+  ceremony: 500
 
 priceRange: "$$$$"
 pricePerPerson:
-  min: 1800
-  max: 4500
+  min: 1000
+  max: 2500
 
 amenities:
   - estacionamiento
@@ -109,26 +109,9 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "10% en servicios de iluminación"
 
-rating: 4.8
-reviewCount: 156
-reviews:
-  - author: "María González"
-    date: "2024-11"
-    rating: 5
-    text: "Nuestra boda fue absolutamente mágica. El jardín principal es impresionante y el servicio impecable."
-    eventType: "boda"
-  - author: "Carlos Ramírez"
-    date: "2024-09"
-    rating: 5
-    text: "Excelente venue para eventos corporativos. Las instalaciones son de primer nivel."
-    eventType: "corporativo"
-  - author: "Dra. Lorena Castañeda — Directora Ejecutiva, AMEXCO"
-    date: "2025-01"
-    rating: 5
-    text: "Organizamos la convención anual de nuestra asociación en Hacienda de los Morales y la elección elevó el evento a un nivel que nunca habíamos logrado. La combinación del jardín monumental con los ahuehuetes centenarios para el cóctel, el Salón Virreinal para la cena de gala y los salones privados para las sesiones paralelas fue impecable. La cocina galardonada del venue hizo el resto. Regresaremos sin duda."
-    eventType: "corporativo"
-
-
+reviewsSource: "https://www.bodas.com.mx/haciendas-para-bodas/hacienda-de-los-morales--e52888"
+rating: 4.7
+reviewCount: 28
 faqs:
   - question: "¿Cuál es la capacidad de Hacienda de los Morales para eventos?"
     answer: "Hacienda de los Morales puede albergar de 50 hasta 1,500 personas en banquete y hasta 2,000 en cóctel. Para ceremonias, tiene capacidad para 400 personas. Sus múltiples salones y jardines permiten dividir o combinar espacios según el tamaño y formato del evento."
