@@ -66,8 +66,6 @@ schedule:
   curfew: "04:00"
 
 contact:
-  phone: "726 262 1234"
-  whatsapp: "55 1234 5685"
   email: "eventos@haciendasangaspar.mx"
   instagram: "@haciendasangaspar"
 

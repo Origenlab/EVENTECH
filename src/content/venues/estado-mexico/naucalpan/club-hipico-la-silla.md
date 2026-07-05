@@ -64,7 +64,6 @@ schedule:
 
 contact:
   phone: "55 5393 5678"
-  whatsapp: "55 1234 5688"
   email: "eventos@clubhipicolasilla.mx"
   instagram: "@clubhipicolasilla"
 

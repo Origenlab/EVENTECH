@@ -62,9 +62,7 @@ schedule:
   weekends: "10:00 - 03:00"
   minHours: 5
 
-contact:
-  phone: "55 5555 1234"
-  whatsapp: "55 5555 1234"
+contact: {}
 
 image: "/images/venues/salon-galaxia-hero.avif"
 gallery:

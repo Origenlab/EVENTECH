@@ -69,7 +69,6 @@ schedule:
 
 contact:
   phone: "55 5390 4567"
-  whatsapp: "55 1234 5703"
   email: "eventos@jardinlasfuentes.mx"
   instagram: "@jardinlasfuentestla"
 

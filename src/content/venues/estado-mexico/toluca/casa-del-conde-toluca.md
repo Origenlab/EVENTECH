@@ -66,7 +66,6 @@ schedule:
 
 contact:
   phone: "72 2214 5678"
-  whatsapp: "72 1234 5707"
   email: "eventos@casadelcondetoluca.mx"
   instagram: "@casadelcondetoluca"
 

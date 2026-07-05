@@ -82,7 +82,6 @@ schedule:
 
 contact:
   phone: "55 5280 4422"
-  whatsapp: "55 1234 5678"
   email: "eventos@salonchapultepec.mx"
   instagram: "@salonchapultepec"
 

@@ -92,7 +92,6 @@ restrictions:
 
 contact:
   phone: "55 5096 3000"
-  whatsapp: "55 1234 5678"
   email: "eventos@haciendadelosmorales.com"
   instagram: "@haciendadelosmorales"
   facebook: "HaciendaDeLosMorales"

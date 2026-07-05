@@ -75,7 +75,6 @@ schedule:
 
 contact:
   phone: "55 5843 2345"
-  whatsapp: "55 1234 5694"
   email: "eventos@lalupitaxochimilco.mx"
   instagram: "@lalupitaxochimilco"
 

@@ -72,7 +72,6 @@ schedule:
 
 contact:
   phone: "55 5130 5300"
-  whatsapp: "55 1234 5687"
   email: "eventos.mexicocity@hilton.com"
   instagram: "@hiltonmexicocity"
 

@@ -67,7 +67,6 @@ schedule:
 
 contact:
   phone: "55 5872 3456"
-  whatsapp: "55 1234 5701"
   email: "eventos@haciendasanmiguelcuautitlan.mx"
   instagram: "@haciendasanmiguelcuautitlan"
 

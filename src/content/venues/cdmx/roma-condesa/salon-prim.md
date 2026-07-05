@@ -64,7 +64,6 @@ schedule:
 
 contact:
   phone: "55 5564 7890"
-  whatsapp: "55 1234 5689"
   email: "eventos@salonprim.mx"
   instagram: "@salonprim"
 

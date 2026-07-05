@@ -63,8 +63,6 @@ schedule:
   curfew: "01:00"
 
 contact:
-  phone: "55 5550 1234"
-  whatsapp: "55 1234 5692"
   email: "eventos@haciendagogorron.mx"
   instagram: "@haciendagogorron"
 

@@ -68,7 +68,6 @@ schedule:
 
 contact:
   phone: "55 5360 8901"
-  whatsapp: "55 1234 5706"
   email: "eventos@quintasantalucia.mx"
   instagram: "@quintasantalucianaucalpan"
 

@@ -61,7 +61,6 @@ schedule:
 
 contact:
   phone: "55 5327 7756"
-  whatsapp: "55 1234 5695"
   email: "eventos@aupieddecochon.com.mx"
   instagram: "@aupieddecochonmx"
 

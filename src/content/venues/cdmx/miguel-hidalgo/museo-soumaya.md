@@ -72,7 +72,6 @@ schedule:
 
 contact:
   phone: "55 1103 9800"
-  whatsapp: "55 1234 5681"
   email: "eventos@museosoumaya.org"
   instagram: "@museosoumaya"
 

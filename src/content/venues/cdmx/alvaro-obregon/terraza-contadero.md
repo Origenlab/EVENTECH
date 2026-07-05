@@ -64,7 +64,6 @@ schedule:
 
 contact:
   phone: "55 5814 7890"
-  whatsapp: "55 1234 5704"
   email: "eventos@terrazacontadero.mx"
   instagram: "@terrazaelcontadero"
 

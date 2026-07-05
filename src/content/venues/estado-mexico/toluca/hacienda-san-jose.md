@@ -68,7 +68,6 @@ schedule:
 
 contact:
   phone: "722 215 3456"
-  whatsapp: "722 123 4567"
   email: "eventos@haciendasanjose.mx"
   instagram: "@haciendasanjosetoluca"
 

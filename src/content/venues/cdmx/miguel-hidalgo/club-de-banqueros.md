@@ -64,7 +64,6 @@ schedule:
 
 contact:
   phone: "55 5280 8900"
-  whatsapp: "55 1234 5702"
   email: "eventos@clubdebanqueros.mx"
   instagram: "@clubdebanquerosmx"
 

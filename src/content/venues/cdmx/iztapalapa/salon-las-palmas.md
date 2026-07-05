@@ -58,9 +58,7 @@ schedule:
   weekends: "10:00 - 03:00"
   minHours: 5
 
-contact:
-  phone: "55 1234 5678"
-  whatsapp: "55 1234 5678"
+contact: {}
 
 image: "/images/venues/salon-las-palmas-hero.avif"
 gallery:

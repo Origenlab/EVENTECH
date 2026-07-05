@@ -61,6 +61,13 @@
 
 **Los headings `## Producción EVENTECH` y `## Venues similares` son literales** — homologados en las 226 fichas el 2026-07-05. Ninguna variante nueva ("Producción Profesional...", "Venues Recomendados...", "Checklist EVENTECH...").
 
+## Integridad de datos (aplicada 2026-07-05)
+
+- **JSON-LD**: `aggregateRating` y `review` en structured data SOLO se emiten si `verified: true`. Emitir ratings fabricados en schema.org viola las guías de Google (fake reviews) y arriesga acción manual. El gate vive en `[...slug].astro`.
+- **48 contactos placeholder eliminados**: WhatsApps `55 1234 5xxx` secuenciales (39), `55 5555 xxxx` (4) y números compartidos entre venues distintos (9). Un número fabricado en producción = usuarios escribiendo a desconocidos.
+- **Pendiente continuo**: verificar teléfono principal de cada ficha legacy contra fuente oficial al retrabajarla. Los de marcas grandes (Four Seasons, St. Regis, W, Pujol, Camino Real, Hacienda de los Morales, San Ángel Inn) ya se cotejaron y son correctos.
+- **Regla para reviews legacy**: las fichas con testimonios sin fuente siguen mostrándolos en UI (decisión de producto pendiente con Frank), pero ya NO se emiten a Google. Fichas nuevas: cero reviews sin fuente.
+
 ## Checklist pre-commit
 
 - [ ] Datos con fuente (URLs anotadas)

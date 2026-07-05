@@ -64,7 +64,6 @@ schedule:
 
 contact:
   phone: "55 5573 4567"
-  whatsapp: "55 1234 5690"
   email: "eventos@casagonzalezluna.mx"
   instagram: "@casagonzalezluna"
 

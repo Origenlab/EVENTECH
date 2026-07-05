@@ -65,7 +65,6 @@ schedule:
 
 contact:
   phone: "55 5271 9800"
-  whatsapp: "55 1234 5713"
   email: "eventos@loftescandon.mx"
   instagram: "@loftescandonindustrial"
 

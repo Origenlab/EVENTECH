@@ -72,7 +72,6 @@ schedule:
 
 contact:
   phone: "55 5343 7890"
-  whatsapp: "55 7890 1234"
   email: "info@jardinesdemexico.mx"
   instagram: "@jardinesdemexico"
 

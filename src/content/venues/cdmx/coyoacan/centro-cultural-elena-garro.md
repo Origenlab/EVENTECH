@@ -67,7 +67,6 @@ restrictions:
 
 contact:
   phone: "55 5554 9012"
-  whatsapp: "55 1234 5684"
   email: "eventos@centrocultural-elenagarro.mx"
   instagram: "@cceleenagarro"
 

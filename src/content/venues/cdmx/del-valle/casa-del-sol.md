@@ -65,7 +65,6 @@ schedule:
 
 contact:
   phone: "55 5534 7890"
-  whatsapp: "55 1234 5693"
   email: "eventos@casadelsol.mx"
   instagram: "@casadelsolmx"
 

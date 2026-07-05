@@ -69,7 +69,6 @@ schedule:
 
 contact:
   phone: "55 5875 2345"
-  whatsapp: "55 1234 5699"
   email: "eventos@quintajardinesdeledenco.mx"
   instagram: "@quintajardinesdeledenco"
 

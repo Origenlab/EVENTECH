@@ -79,7 +79,6 @@ restrictions:
 
 contact:
   phone: "722 234 5678"
-  whatsapp: "55 8901 2345"
   email: "bodas@bosquesdelnvado.mx"
   instagram: "@bosquesdelnvado"
 

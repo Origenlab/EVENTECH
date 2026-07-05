@@ -79,7 +79,6 @@ restrictions:
 
 contact:
   phone: "721 143 2345"
-  whatsapp: "55 7890 1234"
   email: "eventos@haciendavistahermosa.mx"
   instagram: "@haciendavistahermosaixtapan"
 

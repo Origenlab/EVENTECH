@@ -72,7 +72,6 @@ schedule:
 
 contact:
   phone: "55 5228 1818"
-  whatsapp: "55 1234 5679"
   email: "events.mexicocity@stregis.com"
   instagram: "@stregismexicocity"
 

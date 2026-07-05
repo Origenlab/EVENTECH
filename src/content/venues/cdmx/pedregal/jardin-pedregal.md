@@ -64,7 +64,6 @@ schedule:
 
 contact:
   phone: "55 5568 3456"
-  whatsapp: "55 1234 5682"
   email: "eventos@jardinpedregal.mx"
   instagram: "@jardinpedregal"
 

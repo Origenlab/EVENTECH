@@ -69,7 +69,6 @@ schedule:
 
 contact:
   phone: "55 5290 7800"
-  whatsapp: "55 1234 5708"
   email: "eventos@haciendavistahermosa.mx"
   instagram: "@haciendavistahermosaoficial"
 

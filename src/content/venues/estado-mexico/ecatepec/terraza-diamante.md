@@ -70,7 +70,6 @@ schedule:
 
 contact:
   phone: "55 5787 6543"
-  whatsapp: "55 1234 5705"
   email: "eventos@terrazadiamante.mx"
   instagram: "@terrazadiamanteecatepec"
 

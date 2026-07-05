@@ -63,7 +63,6 @@ schedule:
 
 contact:
   phone: "722 274 1200"
-  whatsapp: "722 123 4567"
   email: "eventos@ccmexiquense.mx"
   website: "https://www.edomex.gob.mx/ccm"
   instagram: "@ccmexiquense"

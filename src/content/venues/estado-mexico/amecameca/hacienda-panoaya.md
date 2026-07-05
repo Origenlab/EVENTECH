@@ -83,7 +83,6 @@ restrictions:
 
 contact:
   phone: "597 978 5400"
-  whatsapp: "55 1234 5678"
   email: "eventos@haciendapanoaya.com"
   instagram: "@haciendapanoaya"
   facebook: "HaciendaPanoayaOficial"

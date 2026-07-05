@@ -69,7 +69,6 @@ schedule:
 
 contact:
   phone: "55 5511 3300"
-  whatsapp: "55 1234 5712"
   email: "eventos@hotelcarlota.mx"
   instagram: "@hotelcarlotacdmx"
 

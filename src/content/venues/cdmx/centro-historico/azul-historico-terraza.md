@@ -63,7 +63,6 @@ schedule:
 
 contact:
   phone: "55 5510 1316"
-  whatsapp: "55 1234 5710"
   email: "eventos@azulhistorico.com"
   instagram: "@azulhistorico"
 

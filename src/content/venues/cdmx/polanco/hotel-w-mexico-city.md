@@ -88,7 +88,6 @@ schedule:
 
 contact:
   phone: "55 9138 1800"
-  whatsapp: "55 1234 5678"
   email: "eventos.wmexico@whotels.com"
   instagram: "@wmexicocity"
 

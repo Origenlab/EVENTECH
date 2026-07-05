@@ -72,7 +72,6 @@ schedule:
 
 contact:
   phone: "722 271 5678"
-  whatsapp: "722 123 4567"
   email: "eventos@haciendasanantoniometepec.mx"
   instagram: "@hsanantoniometepec"
 

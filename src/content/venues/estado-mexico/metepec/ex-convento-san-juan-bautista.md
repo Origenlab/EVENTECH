@@ -63,7 +63,6 @@ schedule:
 
 contact:
   phone: "72 2173 4500"
-  whatsapp: "72 1234 5709"
   email: "eventos@exconventometepec.mx"
   instagram: "@exconventosanjuanbautista"
 

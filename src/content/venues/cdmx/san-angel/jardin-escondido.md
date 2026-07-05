@@ -58,7 +58,6 @@ schedule:
   curfew: "00:00"
 
 contact:
-  phone: "55 5550 1234"
   whatsapp: "55 2233 4455"
   email: "reservaciones@jardinescondido.mx"
   instagram: "@jardinescondidocdmx"
