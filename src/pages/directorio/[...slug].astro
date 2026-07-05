@@ -484,11 +484,13 @@ const jsonLd = [
       email: venue.data.contact?.email,
       priceRange: venue.data.priceRange,
       capacity: venue.data.capacity,
-      // aggregateRating solo para venues verificados por EVENTECH con reseñas
-      // de fuente real — emitir ratings sin fuente en structured data viola
-      // las guías de Google (fake reviews) y arriesga acción manual.
-      rating: venue.data.verified ? venue.data.rating : undefined,
-      reviewCount: venue.data.verified ? venue.data.reviewCount : undefined,
+      // aggregateRating OMITIDO deliberadamente (mismo criterio que
+      // serviceWithReviewJsonLd en lib/seo.ts): los ratings legacy no tienen
+      // fuente verificable y emitirlos en structured data viola las guías de
+      // Google (fake reviews) — riesgo de acción manual. Reactivar solo cuando
+      // exista pipeline de reseñas reales con fuente citable.
+      rating: undefined,
+      reviewCount: undefined,
       amenities: venue.data.amenities,
       openingHours: venue.data.schedule,
     }),
@@ -497,8 +499,9 @@ const jsonLd = [
       ? [faqJsonLd(venue.data.faqs)]
       : []
     ),
-    // Review Schema — solo venues verificados (misma regla que aggregateRating)
-    ...(venue.data.verified && venue.data.reviews && venue.data.reviews.length > 0
+    // Review Schema — DESACTIVADO (misma regla que aggregateRating): las
+    // reseñas legacy no tienen fuente verificable. Reactivar con pipeline real.
+    ...(false && venue.data.reviews && venue.data.reviews.length > 0
       ? [{
           "@context": "https://schema.org",
           "@type": "EventVenue",

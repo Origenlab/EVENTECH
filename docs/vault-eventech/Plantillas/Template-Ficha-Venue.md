@@ -63,7 +63,8 @@
 
 ## Integridad de datos (aplicada 2026-07-05)
 
-- **JSON-LD**: `aggregateRating` y `review` en structured data SOLO se emiten si `verified: true`. Emitir ratings fabricados en schema.org viola las guías de Google (fake reviews) y arriesga acción manual. El gate vive en `[...slug].astro`.
+- **JSON-LD**: `aggregateRating` y `review` de venues están DESACTIVADOS por completo en structured data (mismo criterio que `serviceWithReviewJsonLd`). Motivo: 128 fichas legacy tienen `verified: true` con ratings/reviewCounts fabricados (ej. Four Seasons "428 reseñas"), así que el flag no sirve como gate. Emitir ratings fabricados en schema.org viola las guías de Google (fake reviews) y arriesga acción manual. Reactivar SOLO con pipeline de reseñas reales citables. El switch vive en `[...slug].astro`.
+- **El flag `verified` legacy NO atestigua nada**: se repartió en 128 fichas sin verificación real. Para fichas nuevas: `verified: true` solo con validación EVENTECH en sitio.
 - **48 contactos placeholder eliminados**: WhatsApps `55 1234 5xxx` secuenciales (39), `55 5555 xxxx` (4) y números compartidos entre venues distintos (9). Un número fabricado en producción = usuarios escribiendo a desconocidos.
 - **Pendiente continuo**: verificar teléfono principal de cada ficha legacy contra fuente oficial al retrabajarla. Los de marcas grandes (Four Seasons, St. Regis, W, Pujol, Camino Real, Hacienda de los Morales, San Ángel Inn) ya se cotejaron y son correctos.
 - **Regla para reviews legacy**: las fichas con testimonios sin fuente siguen mostrándolos en UI (decisión de producto pendiente con Frank), pero ya NO se emiten a Google. Fichas nuevas: cero reviews sin fuente.
