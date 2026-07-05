@@ -7,8 +7,8 @@ shortDescription: "9 salones de estilo francés en Del Valle, BJ. 100 a 1,500 pe
 region: "cdmx"
 zone: "Benito Juárez"
 zoneSlug: "benito-juarez"
-address: "Av. Cuauhtémoc 1438, Col. Del Valle, CP 03310, Benito Juárez, CDMX"
-neighborhood: "Del Valle"
+address: "Av. Cuauhtémoc 1438, Col. Santa Cruz Atoyac, CP 03310, Benito Juárez, CDMX"
+neighborhood: "Santa Cruz Atoyac"
 postalCode: "03310"
 coordinates:
   lat: 19.3662
@@ -269,7 +269,7 @@ Aunque Le Crillon incluye iluminación y sonido en sus paquetes, **EVENTECH** pu
 
 ## Cómo Llegar a Le Crillon
 
-**Dirección:** Av. Cuauhtémoc 1438, Col. Del Valle, CP 03310, Benito Juárez, CDMX
+**Dirección:** Av. Cuauhtémoc 1438, Col. Santa Cruz Atoyac, CP 03310, Benito Juárez, CDMX
 **Referencia:** Atrás de Plaza Universidad
 
 - **Metro:** División del Norte (Línea 3), a 10 minutos caminando por Av. Cuauhtémoc

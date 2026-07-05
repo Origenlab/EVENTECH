@@ -245,6 +245,6 @@ Como partner oficial de EVENTECH, ofrecemos soluciones que respetan y realzan el
 Si buscas la autenticidad de espacios con historia:
 
 - **[Casa Awolly](/directorio/cdmx/roma-condesa/casa-awolly/)** — Art déco de 1932, rooftop panorámico, más flexible
-- **[Hacienda San Ángel](/directorio/cdmx/coyoacan/hacienda-san-angel/)** — Colonial siglo XVII, jardines románticos
+- **[Hacienda San Ángel](/directorio/cdmx/san-angel/hacienda-san-angel/)** — Colonial siglo XVII, jardines románticos
 - **[San Ángel Inn](/directorio/cdmx/san-angel/san-angel-inn/)** — Hacienda histórica con gastronomía galardonada
 - **[Casa de los Azulejos](/directorio/cdmx/centro-historico/casa-de-los-azulejos/)** — Palacio del siglo XVIII, fachada de talavera

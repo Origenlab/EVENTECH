@@ -234,7 +234,7 @@ El Pedregal de Santa Úrsula ofrece un entorno residencial tranquilo con buena a
 
 Otras opciones para tu evento en Coyoacán y alrededores:
 
-- **[Hacienda San Ángel](/directorio/cdmx/coyoacan/hacienda-san-angel/)** — Venue premium con arquitectura colonial y jardines en Coyoacán
+- **[Hacienda San Ángel](/directorio/cdmx/san-angel/hacienda-san-angel/)** — Venue premium con arquitectura colonial y jardines en Coyoacán
 - **[Salón Encantados](/directorio/cdmx/coyoacan/salon-encantados/)** — Salón amplio hasta 250 personas sobre División del Norte
 - **[Salón Partenón Tlalpan](/directorio/cdmx/tlalpan/salon-partenon/)** — Opción de mayor capacidad en Tlalpan
 - **[Jardín La Perita](/directorio/cdmx/magdalena-contreras/jardin-la-perita/)** — Jardín al aire libre para bodas y eventos

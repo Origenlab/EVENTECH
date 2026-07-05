@@ -17,7 +17,7 @@ region: "cdmx"
 zone: "La Magdalena Contreras"
 zoneSlug: "magdalena-contreras"
 address: "Insurgentes Sur 6340, La Magdalena Contreras"
-neighborhood: "La Magdalena Contreras"
+neighborhood: "La Magdalena"
 postalCode: "10200"
 coordinates:
   lat: 19.3047731

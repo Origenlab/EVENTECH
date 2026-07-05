@@ -209,4 +209,4 @@ Si buscas experiencias culinarias exclusivas para grupos íntimos:
 - **[Hacienda de los Morales](/directorio/cdmx/polanco/hacienda-de-los-morales/)** — Cocina galardonada en ambiente colonial, mayor capacidad
 - **[San Ángel Inn](/directorio/cdmx/san-angel/san-angel-inn/)** — Hacienda histórica con gastronomía mexicana de autor
 - **[Casa Awolly](/directorio/cdmx/roma-condesa/casa-awolly/)** — Cocina contemporánea en Roma, ambiente íntimo
-- **[Casa del Lago](/directorio/cdmx/coyoacan/casa-del-lago/)** — Gastronomía junto al lago de Chapultepec
+- **[Casa del Lago](/directorio/cdmx/miguel-hidalgo/casa-del-lago/)** — Gastronomía junto al lago de Chapultepec

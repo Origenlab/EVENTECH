@@ -271,6 +271,6 @@ Como partner de EVENTECH, potenciamos las capacidades del hotel:
 Si buscas hoteles de convenciones en CDMX:
 
 - **[JW Marriott Santa Fe](/directorio/cdmx/santa-fe/hotel-jw-marriott/)** — Premium en zona poniente
-- **[Centro Citibanamex](/directorio/cdmx/santa-fe/centro-citibanamex/)** — Mayor capacidad
+- **[Centro Citibanamex](/directorio/cdmx/miguel-hidalgo/centro-citibanamex/)** — Mayor capacidad
 - **[Hotel Marriott Reforma](/directorio/cdmx/cuauhtemoc/hotel-marriott-reforma/)** — Alternativa cercana
 - **[Centro de Convenciones Tlatelolco](/directorio/cdmx/cuauhtemoc/centro-convenciones-tlatelolco/)** — Capacidad masiva

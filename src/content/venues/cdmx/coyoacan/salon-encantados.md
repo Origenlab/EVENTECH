@@ -235,7 +235,7 @@ La posición sobre Avenida División del Norte ofrece conectividad directa con t
 
 Explora otras opciones para tu evento en Coyoacán y alrededores:
 
-- **[Hacienda San Ángel](/directorio/cdmx/coyoacan/hacienda-san-angel/)** — Venue premium con arquitectura colonial en Coyoacán
+- **[Hacienda San Ángel](/directorio/cdmx/san-angel/hacienda-san-angel/)** — Venue premium con arquitectura colonial en Coyoacán
 - **[Salón Romanza](/directorio/cdmx/coyoacan/salon-romanza/)** — Salón con ambiente romántico en Pedregal de Sta. Úrsula
 - **[Salón Partenón Tlalpan](/directorio/cdmx/tlalpan/salon-partenon/)** — Salón amplio en Tlalpan para eventos grandes
 - **[Jardín La Perita](/directorio/cdmx/magdalena-contreras/jardin-la-perita/)** — Jardín al aire libre en Magdalena Contreras

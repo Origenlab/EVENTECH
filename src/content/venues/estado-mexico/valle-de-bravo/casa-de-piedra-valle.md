@@ -409,5 +409,5 @@ Todo lo anterior más:
 ## Venues Similares de Diseño
 
 - **[Hacienda Vista Hermosa](/directorio/estado-mexico/huixquilucan/hacienda-vista-hermosa-huixquilucan/)** — Arquitectura colonial restaurada
-- **[Museo Soumaya](/directorio/cdmx/lomas-chapultepec/museo-soumaya/)** — Arquitectura contemporánea icónica
-- **[St. Regis](/directorio/cdmx/polanco/st-regis-mexico-city/)** — Lujo hotelero internacional
+- **[Museo Soumaya](/directorio/cdmx/miguel-hidalgo/museo-soumaya/)** — Arquitectura contemporánea icónica
+- **[St. Regis](/directorio/cdmx/cuauhtemoc/st-regis-mexico-city/)** — Lujo hotelero internacional

@@ -18,8 +18,8 @@ description: >-
 shortDescription: "Museo Soumaya Plaza Carso: venue corporativo único en México. Fachada de hexágonos de Fernando Romero. Galas y lanzamientos hasta 2,500 personas."
 
 region: "cdmx"
-zone: "Lomas de Chapultepec"
-zoneSlug: "lomas-chapultepec"
+zone: "Miguel Hidalgo"
+zoneSlug: "miguel-hidalgo"
 address: "Blvd. Miguel de Cervantes Saavedra 303, Granada"
 neighborhood: "Granada"
 postalCode: "11529"
@@ -264,7 +264,7 @@ Como partner de EVENTECH, potenciamos la arquitectura del museo:
 
 Si buscas espacios arquitectónicamente distintivos:
 
-- **[Centro Citibanamex](/directorio/cdmx/santa-fe/centro-citibanamex/)** — Convenciones de gran escala
+- **[Centro Citibanamex](/directorio/cdmx/miguel-hidalgo/centro-citibanamex/)** — Convenciones de gran escala
 - **[Palacio de Minería](/directorio/cdmx/cuauhtemoc/palacio-de-mineria/)** — Arquitectura neoclásica
 - **[Foro Kaluz](/directorio/cdmx/santa-fe/foro-kaluz/)** — Arte contemporáneo y diseño
 - **[La Industrial](/directorio/cdmx/azcapotzalco/la-industrial/)** — Arquitectura industrial renovada

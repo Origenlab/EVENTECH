@@ -139,7 +139,7 @@ publishedAt: 2025-03-01
 
 Foro Kaluz Santa Fe nació de una premisa simple: **los mejores eventos no se adaptan al espacio, el espacio se adapta al evento**. Diseñado por arquitectos especializados en venues de clase mundial, este foro de 2,500 metros cuadrados completamente diáfanos ofrece algo que pocos espacios en México pueden: la libertad total de crear cualquier ambiente, cualquier configuración, cualquier experiencia que tu evento requiera.
 
-A diferencia del [Centro Citibanamex](/directorio/cdmx/santa-fe/centro-citibanamex/), que opera a escala masiva (hasta 30,000 personas), Foro Kaluz ofrece la **misma infraestructura técnica profesional pero en formato más manejable** —perfecto para empresas que necesitan impacto sin la logística de un centro de convenciones.
+A diferencia del [Centro Citibanamex](/directorio/cdmx/miguel-hidalgo/centro-citibanamex/), que opera a escala masiva (hasta 30,000 personas), Foro Kaluz ofrece la **misma infraestructura técnica profesional pero en formato más manejable** —perfecto para empresas que necesitan impacto sin la logística de un centro de convenciones.
 
 ## Especificaciones Técnicas
 
@@ -234,7 +234,7 @@ Como partner preferente de EVENTECH, ofrecemos paquetes especializados:
 
 ## Venues Similares para Eventos Corporativos
 
-- **[Centro Citibanamex](/directorio/cdmx/santa-fe/centro-citibanamex/)** — Para eventos de +3,000 personas, expos masivas
+- **[Centro Citibanamex](/directorio/cdmx/miguel-hidalgo/centro-citibanamex/)** — Para eventos de +3,000 personas, expos masivas
 - **[La Industrial Azcapotzalco](/directorio/cdmx/azcapotzalco/la-industrial/)** — Estilo industrial, precio más accesible, hasta 800 personas
 - **[Centro de Convenciones Tlatelolco](/directorio/cdmx/cuauhtemoc/centro-convenciones-tlatelolco/)** — Opción en zona centro, capacidad similar
 

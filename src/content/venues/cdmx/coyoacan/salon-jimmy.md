@@ -234,7 +234,7 @@ El Pedregal de Santa Úrsula ofrece entorno residencial tranquilo con buena cone
 
 Explora otras opciones para tu celebración en Coyoacán y el sur de la CDMX:
 
-- **[Hacienda San Ángel](/directorio/cdmx/coyoacan/hacienda-san-angel/)** — Venue premium con arquitectura colonial para bodas
+- **[Hacienda San Ángel](/directorio/cdmx/san-angel/hacienda-san-angel/)** — Venue premium con arquitectura colonial para bodas
 - **[Salón Romanza](/directorio/cdmx/coyoacan/salon-romanza/)** — Salón romántico para XV años y bodas en la misma colonia
 - **[Salón El Mexicanito](/directorio/cdmx/coyoacan/salon-el-mexicanito/)** — Salón con ambiente mexicano en Sta. Úrsula Coapa
 - **[Jardín Nevado](/directorio/cdmx/benito-juarez/jardin-nevado/)** — Jardín para eventos en Benito Juárez

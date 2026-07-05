@@ -5,8 +5,8 @@ description: "Centro Citibanamex no es simplemente el centro de convenciones má
 shortDescription: "El más grande de LATAM: 70,000 m², 30,000 personas. Convenciones internacionales y expos de clase mundial en Santa Fe."
 
 region: "cdmx"
-zone: "Santa Fe"
-zoneSlug: "santa-fe"
+zone: "Miguel Hidalgo"
+zoneSlug: "miguel-hidalgo"
 address: "Av. del Conscripto 311, Col. Lomas de Sotelo"
 neighborhood: "Lomas de Sotelo"
 postalCode: "11200"

@@ -8,7 +8,7 @@ region: "cdmx"
 zone: "Roma-Condesa"
 zoneSlug: "roma-condesa"
 address: "Río Amazonas 73, Colonia Cuauhtémoc"
-neighborhood: "Cuauhtémoc (frontera con Roma Norte)"
+neighborhood: "Cuauhtémoc"
 postalCode: "06500"
 coordinates:
   lat: 19.4280
@@ -458,7 +458,7 @@ Todo lo anterior más:
 
 ## Hoteles y Venues Similares
 
-- **[Azul Histórico Terraza](/directorio/cdmx/polanco/azul-historico-terraza/)** — Rooftop gastronómico Centro Histórico
+- **[Azul Histórico Terraza](/directorio/cdmx/centro-historico/azul-historico-terraza/)** — Rooftop gastronómico Centro Histórico
 - **[Casa de Piedra Valle](/directorio/estado-mexico/valle-de-bravo/casa-de-piedra-valle/)** — Villa de Alberto Kalach
-- **[St. Regis](/directorio/cdmx/polanco/st-regis-mexico-city/)** — Ultra-lujo hotelero
-- **[Four Seasons](/directorio/cdmx/polanco/four-seasons-mexico-city/)** — Elegancia clásica
+- **[St. Regis](/directorio/cdmx/cuauhtemoc/st-regis-mexico-city/)** — Ultra-lujo hotelero
+- **[Four Seasons](/directorio/cdmx/cuauhtemoc/four-seasons-mexico-city/)** — Elegancia clásica

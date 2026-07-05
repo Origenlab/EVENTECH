@@ -207,6 +207,6 @@ Como partner oficial de EVENTECH, ofrecemos soluciones que complementan el ambie
 Si buscas espacios con alma para celebraciones pequeñas:
 
 - **[San Ángel Inn](/directorio/cdmx/san-angel/san-angel-inn/)** — Mayor capacidad, gastronomía legendaria, mismo barrio
-- **[Hacienda San Ángel](/directorio/cdmx/coyoacan/hacienda-san-angel/)** — Capilla del siglo XVII, jardines centenarios
+- **[Hacienda San Ángel](/directorio/cdmx/san-angel/hacienda-san-angel/)** — Capilla del siglo XVII, jardines centenarios
 - **[Roma House](/directorio/cdmx/roma-condesa/roma-house/)** — Casona porfiriana 1908, patio andaluz
 - **[Casa Awolly](/directorio/cdmx/roma-condesa/casa-awolly/)** — Art déco boutique en Roma Norte

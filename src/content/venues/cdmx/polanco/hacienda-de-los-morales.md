@@ -264,6 +264,6 @@ Como partner oficial de EVENTECH, ofrecemos soluciones premium que complementan 
 Si buscas la grandeza de las haciendas históricas:
 
 - **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — Colonial, sin límite horario, ambiente más íntimo
-- **[Hacienda San Ángel](/directorio/cdmx/coyoacan/hacienda-san-angel/)** — Siglo XVII, jardines románticos, cerca de Coyoacán
+- **[Hacienda San Ángel](/directorio/cdmx/san-angel/hacienda-san-angel/)** — Siglo XVII, jardines románticos, cerca de Coyoacán
 - **[Hacienda Santa Cecilia](/directorio/estado-mexico/huixquilucan/hacienda-santa-cecilia/)** — 10 hectáreas, capilla del XVII, a 20 min de Santa Fe
 - **[Hacienda San Martín](/directorio/estado-mexico/lerma/hacienda-san-martin/)** — Lago privado con isla, jardines franceses

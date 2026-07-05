@@ -5,8 +5,8 @@ description: "Hacienda San Ángel es un tesoro escondido del siglo XVII enclavad
 shortDescription: "Hacienda pulquera del siglo XVII con capilla barroca y jardines centenarios en el corazón de San Ángel."
 
 region: "cdmx"
-zone: "Coyoacán"
-zoneSlug: "coyoacan"
+zone: "San Ángel"
+zoneSlug: "san-angel"
 address: "Diego Rivera 50, Col. San Ángel Inn"
 neighborhood: "San Ángel Inn"
 postalCode: "01060"

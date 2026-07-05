@@ -5,8 +5,8 @@ description: "Azul Histórico Terraza es la extensión rooftop del emblemático 
 shortDescription: "Rooftop boutique del Chef Muñoz Zurita con vistas a Catedral y Centro Histórico."
 
 region: "cdmx"
-zone: "Polanco"
-zoneSlug: "polanco"
+zone: "Centro Histórico"
+zoneSlug: "centro-historico"
 address: "Isabel la Católica 30, Centro Histórico"
 neighborhood: "Centro Histórico"
 postalCode: "06000"
@@ -436,5 +436,5 @@ Equipamiento especializado para rooftops en el Centro Histórico:
 
 - **[Club de Banqueros](/directorio/cdmx/polanco/club-de-banqueros/)** — Club privado exclusivo en Polanco
 - **[Terraza El Contadero](/directorio/cdmx/alvaro-obregon/terraza-contadero/)** — Vistas a volcanes en El Contadero
-- **[St. Regis](/directorio/cdmx/polanco/st-regis-mexico-city/)** — Ultra-lujo hotelero
-- **[Four Seasons](/directorio/cdmx/polanco/four-seasons-mexico-city/)** — Elegancia con jardines
+- **[St. Regis](/directorio/cdmx/cuauhtemoc/st-regis-mexico-city/)** — Ultra-lujo hotelero
+- **[Four Seasons](/directorio/cdmx/cuauhtemoc/four-seasons-mexico-city/)** — Elegancia con jardines

@@ -7,8 +7,8 @@ shortDescription: "Salón premium 1,400m² en Iztapalapa con acceso a Metro. Has
 region: "cdmx"
 zone: "Iztapalapa"
 zoneSlug: "iztapalapa"
-address: "Av. Ermita Iztapalapa 2890, Santa María Aztahuacan"
-neighborhood: "Santa María Aztahuacan"
+address: "Av. Ermita Iztapalapa 2890, Santa María Aztahuacán"
+neighborhood: "Santa María Aztahuacán"
 postalCode: "09570"
 coordinates:
   lat: 19.3562
@@ -109,14 +109,14 @@ reviews:
   - author: "Familia Reyes Ávila"
     date: "2024-06"
     rating: 4
-    text: "Hicimos la graduación de preparatoria de nuestros hijos gemelos aquí y quedamos muy contentos. La infraestructura moderna del salón en Santa María Aztahuacan es la mejor que hemos visto en la zona oriente de CDMX. Vinieron 380 personas y todo fluyó sin contratiempos. Precio justo para la calidad que ofrecen."
+    text: "Hicimos la graduación de preparatoria de nuestros hijos gemelos aquí y quedamos muy contentos. La infraestructura moderna del salón en Santa María Aztahuacán es la mejor que hemos visto en la zona oriente de CDMX. Vinieron 380 personas y todo fluyó sin contratiempos. Precio justo para la calidad que ofrecen."
     eventType: "graduación"
 
 faqs:
   - question: "¿Cuántas personas tienen capacidad en Salón Iztapalapa Eventos?"
     answer: "Salón Iztapalapa Eventos tiene capacidad para hasta 450 personas en formato banquete y hasta 580 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
   - question: "¿Dónde está ubicado Salón Iztapalapa Eventos y cómo llegar?"
-    answer: "Salón Iztapalapa Eventos se encuentra en Av. Ermita Iztapalapa 2890, Santa María Aztahuacan, alcaldía Iztapalapa, Ciudad de México. La alcaldía cuenta con múltiples estaciones del Metro (Líneas 8, 9 y A) y es accesible desde Periférico, Canal de San Juan y otras vías principales."
+    answer: "Salón Iztapalapa Eventos se encuentra en Av. Ermita Iztapalapa 2890, Santa María Aztahuacán, alcaldía Iztapalapa, Ciudad de México. La alcaldía cuenta con múltiples estaciones del Metro (Líneas 8, 9 y A) y es accesible desde Periférico, Canal de San Juan y otras vías principales."
   - question: "¿Qué incluye la renta de Salón Iztapalapa Eventos?"
     answer: "La renta de Salón Iztapalapa Eventos incluye banquete, meseros, coordinador de eventos, mobiliario básico (mesas y sillas), mantelería. Te recomendamos confirmar los detalles específicos al momento de la cotización, ya que el paquete puede variar según el tipo de evento y la fecha seleccionada."
   - question: "¿Qué tipos de eventos se pueden realizar en Salón Iztapalapa Eventos?"

@@ -495,7 +495,7 @@ Para un espacio de esta escala, se necesita producción de escala equivalente. E
 - **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — Colonial, al aire libre, sin límite horario, estilo opuesto pero mismo prestigio en Tlalpan
 - **[Salón Monaco Jardín GAM](/directorio/cdmx/gustavo-a-madero/salon-monaco-jardin/)** — Salón + jardín, formato grande, zona norte
 - **[La Industrial Azcapotzalco](/directorio/cdmx/azcapotzalco/la-industrial/)** — Industrial, 3,000 m², mayor escala pero estilo radicalmente diferente
-- **[Centro Citibanamex Santa Fe](/directorio/cdmx/santa-fe/centro-citibanamex/)** — Convenciones masivas, precio $$$$, si se busca escala extrema
+- **[Centro Citibanamex Santa Fe](/directorio/cdmx/miguel-hidalgo/centro-citibanamex/)** — Convenciones masivas, precio $$$$, si se busca escala extrema
 
 ## La Majestuosidad como Experiencia
 

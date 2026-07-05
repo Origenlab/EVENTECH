@@ -239,7 +239,7 @@ Como partner oficial de EVENTECH, ofrecemos soluciones que realzan la belleza hi
 
 Si buscas la magia de espacios históricos con gastronomía excepcional:
 
-- **[Hacienda San Ángel](/directorio/cdmx/coyoacan/hacienda-san-angel/)** — Colonial del siglo XVII, capilla barroca, mismo barrio
+- **[Hacienda San Ángel](/directorio/cdmx/san-angel/hacienda-san-angel/)** — Colonial del siglo XVII, capilla barroca, mismo barrio
 - **[Hacienda de los Morales](/directorio/cdmx/polanco/hacienda-de-los-morales/)** — Siglo XVI en Polanco, cocina galardonada
 - **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — Sin límite horario, ambiente íntimo
 - **[Jardín Escondido](/directorio/cdmx/san-angel/jardin-escondido/)** — Boutique bohemio, más íntimo, precio accesible

@@ -5,8 +5,8 @@ description: "El St. Regis Mexico City representa la cúspide del lujo hotelero 
 shortDescription: "Hotel ultra-lujo con salones panorámicos y servicio de mayordomo en Paseo de la Reforma."
 
 region: "cdmx"
-zone: "Polanco"
-zoneSlug: "polanco"
+zone: "Cuauhtémoc"
+zoneSlug: "cuauhtemoc"
 address: "Paseo de la Reforma 439, Cuauhtémoc"
 neighborhood: "Reforma"
 postalCode: "06500"

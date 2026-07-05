@@ -18,8 +18,8 @@ description: >-
 shortDescription: "Casona porfiriana de 1905 en Colonia Roma: galería activa, librería y jardín escultórico. Venue cultural boutique para bodas íntimas y lanzamientos."
 
 region: "cdmx"
-zone: "Miguel Hidalgo"
-zoneSlug: "miguel-hidalgo"
+zone: "Roma-Condesa"
+zoneSlug: "roma-condesa"
 address: "Álvaro Obregón 99, Col. Roma Norte"
 neighborhood: "Roma Norte"
 postalCode: "06700"
@@ -231,7 +231,7 @@ Como partner oficial de EVENTECH, ofrecemos soluciones que complementan el ambie
 
 Si buscas espacios donde el arte y la arquitectura histórica convergen:
 
-- **[Casa del Lago UNAM](/directorio/cdmx/coyoacan/casa-del-lago/)** — Centro cultural con jardín escultórico junto al lago
+- **[Casa del Lago UNAM](/directorio/cdmx/miguel-hidalgo/casa-del-lago/)** — Centro cultural con jardín escultórico junto al lago
 - **[Palacio de Minería](/directorio/cdmx/cuauhtemoc/palacio-de-mineria/)** — Neoclásico monumental en el Centro Histórico
 - **[Casino Español](/directorio/cdmx/cuauhtemoc/casino-espanol/)** — Elegancia histórica con salones de época
 - **[Roma House](/directorio/cdmx/roma-condesa/roma-house/)** — Casona porfiriana 1908 en la Roma Norte

@@ -265,7 +265,7 @@ Como partner oficial de EVENTECH, complementamos la infraestructura técnica del
 
 Si buscas espacios de gran formato para eventos masivos:
 
-- **[Centro Citibanamex](/directorio/cdmx/santa-fe/centro-citibanamex/)** — El más grande de México, expos internacionales
+- **[Centro Citibanamex](/directorio/cdmx/miguel-hidalgo/centro-citibanamex/)** — El más grande de México, expos internacionales
 - **[Hotel Camino Real Polanco](/directorio/cdmx/polanco/hotel-camino-real-polanco/)** — Arquitectura icónica, hasta 2,000 personas
 - **[Foro Kaluz Santa Fe](/directorio/cdmx/santa-fe/foro-kaluz/)** — Industrial contemporáneo, alta tecnología
 - **[Hotel Marriott Toluca](/directorio/estado-mexico/toluca/hotel-marriott-toluca/)** — Convenciones con hospedaje integrado

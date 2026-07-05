@@ -8,7 +8,7 @@ region: "cdmx"
 zone: "Benito Juárez"
 zoneSlug: "benito-juarez"
 address: "Av. División del Norte 2831, Del Valle"
-neighborhood: "Del Valle"
+neighborhood: "Del Valle Centro"
 postalCode: "03100"
 coordinates:
   lat: 19.3725

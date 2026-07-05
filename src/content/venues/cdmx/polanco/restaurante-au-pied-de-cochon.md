@@ -5,8 +5,8 @@ description: "Au Pied de Cochon es el restaurante de brasserie francesa más ic�
 shortDescription: "Brasserie francesa legendaria con salones privados para eventos gastronómicos exclusivos."
 
 region: "cdmx"
-zone: "Benito Juárez"
-zoneSlug: "benito-juarez"
+zone: "Polanco"
+zoneSlug: "polanco"
 address: "Campos Elíseos 218, Polanco"
 neighborhood: "Polanco"
 postalCode: "11560"
@@ -254,6 +254,6 @@ Para eventos que requieran producción adicional:
 Si buscas experiencias gastronómicas excepcionales:
 
 - **[Pujol](/directorio/cdmx/polanco/restaurante-pujol/)** — Mexicano de autor, Top 50 World
-- **[Four Seasons Restaurant](/directorio/cdmx/polanco/four-seasons-mexico-city/)** — Hotel dining de lujo
-- **[St. Regis Restaurant](/directorio/cdmx/polanco/st-regis-mexico-city/)** — Ultra lujo, Reforma
+- **[Four Seasons Restaurant](/directorio/cdmx/cuauhtemoc/four-seasons-mexico-city/)** — Hotel dining de lujo
+- **[St. Regis Restaurant](/directorio/cdmx/cuauhtemoc/st-regis-mexico-city/)** — Ultra lujo, Reforma
 - **[San Ángel Inn](/directorio/cdmx/san-angel/san-angel-inn/)** — Tradición mexicana

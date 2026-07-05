@@ -233,7 +233,7 @@ Santa Úrsula Coapa está bien conectada con el sur de la CDMX:
 
 Otras opciones para tu celebración en Coyoacán y alrededores:
 
-- **[Hacienda San Ángel](/directorio/cdmx/coyoacan/hacienda-san-angel/)** — Venue premium con arquitectura colonial y jardines
+- **[Hacienda San Ángel](/directorio/cdmx/san-angel/hacienda-san-angel/)** — Venue premium con arquitectura colonial y jardines
 - **[Salón Romanza](/directorio/cdmx/coyoacan/salon-romanza/)** — Salón con ambiente romántico en Pedregal de Sta. Úrsula
 - **[Salón Jimmy](/directorio/cdmx/coyoacan/salon-jimmy/)** — Salón familiar con área infantil en la misma zona
 - **[Salón Partenón Tlalpan](/directorio/cdmx/tlalpan/salon-partenon/)** — Opción amplia en Tlalpan para eventos grandes

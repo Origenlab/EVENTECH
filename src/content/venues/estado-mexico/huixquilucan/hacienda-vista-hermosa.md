@@ -391,5 +391,5 @@ Si buscas opciones similares de ultra lujo e historia:
 - **[Hacienda San Miguel](/directorio/estado-mexico/cuautitlan-izcalli/hacienda-san-miguel/)** — Colonial del XVIII en Cuautitlán
 - **[Ex-Hacienda Gogorron](/directorio/cdmx/san-angel/hacienda-gogorron/)** — Colonial en San Ángel
 - **[Hacienda San Gaspar](/directorio/estado-mexico/valle-de-bravo/hacienda-san-gaspar/)** — Hacienda destino en Valle de Bravo
-- **[Museo Soumaya](/directorio/cdmx/lomas-chapultepec/museo-soumaya/)** — Arquitectura icónica contemporánea
-- **[St. Regis](/directorio/cdmx/polanco/st-regis-mexico-city/)** — Ultra-lujo hotelero en Polanco
+- **[Museo Soumaya](/directorio/cdmx/miguel-hidalgo/museo-soumaya/)** — Arquitectura icónica contemporánea
+- **[St. Regis](/directorio/cdmx/cuauhtemoc/st-regis-mexico-city/)** — Ultra-lujo hotelero en Polanco

@@ -5,8 +5,8 @@ description: "El Four Seasons Hotel Mexico City es un oasis de elegancia clásic
 shortDescription: "Elegancia clásica con jardines interiores y servicio legendario sobre Paseo de la Reforma."
 
 region: "cdmx"
-zone: "Polanco"
-zoneSlug: "polanco"
+zone: "Cuauhtémoc"
+zoneSlug: "cuauhtemoc"
 address: "Paseo de la Reforma 500, Juárez"
 neighborhood: "Juárez"
 postalCode: "06600"
@@ -263,7 +263,7 @@ Como partner de EVENTECH, complementamos la elegancia inherente del Four Seasons
 
 Si buscas sofisticación atemporal en CDMX:
 
-- **[The St. Regis Mexico City](/directorio/cdmx/polanco/st-regis-mexico-city/)** — Ultra lujo, vistas panorámicas
+- **[The St. Regis Mexico City](/directorio/cdmx/cuauhtemoc/st-regis-mexico-city/)** — Ultra lujo, vistas panorámicas
 - **[Hacienda de los Morales](/directorio/cdmx/polanco/hacienda-de-los-morales/)** — Herencia colonial, jardines históricos
 - **[Hotel Camino Real Polanco](/directorio/cdmx/polanco/hotel-camino-real/)** — Arquitectura mexicana moderna icónica
 - **[San Ángel Inn](/directorio/cdmx/san-angel/san-angel-inn/)** — Hacienda del siglo XVII, tradición pura

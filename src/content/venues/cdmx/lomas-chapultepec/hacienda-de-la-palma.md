@@ -235,4 +235,4 @@ Si buscas haciendas auténticas con capilla y jardines centenarios:
 - **[San Ángel Inn](/directorio/cdmx/san-angel/san-angel-inn/)** — Convento del siglo XVII, gastronomía galardonada
 - **[Hacienda de los Morales](/directorio/cdmx/polanco/hacienda-de-los-morales/)** — Colonial del siglo XVI en Polanco
 - **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — Sin límite de horario, 12,000 m² de jardines
-- **[Hacienda San Ángel](/directorio/cdmx/coyoacan/hacienda-san-angel/)** — Colonial con capilla barroca en Coyoacán
+- **[Hacienda San Ángel](/directorio/cdmx/san-angel/hacienda-san-angel/)** — Colonial con capilla barroca en Coyoacán

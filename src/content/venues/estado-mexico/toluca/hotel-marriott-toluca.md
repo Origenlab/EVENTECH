@@ -180,7 +180,7 @@ Como partner de EVENTECH, complementamos la tecnología del hotel con soluciones
 
 Si buscas espacios de primer nivel para convenciones y eventos de negocios:
 
-- **[Centro Citibanamex](/directorio/cdmx/santa-fe/centro-citibanamex/)** — Escala masiva hasta 30,000 personas en CDMX
+- **[Centro Citibanamex](/directorio/cdmx/miguel-hidalgo/centro-citibanamex/)** — Escala masiva hasta 30,000 personas en CDMX
 - **[Foro Kaluz](/directorio/cdmx/santa-fe/foro-kaluz/)** — Tecnología de punta en Santa Fe, hasta 1,000 personas
 - **[Hotel W Mexico City](/directorio/cdmx/polanco/hotel-w-mexico-city/)** — Lujo contemporáneo en Polanco
 - **[Salón Tlalnepantla Real](/directorio/estado-mexico/tlalnepantla/salon-tlalnepantla-real/)** — Gran formato accesible en norte del EdoMex

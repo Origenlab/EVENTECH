@@ -231,7 +231,7 @@ A pasos del corazón cultural de Coyoacán:
 
 Si buscas espacios con personalidad única en la CDMX:
 
-- **[Hacienda San Ángel](/directorio/cdmx/coyoacan/hacienda-san-angel/)** — Arquitectura colonial con jardines en Coyoacán
+- **[Hacienda San Ángel](/directorio/cdmx/san-angel/hacienda-san-angel/)** — Arquitectura colonial con jardines en Coyoacán
 - **[Salón Romanza](/directorio/cdmx/coyoacan/salon-romanza/)** — Ambiente romántico accesible en Pedregal de Sta. Úrsula
 - **[Jardín La Perita](/directorio/cdmx/magdalena-contreras/jardin-la-perita/)** — Jardín natural para bodas al aire libre
 - **[Salón Partenón Tlalpan](/directorio/cdmx/tlalpan/salon-partenon/)** — Opción amplia en Tlalpan

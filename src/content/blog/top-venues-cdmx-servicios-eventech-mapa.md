@@ -270,7 +270,7 @@ Esta guía te presenta los **12 venues más destacados** de CDMX y Estado de Mé
 | [Pista de madera clásica](/servicios/pistas-baile/madera-clasica/) | Sobre el jardín empedrado |
 | [Iluminación cálida](/servicios/iluminacion/decorativa/) | Realza la cantera rosa y los muros coloniales |
 
-[Ver ficha completa →](/directorio/cdmx/coyoacan/hacienda-san-angel/)
+[Ver ficha completa →](/directorio/cdmx/san-angel/hacienda-san-angel/)
 
 ---
 

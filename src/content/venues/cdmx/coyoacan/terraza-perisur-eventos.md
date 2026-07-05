@@ -6,7 +6,7 @@ shortDescription: "Terraza 700m² con vista al Ajusco en zona Perisur. Hasta 200
 
 region: "cdmx"
 zone: "Coyoacán"
-zoneSlug: "perisur"
+zoneSlug: "coyoacan"
 address: "Periférico Sur 4100, Jardines del Pedregal"
 neighborhood: "Perisur"
 postalCode: "04500"

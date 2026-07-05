@@ -8,7 +8,7 @@ region: "cdmx"
 zone: "Tlalpan"
 zoneSlug: "tlalpan"
 address: "Plaza de la Constitución 8, Centro de Tlalpan"
-neighborhood: "Centro de Tlalpan"
+neighborhood: "Tlalpan Centro"
 postalCode: "14000"
 coordinates:
   lat: 19.2862

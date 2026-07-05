@@ -215,4 +215,4 @@ Si buscas mansiones históricas con carácter residencial auténtico:
 - **[Roma House](/directorio/cdmx/roma-condesa/roma-house/)** — Casona porfiriana 1908 en Roma Norte
 - **[Casa Awolly](/directorio/cdmx/roma-condesa/casa-awolly/)** — Art déco boutique, ambiente íntimo
 - **[Jardín Escondido](/directorio/cdmx/san-angel/jardin-escondido/)** — Casona del siglo XIX con jardines secretos
-- **[Casa Lamm](/directorio/cdmx/miguel-hidalgo/casa-lamm/)** — Art nouveau 1911 con galería de arte
+- **[Casa Lamm](/directorio/cdmx/roma-condesa/casa-lamm/)** — Art nouveau 1911 con galería de arte

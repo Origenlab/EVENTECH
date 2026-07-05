@@ -5,8 +5,8 @@ description: "Casa del Lago es un centro cultural emblemático ubicado en el cor
 shortDescription: "Centro cultural histórico de la UNAM junto al Lago de Chapultepec con terrazas panorámicas y jardín escultórico."
 
 region: "cdmx"
-zone: "Coyoacán"
-zoneSlug: "coyoacan"
+zone: "Miguel Hidalgo"
+zoneSlug: "miguel-hidalgo"
 address: "Bosque de Chapultepec, Primera Sección"
 neighborhood: "Bosque de Chapultepec"
 postalCode: "11580"
@@ -217,5 +217,5 @@ Si buscas espacios donde naturaleza y eventos corporativos convergen:
 
 - **[Jardín Botánico Tlalpan](/directorio/cdmx/tlalpan/jardin-botanico/)** — Naturaleza espectacular, ambiente académico
 - **[Hotel Camino Real Polanco](/directorio/cdmx/polanco/hotel-camino-real-polanco/)** — Jardín escultórico con obras de Tamayo y Calder
-- **[Centro Citibanamex](/directorio/cdmx/santa-fe/centro-citibanamex/)** — Convenciones de gran formato, más capacidad
+- **[Centro Citibanamex](/directorio/cdmx/miguel-hidalgo/centro-citibanamex/)** — Convenciones de gran formato, más capacidad
 - **[Loreto y Peña Pobre](/directorio/cdmx/alvaro-obregon/loreto-pena-pobre/)** — Jardines y arquitectura histórica

@@ -450,5 +450,5 @@ Todo lo anterior más:
 ## Venues Industriales y Contemporáneos Similares
 
 - **[Hotel Carlota](/directorio/cdmx/roma-condesa/hotel-carlota-eventos/)** — Hotel boutique con arte contemporáneo
-- **[Azul Histórico Terraza](/directorio/cdmx/polanco/azul-historico-terraza/)** — Rooftop gastronómico histórico
+- **[Azul Histórico Terraza](/directorio/cdmx/centro-historico/azul-historico-terraza/)** — Rooftop gastronómico histórico
 - **[Casa de Piedra Valle](/directorio/estado-mexico/valle-de-bravo/casa-de-piedra-valle/)** — Arquitectura contemporánea en naturaleza

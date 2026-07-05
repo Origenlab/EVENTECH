@@ -8,7 +8,7 @@ region: "cdmx"
 zone: "Benito Juárez"
 zoneSlug: "benito-juarez"
 address: "Av. Insurgentes Sur 724, Col. Del Valle, CP 03100, Benito Juárez, CDMX"
-neighborhood: "Del Valle"
+neighborhood: "Del Valle Centro"
 postalCode: "03100"
 coordinates:
   lat: 19.3955

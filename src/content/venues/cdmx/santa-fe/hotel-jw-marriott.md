@@ -282,7 +282,7 @@ Como partner de EVENTECH, potenciamos las capacidades del hotel:
 
 Si buscas sedes para convenciones y eventos empresariales:
 
-- **[Centro Citibanamex](/directorio/cdmx/santa-fe/centro-citibanamex/)** — Convenciones masivas, capacidad máxima
+- **[Centro Citibanamex](/directorio/cdmx/miguel-hidalgo/centro-citibanamex/)** — Convenciones masivas, capacidad máxima
 - **[Hotel W Mexico City](/directorio/cdmx/polanco/hotel-w-mexico-city/)** — Lujo contemporáneo, Polanco
 - **[Hotel Marriott Reforma](/directorio/cdmx/cuauhtemoc/hotel-marriott-reforma/)** — Centro de la ciudad
 - **[Centro de Convenciones Tlatelolco](/directorio/cdmx/cuauhtemoc/centro-convenciones-tlatelolco/)** — Mayor capacidad

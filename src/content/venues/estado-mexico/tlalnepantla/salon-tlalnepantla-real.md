@@ -188,5 +188,5 @@ Si buscas espacios con alta capacidad en el norte del Estado de México:
 
 - **[Hacienda Santa Cecilia](/directorio/estado-mexico/huixquilucan/hacienda-santa-cecilia/)** — Hasta 1,200 personas, jardines coloniales, precio premium
 - **[Jardines de México Naucalpan](/directorio/estado-mexico/naucalpan/jardines-de-mexico/)** — Hasta 600 personas, jardín y salón, precio similar
-- **[Centro Citibanamex](/directorio/cdmx/santa-fe/centro-citibanamex/)** — Escala masiva hasta 30,000, eventos corporativos
+- **[Centro Citibanamex](/directorio/cdmx/miguel-hidalgo/centro-citibanamex/)** — Escala masiva hasta 30,000, eventos corporativos
 - **[Foro Kaluz Santa Fe](/directorio/cdmx/santa-fe/foro-kaluz/)** — Hasta 1,000 personas, tecnología de punta
