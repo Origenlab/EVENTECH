@@ -19,8 +19,9 @@ type: "hacienda"
 subtype: "colonial"
 
 capacity:
-  min: 100
+  min: 10
   max: 450
+  cocktail: 500
 
 priceRange: "$$$"
 pricePerPerson:
@@ -75,11 +76,9 @@ restrictions:
   - "Acceso limitado en temporada de lluvias extremas"
 
 contact:
-  phone: "55 5655 7890"
-  whatsapp: "55 7788 9900"
-  email: "eventos@haciendadetlalpan.mx"
-  instagram: "@haciendadetlalpan"
-  facebook: "HaciendadeTlalpan"
+  phone: "55 5655 7888"
+  email: "eventos@aht.mx"
+  website: "https://www.aht.mx/"
 
 image: "/images/venues/hacienda-tlalpan-hero.avif"
 gallery:
