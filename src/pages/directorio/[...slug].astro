@@ -102,6 +102,10 @@ const heroSrc: string = (type === "venue" && venue && imgExists(venue.data.image
 const galleryImgs: string[] = (type === "venue" && venue && venue.data.gallery)
   ? venue.data.gallery.filter(imgExists)
   : [];
+// Mapa estático self-hosted (generado por scripts/generate-static-maps.py)
+const venueFileSlug: string = (type === "venue" && venue) ? (venue.id.split("/").pop() || "").replace(".md", "") : "";
+const staticMapSrc: string = venueFileSlug ? `/images/maps/${venueFileSlug}-map.webp` : "";
+const hasStaticMap: boolean = staticMapSrc !== "" && imgExists(staticMapSrc);
 
 // Labels
 const regionLabels: Record<string, string> = {
@@ -1024,10 +1028,14 @@ const jsonLd = [
               {venue.data.googleMapsUrl && (
                 <div class="dr-vsec">
                   <h2 class="dr-vsec__title">Ubicación</h2>
-                  {/* Mapa embebido: revertido 2026-07-05 — el embed clásico de
-                      Google no renderiza tiles de forma confiable. Alternativa
-                      planificada: mapa estático generado en build (ver
-                      Plan-Directorio-Fase2, sesión visual #1 bis). */}
+                  {/* Mapa estático self-hosted (tiles OSM compuestos en build).
+                      El iframe de terceros se descartó: OSM embed exige WebGL y
+                      Google output=embed no renderiza tiles confiablemente. */}
+                  {hasStaticMap && (
+                    <a class="dr-loc__map" href={venue.data.googleMapsUrl} target="_blank" rel="noopener noreferrer" title="Abrir en Google Maps">
+                      <img src={staticMapSrc} alt={`Mapa de ubicación de ${venue.data.name}`} loading="lazy" width="1032" height="460" />
+                    </a>
+                  )}
                   <div class="dr-loc">
                     <div>
                       <p class="dr-loc__address">
