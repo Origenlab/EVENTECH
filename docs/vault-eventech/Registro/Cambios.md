@@ -2,6 +2,16 @@
 
 Changelog de todo lo generado, para mantener homologación. Fechas absolutas.
 
+## 2026-07-04 (2) — Migración DNS a Cloudflare Pages completada
+
+eventech.mx migrado de GitHub Pages a **Cloudflare Pages** (via Claude en Chrome + verificación externa):
+
+- **Zona DNS movida** a la cuenta CF de Frank (`711c2e12a6bd9cec3ec5c6a7633f147c`, ccarsolio@gmail.com). Antes vivía en una cuenta Cloudflare desconocida (NS terin/may — nunca identificada; ya irrelevante). Nuevos NS: `eleanor.ns.cloudflare.com` / `ryan.ns.cloudflare.com`, cambiados en el registrador **HOSPEDANDO.MX** (dominio vence 2027-02-14, sin DNSSEC).
+- **Custom domains** eventech.mx y www.eventech.mx → proyecto Pages `eventech` (**eventech-3dd.pages.dev** — ojo: `eventech.pages.dev` NO es nuestro, es un sitio francés de terceros). Zona solo con 2 CNAME proxied (apex y www); TXT intactos.
+- **Verificado:** NS propagados, sin header `x-github-request-id`, llms.txt/computo/www → 200.
+- **Retirado `deploy-ghpages.yml`** (dual deploy temporal del 2026-07-04). Pipeline canónico: solo `deploy.yml` → wrangler → CF Pages.
+- **Pendientes:** (a) el dominio NO tiene registros MX — contacto@eventech.mx no recibe correo; elegir proveedor y crear MX. (b) En el dash de Cloudflare apareció repetidamente un widget "Enable Agent Lee access / Create Token" — NO es funcionalidad de Cloudflare, no se tocó; revisar extensiones de Chrome.
+
 ## 2026-07-04
 
 ### Implementación plan ZeroRank (AEO) — técnico, schema, cómputo, confianza
