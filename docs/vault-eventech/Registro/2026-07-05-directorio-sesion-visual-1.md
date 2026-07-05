@@ -23,3 +23,11 @@ Cronología del intento, con verificación en cada paso:
 
 - Regresiones: 0 (imgs rotas 0, deploy verde en los 2 pushes, rollback en <10 min desde la detección)
 - Deploys de la sesión: 2/2 verdes
+
+## Sesión #1 bis — mapa estático COMPLETADA ✅ (commit `b271a5c0`)
+
+- `scripts/generate-static-maps.py`: compone mapas 1032x460 con tiles OSM z15 (caché local `.cache-tiles/` + throttle 0.2s, User-Agent identificado), pin dorado/navy de marca y atribución © OpenStreetMap contributors.
+- **223 mapas WebP** (~27MB total, q78) en `public/images/maps/` — self-hosted, cero terceros en runtime, servidos vía exactdn.
+- Template L3: `<a class="dr-loc__map">` con `<img>` lazy (solo si el archivo existe en build) que enlaza a Google Maps.
+- **Verificado en producción** con navegador real: mapa renderizado, pin correcto en Hacienda de los Morales, clic → Google Maps, 0 imágenes rotas.
+- Para venues nuevos: correr `python3 scripts/generate-static-maps.py` tras agregar coordenadas (salta los ya generados).
