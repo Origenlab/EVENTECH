@@ -2,26 +2,15 @@
 name: "Hotel W Mexico City"
 slug: "hotel-w-mexico-city"
 description: >-
-  Diseñado por el despacho Sordo Madaleno, el Hotel W Mexico City es el único
-  hotel de vanguardia en Polanco que convierte cada evento en una declaración
-  de estilo. Sobre Campos Elíseos 252 —la arteria más aspiracional de México—,
-  este ícono de 25 pisos reúne espacios transformables para celebraciones de 50
-  hasta 1,200 personas. El salón Great Room, con 800 m² de planta libre, techos
-  de seis metros y sistema de iluminación LED RGB completamente programable, se
-  reinventa para cada evento: gala corporativa de alto protocolo un sábado,
-  lanzamiento de marca global el miércoles. La Sunset Terrace en el piso 25
-  ofrece vistas de 270° del skyline de Polanco, el Castillo de Chapultepec y
-  los rascacielos de Reforma, convirtiéndose en el rooftop de eventos más
-  solicitado de la colonia. La filosofía Whatever/Whenever® garantiza que ningún
-  detalle es imposible: menús de autor diseñados evento a evento, mixología
-  certificada, estaciones de chef en vivo y wine pairing con sommelier. Para
-  bodas de lujo, la Marvelous Suite del piso 24 —120 m² con vista panorámica e
-  hidromasaje— funciona como suite nupcial privada antes de bajar al Great Room
-  ante 400 invitados en banquete. La infraestructura tecnológica de nivel
-  broadcast —audio Bose profesional, paredes móviles, WiFi premium y pantallas
-  LED modulares— posiciona al W como el venue predilecto de marcas globales que
-  buscan impacto visual inmediato en CDMX.
-shortDescription: "Diseño Sordo Madaleno en Campos Elíseos: Great Room hasta 800 banquete, rooftop 270° y filosofía W Whatever/Whenever® en Polanco."
+  El W Mexico City llevó la filosofía Whatever/Whenever® de la marca W a
+  Campos Elíseos 252, frente al Bosque de Chapultepec, en Polanco. Como venue
+  de eventos ofrece, según su propia ficha técnica, 10 salones con cerca de
+  1,000 m² totales: el Great Room de 375 m² (hasta 320 personas, divisible),
+  cuatro estudios, la sala Strategy y dos terrazas que pueden privatizarse.
+  Recibe eventos de 10 a 340 invitados con banquete propio, 233 habitaciones
+  y 38 suites para los invitados, y la energía de diseño que distingue a los
+  hoteles W. Informes al 55 9138 1800.
+shortDescription: "El W de Polanco frente a Chapultepec: 10 salones, Great Room para 320, dos terrazas privatizables y eventos de 10 a 340 invitados."
 region: "cdmx"
 zone: "Polanco"
 zoneSlug: "polanco"
@@ -37,10 +26,8 @@ type: "hotel"
 subtype: "boutique-lujo"
 
 capacity:
-  min: 50
-  max: 800
-  cocktail: 1200
-  ceremony: 300
+  min: 10
+  max: 340
 
 priceRange: "$$$$"
 pricePerPerson:
@@ -88,8 +75,9 @@ schedule:
 
 contact:
   phone: "55 9138 1800"
-  email: "eventos.wmexico@whotels.com"
+  website: "https://www.marriott.com/en-us/hotels/mexwm-w-mexico-city/events/"
   instagram: "@wmexicocity"
+  facebook: "https://www.facebook.com/wmexicocityhotel"
 
 image: "/images/venues/w-mexico-hero.avif"
 gallery:
@@ -103,28 +91,9 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "10% en servicios de audiovisual"
 
-rating: 4.7
-reviewCount: 234
-reviews:
-  - author: "Daniela Ortiz y Mauricio Ibarra"
-    date: "2025-05"
-    rating: 5
-    text: "El W Mexico City en Campos Elíseos fue el escenario perfecto para nuestra boda contemporánea. El diseño vanguardista del hotel, con esos acabados de lujo y la tecnología de iluminación programable, creó un ambiente que nuestros invitados describieron como un videoclip hecho realidad. El equipo de coordinación manejeó 650 personas en cóctel con una fluidez impresionante. La suite nupcial es espectacular."
-    eventType: "bodas"
-  - author: "Ing. Patricia Nájera, Directora de Operaciones — TechVentures MX"
-    date: "2024-08"
-    rating: 5
-    text: "Lanzamos nuestro producto estrella del año en el W Mexico City y el impacto visual fue exactamente el que buscábamos para una marca tech de vanguardia. Los salones se transforman completamente con la iluminación arquitectónica y la infraestructura audiovisual es de nivel broadcast. El servicio del equipo de banquetes fue puntual y profesional para nuestros 300 asistentes de prensa e inversionistas."
-    eventType: "lanzamientos"
-  - author: "Familia Villanueva Soto"
-    date: "2024-12"
-    rating: 4
-    text: "Organizamos una convención familiar y de empresa en el W con más de 400 personas y el resultado fue muy positivo. La ubicación en Polanco es inmejorable para alojar invitados en los pisos superiores y coordinar traslados. La propuesta gastronómica es sofisticada aunque los tiempos de servicio para grupos grandes requieren una coordinación adicional. En general, un venue de primer nivel."
-    eventType: "convenciones"
-
 faqs:
   - question: "¿Cuántas personas puede alojar el Hotel W Mexico City en un evento?"
-    answer: "Hotel W Mexico City tiene capacidad para 50 hasta 800 personas en banquete y hasta 1,200 en formato cóctel. Para ceremonias, la capacidad es de 300 personas, distribuidas en múltiples salones y terrazas panorámicas con diseño vanguardista."
+    answer: "Según la ficha técnica del hotel, recibe eventos de 10 a 340 invitados: el Great Room (375 m²) acomoda hasta 320 personas y es divisible en secciones, complementado por cuatro estudios, la sala Strategy y dos terrazas que pueden privatizarse."
   - question: "¿Dónde se ubica el Hotel W Mexico City y cómo llegar?"
     answer: "Se encuentra en Campos Elíseos 252, Polanco, Miguel Hidalgo, CP 11560, en el corazón del exclusivo corredor de Polanco. Es accesible por Presidente Masaryk y Periférico, con metro Auditorio (Línea 7) a pocos minutos. Cuenta con estacionamiento y valet parking."
   - question: "¿Qué servicios incluye la renta de espacios en el Hotel W Mexico City?"
@@ -151,7 +120,7 @@ keywords:
   - whatever whenever bodas experiencia lujo
 featured: true
 premium: true
-verified: true
+verified: false
 order: 3
 publishedAt: 2025-03-01
 ---
@@ -164,31 +133,17 @@ Desde el momento en que entras al lobby —una explosión de colores vibrantes, 
 
 ## Espacios Disponibles para Eventos
 
-### Great Room (Capacidad: 400-800 banquete / 1,200 cóctel)
+### Great Room (hasta 320 personas)
 
-El salón principal del W Mexico City es un **espacio transformable de 800 metros cuadrados** con techos de seis metros de altura, iluminación LED RGB completamente programable, sistema de sonido Bose profesional integrado, y capacidad para dividirse en hasta tres espacios independientes para eventos simultáneos.
+El salón principal: **375 m² (4,036 sq ft)** con techos de 3.3 m, divisible en secciones independientes (A, B, C+D) para eventos simultáneos — 280 personas en banquete, 300 en teatro, 320 en su capacidad máxima según la ficha técnica del hotel.
 
-Las paredes móviles permiten crear configuraciones personalizadas, mientras que el equipo técnico del hotel puede ejecutar transformaciones visuales completas —desde iluminación dramática de gala hasta ambientes de fiesta con visuales proyectadas en tiempo real.
+### Estudios y sala Strategy
 
-**Ideal para:** Bodas de lujo, lanzamientos de productos de marcas premium, galas corporativas, convenciones, cenas de gala, shows de moda.
+Cuatro **studios** para reuniones de 10 a 90 personas y la sala **Strategy** para 30, todos con equipamiento audiovisual del hotel.
 
-### Sunset Terrace - Piso 25 (Capacidad: 150-250 cóctel)
+### Terrazas
 
-La terraza del piso 25 es posiblemente el **espacio exterior más espectacular de Polanco**. Con vistas de 270° que abarcan desde el Castillo de Chapultepec hasta los rascacielos de Reforma, este rooftop se transforma cada atardecer en un escenario de película. Equipada con calentadores de exterior, sistema de sonido independiente y barra completa, puede operarse para eventos privados de cóctel o como extensión de eventos más grandes en el Great Room.
-
-**Ideal para:** Cócteles de bienvenida, ceremonias de boda al atardecer, lanzamientos exclusivos, cenas VIP, sesiones fotográficas con skyline.
-
-### Studio W (Capacidad: 40-80 personas)
-
-Un **espacio versátil de diseño contemporáneo** perfecto para eventos que requieren intimidad sin sacrificar la sofisticación del W. Equipado con tecnología de videoconferencia de última generación, pantallas LED modulares y mobiliario configurable, Studio W es el espacio predilecto de corporativos para reuniones de alto nivel y firmas de acuerdos importantes.
-
-**Ideal para:** Juntas de consejo, conferencias de prensa, cenas privadas, showrooms de marca, presentaciones ejecutivas.
-
-### Living Room (Lobby Privado)
-
-El lobby del W puede **privatizarse completamente para eventos** después de cierta hora, creando una experiencia inmersiva donde tus invitados tienen acceso exclusivo a los espacios más icónicos del hotel: el bar, las áreas lounge, y los rincones de diseño que definen la estética W.
-
-**Ideal para:** After parties, lanzamientos de moda, eventos de influencers, experiencias de marca inmersivas.
+El hotel cuenta con **dos terrazas que pueden privatizarse** para cócteles y celebraciones al aire libre, con el skyline de Polanco de fondo.
 
 ### Marvelous Suite y Suites de Preparación
 
