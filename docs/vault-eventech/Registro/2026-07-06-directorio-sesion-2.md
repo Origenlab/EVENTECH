@@ -18,3 +18,12 @@ Hacienda Tepepan (5.0/35), Hacienda Zacapa (4.7/61), Capital Eventos (Tlalpan 4.
 ## Métricas
 
 - Venues: 190 · Fichas con reviewsSource: 7 · Deploys: 1/1 verde · Regresiones: 0
+
+## Sesión #3 — Hacienda Tepepan ✅ (commit `723623dd`)
+
+- **Hacienda Tepepan** (Santa María Tepepan, Xochimilco — colonia nueva): **5.0 perfecto con 36 opiniones, 100% recomendación**, nota máxima en los 5 rubros. Único venue del directorio con calificación perfecta.
+- Datos íntegros del listing (cupo en contexto, sin subagente): Cda. Tecuantitla 1 CP 16020, coords del mapa, 80-350 pax, menús $1,100-1,500 (3 tiempos + tornafiesta + barra de café), descorche libre, 1 evento/día, curfew 00:00, operado con Protocolo Eventos (4.9/65), menús especiales (celíacos/diabéticos/hipertensos), suite para festejados.
+- Nota editorial de reseñas reales incluida (frío invernal en zona alta → cross-sell calefacción EVENTECH).
+- Verificado en vivo: ★ 5 (36), mapa estático, headings canónicos, 0 imágenes rotas.
+
+**Métricas:** 191 venues · 8 con reviewsSource · colonias nuevas hoy: La Noria ya existía, Santa María Tepepan nueva · deploys 2/2 verdes.
