@@ -2,27 +2,19 @@
 name: "Palacio de Minería"
 slug: "palacio-de-mineria"
 description: >-
-  Inaugurado en 1797 bajo la dirección del maestro valenciano Manuel Tolsá,
-  el Palacio de Minería es considerado la obra cumbre del neoclásico
-  novohispano en América Latina y uno de los monumentos más imponentes del
-  Centro Histórico de la Ciudad de México. Su Patio Central de doble arcada
-  —con columnas toscanas en planta baja y jónicas en el primer nivel, fuente
-  de cantera rosa original y proporciones que Alexander von Humboldt calificó
-  de perfectas— es el escenario de cócteles hasta 1,200 personas bajo las
-  estrellas del Centro Histórico. La Sala Manuel Tolsá, con frescos originales
-  de Rafael Ximeno y Planes en techos de doce metros y candiles de cristal de
-  Bohemia del siglo XIX, aloja galas y congresos de hasta 800 personas con una
-  majestuosidad que ningún venue contemporáneo puede replicar. La escalera
-  helicoidal autoportante —116 escalones de cantera que parecen flotar sin
-  columna de soporte visible— funciona como backdrop fotográfico y pasarela
-  ceremonial único en el mundo. Para directivos corporativos, presidentes de
-  asociaciones y comités de eventos de instituciones financieras, elegir el
-  Palacio de Minería transmite un mensaje inequívoco: este evento es de la más
-  alta jerarquía. Ubicado en Tacuba 5, a pasos del Palacio de Bellas Artes y
-  del Metro Bellas Artes, el acceso desde cualquier punto de la ciudad es
-  directo. Los eventos requieren tramitación de permisos ante el INAH con al
-  menos 90 días de anticipación.
-shortDescription: "Obra maestra de Manuel Tolsá (1797): Patio Central hasta 1,200 cóctel, Sala Tolsá 800 banquete y la escalera icónica del Centro Histórico CDMX."
+  Construido entre 1797 y 1813 bajo la dirección del maestro valenciano Manuel
+  Tolsá, el Palacio de Minería es la obra cumbre del neoclásico novohispano y
+  uno de los monumentos más imponentes del Centro Histórico de la Ciudad de
+  México. Sede de la Facultad de Ingeniería de la UNAM, renta sus recintos para
+  actividades académicas y culturales: el Patio Central de doble arcada con
+  fuente de cantera recibe hasta 450 personas; el Salón de Actos, 200 bajo
+  candiles; la Ex Capilla con plataforma para coro, 100; y completan la oferta
+  la Galería de Rectores, el Salón Bicentenario, el Auditorio Bernardo
+  Quintana (124 butacas), tres patios menores y salas de exposición. La
+  escalera monumental de Tolsá funciona como backdrop ceremonial único.
+  Informes directamente con el Palacio en los teléfonos 55 5623 2981 y
+  55 5623 2982.
+shortDescription: "Obra maestra de Manuel Tolsá (1797-1813) operada por la UNAM: Patio Central para 450, Salón de Actos 200 y la escalera icónica del Centro Histórico."
 region: "cdmx"
 zone: "Centro Histórico"
 zoneSlug: "centro-historico"
@@ -38,10 +30,8 @@ type: "salon"
 subtype: "historico"
 
 capacity:
-  min: 100
-  max: 800
-  cocktail: 1200
-  ceremony: 400
+  min: 30
+  max: 450
 
 priceRange: "$$$$"
 rentalPrice:
@@ -82,8 +72,10 @@ restrictions:
   - "Decoración sujeta a aprobación"
 
 contact:
-  phone: "55 5623 2980"
-  email: "eventos@palaciomineria.unam.mx"
+  phone: "55 5623 2981"
+  website: "https://www.palaciomineria.unam.mx/servicios/esp_act_culturales.php"
+  instagram: "@palaciodemineria"
+  facebook: "https://www.facebook.com/PalacioDeMineria"
 
 image: "/images/venues/palacio-mineria-hero.avif"
 gallery:
@@ -112,7 +104,7 @@ reviews:
 
 faqs:
   - question: "¿Cuántas personas caben en el Palacio de Minería?"
-    answer: "El Palacio de Minería tiene capacidad para 800 personas en banquete y hasta 1,200 en cóctel. Para ceremonias en sus patios coloniales puede alojar hasta 400 personas sentadas. El aforo mínimo es de 100 personas. Sus salones monumentales con frescos originales de Rafael Ximeno y Planes son el escenario sin par para eventos de máxima distinción."
+    answer: "Según la información oficial de la UNAM, el Patio Central recibe aproximadamente 450 personas (670 m² sin corredores), el Salón de Actos 200, el Patio de la Autonomía 200, los patios de Tacuba 3 y Tacuba 7 150 cada uno, el Auditorio Bernardo Quintana 124, la Ex Capilla 100, el Patio de la Fuente 100, el Salón Bicentenario 80 y la Galería de Rectores 50."
   - question: "¿Dónde está el Palacio de Minería y cómo llegar?"
     answer: "Se ubica en Tacuba 5, Centro Histórico, alcaldía Cuauhtémoc, C.P. 06000, a media cuadra del Museo Nacional de Arte y del Palacio de Bellas Artes. El Metro más cercano es Bellas Artes (Líneas 2 y 8), a 200 metros. También está el Metro Allende (Línea 2). Cuenta con acceso para discapacitados y WiFi."
   - question: "¿Qué incluye la renta del Palacio de Minería?"
@@ -122,7 +114,7 @@ faqs:
   - question: "¿Cuál es el proceso para reservar el Palacio de Minería y cuánto cuesta?"
     answer: "El Palacio de Minería opera de 09:00 a 23:00 todos los días, con mínimo de 4 horas de renta. Los precios van de $150,000 a $350,000 por evento, siendo uno de los venues más exclusivos de México. Se requiere tramitar permisos especiales con el INAH, la decoración está sujeta a aprobación previa, no se permite pirotecnia y todos los montajes deben respetar la integridad de la estructura histórica."
 seoTitle: "Palacio de Minería"
-seoDescription: "Palacio de Minería: obra maestra de Tolsá con salones monumentales, frescos originales y patios coloniales. Eventos de gala hasta 800 personas."
+seoDescription: "Palacio de Minería: obra maestra de Tolsá operada por la UNAM. Patio Central para 450 personas, Salón de Actos 200 y diez recintos históricos más."
 keywords:
   - palacio de mineria eventos cdmx
   - venue corporativo historico cdmx
@@ -138,7 +130,7 @@ keywords:
   - convencion palacio mineria centro historico
 featured: true
 premium: true
-verified: true
+verified: false
 order: 3
 publishedAt: 2025-03-01
 ---
@@ -149,35 +141,22 @@ El Palacio de Minería no es simplemente un venue: es un **monumento nacional** 
 
 Cuando Alexander von Humboldt visitó México en 1803, quedó tan impresionado con la escalera principal que la describió como **"una de las obras arquitectónicas más perfectas del continente"**. Dos siglos después, esa misma escalera sigue siendo el punto focal de los eventos más exclusivos de la Ciudad de México.
 
-## Espacios Disponibles para Eventos
+## Espacios y capacidades (aforo oficial UNAM)
 
-### Gran Salón de Actos (Capacidad: 400-800 personas)
-
-El salón principal del palacio es una **catedral secular de proporciones perfectas**. Sus techos de más de 12 metros de altura están decorados con frescos originales del pintor Rafael Ximeno y Planes, representando alegorías de la minería y las ciencias. Seis candiles de cristal de Bohemia del siglo XIX iluminan el espacio, mientras que las columnas corintias de cantera rosa enmarcan cada rincón con elegancia atemporal.
-
-**Ideal para:** Cenas de gala corporativas, ceremonias de premiación, presentaciones ejecutivas, congresos y convenciones de alto nivel.
-
-### Patio Principal con Fuente (Capacidad: 600-1,200 cóctel)
-
-El corazón del palacio es un **patio de doble arcada** con una fuente central de cantera labrada. Las proporciones clásicas del espacio, con sus columnas toscanas en planta baja y jónicas en el primer nivel, crean una atmósfera de serenidad monumental. Por las noches, la iluminación arquitectónica transforma el patio en un escenario mágico bajo las estrellas del Centro Histórico.
-
-**Ideal para:** Cócteles de bienvenida, recepciones previas a cenas de gala, lanzamientos de productos premium y eventos al aire libre con respaldo arquitectónico.
+- **Patio Central** — 670 m² (1,131 m² con corredores), fuente de cantera, **450 personas aprox.**
+- **Salón de Actos** — 345 m² bajo candiles, **200 personas**
+- **Patio de la Autonomía** — 324 m², **200 personas**
+- **Patio Tacuba 3** y **Patio Tacuba 7** — **150 personas** cada uno
+- **Auditorio Bernardo Quintana** — pódium y pantalla, **124 personas**
+- **Ex Capilla** — plataforma para coro, techos de 15 m, **100 personas**
+- **Patio de la Fuente** — 224 m², **100 personas**
+- **Salón Bicentenario** — 170 m², **80 personas**
+- **Galería de Rectores** — 123 m², **50 personas**
+- **Salas de exposición** (7 áreas) y **Anexo Bicentenario** (30 personas)
 
 ### Escalera Monumental de Tolsá
 
-La pieza más icónica del Palacio de Minería es su **escalera helicoidal autoportante**, considerada una proeza de ingeniería del siglo XVIII. Sin columnas de soporte visibles, los 116 escalones de cantera parecen flotar en el aire, creando una espiral perfecta que ha sido fotografiada millones de veces.
-
-**Ideal para:** Sesiones fotográficas de boda, entradas dramáticas de novios o ejecutivos, momentos ceremoniales que requieren un backdrop único en el mundo.
-
-### Capilla del Palacio (Capacidad: 80-120 personas)
-
-Un espacio íntimo con **retablo neoclásico original** y vitrales que filtran la luz de manera etérea. La capilla ofrece un ambiente de recogimiento y solemnidad perfecto para ceremonias religiosas o civiles que buscan intimidad dentro de un marco monumental.
-
-**Ideal para:** Ceremonias de boda religiosas o civiles, renovación de votos, bendiciones corporativas.
-
-### Salones Complementarios
-
-El palacio cuenta con **salones auxiliares** que pueden utilizarse como áreas de preparación para novios, salas de descanso para invitados VIP, o espacios de coordinación para equipos de producción.
+La pieza más icónica del palacio es su **escalera helicoidal autoportante**, proeza de ingeniería del siglo XVIII: los escalones de cantera parecen flotar sin columna de soporte visible. Backdrop ceremonial y fotográfico único en el mundo.
 
 ## ¿Por Qué Elegir el Palacio de Minería?
 
@@ -191,7 +170,7 @@ A pasos del Zócalo capitalino, el Museo Nacional de Arte y el Palacio de Bellas
 El Palacio de Minería acepta un **número limitado de eventos** al año, garantizando atención personalizada y exclusividad absoluta para cada celebración.
 
 ### Versatilidad Monumental
-Desde cenas íntimas de 100 personas hasta galas de 800 invitados, los espacios del palacio se adaptan a diferentes formatos manteniendo siempre su carácter excepcional.
+Desde reuniones de 30 personas en el Anexo Bicentenario hasta recepciones de 450 en el Patio Central, los recintos del palacio se adaptan a distintos formatos manteniendo siempre su carácter excepcional.
 
 ## Servicios Incluidos
 
