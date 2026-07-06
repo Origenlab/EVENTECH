@@ -21,8 +21,6 @@ subtype: "historico"
 capacity:
   min: 30
   max: 250
-  cocktail: 350
-  ceremony: 120
 
 priceRange: "$$$"
 rentalPrice:
@@ -71,10 +69,8 @@ restrictions:
   - "No se permite decoración que dañe elementos históricos"
 
 contact:
-  phone: "55 5512 9820"
-  whatsapp: "55 4455 6677"
-  email: "eventos.azulejos@sanborns.com.mx"
-  instagram: "@casadelosazulejos"
+  phone: "55 5512 1331"
+  website: "https://www.sanborns.com.mx/"
 
 image: "/images/venues/casa-azulejos-hero.avif"
 gallery:
@@ -85,40 +81,17 @@ gallery:
 eventechServices:
   - "iluminacion"
   - "audiovisual"
-eventechPartner: true
-eventechDiscount: "15% en iluminación arquitectónica"
-
-rating: 4.7
-reviewCount: 89
-reviews:
-  - author: "Patricia Mendoza"
-    date: "2024-10"
-    rating: 5
-    text: "Cenar bajo el mural de Orozco fue una experiencia única. El personal fue extraordinario."
-    eventType: "aniversario"
-  - author: "Roberto Vázquez"
-    date: "2024-08"
-    rating: 5
-    text: "Nuestro evento corporativo impresionó a todos. La arquitectura habla por sí sola."
-    eventType: "corporativo"
-  - author: "Sofía y Andrés Pedraza"
-    date: "2025-02"
-    rating: 5
-    text: "Elegimos Casa de los Azulejos para nuestra boda civil y fue la decisión más acertada. Celebrar en el patio central, con la fachada de talavera iluminada como fondo y la fuente del siglo XVII murmurando, fue algo que ninguno de nuestros invitados olvidará. El equipo de coordinación nos guió en cada restricción del espacio histórico y el resultado fue impecable."
-    eventType: "boda"
-
-
 faqs:
   - question: "¿Cuántas personas tienen capacidad en Casa de los Azulejos?"
-    answer: "Casa de los Azulejos tiene capacidad para hasta 250 personas en formato banquete y hasta 350 en formato cóctel. Para ceremonias, el espacio acomoda hasta 120 invitados. El mínimo de invitados es de 30 personas."
+    answer: "La Casa de los Azulejos opera como restaurante y tienda Sanborns abierta al público todos los días. Los eventos privados se acuerdan directamente con Sanborns; no hay tarifas ni aforos de renta publicados, por lo que conviene consultar disponibilidad y condiciones por teléfono."
   - question: "¿Dónde está ubicado Casa de los Azulejos y cómo llegar?"
     answer: "Casa de los Azulejos se encuentra en Av. Francisco I. Madero 4, Col. Centro, colonia Centro Histórico, alcaldía Centro Histórico, Ciudad de México. Se ubica en el corazón del Centro Histórico de CDMX, accesible en Metro (línea 2, estación Zócalo) y en auto con valet parking disponible. Cuenta con estacionamiento propio. Se ofrece servicio de valet parking."
   - question: "¿Qué está incluido en la renta de Casa de los Azulejos?"
-    answer: "La renta de Casa de los Azulejos incluye: servicio de banquete, meseros, coordinador de evento, mobiliario básico (mesas y sillas), mantelería, vajilla y cristalería, personal de seguridad y limpieza post-evento. Las instalaciones cuentan además con cocina industrial, pista de baile, Wi-Fi, aire acondicionado."
+    answer: "No hay un paquete de renta publicado: el recinto es un restaurante Sanborns en operación. Para eventos privados, la gastronomía corre a cargo de la casa y las condiciones se definen directamente con Sanborns (tel. 55 5512 1331)."
   - question: "¿Qué tipo de eventos se pueden realizar en Casa de los Azulejos?"
     answer: "Casa de los Azulejos es ideal para bodas, eventos corporativos, cenas de gala, aniversarios y lanzamientos de producto."
   - question: "¿Cuál es el horario de eventos en Casa de los Azulejos?"
-    answer: "Casa de los Azulejos opera en los siguientes horarios: lunes a viernes de 19:00 - 00:00, sábados y domingos de 14:00 - 01:00. La renta mínima es de 4 horas. Respecto al catering: Catering exclusivo del venue."
+    answer: "El restaurante abre todos los días de 7:00 a 1:00. Los horarios para eventos privados dependen del acuerdo directo con Sanborns."
 seoTitle: "Casa de los Azulejos"
 seoDescription: "Palacio barroco del siglo XVIII con azulejos talavera y murales de Orozco. Eventos hasta 250 personas en el Centro Histórico."
 keywords:
@@ -129,7 +102,7 @@ keywords:
 
 featured: true
 premium: true
-verified: true
+verified: false
 order: 2
 publishedAt: 2025-03-01
 ---
@@ -140,37 +113,15 @@ La Casa de los Azulejos no necesita presentación: es **uno de los edificios má
 
 A diferencia del cercano [Palacio de la Autonomía](/directorio/cdmx/centro-historico/palacio-autonomia/), que ofrece frescos novohispanos y patios coloniales de gran escala, la Casa de los Azulejos se distingue por su **intimidad refinada y su icónica fachada de talavera** que no existe en ningún otro venue de México.
 
-## Espacios Disponibles para Eventos
+## Los espacios
 
-### Salón Orozco (Capacidad: 80-120 banquete / 180 cóctel)
+El palacio opera desde 1919 como **restaurante y tienda Sanborns**, abierto al público todos los días de 7:00 a 1:00. Sus espacios emblemáticos:
 
-El espacio más impresionante del venue toma su nombre del **mural "Omnisciencia" de José Clemente Orozco** que domina una de sus paredes —una obra maestra del muralismo mexicano que observa cada celebración desde 1925. El salón cuenta con techos artesonados de madera tallada del siglo XVIII, pisos de mosaico original, y ventanales que dan al patio central con su fuente colonial.
+- **Patio central techado** — el gran comedor bajo arquerías de cantera, con la fuente y los muros de talavera como escenografía natural
+- **Escalera del mural de Orozco** — "Omnisciencia" (1925), obra maestra del muralismo mexicano, preside el cubo de la escalera principal
+- **Salones del nivel superior** — áreas del restaurante con techos artesonados y detalles del palacio original
 
-Para eventos nocturnos, recomendamos complementar con [iluminación arquitectónica de EVENTECH](/servicios/iluminacion/arquitectonica/) que realza magistralmente tanto el mural como los detalles dorados del artesonado.
-
-**Ideal para:** Cenas de gala, eventos corporativos de alto nivel, aniversarios, lanzamientos de productos de lujo, reuniones de consejo.
-
-### Salón Condes de Orizaba (Capacidad: 60-80 banquete / 100 cóctel)
-
-El antiguo comedor privado de los Condes del Valle de Orizaba conserva su **atmósfera de intimidad aristocrática**. Techos más bajos que el Salón Orozco crean un ambiente más recogido, mientras que las pinturas coloniales en las paredes y los muebles de época transportan a los invitados a otra era.
-
-Este espacio puede utilizarse de manera independiente o como extensión del Salón Orozco para eventos más grandes.
-
-**Ideal para:** Cenas íntimas de compromiso, reuniones ejecutivas, sesiones fotográficas, cocktails VIP.
-
-### Patio Central (Capacidad: 150-200 cóctel)
-
-El corazón del palacio es un **patio colonial de doble altura** con arquerías de cantera, una fuente central del siglo XVII, y la icónica fachada interior cubierta de azulejos. Por las noches, la iluminación arquitectónica transforma este espacio en un escenario mágico donde los azulejos parecen brillar con luz propia.
-
-El sistema de [iluminación decorativa](/servicios/iluminacion/decorativa/) puede incluir fairy lights en las arquerías y uplighting en los azulejos para crear una atmósfera inolvidable.
-
-**Ideal para:** Cócteles de recepción, ceremonias civiles, sesiones fotográficas, networking corporativo.
-
-### Terraza Madero (Capacidad: 40-60 cóctel)
-
-Una terraza exclusiva con **vista directa a la calle Madero peatonal** y al Palacio de Iturbide enfrente. Este espacio ofrece una perspectiva única del Centro Histórico, perfecta para momentos más relajados durante eventos o como área de escape.
-
-**Ideal para:** Cócteles íntimos, áreas de descanso, sesiones fotográficas urbanas, cigarros y digestivos.
+Los **eventos privados se acuerdan directamente con Sanborns** (tel. 55 5512 1331): no hay tarifas, paquetes ni aforos de renta publicados, y la operación de restaurante en horario público es la prioridad del recinto.
 
 ## Arte e Historia en Cada Rincón
 
