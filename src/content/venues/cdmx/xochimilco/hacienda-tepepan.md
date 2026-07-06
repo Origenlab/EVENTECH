@@ -60,7 +60,9 @@ schedule:
   curfew: "00:00"
 
 contact:
-  website: "https://www.bodas.com.mx/jardines-para-bodas/hacienda-tepepan--e166267"
+  phone: "55 7825 4081"
+  email: "tepepanhacienda@gmail.com"
+  facebook: "https://www.facebook.com/HaciendaTepepanMx/"
 
 image: "/images/venues/hacienda-tepepan-hero.avif"
 

@@ -59,7 +59,9 @@ schedule:
   minHours: 7
 
 contact:
-  website: "https://www.bodas.com.mx/haciendas-para-bodas/finca-la-gloria--e108069"
+  phone: "55 5555 1989"
+  email: "fincalagloriae@gmail.com"
+  facebook: "https://www.facebook.com/fincalagloria5665"
 
 image: "/images/venues/finca-la-gloria-hero.avif"
 

@@ -57,7 +57,9 @@ schedule:
   curfew: "02:00"
 
 contact:
-  website: "https://www.bodas.com.mx/jardines-para-bodas/casa-xipe--e268139"
+  phone: "55 2847 3512"
+  email: "info@casaxipe.mx"
+  website: "https://www.casaxipe.mx/"
 
 image: "/images/venues/casa-xipe-hero.avif"
 

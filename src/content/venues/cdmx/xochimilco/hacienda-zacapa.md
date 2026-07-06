@@ -58,7 +58,9 @@ schedule:
   curfew: "02:00"
 
 contact:
-  website: "https://www.bodas.com.mx/haciendas-para-bodas/hacienda-zacapa--e43220"
+  phone: "55 1478 8039"
+  whatsapp: "55 2701 5619"
+  facebook: "https://www.facebook.com/HaciendaZacapa/"
 
 image: "/images/venues/hacienda-zacapa-hero.avif"
 

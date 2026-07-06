@@ -7,8 +7,8 @@ shortDescription: "Hacienda del s. XVIII en el límite Tlalnepantla-Azcapotzalco
 region: "estado-mexico"
 zone: "Tlalnepantla"
 zoneSlug: "tlalnepantla"
-address: "Av. Hacienda de Enmedio 1, entrada pte. 152, Hacienda de Enmedio"
-neighborhood: "Hacienda de Enmedio"
+address: "Av. Hacienda de Enmedio 1, entrada pte. 152, Ex Hacienda de Enmedio"
+neighborhood: "Ex Hacienda de Enmedio"
 postalCode: "54172"
 coordinates:
   lat: 19.5076
@@ -55,7 +55,9 @@ schedule:
   curfew: "03:00"
 
 contact:
-  website: "https://www.bodas.com.mx/haciendas-para-bodas/ex-hacienda-san-pablo-de-enmedio--e44901"
+  phone: "55 5388 9033"
+  email: "ventas@exhaciendadeenmedio.com.mx"
+  website: "https://exhaciendadeenmedio.com.mx/"
 
 image: "/images/venues/ex-hacienda-san-pablo-de-enmedio-hero.avif"
 
