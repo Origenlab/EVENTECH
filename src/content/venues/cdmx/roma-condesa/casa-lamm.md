@@ -74,9 +74,8 @@ schedule:
   minHours: 5
 
 contact:
-  phone: "55 5525 3939"
-  email: "eventos@casalamm.com.mx"
-  instagram: "@casalamm"
+  phone: "55 5525 3938"
+  facebook: "https://www.facebook.com/CasaLamm/"
 
 image: "/images/venues/casa-lamm-hero.avif"
 gallery:
