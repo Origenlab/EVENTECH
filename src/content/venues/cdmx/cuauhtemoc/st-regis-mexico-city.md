@@ -21,8 +21,6 @@ subtype: "ultra-lujo"
 capacity:
   min: 20
   max: 600
-  cocktail: 800
-  ceremony: 200
 
 priceRange: "$$$$"
 pricePerPerson:
@@ -72,7 +70,7 @@ schedule:
 
 contact:
   phone: "55 5228 1818"
-  email: "events.mexicocity@stregis.com"
+  website: "https://www.marriott.com/en-us/hotels/mexxr-the-st-regis-mexico-city/events/"
   instagram: "@stregismexicocity"
 
 image: "/images/venues/st-regis-hero.avif"
@@ -89,28 +87,9 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "15% en servicios de iluminación arquitectónica"
 
-rating: 4.9
-reviewCount: 312
-reviews:
-  - author: "Lic. Sofía Altamirano y Javier Altamirano de la Vega"
-    date: "2025-05"
-    rating: 5
-    text: "Nuestra boda en el St. Regis Mexico City estableció un estándar que difícilmente cualquier venue en Latinoamérica podría igualar. Las vistas panorámicas de 360° desde la Torre Libertad sobre Paseo de la Reforma — el Ángel de la Independencia, Chapultepec, los volcanes al fondo — son un patrimonio visual que se convirtió en el tema recurrente de nuestros invitados internacionales. El legendario servicio de mayordomo garantizó que cada uno de nuestros 180 invitados VIP se sintiera tratado de forma personalizada. La propuesta gastronómica de autor y la suite nupcial son simplemente en otra liga."
-    eventType: "bodas"
-  - author: "Lic. Manuel Orozco — Consejo de Directivos BBVA México"
-    date: "2024-09"
-    rating: 5
-    text: "El St. Regis Mexico City es el único venue en CDMX que puede dar a una convención corporativa de 500 personas el nivel de atención personalizada que normalmente solo existe en eventos íntimos. El equipo de banquetes anticipa necesidades que el organizador aún no ha verbalizado; esa es la diferencia entre servicio de lujo y servicio ultra-lujo. La tecnología de los salones, las vistas sobre Reforma y la gastronomía de autor conforman un tríptico de excelencia que justifica plenamente la inversión."
-    eventType: "corporativos"
-  - author: "Mtra. Renata Pacheco — Directora de Marca, Grupo Modelo"
-    date: "2025-02"
-    rating: 5
-    text: "Lanzamos una línea premium en el St. Regis y la coherencia entre el venue y el posicionamiento de producto fue perfecta desde el primer minuto. La atención personalizada de la coordinadora asignada, la calidad de los materiales de montaje que el hotel facilita, y la infraestructura tecnológica de los salones panorámicos son activos de comunicación reales. Cuando tu venue es el St. Regis en la Torre Libertad, el mensaje de exclusividad se comunica antes de que abras la boca."
-    eventType: "lanzamientos"
-
 faqs:
   - question: "¿Cuántas personas puede recibir The St. Regis Mexico City en un evento?"
-    answer: "The St. Regis Mexico City tiene capacidad para 20 hasta 600 personas en banquete y hasta 800 en cóctel, con opción de ceremonia para 200 personas. Sus salones se encuentran en la icónica Torre Libertad sobre Paseo de la Reforma, con vistas panorámicas de 360° que incluyen el Ángel de la Independencia y los volcanes."
+    answer: "Según la ficha oficial del hotel, dispone de 18,116 sq ft (unos 1,680 m²) de espacios para eventos en nueve recintos; el Grand Astor Ballroom, de 823 m², recibe hasta 600 invitados. Los salones están en la Torre Libertad, sobre Paseo de la Reforma."
   - question: "¿Dónde está ubicado The St. Regis Mexico City y cómo llegar?"
     answer: "Se ubica en Paseo de la Reforma 439, Colonia Cuauhtémoc, CP 06500. Es accesible por Metrobús Reforma y Metro Insurgentes (Línea 1). La Torre Libertad es un punto de referencia icónico en la avenida más importante de la Ciudad de México. Cuenta con estacionamiento y valet parking."
   - question: "¿Qué incluye la renta de espacios en The St. Regis Mexico City?"
@@ -131,7 +110,7 @@ keywords:
 
 featured: true
 premium: true
-verified: true
+verified: false
 order: 1
 publishedAt: 2025-03-01
 ---
@@ -144,7 +123,7 @@ Desde el momento en que cruzas las puertas de bronce grabado del lobby, eres rec
 
 ## Espacios de Eventos con Vistas Incomparables
 
-### Astor Ballroom (Capacidad: 300-600 banquete / 800 cóctel)
+### Grand Astor Ballroom (hasta 600 personas)
 
 El salón principal del St. Regis es una **obra maestra de 650 metros cuadrados** ubicada en el piso 15, con techos de seis metros, candelabros de cristal Schonbek de fabricación artesanal, y ventanales de piso a techo que enmarcan vistas panorámicas del Ángel de la Independencia, el Castillo de Chapultepec y los volcanes Popocatépetl e Iztaccíhuatl en días despejados.
 
@@ -152,19 +131,19 @@ El sistema de iluminación programable permite transformaciones dramáticas —d
 
 **Ideal para:** Bodas de ensueño, galas benéficas de alto perfil, premiaciones, cenas de estado, lanzamientos de productos de lujo, convenciones ejecutivas.
 
-### Terraza Astor - Piso 15 (Capacidad: 100-200 cóctel)
+### Terrazas y salones Astor
 
 La terraza privada del Astor Ballroom ofrece **una de las experiencias al aire libre más espectaculares de la ciudad**. Con vista directa al Ángel de la Independencia y el skyline de Reforma, esta terraza se transforma en un escenario mágico al atardecer. Equipada con calefactores de diseño, sistema de sonido independiente y capacidad de carpa temporal para clima adverso.
 
 **Ideal para:** Ceremonias civiles al atardecer, cócteles de bienvenida, sesiones fotográficas con vista icónica, after parties exclusivas.
 
-### The St. Regis Bar Privado (Capacidad: 40-80 personas)
+### Espacios privados del hotel
 
 Un **salón íntimo con la elegancia de un club privado londinense**, perfecto para eventos que requieren sofisticación discreta. Paredes revestidas en madera de nogal, chimenea ornamental, y una barra completa atendida por mixólogos certificados que pueden recrear o crear cócteles de autor para tu evento.
 
 **Ideal para:** Despedidas de soltero/a elegantes, cenas de compromiso, juntas de consejo, firmas de contratos importantes, catas de vino privadas.
 
-### Salas de Juntas Ejecutivas (Capacidad: 12-50 personas)
+### Salas de juntas ejecutivas
 
 Siete salas de juntas equipadas con **tecnología de videoconferencia de última generación**, mobiliario ergonómico de diseño italiano, iluminación circadiana ajustable, y servicio de café y refrigerios gourmet continuo. Cada sala cuenta con control de clima independiente y aislamiento acústico profesional.
 
