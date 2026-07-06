@@ -83,9 +83,10 @@ restrictions:
   - "No se permite música electrónica"
 
 contact:
-  phone: "55 5616 1402"
+  phone: "55 9136 8780"
   email: "eventos@sanangelinn.com"
-  instagram: "@sanangelinn"
+  website: "https://www.sanangelinn.com/banquetes"
+  instagram: "@restaurantesanangelinn"
 
 image: "/images/venues/san-angel-inn-hero.avif"
 gallery:
