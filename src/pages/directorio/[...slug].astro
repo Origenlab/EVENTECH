@@ -550,7 +550,7 @@ const jsonLd = [
   {type === "region" && venues && (() => {
     const regionZones = [...new Set(venues.map(v => v.data.zone))].sort();
     const premiumTotal = venues.filter(v => v.data.premium).length;
-    const verifiedTotal = venues.filter(v => v.data.verified).length;
+    const coloniasTotal = new Set(venues.map(v => v.data.neighborhood).filter(Boolean)).size;
     return (
     <div class="hm">
 
@@ -562,7 +562,7 @@ const jsonLd = [
               <p class="hm__eyebrow hm-hero__eyebrow">Directorio · {regionLabels[region]}</p>
               <h1 id="rg-hero-heading">Salones y venues para eventos en <em>{regionLabels[region]}</em></h1>
               <p class="hm-hero__lead">
-                {venues.length}+ espacios verificados en {regionZones.length} {region === "cdmx" ? "zonas" : "municipios"}.
+                {venues.length}+ espacios documentados en {regionZones.length} {region === "cdmx" ? "zonas" : "municipios"}.
                 Los conocemos desde adentro porque llevamos el equipo.
               </p>
               <div class="sv-hero__ctas">
@@ -595,7 +595,7 @@ const jsonLd = [
             <div class="dr-stats__item"><dt class="dr-stats__num">{venues.length}<span>+</span></dt><dd class="dr-stats__label">Venues</dd></div>
             <div class="dr-stats__item"><dt class="dr-stats__num">{regionZones.length}</dt><dd class="dr-stats__label">{region === "cdmx" ? "Zonas" : "Municipios"}</dd></div>
             <div class="dr-stats__item"><dt class="dr-stats__num">{premiumTotal}</dt><dd class="dr-stats__label">Premium</dd></div>
-            <div class="dr-stats__item"><dt class="dr-stats__num">{verifiedTotal}</dt><dd class="dr-stats__label">Verificados</dd></div>
+            <div class="dr-stats__item"><dt class="dr-stats__num">{coloniasTotal}</dt><dd class="dr-stats__label">Colonias</dd></div>
           </dl>
         </div>
       </section>
@@ -622,7 +622,7 @@ const jsonLd = [
               const allTypes = [...new Set(zoneVenues.map(v => venueTypeLabels[v.data.type] || v.data.type))];
               const types = allTypes.slice(0, 3);
               const premiumCount = zoneVenues.filter(v => v.data.premium).length;
-              const verifiedCount = zoneVenues.filter(v => v.data.verified).length;
+              const coloniasCount = new Set(zoneVenues.map(v => v.data.neighborhood).filter(Boolean)).size;
               return (
                 <a href={`/directorio/${region}/${zoneSlug}/`} class="dr-zone-card">
                   <div class="dr-zone-card__top">
@@ -639,7 +639,7 @@ const jsonLd = [
                   </div>
                   <div class="dr-zone-card__stats">
                     <div class="dr-zone-card__stat"><span class="dr-zone-card__stat-value">{zoneVenues.length}</span><span class="dr-zone-card__stat-label">Venues</span></div>
-                    <div class="dr-zone-card__stat"><span class="dr-zone-card__stat-value">{verifiedCount}</span><span class="dr-zone-card__stat-label">Verificados</span></div>
+                    <div class="dr-zone-card__stat"><span class="dr-zone-card__stat-value">{coloniasCount}</span><span class="dr-zone-card__stat-label">Colonias</span></div>
                     <div class="dr-zone-card__stat"><span class="dr-zone-card__stat-value">{allTypes.length}</span><span class="dr-zone-card__stat-label">Tipos</span></div>
                   </div>
                   <span class="dr-zone-card__cta">
@@ -660,7 +660,7 @@ const jsonLd = [
             <div class="hm__head-title">
               <p class="hm__eyebrow">{venues.length} opciones</p>
               <h2 id="rg-venues-heading">Todos los venues en {regionLabels[region]}</h2>
-              <p class="hm__head-sub">Capacidades, precios y servicios verificados.</p>
+              <p class="hm__head-sub">Capacidades, precios y servicios documentados.</p>
             </div>
             <div class="hm__head-copy">
               <p>Hemos trabajado en muchos de estos espacios y conocemos sus características técnicas: toma eléctrica, altura de techo, accesos de carga y restricciones.</p>
@@ -703,7 +703,7 @@ const jsonLd = [
     const zoneEventTypes = [...new Set(venues.flatMap(v => v.data.eventTypes || []))];
     const avgCapacity = Math.round(venues.reduce((sum, v) => sum + v.data.capacity.max, 0) / venues.length);
     const premiumCount = venues.filter(v => v.data.premium).length;
-    const verifiedCount = venues.filter(v => v.data.verified).length;
+    const zoneColoniasCount = new Set(venues.map(v => v.data.neighborhood).filter(Boolean)).size;
 
     return (
     <div class="hm">
@@ -742,7 +742,7 @@ const jsonLd = [
             <div class="dr-stats__item"><dt class="dr-stats__num">{venues.length}</dt><dd class="dr-stats__label">Venues</dd></div>
             <div class="dr-stats__item"><dt class="dr-stats__num">{zoneVenueTypes.length}</dt><dd class="dr-stats__label">Tipos</dd></div>
             <div class="dr-stats__item"><dt class="dr-stats__num">{premiumCount}</dt><dd class="dr-stats__label">Premium</dd></div>
-            <div class="dr-stats__item"><dt class="dr-stats__num">{verifiedCount}</dt><dd class="dr-stats__label">Verificados</dd></div>
+            <div class="dr-stats__item"><dt class="dr-stats__num">{zoneColoniasCount}</dt><dd class="dr-stats__label">Colonias</dd></div>
             <div class="dr-stats__item"><dt class="dr-stats__num">{avgCapacity}</dt><dd class="dr-stats__label">Cap. prom.</dd></div>
           </dl>
         </div>
@@ -962,7 +962,7 @@ const jsonLd = [
           <div class="dr-vhero__badges">
             <span class="dr-vhero__badge dr-vhero__badge--type">{venueTypeLabels[venue.data.type] || venue.data.type}</span>
             {venue.data.premium && <span class="dr-vhero__badge dr-vhero__badge--premium">Premium</span>}
-            {venue.data.verified && <span class="dr-vhero__badge dr-vhero__badge--verified">Verificado EVENTECH</span>}
+            {venue.data.reviewsSource && <span class="dr-vhero__badge dr-vhero__badge--verified" title="Calificación y datos contrastados con fuente pública">Datos verificados</span>}
           </div>
           <h1>{venue.data.name}</h1>
           <p class="dr-vhero__location">
