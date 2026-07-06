@@ -44,3 +44,19 @@ Hacienda Tepepan (5.0/35), Hacienda Zacapa (4.7/61), Capital Eventos (Tlalpan 4.
 - Verificado en producción (curl): ★ 5 (13), mapa presente, deploy verde.
 
 **Acumulado del día:** 193 venues · 10 con reviewsSource · 3 colonias nuevas (Sta. Ma. Tepepan, Sta. Ma. Nativitas, El Rosedal) · deploys 4/4 verdes.
+
+## Sesión #6 — Contacto directo verificado en las 5 fichas nuevas ✅ (commit `d1e40e5e`)
+
+Cerrado el hueco del estándar v2 en las fichas de la cola: todas tenían solo el link a bodas.com.mx. Ahora las 5 tienen contacto directo de fuente oficial, verificado EN VIVO en producción:
+
+| Venue | Teléfono | Canal oficial |
+|---|---|---|
+| Casa Xipe | 55 2847 3512 | casaxipe.mx · info@casaxipe.mx |
+| Finca La Gloria | 55 5555 1989 | FB fincalagloria5665 · fincalagloriae@gmail.com |
+| Hacienda Tepepan | 55 7825 4081 | FB HaciendaTepepanMx · tepepanhacienda@gmail.com |
+| Hacienda Zacapa | 55 1478 8039 (+WA 55 2701 5619) | FB/TikTok oficiales |
+| Ex-Hda San Pablo de Enmedio | 55 5388 9033 | exhaciendadeenmedio.com.mx · ventas@ |
+
+Bonus: colonia oficial de San Pablo corregida a "Ex Hacienda de Enmedio" (confirmada por su sitio); Casa Xipe comparte contacto de eventos con Los Danzantes (mismo grupo — consistencia verificada entre ambas fichas).
+
+**Cierre del día:** 193 venues · 10 fichas con reviewsSource Y contacto directo oficial · 5/5 deploys verdes.
