@@ -102,6 +102,16 @@ const heroSrc: string = (type === "venue" && venue && imgExists(venue.data.image
 const galleryImgs: string[] = (type === "venue" && venue && venue.data.gallery)
   ? venue.data.gallery.filter(imgExists)
   : [];
+// Filtros L2 por colonia/capacidad/precio (solo zonas con 6+ venues)
+const showZoneFilters: boolean = type === "zone" && Array.isArray(venues) && venues.length >= 6;
+const zoneColonias: Array<[string, number]> = showZoneFilters
+  ? [...venues.reduce((m: Map<string, number>, v: CollectionEntry<"venues">) => {
+      const c = v.data.neighborhood || "Otras";
+      m.set(c, (m.get(c) || 0) + 1);
+      return m;
+    }, new Map())].sort((a, b) => a[0].localeCompare(b[0], "es"))
+  : [];
+
 // Mapa estático self-hosted (generado por scripts/generate-static-maps.py)
 const venueFileSlug: string = (type === "venue" && venue) ? (venue.id.split("/").pop() || "").replace(".md", "") : "";
 const staticMapSrc: string = venueFileSlug ? `/images/maps/${venueFileSlug}-map.webp` : "";
@@ -807,11 +817,106 @@ const jsonLd = [
             </div>
           </div>
 
-          <div class="dr-venue-grid">
-            {venues.map(v => <VenueCard venue={v} typeLabel={venueTypeLabels[v.data.type] || v.data.type} location={v.data.neighborhood || v.data.zone} />)}
+          {showZoneFilters && (
+            <div class="dr-filters" id="drFilters">
+              <div class="dr-filters__group">
+                <label class="dr-filters__label" for="drFilterColonia">Colonia</label>
+                <select class="dr-filters__select" id="drFilterColonia">
+                  <option value="">Todas ({venues.length})</option>
+                  {zoneColonias.map(([c, n]) => <option value={c}>{c} ({n})</option>)}
+                </select>
+              </div>
+              <div class="dr-filters__group">
+                <span class="dr-filters__label">Capacidad</span>
+                <div class="dr-filters__pills" data-filter="cap">
+                  <button class="dr-filters__pill dr-filters__pill--active" data-value="">Todas</button>
+                  <button class="dr-filters__pill" data-value="s">Hasta 150</button>
+                  <button class="dr-filters__pill" data-value="m">150–400</button>
+                  <button class="dr-filters__pill" data-value="l">400+</button>
+                </div>
+              </div>
+              <div class="dr-filters__group">
+                <span class="dr-filters__label">Precio</span>
+                <div class="dr-filters__pills" data-filter="precio">
+                  <button class="dr-filters__pill dr-filters__pill--active" data-value="">Todos</button>
+                  <button class="dr-filters__pill" data-value="$">$</button>
+                  <button class="dr-filters__pill" data-value="$$">$$</button>
+                  <button class="dr-filters__pill" data-value="$$$">$$$</button>
+                  <button class="dr-filters__pill" data-value="$$$$">$$$$</button>
+                </div>
+              </div>
+              <p class="dr-filters__count" id="drFilterCount" aria-live="polite"></p>
+            </div>
+          )}
+
+          <div class="dr-venue-grid" id="drVenueGrid">
+            {venues.map(v => (
+              <div
+                class="dr-fitem"
+                data-colonia={v.data.neighborhood || "Otras"}
+                data-cap={v.data.capacity.max <= 150 ? "s" : v.data.capacity.max <= 400 ? "m" : "l"}
+                data-precio={v.data.priceRange}
+              >
+                <VenueCard venue={v} typeLabel={venueTypeLabels[v.data.type] || v.data.type} location={v.data.neighborhood || v.data.zone} />
+              </div>
+            ))}
           </div>
+          {showZoneFilters && (
+            <p class="dr-filters__empty" id="drFilterEmpty" hidden>
+              Ningún venue coincide con esos filtros. <button class="dr-filters__reset" id="drFilterReset">Limpiar filtros</button>
+            </p>
+          )}
         </div>
       </section>
+
+      {showZoneFilters && (
+        <script is:inline>
+          (function () {
+            var state = { colonia: "", cap: "", precio: "" };
+            var items = Array.prototype.slice.call(document.querySelectorAll("#drVenueGrid .dr-fitem"));
+            var count = document.getElementById("drFilterCount");
+            var empty = document.getElementById("drFilterEmpty");
+            function apply() {
+              var visible = 0;
+              items.forEach(function (el) {
+                var ok = (!state.colonia || el.dataset.colonia === state.colonia)
+                  && (!state.cap || el.dataset.cap === state.cap)
+                  && (!state.precio || el.dataset.precio === state.precio);
+                el.style.display = ok ? "" : "none";
+                if (ok) visible++;
+              });
+              if (count) count.textContent = (state.colonia || state.cap || state.precio)
+                ? visible + " de " + items.length + " venues"
+                : "";
+              if (empty) empty.hidden = visible !== 0;
+            }
+            var sel = document.getElementById("drFilterColonia");
+            if (sel) sel.addEventListener("change", function () { state.colonia = sel.value; apply(); });
+            document.querySelectorAll(".dr-filters__pills").forEach(function (group) {
+              var key = group.dataset.filter;
+              group.addEventListener("click", function (e) {
+                var btn = e.target.closest(".dr-filters__pill");
+                if (!btn) return;
+                group.querySelectorAll(".dr-filters__pill").forEach(function (b) { b.classList.remove("dr-filters__pill--active"); });
+                btn.classList.add("dr-filters__pill--active");
+                state[key] = btn.dataset.value;
+                apply();
+              });
+            });
+            var reset = document.getElementById("drFilterReset");
+            if (reset) reset.addEventListener("click", function () {
+              state = { colonia: "", cap: "", precio: "" };
+              if (sel) sel.value = "";
+              document.querySelectorAll(".dr-filters__pills").forEach(function (group) {
+                group.querySelectorAll(".dr-filters__pill").forEach(function (b, i) {
+                  b.classList.toggle("dr-filters__pill--active", i === 0);
+                });
+              });
+              apply();
+            });
+          })();
+        </script>
+      )}
 
       {/* NAV */}
       <section class="hm__section" style="padding-block:clamp(32px,4vw,48px);">
