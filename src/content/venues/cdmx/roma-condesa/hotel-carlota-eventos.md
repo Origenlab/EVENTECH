@@ -68,9 +68,10 @@ schedule:
   curfew: "03:00"
 
 contact:
-  phone: "55 5511 3300"
-  email: "eventos@hotelcarlota.mx"
-  instagram: "@hotelcarlotacdmx"
+  phone: "55 5511 6300"
+  email: "Reservaciones@hotelcarlota.com"
+  website: "https://hotelcarlota.mx/eventos/"
+  instagram: "@hotelcarlotamx"
 
 image: "/images/venues/carlota-hero.avif"
 gallery:
