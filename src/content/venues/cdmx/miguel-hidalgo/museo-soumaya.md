@@ -2,27 +2,24 @@
 name: "Museo Soumaya Plaza Carso"
 slug: "museo-soumaya"
 description: >-
-  El único museo privado de México disponible para eventos: el Museo Soumaya Plaza Carso es también
-  uno de los edificios más fotografiados de América Latina. Diseñado por el arquitecto Fernando Romero
-  (FR-EE), su fachada orgánica de 16,000 hexágonos de aluminio transforma cualquier evento en portada.
-  Con 17,000 m² distribuidos en seis niveles curvos, alberga más de 66,000 obras que abarcan
-  30 siglos —desde arte prehispánico hasta la colección de Auguste Rodin más grande fuera de Francia,
-  pasando por Dalí, Van Gogh y los grandes muralistas mexicanos. Para un venue museo CDMX eventos de
-  verdadero impacto, ningún salón de hotel compite con este telón de fondo. Capacidad para hasta 500
-  personas en cena de gala y 2,500 en cóctel en la Plaza Principal. El renta museo Soumaya eventos
-  más solicitado de la capital para lanzamiento producto museo Mexico, cenas gala museo CDMX y
-  evento corporativo Plaza Carso de alto perfil. La arquitectura icónica de Romero posiciona
-  cualquier marca al nivel de las instituciones culturales más reconocidas del mundo. Disponible
-  after-hours con coordinación exclusiva del equipo de eventos del museo, a minutos de Polanco,
-  Lomas de Chapultepec e Interlomas.
-shortDescription: "Museo Soumaya Plaza Carso: venue corporativo único en México. Fachada de hexágonos de Fernando Romero. Galas y lanzamientos hasta 2,500 personas."
+  El Museo Soumaya de Plaza Carso, inaugurado en 2011 por la Fundación Carlos
+  Slim, es uno de los edificios más fotografiados de América Latina: la fachada
+  orgánica de hexágonos de aluminio diseñada por Fernando Romero (FR-EE)
+  convierte cualquier evento en portada. Alberga más de 66,000 obras que van
+  del arte prehispánico a la colección de Auguste Rodin más grande fuera de
+  Francia. Como sede de eventos opera bajo acuerdo directo con el museo: su
+  auditorio tiene aforo oficial de 350 personas (SIC, Secretaría de Cultura) y
+  el vestíbulo y explanada de Plaza Carso reciben eventos corporativos,
+  culturales y lanzamientos de marca. No hay tarifas ni aforos de renta
+  publicados; informes al 55 1103 9800.
+shortDescription: "El icónico museo de Fernando Romero en Plaza Carso: auditorio de 350 (aforo oficial), eventos corporativos y culturales por acuerdo directo."
 
 region: "cdmx"
 zone: "Miguel Hidalgo"
 zoneSlug: "miguel-hidalgo"
-address: "Blvd. Miguel de Cervantes Saavedra 303, Granada"
-neighborhood: "Granada"
-postalCode: "11529"
+address: "Blvd. Miguel de Cervantes Saavedra 303, Ampliación Granada"
+neighborhood: "Ampliación Granada"
+postalCode: "11320"
 coordinates:
   lat: 19.4401
   lng: -99.2044
@@ -32,10 +29,8 @@ type: "foro"
 subtype: "museo-cultural"
 
 capacity:
-  min: 100
-  max: 1500
-  cocktail: 2500
-  ceremony: 500
+  min: 50
+  max: 350
 
 priceRange: "$$$$"
 pricePerPerson:
@@ -72,8 +67,8 @@ schedule:
 
 contact:
   phone: "55 1103 9800"
-  email: "eventos@museosoumaya.org"
-  instagram: "@museosoumaya"
+  website: "https://www.soumaya.com.mx/"
+  instagram: "@elmuseosoumaya"
 
 image: "/images/venues/soumaya-hero.avif"
 gallery:
@@ -89,28 +84,9 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "15% en sistemas de iluminación arquitectónica"
 
-rating: 4.7
-reviewCount: 156
-reviews:
-  - author: "Lic. Guillermo Arteaga — Fundación Arte y Empresa México"
-    date: "2025-03"
-    rating: 5
-    text: "Celebramos nuestra gala anual de beneficencia para 800 personas en el Museo Soumaya y el impacto sobre los donantes fue extraordinario. La fachada de hexágonos de aluminio diseñada por Fernando Romero es simplemente uno de los edificios más fotografiados de México, y que sea el escenario de tu evento habla por sí solo del nivel de la organización. Los espacios interiores, con las colecciones de arte de fondo, crean una atmósfera cultural incomparable que ningún salón de hotel puede replicar. La coordinación del museo fue profesional y puntual."
-    eventType: "cenas-gala"
-  - author: "Ing. Verónica Morales, Directora de Comunicación — Corporativo Carso Eventos"
-    date: "2024-11"
-    rating: 5
-    text: "Realizamos el lanzamiento de producto más ambicioso de nuestra historia en el Museo Soumaya Plaza Carso y los resultados en cobertura de medios superaron cualquier expectativa. Cuando el venue es un ícono arquitectónico reconocido internacionalmente, la mitad del trabajo de posicionamiento está hecha. La capacidad para 1,500 personas en cóctel, la versatilidad de los espacios y la acústica del museo para presentaciones en vivo son activos reales. El equipo de eventos del museo entiende las necesidades corporativas de alto nivel."
-    eventType: "lanzamientos"
-  - author: "Mtra. Lucía Vidal, Organizadora de Congresos"
-    date: "2025-01"
-    rating: 4
-    text: "El Museo Soumaya tiene el poder de transformar cualquier convención corporativa en un evento cultural memorable. Los espacios son grandiosos y la colección de arte crea conversaciones entre los asistentes que ningún salón convencional puede generar. El horario de disponibilidad (a partir de las 19:00 entre semana) es una limitación para eventos de día, pero para cenas de gala y eventos nocturnos el ambiente es imbatible. Recomendado ampliamente para eventos que buscan distinción cultural."
-    eventType: "convenciones"
-
 faqs:
   - question: "¿Cuántas personas tienen capacidad en Museo Soumaya Plaza Carso?"
-    answer: "Museo Soumaya Plaza Carso tiene capacidad para hasta 1500 personas en formato banquete y hasta 2500 en formato cóctel. El salón es versátil y puede adaptarse a distintas configuraciones según el tipo de evento."
+    answer: "El aforo oficial registrado ante la Secretaría de Cultura (SIC) es de 350 personas en el auditorio. El vestíbulo y la explanada de Plaza Carso reciben eventos de mayor formato, pero el museo no publica aforos ni tarifas de renta: cada proyecto se acuerda directamente con su equipo al 55 1103 9800."
   - question: "¿Dónde está ubicado Museo Soumaya Plaza Carso y cómo llegar?"
     answer: "Museo Soumaya Plaza Carso se encuentra en Blvd. Miguel de Cervantes Saavedra 303, Granada, alcaldía Lomas de Chapultepec, Ciudad de México. La zona es accesible a través de Periférico, Paseo de la Reforma y Constituyentes, con opciones de transporte como metrobús y servicio de taxi/app."
   - question: "¿Qué incluye la renta de Museo Soumaya Plaza Carso?"
@@ -132,12 +108,11 @@ keywords:
   - fernando romero arquitectura eventos
   - gala beneficencia museo cdmx
   - espacio cultural exclusivo lomas chapultepec
-  - venue premium 2500 personas cdmx
   - after hours museo evento corporativo
 
 featured: true
 premium: true
-verified: true
+verified: false
 order: 5
 publishedAt: 2025-03-01
 ---
@@ -148,37 +123,13 @@ El Museo Soumaya no es solo un museo: es una **declaración arquitectónica que 
 
 Con más de 66,000 obras que abarcan 30 siglos de cultura, desde esculturas prehispánicas hasta la colección más grande de Rodin fuera de Francia, el Museo Soumaya ofrece un **escenario cultural incomparable** para eventos que buscan trascender lo ordinario.
 
-## Espacios Disponibles para Eventos
+## Los espacios
 
-### Plaza Principal (Capacidad: 500-1500 cóctel / 800 banquete)
+- **Auditorio** — aforo oficial de **350 personas** (registro SIC, Secretaría de Cultura); conferencias, proyecciones y presentaciones
+- **Vestíbulo principal** — el lobby de triple altura bajo la escultura ecuestre, sede habitual de cócteles y eventos culturales
+- **Explanada de Plaza Carso** — el atrio exterior frente a la fachada de hexágonos, escenario de lanzamientos y eventos de marca
 
-La explanada frente al museo ofrece **el telón de fondo más fotografiado de la CDMX corporativa**. La fachada brillante del edificio, especialmente al atardecer cuando refleja los tonos dorados del cielo, crea un escenario dramático que ningún otro venue puede replicar. La plaza puede equiparse con carpas estructurales, mobiliario de diseño y escenario profesional.
-
-**Ideal para:** Lanzamientos de productos de alto impacto, galas corporativas, conciertos privados, premiaciones, eventos de prensa masivos.
-
-### Foro Universal (Capacidad: 200-400 personas)
-
-Ubicado en el último piso del museo, el Foro Universal es un **espacio de doble altura con vista panorámica** a la Ciudad de México y techos inclinados que siguen la geometría orgánica del edificio. Las paredes curvas de concreto pulido y la iluminación cenital natural durante el día (artificial programable por la noche) crean un ambiente de galería contemporánea.
-
-**Ideal para:** Cenas de gala elegantes, conferencias magistrales, presentaciones de arte, eventos de networking de alto nivel.
-
-### Sala Rodin (Capacidad: 100-200 personas)
-
-Rodeado por la **colección de Auguste Rodin más impresionante de Latinoamérica** —incluyendo versiones de El Pensador, El Beso y La Puerta del Infierno—, este espacio ofrece una experiencia cultural inmersiva única. Cenar junto a obras maestras del escultor más famoso del mundo es una experiencia que tus invitados no olvidarán.
-
-**Ideal para:** Cenas íntimas de alto perfil, reuniones de patronos, eventos de arte, cenas de compromiso exclusivas.
-
-### Vestíbulo Principal (Capacidad: 300-500 cóctel)
-
-El **dramático vestíbulo de triple altura** del museo, con su rampa helicoidal que conecta los seis niveles, es un espacio arquitectónico que desafía la gravedad. Las paredes curvas de concreto blanco y la iluminación natural cenital crean un ambiente casi sagrado —perfecto para recepciones que buscan impresionar.
-
-**Ideal para:** Cócteles de bienvenida, recepciones de prensa, inauguraciones, eventos de moda.
-
-### Terraza Superior (Capacidad: 100-150 cóctel)
-
-La terraza del último piso ofrece **vistas de 360° de la Ciudad de México**, desde los volcanes hasta las torres de Reforma. Este espacio íntimo es perfecto para eventos exclusivos que requieren privacidad absoluta y un setting incomparable.
-
-**Ideal para:** Cenas VIP, sesiones fotográficas, eventos de influencers, propuestas de matrimonio.
+El museo **no publica tarifas ni aforos de renta**: cada evento corporativo o cultural se acuerda directamente con su equipo (55 1103 9800). La entrada al museo es gratuita y opera todos los días de 10:30 a 18:30.
 
 ## Una Colección de Clase Mundial Como Telón de Fondo
 
@@ -234,7 +185,7 @@ Eventos after-hours en el museo garantizan **privacidad total y experiencias ún
 En el corazón de **Plaza Carso**, el desarrollo de uso mixto más importante de México, con estacionamiento masivo y conexiones de transporte.
 
 ### Flexibilidad de Escala
-Desde cenas íntimas de 50 personas hasta eventos de 2,500+ invitados, con **infraestructura profesional** para cualquier producción.
+Del auditorio de 350 butacas a la explanada de Plaza Carso, cada formato se define en proyecto directo con el equipo del museo.
 
 ## Reconocimientos
 
