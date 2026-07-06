@@ -36,3 +36,11 @@ Hacienda Tepepan (5.0/35), Hacienda Zacapa (4.7/61), Capital Eventos (Tlalpan 4.
 - Verificado en producción (HTML directo): ★ 4.6 (62) renderizado, mapa estático presente, HTTP 200.
 
 **Métricas acumuladas del día:** 192 venues · 9 con reviewsSource · 3 colonias nuevas (Sta. María Tepepan, Sta. María Nativitas; La Noria ya existía) · deploys 3/3 verdes.
+
+## Sesión #5 — Casa Xipe ✅ (commit `c4a921cc`)
+
+- **Casa Xipe** (El Rosedal, Coyoacán — colonia nueva): **5.0/13, 100% recomendación, Wedding Awards 2023-2024**, +55 contratados. Jardín del **Grupo Los Danzantes** — enlazada con nuestra ficha del restaurante hermano (cross-link interno).
+- Datos íntegros del listing: Av. Pacífico 151 CP 04330, coords, jardín 600 m²/400 pax + patio/verandas 200 + terraza 30, cuarto de novios con baño, barra de mezcal, menús $1,600-2,500 (descorche/mezcladores/hielo ilimitado, cristalería importada, 1 mesero/10 pax), renta variable + IVA + 5% comisión TDC sin Amex, curfew 02:00, 1 evento/día.
+- Verificado en producción (curl): ★ 5 (13), mapa presente, deploy verde.
+
+**Acumulado del día:** 193 venues · 10 con reviewsSource · 3 colonias nuevas (Sta. Ma. Tepepan, Sta. Ma. Nativitas, El Rosedal) · deploys 4/4 verdes.
