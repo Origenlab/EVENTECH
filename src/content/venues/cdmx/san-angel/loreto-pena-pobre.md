@@ -233,7 +233,6 @@ Como partner oficial de EVENTECH, ofrecemos soluciones que complementan la esté
 
 Si buscas espacios con arquitectura industrial distintiva:
 
-- **[Foro Kaluz Santa Fe](/directorio/cdmx/santa-fe/foro-kaluz/)** — Contemporáneo con tecnología de punta, 2,500 m²
 - **[La Industrial Azcapotzalco](/directorio/cdmx/azcapotzalco/la-industrial/)** — Nave industrial reconvertida, precio accesible
 - **[Centro Citibanamex](/directorio/cdmx/miguel-hidalgo/centro-citibanamex/)** — Escala masiva para eventos de +5,000 personas
 - **[Centro de Convenciones Tlatelolco](/directorio/cdmx/cuauhtemoc/centro-convenciones-tlatelolco/)** — Versatilidad técnica en zona centro

@@ -248,7 +248,6 @@ Como partner estratégico de EVENTECH, ofrecemos soluciones que complementan la 
 Si buscas espacios con carácter arquitectónico fuerte:
 
 - **[La Cantera Pedregal](/directorio/cdmx/pedregal/la-cantera/)** — Roca volcánica, arquitectura orgánica, en CDMX
-- **[Foro Kaluz Santa Fe](/directorio/cdmx/santa-fe/foro-kaluz/)** — Industrial contemporáneo, alta tecnología
 - **[Bosques del Nevado](/directorio/estado-mexico/zinacantepec/bosques-del-nevado/)** — Montaña, más rústico, un solo volcán
 
 ## El Punto de Encuentro entre Mundos

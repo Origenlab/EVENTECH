@@ -244,4 +244,3 @@ Si buscas capacidad para eventos masivos con arquitectura distintiva:
 - **[Centro Citibanamex](/directorio/cdmx/miguel-hidalgo/centro-citibanamex/)** — El más grande de México, convenciones de 10,000+
 - **[Hotel W Mexico City](/directorio/cdmx/polanco/hotel-w-mexico-city/)** — Lujo contemporáneo, hasta 800 personas
 - **[Centro de Convenciones Tlatelolco](/directorio/cdmx/cuauhtemoc/centro-convenciones-tlatelolco/)** — Moderno, accesible, gran capacidad
-- **[Foro Kaluz Santa Fe](/directorio/cdmx/santa-fe/foro-kaluz/)** — Industrial contemporáneo, alta tecnología

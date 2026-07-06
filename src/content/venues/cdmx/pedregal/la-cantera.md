@@ -234,7 +234,6 @@ Como partner de EVENTECH, ofrecemos soluciones especializadas que realzan la arq
 
 Si buscas espacios con carácter arquitectónico distintivo:
 
-- **[Foro Kaluz Santa Fe](/directorio/cdmx/santa-fe/foro-kaluz/)** — Contemporáneo con techos de 12m, enfoque corporativo, hasta 1,000 personas
 - **[La Industrial Azcapotzalco](/directorio/cdmx/azcapotzalco/la-industrial/)** — Estilo industrial auténtico, fábrica de 1920, precio más accesible
 - **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — Colonial con jardines monumentales, sin restricción de horario
 
