@@ -27,3 +27,12 @@ Hacienda Tepepan (5.0/35), Hacienda Zacapa (4.7/61), Capital Eventos (Tlalpan 4.
 - Verificado en vivo: ★ 5 (36), mapa estático, headings canónicos, 0 imágenes rotas.
 
 **Métricas:** 191 venues · 8 con reviewsSource · colonias nuevas hoy: La Noria ya existía, Santa María Tepepan nueva · deploys 2/2 verdes.
+
+## Sesión #4 — Hacienda Zacapa ✅ (commit `cbfa720b`)
+
+- **Hacienda Zacapa** (Santa María Nativitas, Xochimilco — colonia nueva): 4.6/62, 92% recomendación, **7 Wedding Awards** (2015-2024), +180 eventos contratados. Diferenciador único en el directorio: **chinampa dentro del embarcadero Nuevo Nativitas con llegada en trajinera**.
+- Rating corregido contra el listing vigente (la cola decía 4.7/61; el listing de julio 2026 marca 4.6/62) — regla: siempre el dato del listing del día, no el de caché.
+- Datos íntegros: +2,000 m² con cascadas/fuentes/capilla, carpa 500 m²/8 m, 100-300 pax, menús $802-1,611 (incl. taquiza), descorche libre, curfew 02:00, 10% anticipo, promo permanente 5% vie/dom.
+- Verificado en producción (HTML directo): ★ 4.6 (62) renderizado, mapa estático presente, HTTP 200.
+
+**Métricas acumuladas del día:** 192 venues · 9 con reviewsSource · 3 colonias nuevas (Sta. María Tepepan, Sta. María Nativitas; La Noria ya existía) · deploys 3/3 verdes.
