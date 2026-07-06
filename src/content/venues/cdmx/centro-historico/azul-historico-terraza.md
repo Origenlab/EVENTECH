@@ -1,8 +1,8 @@
 ---
-name: "Azul Histórico Terraza"
+name: "Azul Histórico"
 slug: "azul-historico-terraza"
-description: "Azul Histórico Terraza es la extensión rooftop del emblemático restaurante del Chef Ricardo Muñoz Zurita en el Centro Histórico de la Ciudad de México, ubicado en el interior del Palacio de los Condes de Valparaíso del siglo XVIII. Esta terraza boutique en el cuarto nivel ofrece vistas de 360 grados a la Catedral Metropolitana, el Palacio Nacional, el Templo Mayor, y la Torre Latinoamericana, creando un teatro urbano sin parangón donde cinco siglos de historia mexicana convergen visualmente. Con capacidad íntima para 80-120 personas, este espacio combina la alta cocina mexicana por la que Muñoz Zurita es reconocido internacionalmente con un entorno arquitectónico privilegiado que convierte cada evento en una experiencia gastronómica y cultural inolvidable."
-shortDescription: "Rooftop boutique del Chef Muñoz Zurita con vistas a Catedral y Centro Histórico."
+description: "Azul Histórico es el restaurante del chef Ricardo Muñoz Zurita —referencia de la cocina tradicional mexicana— en el patio arbolado de un palacio virreinal en Isabel la Católica 30, Centro Histórico. Cenar bajo sus árboles iluminados es una de las experiencias gastronómicas clásicas de la ciudad: platillos de toda la República, desayunos, comidas y cenas todos los días de 9:00 a 23:00. Los eventos privados y celebraciones se acuerdan directamente con el restaurante en los teléfonos 55 5510 1316 y 55 5521 3295."
+shortDescription: "El restaurante del chef Ricardo Muñoz Zurita en un patio virreinal arbolado del Centro Histórico; eventos por acuerdo directo."
 
 region: "cdmx"
 zone: "Centro Histórico"
@@ -15,14 +15,12 @@ coordinates:
   lng: -99.1332
 googleMapsUrl: "https://maps.google.com/?q=Azul+Historico+Terraza+CDMX"
 
-type: "rooftop"
-subtype: "rooftop-gastronomico"
+type: "restaurante"
+subtype: "restaurante-patio"
 
 capacity:
   min: 30
   max: 120
-  cocktail: 150
-  ceremony: 80
 
 priceRange: "$$$"
 pricePerPerson:
@@ -63,8 +61,9 @@ schedule:
 
 contact:
   phone: "55 5510 1316"
-  email: "eventos@azulhistorico.com"
-  instagram: "@azulhistorico"
+  website: "https://www.azul.rest/azul-hist%C3%B3rico"
+  instagram: "@azulhistoricomx"
+  facebook: "https://www.facebook.com/restaurantesazul/"
 
 image: "/images/venues/azulhistorico-hero.avif"
 gallery:
@@ -77,363 +76,58 @@ eventechServices:
   - "audiovisual"
   - "mobiliario"
   - "calefaccion-clima"
-eventechPartner: true
-eventechDiscount: "25% en iluminación arquitectónica urbana"
-
-rating: 4.9
-reviewCount: 289
-reviews:
-  - author: "Valentina Rocha y Sebastián Mora"
-    date: "2025-03"
-    rating: 5
-    text: "Celebramos nuestro aniversario de bodas en la terraza de Azul Histórico y fue absolutamente mágico. Las vistas de 360° a la Catedral Metropolitana y al Palacio Nacional al anochecer crearon un telón de fondo irrepetible para las fotografías. La cocina del Chef Muñoz Zurita superó todas las expectativas: los platillos de alta cocina mexicana fueron el tema de conversación de toda la noche. Un venue boutique sin igual en el Centro Histórico."
-    eventType: "aniversarios"
-  - author: "Ing. Rodrigo Espinoza — Consorcio Financiero del Norte"
-    date: "2024-09"
-    rating: 5
-    text: "Organizamos una cena corporativa para 80 ejecutivos internacionales en el cuarto nivel del Palacio de los Condes de Valparaíso y el impacto fue inmediato. Nuestros visitantes de Nueva York y Londres quedaron impresionados ante la historia viva que los rodeaba. El equipo de coordinación fue impecable en tiempos y logística, y la propuesta gastronómica de autor elevó el evento a otro nivel."
-    eventType: "corporativos"
-  - author: "Fernanda Alcántara Torres"
-    date: "2025-01"
-    rating: 4
-    text: "La terraza del Azul Histórico es uno de esos espacios que genera expectativas altísimas y las cumple. La vista a la Torre Latinoamericana y al Templo Mayor simultáneamente mientras disfrutas cocina mexicana contemporánea es una experiencia que no existe en ningún otro venue de la ciudad. La única observación es que la capacidad es limitada, por lo que hay que planear con mucha anticipación."
-    eventType: "bodas"
-
 faqs:
   - question: "¿Cuántas personas caben en Azul Histórico Terraza para un evento?"
-    answer: "Azul Histórico Terraza tiene capacidad para 80 a 120 personas en formato banquete y hasta 150 personas en cóctel. Es un espacio boutique en el cuarto nivel del Palacio de los Condes de Valparaíso, ideal para celebraciones íntimas y exclusivas."
+    answer: "El restaurante ocupa el patio central arbolado de un palacio virreinal y sus corredores. No publica aforos de renta para eventos privados: cada celebración se cotiza directamente con el restaurante (55 5510 1316)."
   - question: "¿Dónde está ubicado Azul Histórico Terraza y cómo llegar?"
     answer: "El venue se encuentra en Isabel la Católica 30, Centro Histórico, Ciudad de México, CP 06000, en el interior de un palacio del siglo XVIII. Puedes llegar en Metro Zócalo (Línea 2) o en Metrobús por Eje Central. También cuenta con servicio de valet parking."
   - question: "¿Qué incluye la renta de Azul Histórico Terraza?"
-    answer: "La renta incluye banquete del Chef Ricardo Muñoz Zurita, coordinador de eventos, mobiliario básico, mantelería, vajilla, meseros, iluminación básica, montaje y desmontaje. Las vistas de 360° a la Catedral Metropolitana, el Palacio Nacional y la Torre Latinoamericana son parte de la experiencia."
+    answer: "La cocina es del propio restaurante, bajo la dirección del chef Ricardo Muñoz Zurita: platillos tradicionales de toda la República como el pescado tikin xic, mole negro y pipián blanco. Las condiciones de eventos privados se definen directamente con el restaurante."
   - question: "¿Qué tipo de eventos se pueden realizar en Azul Histórico Terraza?"
-    answer: "El venue acepta bodas, aniversarios, eventos corporativos y cenas de gala. Su ambiente gastronómico-cultural y las vistas al Centro Histórico lo hacen especialmente popular para celebraciones íntimas de alto nivel y cenas privadas de empresa."
+    answer: "Cenas privadas, celebraciones íntimas y eventos corporativos de formato gastronómico, en el marco del patio virreinal. Es un restaurante en operación diaria, por lo que la disponibilidad para eventos se consulta directamente."
   - question: "¿Cuál es el horario de operación y hasta qué hora se puede tener el evento?"
-    answer: "Entre semana el venue opera de 14:00 a 23:00 horas, y los fines de semana de 12:00 a 01:00 horas. El horario máximo (curfew) es la 01:00, con una duración mínima de 4 horas. Para eventos nocturnos con vistas iluminadas de la Catedral Metropolitana, los fines de semana son la mejor opción."
+    answer: "El restaurante abre todos los días: desayunos de 9:00 a 12:00 y comidas y cenas de 13:00 a 23:00. Los horarios para eventos privados se acuerdan con el restaurante."
 
-seoTitle: "Azul Histórico Terraza"
-seoDescription: "Rooftop del Chef Ricardo Muñoz Zurita con vistas a Catedral Metropolitana. Alta cocina mexicana y panorámicas del Centro Histórico."
+seoTitle: "Azul Histórico"
+seoDescription: "Azul Histórico: el restaurante de Ricardo Muñoz Zurita en un patio virreinal del Centro Histórico. Cocina tradicional mexicana y eventos privados."
 keywords:
-  - rooftop centro historico cdmx
-  - eventos gourmet catedral mexico
+  - azul historico eventos
+  - restaurante patio centro historico
   - terraza vista catedral metropolitana
   - chef ricardo munoz zurita eventos
   - restaurante bodas centro historico
 
 featured: true
 premium: true
-verified: true
+verified: false
 order: 4
 publishedAt: 2025-03-01
 ---
 
-## El Escenario: Cinco Siglos de Historia Convergente
+## Cenar bajo los árboles de un palacio
 
-### El Palacio de los Condes de Valparaíso (Siglo XVIII)
+**Azul Histórico** es una de las experiencias gastronómicas clásicas de la Ciudad de México: el restaurante del chef **Ricardo Muñoz Zurita** —investigador y referencia de la cocina tradicional mexicana— ocupa el **patio central arbolado de un palacio virreinal** en Isabel la Católica 30, a dos cuadras del Zócalo. Mesas bajo árboles iluminados, corredores de piedra y una carta que recorre toda la República.
 
-Azul Histórico Terraza se encuentra en el **Palacio de los Condes de Valparaíso**, construido en 1772 por orden de Don José María Fernández de Jáuregui y Salcedo, primer Conde de Valparaíso. Este palacio barroco tardío de cantera gris chiluca es considerado por historiadores de la arquitectura como **uno de los cinco palacios virreinales mejor preservados** en el Centro Histórico de la Ciudad de México.
+## La cocina
 
-La fachada principal, diseñada por el arquitecto **Francisco Antonio Guerrero y Torres** —el mismo maestro que diseñó el Palacio de los Condes de San Mateo de Valparaíso en la calle de Venustiano Carranza—, presenta elementos del **ultrabarroco mexicano**: pilastras estípites, cornisas mixtilíneas, nichos con veneras, y el escudo de armas de los Valparaíso tallado en alto relieve sobre la puerta principal.
+Muñoz Zurita ha llevado a la mesa platillos que eran casi desconocidos fuera de sus regiones: **pescado tikin xic, salpicón de venado, mole negro, pipián blanco**. La casa opera desayunos (9:00-12:00) y comidas y cenas (13:00-23:00) todos los días, con festivales gastronómicos de temporada.
 
-El edificio sobrevivió intacto la Independencia, la Reforma, y la Revolución. En el siglo XX sirvió como casa de vecindad hasta su rescate y restauración entre 2005 y 2008 por el proyecto que dio vida a Azul Histórico.
+## Eventos privados
 
-### El Restaurante: Alta Cocina Mexicana desde 2008
+El restaurante recibe **cenas privadas, celebraciones íntimas y eventos corporativos** de formato gastronómico. No publica aforos ni tarifas de renta: cada evento se cotiza directamente en los teléfonos **55 5510 1316 y 55 5521 3295** o por WhatsApp vía su sitio oficial.
 
-En 2008, el **Chef Ricardo Muñoz Zurita** —autor del monumental *Diccionario Enciclopédico de la Gastronomía Mexicana* (20 años de investigación, 2,000 páginas, obra ganadora del Gourmand World Cookbook Award) y uno de los embajadores más importantes de la cocina mexicana en el mundo— eligió este palacio para su restaurante insignia en la capital.
+## Ubicación
 
-Azul Histórico se convirtió rápidamente en **referencia gastronómica internacional**, recibiendo reconocimientos como:
-- **Mejor Restaurante de Cocina Mexicana Tradicional** de los Latin America's 50 Best Restaurants
-- **Reconocimiento de Excelencia** de Wine Spectator por su cava de 600+ etiquetas
-- **4 estrellas** de la Guía México Gastronómico
-- Mencionado en **The New York Times**, **Bon Appétit**, **Food & Wine**, y **Saveur**
-
-### La Terraza: El Mirador Privilegiado (2015)
-
-En 2015, tras la exitosa consolidación del restaurante, el Chef Muñoz Zurita y su equipo desarrollaron el **cuarto nivel del palacio** —antiguamente azotea de servicio— como **terraza privada para eventos exclusivos**.
-
-El diseño arquitectónico estuvo a cargo del **arquitecto Javier Sánchez** (Taller JSa), reconocido por sus intervenciones contemporáneas respetuosas en edificios históricos. La terraza integra:
-
-- **Pérgola de acero corten** con estructura minimalista que no compite visualmente con las cúpulas históricas del entorno
-- **Piso de madera ipé** brasileña sobre sistema flotante que no perfora la azotea histórica
-- **Jardineras perimetrales** con especies nativas: agaves, dasylirions, nopales, y cactáceas endémicas del Valle de México
-- **Iluminación LED programable** diseñada por Elías Cisneros (Lexicon Lighting) que puede resaltar la Catedral, el Templo Mayor, o crear atmósferas íntimas
-- **Sistema de calefacción radiante** integrado en el piso para eventos de otoño-invierno
-
-## Las Vistas: Un Teatro Urbano de 360 Grados
-
-Desde la terraza de Azul Histórico, la historia de México se despliega en todas direcciones:
-
-### Al Norte: La Catedral Metropolitana
-
-A solo 180 metros de distancia, la **Catedral Metropolitana** (1573-1813) domina la vista norte. Desde la terraza se aprecian:
-- Las **torres barrocas** diseñadas por el arquitecto Manuel Tolsá (1791-1813)
-- La **cúpula neoclásica** también de Tolsá
-- El **campanario este** con 25 campanas, la mayor de ellas "Santa María de Guadalupe" de 13 toneladas fundida en 1792
-- Durante atardeceres, la luz dorada baña la cantera gris de la fachada creando un efecto cinematográfico
-- En días despejados, el **Nevado de Toluca** se asoma al fondo (120 km de distancia)
-
-### Al Este: El Templo Mayor y Palacio Nacional
-
-- **Templo Mayor**: Las ruinas del templo principal de Tenochtitlan (1325-1521) visibles desde altura
-- **Palacio Nacional**: La sede del Poder Ejecutivo en su estructura de 200 metros de largo
-- **Murales de Diego Rivera**: Aunque no visibles desde la terraza, su presencia es palpable
-
-### Al Sur: El Zócalo y sus Ceremonias
-
-- La **Plaza de la Constitución**, segunda plaza más grande del mundo
-- Durante eventos cívicos, vista privilegiada de ceremonias, desfiles, y festividades
-- Árbol de Navidad monumental (diciembre-enero)
-- Ofrendas de Día de Muertos (octubre-noviembre)
-
-### Al Oeste: La Torre Latinoamericana y Alameda Central
-
-- **Torre Latinoamericana** (1956), primer rascacielos latinoamericano
-- **Palacio de Bellas Artes** con su cúpula art nouveau
-- **Alameda Central**, el parque más antiguo de América (1592)
-
-### Al Noreste: Basílica de Guadalupe (distancia)
-
-En días excepcionalmente despejados, las torres de la **Basílica de Guadalupe** son visibles al noreste (8 km).
-
-## Espacios en la Terraza
-
-### Zona Principal (Capacidad: 80-120 banquete / 150 cóctel)
-
-El área abierta de **450 metros cuadrados** bajo la pérgola de acero corten. Configuración flexible para:
-- **Banquete formal**: 10-12 mesas redondas
-- **Banquete imperial**: 2-3 mesas largas
-- **Cóctel de pie**: Áreas de lounge + estaciones gastronómicas
-
-**Vista directa**: Catedral Metropolitana y Zócalo.
-
-### Salón Privado "Mirador" (Capacidad: 30-50 banquete / 60 cóctel)
-
-Un **salón climatizado de 120 m²** con ventanales del piso al techo hacia la Catedral. 
-
-**Características:**
-- Aire acondicionado y calefacción
-- Sistema de audio Bose integrado
-- Iluminación LED programable
-- Acceso privado desde elevador del palacio
-
-**Ideal para:** Cócteles VIP, cenas muy íntimas, área de reserva contra clima, sala de preparación de novios.
-
-### Jardín de Cactáceas (Área fotográfica)
-
-Una **instalación botánica de 80 m²** con más de 40 especies de cactáceas y suculentas endémicas del Valle de México, diseñada por el paisajista **Mario Schjetnan** (mismo diseñador de los jardines de Vista Hermosa).
-
-**Especies destacadas:**
-- Biznagas (Ferocactus latispinus)
-- Nopales (Opuntia ficus-indica)
-- Agaves (Agave salmiana, Agave americana)
-- Yucas (Yucca filifera)
-- Dasylirions (Dasylirion acrotrichum)
-
-Este jardín crea un **contraste cultural fascinante**: plantas prehispánicas del Valle de México con el barroco español de la Catedral como fondo.
-
-**Ideal para:** Sesión de fotos pre-ceremonia, ceremonia civil íntima (máx. 40 personas), cóctel botánico.
-
-## La Gastronomía: Alta Cocina Mexicana de Autor
-
-### Chef Ricardo Muñoz Zurita: El Embajador de la Cocina Mexicana
-
-El Chef **Ricardo Muñoz Zurita** (Veracruz, 1960) es reconocido como **uno de los mayores investigadores vivos de la cocina mexicana**. Su trayectoria incluye:
-
-**Formación:**
-- Licenciado en Gastronomía por la Universidad Anáhuac
-- Especialización en Cocina Mexicana Tradicional en el Instituto Culinario de México
-- Investigación de campo en 32 estados de la República durante 35 años
-
-**Obra:**
-- **Diccionario Enciclopédico de la Gastronomía Mexicana** (2012, reeditado 2020) — 2,000 páginas, 3,500 términos, 800 recetas, obra ganadora del **Gourmand World Cookbook Award**
-- **Pueblo de Maíz** (2017) — Tratado sobre el maíz en la cultura mexicana
-- **40 chiles mexicanos** (2019) — Estudio botánico y culinario
-- **Autor de 12 libros** de gastronomía mexicana
-
-**Restaurantes:**
-- **Azul Histórico** (CDMX, 2008)
-- **Azul y Oro** (UNAM, 2001)
-- **Café Azul** (Puebla, 2015)
-
-**Reconocimientos:**
-- **Premio Nacional de Gastronomía** (2010)
-- **Miembro fundador** del Conservatorio de la Cultura Gastronómica Mexicana
-- **Asesor** de la candidatura de la Cocina Tradicional Mexicana como Patrimonio Inmaterial de la Humanidad UNESCO (lograda en 2010)
-
-### Filosofía Culinaria: Cocina Histórica del Valle de México
-
-Para eventos en la terraza, el Chef Muñoz Zurita desarrolló menús que **rinden homenaje a la historia del Valle de México visible desde el rooftop**:
-
-1. **Etapa Prehispánica** (1325-1521): Ingredientes del Valle de México prehispánico
-2. **Etapa Virreinal** (1521-1821): Fusión hispano-indígena
-3. **Etapa Contemporánea** (siglo XXI): Reinterpretación con técnica moderna
-
-### Menú Degustación "Tenochtitlan Vista al Cielo"
-
-Un menú de **8 tiempos** que narra la historia gastronómica del Valle de México:
-
-**Aperitivo Prehispánico**
-- **Esquites de maíz azul**: Con mayonesa de tuétano, queso Cotija, chile piquín, epazote fresco
-- **Tostada de chapulín**: Con aguacate, frijol negro, y flores de calabaza
-
-**Primer Tiempo: La Laguna**
-- **Ceviche de pescado blanco** del Valle de Toluca (evocando los pescados de los lagos de Texcoco y Xochimilco)
-- Leche de tigre con chile xcatic
-- Cilantro, cebolla morada, aguacate
-
-**Segundo Tiempo: Los Chinampas**
-- **Sopa milpa**: Elote, calabaza, frijol, quelites (verdolagas, quintoniles), flor de calabaza
-- Caldo de frijol negro con epazote
-- Quesadilla de flor de calabaza al comal
-
-**Tercer Tiempo: El Encuentro**
-- **Tamal de mole negro**: Mole oaxaqueño (fusión virreinal por excelencia) con pollo de rancho criado en libertad
-- Servido en hoja de plátano con crema ácida
-
-**Cuarto Tiempo: El Palacio**
-- **Ensalada de nopales asados**: Con jitomate riñón, cebolla blanca, aguacate, queso panela, vinagreta de chile pasilla
-- Inspirada en los jardines de nopales del Palacio de Moctezuma
-
-**Plato Fuerte** (a elegir)
-
-**Opción Mar:**
-- **Huachinango a la veracruzana** — La receta emblemática del puerto natal del Chef
-- Jitomate, aceitunas, alcaparras, chiles güeros
-- Arroz blanco y plátanos machos fritos
-
-**Opción Tierra:**
-- **Cochinita pibil** — Cerdo adobado en achiote, cocido en hoja de plátano
-- Cebolla morada encurtida, habanero, frijol colado
-- Tortillas hechas a mano
-
-**Opción Aire:**
-- **Pato en pipián verde** — Pechuga de pato semi-silvestre
-- Pipián de pepita de calabaza, hojas de aguacate, cilantro
-- Verduras orgánicas de temporada
-
-**Intermedio: Paleta de Sabores**
-- **Gelatina de bugambilia** — Con crema de limón
-
-**Postre Principal**
-- **Esfera de chocolate de Tabasco** con relleno líquido de maracuyá
-- Helado de vainilla de Papantla
-- Crumble de amaranto
-
-**Petit Fours**
-- **Dulces conventuales**: Jamoncillo de almendra, cocada, ate de guayaba
-- **Chocolate de metate** tradicional para beber
-
-### Maridaje Exclusivo
-
-**Opción Mexicana:**
-Cada tiempo maridado con **vinos mexicanos** de pequeños productores:
-- **Espumoso** — Monte Xanic Cuvée "Ricardo Muñoz" (Valle de Guadalupe)
-- **Blanco** — Adobe Guadalupe Chardonnay (Valle de Guadalupe)
-- **Rosado** — L.A. Cetto Petite Sirah Rosé
-- **Tinto** — Casa de Piedra "Vino de Piedra" Tempranillo (Valle de Guadalupe)
-- **Dulce** — Pedro Domecq Solera Port
-
-**Opción Internacional:**
-Maridaje con vinos de regiones históricas españolas (conexión virreinal):
-- **Ribera del Duero**, **Rioja**, **Priorat**
-
-**Opción Destilados Mexicanos:**
-Cada tiempo con **mezcales y tequilas artesanales** en copa de cata (30ml):
-- Mezcal joven, mezcal reposado, mezcal añejo
-- Tequila blanco, reposado, añejo extra
-
-## Paquetes Azul Histórico Terraza
-
-### Paquete Mirador ($3,200/persona - mínimo 50 pax)
-
-**Espacios (5 horas)**
-- Terraza principal exclusiva
-- Salón Mirador como área VIP
-- Jardín de Cactáceas para ceremonia
-
-**Gastronomía**
-- Menú degustación de 6 tiempos cocina de autor
-- Maridaje con 4 vinos mexicanos
-- Barra de mezcales artesanales (2 horas)
-- Café de especialidad y tés
-
-**Servicio**
-- Coordinador dedicado desde primer contacto
-- 1 mesero por cada 8 invitados
-- Vajilla de diseño mexicano contemporáneo
-- Cristalería Riedel
-- Mantelería italiana
-- Valet parking en el Centro Histórico
-
-**Ambientación**
-- Iluminación arquitectónica de la Catedral
-- Velas en mesas
-- Arreglos florales minimalistas
-
-### Paquete Centro Histórico ($4,500/persona - mínimo 50 pax)
-
-Todo lo anterior más:
-
-**Gastronomía Premium**
-- Menú degustación "Tenochtitlan Vista al Cielo" de 8 tiempos
-- Maridaje completo con vinos de reserva
-- Barra de mezcales artesanales con sommelier dedicado (4 horas)
-- Estación de café con barista profesional
-
-**Experiencia Cultural**
-- **Recorrido privado** por el Palacio de los Condes de Valparaíso con historiador
-- **Cóctel de bienvenida** en el restaurante Azul Histórico (planta baja)
-- **Música en vivo**: Trio de jazz mexicano o música de cámara
-
-**Fotografía**
-- Sesión de fotos pre-evento con fotógrafo profesional
-- Vista aérea con dron del Centro Histórico
-
-### Paquete Tenochtitlan ($6,000/persona - mínimo 50 pax)
-
-Todo lo anterior más:
-
-**Gastronomía de Chef**
-- **Chef Ricardo Muñoz Zurita** visitando las mesas
-- Plato especial creado exclusivamente para el evento
-- Maridaje con vinos internacionales de colección privada
-
-**Experiencia Exclusiva**
-- **Clase magistral** de cocina mexicana con el Chef (30 min antes del evento)
-- **Libro autografiado** del Diccionario Enciclopédico para cada pareja
-- **Recetario personalizado** del menú servido
-
-**Producción Premium**
-- **Iluminación mapping** en fachada del palacio
-- **Música en vivo**: Mariachi tradicional + DJ
-- **Fuegos artificiales fríos** sincronizados con primer baile
+Isabel la Católica 30, **Centro Histórico**, CP 06000 — a dos cuadras del Zócalo y del eje peatonal de Madero; Metro Zócalo o Allende.
 
 ## Producción EVENTECH
 
-Equipamiento especializado para rooftops en el Centro Histórico:
-
-### Iluminación Urbana
-- **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** para resaltar la Catedral desde la terraza
-- **[Uplighting inalámbrico](/servicios/iluminacion/arquitectonica/uplighting/)** en pérgola
-- **[Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/)** en el Jardín de Cactáceas
-
-### Climatización
-- **[Calefacción de patio](/servicios/accesorios/calefaccion-clima/calentadores-patio/)** para eventos de octubre-marzo
-
-### Audiovisual Discreto
-- **[Sonido premium](/servicios/audiovisual/sonido/)** con bocinas direccionales que no molestan al vecindario
-- **[Pantallas LED](/servicios/audiovisual/pantallas-led/)** para eventos corporativos
-
-## Reconocimientos
-
-- **Mejor Rooftop para Eventos** — Wedding Industry Awards México 2023
-- **4 Estrellas** — Guía México Gastronómico 2024
-- **Award of Excellence** — Wine Spectator 2022, 2023, 2024
-- **Mención** — The New York Times "36 Hours in Mexico City" (2023)
+- **[Iluminación decorativa](/servicios/iluminacion/)** complementaria para cenas en patio
+- **[Audiovisual](/servicios/audiovisual/)** discreto para presentaciones y brindis
+- **[Calefacción de patio](/servicios/accesorios/calefaccion-clima/)** para noches frías del Centro
 
 ## Venues similares
 
-- **[Club de Banqueros](/directorio/cdmx/lomas-chapultepec/club-de-banqueros/)** — Club privado exclusivo en Polanco
-- **[Terraza El Contadero](/directorio/cdmx/alvaro-obregon/terraza-contadero/)** — Vistas a volcanes en El Contadero
-- **[St. Regis](/directorio/cdmx/cuauhtemoc/st-regis-mexico-city/)** — Ultra-lujo hotelero
-- **[Four Seasons](/directorio/cdmx/cuauhtemoc/four-seasons-mexico-city/)** — Elegancia con jardines
+- **[Casa de los Azulejos](/directorio/cdmx/centro-historico/casa-de-los-azulejos/)** — El Sanborns del palacio de talavera sobre Madero
+- **[Club de Banqueros](/directorio/cdmx/centro-historico/club-de-banqueros/)** — 14 espacios en un edificio virreinal
+- **[Palacio de la Autonomía](/directorio/cdmx/centro-historico/palacio-autonomia/)** — Recinto histórico junto al Zócalo
