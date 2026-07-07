@@ -1,8 +1,8 @@
 ---
 name: "Four Seasons Hotel Mexico City"
 slug: "four-seasons-mexico-city"
-description: "El Four Seasons Hotel Mexico City es un oasis de elegancia clásica en el corazón de Paseo de la Reforma. Con su arquitectura inspirada en un palacio colonial mexicano, jardines interiores exuberantes y el legendario servicio Four Seasons, este hotel ofrece espacios versátiles para eventos que van desde íntimas celebraciones hasta grandes galas corporativas. Su ubicación privilegiada, gastronomía excepcional y atención al detalle lo han convertido en el venue favorito de la élite empresarial y social de México."
-shortDescription: "Elegancia clásica con jardines interiores y servicio legendario sobre Paseo de la Reforma."
+description: "El Four Seasons Hotel Mexico City, sobre Paseo de la Reforma 500, es el clásico de lujo de la ciudad: arquitectura de hacienda con columnata cubierta de hiedra alrededor de un patio-jardín central con fuente. Según su listing oficial recibe eventos de 15 a 312 invitados en banquete, con menús de $1,950 a $5,950 por persona, barra libre o descorche libre, sin límite de hora y sin renta fija (consumo mínimo de alimentos y bebidas). Su ficha técnica reporta 13,185 sq ft de espacios en salones y terrazas, y 240 habitaciones con 40 suites. Calificación perfecta de 5.0 con 5 opiniones y 100% de recomendación en bodas.com.mx, con Wedding Awards 2015 y más de 25 parejas contratadas."
+shortDescription: "El clásico de Reforma: patio-jardín de hacienda, 15-312 invitados, menús $1,950-$5,950, 5.0 perfecto en bodas.com.mx."
 
 region: "cdmx"
 zone: "Cuauhtémoc"
@@ -11,23 +11,21 @@ address: "Paseo de la Reforma 500, Juárez"
 neighborhood: "Juárez"
 postalCode: "06600"
 coordinates:
-  lat: 19.4267
-  lng: -99.1725
-googleMapsUrl: "https://maps.google.com/?q=Four+Seasons+Hotel+Mexico+City"
+  lat: 19.4232
+  lng: -99.1744
+googleMapsUrl: "https://maps.google.com/?q=19.4232,-99.1744"
 
 type: "hotel"
 subtype: "lujo-clasico"
 
 capacity:
-  min: 30
-  max: 500
-  cocktail: 700
-  ceremony: 180
+  min: 15
+  max: 312
 
 priceRange: "$$$$"
 pricePerPerson:
-  min: 2800
-  max: 6500
+  min: 1950
+  max: 5950
 
 amenities:
   - estacionamiento
@@ -73,7 +71,7 @@ schedule:
 
 contact:
   phone: "55 5230 1818"
-  email: "events.mexicocity@fourseasons.com"
+  website: "https://www.fourseasons.com/mexico/weddings/"
   instagram: "@fsmexicocity"
 
 image: "/images/venues/four-seasons-hero.avif"
@@ -90,36 +88,21 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "10% en mobiliario lounge premium"
 
-rating: 4.8
-reviewCount: 428
-reviews:
-  - author: "Lic. Carolina Mendoza Rivas y Rafael Mendoza"
-    date: "2025-04"
-    rating: 5
-    text: "Nuestra boda en el Four Seasons fue la experiencia más refinada que pudimos imaginar. Los jardines interiores del hotel, con esa arquitectura colonial que transporta a otro tiempo en pleno Paseo de la Reforma, son una locación cinematográfica. El equipo de banquetes lideró cada detalle con una precisión que nos dejó sin preocupaciones desde la primera reunión; la propuesta gastronómica fue extraordinaria. El servicio de suite nupcial y la atención personalizada para nuestros 180 invitados de diferentes países fue verdaderamente el estándar Five Diamond."
-    eventType: "bodas"
-  - author: "Lic. Armando Pedraza — Grupo Empresarial Pedraza & Asociados"
-    date: "2024-11"
-    rating: 5
-    text: "Llevamos a cabo nuestra convención anual de directivos para 450 personas en el Four Seasons y la logística fue impecable. La tecnología audiovisual, la coordinación de los espacios modulares y la calidad del banquete ejecutivo estuvieron al nivel de los mejores hoteles de Europa. El equipo de eventos del hotel anticipó cada necesidad antes de que pudiéramos verbalizarla; eso es lo que distingue al Four Seasons de cualquier competidor en CDMX."
-    eventType: "corporativos"
-  - author: "Mtra. Isabela Fuentes Castillo"
-    date: "2025-02"
-    rating: 5
-    text: "Celebramos nuestro aniversario de empresa de 25 años con una cena de gala para 300 personas en el Gran Salón. La atención personalizada desde la primera cotización hasta el montaje final fue incomparable. Los jardines sirven como escenario para el cóctel de bienvenida y las transiciones entre espacios son fluidas y elegantes. La gastronomía de autor disponible a través del hotel es un diferenciador real que eleva cualquier evento."
-    eventType: "corporativos"
+reviewsSource: "https://www.bodas.com.mx/hoteles-para-bodas/four-seasons-hotel-mexico-city--e74540"
+rating: 5.0
+reviewCount: 5
 
 faqs:
   - question: "¿Cuántas personas tiene capacidad el Four Seasons Hotel Mexico City para eventos?"
-    answer: "El Four Seasons Hotel Mexico City puede recibir de 30 hasta 500 personas en banquete y hasta 700 en formato cóctel. Para ceremonias, la capacidad es de hasta 180 personas, distribuidas en salones versátiles con arquitectura de palacio colonial y jardines interiores exuberantes."
+    answer: "Según su listing oficial en bodas.com.mx, recibe eventos de 15 a 312 invitados en banquete. Su ficha técnica reporta 13,185 sq ft (unos 1,225 m²) de espacios: el Gran Salón, los salones Guadalajara, San Miguel y Morelia, las terrazas Nayarit y Guadalajara, y el patio-jardín central para ceremonias."
   - question: "¿Dónde se encuentra el Four Seasons Mexico City y cómo llegar?"
     answer: "Está ubicado en Paseo de la Reforma 500, Colonia Juárez, CP 06600, en una de las avenidas más icónicas de la Ciudad de México. Es accesible por la Línea 1 del Metro (estación Insurgentes) y Metrobús Reforma. Cuenta con estacionamiento propio y servicio de valet parking."
   - question: "¿Qué servicios incluye la renta de espacios en el Four Seasons Mexico City?"
-    answer: "La renta incluye banquete con gastronomía de primer nivel, meseros, coordinador de eventos, mobiliario básico, mantelería, vajilla, iluminación básica, sonido básico y seguridad. El uso de los jardines interiores, la suite nupcial y acceso a amenidades del hotel se coordinan según el paquete contratado."
+    answer: "El banquete es propio y exclusivo del hotel, con menús publicados de $1,950 a $5,950 por persona, personalizables (vegetarianos, veganos, celíacos y para diabéticos). No hay renta fija: los salones se asignan con un consumo mínimo de alimentos y bebidas. La barra funciona como barra libre o descorche libre, y el pastel externo tiene una cuota aproximada de $1,200."
   - question: "¿Qué tipos de eventos acepta el Four Seasons Mexico City?"
     answer: "El hotel acepta bodas, eventos corporativos, convenciones, lanzamientos de productos, cenas de gala, aniversarios y bautizos. Su legendario servicio Five Star y su arquitectura colonial lo convierten en la sede favorita de la élite empresarial y social de México."
   - question: "¿El Four Seasons Mexico City tiene estacionamiento y cuáles son las políticas de catering?"
-    answer: "El hotel cuenta con estacionamiento propio y valet parking. El catering es exclusivo del Four Seasons, con menús elaborados por su brigade culinaria de lujo. Opera entre semana de 07:00 a 01:00 horas y fines de semana hasta las 02:00, con una duración mínima de 5 horas por evento."
+    answer: "El hotel cuenta con estacionamiento propio y valet parking. El catering es exclusivo del Four Seasons y, según su listing oficial, no hay límite de hora para los eventos. Puede celebrar más de un evento al día en sus distintos salones. Pagos con tarjeta, efectivo, depósito o transferencia."
 
 seoTitle: "Four Seasons Mexico City"
 seoDescription: "Celebra tu boda o evento corporativo en Four Seasons Hotel Mexico City. Jardines interiores, servicio excepcional y gastronomía de autor en Reforma."
@@ -132,7 +115,7 @@ keywords:
 
 featured: true
 premium: true
-verified: true
+verified: false
 order: 2
 publishedAt: 2025-03-01
 ---
@@ -145,31 +128,17 @@ Desde el momento en que atraviesas el arco de entrada hacia el patio central —
 
 ## Espacios de Eventos Entre Jardines y Elegancia
 
-### Gran Salón Reforma (Capacidad: 300-500 banquete / 700 cóctel)
+### Los salones (13,185 sq ft en total)
 
-El salón principal del Four Seasons es un **espacio de 600 metros cuadrados** que combina la elegancia clásica con funcionalidad moderna. Techos de cinco metros con molduras de diseño mexicano, iluminación cálida de candelabros artesanales, y acceso directo al jardín interior para cócteles o ceremonias al aire libre.
+El **Gran Salón** encabeza los espacios del hotel — su ficha técnica reporta capacidad de hasta 500 personas en recepción, y el listing de bodas sitúa el máximo en banquete en 312 invitados. Lo acompañan los salones **Guadalajara, San Miguel y Morelia**, con vistas al patio interior.
 
-El sistema de paredes móviles permite configurar desde un salón íntimo hasta el espacio completo, mientras que el equipo técnico del hotel puede ejecutar transformaciones completas de iluminación y ambiente.
+### Terrazas Nayarit y Guadalajara
 
-**Ideal para:** Bodas de lujo, galas corporativas, cenas de gala, premiaciones, convenciones, lanzamientos de productos.
+Las dos terrazas del hotel reciben ceremonias civiles, cócteles e imperiales al aire libre — los montajes más fotografiados de su listing.
 
-### Jardín Interior (Capacidad: 100-180 cóctel / ceremonia)
+### El patio-jardín central
 
-El **corazón del Four Seasons** es su jardín interior de 400 metros cuadrados —un oasis tropical con fuente central, bugambilias en flor todo el año, y la arquitectura del hotel como telón de fondo perfecto. Este espacio se puede carpar completamente para eventos en cualquier época del año, manteniendo la sensación de jardín mientras se protege del clima.
-
-**Ideal para:** Ceremonias civiles o religiosas, cócteles de bienvenida, sesiones fotográficas, coffee breaks de convenciones, cenas íntimas bajo las estrellas.
-
-### Terraza Fifty Mils (Capacidad: 60-100 personas)
-
-La terraza del restaurante Fifty Mils ofrece **vistas privilegiadas de Paseo de la Reforma** y el Ángel de la Independencia. Este espacio contemporáneo puede privatizarse para eventos de cóctel, cenas de grupo, o experiencias de mixología exclusivas con los bartenders ganadores de múltiples premios del bar.
-
-**Ideal para:** Despedidas de soltero/a elegantes, cenas de negocios, eventos de networking, lanzamientos de marcas de lifestyle.
-
-### Salones Ejecutivos (Capacidad: 20-80 personas)
-
-Cuatro salones de juntas con **luz natural abundante**, mobiliario ejecutivo de diseño italiano, y tecnología de videoconferencia de última generación. El servicio incluye coffee breaks gourmet continuos y almuerzo ejecutivo opcional.
-
-**Ideal para:** Juntas de consejo, capacitaciones, conferencias de prensa, sesiones de planificación estratégica.
+El corazón del hotel: el patio estilo hacienda con fuente y jardines, escenario de ceremonias y cócteles con la columnata cubierta de hiedra como fondo.
 
 ### Suite Presidencial y Preparación Nupcial
 
