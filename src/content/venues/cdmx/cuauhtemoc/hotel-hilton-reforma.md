@@ -1,18 +1,28 @@
 ---
 name: "Hilton Mexico City Reforma"
 slug: "hotel-hilton-reforma"
-description: "El Hilton Mexico City Reforma es el hotel de referencia para eventos corporativos y sociales en el corazón de la capital. Con su ubicación privilegiada sobre Paseo de la Reforma, frente al Monumento a la Revolución, este hotel de 459 habitaciones ofrece más de 2,000 metros cuadrados de espacios para eventos, incluyendo el Gran Salón Reforma con capacidad para más de 1,000 personas. La combinación de tecnología de punta, gastronomía de calidad y el respaldo de la marca Hilton garantiza eventos ejecutados con precisión internacional."
-shortDescription: "Hotel de convenciones con vista al Monumento a la Revolución y capacidad para 1,000+ personas."
+description: >-
+  El Hilton Mexico City Reforma, sobre Av. Juárez frente al Parque Alameda
+  Central, es uno de los hoteles de eventos de gran formato del Centro:
+  más de 10 salones encabezados por el Don Alberto 1 —250 personas ampliable
+  hasta 1,400— y una terraza en el sexto piso con vistas al Centro Histórico.
+  Según su listing oficial recibe de 50 a 1,500 invitados con menús de $1,450
+  a $2,999 por persona diseñados por su chef ejecutivo Víctor Terán
+  (Chevalier de l'Académie Culinaire de France), barra libre o descorche
+  libre, sin renta fija, y eventos hasta las 05:00 — de los horarios más
+  amplios de la ciudad. 459 habitaciones con tarifas preferenciales.
+  Calificación 4.1 con 12 opiniones y 83% de recomendación en bodas.com.mx.
+shortDescription: "Frente a la Alameda: 50-1,500 invitados, salón ampliable a 1,400, terraza con vistas al Centro y eventos hasta las 05:00."
 
 region: "cdmx"
 zone: "Cuauhtémoc"
 zoneSlug: "cuauhtemoc"
 address: "Av. Juárez 70, Centro Histórico"
-neighborhood: "Tabacalera"
+neighborhood: "Centro"
 postalCode: "06010"
 coordinates:
-  lat: 19.4355
-  lng: -99.1530
+  lat: 19.4345
+  lng: -99.1462
 googleMapsUrl: "https://maps.google.com/?q=Hilton+Mexico+City+Reforma"
 
 type: "hotel"
@@ -20,9 +30,7 @@ subtype: "convenciones"
 
 capacity:
   min: 50
-  max: 1200
-  cocktail: 1800
-  ceremony: 400
+  max: 1500
 
 priceRange: "$$$"
 pricePerPerson:
@@ -72,8 +80,7 @@ schedule:
 
 contact:
   phone: "55 5130 5300"
-  email: "eventos.mexicocity@hilton.com"
-  instagram: "@hiltonmexicocity"
+  website: "https://www.hilton.com/es/hotels/mexrfhh-hilton-mexico-city-reforma/"
 
 image: "/images/venues/hilton-reforma-hero.avif"
 gallery:
@@ -89,28 +96,13 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "10% en equipos de audiovisual"
 
-rating: 4.5
-reviewCount: 567
-reviews:
-  - author: "Lic. Eduardo Brambila — Asociación Empresarial del Centro"
-    date: "2025-03"
-    rating: 5
-    text: "El Gran Salón Reforma del Hilton es el espacio de convenciones más funcional del centro de la ciudad. Realizamos nuestra asamblea anual con más de 1,000 asistentes y los 2,000 metros cuadrados de espacios para eventos del hotel absorbieron el flujo de personas con total eficiencia. La tecnología audiovisual, el equipo de banquetes y el servicio de coordinación del Hilton operaron con la precisión internacional que caracteriza a la marca. La ubicación frente al Monumento a la Revolución facilita el acceso desde cualquier punto de la ciudad."
-    eventType: "convenciones"
-  - author: "Mtra. Valentina Cruz, Gerente de Eventos — Grupo Editorial Reforma"
-    date: "2024-07"
-    rating: 4
-    text: "Organizamos el lanzamiento de nuestra nueva plataforma digital para 400 personas en el Hilton Reforma y el resultado fue muy satisfactorio. Los salones son versátiles y el equipo del hotel tiene experiencia real para transformar espacios corporativos en ambientes de evento. La propuesta gastronómica del banquete ejecutivo fue de buen nivel y los tiempos de servicio estuvieron controlados. Un venue sólido con respaldo de marca internacional para eventos de alto perfil en el centro histórico."
-    eventType: "lanzamientos"
-  - author: "Lic. Roberto Salinas — Consultora de Recursos Humanos CapitalHR"
-    date: "2025-01"
-    rating: 5
-    text: "Llevamos a cabo nuestro congreso de liderazgo para 700 profesionales de RH en el Hilton Mexico City Reforma durante tres días completos. La capacidad del hotel para manejar eventos multi-día con múltiples salones simultáneos, hospedaje en las 459 habitaciones y servicio de banquete es una combinación que pocos venues pueden ofrecer en CDMX. La vista al Monumento a la Revolución desde los salones superiores es un plus que los asistentes siempre comentan."
-    eventType: "corporativos"
+reviewsSource: "https://www.bodas.com.mx/hoteles-para-bodas/hilton-mexico-city-reforma--e44219"
+rating: 4.1
+reviewCount: 12
 
 faqs:
   - question: "¿Cuántas personas caben en el Hilton Mexico City Reforma para eventos?"
-    answer: "El Hilton Mexico City Reforma tiene capacidad para 1,200 personas en banquete y hasta 1,800 en cóctel. El Gran Salón Reforma puede alojar más de 1,000 personas. Para ceremonias civiles o religiosas, la capacidad es de hasta 400 personas. El aforo mínimo por espacio varía desde 50 personas en salas menores."
+    answer: "Según su listing oficial, recibe eventos de 50 a 1,500 invitados. El salón principal Don Alberto 1 acomoda 250 personas y puede ampliarse hasta 1,400; el hotel suma más de 10 salones y una terraza en el sexto piso con vistas a la Alameda Central, y puede celebrar más de un evento al día."
   - question: "¿Dónde está el Hilton Mexico City Reforma y cómo llegar?"
     answer: "Se ubica en Av. Juárez 70, Colonia Tabacalera, alcaldía Cuauhtémoc, C.P. 06010, frente al Monumento a la Revolución sobre Paseo de la Reforma. El Metro más cercano es Revolución (Línea 2) y Hidalgo (Líneas 2 y 3). El Metrobús Reforma pasa frente al hotel. Cuenta con estacionamiento propio y valet parking."
   - question: "¿Qué incluye la renta del Hilton Mexico City Reforma para eventos?"
@@ -130,7 +122,7 @@ keywords:
 
 featured: true
 premium: true
-verified: true
+verified: false
 order: 7
 publishedAt: 2025-03-01
 ---
@@ -143,31 +135,13 @@ Con más de 2,000 metros cuadrados de espacios para eventos y la infraestructura
 
 ## Espacios de Eventos de Alta Capacidad
 
-### Gran Salón Reforma (Capacidad: 800-1200 banquete / 1800 cóctel)
+### Salón Don Alberto 1 (250, ampliable hasta 1,400)
 
-El salón de eventos más grande de la zona centro de la CDMX: **1,400 metros cuadrados sin columnas**, techos de ocho metros, y capacidad de división en hasta seis espacios independientes. El sistema audiovisual integrado incluye pantallas LED modulares, proyección láser 4K, y audio profesional distribuido.
+El salón principal, con ventanal a la **Alameda Central**: 250 personas en su configuración base y **hasta 1,400 al ampliarse** con los salones contiguos — el formato de mayor escala del Centro. Lo complementan **más de 10 salones** adicionales para eventos simultáneos.
 
-La iluminación programable permite transformaciones completas del ambiente —desde configuración corporativa con luz blanca de alta intensidad hasta ambientes cálidos para galas y bodas.
+### Terraza del sexto piso
 
-**Ideal para:** Convenciones de gran formato, congresos médicos, expo-ventas, graduaciones masivas, galas corporativas, bodas de 500+ invitados.
-
-### Salón Constitución (Capacidad: 200-350 banquete / 450 cóctel)
-
-Un **espacio versátil de 500 metros cuadrados** perfecto para eventos que requieren el profesionalismo de un hotel de convenciones pero en escala más manejable. Vista parcial hacia el Monumento a la Revolución a través de ventanales.
-
-**Ideal para:** Convenciones medianas, bodas, eventos corporativos, premiaciones, graduaciones.
-
-### Terraza Revolución - Piso 18 (Capacidad: 100-180 cóctel)
-
-La **terraza rooftop con vista directa al Monumento a la Revolución** y panorámica de 270° de la ciudad. Este espacio es particularmente espectacular al atardecer, cuando las luces del monumento se encienden y el skyline de la ciudad comienza a brillar.
-
-**Ideal para:** Cócteles de bienvenida, eventos de networking, cenas íntimas con vista, sesiones fotográficas.
-
-### Centro de Negocios (10 salones ejecutivos)
-
-Un piso completo dedicado a **salas de juntas y capacitación**, con tecnología Hilton Meeting Services integrada. Salones de 20 a 100 personas con videoconferencia, pantallas interactivas, y servicio de café continuo.
-
-**Ideal para:** Juntas de consejo, capacitaciones, conferencias de prensa, sesiones de trabajo.
+Ceremonias y cócteles al aire libre **con vistas al Centro Histórico y la Alameda** — las fotos "estilo Manhattan" que citan las propias reseñas del listing.
 
 ### Suite Presidencial y Preparación
 
