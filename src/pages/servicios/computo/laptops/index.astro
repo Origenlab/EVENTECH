@@ -1,21 +1,25 @@
 ---
 /**
- * ─── Laptops para Eventos — Subcategoría de Cómputo (L4) ───
- * Página especializada: Renta de Laptops para Eventos en CDMX.
- * Color accent: Azul #2563eb (identidad de la línea de cómputo).
+ * ─── Laptops para Eventos — Página de Producto (L5) ───
+ * Empresariales, alto rendimiento, MacBooks y kits de registro para eventos.
+ * Homologada al Template-L5-producto (tiffany): componentes l3/l4, dorado #c2a24a,
+ * galería showcase__gallery3, Acabados grid, 8 FAQs, título sin marca.
+ * NOTA: sin reviews reales → serviceJsonLd (no se fabrican reseñas).
+ * NOTA: sin fotos de producto en el repo → imágenes corporativas/AV con alt honesto.
+ *
+ * Jerarquía: Servicios > Cómputo > Laptops
  */
 import PageLayout from "@layouts/PageLayout.astro";
 import ServiceShowcase from "@components/ServiceShowcase.astro";
 import HeroPage from "@components/HeroPage.astro";
-import Breadcrumbs from "@components/Breadcrumbs.astro";
 import CTABanner from "@components/CTABanner.astro";
 import SectionHeader from "@components/SectionHeader.astro";
 import ProductCard from "@components/ProductCard.astro";
 import { SITE } from "@config/site";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from "@lib/seo";
 import '@styles/l3-shared.css';
-import PricingCards from "@components/PricingCards.astro";
-import FaqSection from "@components/FaqSection.astro";
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
 
 const breadcrumbItems = [
   { label: "Inicio", href: "/" },
@@ -24,56 +28,91 @@ const breadcrumbItems = [
   { label: "Laptops" },
 ];
 
-const LAPTOPS = [
+const acabados = [
   {
     name: "Laptop Empresarial",
     price: "Desde $450/día",
-    excerpt: "Core i5, 8 GB de RAM, SSD y Windows 11 Pro con Office instalado. La unidad estándar para registro de asistentes, ofimática, capacitaciones y plataformas web de acreditación.",
-    href: "#reserva-heading",
-    image: "/images/audiovisual/monitor-pantalla-presentacion-congreso.avif",
+    excerpt: "Core i5, 8 GB de RAM, SSD y Windows 11 Pro con Office. La unidad estándar para registro, ofimática y capacitaciones.",
+    href: "#empresarial-heading",
+    image: "/images/eventos/corporativos/ejecutivo.avif",
+    imageAlt: "Estación de trabajo con laptop en evento corporativo ejecutivo en CDMX",
     tags: ["Core i5 · 8 GB", "SSD 256 GB", "Windows 11 Pro", "Office incluido"],
     badge: "Más solicitada",
   },
   {
     name: "Laptop Alto Rendimiento",
     price: "Desde $650/día",
-    excerpt: "Core i7 con 16 GB de RAM y gráficos dedicados para edición de video, streaming, software de ingeniería y presentaciones pesadas que una laptop estándar no mueve con fluidez.",
-    href: "#reserva-heading",
+    excerpt: "Core i7, 16 GB de RAM y GPU dedicada para edición de video, streaming y software profesional en sitio.",
+    href: "#alto-rendimiento-heading",
     image: "/images/blog/evento-corporativo-cdmx-produccion.avif",
-    tags: ["Core i7 · 16 GB", "GPU dedicada", "Pantalla 15.6\"", "HDMI + USB-C"],
+    imageAlt: "Mesa de producción con equipo de cómputo en evento corporativo en CDMX",
+    tags: ["Core i7 · 16 GB", "GPU dedicada", "15.6\"", "HDMI + USB-C"],
   },
   {
     name: "MacBook Air / Pro",
     price: "Desde $800/día",
-    excerpt: "MacBooks con macOS actualizado para producción audiovisual, keynotes, diseño y equipos de trabajo que operan en ecosistema Apple. Incluyen adaptadores USB-C a HDMI.",
-    href: "#reserva-heading",
-    image: "/images/eventos/corporativos-hero.avif",
-    tags: ["macOS", "Chip Apple", "Keynote / Final Cut", "Adaptadores incluidos"],
+    excerpt: "MacBooks con macOS actualizado para keynotes, producción audiovisual y equipos en ecosistema Apple.",
+    href: "#macbook-heading",
+    image: "/images/eventos/corporativos/lanzamiento.avif",
+    imageAlt: "Escenario de lanzamiento corporativo con presentación proyectada en CDMX",
+    tags: ["macOS", "Chip Apple", "Keynote / Final Cut", "Adaptadores"],
   },
   {
-    name: "Kit de Registro de Asistentes",
+    name: "Kit de Registro",
     price: "Desde $3,500/día",
-    excerpt: "Módulo completo de acreditación: laptops configuradas con tu plataforma, impresora de gafetes, lectores QR y red WiFi temporal independiente del venue. Instalado y probado.",
-    href: "#reserva-heading",
+    excerpt: "Acreditación completa: laptops con tu plataforma, impresora de gafetes, lectores QR y red WiFi dedicada.",
+    href: "#kits-registro-heading",
     image: "/images/carpas/carpa-estructural-grande-congreso.avif",
+    imageAlt: "Congreso corporativo de gran formato con módulos de registro en CDMX",
     tags: ["Laptops + impresora", "Lectores QR", "WiFi dedicado", "Técnico opcional"],
   },
 ];
 
+const specs = [
+  { label: "Líneas", value: "Empresarial i5, Alto rendimiento i7, MacBook Air/Pro, Kit de registro" },
+  { label: "Procesador", value: "Intel Core i5 / i7 · chip Apple (MacBook)" },
+  { label: "Memoria RAM", value: "8 GB (empresarial) / 16 GB (alto rendimiento)" },
+  { label: "Almacenamiento", value: "SSD 256 GB / 512 GB" },
+  { label: "Sistema", value: "Windows 11 Pro / macOS actualizado" },
+  { label: "Software", value: "Office + apps de tu evento preinstaladas y probadas" },
+  { label: "Pantalla y puertos", value: "14\" / 15.6\" · HDMI, USB-A y USB-C" },
+  { label: "Respaldo", value: "Unidades de reemplazo incluidas en pedidos de 10+" },
+  { label: "Modalidad", value: "Renta por día, por evento (2–5 días) o por semana" },
+  { label: "Seguridad", value: "Borrado seguro certificado al devolver el equipo" },
+];
+
+const sidebarNav = [
+  { name: "Laptops", href: null, active: true },
+  { name: "iPads y Tablets", href: "/servicios/computo/ipads-tablets/" },
+  { name: "PCs de Escritorio", href: "/servicios/computo/pcs-escritorio/" },
+  { name: "Impresión y Periféricos", href: "/servicios/computo/impresion-perifericos/" },
+];
+
+const sidebarRelated = [
+  { name: "Pantallas LED", href: "/servicios/audiovisual/pantallas-led/" },
+  { name: "Proyectores", href: "/servicios/audiovisual/proyectores/" },
+  { name: "Sonido para Eventos", href: "/servicios/audiovisual/sonido/" },
+  { name: "Mobiliario para Módulos", href: "/servicios/mobiliario/" },
+  { name: "Plantas de Energía", href: "/servicios/accesorios/plantas-energia/" },
+];
+
 const faqs = [
-  { question: "¿Cuánto cuesta la renta de laptops para eventos en CDMX?", answer: "La laptop empresarial (Core i5, 8 GB, Windows 11 Pro) renta desde $450 por día; la de alto rendimiento (Core i7, 16 GB) desde $650, y las MacBooks desde $800 por día. A partir de 10 unidades aplicamos descuentos por volumen que aumentan con la cantidad y los días de renta — una capacitación de 20 laptops por 3 días paga una tarifa unitaria considerablemente menor que la renta suelta. La entrega, instalación y recolección están incluidas en CDMX y zona metropolitana, y la cotización llega en menos de 24 horas por WhatsApp al 55 6432 8954." },
-  { question: "¿Las laptops llegan con el software que mi evento necesita?", answer: "Sí. Cada laptop se entrega con Windows 11 Pro (o macOS en MacBooks) actualizado, Office instalado y el software específico de tu evento precargado y probado: plataformas de registro, navegadores con accesos configurados, software de capacitación o herramientas propietarias de tu empresa. Si tu aplicación requiere licencias propias, coordinamos con tu equipo de TI una sesión de instalación previa sin costo. Todas las unidades de un mismo pedido salen con la misma imagen de software, de modo que cada estación se comporta exactamente igual." },
-  { question: "¿Qué pasa si una laptop falla en pleno evento?", answer: "En pedidos de 10 unidades o más incluimos laptops de respaldo idénticas y ya configuradas sin costo adicional: el reemplazo toma minutos y tu operación no se detiene. En rentas menores ofrecemos soporte inmediato por WhatsApp y reemplazo el mismo día dentro de CDMX y zona metropolitana. Para módulos críticos — el registro de un congreso, un examen de certificación — recomendamos contratar técnico en sitio, que permanece durante el evento y resuelve cualquier incidencia de equipo, red o impresión al momento." },
-  { question: "¿Puedo rentar laptops por varios días o semanas?", answer: "Sí. Manejamos rentas por día, por evento (2 a 5 días) y por semana para call centers temporales, proyectos y oficinas provisionales. En rentas de varios días la tarifa diaria baja de forma escalonada, y el equipo puede permanecer instalado en el venue durante toda la vigencia — solo pedimos un espacio con acceso controlado para el resguardo nocturno. Los cambios de cantidad o de fechas no tienen costo hasta 72 horas antes del inicio de la renta, y emitimos factura CFDI por el periodo completo." },
-  { question: "¿Cómo garantizan la seguridad de la información al devolver el equipo?", answer: "Al recolectar las laptops realizamos borrado seguro de toda la información generada durante tu evento: registros de asistentes, documentos de trabajo, credenciales de red y sesiones de navegador. Las unidades se restauran a una imagen limpia antes de volver al inventario, por lo que ningún dato de tu empresa o de tus asistentes permanece en los discos. Para eventos con requisitos de confidencialidad estrictos (jurídicos, financieros, de salud) podemos firmar acuerdo de confidencialidad y entregar constancia del borrado." },
-  { question: "¿Con cuánta anticipación debo reservar las laptops?", answer: "Para pedidos de hasta 10 laptops recomendamos reservar con 1 semana de anticipación; para capacitaciones y congresos de 20 a 50 unidades, con 2 a 3 semanas, de modo que haya margen para la configuración de software y las pruebas. La reserva se confirma con el 50% de anticipo y el resto se liquida contra entrega. En temporada alta de eventos corporativos (marzo–junio y septiembre–noviembre) los pedidos grandes conviene apartarlos con un mes. También atendemos urgencias de último momento sujetas a disponibilidad de inventario." },
+  { question: "¿Cuánto cuesta la renta de laptops para eventos en CDMX?", answer: 'La laptop empresarial (Core i5, 8 GB, Windows 11 Pro) renta <strong>desde $450 por día</strong>; la de alto rendimiento (Core i7, 16 GB) desde $650, y las MacBooks desde $800. A partir de 10 unidades aplicamos descuentos por volumen que aumentan con la cantidad y los días — una capacitación de 20 laptops por 3 días paga una tarifa unitaria mucho menor que la renta suelta. La entrega, instalación y recolección están incluidas en CDMX y zona metropolitana, y la cotización llega en menos de 24 horas.' },
+  { question: "¿Las laptops llegan con el software que mi evento necesita?", answer: "Sí. Cada laptop se entrega con Windows 11 Pro (o macOS en MacBooks) actualizado, Office instalado y el software específico de tu evento precargado y probado: plataformas de registro, navegadores con accesos configurados, software de capacitación o herramientas propietarias de tu empresa. Si tu aplicación requiere licencias propias, coordinamos con tu equipo de TI una sesión de instalación previa sin costo. Todas las unidades de un mismo pedido salen con la misma imagen de software, de modo que cada estación se comporta igual." },
+  { question: "¿Qué pasa si una laptop falla en pleno evento?", answer: "En pedidos de 10 unidades o más incluimos <strong>laptops de respaldo idénticas y ya configuradas</strong> sin costo: el reemplazo toma minutos y tu operación no se detiene. En rentas menores ofrecemos soporte inmediato por WhatsApp y reemplazo el mismo día dentro de CDMX. Para módulos críticos — el registro de un congreso, un examen de certificación — recomendamos técnico en sitio, que permanece durante el evento y resuelve cualquier incidencia de equipo, red o impresión al momento." },
+  { question: "¿Puedo rentar laptops por varios días o semanas?", answer: "Sí. Manejamos rentas por día, por evento (2 a 5 días) y por semana para call centers temporales, proyectos y oficinas provisionales. En rentas de varios días la tarifa diaria baja de forma escalonada, y el equipo puede permanecer instalado en el venue durante toda la vigencia — solo pedimos un espacio con acceso controlado para el resguardo nocturno. Los cambios de cantidad o fechas no tienen costo hasta 72 horas antes, y emitimos factura CFDI por el periodo completo." },
+  { question: "¿Cómo garantizan la seguridad de la información al devolver el equipo?", answer: "Al recolectar las laptops realizamos <strong>borrado seguro</strong> de toda la información generada durante tu evento: registros de asistentes, documentos, credenciales de red y sesiones de navegador. Las unidades se restauran a una imagen limpia antes de volver al inventario, por lo que ningún dato de tu empresa o de tus asistentes permanece en los discos. Para eventos con requisitos de confidencialidad estrictos podemos firmar acuerdo de confidencialidad y entregar constancia del borrado." },
+  { question: "¿Entregan e instalan el equipo directamente en el venue?", answer: 'Sí. Entregamos, instalamos y probamos cada laptop en el venue antes de abrir puertas: encendido, conexión a red, prueba con <a href="/servicios/audiovisual/proyectores/">proyectores</a> o pantallas y verificación del software del evento. En módulos de registro dejamos las estaciones conectadas y funcionando. Al finalizar, recogemos el equipo en el horario que acordemos, sin que tu equipo tenga que gestionar la logística de devolución.' },
+  { question: "¿Con cuánta anticipación debo reservar las laptops?", answer: "Para pedidos de hasta 10 laptops recomendamos reservar con 1 semana de anticipación; para capacitaciones y congresos de 20 a 50 unidades, con 2 a 3 semanas, de modo que haya margen para la configuración de software y las pruebas. La reserva se confirma con el 50% de anticipo y el resto contra entrega. En temporada alta de eventos corporativos (marzo–junio y septiembre–noviembre) los pedidos grandes conviene apartarlos con un mes. También atendemos urgencias de último momento sujetas a disponibilidad." },
+  { question: "¿Tienen cobertura fuera de la Ciudad de México?", answer: "Sí. Además de todas las alcaldías de CDMX, entregamos en zona metropolitana — Naucalpan, Huixquilucan, Tlalnepantla, Ecatepec, Neza — y en Toluca, Metepec, Querétaro, Puebla y Cuernavaca. Para sedes fuera de CDMX coordinamos la logística de entrega, instalación y recolección con la anticipación necesaria; el costo de transporte se especifica en la cotización según la distancia y el volumen de equipo." },
 ];
 
 const jsonLd = [
   serviceJsonLd({
-    name: "Renta de Laptops para Eventos CDMX",
-    description: "Renta de laptops para eventos: empresariales, alto rendimiento y MacBooks con software configurado, entrega e instalación incluidas en CDMX.",
+    name: "Renta de Laptops para Eventos en CDMX",
+    description: "Renta de laptops para eventos en CDMX: empresariales, alto rendimiento, MacBooks y kits de registro con software configurado, respaldo y entrega en el venue. Desde $450/día.",
     url: "/servicios/computo/laptops/",
+    image: "/images/eventos/corporativos-hero.avif",
     priceRange: { min: 450, max: 12000 },
   }),
   breadcrumbJsonLd([
@@ -87,36 +126,34 @@ const jsonLd = [
 ---
 
 <PageLayout
-  title="Renta de Laptops para Eventos CDMX"
-  description="Renta de laptops para eventos en CDMX: empresariales desde $450/día, alto rendimiento y MacBooks. Software configurado, respaldo incluido y entrega en el venue."
+  title="Renta de Laptops para Eventos en CDMX | Equipo para eventos en México"
+  rawTitle={true}
+  image="/images/eventos/corporativos-hero.avif"
+  description="Renta de laptops para eventos en CDMX: empresariales desde $450/día, alto rendimiento, MacBooks y kits de registro. Software configurado, respaldo y entrega en el venue."
   jsonLd={jsonLd}
 >
   <Breadcrumbs items={breadcrumbItems} slot="breadcrumbs" />
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       HERO
-       ═══════════════════════════════════════════════════════════════════════ -->
+  <!-- 1. HERO -->
   <HeroPage
     badge="Cómputo listo para trabajar"
     title='Renta de <span class="highlight">Laptops</span> para Eventos en CDMX'
-    subtitle="Laptops empresariales, de alto rendimiento y MacBooks entregadas con tu software instalado, batería al 100% y unidades de respaldo en pedidos de volumen."
+    subtitle="Laptops empresariales, de alto rendimiento y MacBooks entregadas con tu software instalado, batería al 100% y unidades de respaldo en pedidos de volumen. Registro de asistentes, capacitaciones, salas de prensa y keynotes."
     primaryCTA={{ label: "Cotiza tus laptops", href: "#reserva-heading" }}
     secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar renta de laptops para mi evento` }}
     cards={[
       {
         title: "Laptops configuradas para cada tipo de evento",
-        content: "<strong>Renta de laptops para eventos</strong> con tres líneas de equipo: empresariales Core i5 con 8 GB y Windows 11 Pro desde $450 por día para registro de asistentes, capacitaciones y ofimática; alto rendimiento Core i7 con 16 GB desde $650 para edición, streaming y software pesado; y MacBooks desde $800 para producción y keynotes. Cada unidad sale del almacén con el software de tu evento instalado, probado y con la misma imagen en todas las estaciones.",
+        content: "<strong>Renta de laptops para eventos</strong> con líneas para cada necesidad: empresariales Core i5 con 8 GB y Windows 11 Pro desde $450 por día para registro de asistentes, capacitaciones y ofimática; alto rendimiento Core i7 con 16 GB desde $650 para edición, streaming y software pesado; y MacBooks desde $800 para producción y keynotes. Cada unidad sale del almacén con el software de tu evento instalado, probado y con la misma imagen en todas las estaciones.",
       },
       {
         title: "Entrega, instalación y respaldo incluidos",
-        content: "<strong>Servicio completo para eventos CDMX</strong>: entregamos e instalamos en el venue, probamos la conexión con proyectores y red, y en pedidos de 10 unidades o más incluimos laptops de respaldo configuradas sin costo. Cotización en menos de 24 horas por WhatsApp, reserva con 50% de anticipo, cambios sin costo hasta 72 horas antes y factura CFDI. Cobertura en todas las alcaldías de CDMX, Naucalpan, Huixquilucan, Tlalnepantla, Toluca, Metepec y Cuernavaca.",
+        content: "<strong>Servicio completo para eventos en CDMX</strong>: entregamos e instalamos en el venue, probamos la conexión con proyectores y red, y en pedidos de 10 unidades o más incluimos laptops de respaldo configuradas sin costo. Cotización en menos de 24 horas por WhatsApp, reserva con 50% de anticipo, cambios sin costo hasta 72 horas antes y factura CFDI. Cobertura en todas las alcaldías de CDMX y zona metropolitana.",
       },
     ]}
   />
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       CTA BANNER
-       ═══════════════════════════════════════════════════════════════════════ -->
+  <!-- 2. CTA BANNER -->
   <CTABanner
     headline="¿Necesitas laptops para tu congreso o capacitación?"
     subheadline="Cotiza sin compromiso y recibe una propuesta con el modelo, la cantidad y la configuración ideal para tu evento"
@@ -124,248 +161,314 @@ const jsonLd = [
     secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
   />
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       CATÁLOGO — 4 tipos de equipo
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section" aria-labelledby="catalogo-heading">
+  <!-- 3. ACABADOS — 4 líneas (anclas on-page) -->
+  <section class="section" aria-labelledby="tipos-heading">
     <div class="container">
       <SectionHeader
-        id="catalogo-heading"
-        title="Nuestro Catálogo de Laptops para Eventos"
-        subtitle="Equipo empresarial verificado, con software configurado y respaldo disponible"
+        id="tipos-heading"
+        title="4 líneas de equipo — elige la tuya"
+        subtitle="Del ponente a las 50 estaciones idénticas"
         description={[
-          "Desde una laptop para el ponente hasta 50 estaciones idénticas para una capacitación corporativa. Manejamos renta de laptops para eventos con inventario propio, revisado y actualizado entre cada renta.",
-          "Cada equipo incluye entrega, instalación, prueba de funcionamiento y recolección al finalizar tu evento. Con descuentos por volumen a partir de 10 unidades y unidades de respaldo incluidas en pedidos grandes."
+          "Desde una laptop para el ponente hasta un módulo de acreditación completo. Todas incluyen software configurado, entrega e instalación en el venue y descuentos por volumen a partir de 10 unidades — la diferencia está en la potencia y el propósito."
         ]}
       />
 
       <div class="grid grid--4">
-        {LAPTOPS.map((equipo) => (
+        {acabados.map((a) => (
           <ProductCard
-            name={equipo.name}
-            price={equipo.price}
-            excerpt={equipo.excerpt}
-            href={equipo.href}
-            image={equipo.image}
-            tags={equipo.tags}
-            badge={equipo.badge}
+            name={a.name}
+            price={a.price}
+            excerpt={a.excerpt}
+            href={a.href}
+            image={a.image}
+            imageAlt={a.imageAlt}
+            tags={a.tags}
+            badge={a.badge}
           />
         ))}
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       LAPTOP EMPRESARIAL — Showcase section
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="empresarial-heading">
+  <!-- MOBILE SIDEBAR (≤1024px) -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
     <div class="container">
-      <ServiceShowcase
-    title="Laptop Empresarial"
-    headingId="empresarial-heading"
-    badge="La unidad estándar del evento"
-    subtitle="Core i5, 8 GB de RAM y Windows 11 Pro: la laptop que resuelve el 80% de las necesidades de cómputo de un evento."
-    tags={["Core i5 · 8 GB RAM", "SSD 256 GB", "Windows 11 Pro", "Desde $450/día"]}
-    ctaHref="#reserva-heading"
-    ctaLabel="Cotizar Laptops Empresariales"
-  >
-    <Fragment slot="body">
-      <p class="showcase__text">Nuestra <strong>laptop empresarial</strong> es la unidad de trabajo estándar para eventos: procesador Core i5, 8 GB de RAM, disco SSD de 256 GB y Windows 11 Pro con Office instalado. Enciende en segundos, corre con fluidez las plataformas web de <strong>registro de asistentes y acreditación</strong>, y aguanta jornadas completas de captura en congresos, mesas de inscripción y módulos de atención. Pantalla de 14" o 15.6", puertos HDMI y USB, y batería verificada al 100% antes de cada entrega.</p>
-      <p class="showcase__text">Es también la base de los <strong>centros de capacitación</strong>: replicamos la misma imagen de software en todas las unidades del pedido para que cada participante encuentre un entorno idéntico. Renta <strong>desde $450 por día</strong> con descuentos a partir de 10 unidades, cargador y mouse incluidos. Combínala con nuestros <a href="/servicios/audiovisual/proyectores/">proyectores Full HD y 4K</a> para salas de capacitación completas con un solo proveedor.</p>
-    </Fragment>
-    <Fragment slot="media">
-      <div class="showcase__placeholder">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9"/>
-              <path d="M2 16h20l-1.5 3.6a2 2 0 0 1-1.85 1.4H5.35a2 2 0 0 1-1.85-1.4L2 16Z"/>
-            </svg>
-            <span class="showcase__placeholder-text">Imagen próximamente</span>
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Cómputo para Eventos</h2>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card sidebar-card--cta">
+          <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+          <p class="sidebar-card--cta-text">¿Necesitas laptops para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar renta de laptops para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT + SIDEBAR -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <div class="l4-main">
+
+          <!-- SPECS -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones — Laptops para Eventos</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- SHOWCASE: Laptop Empresarial -->
+          <section class="section" aria-labelledby="empresarial-heading">
+            <ServiceShowcase
+              title="Laptop Empresarial"
+              headingId="empresarial-heading"
+              badge="La unidad estándar del evento"
+              subtitle="Core i5, 8 GB de RAM y Windows 11 Pro: la laptop que resuelve el 80% de las necesidades de cómputo de un evento."
+              tags={["Core i5 · 8 GB RAM", "SSD 256 GB", "Windows 11 Pro", "Desde $450/día"]}
+              ctaHref="#reserva-heading"
+              ctaLabel="Cotizar Laptops Empresariales"
+            >
+              <Fragment slot="body">
+                <p class="showcase__text">Nuestra <strong>laptop empresarial</strong> es la unidad de trabajo estándar para eventos: procesador Core i5, 8 GB de RAM, SSD de 256 GB y Windows 11 Pro con Office instalado. Enciende en segundos, corre con fluidez las plataformas web de <strong>registro de asistentes y acreditación</strong> y aguanta jornadas completas de captura en congresos, mesas de inscripción y módulos de atención. Pantalla de 14" o 15.6", puertos HDMI y USB, y batería verificada al 100% antes de cada entrega.</p>
+                <p class="showcase__text">Es también la base de los <strong>centros de capacitación</strong>: replicamos la misma imagen de software en todas las unidades del pedido para que cada participante encuentre un entorno idéntico. Renta <strong>desde $450 por día</strong> con descuentos a partir de 10 unidades, cargador y mouse incluidos. Combínala con nuestros <a href="/servicios/audiovisual/proyectores/">proyectores Full HD y 4K</a> para salas de capacitación completas con un solo proveedor.</p>
+              </Fragment>
+              <Fragment slot="media">
+                <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main"><img src="/images/eventos/corporativos/ejecutivo.avif" alt="Estación de trabajo con laptop en evento corporativo ejecutivo en CDMX" loading="lazy" decoding="async" /></div>
+                  <div class="showcase__gallery3-thumb"><img src="/images/eventos/corporativos-hero.avif" alt="Sala de evento corporativo con estaciones de trabajo en CDMX" loading="lazy" decoding="async" /></div>
+                  <div class="showcase__gallery3-thumb"><img src="/images/audiovisual/monitor-pantalla-presentacion-congreso.avif" alt="Pantalla de presentación en congreso corporativo" loading="lazy" decoding="async" /></div>
+                </div>
+              </Fragment>
+            </ServiceShowcase>
+          </section>
+
+          <!-- SHOWCASE: Alto Rendimiento -->
+          <section class="section" aria-labelledby="alto-rendimiento-heading">
+            <ServiceShowcase
+              title="Laptop de Alto Rendimiento"
+              headingId="alto-rendimiento-heading"
+              badge="Para cargas pesadas"
+              subtitle="Core i7 con 16 GB de RAM y gráficos dedicados para edición, streaming y software profesional en sitio."
+              tags={["Core i7 · 16 GB RAM", "GPU dedicada", "Pantalla 15.6\"", "Desde $650/día"]}
+              ctaHref="#reserva-heading"
+              ctaLabel="Cotizar Alto Rendimiento"
+            >
+              <Fragment slot="body">
+                <p class="showcase__text">Cuando el evento exige más que navegación y ofimática, la <strong>laptop de alto rendimiento</strong> responde: Core i7, 16 GB de RAM, gráficos dedicados y SSD de 512 GB. Es el equipo de las <strong>cabinas de streaming y transmisión en vivo</strong>, de la edición de video en salas de prensa que publican durante el evento, y de las demostraciones de <strong>software de ingeniería, arquitectura o diseño</strong> en expos y lanzamientos de producto.</p>
+                <p class="showcase__text">Cada unidad incluye salida <strong>HDMI y USB-C con soporte para doble monitor</strong>, ideal para la mesa de producción que controla presentaciones mientras monitorea la señal de programa. Renta desde <strong>$650 por día</strong> con software preinstalado, respaldo en pedidos de volumen y soporte durante el evento. Para transmisiones completas, intégrala con nuestras <a href="/servicios/audiovisual/pantallas-led/">pantallas LED</a> y <a href="/servicios/audiovisual/sonido/">sistemas de audio profesional</a>.</p>
+              </Fragment>
+              <Fragment slot="media">
+                <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main"><img src="/images/blog/evento-corporativo-cdmx-produccion.avif" alt="Mesa de producción con equipo de cómputo en evento corporativo en CDMX" loading="lazy" decoding="async" /></div>
+                  <div class="showcase__gallery3-thumb"><img src="/images/audiovisual/pantalla-led-videowall-evento-corporativo.avif" alt="Videowall LED en evento corporativo controlado desde estación de producción" loading="lazy" decoding="async" /></div>
+                  <div class="showcase__gallery3-thumb"><img src="/images/eventos/corporativos/lanzamiento.avif" alt="Producción de lanzamiento corporativo con equipo audiovisual en CDMX" loading="lazy" decoding="async" /></div>
+                </div>
+              </Fragment>
+            </ServiceShowcase>
+          </section>
+
+          <!-- SHOWCASE: MacBook -->
+          <section class="section" aria-labelledby="macbook-heading">
+            <ServiceShowcase
+              title="MacBook Air y Pro"
+              headingId="macbook-heading"
+              badge="Ecosistema Apple"
+              subtitle="MacBooks con macOS actualizado para keynotes, producción audiovisual y equipos que trabajan en Apple."
+              tags={["macOS actualizado", "Chip Apple", "Keynote listo", "Desde $800/día"]}
+              ctaHref="#reserva-heading"
+              ctaLabel="Cotizar MacBooks"
+            >
+              <Fragment slot="body">
+                <p class="showcase__text">Para presentaciones diseñadas en <strong>Keynote</strong>, producción en <strong>Final Cut</strong> o equipos que operan en Apple, rentamos <strong>MacBook Air y MacBook Pro</strong> con macOS actualizado, batería verificada y los adaptadores USB-C a HDMI y VGA incluidos — el detalle que más presentaciones ha salvado en la historia de los congresos. El ponente conecta su USB o abre su nube y presenta sin fricción.</p>
+                <p class="showcase__text">Las MacBooks rentan <strong>desde $800 por día</strong> y son el complemento natural de los <strong>escenarios de keynote y lanzamientos de producto</strong>, donde la confiabilidad del equipo que corre la presentación principal no admite improvisación. Entregamos con las apps que tu producción requiera instaladas y probadas, y realizamos la prueba de proyección con la <a href="/servicios/audiovisual/">pantalla o proyector del evento</a> antes de abrir puertas.</p>
+              </Fragment>
+              <Fragment slot="media">
+                <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main"><img src="/images/eventos/corporativos/lanzamiento.avif" alt="Escenario de lanzamiento corporativo con presentación proyectada en CDMX" loading="lazy" decoding="async" /></div>
+                  <div class="showcase__gallery3-thumb"><img src="/images/audiovisual/proyector-4k-pantalla-gigante-evento.avif" alt="Proyector 4K con pantalla gigante en evento corporativo" loading="lazy" decoding="async" /></div>
+                  <div class="showcase__gallery3-thumb"><img src="/images/eventos/corporativos/gala.avif" alt="Gala corporativa con presentación en pantalla en CDMX" loading="lazy" decoding="async" /></div>
+                </div>
+              </Fragment>
+            </ServiceShowcase>
+          </section>
+
+          <!-- SHOWCASE: Kits de Registro -->
+          <section class="section" aria-labelledby="kits-registro-heading">
+            <ServiceShowcase
+              title="Kits de Registro y Acreditación"
+              headingId="kits-registro-heading"
+              badge="El módulo completo"
+              subtitle="Laptops, impresora de gafetes, lectores QR y red dedicada: la acreditación de tu congreso, instalada y probada."
+              tags={["Laptops configuradas", "Impresora de gafetes", "Lectores QR", "WiFi dedicado"]}
+              ctaHref="#reserva-heading"
+              ctaLabel="Cotizar Kit de Registro"
+            >
+              <Fragment slot="body">
+                <p class="showcase__text">El <strong>kit de registro de asistentes</strong> integra todo lo que el módulo de acreditación necesita: laptops con tu plataforma de registro precargada, <strong>impresora de gafetes</strong> calibrada con tu diseño, lectores de código QR para pre-registrados y una <strong>red WiFi temporal independiente del venue</strong>, con módem 4G/5G de respaldo para que la acreditación no dependa del internet del salón. Todo llega instalado, conectado y probado antes de abrir puertas.</p>
+                <p class="showcase__text">Dimensionamos el kit según tus asistentes y la hora pico de llegada: como regla, <strong>una estación procesa entre 60 y 80 acreditaciones por hora</strong> con impresión de gafete incluida. El kit básico (laptops + impresora + red) renta <strong>desde $3,500 por día</strong>, con técnico en sitio disponible para congresos donde el registro es crítico. Se coordina con nuestro <a href="/servicios/mobiliario/">mobiliario de módulos de registro</a> y la <a href="/servicios/computo/impresion-perifericos/">línea de impresión y periféricos</a>.</p>
+              </Fragment>
+              <Fragment slot="media">
+                <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main"><img src="/images/carpas/carpa-estructural-grande-congreso.avif" alt="Congreso corporativo de gran formato con módulos de registro en CDMX" loading="lazy" decoding="async" /></div>
+                  <div class="showcase__gallery3-thumb"><img src="/images/eventos/corporativos/teambuilding.avif" alt="Evento corporativo con asistentes en registro y acreditación" loading="lazy" decoding="async" /></div>
+                  <div class="showcase__gallery3-thumb"><img src="/images/eventos/corporativos-hero.avif" alt="Recepción de evento corporativo con módulos de atención en CDMX" loading="lazy" decoding="async" /></div>
+                </div>
+              </Fragment>
+            </ServiceShowcase>
+          </section>
+
+          <!-- FAQ -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Renta de Laptops"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar laptops para tu evento es natural tener preguntas sobre precios, software, respaldo, seguridad de la información y logística. Aquí están las respuestas más comunes de nuestros clientes corporativos.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor te responde al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un asesor de cómputo para eventos resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre renta de laptops para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- DESKTOP SIDEBAR -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Cómputo para Eventos</h2>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/computo/" class="sidebar-nav__back">&uarr; Volver a Cómputo</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/" class="sidebar-nav__back">&uarr; Volver a Servicios</a>
+              </li>
+            </ul>
           </div>
-    </Fragment>
-  </ServiceShowcase>
-    </div>
-  </section>
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       ALTO RENDIMIENTO — Showcase section
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="alto-rendimiento-heading">
-    <div class="container">
-      <ServiceShowcase
-    title="Laptop de Alto Rendimiento"
-    headingId="alto-rendimiento-heading"
-    badge="Para cargas pesadas"
-    subtitle="Core i7 con 16 GB de RAM y gráficos dedicados para edición, streaming y software profesional en sitio."
-    tags={["Core i7 · 16 GB RAM", "GPU dedicada", "Pantalla 15.6\"", "Desde $650/día"]}
-    ctaHref="#reserva-heading"
-    ctaLabel="Cotizar Alto Rendimiento"
-  >
-    <Fragment slot="body">
-      <p class="showcase__text">Cuando el evento exige más que navegación y ofimática, la <strong>laptop de alto rendimiento</strong> responde: Core i7, 16 GB de RAM, gráficos dedicados y SSD de 512 GB. Es el equipo de las <strong>cabinas de streaming y transmisión en vivo</strong>, de la edición de video en salas de prensa que publican durante el evento, y de las demostraciones de <strong>software de ingeniería, arquitectura o diseño</strong> en expos y lanzamientos de producto.</p>
-      <p class="showcase__text">Cada unidad incluye salida <strong>HDMI y USB-C con soporte para doble monitor</strong>, ideal para la mesa de producción que controla presentaciones mientras monitorea la señal de programa. Renta desde <strong>$650 por día</strong> con los mismos beneficios de toda la línea: software preinstalado, respaldo en pedidos de volumen y soporte durante el evento. Para transmisiones completas, intégrala con nuestras <a href="/servicios/audiovisual/pantallas-led/">pantallas LED</a> y <a href="/servicios/audiovisual/sonido/">sistemas de audio profesional</a>.</p>
-    </Fragment>
-    <Fragment slot="media">
-      <div class="showcase__placeholder">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="4" width="20" height="12" rx="2"/>
-              <path d="M6 20h12"/>
-              <path d="M12 16v4"/>
-              <path d="M7 9l3 3-3 3"/>
-              <path d="M12 13h4"/>
-            </svg>
-            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu evento corporativo:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
-    </Fragment>
-  </ServiceShowcase>
-    </div>
-  </section>
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       MACBOOK — Showcase section
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="macbook-heading">
-    <div class="container">
-      <ServiceShowcase
-    title="MacBook Air y Pro"
-    headingId="macbook-heading"
-    badge="Ecosistema Apple"
-    subtitle="MacBooks con macOS actualizado para keynotes, producción audiovisual y equipos que trabajan en Apple."
-    tags={["macOS actualizado", "Chip Apple", "Keynote listo", "Desde $800/día"]}
-    ctaHref="#reserva-heading"
-    ctaLabel="Cotizar MacBooks"
-  >
-    <Fragment slot="body">
-      <p class="showcase__text">Para presentaciones diseñadas en <strong>Keynote</strong>, producción en <strong>Final Cut</strong> o equipos de trabajo que simplemente operan en Apple, rentamos <strong>MacBook Air y MacBook Pro</strong> con macOS actualizado, batería verificada y los adaptadores USB-C a HDMI y VGA incluidos — el detalle que más presentaciones ha salvado en la historia de los congresos. El ponente conecta su USB o abre su nube y presenta sin fricción.</p>
-      <p class="showcase__text">Las MacBooks rentan <strong>desde $800 por día</strong> y son el complemento natural de los <strong>escenarios de keynote y lanzamientos de producto</strong>, donde la confiabilidad del equipo que corre la presentación principal no admite improvisación. Entregamos con las apps que tu producción requiera instaladas y probadas, y realizamos la prueba de proyección con la <a href="/servicios/audiovisual/">pantalla o proyector del evento</a> antes de abrir puertas.</p>
-    </Fragment>
-    <Fragment slot="media">
-      <div class="showcase__placeholder">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9"/>
-              <path d="M2 16h20"/>
-              <path d="M12 8.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/>
-            </svg>
-            <span class="showcase__placeholder-text">Imagen próximamente</span>
+          <div class="sidebar-card sidebar-card--cta">
+            <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+            <p class="sidebar-card--cta-text">¿Necesitas laptops para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar renta de laptops para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
           </div>
-    </Fragment>
-  </ServiceShowcase>
+        </aside>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       KITS DE REGISTRO — Showcase section
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="kits-registro-heading">
-    <div class="container">
-      <ServiceShowcase
-    title="Kits de Registro y Acreditación"
-    headingId="kits-registro-heading"
-    badge="El módulo completo"
-    subtitle="Laptops, impresora de gafetes, lectores QR y red dedicada: la acreditación de tu congreso, instalada y probada."
-    tags={["Laptops configuradas", "Impresora de gafetes", "Lectores QR", "WiFi dedicado"]}
-    ctaHref="#reserva-heading"
-    ctaLabel="Cotizar Kit de Registro"
-  >
-    <Fragment slot="body">
-      <p class="showcase__text">El <strong>kit de registro de asistentes</strong> integra todo lo que el módulo de acreditación necesita: laptops con tu plataforma de registro precargada, <strong>impresora de gafetes</strong> calibrada con tu diseño, lectores de código QR para pre-registrados y una <strong>red WiFi temporal independiente del venue</strong>, con módem 4G/5G de respaldo para que la acreditación no dependa del internet del salón. Todo llega instalado, conectado y probado antes de abrir puertas.</p>
-      <p class="showcase__text">Dimensionamos el kit según tus asistentes y la hora pico de llegada: como regla, <strong>una estación procesa entre 60 y 80 acreditaciones por hora</strong> con impresión de gafete incluida. El kit básico (laptops + impresora + red) renta <strong>desde $3,500 por día</strong>, con técnico en sitio disponible como complemento para congresos donde el registro es crítico. Se coordina naturalmente con nuestro <a href="/servicios/mobiliario/">mobiliario de módulos de registro</a> y la <a href="/servicios/computo/impresion-perifericos/">línea de impresión y periféricos</a>.</p>
-    </Fragment>
-    <Fragment slot="media">
-      <div class="showcase__placeholder">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="4" width="18" height="16" rx="2"/>
-              <circle cx="9" cy="10" r="2"/>
-              <path d="M15 8h3M15 12h3"/>
-              <path d="M6 16c.5-1.5 1.5-2 3-2s2.5.5 3 2"/>
-            </svg>
-            <span class="showcase__placeholder-text">Imagen próximamente</span>
-          </div>
-    </Fragment>
-  </ServiceShowcase>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       PAQUETES
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="paquetes-heading">
-    <div class="container">
-      <h2 id="paquetes-heading" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 0.5rem;">¿Cuánto cuesta rentar laptops para eventos?</h2>
-      <p style="color: var(--color-text-light); margin-bottom: 2rem; max-width: 60ch;">Precios referenciales por día de evento (+IVA). Incluyen entrega, instalación y recolección en CDMX.</p>
-      <PricingCards packages={[
-        {
-          name: "Básico",
-          price: "$2,250",
-          priceNote: "por día",
-          description: "5 laptops empresariales para mesas de registro o juntas.",
-          features: [
-            { text: "5 laptops Core i5 · 8 GB", included: true },
-            { text: "Software configurado", included: true },
-            { text: "Unidad de respaldo", included: false },
-            { text: "Técnico en sitio", included: false },
-          ],
-          ctaHref: "/cotizar/",
-        },
-        {
-          name: "Capacitación",
-          badge: "Más popular",
-          highlight: true,
-          price: "$4,050",
-          priceNote: "por día",
-          description: "10 laptops con imagen idéntica y descuento por volumen.",
-          features: [
-            { text: "10 laptops Core i5 · 8 GB", included: true },
-            { text: "Misma imagen de software", included: true },
-            { text: "1 unidad de respaldo incluida", included: true },
-            { text: "Soporte por WhatsApp", included: true },
-          ],
-          ctaHref: "/cotizar/",
-        },
-        {
-          name: "Congreso",
-          price: "$8,900",
-          priceNote: "por día",
-          description: "Kit de registro completo con impresión de gafetes.",
-          features: [
-            { text: "8 laptops + 2 de respaldo", included: true },
-            { text: "Impresora de gafetes + QR", included: true },
-            { text: "WiFi temporal dedicado", included: true },
-            { text: "Técnico en sitio", included: true },
-          ],
-          ctaHref: "/cotizar/",
-        },
-        {
-          name: "Corporativo",
-          price: "Cotizar",
-          priceNote: "proyectos y multi-día",
-          description: "20+ unidades, rentas semanales y configuraciones a medida.",
-          features: [
-            { text: "20+ laptops o MacBooks", included: true },
-            { text: "Tarifa escalonada multi-día", included: true },
-            { text: "Borrado seguro certificado", included: true },
-            { text: "Coordinación con tu equipo de TI", included: true },
-          ],
-          ctaHref: "/cotizar/",
-        },
-      ]} />
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       PREGUNTAS FRECUENTES
-       ═══════════════════════════════════════════════════════════════════════ -->
-  <section class="section" aria-labelledby="faq-heading">
-    <div class="container">
-      <h2 id="faq-heading" style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 2rem;">Preguntas frecuentes sobre renta de laptops para eventos</h2>
-    </div>
-    <FaqSection items={faqs} serviceName="renta de laptops para eventos" />
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       RESERVA TU EVENTO - Formulario de contacto / WhatsApp
-       ═══════════════════════════════════════════════════════════════════════ -->
+  <!-- RESERVA FORM -->
   <section class="section section--alt" aria-labelledby="reserva-heading">
     <div class="container">
       <SectionHeader
@@ -373,7 +476,7 @@ const jsonLd = [
         title="Cotiza Tus Laptops para Evento"
         subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
         description={[
-          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores te responderá por WhatsApp con una cotización personalizada de laptops en menos de 24 horas. Sin compromiso, sin costos ocultos.",
+          "Completa el formulario con los detalles de tu evento y un asesor te responderá por WhatsApp con una cotización personalizada de laptops en menos de 24 horas. Sin compromiso, sin costos ocultos.",
           "Ya sea una laptop para el ponente o 50 estaciones para tu capacitación, estamos aquí para ayudarte."
         ]}
       />
@@ -382,37 +485,17 @@ const jsonLd = [
         <form class="reserva-form" id="reservaForm" novalidate>
           <div class="reserva-form__grid">
             <div class="form-field">
-              <label class="form-field__label" for="nombre">
-                Nombre completo <span class="form-field__required">*</span>
-              </label>
-              <input
-                type="text"
-                id="nombre"
-                name="nombre"
-                class="form-field__input"
-                placeholder="Tu nombre"
-                required
-              />
+              <label class="form-field__label" for="nombre">Nombre completo <span class="form-field__required">*</span></label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
             </div>
 
             <div class="form-field">
-              <label class="form-field__label" for="telefono">
-                Teléfono <span class="form-field__required">*</span>
-              </label>
-              <input
-                type="tel"
-                id="telefono"
-                name="telefono"
-                class="form-field__input"
-                placeholder="55 1234 5678"
-                required
-              />
+              <label class="form-field__label" for="telefono">Teléfono <span class="form-field__required">*</span></label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
             </div>
 
             <div class="form-field">
-              <label class="form-field__label" for="tipoEvento">
-                Tipo de evento
-              </label>
+              <label class="form-field__label" for="tipoEvento">Tipo de evento</label>
               <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
                 <option value="">Selecciona una opción</option>
                 <option value="Congreso / Conferencia">Congreso / Conferencia</option>
@@ -427,21 +510,12 @@ const jsonLd = [
             </div>
 
             <div class="form-field">
-              <label class="form-field__label" for="fecha">
-                Fecha del evento
-              </label>
-              <input
-                type="date"
-                id="fecha"
-                name="fecha"
-                class="form-field__input"
-              />
+              <label class="form-field__label" for="fecha">Fecha del evento</label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
             </div>
 
             <div class="form-field form-field--full">
-              <label class="form-field__label" for="tipoLaptop">
-                Tipo de equipo
-              </label>
+              <label class="form-field__label" for="tipoLaptop">Tipo de equipo</label>
               <select id="tipoLaptop" name="tipoLaptop" class="form-field__input form-field__select">
                 <option value="">Selecciona el tipo de equipo</option>
                 <option value="Laptop Empresarial (Core i5)">Laptop Empresarial (Core i5)</option>
@@ -454,17 +528,8 @@ const jsonLd = [
             </div>
 
             <div class="form-field form-field--full">
-              <label class="form-field__label" for="mensaje">
-                Mensaje <span class="form-field__required">*</span>
-              </label>
-              <textarea
-                id="mensaje"
-                name="mensaje"
-                class="form-field__input form-field__textarea"
-                placeholder="Cuéntanos los detalles: número de laptops, días de renta, software que deben correr, venue del evento..."
-                rows="4"
-                required
-              ></textarea>
+              <label class="form-field__label" for="mensaje">Mensaje <span class="form-field__required">*</span></label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Cuéntanos los detalles: número de laptops, días de renta, software que deben correr, venue del evento…" rows="4" required></textarea>
             </div>
           </div>
 
@@ -525,7 +590,7 @@ const jsonLd = [
         fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
       }
 
-      let texto = `*Nueva solicitud desde EVENTECH.MX — Laptops para Eventos*\n\n`;
+      let texto = `*Laptops para Eventos*\n\n`;
       texto += `*Nombre:* ${nombre}\n`;
       texto += `*Teléfono:* ${telefono}\n`;
       if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
@@ -544,9 +609,72 @@ const jsonLd = [
     });
   </script>
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       CTA FINAL
-       ═══════════════════════════════════════════════════════════════════════ -->
+  <!-- PROVEEDORES -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Cómputo"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con proveedores especializados en renta de equipo de cómputo y soluciones tecnológicas para eventos en la Ciudad de México. Cada aliado cuenta con inventario verificado, personal técnico capacitado y trayectoria comprobada.",
+          "Nuestra red nos permite garantizar disponibilidad, configuración de software y soporte técnico para eventos corporativos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">CompuRenta MX</h3>
+            <p class="partner-card__tagline">Renta de Equipo de Cómputo</p>
+            <p class="partner-card__text">Renta de laptops, PCs y equipo de cómputo para eventos corporativos en CDMX. Inventario propio verificado, configuración de software e instalación en el venue incluida.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">T</span>
+            <div class="partner-card__badge">Soluciones tecnológicas</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">TechEventos CDMX</h3>
+            <p class="partner-card__tagline">Tecnología para Eventos</p>
+            <p class="partner-card__text">Soluciones integrales de tecnología para congresos, ferias y eventos corporativos: cómputo, redes temporales y equipo audiovisual con montaje profesional.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Registro y acreditación</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Registro Digital Pro</h3>
+            <p class="partner-card__tagline">Acreditación de Asistentes</p>
+            <p class="partner-card__text">Especialistas en módulos de registro y acreditación para congresos: plataformas de check-in, impresión de gafetes, lectores QR y control de acceso.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">S</span>
+            <div class="partner-card__badge">Soporte en sitio</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">SoportePro TI</h3>
+            <p class="partner-card__tagline">Soporte Técnico para Eventos</p>
+            <p class="partner-card__text">Técnicos en sitio para eventos corporativos: instalación, configuración de red, respaldo de equipo y resolución de incidencias de cómputo durante toda la jornada.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
   <CTABanner
     headline="Laptops listas para trabajar desde el primer minuto"
     subheadline="Configuración de software incluida, respaldo en pedidos de volumen y entrega puntual en toda CDMX. Cotiza hoy y recibe asesoría sin compromiso."
@@ -557,16 +685,16 @@ const jsonLd = [
 </PageLayout>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     AZUL COLOR OVERRIDE — Solo aplica a esta página (Astro SSG)
+     DORADO INSTITUCIONAL #c2a24a — homologado (Template-L5-producto §5)
      ═══════════════════════════════════════════════════════════════════════ -->
 <style is:global>
   :root {
-    --color-accent: #2563eb;
-    --color-accent-hover: #1d4ed8;
-    --color-accent-light: #3b82f6;
-    --color-accent-soft: rgba(37, 99, 235, 0.1);
-    --gradient-accent: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-    --shadow-accent: 0 4px 14px rgba(37, 99, 235, 0.4);
-    --shadow-accent-hover: 0 6px 20px rgba(37, 99, 235, 0.5);
+    --color-accent: #c2a24a;
+    --color-accent-hover: #a9883a;
+    --color-accent-light: #d4b96a;
+    --color-accent-soft: rgba(194, 162, 74, 0.1);
+    --gradient-accent: linear-gradient(135deg, #c2a24a 0%, #a9883a 100%);
+    --shadow-accent: 0 4px 14px rgba(194, 162, 74, 0.35);
+    --shadow-accent-hover: 0 6px 20px rgba(194, 162, 74, 0.45);
   }
 </style>
