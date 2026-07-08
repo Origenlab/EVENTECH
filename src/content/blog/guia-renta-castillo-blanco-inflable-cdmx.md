@@ -16,7 +16,7 @@ seoDescription: "El único inflable grande que encaja en bodas, XV años y event
 relatedServices:
   - inflables
 relatedPosts:
-  - guia-renta-super-castillo-dragones-inflable-cdmx
+  - guia-renta-barco-pirata-inflable-cdmx
 ---
 
 La mayoría de los inflables grandes son imposibles en bodas y quince años. Dragones de colores saturados, castillos amarillos con toboganes —todo eso choca directamente con la producción de un evento formal. El Castillo Blanco es la excepción: estructura blanca, acabados limpios, sin temática infantil obvia. Es el único inflable de nuestra flota que los coordinadores de bodas aprueban sin chistar y que los fotógrafos agradecen porque entra en el encuadre sin dominar la paleta de color del evento.
@@ -125,7 +125,7 @@ Las especificaciones exactas —tobogán, torres, módulos adicionales— se def
 
 ## Otros inflables grandes que te pueden interesar
 
-Para eventos con temática más definida, considera el [Super Castillo de Dragones](/servicios/inflables/juegos-infantiles/super-castillo-dragones/) como opción de gran formato con mayor dinamismo visual. Si el evento es más casual y al aire libre, el [Barco Pirata](/servicios/inflables/juegos-infantiles/barco-pirata/) o el [Super Tobogán](/servicios/inflables/juegos-infantiles/super-tobogan/) son alternativas de alto impacto. Explora todo en el [catálogo de inflables infantiles](/servicios/inflables/juegos-infantiles/).
+Para eventos con temática más definida, considera el [Barco Pirata](/servicios/inflables/juegos-infantiles/barco-pirata/) como opción de gran formato con mayor dinamismo visual y temática de aventura. Si buscas un circuito de obstáculos para competencias, el [Extremo](/servicios/inflables/juegos-infantiles/extremo/) es la alternativa de alto impacto. Explora todo en el [catálogo de inflables infantiles](/servicios/inflables/juegos-infantiles/).
 
 ---
 

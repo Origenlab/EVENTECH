@@ -188,6 +188,102 @@ Página modelo aprobada: `sillas/tiffany/` (L5). Se replicó su sección **Acaba
 ### FAQ en dos columnas
 - Sección FAQ del home dividida: acordeón a la izquierda + **módulo de formulario que arma un mensaje y abre WhatsApp** a la derecha (sticky). Card homologada, botón verde WhatsApp, sin backend. Ver [[Formulario-whatsapp]].
 
+## Homologación L4 audiovisual al molde hm- (2026-07-07, una por una)
+
+Todas venían de sistema viejo (HeroPage/ServiceShowcase + `l3-shared` + override morado `#6c5ce7`) → reconstruidas al **molde `hm-`** con dorado institucional. Variante L5 hoja (sin L6): specs como pills `hm-feat__stats` no enlazadas + 1 CTA → L5. Imágenes reales reusadas. `astro check` limpio en cada archivo. Ver [[Template-L4-hub]].
+
+- **Pantallas LED** ✅ — pedestal/videowall/exterior/monitores. Ver [[2026-07-07-pantallas-led-hm]].
+- **Sonido** ✅ — line-array/bocinas/subwoofers/mezcladoras. 6 diferenciadores + 4 pasos + 7 FAQ (+"¿incluye micrófonos?"). Imgs `audio-evento-0X` + `bafle-jbl`. Cross-links verificados (microfonos-dj, iluminacion, carpas, pistas-baile, mobiliario).
+- **Proyectores** ✅ — fullhd-4k/streaming/mapping/pantallas-proyeccion. 7 FAQ (+"¿exteriores/luz de día?"). Imgs `proyector-4k` + `monitor-pantalla` + `videowall` + fillers. Cross-links sonido/iluminacion/carpas.
+- **Micrófonos y DJ** ✅ — inalambricos/solapa-diadema/equipo-dj/cabina-dj. 7 FAQ (+"¿cuánto tarda el montaje?"). Imgs `microfono-*` + `cabina-dj` + fillers. Cross-links sonido/pistas-baile/iluminacion/mobiliario.
+
+**AUDIOVISUAL COMPLETO ✅** — los 4 hubs L4 (pantallas-led, sonido, proyectores, microfonos-dj) homologados al molde `hm-`. El L3 padre `audiovisual/index.astro` ya estaba en `hm-` (sin cambios).
+
+## Pase de calidad audiovisual (2026-07-07)
+
+Auditoría completa de la sección (L3 + 4 hubs L4 + 16 L5). Hallazgos y correcciones:
+
+**Hubs L4 (pulido):** eliminado código muerto (campo `icon:` sin renderizar, 24 líneas); arreglados heros de módulo repetidos (cada `hm-feat` ahora con imagen principal distinta). Estructura ya idéntica entre los 4.
+
+**16 L5 (pase de corrección — NO eran rebuilds, ya tenían la anatomía L5 correcta):**
+- **Color:** ámbar `#e17055` → **dorado institucional `#c2a24a`** (el molde L5 lo prohíbe explícitamente; ver [[Template-L5-producto]] §5). Bloque `:root` exacto del molde en las 16.
+- **Showcases:** `section section--alt` (gris) → `section` (blanco) en los 4 ServiceShowcase de cada página; sólo la reserva queda gris (regla del molde §2).
+- **Títulos:** sufijo de convención `| Equipo para eventos en México` + `rawTitle={true}` en las 16 (ver [[Convencion-de-titulos]]).
+- Aplicado con `sed` (las 16 eran idénticas: 2× ámbar, 5× section--alt). `astro check` limpio.
+
+**Pase de calidad audiovisual v2 (2026-07-07) ✅:** auditoría profunda de las 21 páginas (0 enlaces rotos, 0 imgs sin alt). Corregido: (1) los **64 placeholders SVG** de las 16 L5 → galería real `showcase__gallery3` con imgs de `/images/audiovisual` mapeadas por tipo (pool rotado, hero distinto por showcase) — ahora al mismo nivel que carpas; (2) 1 descripción >160 (`microfonos-dj/solapa-diadema` 162→146). Verificado: 0 ámbar/morado, 0 placeholders, 16/16 L5 con galería, 0 descripciones >160, `astro check` limpio.
+
+## Homologación categoría CARPAS (2026-07-07, en progreso)
+
+Estructura: `carpas` (L3) ya en `hm-`. 4 hubs L4 (`carpas-arabes`, `estructurales`, `hangar`, `pisos-complementos`) en sistema viejo + morado `#6c5ce7`. L5 bajo cada hub en sistema viejo + ámbar `#e17055`.
+
+- **carpas-arabes** ✅ (hub L4) — reconstruido de sistema viejo (HeroPage/ServiceShowcase + `l3-shared` + morado) al **molde `hm-`** dorado. 4 L5 hoja (clasica/forros/transparente/beduina) → specs-pills. **Imágenes reales de carpas** (beduina, transparente, forros + `carpa-boda-01..04` genéricas) con heros de módulo distintos — mejor situación que audiovisual. 7 FAQ (+"¿cualquier terreno?"), title `rawTitle`. `astro check` limpio.
+- **carpas-arabes L5 (4) ✅** — clasica/forros/transparente/beduina: pase de corrección (ámbar→dorado, showcases `section--alt`→`section`, título+sufijo+`rawTitle`) + **upgrade de imágenes**: los 16 placeholders SVG (4 showcases × 4 L5) reemplazados por galería real `showcase__gallery3` con fotos de carpas (pool rotado por tipo, hero distinto por showcase). `astro check` limpio. **Rama árabe 100% homologada** (hub + 4 L5, 0 ámbar/0 morado).
+- **estructurales** ✅ (hub L4) — reconstruido al molde `hm-` dorado. 4 L5 hoja (medianas/grandes/paredes-modulares/accesorios-estructurales) → specs-pills. Copy técnico reforzado (aluminio serie 6000, lona PVC 650 g, anclaje/viento 80 km/h, unión de módulos, NOM). Imgs carpas reales heros distintos. 7 FAQ (+"¿unir varias carpas?"). `astro check` limpio.
+- **estructurales L5 (4) ✅** — medianas/grandes/paredes-modulares/accesorios-estructurales: pase de corrección (ámbar→dorado, showcases blancos, título+sufijo+`rawTitle`) + 16 placeholders → galería real `showcase__gallery3`. `astro check` limpio. **Rama estructurales 100% homologada** (hub + 4 L5, 0 ámbar/0 morado).
+- **hangar (hub + 4 L5) ✅** — hub reconstruido a `hm-` dorado; 4 L5 hoja (hangar-20m/hangar-30m/rigging/industrial) con pase de corrección (ámbar→dorado, showcases blancos, título+`rawTitle`) + placeholders→galería real. Copy técnico de gran formato (acero galvanizado, lona PVC 900 g, claro libre 20/30 m, rigging 500 kg, trifásica NOM, permisos/protección civil, memoria de ingeniería). 7 FAQ (+"¿piso y clima?"). `astro check` limpio. **Rama hangar 100% homologada** (0 ámbar/0 morado).
+- **pisos-complementos (hub + 4 L5) ✅** — hub a `hm-` dorado; 4 L5 hoja (duela/alfombra/cortinas-forros/clima-artificial) con pase de corrección + galería real. Copy de complementos (duela 12 mm, alfombra +15 colores, forros chiffon/satín/blackout, clima 30K-100K BTU / hasta 20 ton, nivelación ±40 cm). 7 FAQ (+"¿anticipación?").
+
+**CARPAS COMPLETA ✅ (2026-07-07)** — categoría 100% homologada: L3 `carpas` (ya hm-) + 4 hubs L4 (carpas-arabes, estructurales, hangar, pisos-complementos) al molde `hm-` dorado + 16 L5 (pase de corrección color/showcases/títulos + galería `showcase__gallery3` real). Verificado: **0 ámbar / 0 morado / 0 placeholders** en toda la categoría; 4/4 hubs hm-, 16/16 L5 con `rawTitle`. `astro check` limpio. Imágenes reales de `/images/carpas` (beduina, transparente, forros, estructural-grande, hangar-industrial, mediana + carpa-boda-01..04) mapeadas por tipo, heros distintos.
+## Homologación categoría ILUMINACIÓN (2026-07-07, en progreso)
+
+Estructura: L3 `iluminacion` ya en `hm-`. 4 hubs L4 (`arquitectonica`, `decorativa`, `efectos-especiales`, `escenario`) en sistema viejo + morado. Ojo: `decorativa/fairy-lights` SÍ tiene L6 (guirnaldas-50/100/200/400m) — ahí los chips podrían enlazar.
+
+- **arquitectonica (hub + 4 L5) ✅** — hub a `hm-` dorado (wash-lights/uplighting/banadores/fachadas). **Mejor caso de imágenes hasta ahora**: carpeta `/images/iluminacion-arquitectonica/` con 25 fotos reales específicas por tipo (5-6 c/u + hero); hub usa 13 vía `const IMG` + template literals, todas verificadas. Las 4 L5 **ya tenían galería `showcase__gallery3` real** → el pase L5 fue solo color ámbar→dorado + showcases blancos + título+`rawTitle` (sin Python de galería). Copy de diseño de luz (RGBWA, DMX512, wireless DMX, pixel mapping, gobos, IP65, escenas por timeline). 7 FAQ (+"¿gobos con logo?"). `astro check` limpio. Rama arquitectónica 100% (0 ámbar/morado).
+- **decorativa (hub + 4 L5 + 4 L6) ✅** — hub a `hm-` dorado (fairy-lights/candiles/esferas-led/letras-luminosas). fairy-lights tiene L6 (guirnaldas 50/100/200/400 m) representadas como specs "50–400 m" + FAQ de metros; la L5 fairy-lights enlaza sus L6. Pase de corrección en 8 subpáginas (4 L5 + 4 L6): color ámbar→dorado, showcases blancos, título+sufijo+`rawTitle` (sed robusto para "en CDMX" y "CDMX" bare). Galería real en candiles/esferas-led/letras-luminosas (12 placeholders→gallery3). Copy decorativo (IP44/IP65, velas LED/protección civil, truss con motor, personalización). 7 FAQ (+"¿cuántos metros de guirnalda?"). `astro check` limpio. 0 ámbar/morado/placeholders en las 9 páginas.
+- **escenario (hub + 4 L5) ✅** — hub a `hm-` dorado (par-led/moving-heads/follow-spots/barras-led). Copy técnico de show (RGBWA 5-en-1, beam 230W gobos/prisma, follow spot 1200W, pixel mapping, truss/rigging, modo silencioso <25 dB, sound-to-light/timecode). 7 FAQ (+"¿sincronizar con música en vivo?"). Pase L5: color/títulos + 16 placeholders→galería real (imgs `/images/iluminacion` + `cabezas-moviles-beam`). `astro check` limpio. 0 ámbar/morado.
+- **efectos-especiales (hub + 4 L5) ✅** — hub a `hm-` dorado (humo-bajo/laser/mariposas/confeti). Copy con seguridad y timing (hielo seco grado alimenticio sin alarma, láser IEC 60825 con zona de exclusión, mariposas biodegradables aire comprimido, confeti CO2 con recolección). 7 FAQ (+"¿los venues lo permiten?"). Pase L5: color/títulos + 16 placeholders→galería real. `astro check` limpio.
+
+**ILUMINACIÓN COMPLETA ✅ (2026-07-07)** — categoría 100% homologada: L3 `iluminacion` (hm-) + 4 hubs L4 (arquitectonica, decorativa, efectos-especiales, escenario) al molde `hm-` dorado + 16 L5 + 4 L6 (guirnaldas) al molde L5 dorado con galería real. Verificado en 25 páginas: **0 ámbar / 0 morado / 0 placeholders**, 4/4 hubs hm-, 25/25 con `rawTitle`, `astro check` limpio. (Los 20 archivos con `l3-shared` son las L5/L6 usando correctamente el molde L5 — no es defecto.) `arquitectonica` con carpeta de imgs reales dedicada; resto usa `/images/iluminacion` mapeadas por tipo.
+## Homologación categoría PISTAS-BAILE (2026-07-07, en progreso)
+
+Estructura: L3 `pistas-baile` ya en `hm-`. 4 hubs L4 (`madera-clasica`, `pistas-led`, `tarimas-escenarios`, `vintage-tematicas`) en sistema viejo + morado; cada uno con 4 L5. Imgs reales en `/images/pistas-baile` (madera-natural, madera-negra, acrilica-transparente, led-rgb, pista-baile-01..06).
+
+- **madera-clasica (hub + 4 L5) ✅** — hub a `hm-` dorado (duela-laminada/parquet-modular/marco-decorativo/terreno-irregular). Copy de pistas (duela 12 mm antiderrapante, parquet interlock, marco LED perimetral, plataforma niveladora 500 kg/m² con geotextil). 7 FAQ (+"¿elegir tono de madera?"). Pase L5: color/títulos (uno sin CDMX y otro sin "de" corregidos a mano) + 16 placeholders→galería real. `astro check` limpio. 0 ámbar/morado.
+- **pistas-led (hub + 4 L5) ✅** — hub a `hm-` dorado (rgb/pixel/infinita/exterior). Copy de pistas LED (paneles 50×50 16M colores DMX, control por pixel con logo/monograma/video, espejo infinito 3D, IP65 antideslizante, 750 kg/m²). 7 FAQ (+"¿proyectar logo?"). Pase L5: color/títulos (exterior sin "de" corregido) + 16 placeholders→galería real. `astro check` limpio. 0 ámbar/morado.
+- **tarimas-escenarios (hub + 4 L5) ✅** — hub a `hm-` dorado (modulares/con-techo/pasarelas/plataformas-niveladas). Copy técnico (aluminio 750 kg/m², 40-120 cm, truss + rigging 500 kg, lona impermeable, viento 80 km/h, nivelación láser). 7 FAQ (+"¿montaje a medida?"). Pase L5: color/títulos + 16 placeholders→galería real. `astro check` limpio. 0 ámbar/morado. (Imgs genéricas pista-baile; falta fotografía de tarima por tipo.)
+- **vintage-tematicas (hub + 4 L5) ✅** — hub a `hm-` dorado (disco/damero/acrilico/personalizada). Copy temático (espejos acrílicos no vidrio, policarbonato 30 mm 500 kg/m² con LED inferior, vinil HD 1440 DPI Pantone, combinar estilos). 7 FAQ (+"¿qué estilo con mi temática?"). Pase L5: color/títulos (damero y acrilico sin "de"/"CDMX" corregidos a mano) + 16 placeholders→galería real.
+
+**PISTAS-BAILE COMPLETA ✅ (2026-07-07)** — categoría 100% homologada: L3 `pistas-baile` (hm-) + 4 hubs L4 (madera-clasica, pistas-led, tarimas-escenarios, vintage-tematicas) al molde `hm-` dorado + 16 L5 al molde L5 dorado con galería real. Verificado en 21 páginas: **0 ámbar / 0 morado / 0 placeholders**, 4/4 hubs hm-, 21/21 con `rawTitle`, `astro check` limpio. Imgs reales de `/images/pistas-baile` (madera-natural/negra, acrilica, led-rgb, pista-baile-01..06). Pendiente foto: tarimas/escenarios usan genéricas.
+- Siguiente categoría (revisar sistema viejo): `accesorios`, `catering`, `mobiliario/salas-lounge` restantes, etc.
+- Siguiente (otras categorías): `mobiliario/salas-lounge` restantes, `accesorios`, `catering`, etc.
+- Siguiente (otras categorías): `pistas-baile`, `mobiliario/salas-lounge` restantes, `accesorios`, `catering`, etc.
+
+## Auditoría + mejoras 4 categorías (2026-07-07)
+
+Auditoría profesional de las 4 categorías homologadas (audiovisual, carpas, iluminación, pistas-baile = 88 páginas) + reparaciones. Doc completo con plan priorizado: [[2026-07-07-auditoria-mejoras-4-categorias]].
+
+**Reparado:**
+- **6 `meta description` > 160 → ≤160** (se truncaban en SERP): `carpas/estructurales` (139), `carpas/pisos-complementos/clima-artificial` (148), `carpas/pisos-complementos` (142), `iluminacion/arquitectonica` (155), `iluminacion/escenario/moving-heads` (146), `pistas-baile/madera-clasica` (150). Recorte solo en la línea `description=`, sin perder keyword ni CTA.
+- **CSS DRY:** el bloque `<style>` scoped con `.hm-cat__specs` y `.hm-menu__item--cta` estaba **duplicado idéntico en los 16 hubs**. Centralizado en `src/styles/home-2026.css` (junto a `.hm-menu__item` y `.hm-cat__sub`); eliminados los 16 bloques scoped. Verificado: 0 duplicados restantes, `astro check` sin errores nuevos.
+
+**Auditoría — lo que ya está bien (medido):** 0 enlaces rotos, 0 títulos/descripciones duplicadas, 1103/1103 imgs con `alt` descriptivo, 100% `.avif`, 100% `loading=lazy`, 88/88 con Breadcrumbs, JSON-LD Service+Review+Breadcrumb+FAQ en todas, canonical/og:image/sitemap/robots presentes.
+
+**Brecha #1 detectada — fotografía real (reuso de imágenes):**
+- iluminación: **123 imgs únicas** (estándar a seguir, foto por tipo).
+- audiovisual: solo **14 únicas** / 21 páginas.
+- carpas: solo **10 únicas** / 21 páginas.
+- pistas-baile: solo **11 únicas** / 21 páginas.
+
+**Plan priorizado (resumen):** P1 = fotografía real por tipo (audiovisual/carpas/pistas) + schema `Offer`/`priceRange` para rich snippet + LCP eager en primera tarjeta. P2 = cross-linking entre categorías + precio "desde" consistente + `srcset`. P3 = tablas comparativas, WhatsApp sticky, urgencia estacional. Detalle en el doc.
+
+## Homologación categoría ACCESORIOS (2026-07-07) ✅
+
+Quinta categoría homologada. L3 `accesorios` ya estaba en `hm-`. 4 hubs L4 (`calefaccion-clima`, `manteleria-textiles`, `plantas-energia`, `senalizacion-alfombras`) reconstruidos de sistema viejo (HeroPage/ServiceShowcase + l3-shared + ámbar `#e17055`) al molde `hm-` dorado (variante L5-hoja: specs como pills `hm-feat__stats hm-cat__specs`, CSS ya centralizado en home-2026.css → sin bloque `<style>` scoped). 3 de los 4 hubs los escribió un subagente en paralelo; `senalizacion-alfombras` se escribió directo tras trabarse el subagente. Contenido técnico preservado del viejo (BTU, kVA, toneladas, tipos de tela, medidas de alfombra).
+
+- **calefaccion-clima ✅** — L5: calentadores-patio, calefaccion-industrial, nebulizacion-ventilacion, ac-portatil.
+- **manteleria-textiles ✅** — L5: manteles-cubremesas, cubresillas-bandas, servilletas-caminos, overlays-especiales.
+- **plantas-energia ✅** — L5: gen-20-50, gen-50-150, gen-150-500, tableros-distribucion.
+- **senalizacion-alfombras ✅** — L5: alfombras-premium, backdrops-senaletica, podiums-atriles, postes-separadores.
+
+**Pase de corrección 16 L5:** color ámbar→dorado, `section--alt`→`section` (blanco, sólo reserva gris), título + sufijo convención + `rawTitle`, 64 placeholders SVG → galería `showcase__gallery3` real (pool por hub de `/images/accesorios`, alt = título del showcase).
+
+**Reparación de bug encontrado:** el índice L3 `accesorios/index.astro` tenía **32 hrefs de subcategoría obsoletos** (16 en `SUB_SERVICES` + 16 en los `hm-feat__chips` de los módulos) que apuntaban a slugs L5 inexistentes (ej. `/lino/`, `/ac/`, `/pequenos/`). Corregidos a los slugs reales en disco.
+
+**Verificación (21 pág):** 0 morado / 0 ámbar / 0 placeholders, 4/4 hubs `hm-`, 20/20 L4+L5 con `rawTitle`, 0 hrefs internos rotos, todas las imágenes existen, `astro check` sin errores nuevos (solo el preexistente ajeno `directorio/[...slug].astro` ts7006). Imgs genéricas reusadas (8 fotos en `/images/accesorios`) → pendiente fotografía real por tipo (usuario la dejó al final).
+
 ## Pendiente
+- **Ejecutar plan de mejoras** [[2026-07-07-auditoria-mejoras-4-categorias]]: P1 fotografía real (audiovisual/carpas/pistas/accesorios) + `Offer`/priceRange en `seo.ts` + LCP eager.
 - Migrar metas de las páginas de producto (L3/L4) una por una para keyword/length finos (el motor ya las deja sin marca y sin truncar). Checklist en [[Convencion-de-titulos]].
 - Correr `npm run build` en la Mac para confirmar.
+- Fotos reales por tipo (pantallas LED y sonido hoy reusan imgs de `/images/audiovisual`).

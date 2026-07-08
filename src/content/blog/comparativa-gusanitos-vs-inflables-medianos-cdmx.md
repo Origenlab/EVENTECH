@@ -12,7 +12,7 @@ tags:
   - Mini Jungla
   - elegir inflable para fiesta infantil
 seoTitle: "Gusanitos vs Mini Jungla CDMX: ¿Cuál elegir? | EVENTECH"
-seoDescription: "¿Gusanitos o Mini Jungla? Comparamos colores, temática, instalación y experiencia real para que elijas el inflable mediano perfecto en CDMX desde $1,200."
+seoDescription: "¿Gusanitos o Mini Jungla? Comparamos colores, temática, instalación y experiencia real para que elijas el inflable mediano perfecto en CDMX desde $1,300."
 relatedServices:
   - inflables
 relatedPosts:
@@ -37,8 +37,8 @@ Los Gusanitos son cuatro colores tropicales, palmeras integradas y la zona de sa
   <tbody>
     <tr>
       <td style="border:1px solid #e2e8f0;padding:8px 12px;text-align:left;">Precio desde</td>
-      <td style="border:1px solid #e2e8f0;padding:8px 12px;text-align:left;">$1,200 MXN</td>
-      <td style="border:1px solid #e2e8f0;padding:8px 12px;text-align:left;">$1,200 MXN</td>
+      <td style="border:1px solid #e2e8f0;padding:8px 12px;text-align:left;">$1,350 MXN</td>
+      <td style="border:1px solid #e2e8f0;padding:8px 12px;text-align:left;">$1,300 MXN</td>
     </tr>
     <tr style="background:#f8fafc;">
       <td style="border:1px solid #e2e8f0;padding:8px 12px;text-align:left;">Tamaño</td>

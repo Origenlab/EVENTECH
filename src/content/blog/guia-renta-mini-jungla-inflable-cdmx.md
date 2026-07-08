@@ -11,8 +11,8 @@ tags:
   - Mini Jungla
   - brincolín para fiestas infantiles
   - inflables para cumpleaños CDMX
-seoTitle: "Renta Inflable Mini Jungla CDMX | Desde $1,200 EVENTECH"
-seoDescription: "Renta el inflable Mini Jungla en CDMX desde $1,200. Instalación en 15 min, figuras de animales, circuito explorador. El más rápido del catálogo EVENTECH."
+seoTitle: "Renta Inflable Mini Jungla CDMX | Desde $1,300 EVENTECH"
+seoDescription: "Renta el inflable Mini Jungla en CDMX desde $1,300. Instalación en 15 min, figuras de animales, circuito explorador. El más rápido del catálogo EVENTECH."
 relatedServices:
   - inflables
 relatedPosts:
@@ -138,7 +138,7 @@ Estas ideas de ambientación funcionan bien sin requerir presupuesto adicional g
 
 ## Precio y cómo reservar
 
-La renta de la Mini Jungla **parte desde $1,200 MXN** para eventos en CDMX y área metropolitana. El precio puede ajustarse según duración, zona y fecha. Solicitamos anticipo para confirmar tu reserva.
+La renta de la Mini Jungla **parte desde $1,300 MXN** para eventos en CDMX y área metropolitana. El precio puede ajustarse según duración, zona y fecha. Solicitamos anticipo para confirmar tu reserva.
 
 [Cotizar por WhatsApp](https://wa.me/5215512345678?text=Hola%2C%20quiero%20cotizar%20un%20inflable)
 
@@ -162,7 +162,7 @@ La Mini Jungla incluye múltiples figuras decorativas integradas — leones, jir
 
 ## Inflables relacionados que podrían interesarte
 
-¿Quieres explorar más opciones de aventura? El [Igloo Interactivo](/servicios/inflables/juegos-infantiles/igloo-interactivo/) es otra opción de circuito cerrado perfecta para eventos con múltiples edades mezcladas. Si buscas el inflable más colorido del catálogo, los [Gusanitos](/servicios/inflables/juegos-infantiles/gusanitos/) funcionan para cualquier fiesta tropical. Para temáticas más de acción con resbaladilla de alta velocidad, los [Dragones Rojos](/servicios/inflables/juegos-infantiles/dragones-rojos/) son el estándar. Consulta el [catálogo completo de inflables infantiles](/servicios/inflables/juegos-infantiles/).
+¿Quieres explorar más opciones de aventura? El [Barco Pirata](/servicios/inflables/juegos-infantiles/barco-pirata/) es otra opción de aventura de gran formato, ideal para eventos al aire libre con niños de varias edades. Si buscas el inflable más colorido del catálogo, los [Gusanitos](/servicios/inflables/juegos-infantiles/gusanitos/) funcionan para cualquier fiesta tropical. Para temáticas más de acción con resbaladilla de alta velocidad, los [Dragones Rojos](/servicios/inflables/juegos-infantiles/dragones-rojos/) son el estándar. Consulta el [catálogo completo de inflables infantiles](/servicios/inflables/juegos-infantiles/).
 
 ---
 

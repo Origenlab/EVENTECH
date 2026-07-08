@@ -14,7 +14,7 @@ import CTABanner from "@components/CTABanner.astro";
 import SectionHeader from "@components/SectionHeader.astro";
 import { SITE } from "@config/site";
 import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from "@lib/seo";
-import { INFLABLES, CAT_LABEL, faqsFor, photoImg, type Inflable } from "@data/inflables-juegos";
+import { INFLABLES, CAT_LABEL, faqsFor, photoImg, mainImg, type Inflable } from "@data/inflables-juegos";
 import "@styles/l3-shared.css";
 import "@styles/l4-shared.css";
 import Breadcrumbs from "@components/Breadcrumbs.astro";
@@ -26,7 +26,7 @@ export async function getStaticPaths() {
 }
 
 const { inf } = Astro.props as { inf: Inflable };
-const faqs = faqsFor(inf.name);
+const faqs = faqsFor(inf);
 
 // Galerías según fotos disponibles
 const g1 = [1, 2, 3].filter((n) => n <= inf.photos);
@@ -55,7 +55,8 @@ const jsonLd = [
     name: `Renta de Inflable ${inf.name} para Fiestas Infantiles en CDMX`,
     description: `Renta del inflable ${inf.name} en CDMX y Edomex. ${inf.excerpt} Entrega, instalación y recolección incluidas.`,
     url: `${BASE}/${inf.slug}/`,
-    priceRange: { min: 800, max: 6000 },
+    image: mainImg(inf),
+    priceRange: { min: inf.priceFrom, max: inf.priceFrom },
   }),
   breadcrumbJsonLd([
     { name: "Inicio", url: "/" },

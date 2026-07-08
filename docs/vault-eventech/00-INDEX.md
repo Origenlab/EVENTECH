@@ -27,6 +27,7 @@ Fuente única de verdad para mantener **homologado** todo lo que se construye en
 
 ### Registro
 - [[Cambios]] — changelog de todo lo generado
+- [[2026-07-07-auditoria-mejoras-4-categorias]] — auditoría + **plan de mejoras priorizado** de las 4 categorías homologadas (fotografía real, rich snippets, LCP, cross-linking)
 
 ## Datos del negocio (referencia)
 - Marca interna: EVENTECH.MX (no exponer en metas)

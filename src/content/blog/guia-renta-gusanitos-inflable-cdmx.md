@@ -11,8 +11,8 @@ tags:
   - Gusanitos
   - brincolín para fiestas infantiles
   - inflables para cumpleaños CDMX
-seoTitle: "Renta Inflable Gusanitos CDMX | Desde $1,200 EVENTECH"
-seoDescription: "Renta los Gusanitos en CDMX desde $1,200. El inflable más fotografiado: verde, morado, amarillo, azul. Sin franquicia, perfecto para fiestas tropicales."
+seoTitle: "Renta Inflable Gusanitos CDMX | Desde $1,350 EVENTECH"
+seoDescription: "Renta los Gusanitos en CDMX desde $1,350. El inflable más fotografiado: verde, morado, amarillo, azul. Sin franquicia, perfecto para fiestas tropicales."
 relatedServices:
   - inflables
 relatedPosts:
@@ -136,7 +136,7 @@ Estas ideas de decoración complementan bien los 4 colores sin saturar el espaci
 
 ## Precio y cómo reservar
 
-La renta de los Gusanitos **parte desde $1,200 MXN** para eventos en CDMX y área metropolitana. El precio puede variar según duración, zona de entrega y fecha. Solicitamos anticipo para confirmar tu reserva.
+La renta de los Gusanitos **parte desde $1,350 MXN** para eventos en CDMX y área metropolitana. El precio puede variar según duración, zona de entrega y fecha. Solicitamos anticipo para confirmar tu reserva.
 
 [Cotizar por WhatsApp](https://wa.me/5215512345678?text=Hola%2C%20quiero%20cotizar%20un%20inflable)
 

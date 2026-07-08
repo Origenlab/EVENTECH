@@ -34,7 +34,7 @@ El Barco Pirata es un espectáculo. Cuando llega al venue y se infla, la gente p
 </tr>
 </thead>
 <tbody>
-<tr><td style="border:1px solid #e2e8f0;padding:8px 12px;">Precio</td><td style="border:1px solid #e2e8f0;padding:8px 12px;">Desde $2,500 MXN</td><td style="border:1px solid #e2e8f0;padding:8px 12px;">Desde $3,000 MXN</td></tr>
+<tr><td style="border:1px solid #e2e8f0;padding:8px 12px;">Precio</td><td style="border:1px solid #e2e8f0;padding:8px 12px;">Desde $1,800 MXN</td><td style="border:1px solid #e2e8f0;padding:8px 12px;">Desde $1,900 MXN</td></tr>
 <tr><td style="border:1px solid #e2e8f0;padding:8px 12px;">Dimensiones</td><td style="border:1px solid #e2e8f0;padding:8px 12px;">7 × 5 × 4 m</td><td style="border:1px solid #e2e8f0;padding:8px 12px;">12 × 4 × 3 m</td></tr>
 <tr><td style="border:1px solid #e2e8f0;padding:8px 12px;">Capacidad</td><td style="border:1px solid #e2e8f0;padding:8px 12px;">10–15 niños simultáneos</td><td style="border:1px solid #e2e8f0;padding:8px 12px;">60–120 personas/hora por turnos</td></tr>
 <tr><td style="border:1px solid #e2e8f0;padding:8px 12px;">Espacio mínimo</td><td style="border:1px solid #e2e8f0;padding:8px 12px;">8 × 6 m</td><td style="border:1px solid #e2e8f0;padding:8px 12px;">13–14 × 6 m</td></tr>
@@ -94,7 +94,7 @@ Si tus invitados tienen entre 3 y 10 años y quieres un inflable que hable por s
 
 ## También te puede interesar
 
-Explora otras opciones de gran formato: el [Super Tobogán](/servicios/inflables/juegos-infantiles/super-tobogan/) para máxima velocidad de descenso, el [Laberinto](/servicios/inflables/juegos-infantiles/laberinto/) para exploración en grupo, o el [Super Combo Alargado](/servicios/inflables/juegos-infantiles/super-combo-alargado/) si quieres brinco + obstáculos + resbaladilla en un solo recorrido. Revisa el [catálogo completo de inflables infantiles](/servicios/inflables/juegos-infantiles/) para ver todas las opciones.
+Explora otras opciones de gran formato: el [Castillo Blanco](/servicios/inflables/juegos-infantiles/castillo-blanco/), totalmente blanco y elegante para bodas y XV años, o revisa el [catálogo completo de inflables infantiles](/servicios/inflables/juegos-infantiles/) para ver todas las opciones de gran impacto.
 
 ---
 

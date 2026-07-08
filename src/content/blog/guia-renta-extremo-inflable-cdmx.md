@@ -1,6 +1,6 @@
 ---
 title: "Extremo inflable"
-description: "El Extremo es el circuito de obstáculos inflable de 12 m con doble carril de EVENTECH. Guía completa para kermeses, team building y eventos de alto tráfico"
+description: "El Extremo es el circuito de obstáculos inflable de 7 m con doble carril de EVENTECH. Guía completa para kermeses, team building y eventos de alto tráfico"
 date: 2026-06-16
 category: "guias"
 image: "/images/inflables/juegos-infantiles/extremo/extremo-inflable-fiesta-infantil-01.avif"
@@ -12,14 +12,14 @@ tags:
   - inflables grandes para eventos CDMX
   - brincolín para kermeses y fiestas
 seoTitle: "Renta Extremo Inflable CDMX | Circuito Obstáculos para Kermeses 2026"
-seoDescription: "Renta el Extremo en CDMX desde $3,000. Circuito de obstáculos de 12 m, doble carril. Guía completa para kermeses, team building y eventos grandes."
+seoDescription: "Renta el Extremo en CDMX desde $1,900. Circuito de obstáculos de 7 m con muros, túneles y tobogán final, para kermeses, team building y eventos grandes."
 relatedServices:
   - inflables
 relatedPosts:
-  - guia-renta-laberinto-inflable-cdmx
+  - guia-renta-barco-pirata-inflable-cdmx
 ---
 
-El **Extremo** no es un brincolín. Es un circuito de obstáculos de 12 metros donde los niños entran por un extremo y salen corriendo a hacer fila de nuevo. Muros de escalada, túneles de gateo, barreras laterales, tobogán final — todo en una estructura con doble carril que permite que dos personas compitan simultáneamente. Si buscas algo que mantenga a 30, 50 o 100 niños ocupados durante horas con mínima supervisión por parte tuya, este es el inflable. Si buscas algo para 15 niños en una fiesta de cumpleaños íntima, probablemente es demasiado para tu escenario.
+El **Extremo** no es un brincolín. Es un circuito de obstáculos de 7 metros donde los niños entran por un extremo y salen corriendo a hacer fila de nuevo. Muros de escalada, túneles de gateo, barreras laterales, tobogán final — todo en una estructura pensada para carreras por equipos donde los niños compiten por turnos. Si buscas algo que mantenga a 30, 50 o 100 niños ocupados durante horas con mínima supervisión por parte tuya, este es el inflable. Si buscas algo para 15 niños en una fiesta de cumpleaños íntima, probablemente es demasiado para tu escenario.
 
 Lo que hace al Extremo diferente de todos los demás inflables de la flota es su throughput: puede mover entre 60 y 120 personas por hora en turnos organizados. Eso lo convierte en la única atracción inflable que funciona para kermeses de 200 o más personas sin crear un cuello de botella. Para eventos corporativos de team building también es el referente — es el único inflable que sirve a adultos y genera dinámicas de competencia reales: cronómetros, carreras por equipos, eliminatorias. Nada más en el catálogo hace eso.
 
@@ -28,7 +28,7 @@ Lo que hace al Extremo diferente de todos los demás inflables de la flota es su
 El doble carril no es solo una característica de diseño — es lo que define toda la experiencia. La competencia simultánea activa un tipo de emoción que un circuito de un solo carril no puede igualar. Los niños no solo completan el recorrido; quieren ganarle al de junto. Eso genera filas de espera que los participantes hacen con gusto, porque ya van pensando en revancha.
 
 - **Doble carril de inicio a fin:** dos personas compiten simultáneamente en recorridos idénticos. La emoción de la carrera multiplica el tiempo de enganche
-- **Circuito completo con variedad de retos:** muros de escalada, túneles de gateo, barreras laterales y tobogán final en 12 metros continuos
+- **Circuito completo con variedad de retos:** muros de escalada, túneles de gateo, barreras laterales y tobogán final en 7 metros continuos
 - **El único que sirve a adultos:** diseñado para 6 años en adelante incluyendo adultos — único en la flota con esa capacidad
 - **Throughput de 60–120 personas/hora:** permite organizar torneos, relevos y competencias eliminatorias durante todo el evento sin colapsar
 - **Entrada y salida separadas:** la logística de circuito facilita el control de flujo sin cuellos de botella en los extremos
@@ -51,7 +51,7 @@ El doble carril no es solo una característica de diseño — es lo que define t
 <tr><td style="border:1px solid #e2e8f0;padding:8px 12px;">Tipo de entrega</td><td style="border:1px solid #e2e8f0;padding:8px 12px;">Camión grande (requiere acceso vehicular)</td></tr>
 <tr><td style="border:1px solid #e2e8f0;padding:8px 12px;">Tiempo de instalación</td><td style="border:1px solid #e2e8f0;padding:8px 12px;">60 minutos aprox.</td></tr>
 <tr><td style="border:1px solid #e2e8f0;padding:8px 12px;">Corriente eléctrica</td><td style="border:1px solid #e2e8f0;padding:8px 12px;">Toma estándar 110 V (soplador incluido)</td></tr>
-<tr><td style="border:1px solid #e2e8f0;padding:8px 12px;">Precio</td><td style="border:1px solid #e2e8f0;padding:8px 12px;">Desde $3,000 MXN</td></tr>
+<tr><td style="border:1px solid #e2e8f0;padding:8px 12px;">Precio</td><td style="border:1px solid #e2e8f0;padding:8px 12px;">Desde $1,900 MXN</td></tr>
 </tbody>
 </table>
 
@@ -97,7 +97,7 @@ La renta del Extremo incluye todo para que el circuito funcione sin complicacion
 
 ## Precio y cómo cotizar
 
-La renta del Extremo comienza desde **$3,000 MXN** para un evento estándar en CDMX y área metropolitana. El precio final depende de la duración del evento, distancia al venue y si se requiere monitor adicional. Para eventos corporativos o kermeses de día completo, solicita una cotización especial por WhatsApp.
+La renta del Extremo comienza desde **$1,900 MXN** para un evento estándar en CDMX y área metropolitana. El precio final depende de la duración del evento, distancia al venue y si se requiere monitor adicional. Para eventos corporativos o kermeses de día completo, solicita una cotización especial por WhatsApp.
 
 [Cotizar por WhatsApp](https://wa.me/5215512345678?text=Hola%2C%20quiero%20cotizar%20un%20inflable%20grande%20para%20mi%20evento)
 
@@ -121,7 +121,7 @@ Totalmente. Podemos asesorarte para estructurar un torneo de relevos, eliminator
 
 ## Otros inflables grandes que te pueden interesar
 
-Si el Extremo te atrae pero necesitas algo más versátil por rango de edad, considera el [Barco Pirata](/servicios/inflables/juegos-infantiles/barco-pirata/) que funciona desde los 3 años y tiene más impacto visual temático. Para grupos que disfrutan explorar sin competir, el [Laberinto](/servicios/inflables/juegos-infantiles/laberinto/) es una excelente opción de circuito cerrado con reto cognitivo. Todos disponibles en el [catálogo de inflables infantiles](/servicios/inflables/juegos-infantiles/).
+Si el Extremo te atrae pero necesitas algo más versátil por rango de edad, considera el [Barco Pirata](/servicios/inflables/juegos-infantiles/barco-pirata/) que funciona desde los 4 años y tiene más impacto visual temático. Para grupos que disfrutan explorar sin competir, la [Mini Jungla](/servicios/inflables/juegos-infantiles/mini-jungla/) es una excelente opción de circuito con obstáculos y escondites. Todos disponibles en el [catálogo de inflables infantiles](/servicios/inflables/juegos-infantiles/).
 
 ---
 
