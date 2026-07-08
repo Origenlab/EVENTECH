@@ -1,0 +1,700 @@
+---
+/**
+ * ─── Para Niños — Hub de Familia (Nivel 5) ───
+ * Mobiliario de madera infantil: Mesa Picnic Infantil y Set Infantil Temático.
+ * El mobiliario más seguro del catálogo — sin astillas, pintura atóxica.
+ *
+ * Jerarquía: Servicios > Mobiliario > Mesas Picnic y Madera > Para Niños
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import ProductCard from "@components/ProductCard.astro";
+import { SITE } from "@config/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@lib/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Mesas Picnic y Madera", href: "/servicios/mobiliario/mesas-picnic/" },
+  { label: "Para Niños" },
+];
+
+const faqs = [
+  { question: "¿El mobiliario infantil de madera es seguro para los niños?", answer: 'Sí, es el mobiliario más seguro de todo nuestro catálogo. Cada pieza de la línea infantil pasa por un <strong>lijado ultrafino que elimina astillas y bordes filosos</strong>, y todas las esquinas están redondeadas. El <strong>Set Infantil Temático</strong> lleva además <strong>pintura atóxica certificada</strong>, apta para el contacto con niños pequeños. Antes de cada evento revisamos pieza por pieza la estructura, las uniones y el acabado — si algo tiene una astilla o el barniz deteriorado, no sale de bodega.' },
+  { question: "¿Para qué edades está pensada la línea infantil?", answer: 'La <strong>Mesa Picnic Infantil</strong> está diseñada para niños de <strong>3 a 10 años</strong> y acomoda de 8 a 10 pequeños. El <strong>Set Infantil Temático</strong>, con altura de 52 cm, está pensado para niños de <strong>3 a 8 años</strong> y acomoda hasta 8. Ambos modelos tienen altura reducida para que los niños se sienten y se levanten con comodidad y seguridad, sin necesidad de sillas de adulto ni de que un adulto los suba.' },
+  { question: "¿Cuál es la diferencia entre la Mesa Picnic Infantil y el Set Infantil Temático?", answer: 'La <strong>Mesa Picnic Infantil</strong> (1.20 × 1.00 m) es una banca picnic de pino natural en versión reducida — el modelo más seguro y versátil, ideal para 8-10 niños de 3 a 10 años. El <strong>Set Infantil Temático</strong> (1.00 × 0.70 m, 52 cm de alto) suma color a la seguridad: lleva <strong>pintura atóxica certificada en 5 colores</strong> (blanco, azul cielo, rosa palo, verde menta y lila) para combinar con la temática del cumpleaños. Muchos clientes combinan ambos: la mesa picnic para la merienda y el set temático para el rincón de manualidades.' },
+  { question: "¿Se puede usar en jardín y al aire libre?", answer: 'Sí. Toda la línea infantil funciona igual de bien en <strong>interior y exterior</strong>: jardines, terrazas, patios de escuela y salones. La madera de pino va lijada y barnizada a mano para resistir sol, pasto y humedad durante el evento. Para una zona de niños completa al aire libre, combina el mobiliario con nuestros <a href="/servicios/inflables/">inflables infantiles</a> — mesas para la merienda y brincolines para la diversión, todo en una sola entrega.' },
+  { question: "¿Combina el mobiliario infantil con el resto del evento?", answer: 'Perfectamente. La madera natural combina con cualquier decoración, y el Set Infantil Temático en tonos pastel se coordina con globos, manteles y centros de mesa. Es la especialidad de nuestro sitio hermano <a href="https://mesaspicnic.com/" target="_blank" rel="noopener">MESPIC — mesaspicnic.com</a>, con estética rústica de madera real. Si tu evento mezcla adultos y niños, puedes rentar mesas picnic de tamaño estándar para los grandes y esta línea infantil para los pequeños, todo coordinado en una sola cotización.' },
+  { question: "¿Qué incluye el servicio de renta?", answer: 'El precio incluye <strong>entrega en tu ubicación, montaje profesional, uso sin límite de tiempo durante el evento y recolección al terminar</strong>. El precio que cotizamos es el precio final: sin cargos por traslado, maniobras ni tiempo extra dentro de CDMX y Edomex. Nuestro equipo coloca y distribuye las mesas donde indiques, con tiempo suficiente antes de que empiece la fiesta.' },
+  { question: "¿Con cuánta anticipación debo reservar?", answer: 'Recomendamos apartar con <strong>1 semana de anticipación</strong>, y con <strong>2 semanas o más en temporada alta</strong> (noviembre a febrero) o para fechas de fin de semana muy solicitadas. La línea infantil es muy pedida para cumpleaños y kermeses, así que reservar temprano asegura disponibilidad de la cantidad de piezas y los colores que necesitas. Un anticipo confirma tu fecha.' },
+];
+
+const specs = [
+  { label: "Modelos disponibles", value: "2 — Mesa Picnic Infantil y Set Infantil Temático" },
+  { label: "Material", value: "Pino natural lijado a grano fino" },
+  { label: "Acabado", value: "Lijado ultrafino sin astillas ni bordes filosos" },
+  { label: "Pintura", value: "Atóxica certificada — 5 colores (Set Temático)" },
+  { label: "Edad recomendada", value: "Niños de 3 a 10 años" },
+  { label: "Capacidad", value: "8 a 10 niños por mesa" },
+  { label: "Altura", value: "Reducida, adaptada a estatura infantil" },
+  { label: "Uso", value: "Interior y exterior — jardín, terraza y salón" },
+  { label: "Servicio", value: "Entrega, montaje y recolección incluidos" },
+  { label: "Precio referencial", value: "Desde $350 por pieza / evento" },
+];
+
+const sidebarNav = [
+  { name: "Mesas Picnic", href: "/servicios/mobiliario/mesas-picnic/picnic/" },
+  { name: "Especiales & Farm", href: "/servicios/mobiliario/mesas-picnic/especiales/" },
+  { name: "Sets y Complementos", href: "/servicios/mobiliario/mesas-picnic/sets/" },
+  { name: "Para Niños", href: null, active: true },
+];
+
+const sidebarRelated = [
+  { name: "Inflables Infantiles", href: "/servicios/inflables/" },
+  { name: "Sillas para Eventos", href: "/servicios/mobiliario/sillas/" },
+  { name: "Mesas Picnic", href: "/servicios/mobiliario/mesas-picnic/picnic/" },
+  { name: "Salas Lounge", href: "/servicios/mobiliario/salas-lounge/" },
+  { name: "Iluminación", href: "/servicios/iluminacion/" },
+];
+
+// PLACEHOLDER reviews
+const reviews = [
+  { author: "Mariana Cervantes", text: "Rentamos las mesas picnic infantiles para el cumpleaños de mi hijo en el jardín. Los niños comieron cómodos y seguros, sin astillas ni bordes que me preocuparan. El montaje fue puntual y la madera se veía preciosa entre los globos.", rating: 5, date: "2025-11-14" },
+  { author: "Diego Fuentes", text: "El set infantil temático en tonos pastel fue un éxito en el baby shower. La pintura atóxica me dio mucha tranquilidad con los peques y los colores combinaron perfecto con la decoración. Muy recomendables y súper atentos.", rating: 5, date: "2025-10-19" },
+  { author: "Paola Rentería", text: "Para la kermés de la escuela pedimos varias mesas infantiles. Aguantaron el uso rudo de los niños todo el día y el equipo las recogió sin que nosotros moviéramos nada. Repetiremos el próximo año.", rating: 5, date: "2025-09-27" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Mobiliario de Madera Infantil para Fiestas en CDMX",
+    description: "Renta de mobiliario de madera infantil en CDMX: mesa picnic infantil y set temático con pintura atóxica. Sin astillas, altura reducida, seguro para niños de 3 a 10 años. Desde $350.",
+    url: "/servicios/mobiliario/mesas-picnic/infantil/",
+    priceRange: { min: 350, max: 1000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 34,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Mesas Picnic y Madera", url: "/servicios/mobiliario/mesas-picnic/" },
+    { name: "Para Niños", url: "/servicios/mobiliario/mesas-picnic/infantil/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Mobiliario de Madera Infantil para Fiestas"
+  description="Renta de mobiliario de madera infantil en CDMX: mesa picnic infantil y set temático con pintura atóxica. Sin astillas, seguro para niños de 3 a 10 años. Desde $350."
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={breadcrumbItems} slot="breadcrumbs" />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="El mobiliario más seguro del catálogo"
+    title='Renta de <span class="highlight">Mobiliario de Madera Infantil</span> para Fiestas'
+    subtitle="Mesa Picnic Infantil y Set Infantil Temático en madera de pino natural: altura reducida, bordes redondeados, lijado ultrafino sin astillas y pintura atóxica certificada. Pensados para niños de 3 a 10 años. Entrega, montaje y recolección incluidos. Desde $350."
+    primaryCTA={{ label: "Cotiza el mobiliario infantil", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar mobiliario de madera infantil para mi evento` }}
+    cards={[
+      {
+        title: "Seguridad primero: sin astillas, bordes redondeados y pintura atóxica",
+        content: "<strong>Renta de mobiliario de madera infantil</strong> diseñado alrededor de una sola prioridad: la seguridad de los niños. Cada pieza se lija a grano ultrafino para eliminar astillas y todos los bordes van redondeados. El <strong>Set Infantil Temático</strong> suma <strong>pintura atóxica certificada</strong> en 5 colores. La altura reducida permite que los pequeños se sienten y se levanten solos, sin sillas de adulto. Es el mobiliario más seguro de todo nuestro catálogo.",
+      },
+      {
+        title: "Dos modelos para cumpleaños, baby showers y kermeses",
+        content: "<strong>Servicio integral de mobiliario infantil</strong> con dos modelos que se complementan: la <strong>Mesa Picnic Infantil</strong> (1.20 × 1.00 m, 8-10 niños de 3 a 10 años) para la merienda, y el <strong>Set Infantil Temático</strong> (1.00 × 0.70 m, 52 cm de alto) en tonos pastel para el rincón de juegos. Entrega puntual, montaje profesional y recolección incluida. El precio que cotizamos es el precio final, sin cargos por traslado ni tiempo extra dentro de CDMX y Edomex.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Preparas una fiesta infantil? Cotiza el mobiliario más seguro del catálogo"
+    subheadline="Sin astillas · pintura atóxica · altura para niños — cotiza sin compromiso"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MODELOS — Cards que linkan a cada ficha
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="modelos-heading">
+    <div class="container">
+      <SectionHeader
+        id="modelos-heading"
+        title="2 modelos infantiles — elige el tuyo"
+        subtitle="Madera real, pensada para los más pequeños"
+        description={[
+          "Explora los detalles, medidas y capacidad de cada modelo. Ambos comparten el mismo acabado ultrafino sin astillas y la misma altura reducida para niños — la diferencia está en el formato y el color."
+        ]}
+      />
+
+      <!-- PLACEHOLDER: reemplazar por foto real del modelo -->
+      <div class="grid grid--2">
+        <ProductCard
+          name="Mesa Picnic Infantil"
+          price="Desde $350"
+          excerpt="Banca picnic de pino natural en versión reducida (1.20 × 1.00 m). Altura adaptada, bordes redondeados y lijado ultrafino sin astillas. El modelo más seguro del catálogo — para 8-10 niños de 3 a 10 años."
+          href="/servicios/mobiliario/mesas-picnic/infantil/mesa-infantil/"
+          image="/images/mobiliario/crossback-madera-01.avif"
+          badge="El más seguro"
+          tags={["3 a 10 años", "8-10 niños", "Sin astillas", "Interior y exterior"]}
+        />
+        <ProductCard
+          name="Set Infantil Temático"
+          price="Desde $450"
+          excerpt="Set de 1.00 × 0.70 m y 52 cm de alto con pintura atóxica certificada en 5 colores (blanco, azul cielo, rosa palo, verde menta y lila). El color que combina con la temática del cumpleaños, para hasta 8 niños de 3 a 8 años."
+          href="/servicios/mobiliario/mesas-picnic/infantil/set-tematico/"
+          image="/images/mobiliario/candy-bar-boda-rustica-madera.avif"
+          badge="5 colores atóxicos"
+          tags={["3 a 8 años", "8 niños", "Pintura atóxica", "5 colores"]}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Mesas Picnic y Madera</h2>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+          <p class="sidebar-card--cta-text">¿Necesitas mobiliario infantil para tu fiesta?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar mobiliario de madera infantil para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones — Mobiliario Infantil de Madera</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Mesa Picnic Infantil -->
+          <section class="section section--alt" aria-labelledby="mesa-infantil-heading">
+            <ServiceShowcase
+    title="Mesa Picnic Infantil — El modelo más seguro"
+    headingId="mesa-infantil-heading"
+    badge="Sin astillas · altura reducida"
+    subtitle="La banca picnic de pino en versión reducida: para 8-10 niños de 3 a 10 años, con acabado ultrafino y bordes redondeados."
+    tags={["1.20 × 1.00 m", "8-10 niños", "3 a 10 años", "Sin astillas"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Mesa Picnic Infantil"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">La <strong>Mesa Picnic Infantil</strong> es una banca picnic de <strong>pino natural en versión reducida</strong> (1.20 × 1.00 m) con la altura pensada para que los niños de 3 a 10 años se sienten y se levanten solos, sin sillas de adulto ni ayuda. Es el modelo más seguro de todo el catálogo: <strong>lijado ultrafino que elimina astillas</strong>, bordes y esquinas redondeados y bancas integradas estables. Acomoda de 8 a 10 pequeños con comodidad — perfecta para la merienda de un cumpleaños o el comedor infantil de una boda.</p>
+      <p class="showcase__text">Funciona igual en jardín, terraza o salón, y la madera barnizada a mano aguanta el uso rudo de los niños durante todo el evento. Para armar una zona de niños completa, combínala con nuestros <a href="/servicios/inflables/">inflables infantiles</a>: mesas para comer y brincolines para jugar, todo en una sola entrega. Es la especialidad de nuestro sitio hermano <a href="https://mesaspicnic.com/" target="_blank" rel="noopener">MESPIC — mesaspicnic.com</a>, con más de 500 eventos montados en madera real.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <!-- PLACEHOLDER: reemplazar por foto real del modelo -->
+      <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main">
+                    <img src="/images/mobiliario/crossback-madera-01.avif" alt="Mesa de madera de pino para evento al aire libre — imagen de referencia" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/crossback-madera-02.avif" alt="Mesa de madera natural barnizada a mano — imagen de referencia" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/candy-bar-jardin-exterior.avif" alt="Mobiliario de madera en jardín exterior — imagen de referencia" loading="lazy" decoding="async" />
+                  </div>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <!-- 5. SHOWCASE: Set Infantil Temático -->
+          <section class="section section--alt" aria-labelledby="set-tematico-heading">
+            <ServiceShowcase
+    title="Set Infantil Temático — Color atóxico"
+    headingId="set-tematico-heading"
+    badge="Pintura atóxica · 5 colores"
+    subtitle="Color a la medida de la temática: pintura atóxica certificada en 5 tonos pastel, para hasta 8 niños de 3 a 8 años."
+    tags={["1.00 × 0.70 m", "52 cm de alto", "8 niños", "5 colores"]}
+    ctaHref="#reserva-heading"
+    ctaLabel="Cotizar Set Infantil Temático"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">El <strong>Set Infantil Temático</strong> (1.00 × 0.70 m, 52 cm de alto) suma color a la seguridad. Va terminado con <strong>pintura atóxica certificada</strong>, apta para el contacto con niños pequeños, disponible en <strong>5 colores</strong>: blanco, azul cielo, rosa palo, verde menta y lila. Elige el tono que combine con la temática del cumpleaños, el baby shower o la sesión de fotos. Acomoda hasta 8 niños de 3 a 8 años y, como toda la línea, va lijado a grano ultrafino y con bordes redondeados.</p>
+      <p class="showcase__text">Es el favorito para el rincón de manualidades, la mesa de dulces a escala infantil o el comedor de los peques en una fiesta de tonos pastel. Puedes combinarlo con la Mesa Picnic Infantil y, para los adultos, con nuestras <a href="/servicios/mobiliario/sillas/">sillas para eventos</a> — todo coordinado en una sola cotización y entrega. El montaje y la recolección van incluidos, sin límite de tiempo durante tu evento.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <!-- PLACEHOLDER: reemplazar por foto real del modelo -->
+      <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main">
+                    <img src="/images/mobiliario/candy-bar-boda-rustica-madera.avif" alt="Mobiliario de madera rústica para evento — imagen de referencia" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/accesorios-decorativos-candelabros-mesa.avif" alt="Accesorios decorativos de madera sobre mesa de evento — imagen de referencia" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/barras-postres-mesa-vintage.avif" alt="Mesa de madera vintage para postres en evento — imagen de referencia" loading="lazy" decoding="async" />
+                  </div>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <!-- 6. FAQ -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Mobiliario Infantil"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar mobiliario de madera para una fiesta infantil, es natural tener preguntas sobre seguridad, edades, materiales y logística. Aquí encontrarás las respuestas más comunes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor te responderá al instante — con la tranquilidad de un proveedor con más de 500 eventos montados."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en mobiliario infantil resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre el mobiliario de madera infantil para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Mesas Picnic y Madera -->
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Mesas Picnic y Madera</h2>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/mesas-picnic/" class="sidebar-nav__back">&uarr; Volver a Mesas Picnic y Madera</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/" class="sidebar-nav__back">&uarr; Volver a Mobiliario</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Completa la zona de niños de tu evento:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+            <p class="sidebar-card--cta-text">¿Necesitas mobiliario infantil para tu fiesta?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar mobiliario de madera infantil para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Mobiliario Infantil"
+        subtitle="Cuéntanos sobre tu fiesta y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores de mobiliario te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea que necesites una mesa infantil para un cumpleaños en casa o varias para una kermés escolar, estamos aquí para asesorarte con el modelo y la cantidad perfectos."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Cumpleaños infantil">Cumpleaños infantil</option>
+                <option value="Baby Shower">Baby Shower</option>
+                <option value="Kermés / Feria escolar">Kermés / Feria escolar</option>
+                <option value="Zona de niños en boda">Zona de niños en boda</option>
+                <option value="Reunión familiar">Reunión familiar</option>
+                <option value="Sesión fotográfica">Sesión fotográfica</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoModelo">
+                Modelo de mobiliario infantil
+              </label>
+              <select id="tipoModelo" name="tipoModelo" class="form-field__input form-field__select">
+                <option value="">Selecciona el modelo</option>
+                <option value="Mesa Picnic Infantil">Mesa Picnic Infantil</option>
+                <option value="Set Infantil Temático">Set Infantil Temático</option>
+                <option value="Combinación Mesa + Set">Combinación Mesa + Set</option>
+                <option value="Varios / No decidido">Varios / No decidido</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de niños, color del set temático, venue o colonia, fecha de tu fiesta..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Seguro para niños</h3>
+            <p class="reserva-card__text">Sin astillas, bordes redondeados y pintura atóxica certificada. El mobiliario más seguro del catálogo.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada de mobiliario para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoModelo = document.getElementById('tipoModelo').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Mobiliario de Madera Infantil*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoModelo) texto += `*Modelo:* ${tipoModelo}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Mobiliario"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de mobiliario de madera para eventos en la Ciudad de México. Cada aliado cuenta con inventario verificado, logística profesional y trayectoria comprobada.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad de mobiliario infantil seguro en las cantidades y colores que necesitas para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Aliado estratégico</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MESPIC — Mesas Picnic</h3>
+            <p class="partner-card__tagline">Especialistas en Mobiliario de Madera</p>
+            <p class="partner-card__text">Sitio hermano especializado en mesas picnic y mobiliario de madera natural para eventos al aire libre. Más de 500 eventos montados y catálogo completo de modelos rústicos, incluida la línea infantil sin astillas.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Rent All CDMX</h3>
+            <p class="partner-card__tagline">Mobiliario para Fiestas Infantiles</p>
+            <p class="partner-card__text">Renta integral de mobiliario para fiestas infantiles, kermeses y eventos familiares. Capacidad para eventos grandes con logística propia y servicio de montaje express en CDMX y zona metropolitana.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventMob</h3>
+            <p class="partner-card__tagline">Mobiliario de Madera Contemporáneo</p>
+            <p class="partner-card__text">Mobiliario de madera contemporáneo y rústico para todo tipo de celebración. Mesas picnic, farm e infantiles con más de 10 años equipando los eventos más importantes de la Ciudad de México.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Logística profesional</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MesasyMás</h3>
+            <p class="partner-card__tagline">Mesas, Bancas y Complementos</p>
+            <p class="partner-card__text">Mesas, bancas y complementos de mobiliario con servicio de logística puerta a puerta. Flota propia de camiones para entregas puntuales en CDMX y zona metropolitana.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Mobiliario de madera pensado para los más pequeños — seguro, cálido y a su medida"
+    subheadline="Sin astillas · pintura atóxica · altura para niños. Cotiza hoy y recibe asesoría sin compromiso."
+    primaryCTA={{ label: "Cotizar mobiliario infantil", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar mobiliario de madera infantil para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     ACENTO INSTITUCIONAL — Dorado de marca #c2a24a — homologado con el sitio
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #c2a24a;
+    --color-accent-hover: #a9883a;
+    --color-accent-light: #d4b96a;
+    --color-accent-soft: rgba(194, 162, 74, 0.1);
+    --gradient-accent: linear-gradient(135deg, #c2a24a 0%, #a9883a 100%);
+    --shadow-accent: 0 4px 14px rgba(194, 162, 74, 0.35);
+    --shadow-accent-hover: 0 6px 20px rgba(194, 162, 74, 0.45);
+  }
+</style>

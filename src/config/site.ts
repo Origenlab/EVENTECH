@@ -106,6 +106,7 @@ export const SERVICE_CATEGORIES = [
       { name: "Mesas", href: "/servicios/mobiliario/mesas/" },
       { name: "Salas Lounge", href: "/servicios/mobiliario/salas-lounge/" },
       { name: "Barras", href: "/servicios/mobiliario/barras/" },
+      { name: "Mesas Picnic", href: "/servicios/mobiliario/mesas-picnic/" },
     ],
   },
   {

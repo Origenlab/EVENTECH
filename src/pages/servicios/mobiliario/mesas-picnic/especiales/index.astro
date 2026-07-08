@@ -1,0 +1,771 @@
+---
+/**
+ * ─── Mesas Especiales & Farm — Página de Familia (Nivel 5) ───
+ * Formatos de autor en madera: redonda, biergarten, teka, farm de horquilla,
+ * sweetheart y parota maciza. El centro visual del evento.
+ *
+ * Jerarquía: Servicios > Mobiliario > Mesas Picnic y Madera > Mesas Especiales & Farm
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import ProductCard from "@components/ProductCard.astro";
+import { SITE } from "@config/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@lib/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Mesas Picnic y Madera", href: "/servicios/mobiliario/mesas-picnic/" },
+  { label: "Mesas Especiales & Farm" },
+];
+
+const faqs = [
+  { question: "¿Qué diferencia a las Mesas Especiales & Farm de la mesa picnic clásica?", answer: 'La línea clásica de <a href="/servicios/mobiliario/mesas-picnic/picnic/">mesas picnic</a> resuelve la mayoría de los invitados con bancas integradas de pino. Las <strong>Mesas Especiales & Farm</strong> son formatos de autor pensados para ser el <strong>centro visual del evento</strong>: la redonda que elimina cabeceras y favorece la conversación, la biergarten europea de festival, la farm de patas de horquilla en hierro forjado, la sweetheart exclusiva para los novios y las maderas macizas premium de teca y parota. Se eligen por diseño, no solo por capacidad.' },
+  { question: "¿Cuál es el modelo de mayor categoría?", answer: 'La <strong>Mesa Picnic de Parota</strong> es el modelo tope de la colección — parota maciza mexicana con una dureza Janka de <strong>1,480 lbf</strong>, veta única en cada pieza y acabado de aceite de teca más barniz. Le sigue la <strong>Mesa Madera Teka</strong>, tratada con aceite de teca que penetra la fibra y la vuelve resistente a rayos UV y humedad. Ambas son las opciones preferidas para bodas de lujo, mesas de honor y eventos VIP. Desde $1,800 (teka) y $2,200 (parota).' },
+  { question: "¿Estos formatos incluyen sillas o bancas?", answer: 'Depende del modelo. La <strong>Biergarten</strong> incluye 2 bancas removibles al estilo cervecería europea. La <strong>Redonda</strong>, la <strong>Teka</strong>, la <strong>Sweetheart</strong> y la <strong>Parota</strong> se rentan como mesa para combinar con la silla que elijas. La <strong>Farm Patas de Horquilla</strong> se diseñó específicamente sin bancas para vestirse con sillas libres — combina de maravilla con nuestras <a href="/servicios/mobiliario/sillas/crossback/">sillas crossback</a> de madera para un look industrial-natural.' },
+  { question: "¿Funcionan en exteriores y jardines?", answer: 'Sí. Todas las piezas están barnizadas a mano para uso en jardín, terraza, hacienda y salón. Los modelos de <strong>teca y parota</strong> son los más resistentes a la intemperie gracias al aceite de teca que penetra la fibra y protege contra sol y humedad. Para eventos completamente al aire libre recomendamos complementar con nuestras <a href="/servicios/carpas/">carpas profesionales</a> y <a href="/servicios/iluminacion/">iluminación</a> como respaldo ante lluvia y para ambientar la noche.' },
+  { question: "¿Puedo combinar varios modelos especiales en un mismo evento?", answer: 'Sí, es lo más común en bodas de alto perfil: una <strong>Sweetheart</strong> para los novios, mesas <strong>Redondas</strong> o de <strong>Parota</strong> para los invitados de honor y una <strong>Farm de horquilla</strong> como mesa de firmas o candy bar. Todo entra en una sola cotización y una sola entrega. Nuestro equipo te ayuda a diseñar la combinación que mejor aprovecha tu espacio y presupuesto.' },
+  { question: "¿Con cuánta anticipación debo reservar?", answer: 'Las maderas macizas de <strong>teca y parota</strong> son piezas de inventario limitado, por lo que recomendamos apartar con <strong>3 a 6 semanas de anticipación</strong>, especialmente en temporada alta de bodas (noviembre a febrero). Para los demás formatos, de 1 a 2 semanas suele ser suficiente. Un anticipo confirma tu fecha. Entrega, montaje y recolección incluidos, sin límite de tiempo durante el evento.' },
+];
+
+const specs = [
+  { label: "Maderas", value: "Pino nacional, teca y parota maciza mexicana" },
+  { label: "Formatos", value: "Redonda, biergarten, farm de horquilla, sweetheart y macizas" },
+  { label: "Capacidad", value: "De 2 (sweetheart) a 10 personas por mesa" },
+  { label: "Acabado", value: "Lijado a grano fino + barniz de exterior (hasta 4 manos)" },
+  { label: "Maderas premium", value: "Teca (resistente UV/humedad) y parota (Janka 1,480 lbf)" },
+  { label: "Uso", value: "Interior y exterior — jardín, terraza, hacienda, salón" },
+  { label: "Servicio", value: "Entrega, montaje y recolección incluidos" },
+  { label: "Tiempo de uso", value: "Sin límite durante el evento" },
+  { label: "Inventario", value: "Piezas inspeccionadas una a una antes de entregar" },
+  { label: "Precio referencial", value: "Desde $500 por mesa / evento" },
+];
+
+const sidebarNav = [
+  { name: "Mesas Picnic", href: "/servicios/mobiliario/mesas-picnic/picnic/" },
+  { name: "Especiales & Farm", href: null, active: true },
+  { name: "Sets y Complementos", href: "/servicios/mobiliario/mesas-picnic/sets/" },
+  { name: "Para Niños", href: "/servicios/mobiliario/mesas-picnic/infantil/" },
+];
+
+const sidebarRelated = [
+  { name: "Sillas Crossback", href: "/servicios/mobiliario/sillas/crossback/" },
+  { name: "Salas Lounge", href: "/servicios/mobiliario/salas-lounge/" },
+  { name: "Barras", href: "/servicios/mobiliario/barras/" },
+  { name: "Carpas", href: "/servicios/carpas/" },
+  { name: "Iluminación", href: "/servicios/iluminacion/" },
+  { name: "Mantelería", href: "/servicios/accesorios/manteleria-textiles/" },
+];
+
+// PLACEHOLDER reviews
+const reviews = [
+  { author: "Valeria Fuentes", text: "Rentamos una Sweetheart para nosotros y dos mesas de Parota para los papás en nuestra boda en una hacienda. La madera es una belleza real, la veta de la parota se robó las fotos. Montaje impecable y sin límite de tiempo.", rating: 5, date: "2025-11-22" },
+  { author: "Diego Alcántara", text: "Para un festival gastronómico montamos 12 biergarten. Formato perfecto de cervecería, las bancas removibles facilitaron la logística y la madera aguantó todo el fin de semana al aire libre. Repetimos seguro.", rating: 5, date: "2025-10-14" },
+  { author: "Mariana Ochoa", text: "La mesa farm de patas de horquilla fue el centro visual de nuestra activación de marca. Combinada con sillas crossback quedó justo con el look industrial-natural que buscábamos. Súper profesionales.", rating: 5, date: "2025-09-18" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Mesas Especiales y Farm de Madera para Eventos en CDMX",
+    description: "Renta de mesas especiales de madera en CDMX: redonda, biergarten, farm de patas de horquilla, sweetheart, teca y parota maciza. Formatos de autor para bodas y eventos VIP. Desde $500.",
+    url: "/servicios/mobiliario/mesas-picnic/especiales/",
+    priceRange: { min: 500, max: 5500 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 46,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Mesas Picnic y Madera", url: "/servicios/mobiliario/mesas-picnic/" },
+    { name: "Mesas Especiales & Farm", url: "/servicios/mobiliario/mesas-picnic/especiales/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Mesas Especiales y Farm de Madera para Eventos en CDMX"
+  description="Renta de mesas especiales de madera en CDMX: redonda, biergarten, farm de horquilla, sweetheart, teca y parota maciza. Formatos de autor para bodas y eventos VIP. Desde $500."
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={breadcrumbItems} slot="breadcrumbs" />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Diseño de autor — el centro visual del evento"
+    title='Renta de <span class="highlight">Mesas Especiales & Farm</span> de Madera en CDMX'
+    subtitle="Seis formatos de madera que se vuelven protagonistas: redonda de conversación, biergarten de festival, farm de patas de horquilla, sweetheart para novios y maderas macizas de teca y parota. Barnizadas a mano, con entrega, montaje y recolección incluidos. Desde $500."
+    primaryCTA={{ label: "Cotiza tu mesa especial", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar una mesa especial o farm de madera para mi evento` }}
+    cards={[
+      {
+        title: "Formatos de autor que se convierten en el punto focal",
+        content: "<strong>Renta de mesas especiales y farm de madera</strong> para eventos donde la mesa tiene que ser protagonista. La <strong>Redonda</strong> elimina cabeceras y facilita la conversación, la <strong>Biergarten</strong> recrea la cervecería europea con bancas removibles, la <strong>Farm de patas de horquilla</strong> aporta un look industrial-natural en hierro forjado negro mate, y la <strong>Sweetheart</strong> es la mesa exclusiva para los novios. Todas en madera lijada a grano fino y barnizada a mano.",
+      },
+      {
+        title: "Maderas macizas premium de teca y parota mexicana",
+        content: "<strong>Servicio integral de mobiliario de madera</strong> con las piezas de mayor categoría del catálogo: la <strong>Teca</strong>, tratada con aceite que penetra la fibra y la vuelve resistente a UV y humedad, y la <strong>Parota</strong> maciza mexicana con dureza Janka de 1,480 lbf y veta única en cada tabla. Es la línea especializada de nuestro sitio hermano <a href=\"https://mesaspicnic.com/\" target=\"_blank\" rel=\"noopener\">mesaspicnic.com — sitio especializado en mesas picnic</a>. Entrega, montaje y recolección incluidos, sin límite de tiempo.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Buscas una mesa de madera que sea el centro de tu evento?"
+    subheadline="Cotiza sin compromiso — te asesoramos con el formato y la combinación ideal para tu venue"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MODELOS — Cards que linkan a cada ficha L6
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="modelos-heading">
+    <div class="container">
+      <SectionHeader
+        id="modelos-heading"
+        title="6 modelos especiales — elige el tuyo"
+        subtitle="Cada formato tiene su personalidad"
+        description={[
+          "Explora los detalles, medidas, capacidad y para qué evento funciona mejor cada modelo. Desde la redonda de conversación hasta las maderas macizas de teca y parota — todas barnizadas a mano y con montaje incluido."
+        ]}
+      />
+
+      <!-- PLACEHOLDER: reemplazar por foto real del modelo -->
+      <div class="grid grid--3">
+        <ProductCard
+          name="Mesa Redonda de Madera"
+          price="Desde $550"
+          excerpt="Ø 1.50 m para 8-10 personas. Sin cabecera: el formato de conversación que elimina jerarquías. Ideal para bodas íntimas y mesas corporativas donde todos se ven de frente."
+          href="/servicios/mobiliario/mesas-picnic/especiales/redonda/"
+          image="/images/mobiliario/candy-bar-boda-rustica-madera.avif"
+          badge="Conversación"
+          tags={["Ø 1.50 m", "8-10 personas", "Bodas íntimas", "Corporativo"]}
+        />
+        <ProductCard
+          name="Mesa Biergarten"
+          price="Desde $500"
+          excerpt="2.20 × 0.60 m para 10 personas. Formato europeo de cervecería con 2 bancas removibles. El favorito de food markets, ferias y festivales gastronómicos."
+          href="/servicios/mobiliario/mesas-picnic/especiales/biergarten/"
+          image="/images/mobiliario/candy-bar-jardin-exterior.avif"
+          badge="Festival"
+          tags={["2.20 × 0.60 m", "10 personas", "2 bancas", "Festivales"]}
+        />
+        <ProductCard
+          name="Mesa Madera Teka"
+          price="Desde $1,800"
+          excerpt="2.00 × 1.00 m para 8 personas. Aceite de teca que penetra la fibra y la vuelve resistente a UV y humedad. La opción de lujo para bodas VIP al aire libre."
+          href="/servicios/mobiliario/mesas-picnic/especiales/teka/"
+          image="/images/mobiliario/barra-bebidas-madera-cocteleria-lujo.avif"
+          badge="Lujo VIP"
+          tags={["2.00 × 1.00 m", "8 personas", "Resistente UV", "Bodas de lujo"]}
+        />
+        <ProductCard
+          name="Mesa Farm Patas de Horquilla"
+          price="Desde $950"
+          excerpt="2.40 × 0.84 m para 10 personas. Tablero de pino + patas de hierro forjado negro mate, sin bancas para vestir con sillas libres. Look industrial-natural, la más fotogénica."
+          href="/servicios/mobiliario/mesas-picnic/especiales/farm-hairpin/"
+          image="/images/mobiliario/crossback-madera-01.avif"
+          badge="La más fotogénica"
+          tags={["2.40 × 0.84 m", "10 personas", "Hierro forjado", "Activaciones"]}
+        />
+        <ProductCard
+          name="Mesa Sweetheart para Novios"
+          price="Desde $650"
+          excerpt="1.50 × 0.84 m para 2 personas. Barniz a 4 manos, exclusiva para la pareja. El centro visual de la boda: donde los novios presiden la celebración."
+          href="/servicios/mobiliario/mesas-picnic/especiales/sweetheart/"
+          image="/images/mobiliario/barra-postres-candy-bar-boda-elegante.avif"
+          badge="Solo para novios"
+          tags={["1.50 × 0.84 m", "2 personas", "Barniz 4 manos", "Bodas"]}
+        />
+        <ProductCard
+          name="Mesa Picnic de Parota"
+          price="Desde $2,200"
+          excerpt="2.00 × 0.90 m para 8 personas. Parota maciza mexicana (dureza Janka 1,480 lbf) con veta única, aceite de teca y barniz. El modelo de mayor categoría del catálogo."
+          href="/servicios/mobiliario/mesas-picnic/especiales/parota/"
+          image="/images/mobiliario/barras-postres-mesa-vintage.avif"
+          badge="Máxima categoría"
+          tags={["2.00 × 0.90 m", "8 personas", "Parota maciza", "Eventos VIP"]}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre modelos y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Mesas Picnic y Madera</h2>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+          <p class="sidebar-card--cta-text">¿Necesitas una mesa especial de madera para tu evento?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una mesa especial o farm de madera para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21.4 8 14 2 9.4h7.6z"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones — Mesas Especiales & Farm</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Mesa Picnic de Parota -->
+          <section class="section section--alt" aria-labelledby="parota-heading">
+            <ServiceShowcase
+    title="Mesa Picnic de Parota — la de mayor categoría"
+    headingId="parota-heading"
+    badge="Máxima categoría"
+    subtitle="Parota maciza mexicana con veta única: la pieza tope del catálogo para eventos VIP."
+    tags={["Parota maciza", "Janka 1,480 lbf", "8 personas", "Eventos VIP"]}
+    ctaHref="/servicios/mobiliario/mesas-picnic/especiales/parota/"
+    ctaLabel="Ver Mesa de Parota"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">La <strong>Mesa Picnic de Parota</strong> (2.00 × 0.90 m, 8 personas) es el modelo de mayor categoría de la colección. Fabricada en <strong>parota maciza mexicana</strong> —una madera con dureza Janka de <strong>1,480 lbf</strong> que la hace extraordinariamente estable y duradera— cada tabla muestra una <strong>veta única</strong> imposible de replicar. El acabado combina aceite de teca y barniz para realzar el color natural de la madera y protegerla en exteriores.</p>
+      <p class="showcase__text">Es la elección para bodas de lujo, mesas de honor y eventos VIP donde la mesa misma es un objeto de diseño. La parota no necesita mantelería: su superficie es el centro visual. Combínala con <a href="/servicios/mobiliario/sillas/crossback/">sillas crossback</a> de madera e <a href="/servicios/iluminacion/">iluminación</a> cálida para un montaje que se roba las fotos. Desde $2,200 por mesa con montaje incluido.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <!-- PLACEHOLDER: reemplazar por foto real del modelo -->
+      <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main">
+                    <img src="/images/mobiliario/barras-postres-mesa-vintage.avif" alt="Mesa de parota maciza para evento VIP en CDMX" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/barra-bebidas-madera-cocteleria-lujo.avif" alt="Mesa de parota con veta única para boda de lujo" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/barras-postres-mesa-madera-rustica.avif" alt="Detalle de madera maciza de parota barnizada a mano" loading="lazy" decoding="async" />
+                  </div>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <!-- 5. SHOWCASE: Mesa Farm Patas de Horquilla -->
+          <section class="section section--alt" aria-labelledby="farm-heading">
+            <ServiceShowcase
+    title="Mesa Farm Patas de Horquilla — la más fotogénica"
+    headingId="farm-heading"
+    badge="Look industrial-natural"
+    subtitle="Tablero de pino + patas de hierro forjado negro mate, sin bancas para vestir con sillas libres."
+    tags={["2.40 × 0.84 m", "10 personas", "Hierro forjado", "Activaciones"]}
+    ctaHref="/servicios/mobiliario/mesas-picnic/especiales/farm-hairpin/"
+    ctaLabel="Ver Farm de Horquilla"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">La <strong>Mesa Farm de Patas de Horquilla</strong> (2.40 × 0.84 m, 10 personas) combina un <strong>tablero de pino</strong> con <strong>patas de hierro forjado negro mate</strong> en forma de horquilla. Se diseñó deliberadamente <strong>sin bancas</strong> para vestirse con sillas libres, lo que la vuelve el formato más versátil y fotogénico de la línea. El contraste de la madera cálida con el hierro negro define un look industrial-natural muy solicitado.</p>
+      <p class="showcase__text">Es la favorita para <strong>activaciones de marca premium</strong>, mesas de firmas, coffee stations y bodas con estética contemporánea. Combínala con nuestras <a href="/servicios/mobiliario/sillas/crossback/">sillas crossback</a> de madera para reforzar el estilo, o con sillas tapizadas para un contraste elegante. Desde $950 por mesa con montaje incluido.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <!-- PLACEHOLDER: reemplazar por foto real del modelo -->
+      <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main">
+                    <img src="/images/mobiliario/crossback-madera-01.avif" alt="Mesa farm de patas de horquilla en hierro forjado para activación de marca" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/crossback-madera-02.avif" alt="Mesa farm de pino con patas de hierro negro mate" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/barra-bebidas-bartender-madera-evento.avif" alt="Mesa farm de horquilla montada con sillas libres en evento" loading="lazy" decoding="async" />
+                  </div>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <!-- 6. SHOWCASE: Mesa Redonda de Madera -->
+          <section class="section section--alt" aria-labelledby="redonda-heading">
+            <ServiceShowcase
+    title="Mesa Redonda de Madera — formato de conversación"
+    headingId="redonda-heading"
+    badge="Sin cabecera"
+    subtitle="Ø 1.50 m para 8-10 personas: elimina jerarquías y facilita que todos se vean de frente."
+    tags={["Ø 1.50 m", "8-10 personas", "Bodas íntimas", "Corporativo"]}
+    ctaHref="/servicios/mobiliario/mesas-picnic/especiales/redonda/"
+    ctaLabel="Ver Mesa Redonda"
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">La <strong>Mesa Redonda de Madera</strong> (Ø 1.50 m, 8-10 personas) aporta a la madera natural el formato circular que mejor favorece la conversación. Al <strong>no tener cabecera</strong>, elimina jerarquías y logra que todos los comensales se vean de frente — ideal para bodas íntimas, cenas de honor y mesas corporativas donde la interacción importa tanto como el diseño.</p>
+      <p class="showcase__text">Combina la calidez de la madera barnizada a mano con un formato que en otros materiales suele verse frío o impersonal. Vístela con mantelería ligera o déjala desnuda para lucir la veta. Perfecta con <a href="/servicios/mobiliario/sillas/crossback/">sillas crossback</a> y bajo una <a href="/servicios/carpas/">carpa</a> en jardín. Desde $550 por mesa con montaje incluido.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <!-- PLACEHOLDER: reemplazar por foto real del modelo -->
+      <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main">
+                    <img src="/images/mobiliario/candy-bar-boda-rustica-madera.avif" alt="Mesa redonda de madera para boda íntima en CDMX" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/barras-postres-mesa-madera-rustica.avif" alt="Mesa redonda de madera natural sin cabecera para conversación" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/accesorios-decorativos-candelabros-mesa.avif" alt="Mesa redonda de madera vestida para cena corporativa" loading="lazy" decoding="async" />
+                  </div>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <!-- 7. FAQ -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Mesas Especiales & Farm"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar una mesa especial de madera para tu evento, es natural tener preguntas sobre formatos, maderas, capacidad y logística. Aquí encontrarás las respuestas más comunes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un asesor especializado en mobiliario de madera te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en mobiliario de madera resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre mesas especiales de madera para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Mesas Picnic y Madera -->
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Mesas Picnic y Madera</h2>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/mesas-picnic/" class="sidebar-nav__back">&uarr; Volver a Mesas Picnic y Madera</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/" class="sidebar-nav__back">&uarr; Volver a Mobiliario</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de mesas de madera:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+            <p class="sidebar-card--cta-text">¿Necesitas una mesa especial de madera para tu evento?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar una mesa especial o farm de madera para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Mesa Especial de Madera"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros asesores de mobiliario de madera te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea que busques una sweetheart para tus novios o varias mesas de parota para una boda de lujo, estamos aquí para asesorarte con el formato y la combinación perfectos."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Festival / Feria">Festival / Feria</option>
+                <option value="Activación de Marca">Activación de Marca</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoModelo">
+                Modelo de mesa especial
+              </label>
+              <select id="tipoModelo" name="tipoModelo" class="form-field__input form-field__select">
+                <option value="">Selecciona el modelo</option>
+                <option value="Mesa Redonda de Madera">Mesa Redonda de Madera</option>
+                <option value="Mesa Biergarten">Mesa Biergarten</option>
+                <option value="Mesa Madera Teka">Mesa Madera Teka</option>
+                <option value="Mesa Farm Patas de Horquilla">Mesa Farm Patas de Horquilla</option>
+                <option value="Mesa Sweetheart para Novios">Mesa Sweetheart para Novios</option>
+                <option value="Mesa Picnic de Parota">Mesa Picnic de Parota</option>
+                <option value="Combinación de modelos">Combinación de modelos</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: modelo preferido, número de mesas, venue, número de invitados, estilo de tu evento..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Asesoría de formato gratis</h3>
+            <p class="reserva-card__text">Te recomendamos el modelo y la combinación ideal según tu venue, estilo y número de invitados.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada de mobiliario de madera para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoModelo = document.getElementById('tipoModelo').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Mesas Especiales & Farm de Madera*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoModelo) texto += `*Modelo:* ${tipoModelo}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDORES DE CONFIANZA
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="proveedores-heading">
+    <div class="container">
+      <SectionHeader
+        id="proveedores-heading"
+        title="Proveedores de Confianza en Mobiliario de Madera"
+        subtitle="Red de aliados profesionales"
+        description={[
+          "Trabajamos con los proveedores más reconocidos de mobiliario de madera para eventos en la Ciudad de México. Cada aliado cuenta con inventario verificado, logística profesional y trayectoria comprobada.",
+          "Nuestra red de proveedores nos permite garantizar disponibilidad de mesas especiales y farm en todos los formatos y maderas para eventos de cualquier escala."
+        ]}
+      />
+
+      <div class="grid grid--4">
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">M</span>
+            <div class="partner-card__badge">Sitio especializado</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">MESPIC — mesaspicnic.com</h3>
+            <p class="partner-card__tagline">Especialistas en Mesas Picnic y Madera</p>
+            <p class="partner-card__text">Sitio hermano especializado en mesas picnic y mobiliario de madera con más de 500 eventos montados. Catálogo completo de formatos rústicos, farm y maderas macizas con estética de madera natural.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">C</span>
+            <div class="partner-card__badge">Carpintería de autor</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Taller Madera Viva</h3>
+            <p class="partner-card__tagline">Maderas Macizas de Teca y Parota</p>
+            <p class="partner-card__text">Carpintería especializada en piezas de autor con maderas macizas de teca y parota mexicana. Cada mesa se lija a grano fino y se barniza a mano para eventos de alto perfil.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">R</span>
+            <div class="partner-card__badge">Renta integral</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">Rent All CDMX</h3>
+            <p class="partner-card__tagline">Mobiliario y Farm para Corporativos</p>
+            <p class="partner-card__text">Renta integral de mobiliario de madera y mesas farm para eventos corporativos, festivales y activaciones de marca. Capacidad para eventos de 1,000+ personas con logística propia.</p>
+          </div>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card__header">
+            <span class="partner-card__initial">E</span>
+            <div class="partner-card__badge">+10 años de experiencia</div>
+          </div>
+          <div class="partner-card__content">
+            <h3 class="partner-card__name">EventMob</h3>
+            <p class="partner-card__tagline">Mobiliario Rústico y Contemporáneo</p>
+            <p class="partner-card__text">Mobiliario rústico y contemporáneo para todo tipo de celebración. Mesas biergarten, farm y de madera natural con más de 10 años equipando los eventos más importantes de la Ciudad de México.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="Mesas de madera de autor que convierten tu evento en una experiencia inolvidable"
+    subheadline="Más de 120 piezas en inventario nos respaldan. Cotiza hoy y recibe asesoría de formato sin compromiso."
+    primaryCTA={{ label: "Cotizar mesa especial", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar una mesa especial o farm de madera para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     ACENTO INSTITUCIONAL — Dorado de marca #c2a24a — homologado con el sitio
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #c2a24a;
+    --color-accent-hover: #a9883a;
+    --color-accent-light: #d4b96a;
+    --color-accent-soft: rgba(194, 162, 74, 0.1);
+    --gradient-accent: linear-gradient(135deg, #c2a24a 0%, #a9883a 100%);
+    --shadow-accent: 0 4px 14px rgba(194, 162, 74, 0.35);
+    --shadow-accent-hover: 0 6px 20px rgba(194, 162, 74, 0.45);
+  }
+</style>

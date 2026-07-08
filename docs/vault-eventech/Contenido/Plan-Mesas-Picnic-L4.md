@@ -190,8 +190,8 @@ MESPIC no publica precios → se posicionan con **rangos de mercado** de la comp
 - [x] Confirmar slug `mesas-picnic` — **confirmado (Frank)**.
 - [x] Bandas de precio — **derivadas de competencia (§8)**; falta ajustar con margen propio.
 - [x] Imágenes — **placeholders por ahora (Frank)**; fotos reales en 2.ª pasada.
-- [ ] Añadir 5.º `subService` al hub mobiliario L3.
-- [ ] Construir hub L4 con molde `sillas/index.astro` (dorado, no verde).
+- [x] Añadir 5.º `subService` al hub mobiliario L3 — **hecho 2026-07-08** (card "Mesas Picnic y Madera" + nav a 6 col).
+- [x] Construir hub L4 con molde `sillas/index.astro` (dorado, no verde) — **hecho 2026-07-08** (`mesas-picnic/index.astro`, 668 líneas, 4 familias, compila OK).
 - [ ] Construir 4 grupos L5 con molde `mesas/redondas/index.astro`.
 - [ ] Construir 22 fichas L6 con molde `sillas/tiffany/` (specs reales + `desde $`).
 - [ ] Títulos + metas sin marca ([[Convencion-de-titulos]]).

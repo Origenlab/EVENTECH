@@ -13,7 +13,7 @@ export const SERVICE_CATEGORIES = {
   mobiliario: {
     label: "Mobiliario",
     href: "/servicios/mobiliario/",
-    keywords: ["sillas", "mesas", "salas lounge", "barras", "mobiliario", "furniture"],
+    keywords: ["sillas", "mesas", "salas lounge", "barras", "mobiliario", "furniture", "mesas picnic", "picnic", "farm", "biergarten", "parota", "madera"],
     icon: "chair",
   },
   audiovisual: {
