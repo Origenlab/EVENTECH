@@ -1,0 +1,641 @@
+---
+/**
+ * ─── City Light y Ambientación de Salón — Página de Producto (Nivel 4) ───
+ * Paquetes de ambientación con PAR LED RGBWA (8, 16, 24 luminarias) y producción a medida.
+ * Color accent amber #c2a24a (jerarquía L4).
+ *
+ * Jerarquía: Servicios > Iluminación > Arquitectónica > City Light
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import ProveedorIluminacion from "@components/ProveedorIluminacion.astro";
+import { SITE } from "@config/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@lib/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Iluminación", href: "/servicios/iluminacion/" },
+  { label: "Arquitectónica", href: "/servicios/iluminacion/arquitectonica/" },
+  { label: "City Light" },
+];
+
+const faqs = [
+  { question: "¿Qué es el city light y la ambientación de salón?", answer: 'El <strong>city light</strong> es la técnica de ambientación que baña el salón completo de color con luminarias <strong>PAR LED RGBWA</strong> colocadas en el perímetro, columnas, muros y puntos focales del venue. A diferencia de la iluminación puntual, el city light envuelve todo el espacio en la paleta de color de tu evento —dorado champagne, blush, azul rey, ámbar o el tono que elijas— transformando por completo la atmósfera del salón. Es la base de la ambientación en bodas, XV años y galas: crea profundidad, resalta la arquitectura del venue y unifica visualmente cada zona (recepción, pista y mesas). Trabajamos con paquetes de 8, 16 y 24 luminarias según el tamaño de tu salón.' },
+  { question: "¿Cuál es la diferencia entre city light y uplighting?", answer: 'Son técnicas complementarias dentro de la misma familia de iluminación arquitectónica. El <strong>uplighting</strong> se refiere específicamente a luminarias colocadas a nivel de piso que proyectan luz hacia arriba sobre muros y columnas —es una técnica puntual—. El <strong>city light</strong> es un concepto más amplio de ambientación integral: combina uplighting perimetral con bañado de muros, color en zonas lounge y cobertura completa del salón como un solo sistema coordinado. Si buscas únicamente columnas iluminadas, te conviene nuestro <a href="/servicios/iluminacion/arquitectonica/uplighting/">uplighting perimetral</a>; si quieres transformar el ambiente completo del venue, el city light es el paquete indicado. Para color de alta potencia en fachadas y exteriores revisa también el <a href="/servicios/iluminacion/arquitectonica/city-color/">city color</a>.' },
+  { question: "¿Cuántas luminarias necesito para mi salón?", answer: 'Depende de los metros cuadrados y del efecto que busques. Como referencia: un salón íntimo o la zona de mesa de novios y lounge se ambienta bien con el paquete de <strong>8 PAR LED</strong>; un salón de boda estándar (100 a 200 invitados) luce completo con <strong>16 luminarias</strong> distribuidas en perímetro y puntos focales; y una hacienda o salón grande (250+ invitados) requiere el paquete de <strong>24 PAR LED</strong> para cobertura total sin zonas oscuras. Para venues de gran escala o multi-salón diseñamos un paquete de producción a medida. Hacemos una visita técnica gratuita para medir tu espacio y entregarte la distribución exacta.' },
+  { question: "¿Pueden igualar el color a mi paleta de evento?", answer: 'Sí. Nuestras luminarias PAR LED son <strong>RGBWA</strong> (rojo, verde, azul, blanco y ámbar), lo que permite mezclar prácticamente cualquier tonalidad. Envíanos tu paleta en código <strong>Pantone o HEX</strong> —o una foto de tus flores, invitaciones o mantelería— y calibramos cada luminaria para igualar el tono exacto: desde dorado champagne y blush hasta tonos joya como esmeralda o vino. Además, programamos cambios de color por momento del evento (un tono cálido para la cena y otro vibrante para la fiesta) desde una sola consola.' },
+  { question: "¿Las luminarias son inalámbricas?", answer: 'Ofrecemos ambas opciones. Nuestras luminarias PAR LED inalámbricas funcionan con <strong>batería recargable de larga duración</strong> y control por radiofrecuencia, ideales para venues donde no se pueden tender cables —jardines, haciendas y salones con pisos protegidos—: se colocan en cualquier punto sin instalación visible. Para eventos de mayor duración o montajes fijos usamos luminarias cableadas con alimentación continua. En ambos casos el cableado queda oculto y el montaje es limpio y seguro.' },
+  { question: "¿Funciona el modo silencioso durante la ceremonia?", answer: 'Sí. Nuestras luminarias PAR LED de ambientación son de estado sólido (LED) y operan en <strong>modo silencioso total</strong>: no tienen ventiladores ruidosos ni motores, por lo que son perfectas para ceremonias, votos, discursos y momentos solemnes donde el silencio es fundamental. A diferencia de las cabezas móviles o equipos de escenario, el city light ambienta sin generar ruido alguno. Puedes complementar la ambientación del salón con nuestros <a href="/servicios/iluminacion/escenario/par-led/">par LED de escenario</a> para iluminar la tarima o el templete de la ceremonia.' },
+];
+
+const specs = [
+  { label: "Tipo de luminaria", value: "PAR LED RGBWA (5 colores en 1)" },
+  { label: "Cantidad por paquete", value: "8, 16 o 24 luminarias" },
+  { label: "Alimentación", value: "Batería inalámbrica o cableado fijo" },
+  { label: "Modo silencioso", value: "Sí — sin ventiladores (apto ceremonias)" },
+  { label: "Color", value: "A tu paleta — Pantone / HEX personalizado" },
+  { label: "Control", value: "DMX 512 + control remoto RF" },
+  { label: "Clasificación", value: "IP para uso en interior y exterior" },
+  { label: "Montaje", value: "Piso, estructura, columnas y muros" },
+  { label: "Operador", value: "Técnico dedicado incluido" },
+  { label: "Cobertura", value: "Perímetro y salón completo sin zonas oscuras" },
+];
+
+const sidebarNav = [
+  { name: "Wash Lights LED", href: "/servicios/iluminacion/arquitectonica/wash-lights/" },
+  { name: "Uplighting Perimetral", href: "/servicios/iluminacion/arquitectonica/uplighting/" },
+  { name: "Bañadores de Muros", href: "/servicios/iluminacion/arquitectonica/banadores/" },
+  { name: "Fachadas Exteriores", href: "/servicios/iluminacion/arquitectonica/fachadas/" },
+  { name: "City Color", href: "/servicios/iluminacion/arquitectonica/city-color/" },
+  { name: "City Light", href: null, active: true },
+];
+
+const sidebarRelated = [
+  { name: "Iluminación Arquitectónica", href: "/servicios/iluminacion/arquitectonica/" },
+  { name: "Uplighting", href: "/servicios/iluminacion/arquitectonica/uplighting/" },
+  { name: "City Color", href: "/servicios/iluminacion/arquitectonica/city-color/" },
+  { name: "Par LED de Escenario", href: "/servicios/iluminacion/escenario/par-led/" },
+  { name: "Mobiliario", href: "/servicios/mobiliario/" },
+];
+
+const reviews = [
+  { author: "Mariana Robles", text: "Contratamos el paquete de 16 PAR LED para la ambientación de nuestra boda en un salón de Interlomas. Igualaron el dorado champagne de nuestra paleta a la perfección y el salón se transformó por completo — se veía cálido y elegante en cada foto. Durante la ceremonia estuvieron en modo silencioso y para la fiesta cambiaron a un tono más vibrante. El técnico estuvo atento toda la noche. Impecable.", rating: 5, date: "2025-11-08" },
+  { author: "Gabriela Fuentes", text: "Somos wedding planners y usamos su paquete de 24 luminarias para una boda en hacienda con 300 invitados. La cobertura fue total, sin una sola zona oscura, y las luminarias inalámbricas nos salvaron porque no podíamos tender cables sobre la cantera. El color blush quedó idéntico a las flores. Nuestra clienta quedó encantada y ya los recomendamos para el siguiente evento.", rating: 5, date: "2025-10-19" },
+  { author: "Rodrigo Peña", text: "Rentamos 8 PAR LED para ambientar la zona lounge y la mesa de novios de unos XV años. Aunque fue el paquete más pequeño, el cambio en el ambiente fue enorme — la zona quedó espectacular en tono azul rey a juego con el vestido. Todo inalámbrico, montaje rapidísimo y sin cables a la vista. Excelente relación calidad-precio.", rating: 5, date: "2025-09-12" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de City Light y Ambientación de Salón en CDMX",
+    description: "Renta de city light y ambientación de salón con luminarias PAR LED RGBWA para bodas y eventos en CDMX. Paquetes de 8, 16 y 24 luminarias con color a tu paleta Pantone o HEX, inalámbricas o cableadas, modo silencioso e instalación con operador incluido. Desde $2,000.",
+    url: "/servicios/iluminacion/arquitectonica/city-light/",
+    priceRange: { min: 2000, max: 30000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 25,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Iluminación", url: "/servicios/iluminacion/" },
+    { name: "Arquitectónica", url: "/servicios/iluminacion/arquitectonica/" },
+    { name: "City Light", url: "/servicios/iluminacion/arquitectonica/city-light/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de City Light y Ambientación de Salón para Eventos en CDMX | Equipo para eventos en México"
+  rawTitle={true}
+  description="Renta de city light y ambientación de salón con PAR LED para bodas y eventos en CDMX: paquetes de 8, 16 y 24 luminarias con color a tu paleta. Instalación incluida. Cotiza hoy."
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={breadcrumbItems} slot="breadcrumbs" />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="Ambientación que transforma tu salón"
+    title='Renta de <span class="highlight">City Light</span> y Ambientación de Salón en CDMX'
+    subtitle="Paquetes de ambientación con luminarias PAR LED RGBWA que bañan tu salón completo del color de tu evento: 8, 16 y 24 luminarias con color a tu paleta Pantone o HEX. Inalámbricas o cableadas, en modo silencioso para ceremonias y con instalación y operador incluidos para bodas, XV años y eventos corporativos."
+    primaryCTA={{ label: "Cotiza tu city light", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar city light y ambientación de salón para mi evento` }}
+    cards={[
+      {
+        title: "Ambientación de color para todo tu salón",
+        content: "<strong>Renta de city light y ambientación de salón</strong> con luminarias PAR LED RGBWA (cinco colores en una) que envuelven tu venue completo en la paleta de tu evento, en la Ciudad de México. Colocamos las luminarias en perímetro, columnas, muros y puntos focales para transformar por completo la atmósfera del salón — dorado champagne, blush, azul rey, esmeralda o el tono exacto que elijas. Ofrecemos paquetes escalables de 8, 16 y 24 luminarias, y diseños de producción a medida para haciendas y venues de gran escala. Ideal para bodas, XV años, galas y eventos corporativos.",
+      },
+      {
+        title: "Color a tu paleta, inalámbrico y con operador incluido",
+        content: "<strong>Servicio integral de ambientación</strong> en cada renta. Calibramos cada luminaria a tu paleta exacta en código Pantone o HEX, con control DMX y remoto para cambiar el ambiente por momento del evento. Nuestras luminarias inalámbricas de batería se colocan en cualquier punto sin cables a la vista —perfectas para jardines, haciendas y salones con pisos delicados— y operan en modo silencioso, sin ventiladores, ideales para ceremonias. Incluimos transporte, instalación, operador técnico dedicado y desmontaje.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Buscas ambientar tu salón con city light?"
+    subheadline="Cotiza sin compromiso — te enviamos una propuesta con distribución de luminarias y tu paleta de color personalizada"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <!-- Nav card -->
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Iluminación Arquitectónica</h2>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Related card -->
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA card -->
+        <div class="sidebar-card sidebar-card--cta">
+          <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+          <p class="sidebar-card--cta-text">¿Necesitas ambientar tu salón con city light?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar city light y ambientación de salón para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <!-- ═══════════════════════════════════════════════════════════════
+             MAIN CONTENT COLUMN
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones Técnicas — City Light y Ambientación</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: 8 PAR LED -->
+          <section class="section" aria-labelledby="par8-heading">
+            <ServiceShowcase
+              title="8 PAR LED"
+              headingId="par8-heading"
+              badge="Ambientación esencial"
+              subtitle="El paquete ideal para dar color y calidez a la mesa de novios y la zona lounge de tu evento."
+              tags={["8 luminarias RGBWA", "Mesa de novios + lounge", "Inalámbricas", "Color a tu paleta"]}
+              ctaHref="#reserva-heading"
+              ctaLabel="Cotizar paquete de 8 PAR LED"
+            >
+              <Fragment slot="body">
+                <p class="showcase__text">El paquete de <strong>8 PAR LED RGBWA</strong> es la puerta de entrada a la ambientación profesional. Ideal para dar vida a los puntos focales de tu evento: enmarcar la <strong>mesa de novios</strong> con un halo de color, bañar la <strong>zona lounge</strong> de una tonalidad cálida y resaltar un muro o telón de fondo para las fotos. Aunque es nuestro paquete más compacto, el impacto visual es enorme — transforma un rincón neutro en el corazón visual de la celebración.</p>
+                <p class="showcase__text">Las 8 luminarias son <strong>inalámbricas con batería recargable</strong>, por lo que se colocan en cualquier punto sin cables a la vista, incluso sobre pisos delicados o en jardines. Calibramos el color a tu paleta exacta (Pantone o HEX) y, si lo necesitas, combinamos este paquete con <a href="/servicios/iluminacion/arquitectonica/uplighting/">uplighting perimetral</a> para extender el color a las columnas del salón. Instalación y operador incluidos.</p>
+              </Fragment>
+              <Fragment slot="media">
+                <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main"><img src="/images/iluminacion-arquitectonica/uplighting-rgbwa-boda-salon-dorado.avif" alt="City light con PAR LED RGBWA ambientando la mesa de novios en tono dorado" loading="lazy" decoding="async" /></div>
+                  <div class="showcase__gallery3-thumb"><img src="/images/iluminacion-arquitectonica/wash-lights-rgbw-haces-colores-evento.avif" alt="Luminarias PAR LED dando color a la zona lounge de un evento" loading="lazy" decoding="async" /></div>
+                  <div class="showcase__gallery3-thumb"><img src="/images/iluminacion-arquitectonica/uplighting-led-salon-boda-elegante.avif" alt="PAR LED resaltando un muro de salón de boda" loading="lazy" decoding="async" /></div>
+                </div>
+              </Fragment>
+            </ServiceShowcase>
+          </section>
+
+          <!-- 5. SHOWCASE: 16 PAR LED -->
+          <section class="section" aria-labelledby="par16-heading">
+            <ServiceShowcase
+              title="16 PAR LED"
+              headingId="par16-heading"
+              badge="Salón completo"
+              subtitle="Ambientación integral para un salón de boda estándar: perímetro, puntos focales y zonas unificadas en tu color."
+              tags={["16 luminarias RGBWA", "Salón de boda completo", "100-200 invitados", "DMX + remoto"]}
+              ctaHref="#reserva-heading"
+              ctaLabel="Cotizar paquete de 16 PAR LED"
+            >
+              <Fragment slot="body">
+                <p class="showcase__text">El paquete de <strong>16 PAR LED</strong> es nuestro más solicitado para bodas: la cantidad justa para ambientar por completo un salón estándar de <strong>100 a 200 invitados</strong>. Distribuimos las luminarias en el perímetro, columnas, muros y puntos focales para envolver todo el espacio en la paleta de tu evento, sin dejar zonas oscuras. El resultado es un salón cohesivo y elegante donde cada zona —recepción, mesas y pista— comparte la misma atmósfera de color.</p>
+                <p class="showcase__text">Controlamos las 16 luminarias desde una sola consola <strong>DMX con control remoto</strong>, lo que nos permite cambiar la ambientación según el momento: un tono cálido y suave durante la cena, y uno más vibrante y dinámico cuando arranca la fiesta. Todas operan en <strong>modo silencioso</strong>, así que la ceremonia transcurre sin ruido alguno. Complementa la ambientación con nuestros <a href="/servicios/iluminacion/arquitectonica/wash-lights/">wash lights LED</a> para bañar muros amplios de color uniforme.</p>
+              </Fragment>
+              <Fragment slot="media">
+                <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main"><img src="/images/iluminacion-arquitectonica/uplighting-led-salon-boda-elegante.avif" alt="City light ambientando un salón de boda completo con PAR LED" loading="lazy" decoding="async" /></div>
+                  <div class="showcase__gallery3-thumb"><img src="/images/iluminacion-arquitectonica/uplighting-rgbwa-boda-salon-dorado.avif" alt="PAR LED RGBWA en tono dorado en salón de boda" loading="lazy" decoding="async" /></div>
+                  <div class="showcase__gallery3-thumb"><img src="/images/iluminacion-arquitectonica/wash-lights-rgbw-haces-colores-evento.avif" alt="Luminarias PAR LED bañando de color el perímetro del salón" loading="lazy" decoding="async" /></div>
+                </div>
+              </Fragment>
+            </ServiceShowcase>
+          </section>
+
+          <!-- 6. SHOWCASE: 24 PAR LED — Hacienda Completa -->
+          <section class="section" aria-labelledby="par24-heading">
+            <ServiceShowcase
+              title="24 PAR LED — Hacienda Completa"
+              headingId="par24-heading"
+              badge="Cobertura total"
+              subtitle="Ambientación premium para haciendas y salones grandes: cobertura total sin zonas oscuras para 250+ invitados."
+              tags={["24 luminarias RGBWA", "Haciendas y salones grandes", "250+ invitados", "Cobertura total"]}
+              ctaHref="#reserva-heading"
+              ctaLabel="Cotizar paquete de 24 PAR LED"
+            >
+              <Fragment slot="body">
+                <p class="showcase__text">El paquete de <strong>24 PAR LED</strong> está diseñado para <strong>haciendas, jardines y salones de gran formato</strong> con 250 o más invitados. Con esta cantidad de luminarias logramos una cobertura de color verdaderamente total: perímetro completo, columnas de cantera, arcos, muros, zona de cena y pista, todo bañado en la misma paleta sin una sola zona oscura. Es la ambientación premium que convierte una hacienda ya de por sí hermosa en un escenario de ensueño al caer la noche.</p>
+                <p class="showcase__text">Para venues sin instalación eléctrica suficiente, trabajamos con <strong>luminarias inalámbricas de batería</strong> y, cuando hace falta, plantas de luz — de modo que la cobertura no depende de la infraestructura del lugar. Resaltamos los elementos arquitectónicos con precisión y, si buscas iluminar también la <strong>fachada exterior</strong> de la hacienda con color de alta potencia, sumamos nuestro <a href="/servicios/iluminacion/arquitectonica/city-color/">city color</a> para un efecto de bienvenida imponente.</p>
+              </Fragment>
+              <Fragment slot="media">
+                <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main"><img src="/images/iluminacion-arquitectonica/wash-lights-rgbw-haces-colores-evento.avif" alt="City light cubriendo de color una hacienda con 24 PAR LED" loading="lazy" decoding="async" /></div>
+                  <div class="showcase__gallery3-thumb"><img src="/images/iluminacion-arquitectonica/uplighting-led-salon-boda-elegante.avif" alt="PAR LED ambientando un salón grande de evento" loading="lazy" decoding="async" /></div>
+                  <div class="showcase__gallery3-thumb"><img src="/images/iluminacion-arquitectonica/uplighting-rgbwa-boda-salon-dorado.avif" alt="Columnas de hacienda iluminadas con PAR LED en tono dorado" loading="lazy" decoding="async" /></div>
+                </div>
+              </Fragment>
+            </ServiceShowcase>
+          </section>
+
+          <!-- 7. SHOWCASE: Producción -->
+          <section class="section" aria-labelledby="produccion-heading">
+            <ServiceShowcase
+              title="Producción"
+              headingId="produccion-heading"
+              badge="Diseño a medida"
+              subtitle="Ambientación lumínica a medida para venues de gran escala, multi-salón y eventos de producción."
+              tags={["Diseño personalizado", "Multi-salón", "Gran escala", "Operador dedicado"]}
+              ctaHref="#reserva-heading"
+              ctaLabel="Cotizar producción a medida"
+            >
+              <Fragment slot="body">
+                <p class="showcase__text">Cuando el evento supera los formatos estándar —<strong>venues de gran escala, recintos multi-salón, convenciones, festivales o bodas de alto perfil</strong>— diseñamos un paquete de ambientación a la medida. Nuestro diseñador de iluminación realiza una visita técnica, levanta un plano del venue y define la cantidad exacta de luminarias, su distribución y la programación de escenas por momento del evento. No hay número máximo: escalamos el sistema tanto como lo pida el espacio.</p>
+                <p class="showcase__text">Integramos el city light con el resto de la producción en una sola consola y bajo un solo interlocutor, de modo que la ambientación de color dialogue con la iluminación de escenario y el audiovisual. Para el templete, la tarima o el escenario principal sumamos <a href="/servicios/iluminacion/escenario/par-led/">par LED de escenario</a>, y coordinamos con nuestro aliado especialista los montajes lumínicos de mayor complejidad. Tú tratas con un solo equipo; nosotros alineamos cada detalle.</p>
+              </Fragment>
+              <Fragment slot="media">
+                <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main"><img src="/images/iluminacion-arquitectonica/uplighting-rgbwa-boda-salon-dorado.avif" alt="Ambientación de producción con PAR LED RGBWA en tono dorado" loading="lazy" decoding="async" /></div>
+                  <div class="showcase__gallery3-thumb"><img src="/images/iluminacion-arquitectonica/wash-lights-rgbw-haces-colores-evento.avif" alt="PAR LED bañando de color un venue de gran escala" loading="lazy" decoding="async" /></div>
+                  <div class="showcase__gallery3-thumb"><img src="/images/iluminacion-arquitectonica/uplighting-led-salon-boda-elegante.avif" alt="Salón de evento ambientado con city light PAR LED" loading="lazy" decoding="async" /></div>
+                </div>
+              </Fragment>
+            </ServiceShowcase>
+          </section>
+
+          <!-- 8. FAQ (6 preguntas) -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre City Light y Ambientación de Salón"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "Antes de rentar tu paquete de city light, es natural tener preguntas sobre qué luminarias se usan, cuántas necesita tu salón, cómo igualamos tu paleta de color y si funcionan sin cables. Aquí encontrarás las respuestas más comunes.",
+                "Si no encuentras lo que buscas, escríbenos por WhatsApp y un especialista en iluminación arquitectónica te responderá al instante."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un especialista en city light resolverá todas tus dudas al instante.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre city light y ambientación de salón para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <!-- Nav card: Iluminación Arquitectónica -->
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Iluminación Arquitectónica</h2>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/arquitectonica/" class="sidebar-nav__back">&uarr; Volver a Arquitectónica</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/" class="sidebar-nav__back">&uarr; Volver a Iluminación</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Related card: Servicios Relacionados -->
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa la ambientación de tu salón:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA card: Cotiza rápido -->
+          <div class="sidebar-card sidebar-card--cta">
+            <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+            <p class="sidebar-card--cta-text">¿Necesitas ambientar tu salón con city light?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar city light y ambientación de salón para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu City Light y Ambientación"
+        subtitle="Cuéntanos sobre tu evento y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros especialistas en iluminación arquitectónica te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Ya sea un paquete de 8 PAR LED para tu zona lounge o una ambientación completa de 24 luminarias para tu hacienda, estamos aquí para diseñar la atmósfera de color perfecta para tu salón."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-field__input"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-field__input"
+                placeholder="55 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input
+                type="date"
+                id="fecha"
+                name="fecha"
+                class="form-field__input"
+              />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoPaquete">
+                Paquete de ambientación
+              </label>
+              <select id="tipoPaquete" name="tipoPaquete" class="form-field__input form-field__select">
+                <option value="">Selecciona el paquete de ambientación</option>
+                <option value="8 PAR LED — Lounge / Mesa de Novios">8 PAR LED — Lounge / Mesa de Novios</option>
+                <option value="16 PAR LED — Salón de Boda Completo">16 PAR LED — Salón de Boda Completo</option>
+                <option value="24 PAR LED — Hacienda Completa">24 PAR LED — Hacienda Completa</option>
+                <option value="Producción — Gran Escala">Producción — Gran Escala</option>
+                <option value="Color a mi paleta (Pantone/HEX)">Color a mi paleta (Pantone/HEX)</option>
+                <option value="Luminarias Inalámbricas">Luminarias Inalámbricas</option>
+                <option value="No estoy seguro — necesito asesoría">No estoy seguro — necesito asesoría</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-field__input form-field__textarea"
+                placeholder="Cuéntanos los detalles: número de invitados, tipo de venue (salón/jardín/hacienda), tu paleta de color (Pantone/HEX), zonas a ambientar (perímetro/lounge/mesa de novios), dimensiones del espacio..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Evaluamos tu venue sin costo para diseñar la distribución exacta de luminarias y calibrar tu paleta de color.</p>
+          </div>
+
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin compromiso</h3>
+            <p class="reserva-card__text">Cotiza gratis y sin presiones. Recibe asesoría personalizada de iluminación arquitectónica para tu presupuesto.</p>
+          </div>
+
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoPaquete = document.getElementById('tipoPaquete').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*City Light y Ambientación para Eventos*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoPaquete) texto += `*Paquete:* ${tipoPaquete}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       PROVEEDOR ALIADO ESPECIALISTA EN ILUMINACIÓN
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <ProveedorIluminacion focus="city light y ambientación de salón" />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="City light que transforma tu salón en la ambientación perfecta"
+    subheadline="Cientos de bodas y eventos ambientados con nuestras luminarias PAR LED nos respaldan. Cotiza hoy y recibe una propuesta con distribución de luminarias y tu paleta de color personalizada."
+    primaryCTA={{ label: "Cotizar city light", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar city light y ambientación de salón para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     DORADO INSTITUCIONAL — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #c2a24a;
+    --color-accent-hover: #a9883a;
+    --color-accent-light: #d4b96a;
+    --color-accent-soft: rgba(194, 162, 74, 0.1);
+    --gradient-accent: linear-gradient(135deg, #c2a24a 0%, #a9883a 100%);
+    --shadow-accent: 0 4px 14px rgba(194, 162, 74, 0.35);
+    --shadow-accent-hover: 0 6px 20px rgba(194, 162, 74, 0.45);
+  }
+</style>
