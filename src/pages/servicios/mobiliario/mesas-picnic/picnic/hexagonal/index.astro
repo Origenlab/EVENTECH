@@ -1,0 +1,521 @@
+---
+/**
+ * ─── Mesa Picnic Hexagonal — Página de Variante (Nivel 6) ───
+ * Hexagonal Ø 1.80 m inscrito, 6-8 personas, pino barnizado con 6 bancas sectoriales.
+ * Jerarquía: Servicios > Mobiliario > Mesas Picnic y Madera > Mesas Picnic > Hexagonal
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import Gallery4x4 from "@components/Gallery4x4.astro";
+import { SITE } from "@config/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@lib/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Mesas Picnic y Madera", href: "/servicios/mobiliario/mesas-picnic/" },
+  { label: "Mesas Picnic", href: "/servicios/mobiliario/mesas-picnic/picnic/" },
+  { label: "Hexagonal — 6-8 personas" },
+];
+
+// PLACEHOLDER: reemplazar por foto real del modelo
+const galleryImages = [
+  { src: "/images/mobiliario/barras-postres-mesa-vintage.avif", alt: "Mesa Picnic Hexagonal de pino en montaje central de boda boho — imagen de referencia" },
+  { src: "/images/mobiliario/accesorios-decorativos-candelabros-mesa.avif", alt: "Detalle decorativo de la Mesa Picnic Hexagonal con candelabros — imagen de referencia" },
+  { src: "/images/mobiliario/candy-bar-boda-rustica-madera.avif", alt: "Mesa Picnic Hexagonal en boda campestre rústica — imagen de referencia" },
+  { src: "/images/mobiliario/crossback-madera-01.avif", alt: "Mesa Picnic Hexagonal montada para sesión de fotografía — imagen de referencia" },
+  { src: "/images/mobiliario/barra-postres-candy-bar-boda-elegante.avif", alt: "Mesa Picnic Hexagonal como punto focal del jardín — imagen de referencia" },
+  { src: "/images/mobiliario/crossback-madera-02.avif", alt: "Bancas sectoriales de la Mesa Picnic Hexagonal — imagen de referencia" },
+];
+
+const faqs = [
+  {
+    question: "¿Por qué elegir el formato hexagonal para mi evento?",
+    answer: "El <strong>formato hexagonal</strong> es el más <strong>fotogénico</strong> de nuestra familia de mesas: sus seis lados crean una composición equilibrada que la cámara adora desde cualquier ángulo. Además, la geometría acerca a los comensales para una <strong>convivencia cara a cara</strong> más cálida que una mesa rectangular. Es la favorita para montajes centrales de <strong>bodas boho</strong> y sesiones de fotografía."
+  },
+  {
+    question: "¿Cuántas bancas tiene la Mesa Picnic Hexagonal?",
+    answer: "Trae <strong>6 bancas sectoriales</strong>, una por cada lado del hexágono. Este diseño reparte a los invitados de forma pareja alrededor de la mesa y refuerza el efecto de punto focal. No necesitas rentar sillas por separado; si prefieres mesa con sillas independientes, considera la <a href=\"/servicios/mobiliario/mesas-picnic/picnic/farm-americana/\">Mesa Farm Americana</a>."
+  },
+  {
+    question: "¿Cuántas personas caben en la Mesa Picnic Hexagonal?",
+    answer: "Acomoda cómodamente <strong>6-8 personas</strong> — una a dos por banca sectorial, según la holgura que busques. Es un formato pensado para destacar como mesa central más que para maximizar capacidad. Para grupos numerosos en formato lineal, revisa la <a href=\"/servicios/mobiliario/mesas-picnic/picnic/estandar/\">Mesa Estándar</a> (6) o la <a href=\"/servicios/mobiliario/mesas-picnic/picnic/grande/\">Mesa Grande</a> (10-12)."
+  },
+  {
+    question: "¿Es la mesa ideal para bodas boho y sesiones de fotografía?",
+    answer: "Sí, es nuestra <strong>favorita para bodas boho y sesiones de fotografía</strong>. Su formato hexagonal fotogénico se convierte en el punto focal del montaje y luce espectacular en las fotos. Combínala con <a href=\"/servicios/mobiliario/sillas/crossback/\">sillas crossback</a>, textiles naturales y centros florales silvestres para un look boho de revista."
+  },
+  {
+    question: "¿El precio incluye montaje y entrega?",
+    answer: "Sí. El precio <strong>desde $850 por pieza / evento</strong> incluye entrega, montaje, nivelación y recolección en CDMX y zona metropolitana. El precio final depende del volumen y la ubicación del venue. Para clima incierto en montajes al aire libre, complementa con nuestras <a href=\"/servicios/carpas/\">carpas profesionales</a>. Un anticipo del 30% confirma tu fecha y cantidad."
+  },
+];
+
+const specs = [
+  { label: "Formato", value: "Hexagonal, Ø 1.80 m inscrito" },
+  { label: "Capacidad", value: "6-8 personas" },
+  { label: "Material", value: "Madera de pino tratada para exterior" },
+  { label: "Acabado", value: "Lijado y barnizado a mano" },
+  { label: "Bancas", value: "6 bancas sectoriales (una por lado)" },
+  { label: "Altura de mesa", value: "75 cm" },
+  { label: "Estilo", value: "Boho / fotogénico" },
+  { label: "Uso", value: "Bodas boho, fotografía, montajes centrales" },
+  { label: "Logística", value: "Entrega, montaje, nivelación y recolección incluidos" },
+  { label: "Precio referencial", value: "Desde $850 por pieza / evento" },
+];
+
+// PLACEHOLDER reviews — reemplazar por reseñas reales
+const reviews = [
+  { author: "Camila R.", text: "Rentamos 6 mesas hexagonales para una boda boho en un jardín y fueron EL punto focal. El formato se ve espectacular en las fotos y los invitados quedaron encantados de convivir cara a cara. La madera barnizada, preciosa.", rating: 5, date: "2025-11-15" },
+  { author: "Diego M.", text: "Soy fotógrafo de bodas y siempre recomiendo estas mesas hexagonales a mis clientes. El formato es un regalo para la cámara: composición perfecta desde cualquier ángulo. Montaje puntual y madera impecable.", rating: 5, date: "2025-10-22" },
+  { author: "Fernanda G.", text: "Pusimos una mesa hexagonal como mesa central del jardín con iluminación colgante y quedó de ensueño. Las 6 bancas sectoriales acomodaron a 8 personas sin problema. Un formato distinto que se roba las miradas.", rating: 5, date: "2025-09-30" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta Mesa Picnic Hexagonal para Eventos en CDMX — 6-8 Personas",
+    description: "Mesa picnic hexagonal de Ø 1.80 m inscrito para 6-8 personas en madera de pino con 6 bancas sectoriales. El formato más fotogénico para bodas boho y sesiones de foto en CDMX. Desde $850.",
+    url: "/servicios/mobiliario/mesas-picnic/picnic/hexagonal/",
+    priceRange: { min: 850, max: 2000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 36,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Mesas Picnic y Madera", url: "/servicios/mobiliario/mesas-picnic/" },
+    { name: "Mesas Picnic", url: "/servicios/mobiliario/mesas-picnic/picnic/" },
+    { name: "Hexagonal — 6-8 Personas", url: "/servicios/mobiliario/mesas-picnic/picnic/hexagonal/" },
+  ]),
+  faqJsonLd(faqs),
+];
+
+const sidebarNav = [
+  { name: "Mesa Estándar", href: "/servicios/mobiliario/mesas-picnic/picnic/estandar/" },
+  { name: "Mesa Grande", href: "/servicios/mobiliario/mesas-picnic/picnic/grande/" },
+  { name: "Mesa XL", href: "/servicios/mobiliario/mesas-picnic/picnic/xl/" },
+  { name: "Mesa Premium", href: "/servicios/mobiliario/mesas-picnic/picnic/premium/" },
+  { name: "Mesa Rústica", href: "/servicios/mobiliario/mesas-picnic/picnic/rustica/" },
+  { name: "Mesa Hexagonal", href: null, active: true },
+  { name: "Mesa Plegable", href: "/servicios/mobiliario/mesas-picnic/picnic/plegable/" },
+  { name: "Mesa Farm Americana", href: "/servicios/mobiliario/mesas-picnic/picnic/farm-americana/" },
+];
+
+const sidebarRelated = [
+  { name: "Sillas Crossback", href: "/servicios/mobiliario/sillas/crossback/" },
+  { name: "Salas Lounge", href: "/servicios/mobiliario/salas-lounge/" },
+  { name: "Barras", href: "/servicios/mobiliario/barras/" },
+  { name: "Carpas", href: "/servicios/carpas/" },
+  { name: "Iluminación", href: "/servicios/iluminacion/" },
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+];
+---
+
+<PageLayout
+  title="Renta Mesa Picnic Hexagonal para Eventos CDMX"
+  description="Renta mesa picnic hexagonal Ø 1.80 m en CDMX — 6-8 personas, formato fotogénico para bodas boho y sesiones de foto. Pino barnizado, montaje incluido. Desde $850."
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={breadcrumbItems} slot="breadcrumbs" />
+
+  <!-- 1. HERO -->
+  <HeroPage
+    badge="El formato más fotogénico de la familia"
+    title='Mesa Picnic <span class="highlight">Hexagonal</span> — 6-8 Personas — Renta CDMX'
+    subtitle="La Mesa Picnic Hexagonal (Ø 1.80 m inscrito) es la favorita para bodas boho y sesiones de fotografía: 6-8 comensales en 6 bancas sectoriales, una por lado. Madera de pino lijada y barnizada a mano, tratada para exterior. Formato fotogénico. Montaje incluido. Desde $850."
+    primaryCTA={{ label: "Cotizar mesa hexagonal", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar por WhatsApp", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar la Mesa Picnic Hexagonal para mi evento` }}
+    cards={[
+      {
+        title: "El punto focal fotogénico de tu evento al aire libre",
+        content: "La <strong>Mesa Picnic Hexagonal</strong> es la favorita de las bodas boho y las sesiones de fotografía por su formato fotogénico. Con <strong>Ø 1.80 m inscrito y 6-8 personas</strong> en 6 bancas sectoriales, crea montajes centrales que enamoran a la cámara. Trabajamos con el <a href=\"https://mesaspicnic.com/\" target=\"_blank\" rel=\"noopener\">sitio especializado en mesas picnic</a> para garantizar madera de pino de calidad y acabado profesional en cada pieza.",
+      },
+      {
+        title: "Pino tratado para exterior con 6 bancas sectoriales",
+        content: "Fabricada en <strong>madera de pino lijada y barnizada a mano</strong>, resiste sol y humedad durante todo el día de evento. Sus <strong>6 bancas sectoriales</strong> — una por lado — invitan a la convivencia cara a cara. Combínala con <a href=\"/servicios/iluminacion/\">iluminación</a> para realzar el punto focal de noche y con <a href=\"/servicios/carpas/\">carpas</a> como respaldo ante el clima.",
+      },
+    ]}
+  />
+
+  <!-- 2. CTA BANNER -->
+  <CTABanner
+    headline="¿Buscas el punto focal fotogénico de tu boda boho? Te ayudamos a montarlo"
+    subheadline="Asesoría de distribución sin costo — calcula cantidad exacta según tu venue y número de invitados"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- MOBILE SIDEBAR -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Modelos de Mesa Picnic</h2>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card sidebar-card--cta">
+          <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+          <p class="sidebar-card--cta-text">Mesa Picnic Hexagonal para tu evento</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar la Mesa Picnic Hexagonal`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT + SIDEBAR -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <div class="l4-main">
+
+          <!-- GALERÍA -->
+          <section class="section" aria-labelledby="galeria-heading">
+            <h2 id="galeria-heading" class="section__title">Galería — Mesa Picnic Hexagonal en Eventos</h2>
+            <p class="section__subtitle">Bodas boho, sesiones de fotografía y montajes centrales en CDMX</p>
+            <!-- PLACEHOLDER: reemplazar por foto real del modelo -->
+            <Gallery4x4 images={galleryImages} />
+          </section>
+
+          <!-- SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones — Mesa Picnic Hexagonal</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- DESCRIPCIÓN DE VENTA -->
+          <section class="section section--alt" aria-labelledby="descripcion-heading">
+            <ServiceShowcase
+    title="¿Por qué la Hexagonal es la mesa picnic más fotogénica?"
+    headingId="descripcion-heading"
+    badge="El formato central que enamora a la cámara"
+    tags={["Ø 1.80 m inscrito", "6-8 personas", "6 bancas sectoriales", "Boho / fotogénico"]}
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">El formato hexagonal no es una mesa más: es una <strong>declaración de estilo</strong>. Sus seis lados iguales crean una silueta simétrica que funciona como <strong>punto focal</strong> del montaje, y su diámetro inscrito de <strong>1.80 m</strong> acomoda de 6 a 8 comensales en convivencia cara a cara, imposible en una mesa rectangular.</p>
+      <p class="showcase__text">La <strong>madera de pino lijada y barnizada a mano</strong> aporta la calidez natural que buscan las bodas boho y los eventos al aire libre. Sus <strong>6 bancas sectoriales</strong> — una por lado — reparten a los invitados de forma pareja y refuerzan la geometría que tanto gusta a la cámara.</p>
+      <p class="showcase__text">Es la mesa favorita de los <strong>fotógrafos de boda</strong>: su formato equilibrado compone bien desde cualquier ángulo y luce espectacular en las tomas cenitales. Cada pieza se limpia e inspecciona antes de entregarse; si el barniz presenta desgaste notable, se retira del evento.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <!-- PLACEHOLDER: reemplazar por foto real del modelo -->
+      <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main">
+                    <img src="/images/mobiliario/barras-postres-mesa-vintage.avif" alt="Mesa Picnic Hexagonal de pino como punto focal en boda boho — imagen de referencia" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/accesorios-decorativos-candelabros-mesa.avif" alt="Detalle de acabado barnizado de la Mesa Picnic Hexagonal — imagen de referencia" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/candy-bar-boda-rustica-madera.avif" alt="Mesa Picnic Hexagonal en montaje central de jardín — imagen de referencia" loading="lazy" decoding="async" />
+                  </div>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <!-- COMBINACIONES -->
+          <section class="section" aria-labelledby="combos-heading">
+            <h2 id="combos-heading" class="section__title">Montajes más pedidos con la Mesa Hexagonal</h2>
+            <p class="section__subtitle">Combinaciones de estilo, textiles y complementos que funcionan</p>
+            <div class="grid grid--3" style="margin-top: var(--space-xl);">
+              <div class="sidebar-card">
+                <h3 class="sidebar-card__title">Boda Boho Fotogénica</h3>
+                <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text);">
+                  Mesa hexagonal como mesa central + <a href="/servicios/mobiliario/sillas/crossback/">sillas crossback</a> + textiles naturales y centros florales silvestres. El montaje que enamora a la cámara en las bodas boho.
+                </p>
+              </div>
+              <div class="sidebar-card">
+                <h3 class="sidebar-card__title">Punto Focal del Jardín</h3>
+                <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text);">
+                  Mesa hexagonal central + <a href="/servicios/iluminacion/">iluminación</a> colgante sobre la mesa. Convierte cualquier jardín en el corazón fotogénico del evento al caer la noche.
+                </p>
+              </div>
+              <div class="sidebar-card">
+                <h3 class="sidebar-card__title">Sesión de Fotos de Autor</h3>
+                <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text);">
+                  Mesa hexagonal + decoración de autor + <a href="/servicios/carpas/">carpa</a> de respaldo para controlar la luz. El formato preferido por fotógrafos para composiciones equilibradas desde cualquier ángulo.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- TESTIMONIALES -->
+          <section class="section section--alt" aria-labelledby="testimonios-heading">
+            <h2 id="testimonios-heading" class="section__title">Opiniones — Mesa Picnic Hexagonal</h2>
+            <div class="grid grid--3" style="margin-top: var(--space-xl);">
+              {reviews.map((review) => (
+                <div class="sidebar-card">
+                  <div style="display: flex; gap: 4px; margin-bottom: var(--space-sm);">
+                    {[1,2,3,4,5].map(() => (
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    ))}
+                  </div>
+                  <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text); font-style: italic; margin-bottom: var(--space-sm);">"{review.text}"</p>
+                  <p style="font-size: var(--text-xs); font-weight: 700; color: var(--color-heading);">— {review.author}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <!-- FAQ -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas sobre la Mesa Picnic Hexagonal"
+              subtitle="Lo que nos preguntan antes de reservar"
+              description={["El formato más fotogénico de nuestra familia. 6-8 personas, 6 bancas sectoriales, favorita de las bodas boho y las sesiones de foto."]}
+            />
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿Tienes más dudas?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp — te ayudamos a calcular cuántas mesas necesitas para tu evento.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo dudas sobre la renta de la Mesa Picnic Hexagonal`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">Escribir por WhatsApp</a>
+                </div>
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Dinos el número de invitados y te calculamos mesas y layout al instante.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- DESKTOP SIDEBAR -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Modelos de mesa picnic y servicios relacionados">
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Modelos de Mesa Picnic</h2>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/mesas-picnic/picnic/" class="sidebar-nav__back">&uarr; Todas las Mesas Picnic</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/" class="sidebar-nav__back">&uarr; Volver a Mobiliario</a>
+              </li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="sidebar-card sidebar-card--cta">
+            <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+            <p class="sidebar-card--cta-text">Mesa Picnic Hexagonal para tu evento en CDMX</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar la Mesa Picnic Hexagonal para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESERVA FORM -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Mesa Picnic Hexagonal"
+        subtitle="Cuéntanos sobre tu evento y te respondemos de inmediato"
+        description={[
+          "Completa el formulario y un asesor te enviará cotización personalizada por WhatsApp. Sin compromiso, sin costos ocultos.",
+          "Dinos el número de invitados y te calculamos la cantidad exacta de mesas, el layout óptimo y el precio final.",
+        ]}
+      />
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">Nombre completo <span class="form-field__required">*</span></label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">Teléfono <span class="form-field__required">*</span></label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">Tipo de evento</label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda Campestre">Boda Campestre</option>
+                <option value="Festival / Feria">Festival / Feria</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">Fecha del evento</label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">Detalles del pedido <span class="form-field__required">*</span></label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Número de mesas o invitados, venue, si necesitas carpa o iluminación..." rows="4" required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta en 30 min</h3>
+            <p class="reserva-card__text">Te contactamos por WhatsApp con precio exacto y layout sugerido en menos de 30 minutos.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Asesoría de layout</h3>
+            <p class="reserva-card__text">Te calculamos la cantidad exacta de mesas según tu venue y número de invitados, sin costo.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Montaje incluido</h3>
+            <p class="reserva-card__text">Entrega, montaje, nivelación y recolección incluidos en CDMX y zona metropolitana.</p>
+          </div>
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+      let texto = `*Mesa Picnic Hexagonal — Cotización*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      texto += `\n*Detalles:*\n${mensaje}`;
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() { this.classList.remove('form-field__input--error'); });
+    });
+  </script>
+
+  <!-- CTA FINAL -->
+  <CTABanner
+    headline="La Mesa Picnic Hexagonal que convierte tu evento en la sesión de fotos perfecta — cotiza sin compromiso"
+    subheadline="El formato más fotogénico · 6 bancas sectoriales · Montaje profesional incluido"
+    primaryCTA={{ label: "Cotizar mesa hexagonal", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar la Mesa Picnic Hexagonal para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<style is:global>
+  :root {
+    --color-accent: #c2a24a;
+    --color-accent-hover: #a9883a;
+    --color-accent-light: #d4b96a;
+    --color-accent-soft: rgba(194, 162, 74, 0.1);
+    --gradient-accent: linear-gradient(135deg, #c2a24a 0%, #a9883a 100%);
+    --shadow-accent: 0 4px 14px rgba(194, 162, 74, 0.35);
+    --shadow-accent-hover: 0 6px 20px rgba(194, 162, 74, 0.45);
+  }
+</style>

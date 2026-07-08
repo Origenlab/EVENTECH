@@ -1,0 +1,521 @@
+---
+/**
+ * ─── Mesa Picnic Rústica — Página de Variante (Nivel 6) ───
+ * 1.80×1.50 m, 6 personas, pino con barniz que resalta veta y nudos, bancas integradas.
+ * Jerarquía: Servicios > Mobiliario > Mesas Picnic y Madera > Mesas Picnic > Rústica
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import Gallery4x4 from "@components/Gallery4x4.astro";
+import { SITE } from "@config/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@lib/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Mesas Picnic y Madera", href: "/servicios/mobiliario/mesas-picnic/" },
+  { label: "Mesas Picnic", href: "/servicios/mobiliario/mesas-picnic/picnic/" },
+  { label: "Rústica — 6 personas" },
+];
+
+// PLACEHOLDER: reemplazar por foto real del modelo
+const galleryImages = [
+  { src: "/images/mobiliario/candy-bar-boda-rustica-madera.avif", alt: "Mesa Picnic Rústica de pino con veta y nudos visibles en boda de hacienda — imagen de referencia" },
+  { src: "/images/mobiliario/barras-postres-mesa-madera-rustica.avif", alt: "Detalle del barniz que resalta la veta y los nudos de la Mesa Picnic Rústica — imagen de referencia" },
+  { src: "/images/mobiliario/crossback-madera-01.avif", alt: "Mesa Picnic Rústica con sillas Crossback en montaje boho — imagen de referencia" },
+  { src: "/images/mobiliario/candy-bar-jardin-exterior.avif", alt: "Mesa Picnic Rústica montada en jardín campestre al aire libre — imagen de referencia" },
+  { src: "/images/mobiliario/barras-postres-mesa-vintage.avif", alt: "Mesa Picnic Rústica en montaje vintage de boda — imagen de referencia" },
+  { src: "/images/mobiliario/crossback-madera-02.avif", alt: "Bancas integradas de pino de la Mesa Picnic Rústica — imagen de referencia" },
+];
+
+const faqs = [
+  {
+    question: "¿Qué hace 'rústica' a esta mesa picnic?",
+    answer: "Lo que distingue a la <strong>Mesa Picnic Rústica</strong> es su acabado: un <strong>barniz que resalta la veta natural y los nudos de la madera de pino</strong> en lugar de ocultarlos. Cada pieza conserva su carácter propio, con las irregularidades y el tono cálido que buscan las bodas boho y los montajes campestres. Mide <strong>1.80×1.50 m para 6 personas</strong> con bancas integradas."
+  },
+  {
+    question: "¿Es la mesa ideal para bodas boho y haciendas?",
+    answer: "Sí. La Mesa Picnic Rústica fue pensada para <strong>estilo boho, campestre y eventos en haciendas</strong>. Su madera con veta y nudos a la vista combina de forma natural con flores silvestres, textiles de lino, macramé y vajilla artesanal. Es el formato que mejor funciona en jardines, patios de hacienda y bodas al aire libre. Complétala con <a href=\"/servicios/carpas/\">carpas profesionales</a> como respaldo ante el clima."
+  },
+  {
+    question: "¿En qué se diferencia de la Mesa Premium?",
+    answer: "La <strong>Rústica</strong> celebra la madera en su estado más natural: veta, nudos y tono cálido a la vista, ideal para el estilo campestre. La <a href=\"/servicios/mobiliario/mesas-picnic/picnic/premium/\">Mesa Premium</a>, en cambio, ofrece un acabado más fino y uniforme para montajes elegantes. Ambas miden 1.80×1.50 m para 6 personas; la elección depende del estilo de tu evento."
+  },
+  {
+    question: "¿Con qué mobiliario y decoración la combino?",
+    answer: "La Mesa Picnic Rústica luce espectacular con <a href=\"/servicios/mobiliario/sillas/crossback/\">sillas Crossback</a> de madera para reforzar el aire campestre, e <a href=\"/servicios/iluminacion/\">iluminación</a> cálida colgante —series de foquitos o candelabros— para la noche. Caminos de mesa de lino y centros de flores silvestres completan el montaje boho de hacienda."
+  },
+  {
+    question: "¿El precio incluye montaje y entrega?",
+    answer: "Sí. El precio <strong>desde $550 por mesa / evento</strong> incluye entrega, montaje, nivelación y recolección en CDMX y zona metropolitana. El precio final depende del volumen y la ubicación del venue. Un anticipo del 30% confirma tu fecha y cantidad."
+  },
+];
+
+const specs = [
+  { label: "Medidas", value: "1.80 × 1.50 m (mesa + 2 bancas)" },
+  { label: "Capacidad", value: "6 personas" },
+  { label: "Material", value: "Madera de pino tratada para exterior" },
+  { label: "Acabado", value: "Barniz que resalta la veta y los nudos" },
+  { label: "Bancas", value: "2 bancas integradas en una sola pieza" },
+  { label: "Altura de mesa", value: "75 cm (estándar de banquete)" },
+  { label: "Estilo", value: "Boho / campestre" },
+  { label: "Uso", value: "Haciendas, jardines y bodas rústicas" },
+  { label: "Logística", value: "Entrega, montaje, nivelación y recolección incluidos" },
+  { label: "Precio referencial", value: "Desde $550 por pieza / evento" },
+];
+
+// PLACEHOLDER reviews — reemplazar por reseñas reales
+const reviews = [
+  { author: "Mariana R.", text: "Para nuestra boda boho en una hacienda usamos 18 mesas rústicas. La veta y los nudos de la madera se veían preciosos con las flores silvestres y las series de foquitos. Nadie quería levantarse de la mesa.", rating: 5, date: "2025-11-15" },
+  { author: "Diego H.", text: "Montamos un almuerzo campestre en el jardín con 10 mesas rústicas. El acabado con la madera natural a la vista le dio justo el aire cálido que buscábamos. Montaje puntual y las bancas integradas nos ahorraron rentar sillas.", rating: 5, date: "2025-10-22" },
+  { author: "Fernanda C.", text: "Renté 12 mesas rústicas para un evento en una hacienda en las afueras de la CDMX. El carácter de la madera combinó perfecto con el estilo del lugar. Excelente atención y calcularon las cantidades exactas para mis invitados.", rating: 5, date: "2025-09-27" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta Mesa Picnic Rústica para Bodas en CDMX — 6 Personas",
+    description: "Mesa picnic rústica de 1.80×1.50 m para 6 personas en madera de pino con barniz que resalta veta y nudos. Ideal para bodas boho, campestres y haciendas en CDMX. Desde $550.",
+    url: "/servicios/mobiliario/mesas-picnic/picnic/rustica/",
+    priceRange: { min: 550, max: 1250 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 45,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Mesas Picnic y Madera", url: "/servicios/mobiliario/mesas-picnic/" },
+    { name: "Mesas Picnic", url: "/servicios/mobiliario/mesas-picnic/picnic/" },
+    { name: "Rústica — 6 Personas", url: "/servicios/mobiliario/mesas-picnic/picnic/rustica/" },
+  ]),
+  faqJsonLd(faqs),
+];
+
+const sidebarNav = [
+  { name: "Mesa Estándar", href: "/servicios/mobiliario/mesas-picnic/picnic/estandar/" },
+  { name: "Mesa Grande", href: "/servicios/mobiliario/mesas-picnic/picnic/grande/" },
+  { name: "Mesa XL", href: "/servicios/mobiliario/mesas-picnic/picnic/xl/" },
+  { name: "Mesa Premium", href: "/servicios/mobiliario/mesas-picnic/picnic/premium/" },
+  { name: "Mesa Rústica", href: null, active: true },
+  { name: "Mesa Hexagonal", href: "/servicios/mobiliario/mesas-picnic/picnic/hexagonal/" },
+  { name: "Mesa Plegable", href: "/servicios/mobiliario/mesas-picnic/picnic/plegable/" },
+  { name: "Mesa Farm Americana", href: "/servicios/mobiliario/mesas-picnic/picnic/farm-americana/" },
+];
+
+const sidebarRelated = [
+  { name: "Sillas Crossback", href: "/servicios/mobiliario/sillas/crossback/" },
+  { name: "Salas Lounge", href: "/servicios/mobiliario/salas-lounge/" },
+  { name: "Barras", href: "/servicios/mobiliario/barras/" },
+  { name: "Carpas", href: "/servicios/carpas/" },
+  { name: "Iluminación", href: "/servicios/iluminacion/" },
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+];
+---
+
+<PageLayout
+  title="Renta Mesa Picnic Rústica para Bodas CDMX"
+  description="Renta mesa picnic rústica 1.80×1.50 m en CDMX — 6 personas, pino con veta y nudos a la vista. Ideal para bodas boho y haciendas. Desde $550."
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={breadcrumbItems} slot="breadcrumbs" />
+
+  <!-- 1. HERO -->
+  <HeroPage
+    badge="La favorita de las bodas boho y campestres"
+    title='Mesa Picnic <span class="highlight">Rústica</span> — 6 Personas — Renta CDMX'
+    subtitle="La Mesa Picnic Rústica de 1.80×1.50 m celebra la madera de pino con su veta y nudos a la vista: 6 comensales en bancas integradas, sin sillas extra. El barniz resalta el carácter natural de cada pieza, ideal para bodas boho, campestres y haciendas. Montaje incluido. Desde $550."
+    primaryCTA={{ label: "Cotizar mesa rústica", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar por WhatsApp", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar la Mesa Picnic Rústica para mi evento` }}
+    cards={[
+      {
+        title: "Madera con carácter para bodas boho y de hacienda",
+        content: "La <strong>Mesa Picnic Rústica</strong> presume la madera de pino en su estado más natural: <strong>veta y nudos a la vista</strong> bajo un barniz que los resalta en lugar de ocultarlos. Con <strong>1.80×1.50 m y 6 personas</strong> en bancas integradas, es la favorita de bodas boho, jardines campestres y eventos en haciendas. Trabajamos con el <a href=\"https://mesaspicnic.com/\" target=\"_blank\" rel=\"noopener\">sitio especializado en mesas picnic</a> para garantizar madera de calidad y acabado profesional en cada pieza.",
+      },
+      {
+        title: "Bancas integradas y montaje boho listo para lucir",
+        content: "Fabricada en <strong>madera de pino tratada para exterior</strong>, resiste sol y humedad durante todo el día de evento. Las <strong>bancas integradas</strong> viajan y se montan como una sola unidad, agilizando la logística. Combínala con <a href=\"/servicios/mobiliario/sillas/crossback/\">sillas Crossback</a> de madera e <a href=\"/servicios/iluminacion/\">iluminación</a> cálida, y ten <a href=\"/servicios/carpas/\">carpas</a> como respaldo ante el clima.",
+      },
+    ]}
+  />
+
+  <!-- 2. CTA BANNER -->
+  <CTABanner
+    headline="¿Planeas una boda boho o campestre? Te ayudamos a diseñar el montaje"
+    subheadline="Asesoría de distribución sin costo — calcula la cantidad exacta de mesas rústicas según tu venue y número de invitados"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- MOBILE SIDEBAR -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Modelos de Mesa Picnic</h2>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card sidebar-card--cta">
+          <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+          <p class="sidebar-card--cta-text">Mesa Picnic Rústica para tu evento</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar la Mesa Picnic Rústica`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT + SIDEBAR -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <div class="l4-main">
+
+          <!-- GALERÍA -->
+          <section class="section" aria-labelledby="galeria-heading">
+            <h2 id="galeria-heading" class="section__title">Galería — Mesa Picnic Rústica en Eventos</h2>
+            <p class="section__subtitle">Bodas boho, haciendas y jardines campestres en CDMX</p>
+            <!-- PLACEHOLDER: reemplazar por foto real del modelo -->
+            <Gallery4x4 images={galleryImages} />
+          </section>
+
+          <!-- SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones — Mesa Picnic Rústica</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- DESCRIPCIÓN DE VENTA -->
+          <section class="section section--alt" aria-labelledby="descripcion-heading">
+            <ServiceShowcase
+    title="¿Por qué la Rústica es la mesa picnic favorita del estilo boho?"
+    headingId="descripcion-heading"
+    badge="La madera con carácter para eventos campestres"
+    tags={["1.80×1.50 m", "6 personas", "Veta y nudos a la vista", "Boho y haciendas"]}
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">El acabado es lo que define a la Rústica: un <strong>barniz que resalta la veta natural y los nudos</strong> de la madera de pino en lugar de disimularlos. Cada mesa conserva su carácter propio, con el tono cálido y las irregularidades que dan a los montajes boho y campestres esa autenticidad que no se logra con muebles uniformes.</p>
+      <p class="showcase__text">Con <strong>1.80×1.50 m y 6 comensales</strong>, mantiene el formato práctico de la familia picnic: <strong>bancas integradas</strong> que eliminan la necesidad de sillas y agilizan el montaje. Es la elección natural para <strong>bodas en haciendas, jardines campestres y eventos al aire libre</strong> donde la madera es protagonista de la decoración.</p>
+      <p class="showcase__text">Cada mesa se limpia e inspecciona antes de entregarse; si el barniz presenta desgaste notable, se retira del evento. La madera tratada para exterior resiste sol y humedad durante toda la jornada, para que el carácter rústico luzca de principio a fin.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <!-- PLACEHOLDER: reemplazar por foto real del modelo -->
+      <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main">
+                    <img src="/images/mobiliario/candy-bar-boda-rustica-madera.avif" alt="Mesa Picnic Rústica de pino con carácter rústico en evento de hacienda — imagen de referencia" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/candy-bar-jardin-exterior.avif" alt="Mesa Picnic Rústica en jardín campestre exterior — imagen de referencia" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/barras-postres-mesa-madera-rustica.avif" alt="Detalle de nudos y veta de la madera de la Mesa Picnic Rústica — imagen de referencia" loading="lazy" decoding="async" />
+                  </div>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <!-- COMBINACIONES -->
+          <section class="section" aria-labelledby="combos-heading">
+            <h2 id="combos-heading" class="section__title">Montajes más pedidos con la Mesa Rústica</h2>
+            <p class="section__subtitle">Combinaciones de estilo, textiles y complementos que funcionan</p>
+            <div class="grid grid--3" style="margin-top: var(--space-xl);">
+              <div class="sidebar-card">
+                <h3 class="sidebar-card__title">Boda Boho en Hacienda</h3>
+                <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text);">
+                  Mesas rústicas en hileras + <a href="/servicios/mobiliario/sillas/crossback/">sillas Crossback</a> + caminos de lino y macramé + <a href="/servicios/iluminacion/">iluminación</a> cálida colgante. El montaje estrella de las bodas en hacienda.
+                </p>
+              </div>
+              <div class="sidebar-card">
+                <h3 class="sidebar-card__title">Jardín Campestre</h3>
+                <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text);">
+                  Mesa rústica de madera + centros de flores silvestres + <a href="/servicios/iluminacion/">iluminación</a> de foquitos + <a href="/servicios/carpas/">carpa</a> de respaldo. Calidez de madera natural para almuerzos y celebraciones al aire libre.
+                </p>
+              </div>
+              <div class="sidebar-card">
+                <h3 class="sidebar-card__title">Mesa Comunal Rústica</h3>
+                <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text);">
+                  Mesas rústicas alineadas estilo <strong>mesa comunal</strong> para banquetes compartidos. La veta y los nudos de la madera crean una superficie con textura y carácter que enamora en las fotos.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- TESTIMONIALES -->
+          <section class="section section--alt" aria-labelledby="testimonios-heading">
+            <h2 id="testimonios-heading" class="section__title">Opiniones — Mesa Picnic Rústica</h2>
+            <div class="grid grid--3" style="margin-top: var(--space-xl);">
+              {reviews.map((review) => (
+                <div class="sidebar-card">
+                  <div style="display: flex; gap: 4px; margin-bottom: var(--space-sm);">
+                    {[1,2,3,4,5].map(() => (
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    ))}
+                  </div>
+                  <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text); font-style: italic; margin-bottom: var(--space-sm);">"{review.text}"</p>
+                  <p style="font-size: var(--text-xs); font-weight: 700; color: var(--color-heading);">— {review.author}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <!-- FAQ -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas sobre la Mesa Picnic Rústica"
+              subtitle="Lo que nos preguntan antes de reservar"
+              description={["La favorita del estilo boho y campestre. 6 personas, bancas integradas, madera con veta y nudos a la vista para bodas de hacienda."]}
+            />
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿Tienes más dudas?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp — te ayudamos a calcular cuántas mesas necesitas para tu evento.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo dudas sobre la renta de la Mesa Picnic Rústica`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">Escribir por WhatsApp</a>
+                </div>
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Dinos el número de invitados y te calculamos mesas y layout al instante.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- DESKTOP SIDEBAR -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Modelos de mesa picnic y servicios relacionados">
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Modelos de Mesa Picnic</h2>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/mesas-picnic/picnic/" class="sidebar-nav__back">&uarr; Todas las Mesas Picnic</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/" class="sidebar-nav__back">&uarr; Volver a Mobiliario</a>
+              </li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="sidebar-card sidebar-card--cta">
+            <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+            <p class="sidebar-card--cta-text">Mesa Picnic Rústica para tu evento en CDMX</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar la Mesa Picnic Rústica para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESERVA FORM -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Mesa Picnic Rústica"
+        subtitle="Cuéntanos sobre tu evento y te respondemos de inmediato"
+        description={[
+          "Completa el formulario y un asesor te enviará cotización personalizada por WhatsApp. Sin compromiso, sin costos ocultos.",
+          "Dinos el número de invitados y te calculamos la cantidad exacta de mesas, el layout óptimo y el precio final.",
+        ]}
+      />
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">Nombre completo <span class="form-field__required">*</span></label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">Teléfono <span class="form-field__required">*</span></label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">Tipo de evento</label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda Campestre">Boda Campestre</option>
+                <option value="Festival / Feria">Festival / Feria</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">Fecha del evento</label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">Detalles del pedido <span class="form-field__required">*</span></label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Número de mesas o invitados, venue, si necesitas carpa o iluminación..." rows="4" required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta en 30 min</h3>
+            <p class="reserva-card__text">Te contactamos por WhatsApp con precio exacto y layout sugerido en menos de 30 minutos.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Asesoría de layout</h3>
+            <p class="reserva-card__text">Te calculamos la cantidad exacta de mesas según tu venue y número de invitados, sin costo.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Montaje incluido</h3>
+            <p class="reserva-card__text">Entrega, montaje, nivelación y recolección incluidos en CDMX y zona metropolitana.</p>
+          </div>
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+      let texto = `*Mesa Picnic Rústica — Cotización*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      texto += `\n*Detalles:*\n${mensaje}`;
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() { this.classList.remove('form-field__input--error'); });
+    });
+  </script>
+
+  <!-- CTA FINAL -->
+  <CTABanner
+    headline="La Mesa Picnic Rústica que da alma boho a tu boda o evento campestre — cotiza sin compromiso"
+    subheadline="Madera con carácter · Bancas integradas · Montaje profesional incluido"
+    primaryCTA={{ label: "Cotizar mesa rústica", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar la Mesa Picnic Rústica para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<style is:global>
+  :root {
+    --color-accent: #c2a24a;
+    --color-accent-hover: #a9883a;
+    --color-accent-light: #d4b96a;
+    --color-accent-soft: rgba(194, 162, 74, 0.1);
+    --gradient-accent: linear-gradient(135deg, #c2a24a 0%, #a9883a 100%);
+    --shadow-accent: 0 4px 14px rgba(194, 162, 74, 0.35);
+    --shadow-accent-hover: 0 6px 20px rgba(194, 162, 74, 0.45);
+  }
+</style>

@@ -1,0 +1,519 @@
+---
+/**
+ * ─── Mesa Sweetheart para Novios — Página de Ficha (Nivel 6) ───
+ * 1.50 × 0.84 m, 2 personas. Barniz a 4 manos, exclusiva para la pareja.
+ * Jerarquía: Servicios > Mobiliario > Mesas Picnic y Madera > Especiales & Farm > Sweetheart
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import Gallery4x4 from "@components/Gallery4x4.astro";
+import { SITE } from "@config/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@lib/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Mesas Picnic y Madera", href: "/servicios/mobiliario/mesas-picnic/" },
+  { label: "Mesas Especiales & Farm", href: "/servicios/mobiliario/mesas-picnic/especiales/" },
+  { label: "Mesa Sweetheart para Novios" },
+];
+
+// PLACEHOLDER: reemplazar por foto real del modelo
+const galleryImages = [
+  { src: "/images/mobiliario/barra-postres-candy-bar-boda-elegante.avif", alt: "Mesa sweetheart de madera para novios en boda elegante en CDMX" },
+  { src: "/images/mobiliario/accesorios-decorativos-candelabros-mesa.avif", alt: "Mesa sweetheart de novios decorada con candelabros y flores" },
+  { src: "/images/mobiliario/candy-bar-boda-rustica-madera.avif", alt: "Mesa sweetheart de madera barnizada a 4 manos para la pareja" },
+  { src: "/images/mobiliario/barras-postres-mesa-vintage.avif", alt: "Mesa sweetheart como centro visual del banquete de boda" },
+  { src: "/images/mobiliario/candy-bar-jardin-exterior.avif", alt: "Mesa sweetheart de novios montada en boda de jardín" },
+  { src: "/images/mobiliario/barras-postres-mesa-madera-rustica.avif", alt: "Detalle de la mesa sweetheart de madera para 2 personas" },
+];
+
+const faqs = [
+  {
+    question: "¿Qué es una mesa sweetheart?",
+    answer: "La <strong>mesa sweetheart</strong> es la mesa <strong>exclusiva para los novios</strong> en una boda. En lugar de sentarse en la mesa de honor con familiares, la pareja preside la celebración desde su propia mesa íntima de <strong>2 lugares</strong>. Es una tendencia que crece cada año porque convierte a los novios en el centro visual del banquete y les da un momento a solas en medio de la fiesta."
+  },
+  {
+    question: "¿De qué tamaño es y para cuántas personas?",
+    answer: "Mide <strong>1.50 × 0.84 m</strong> y está pensada para <strong>2 personas</strong>: los novios. Es lo bastante amplia para vajilla, cristalería y una decoración generosa al frente, pero íntima para que la pareja quede junta y de cara a los invitados. Su tamaño la hace perfecta para colocarla en un punto elevado o destacado del salón o jardín."
+  },
+  {
+    question: "¿Por qué elegir una sweetheart en lugar de mesa de honor?",
+    answer: "La sweetheart <strong>concentra toda la atención en la pareja</strong> y facilita las fotos del banquete, ya que los novios quedan siempre visibles y bien ubicados. Además les regala un respiro íntimo entre saludos. La mesa de honor tradicional reparte el protagonismo entre familiares; la sweetheart lo reserva para los novios. Muchas parejas combinan sweetheart + <a href=\"/servicios/mobiliario/mesas-picnic/especiales/redonda/\">mesas redondas</a> para los invitados de honor."
+  },
+  {
+    question: "¿Qué acabado tiene la madera?",
+    answer: "La sweetheart lleva un acabado especial de <strong>barniz a 4 manos</strong>, más manos que el resto de los modelos, para lograr una superficie perfectamente tersa y un brillo cálido a la altura de su papel protagónico. Al ser la mesa más fotografiada de la boda, cada detalle del acabado cuenta. Se inspecciona pieza por pieza antes de entregar."
+  },
+  {
+    question: "¿Necesita decoración especial?",
+    answer: "La madera barnizada a 4 manos luce hermosa sola, pero al ser el <strong>centro visual de la boda</strong> suele vestirse con arreglo floral frontal, letrero de \"novios\", velas o un runner. Nuestro equipo te asesora sobre el montaje y puedes combinarla con <a href=\"/servicios/iluminacion/\">iluminación</a> dirigida para destacarla aún más. La <a href=\"/servicios/accesorios/manteleria-textiles/\">mantelería</a> es opcional."
+  },
+  {
+    question: "¿Con cuánta anticipación debo reservar?",
+    answer: "Recomendamos apartar con <strong>2 a 4 semanas de anticipación</strong>, y con más tiempo en temporada alta de bodas (noviembre a febrero). Un anticipo confirma tu fecha. Entrega, montaje y recolección incluidos, sin límite de tiempo durante el evento. Desde $650 la mesa sweetheart."
+  },
+];
+
+const specs = [
+  { label: "Medidas", value: "1.50 × 0.84 m" },
+  { label: "Capacidad", value: "2 personas (los novios)" },
+  { label: "Uso", value: "Mesa exclusiva de novios — centro visual de la boda" },
+  { label: "Material", value: "Madera de pino lijada a grano fino" },
+  { label: "Acabado", value: "Barniz a 4 manos — superficie tersa y brillo cálido" },
+  { label: "Decoración", value: "Ideal para arreglo floral frontal, velas o letrero" },
+  { label: "Combina con", value: "Mesas redondas o de parota para invitados de honor" },
+  { label: "Servicio", value: "Entrega, montaje y recolección incluidos" },
+  { label: "Tiempo de uso", value: "Sin límite durante el evento" },
+  { label: "Precio referencial", value: "Desde $650 por mesa / evento" },
+];
+
+// PLACEHOLDER reviews
+const reviews = [
+  { author: "Daniela Preciado", text: "La mesa sweetheart fue el mejor detalle de nuestra boda. Nos dio un momento a solas en medio de la fiesta y todas las fotos del banquete salieron increíbles porque siempre estuvimos visibles. La madera con su barniz brillante se veía preciosa.", rating: 5, date: "2025-11-19" },
+  { author: "Jorge y Mariana", text: "Elegimos sweetheart en lugar de mesa de honor y fue la mejor decisión. Combinada con mesas redondas para nuestros papás quedó justo el montaje que soñamos. El acabado de la madera es de lujo. Súper recomendados.", rating: 5, date: "2025-10-10" },
+  { author: "Lucía Ferrer", text: "Como wedding planner he montado muchas sweetheart y esta es de las mejores en acabado. El barniz a 4 manos se nota, luce impecable en fotos y video. Entrega y montaje siempre puntuales.", rating: 5, date: "2025-09-22" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Mesa Sweetheart para Novios en CDMX",
+    description: "Mesa sweetheart de madera 1.50 × 0.84 m para 2 personas. Mesa exclusiva de novios con barniz a 4 manos, el centro visual de la boda en CDMX. Desde $650.",
+    url: "/servicios/mobiliario/mesas-picnic/especiales/sweetheart/",
+    priceRange: { min: 650, max: 1500 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 33,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Mesas Picnic y Madera", url: "/servicios/mobiliario/mesas-picnic/" },
+    { name: "Mesas Especiales & Farm", url: "/servicios/mobiliario/mesas-picnic/especiales/" },
+    { name: "Mesa Sweetheart para Novios", url: "/servicios/mobiliario/mesas-picnic/especiales/sweetheart/" },
+  ]),
+  faqJsonLd(faqs),
+];
+
+const sidebarNav = [
+  { name: "Mesa Redonda de Madera", href: "/servicios/mobiliario/mesas-picnic/especiales/redonda/" },
+  { name: "Mesa Biergarten", href: "/servicios/mobiliario/mesas-picnic/especiales/biergarten/" },
+  { name: "Mesa Madera Teka", href: "/servicios/mobiliario/mesas-picnic/especiales/teka/" },
+  { name: "Mesa Farm Patas de Horquilla", href: "/servicios/mobiliario/mesas-picnic/especiales/farm-hairpin/" },
+  { name: "Mesa Sweetheart para Novios", href: null, active: true },
+  { name: "Mesa de Parota", href: "/servicios/mobiliario/mesas-picnic/especiales/parota/" },
+];
+
+const sidebarRelated = [
+  { name: "Sillas Crossback", href: "/servicios/mobiliario/sillas/crossback/" },
+  { name: "Salas Lounge", href: "/servicios/mobiliario/salas-lounge/" },
+  { name: "Barras", href: "/servicios/mobiliario/barras/" },
+  { name: "Carpas", href: "/servicios/carpas/" },
+  { name: "Iluminación", href: "/servicios/iluminacion/" },
+  { name: "Mantelería", href: "/servicios/accesorios/manteleria-textiles/" },
+];
+---
+
+<PageLayout
+  title="Renta de Mesa Sweetheart para Novios en CDMX"
+  description="Renta mesa sweetheart de madera 1.50 × 0.84 m en CDMX — 2 personas. Mesa exclusiva de novios con barniz a 4 manos, el centro visual de tu boda. Desde $650."
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={breadcrumbItems} slot="breadcrumbs" />
+
+  <!-- 1. HERO -->
+  <HeroPage
+    badge="La mesa exclusiva de los novios — centro visual de la boda"
+    title='Mesa <span class="highlight">Sweetheart</span> para Novios — Renta CDMX'
+    subtitle="Mesa sweetheart de madera de 1.50 × 0.84 m para 2 personas: la mesa exclusiva desde la que los novios presiden su boda. Acabado especial con barniz a 4 manos para lucir impecable en cada foto. El centro visual del banquete. Desde $650."
+    primaryCTA={{ label: "Cotizar mesa sweetheart", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar por WhatsApp", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar la Mesa Sweetheart para Novios para mi boda` }}
+    cards={[
+      {
+        title: "El trono de madera de los novios",
+        content: "La <strong>Mesa Sweetheart</strong> reserva un lugar exclusivo para la pareja: en vez de compartir la mesa de honor con familiares, los novios presiden la fiesta desde su propia <strong>mesa íntima de 2 lugares</strong>. Concentra toda la atención en ellos, facilita las fotos del banquete y les regala un respiro a solas en medio de la celebración. Es <strong>el centro visual de la boda</strong>.",
+      },
+      {
+        title: "Barniz a 4 manos para la mesa más fotografiada",
+        content: "Al ser la mesa más fotografiada de la boda, la sweetheart lleva un acabado especial de <strong>barniz a 4 manos</strong> —más que cualquier otro modelo— para una superficie tersa y un brillo cálido impecable. Es parte de la línea especializada de nuestro sitio hermano <a href=\"https://mesaspicnic.com/\" target=\"_blank\" rel=\"noopener\">mesaspicnic.com — sitio especializado en mesas picnic</a>. Entrega, montaje y recolección incluidos.",
+      },
+    ]}
+  />
+
+  <!-- 2. CTA BANNER -->
+  <CTABanner
+    headline="¿Sueñas con una mesa solo para los novios? Hazla el centro de tu boda"
+    subheadline="Asesoría de montaje sin costo — te ayudamos a destacarla y a combinarla con las mesas de invitados"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- MOBILE SIDEBAR -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Mesas Especiales & Farm</h2>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card sidebar-card--cta">
+          <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+          <p class="sidebar-card--cta-text">Mesa Sweetheart para tu boda</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar la Mesa Sweetheart para Novios`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT + SIDEBAR -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <div class="l4-main">
+
+          <!-- GALERÍA -->
+          <section class="section" aria-labelledby="galeria-heading">
+            <h2 id="galeria-heading" class="section__title">Galería — Mesa Sweetheart para Novios en Bodas Reales</h2>
+            <p class="section__subtitle">El centro visual de bodas en salones, jardines y haciendas de CDMX</p>
+            <Gallery4x4 images={galleryImages} />
+          </section>
+
+          <!-- SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones — Mesa Sweetheart</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- DESCRIPCIÓN DE VENTA -->
+          <section class="section section--alt" aria-labelledby="descripcion-heading">
+            <ServiceShowcase
+    title="¿Por qué la sweetheart es la mesa que enamora a los novios?"
+    headingId="descripcion-heading"
+    badge="La mesa exclusiva de la pareja"
+    tags={["1.50 × 0.84 m", "2 personas", "Barniz 4 manos", "Bodas"]}
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">La tendencia de la <strong>mesa sweetheart</strong> creció por una razón muy simple: convierte a los novios en el <strong>centro absoluto de la boda</strong>. En lugar de repartir el protagonismo en una mesa de honor con familiares, la pareja preside la fiesta desde su propia mesa íntima de 2 lugares, siempre visible y perfectamente ubicada para las fotos del banquete y del brindis.</p>
+      <p class="showcase__text">Con <strong>1.50 × 0.84 m</strong>, tiene espacio de sobra para vajilla, cristalería y una decoración frontal generosa —arreglo floral, letrero de \"novios\", velas— sin dejar de ser íntima. Y como es la mesa más fotografiada de todo el evento, lleva un acabado especial de <strong>barniz a 4 manos</strong> para una superficie tersa y un brillo cálido impecable.</p>
+      <p class="showcase__text">Se ve espectacular sola o vestida, en salón, jardín o hacienda. Combínala con <a href="/servicios/mobiliario/mesas-picnic/especiales/redonda/">mesas redondas de madera</a> para los invitados de honor e <a href="/servicios/iluminacion/">iluminación</a> dirigida para destacarla. Desde $650 la mesa con montaje incluido.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <!-- PLACEHOLDER: reemplazar por foto real del modelo -->
+      <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main">
+                    <img src="/images/mobiliario/barra-postres-candy-bar-boda-elegante.avif" alt="Mesa sweetheart de novios en boda elegante" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/accesorios-decorativos-candelabros-mesa.avif" alt="Mesa sweetheart decorada con candelabros y flores" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/candy-bar-boda-rustica-madera.avif" alt="Mesa sweetheart de madera barnizada a 4 manos" loading="lazy" decoding="async" />
+                  </div>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <!-- COMBINACIONES -->
+          <section class="section" aria-labelledby="combos-heading">
+            <h2 id="combos-heading" class="section__title">Montajes más pedidos con la mesa sweetheart</h2>
+            <p class="section__subtitle">Combinaciones de mesas, decoración e iluminación para bodas</p>
+            <div class="grid grid--3" style="margin-top: var(--space-xl);">
+              <div class="sidebar-card">
+                <h3 class="sidebar-card__title">Sweetheart + Redondas</h3>
+                <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text);">
+                  Sweetheart al frente + <strong>mesas redondas de madera</strong> para invitados de honor. El montaje clásico: los novios presiden y las familias los rodean en formato de conversación.
+                </p>
+              </div>
+              <div class="sidebar-card">
+                <h3 class="sidebar-card__title">Estilo Boho-Chic</h3>
+                <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text);">
+                  Sweetheart + <strong>arreglo floral frontal</strong> + letrero de madera + velas. Sin mantel para lucir la veta. El look más fotogénico para bodas en jardín y hacienda.
+                </p>
+              </div>
+              <div class="sidebar-card">
+                <h3 class="sidebar-card__title">Elegante con Iluminación</h3>
+                <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text);">
+                  Sweetheart + <strong>iluminación dirigida</strong> + fondo decorativo. Un spot cálido sobre la mesa la convierte en el punto focal indiscutible del salón durante toda la noche.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- TESTIMONIALES -->
+          <section class="section section--alt" aria-labelledby="testimonios-heading">
+            <h2 id="testimonios-heading" class="section__title">Opiniones — Mesa Sweetheart para Novios</h2>
+            <div class="grid grid--3" style="margin-top: var(--space-xl);">
+              {reviews.map((review) => (
+                <div class="sidebar-card">
+                  <div style="display: flex; gap: 4px; margin-bottom: var(--space-sm);">
+                    {[1,2,3,4,5].map(() => (
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    ))}
+                  </div>
+                  <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text); font-style: italic; margin-bottom: var(--space-sm);">"{review.text}"</p>
+                  <p style="font-size: var(--text-xs); font-weight: 700; color: var(--color-heading);">— {review.author}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <!-- FAQ -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas sobre la Mesa Sweetheart para Novios"
+              subtitle="Lo que nos preguntan antes de reservar"
+              description={["La mesa exclusiva de los novios. 2 lugares, acabado con barniz a 4 manos, el centro visual de tu boda y con montaje incluido."]}
+            />
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿Tienes más dudas?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp — te asesoramos sobre el montaje de tu sweetheart y cómo combinarla con las mesas de invitados.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo dudas sobre la renta de la Mesa Sweetheart para Novios`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">Escribir por WhatsApp</a>
+                </div>
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Dinos la fecha de tu boda y el estilo y te cotizamos la sweetheart y las mesas de invitados al instante.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- DESKTOP SIDEBAR -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Modelos especiales y servicios relacionados">
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Mesas Especiales & Farm</h2>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/mesas-picnic/especiales/" class="sidebar-nav__back">&uarr; Todas las Especiales & Farm</a>
+              </li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="sidebar-card sidebar-card--cta">
+            <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+            <p class="sidebar-card--cta-text">Mesa Sweetheart para tu boda en CDMX</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar la Mesa Sweetheart para Novios para mi boda`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESERVA FORM -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Mesa Sweetheart para Novios"
+        subtitle="Cuéntanos sobre tu boda y te respondemos de inmediato"
+        description={[
+          "Completa el formulario y un asesor te enviará cotización personalizada por WhatsApp. Sin compromiso, sin costos ocultos.",
+          "Dinos el estilo de tu boda y te ayudamos con el montaje de la sweetheart y las mesas para tus invitados.",
+        ]}
+      />
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">Nombre completo <span class="form-field__required">*</span></label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">Teléfono <span class="form-field__required">*</span></label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">Tipo de evento</label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="Boda Civil">Boda Civil</option>
+                <option value="Pedida de Mano">Pedida de Mano</option>
+                <option value="Aniversario">Aniversario</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">Fecha del evento</label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">Detalles del pedido <span class="form-field__required">*</span></label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Estilo de tu boda, venue, si también necesitas mesas para invitados, iluminación..." rows="4" required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta en 30 min</h3>
+            <p class="reserva-card__text">Te contactamos por WhatsApp con precio exacto y recomendación de montaje en menos de 30 minutos.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Asesoría de montaje</h3>
+            <p class="reserva-card__text">Te ayudamos a destacar la sweetheart y a combinarla con las mesas de tus invitados de honor.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Todo incluido</h3>
+            <p class="reserva-card__text">Entrega, montaje y recolección incluidos, sin límite de tiempo durante el evento.</p>
+          </div>
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+      let texto = `*Mesa Sweetheart para Novios — Cotización*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      texto += `\n*Detalles:*\n${mensaje}`;
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() { this.classList.remove('form-field__input--error'); });
+    });
+  </script>
+
+  <!-- CTA FINAL -->
+  <CTABanner
+    headline="La mesa sweetheart que hace de los novios el centro de la boda — cotiza sin compromiso"
+    subheadline="Mesa exclusiva de la pareja · Barniz a 4 manos · Montaje profesional incluido"
+    primaryCTA={{ label: "Cotizar mesa sweetheart", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar la Mesa Sweetheart para Novios para mi boda` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<style is:global>
+  :root {
+    --color-accent: #c2a24a;
+    --color-accent-hover: #a9883a;
+    --color-accent-light: #d4b96a;
+    --color-accent-soft: rgba(194, 162, 74, 0.1);
+    --gradient-accent: linear-gradient(135deg, #c2a24a 0%, #a9883a 100%);
+    --shadow-accent: 0 4px 14px rgba(194, 162, 74, 0.35);
+    --shadow-accent-hover: 0 6px 20px rgba(194, 162, 74, 0.45);
+  }
+</style>

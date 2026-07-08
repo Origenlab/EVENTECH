@@ -1,0 +1,521 @@
+---
+/**
+ * ─── Mesa Picnic Premium — Página de Variante (Nivel 6) ───
+ * 1.80×1.50 m, 6 personas, pino seleccionado sin nudos, 4 manos de barniz con bancas integradas.
+ * Jerarquía: Servicios > Mobiliario > Mesas Picnic y Madera > Mesas Picnic > Premium
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import Gallery4x4 from "@components/Gallery4x4.astro";
+import { SITE } from "@config/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@lib/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Mesas Picnic y Madera", href: "/servicios/mobiliario/mesas-picnic/" },
+  { label: "Mesas Picnic", href: "/servicios/mobiliario/mesas-picnic/picnic/" },
+  { label: "Premium — 6 personas" },
+];
+
+// PLACEHOLDER: reemplazar por foto real del modelo
+const galleryImages = [
+  { src: "/images/mobiliario/barra-postres-candy-bar-boda-elegante.avif", alt: "Mesa Picnic Premium de pino sin nudos en boda elegante — imagen de referencia" },
+  { src: "/images/mobiliario/accesorios-decorativos-candelabros-mesa.avif", alt: "Mesa Picnic Premium decorada como mesa de honor VIP — imagen de referencia" },
+  { src: "/images/mobiliario/barra-bebidas-madera-cocteleria-lujo.avif", alt: "Detalle de superficie impecable barnizada de la Mesa Picnic Premium — imagen de referencia" },
+  { src: "/images/mobiliario/crossback-madera-01.avif", alt: "Mesa Picnic Premium combinada con sillas Crossback en boda de autor — imagen de referencia" },
+  { src: "/images/mobiliario/barras-postres-mesa-vintage.avif", alt: "Mesa Picnic Premium montada para sesión de fotografía — imagen de referencia" },
+  { src: "/images/mobiliario/candy-bar-boda-rustica-madera.avif", alt: "Mesa Picnic Premium como mesa de honor en banquete VIP — imagen de referencia" },
+];
+
+const faqs = [
+  {
+    question: "¿Qué hace 'premium' a esta mesa picnic?",
+    answer: "La <strong>Mesa Picnic Premium</strong> se fabrica en <strong>pino seleccionado sin nudos</strong> y recibe <strong>4 manos de barniz</strong>, logrando una superficie lisa e impecable, libre de las imperfecciones naturales del pino estándar. Es la mesa que elegimos cuando la madera estará en primer plano: mesa de honor, sesiones de fotos y bodas VIP donde cada detalle cuenta."
+  },
+  {
+    question: "¿Por qué es la mejor opción para fotografía y mesa de honor?",
+    answer: "Porque su <strong>superficie lisa apta para primer plano</strong> luce impecable ante la cámara: sin nudos que distraigan, sin vetas irregulares y con un barniz uniforme que refleja bien la <a href=\"/servicios/iluminacion/\">iluminación</a>. Es la mesa que colocamos en la <strong>mesa de honor de los novios</strong> y en montajes editoriales donde la madera es protagonista."
+  },
+  {
+    question: "¿En qué se diferencia de la Estándar y la Rústica?",
+    answer: "La <a href=\"/servicios/mobiliario/mesas-picnic/picnic/estandar/\">Mesa Estándar</a> usa pino tratado con acabado a mano, ideal para ferias y jardines. La <a href=\"/servicios/mobiliario/mesas-picnic/picnic/rustica/\">Mesa Rústica</a> presume nudos y vetas como parte de su estética campirana. La <strong>Premium</strong> busca lo contrario: madera <strong>sin nudos</strong> y <strong>4 manos de barniz</strong> para una superficie perfecta de eventos VIP."
+  },
+  {
+    question: "¿Con qué sillas combina mejor la Mesa Premium?",
+    answer: "Con nuestras <a href=\"/servicios/mobiliario/sillas/crossback/\">sillas Crossback</a>. Aunque la Premium incluye <strong>2 bancas integradas</strong>, para una boda de autor muchos clientes montan la mesa como <strong>mesa de honor</strong> rodeada de Crossback de madera, logrando un conjunto editorial y elegante."
+  },
+  {
+    question: "¿El precio incluye montaje y entrega?",
+    answer: "Sí. El precio <strong>desde $700 por pieza / evento</strong> incluye entrega, montaje, nivelación y recolección en CDMX y zona metropolitana. Al ser un modelo premium de inventario limitado, recomendamos reservar con anticipación; un anticipo del 30% confirma tu fecha."
+  },
+];
+
+const specs = [
+  { label: "Medidas", value: "1.80 × 1.50 m (mesa + 2 bancas)" },
+  { label: "Capacidad", value: "6 personas" },
+  { label: "Material", value: "Pino seleccionado sin nudos" },
+  { label: "Acabado", value: "4 manos de barniz (superficie impecable)" },
+  { label: "Bancas", value: "2 bancas integradas en una sola pieza" },
+  { label: "Altura de mesa", value: "75 cm (estándar de banquete)" },
+  { label: "Uso", value: "Bodas VIP, fotografía, mesa de honor" },
+  { label: "Terminado", value: "Superficie lisa apta para primer plano" },
+  { label: "Logística", value: "Entrega, montaje, nivelación y recolección incluidos" },
+  { label: "Precio referencial", value: "Desde $700 por pieza / evento" },
+];
+
+// PLACEHOLDER reviews — reemplazar por reseñas reales
+const reviews = [
+  { author: "Valeria M.", text: "Montamos la Mesa Premium como mesa de honor de los novios. La madera sin nudos y el barniz impecable se veían de lujo en las fotos — nuestro fotógrafo quedó encantado con los primeros planos. Otro nivel frente a la estándar.", rating: 5, date: "2025-11-22" },
+  { author: "Diego A.", text: "Para una sesión editorial de bodas necesitábamos una mesa de madera perfecta, sin imperfecciones. La Premium fue justo eso: superficie lisa, acabado uniforme, cero nudos. La combinamos con sillas Crossback y quedó espectacular.", rating: 5, date: "2025-10-30" },
+  { author: "Regina S.", text: "Boda VIP de 60 invitados con mesa de honor Premium más iluminación cálida. El acabado de la madera reflejaba la luz precioso. Entrega puntual y montaje impecable. Vale cada peso para un evento de este nivel.", rating: 5, date: "2025-09-27" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta Mesa Picnic Premium para Bodas VIP en CDMX — 6 Personas",
+    description: "Mesa picnic premium de 1.80×1.50 m para 6 personas en pino seleccionado sin nudos con 4 manos de barniz y bancas integradas. Superficie impecable para bodas VIP, fotografía y mesa de honor en CDMX. Desde $700.",
+    url: "/servicios/mobiliario/mesas-picnic/picnic/premium/",
+    priceRange: { min: 700, max: 1600 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 38,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Mesas Picnic y Madera", url: "/servicios/mobiliario/mesas-picnic/" },
+    { name: "Mesas Picnic", url: "/servicios/mobiliario/mesas-picnic/picnic/" },
+    { name: "Premium — 6 Personas", url: "/servicios/mobiliario/mesas-picnic/picnic/premium/" },
+  ]),
+  faqJsonLd(faqs),
+];
+
+const sidebarNav = [
+  { name: "Mesa Estándar", href: "/servicios/mobiliario/mesas-picnic/picnic/estandar/" },
+  { name: "Mesa Grande", href: "/servicios/mobiliario/mesas-picnic/picnic/grande/" },
+  { name: "Mesa XL", href: "/servicios/mobiliario/mesas-picnic/picnic/xl/" },
+  { name: "Mesa Premium", href: null, active: true },
+  { name: "Mesa Rústica", href: "/servicios/mobiliario/mesas-picnic/picnic/rustica/" },
+  { name: "Mesa Hexagonal", href: "/servicios/mobiliario/mesas-picnic/picnic/hexagonal/" },
+  { name: "Mesa Plegable", href: "/servicios/mobiliario/mesas-picnic/picnic/plegable/" },
+  { name: "Mesa Farm Americana", href: "/servicios/mobiliario/mesas-picnic/picnic/farm-americana/" },
+];
+
+const sidebarRelated = [
+  { name: "Sillas Crossback", href: "/servicios/mobiliario/sillas/crossback/" },
+  { name: "Salas Lounge", href: "/servicios/mobiliario/salas-lounge/" },
+  { name: "Barras", href: "/servicios/mobiliario/barras/" },
+  { name: "Carpas", href: "/servicios/carpas/" },
+  { name: "Iluminación", href: "/servicios/iluminacion/" },
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+];
+---
+
+<PageLayout
+  title="Renta Mesa Picnic Premium para Bodas CDMX"
+  description="Renta mesa picnic premium 1.80×1.50 m en CDMX — 6 personas, pino sin nudos y 4 manos de barniz. Superficie impecable para bodas VIP, fotografía y mesa de honor. Desde $700."
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={breadcrumbItems} slot="breadcrumbs" />
+
+  <!-- 1. HERO -->
+  <HeroPage
+    badge="La mesa picnic de acabado impecable para bodas VIP"
+    title='Mesa Picnic <span class="highlight">Premium</span> — 6 Personas — Renta CDMX'
+    subtitle="La Mesa Picnic Premium de 1.80×1.50 m eleva la madera a otro nivel: pino seleccionado sin nudos con 4 manos de barniz para una superficie impecable. 6 comensales en bancas integradas, pensada para bodas VIP, fotografía y mesa de honor. Montaje incluido. Desde $700."
+    primaryCTA={{ label: "Cotizar mesa premium", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar por WhatsApp", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar la Mesa Picnic Premium para mi evento` }}
+    cards={[
+      {
+        title: "La madera protagonista de las bodas de autor",
+        content: "La <strong>Mesa Picnic Premium</strong> es la versión más cuidada de nuestra familia de mesas de madera. Fabricada en <strong>pino seleccionado sin nudos</strong> con <strong>4 manos de barniz</strong>, su superficie impecable brilla en la mesa de honor y en cada primer plano de la sesión de fotos. Trabajamos con el <a href=\"https://mesaspicnic.com/\" target=\"_blank\" rel=\"noopener\">sitio especializado en mesas picnic</a> para garantizar la mejor selección de madera y acabado en cada pieza.",
+      },
+      {
+        title: "Acabado editorial con bancas integradas",
+        content: "Sus <strong>bancas integradas</strong> conservan la esencia picnic, pero su terminado premium la vuelve ideal para montajes editoriales. Combínala con nuestras <a href=\"/servicios/mobiliario/sillas/crossback/\">sillas Crossback</a> para una boda de autor, realza la madera con <a href=\"/servicios/iluminacion/\">iluminación</a> cálida y protege el montaje al aire libre con <a href=\"/servicios/carpas/\">carpas</a>.",
+      },
+    ]}
+  />
+
+  <!-- 2. CTA BANNER -->
+  <CTABanner
+    headline="¿Buscas la mesa perfecta para tu mesa de honor? Te asesoramos sin costo"
+    subheadline="Asesoría de montaje sin costo — diseñamos el layout editorial ideal para tu boda VIP"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- MOBILE SIDEBAR -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Modelos de Mesa Picnic</h2>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card sidebar-card--cta">
+          <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+          <p class="sidebar-card--cta-text">Mesa Picnic Premium para tu evento</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar la Mesa Picnic Premium`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT + SIDEBAR -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <div class="l4-main">
+
+          <!-- GALERÍA -->
+          <section class="section" aria-labelledby="galeria-heading">
+            <h2 id="galeria-heading" class="section__title">Galería — Mesa Picnic Premium en Eventos</h2>
+            <p class="section__subtitle">Bodas VIP, mesas de honor y sesiones de fotografía en CDMX</p>
+            <!-- PLACEHOLDER: reemplazar por foto real del modelo -->
+            <Gallery4x4 images={galleryImages} />
+          </section>
+
+          <!-- SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones — Mesa Picnic Premium</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- DESCRIPCIÓN DE VENTA -->
+          <section class="section section--alt" aria-labelledby="descripcion-heading">
+            <ServiceShowcase
+    title="¿Por qué elegir la Mesa Picnic Premium?"
+    headingId="descripcion-heading"
+    badge="El acabado impecable de la madera para eventos VIP"
+    tags={["1.80×1.50 m", "6 personas", "Pino sin nudos", "4 manos de barniz"]}
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">La <strong>Mesa Picnic Premium</strong> nace de la obsesión por el detalle: seleccionamos únicamente <strong>pino sin nudos</strong> y aplicamos <strong>4 manos de barniz</strong> hasta lograr una superficie lisa, uniforme y sin imperfecciones. Es la mesa que colocamos donde la madera va a estar en primer plano, no de fondo.</p>
+      <p class="showcase__text">Conserva el formato picnic de <strong>1.80×1.50 m para 6 personas</strong> con <strong>bancas integradas</strong>, pero su acabado editorial la lleva a otro terreno: <strong>mesa de honor, sesiones de fotografía y bodas VIP</strong>. Su terminado impecable refleja la iluminación y luce espectacular en cada toma de cerca.</p>
+      <p class="showcase__text">Es un modelo de <strong>inventario limitado</strong>: cada mesa se inspecciona pieza por pieza antes de salir y se retira ante el mínimo desgaste del barniz. Por eso recomendamos reservarla con anticipación para bodas y eventos de temporada alta.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <!-- PLACEHOLDER: reemplazar por foto real del modelo -->
+      <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main">
+                    <img src="/images/mobiliario/barra-postres-candy-bar-boda-elegante.avif" alt="Mesa Picnic Premium de pino sin nudos en boda elegante — imagen de referencia" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/accesorios-decorativos-candelabros-mesa.avif" alt="Mesa Picnic Premium decorada como mesa de honor VIP — imagen de referencia" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/barra-bebidas-madera-cocteleria-lujo.avif" alt="Detalle de superficie impecable barnizada de la Mesa Picnic Premium — imagen de referencia" loading="lazy" decoding="async" />
+                  </div>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <!-- COMBINACIONES -->
+          <section class="section" aria-labelledby="combos-heading">
+            <h2 id="combos-heading" class="section__title">Montajes más pedidos con la Mesa Premium</h2>
+            <p class="section__subtitle">Combinaciones editoriales de estilo, textiles y complementos que funcionan</p>
+            <div class="grid grid--3" style="margin-top: var(--space-xl);">
+              <div class="sidebar-card">
+                <h3 class="sidebar-card__title">Mesa de Honor VIP</h3>
+                <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text);">
+                  Mesa Premium como <strong>mesa de honor de los novios</strong> + camino de mesa de lujo + centros florales de autor. La madera impecable como pieza central del banquete.
+                </p>
+              </div>
+              <div class="sidebar-card">
+                <h3 class="sidebar-card__title">Sesión de Fotos</h3>
+                <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text);">
+                  Mesa Premium de <strong>madera impecable</strong> + <a href="/servicios/iluminacion/">iluminación</a> cálida para montajes editoriales. Superficie perfecta para primeros planos y fotografía de producto.
+                </p>
+              </div>
+              <div class="sidebar-card">
+                <h3 class="sidebar-card__title">Boda de Autor</h3>
+                <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text);">
+                  Mesa Premium + <a href="/servicios/mobiliario/sillas/crossback/">sillas Crossback</a> de madera para un conjunto editorial y elegante. El montaje favorito de las bodas de diseño.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- TESTIMONIALES -->
+          <section class="section section--alt" aria-labelledby="testimonios-heading">
+            <h2 id="testimonios-heading" class="section__title">Opiniones — Mesa Picnic Premium</h2>
+            <div class="grid grid--3" style="margin-top: var(--space-xl);">
+              {reviews.map((review) => (
+                <div class="sidebar-card">
+                  <div style="display: flex; gap: 4px; margin-bottom: var(--space-sm);">
+                    {[1,2,3,4,5].map(() => (
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    ))}
+                  </div>
+                  <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text); font-style: italic; margin-bottom: var(--space-sm);">"{review.text}"</p>
+                  <p style="font-size: var(--text-xs); font-weight: 700; color: var(--color-heading);">— {review.author}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <!-- FAQ -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas sobre la Mesa Picnic Premium"
+              subtitle="Lo que nos preguntan antes de reservar"
+              description={["El acabado más cuidado de nuestra familia. Pino sin nudos, 4 manos de barniz y superficie impecable para bodas VIP, fotografía y mesa de honor."]}
+            />
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿Tienes más dudas?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp — te ayudamos a diseñar el montaje ideal para tu mesa de honor.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo dudas sobre la renta de la Mesa Picnic Premium`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">Escribir por WhatsApp</a>
+                </div>
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Dinos el número de invitados y te calculamos mesas y layout al instante.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- DESKTOP SIDEBAR -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Modelos de mesa picnic y servicios relacionados">
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Modelos de Mesa Picnic</h2>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/mesas-picnic/picnic/" class="sidebar-nav__back">&uarr; Todas las Mesas Picnic</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/" class="sidebar-nav__back">&uarr; Volver a Mobiliario</a>
+              </li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="sidebar-card sidebar-card--cta">
+            <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+            <p class="sidebar-card--cta-text">Mesa Picnic Premium para tu evento en CDMX</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar la Mesa Picnic Premium para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESERVA FORM -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Mesa Picnic Premium"
+        subtitle="Cuéntanos sobre tu evento y te respondemos de inmediato"
+        description={[
+          "Completa el formulario y un asesor te enviará cotización personalizada por WhatsApp. Sin compromiso, sin costos ocultos.",
+          "Dinos el número de invitados y te calculamos la cantidad exacta de mesas, el layout óptimo y el precio final.",
+        ]}
+      />
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">Nombre completo <span class="form-field__required">*</span></label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">Teléfono <span class="form-field__required">*</span></label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">Tipo de evento</label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda Campestre">Boda Campestre</option>
+                <option value="Festival / Feria">Festival / Feria</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">Fecha del evento</label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">Detalles del pedido <span class="form-field__required">*</span></label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Número de mesas o invitados, venue, si necesitas carpa o iluminación..." rows="4" required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta en 30 min</h3>
+            <p class="reserva-card__text">Te contactamos por WhatsApp con precio exacto y layout sugerido en menos de 30 minutos.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Asesoría de layout</h3>
+            <p class="reserva-card__text">Te calculamos la cantidad exacta de mesas según tu venue y número de invitados, sin costo.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Montaje incluido</h3>
+            <p class="reserva-card__text">Entrega, montaje, nivelación y recolección incluidos en CDMX y zona metropolitana.</p>
+          </div>
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+      let texto = `*Mesa Picnic Premium — Cotización*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      texto += `\n*Detalles:*\n${mensaje}`;
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() { this.classList.remove('form-field__input--error'); });
+    });
+  </script>
+
+  <!-- CTA FINAL -->
+  <CTABanner
+    headline="La Mesa Picnic Premium que convierte tu mesa de honor en la foto del evento — cotiza sin compromiso"
+    subheadline="Pino sin nudos · 4 manos de barniz · Montaje profesional incluido"
+    primaryCTA={{ label: "Cotizar mesa premium", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar la Mesa Picnic Premium para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<style is:global>
+  :root {
+    --color-accent: #c2a24a;
+    --color-accent-hover: #a9883a;
+    --color-accent-light: #d4b96a;
+    --color-accent-soft: rgba(194, 162, 74, 0.1);
+    --gradient-accent: linear-gradient(135deg, #c2a24a 0%, #a9883a 100%);
+    --shadow-accent: 0 4px 14px rgba(194, 162, 74, 0.35);
+    --shadow-accent-hover: 0 6px 20px rgba(194, 162, 74, 0.45);
+  }
+</style>

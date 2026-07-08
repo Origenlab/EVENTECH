@@ -1,0 +1,519 @@
+---
+/**
+ * ─── Mesa Farm Patas de Horquilla — Página de Ficha (Nivel 6) ───
+ * 2.40 × 0.84 m, 10 personas. Tablero de pino + patas de hierro forjado negro mate, sin bancas.
+ * Jerarquía: Servicios > Mobiliario > Mesas Picnic y Madera > Especiales & Farm > Farm Patas de Horquilla
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import Gallery4x4 from "@components/Gallery4x4.astro";
+import { SITE } from "@config/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@lib/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Mesas Picnic y Madera", href: "/servicios/mobiliario/mesas-picnic/" },
+  { label: "Mesas Especiales & Farm", href: "/servicios/mobiliario/mesas-picnic/especiales/" },
+  { label: "Mesa Farm Patas de Horquilla" },
+];
+
+// PLACEHOLDER: reemplazar por foto real del modelo
+const galleryImages = [
+  { src: "/images/mobiliario/crossback-madera-01.avif", alt: "Mesa farm de patas de horquilla de 2.40 m para activación de marca en CDMX" },
+  { src: "/images/mobiliario/crossback-madera-02.avif", alt: "Mesa farm de pino con patas de hierro forjado negro mate" },
+  { src: "/images/mobiliario/barra-bebidas-bartender-madera-evento.avif", alt: "Mesa farm de horquilla montada con sillas libres en evento industrial-natural" },
+  { src: "/images/mobiliario/candy-bar-jardin-exterior.avif", alt: "Mesa farm de patas de horquilla para 10 personas en jardín" },
+  { src: "/images/mobiliario/barras-postres-mesa-madera-rustica.avif", alt: "Mesa farm de madera y hierro como mesa de firmas de boda" },
+  { src: "/images/mobiliario/barra-postres-candy-bar-boda-elegante.avif", alt: "Mesa farm de horquilla como coffee station en activación premium" },
+];
+
+const faqs = [
+  {
+    question: "¿Por qué la mesa farm no incluye bancas?",
+    answer: "Se diseñó deliberadamente <strong>sin bancas</strong> para vestirse con <strong>sillas libres</strong>, y ahí está su gracia: puedes combinarla con las sillas que mejor definan tu evento. Con <a href=\"/servicios/mobiliario/sillas/crossback/\">sillas crossback</a> de madera refuerza el look industrial-natural; con sillas tapizadas logras un contraste elegante. Esta flexibilidad la vuelve el formato más versátil y fotogénico de la línea."
+  },
+  {
+    question: "¿Qué son las patas de horquilla (hairpin)?",
+    answer: "Las <strong>patas de horquilla</strong> —hairpin legs— son patas de <strong>hierro forjado negro mate</strong> dobladas en forma de horquilla, un ícono del diseño industrial y mid-century. Su silueta delgada y minimalista contrasta con el grosor cálido del <strong>tablero de pino</strong>, y ese juego madera-hierro es justo lo que define la estética industrial-natural tan buscada en activaciones y bodas contemporáneas."
+  },
+  {
+    question: "¿Cuántas personas caben?",
+    answer: "La Mesa Farm de Patas de Horquilla mide <strong>2.40 × 0.84 m</strong> y acomoda <strong>10 personas</strong> —4 por lado y 1 en cada cabecera— con espacio holgado para vajilla y centro de mesa. También funciona de maravilla como mesa de firmas, coffee station, mesa de regalos o exhibición de producto, donde la capacidad de comensales es secundaria a su presencia visual."
+  },
+  {
+    question: "¿Para qué eventos es ideal?",
+    answer: "Es la favorita para <strong>activaciones de marca premium</strong>, mesas de firmas, coffee stations, bodas de estética contemporánea y sesiones de foto. El contraste de la madera cálida con el hierro negro la hace destacar en cualquier montaje. Combínala con <a href=\"/servicios/iluminacion/\">iluminación</a> dirigida para acentuar su carácter en activaciones nocturnas."
+  },
+  {
+    question: "¿Funciona en exteriores?",
+    answer: "Sí. El tablero de pino está barnizado a mano y las patas de hierro llevan acabado negro mate resistente. Funciona en jardín, terraza, patio y salón. Para activaciones y bodas al aire libre de varias horas, recomendamos complementar con nuestras <a href=\"/servicios/carpas/\">carpas profesionales</a> como respaldo ante lluvia y sol."
+  },
+  {
+    question: "¿Con cuánta anticipación debo reservar?",
+    answer: "Recomendamos apartar con <strong>1 a 2 semanas de anticipación</strong>, y con <strong>3 a 4 semanas para activaciones grandes o en temporada alta</strong>. Un anticipo confirma tu fecha y la cantidad. Entrega, montaje y recolección incluidos, sin límite de tiempo durante el evento. Desde $950 por mesa."
+  },
+];
+
+const specs = [
+  { label: "Medidas", value: "2.40 × 0.84 m" },
+  { label: "Capacidad", value: "10 personas" },
+  { label: "Tablero", value: "Madera de pino lijada a grano fino" },
+  { label: "Patas", value: "Hierro forjado negro mate — estilo horquilla (hairpin)" },
+  { label: "Bancas", value: "Sin bancas — se viste con sillas libres" },
+  { label: "Estilo", value: "Industrial-natural (madera + hierro)" },
+  { label: "Uso ideal", value: "Activaciones de marca, mesas de firmas, coffee stations" },
+  { label: "Servicio", value: "Entrega, montaje y recolección incluidos" },
+  { label: "Tiempo de uso", value: "Sin límite durante el evento" },
+  { label: "Precio referencial", value: "Desde $950 por mesa / evento" },
+];
+
+// PLACEHOLDER reviews
+const reviews = [
+  { author: "Adrián Solís", text: "Usamos dos mesas farm de patas de horquilla como centro de una activación de marca. El contraste madera-hierro es justo el look industrial que buscábamos y quedaron increíbles en las fotos del evento. Montaje puntual y profesional.", rating: 5, date: "2025-11-14" },
+  { author: "Regina Palacios", text: "La rentamos como mesa de firmas para nuestra boda contemporánea, vestida con sillas crossback. Fue de los muebles más fotografiados de la noche. La madera y el hierro combinan perfecto con estética moderna.", rating: 5, date: "2025-10-12" },
+  { author: "Marco Tapia", text: "Coffee station para un lanzamiento corporativo. La farm de horquilla dio ese aire de diseño que necesitábamos y su versatilidad sin bancas nos dejó armar el espacio a nuestra medida. Repetiremos.", rating: 5, date: "2025-09-24" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Mesa Farm de Patas de Horquilla para Eventos en CDMX",
+    description: "Mesa farm de patas de horquilla 2.40 × 0.84 m para 10 personas. Tablero de pino + hierro forjado negro mate, sin bancas, estilo industrial-natural para activaciones premium en CDMX. Desde $950.",
+    url: "/servicios/mobiliario/mesas-picnic/especiales/farm-hairpin/",
+    priceRange: { min: 950, max: 2300 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 36,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Mesas Picnic y Madera", url: "/servicios/mobiliario/mesas-picnic/" },
+    { name: "Mesas Especiales & Farm", url: "/servicios/mobiliario/mesas-picnic/especiales/" },
+    { name: "Mesa Farm Patas de Horquilla", url: "/servicios/mobiliario/mesas-picnic/especiales/farm-hairpin/" },
+  ]),
+  faqJsonLd(faqs),
+];
+
+const sidebarNav = [
+  { name: "Mesa Redonda de Madera", href: "/servicios/mobiliario/mesas-picnic/especiales/redonda/" },
+  { name: "Mesa Biergarten", href: "/servicios/mobiliario/mesas-picnic/especiales/biergarten/" },
+  { name: "Mesa Madera Teka", href: "/servicios/mobiliario/mesas-picnic/especiales/teka/" },
+  { name: "Mesa Farm Patas de Horquilla", href: null, active: true },
+  { name: "Mesa Sweetheart para Novios", href: "/servicios/mobiliario/mesas-picnic/especiales/sweetheart/" },
+  { name: "Mesa de Parota", href: "/servicios/mobiliario/mesas-picnic/especiales/parota/" },
+];
+
+const sidebarRelated = [
+  { name: "Sillas Crossback", href: "/servicios/mobiliario/sillas/crossback/" },
+  { name: "Salas Lounge", href: "/servicios/mobiliario/salas-lounge/" },
+  { name: "Barras", href: "/servicios/mobiliario/barras/" },
+  { name: "Carpas", href: "/servicios/carpas/" },
+  { name: "Iluminación", href: "/servicios/iluminacion/" },
+  { name: "Mantelería", href: "/servicios/accesorios/manteleria-textiles/" },
+];
+---
+
+<PageLayout
+  title="Renta de Mesa Farm de Patas de Horquilla en CDMX"
+  description="Renta mesa farm de patas de horquilla 2.40 × 0.84 m en CDMX — 10 personas. Tablero de pino + hierro forjado negro mate, sin bancas, look industrial-natural. Desde $950."
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={breadcrumbItems} slot="breadcrumbs" />
+
+  <!-- 1. HERO -->
+  <HeroPage
+    badge="Look industrial-natural — la más fotogénica"
+    title='Mesa Farm <span class="highlight">Patas de Horquilla</span> — 10 Personas — Renta CDMX'
+    subtitle="Mesa farm de 2.40 × 0.84 m para 10 personas: tablero de pino combinado con patas de hierro forjado negro mate en estilo horquilla. Sin bancas, para vestir con sillas libres. El formato más fotogénico para activaciones de marca premium. Desde $950."
+    primaryCTA={{ label: "Cotizar mesa farm", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar por WhatsApp", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar la Mesa Farm Patas de Horquilla para mi evento` }}
+    cards={[
+      {
+        title: "Madera cálida + hierro negro: el contraste industrial-natural",
+        content: "La <strong>Mesa Farm de Patas de Horquilla</strong> combina un <strong>tablero de pino</strong> con <strong>patas de hierro forjado negro mate</strong> dobladas en forma de horquilla (hairpin). Ese juego entre la calidez de la madera y la silueta minimalista del hierro define un look industrial-natural muy buscado en <strong>activaciones de marca, bodas contemporáneas y coffee stations</strong>. Es, sin discusión, la más fotogénica de la línea.",
+      },
+      {
+        title: "Sin bancas: la versatilidad de vestir con sillas libres",
+        content: "A diferencia de las mesas picnic, la farm se diseñó <strong>sin bancas</strong> para combinarse con las <strong>sillas que elijas</strong>. Con 2.40 m sienta a 10 personas, o funciona como mesa de firmas, regalos o exhibición. Es parte de la línea especializada de nuestro sitio hermano <a href=\"https://mesaspicnic.com/\" target=\"_blank\" rel=\"noopener\">mesaspicnic.com — sitio especializado en mesas picnic</a>. Entrega, montaje y recolección incluidos.",
+      },
+    ]}
+  />
+
+  <!-- 2. CTA BANNER -->
+  <CTABanner
+    headline="¿Montas una activación o boda contemporánea? La farm es tu mesa"
+    subheadline="Asesoría de estilo sin costo — te ayudamos a elegir las sillas que mejor la visten"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- MOBILE SIDEBAR -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Mesas Especiales & Farm</h2>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card sidebar-card--cta">
+          <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+          <p class="sidebar-card--cta-text">Mesa Farm Patas de Horquilla para tu evento</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar la Mesa Farm Patas de Horquilla`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT + SIDEBAR -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <div class="l4-main">
+
+          <!-- GALERÍA -->
+          <section class="section" aria-labelledby="galeria-heading">
+            <h2 id="galeria-heading" class="section__title">Galería — Mesa Farm Patas de Horquilla en Eventos Reales</h2>
+            <p class="section__subtitle">Activaciones de marca, mesas de firmas y bodas contemporáneas en CDMX</p>
+            <Gallery4x4 images={galleryImages} />
+          </section>
+
+          <!-- SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h18"/><path d="M5 8l2 12M19 8l-2 12M9 8v12M15 8v12"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones — Mesa Farm Patas de Horquilla</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- DESCRIPCIÓN DE VENTA -->
+          <section class="section section--alt" aria-labelledby="descripcion-heading">
+            <ServiceShowcase
+    title="¿Por qué la farm de horquilla es la reina de las activaciones?"
+    headingId="descripcion-heading"
+    badge="Industrial-natural — madera + hierro forjado"
+    tags={["2.40 × 0.84 m", "10 personas", "Sin bancas", "Activaciones premium"]}
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">La combinación de un <strong>tablero de pino cálido</strong> con <strong>patas de hierro forjado negro mate</strong> en forma de horquilla es un clásico del diseño industrial y mid-century. Ese contraste material —madera noble contra metal minimalista— es exactamente lo que buscan las marcas cuando montan una activación con personalidad, y por eso es el modelo más pedido para eventos contemporáneos y sesiones de foto.</p>
+      <p class="showcase__text">Su gran ventaja es la <strong>versatilidad</strong>: al no traer bancas, la vistes con las sillas que definan tu evento. Con <a href="/servicios/mobiliario/sillas/crossback/">sillas crossback</a> refuerzas el look natural; con sillas tapizadas logras contraste elegante; sin sillas, funciona como mesa de firmas, regalos, coffee station o exhibición de producto.</p>
+      <p class="showcase__text">Con 2.40 m sienta a 10 personas holgadas. Cada mesa se inspecciona pieza por pieza —tablero, uniones y patas— antes de entregar. Complementa con <a href="/servicios/iluminacion/">iluminación</a> dirigida para acentuar su carácter en activaciones nocturnas. Desde $950 por mesa con montaje incluido.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <!-- PLACEHOLDER: reemplazar por foto real del modelo -->
+      <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main">
+                    <img src="/images/mobiliario/crossback-madera-01.avif" alt="Mesa farm de patas de horquilla en activación de marca" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/crossback-madera-02.avif" alt="Mesa farm de pino con patas de hierro negro mate" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/barra-bebidas-bartender-madera-evento.avif" alt="Mesa farm de horquilla vestida con sillas libres en evento" loading="lazy" decoding="async" />
+                  </div>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <!-- COMBINACIONES -->
+          <section class="section" aria-labelledby="combos-heading">
+            <h2 id="combos-heading" class="section__title">Montajes más pedidos con la mesa farm de horquilla</h2>
+            <p class="section__subtitle">Combinaciones de sillas, iluminación y usos que funcionan</p>
+            <div class="grid grid--3" style="margin-top: var(--space-xl);">
+              <div class="sidebar-card">
+                <h3 class="sidebar-card__title">Activación de Marca</h3>
+                <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text);">
+                  Farm de horquilla + <strong>iluminación dirigida</strong> + branding sobre el tablero. El contraste madera-hierro proyecta diseño y modernidad, ideal para lanzamientos y stands premium.
+                </p>
+              </div>
+              <div class="sidebar-card">
+                <h3 class="sidebar-card__title">Boda Contemporánea</h3>
+                <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text);">
+                  Farm + <strong>sillas crossback</strong> + centro floral lineal. Como mesa larga de invitados o mesa de firmas, aporta el aire industrial-natural que buscan las bodas modernas.
+                </p>
+              </div>
+              <div class="sidebar-card">
+                <h3 class="sidebar-card__title">Coffee Station / Firmas</h3>
+                <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text);">
+                  Farm sin sillas + <strong>barra de madera</strong> + accesorios. Perfecta como estación de café, mesa de regalos o exhibición donde su presencia visual es la protagonista.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- TESTIMONIALES -->
+          <section class="section section--alt" aria-labelledby="testimonios-heading">
+            <h2 id="testimonios-heading" class="section__title">Opiniones — Mesa Farm Patas de Horquilla</h2>
+            <div class="grid grid--3" style="margin-top: var(--space-xl);">
+              {reviews.map((review) => (
+                <div class="sidebar-card">
+                  <div style="display: flex; gap: 4px; margin-bottom: var(--space-sm);">
+                    {[1,2,3,4,5].map(() => (
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    ))}
+                  </div>
+                  <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text); font-style: italic; margin-bottom: var(--space-sm);">"{review.text}"</p>
+                  <p style="font-size: var(--text-xs); font-weight: 700; color: var(--color-heading);">— {review.author}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <!-- FAQ -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas sobre la Mesa Farm de Patas de Horquilla"
+              subtitle="Lo que nos preguntan antes de reservar"
+              description={["Formato industrial-natural en madera y hierro. Capacidad 10 personas, sin bancas para vestir con sillas libres, y con montaje incluido."]}
+            />
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿Tienes más dudas?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp — te asesoramos sobre cantidad, sillas y montaje para tu activación o boda.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo dudas sobre la renta de la Mesa Farm Patas de Horquilla`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">Escribir por WhatsApp</a>
+                </div>
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Dinos el número de mesas y el estilo de tu evento y te cotizamos al instante.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- DESKTOP SIDEBAR -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Modelos especiales y servicios relacionados">
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Mesas Especiales & Farm</h2>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/mesas-picnic/especiales/" class="sidebar-nav__back">&uarr; Todas las Especiales & Farm</a>
+              </li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="sidebar-card sidebar-card--cta">
+            <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+            <p class="sidebar-card--cta-text">Mesa Farm Patas de Horquilla para tu evento en CDMX</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar la Mesa Farm Patas de Horquilla para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESERVA FORM -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Mesa Farm de Patas de Horquilla"
+        subtitle="Cuéntanos sobre tu evento y te respondemos de inmediato"
+        description={[
+          "Completa el formulario y un asesor te enviará cotización personalizada por WhatsApp. Sin compromiso, sin costos ocultos.",
+          "Dinos el estilo de tu evento y te recomendamos las sillas que mejor visten la farm y el layout ideal.",
+        ]}
+      />
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">Nombre completo <span class="form-field__required">*</span></label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">Teléfono <span class="form-field__required">*</span></label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">Tipo de evento</label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Activación de Marca">Activación de Marca</option>
+                <option value="Boda Contemporánea">Boda Contemporánea</option>
+                <option value="Lanzamiento / Corporativo">Lanzamiento / Corporativo</option>
+                <option value="Sesión Fotográfica">Sesión Fotográfica</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">Fecha del evento</label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">Detalles del pedido <span class="form-field__required">*</span></label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Número de mesas, estilo del evento, si necesitas sillas o iluminación..." rows="4" required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta en 30 min</h3>
+            <p class="reserva-card__text">Te contactamos por WhatsApp con precio exacto y recomendación de montaje en menos de 30 minutos.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Asesoría de estilo</h3>
+            <p class="reserva-card__text">Te recomendamos las sillas y la iluminación que mejor visten la farm según tu estética.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Todo incluido</h3>
+            <p class="reserva-card__text">Entrega, montaje y recolección incluidos, sin límite de tiempo durante el evento.</p>
+          </div>
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+      let texto = `*Mesa Farm Patas de Horquilla — Cotización*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      texto += `\n*Detalles:*\n${mensaje}`;
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() { this.classList.remove('form-field__input--error'); });
+    });
+  </script>
+
+  <!-- CTA FINAL -->
+  <CTABanner
+    headline="La mesa farm de horquilla que hace fotogénica tu activación — cotiza sin compromiso"
+    subheadline="Madera + hierro forjado · Se viste con sillas libres · Montaje profesional incluido"
+    primaryCTA={{ label: "Cotizar mesa farm", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar la Mesa Farm Patas de Horquilla para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<style is:global>
+  :root {
+    --color-accent: #c2a24a;
+    --color-accent-hover: #a9883a;
+    --color-accent-light: #d4b96a;
+    --color-accent-soft: rgba(194, 162, 74, 0.1);
+    --gradient-accent: linear-gradient(135deg, #c2a24a 0%, #a9883a 100%);
+    --shadow-accent: 0 4px 14px rgba(194, 162, 74, 0.35);
+    --shadow-accent-hover: 0 6px 20px rgba(194, 162, 74, 0.45);
+  }
+</style>

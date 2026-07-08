@@ -24,5 +24,13 @@ Estructura definida: 1 L4 + 4 grupos L5 (picnic 8 · especiales 6 · sets 6 · i
 - [ ] Imágenes propias (no hotlinkear ExactDN de MESPIC).
 - [ ] Añadir 5.º subService al hub mobiliario L3.
 
+## Fase 2 (2026-07-08) — L5/L6 construidas y homologadas
+- **27 páginas** totales: 1 hub L4 (`hm-`) + 4 grupos L5 + 22 fichas L6.
+- L5/L6 homologadas al **sistema de componentes** de `mesas/redondas/` y `mesas/redondas/150cm/` (NO `hm-`): HeroPage, ServiceShowcase, CTABanner, SectionHeader, ProductCard (grid en L5), Gallery4x4 (en L6), `l3-shared.css`+`l4-shared.css`, y `<style is:global>` **dorado #c2a24a**.
+- Construidas por 4 subagentes en paralelo (una familia c/u) con specs reales de [[MESPIC-Analisis-Servicios]] y precios `desde $` por banda.
+- Enlaces del hub L4 repuntados de anclas/WhatsApp a **URLs reales**.
+- **Verificación:** 26/26 L5-L6 con dorado `is:global` + `l3/l4-shared`; 0 usan `hm-`/`home-2026`; 0 "EVENTECH" en títulos; 0 `rawTitle`; 22 fichas con Gallery4x4. **27/27 enlaces internos resuelven (0 404).** Compila limpio (pasa fase Vite; build completo hace timeout solo por volumen de 1607+ páginas).
+- **Placeholders (por reemplazar):** imágenes (reusan avif de madera existentes) y reseñas (marcadas `// PLACEHOLDER reviews`).
+
 ## Enlaces
 [[MESPIC-Analisis-Servicios]] · [[Plan-Mesas-Picnic-L4]] · [[Template-L4-hub]] · [[Template-L5-producto]] · [[Convencion-de-titulos]]

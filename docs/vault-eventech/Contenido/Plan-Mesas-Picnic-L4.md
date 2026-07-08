@@ -192,9 +192,10 @@ MESPIC no publica precios → se posicionan con **rangos de mercado** de la comp
 - [x] Imágenes — **placeholders por ahora (Frank)**; fotos reales en 2.ª pasada.
 - [x] Añadir 5.º `subService` al hub mobiliario L3 — **hecho 2026-07-08** (card "Mesas Picnic y Madera" + nav a 6 col).
 - [x] Construir hub L4 con molde `sillas/index.astro` (dorado, no verde) — **hecho 2026-07-08** (`mesas-picnic/index.astro`, 668 líneas, 4 familias, compila OK).
-- [ ] Construir 4 grupos L5 con molde `mesas/redondas/index.astro`.
-- [ ] Construir 22 fichas L6 con molde `sillas/tiffany/` (specs reales + `desde $`).
-- [ ] Títulos + metas sin marca ([[Convencion-de-titulos]]).
+- [x] Construir 4 grupos L5 (picnic/especiales/sets/infantil) con molde `mesas/redondas/index.astro` — **hecho 2026-07-08** (ProductCard grid + ServiceShowcases).
+- [x] Construir 22 fichas L6 con molde `mesas/redondas/150cm/index.astro` (specs reales + `desde $`) — **hecho 2026-07-08** (Gallery4x4, dorado `is:global`).
+- [x] Repuntar enlaces L4→L5→L6 a URLs reales — **hecho 2026-07-08** (0 residuos, 27/27 enlaces resuelven, 0 404).
+- [x] Títulos + metas sin marca ([[Convencion-de-titulos]]) — verificado (0 "EVENTECH" en títulos).
 - [ ] Verificar/crear redirect `renta-de-mesas-picnic/` → nueva L4.
 - [ ] `git` + verificar deploy (skill `origenlab:deploy-seguridad`).
 

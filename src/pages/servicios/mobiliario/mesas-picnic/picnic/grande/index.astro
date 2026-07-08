@@ -1,0 +1,521 @@
+---
+/**
+ * ─── Mesa Picnic Grande — Página de Variante (Nivel 6) ───
+ * 2.40×1.50 m, 10-12 personas, pino barnizado con bancas integradas y estructura reforzada.
+ * Jerarquía: Servicios > Mobiliario > Mesas Picnic y Madera > Mesas Picnic > Grande
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import Gallery4x4 from "@components/Gallery4x4.astro";
+import { SITE } from "@config/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@lib/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Mesas Picnic y Madera", href: "/servicios/mobiliario/mesas-picnic/" },
+  { label: "Mesas Picnic", href: "/servicios/mobiliario/mesas-picnic/picnic/" },
+  { label: "Grande — 10-12 personas" },
+];
+
+// PLACEHOLDER: reemplazar por foto real del modelo
+const galleryImages = [
+  { src: "/images/mobiliario/crossback-madera-02.avif", alt: "Mesa Picnic Grande de pino con bancas integradas — imagen de referencia" },
+  { src: "/images/mobiliario/crossback-madera-01.avif", alt: "Detalle de madera de pino barnizada de la Mesa Picnic Grande — imagen de referencia" },
+  { src: "/images/mobiliario/barra-bebidas-bartender-madera-evento.avif", alt: "Mesa Picnic Grande de madera en evento corporativo al aire libre — imagen de referencia" },
+  { src: "/images/mobiliario/barras-postres-mesa-madera-rustica.avif", alt: "Bancas integradas de pino de la Mesa Picnic Grande — imagen de referencia" },
+  { src: "/images/mobiliario/candy-bar-jardin-exterior.avif", alt: "Mesa Picnic Grande montada como mesa comunal en festival — imagen de referencia" },
+  { src: "/images/mobiliario/barra-bebidas-madera-cocteleria-lujo.avif", alt: "Mesa Picnic Grande como mesa principal en evento — imagen de referencia" },
+];
+
+const faqs = [
+  {
+    question: "¿Cuántas personas caben en la Mesa Picnic Grande?",
+    answer: "La <strong>Mesa Picnic Grande de 2.40×1.50 m</strong> acomoda cómodamente <strong>10 a 12 personas</strong> — 5 o 6 en cada banca integrada de pino. Es el formato pensado para mesas comunales, mesas principales y grupos numerosos que quieren convivir sin dividirse. Si buscas un formato más compacto, revisa la <a href=\"/servicios/mobiliario/mesas-picnic/picnic/estandar/\">Mesa Estándar</a> (6 personas); para grupos aún mayores, la <a href=\"/servicios/mobiliario/mesas-picnic/picnic/xl/\">Mesa XL</a> (14-16)."
+  },
+  {
+    question: "¿Qué diferencia a la Mesa Grande de la Estándar y la XL?",
+    answer: "La diferencia es capacidad y estructura. La <a href=\"/servicios/mobiliario/mesas-picnic/picnic/estandar/\">Mesa Estándar</a> mide 1.80×1.50 m para 6 personas; la <strong>Mesa Grande de 2.40×1.50 m acomoda 10-12</strong> y suma una <strong>estructura reforzada para uso intensivo</strong>, ideal para festivales de larga duración. La <a href=\"/servicios/mobiliario/mesas-picnic/picnic/xl/\">Mesa XL</a> escala aún más, hasta 14-16 comensales. La Grande es el punto medio perfecto entre presencia visual y manejabilidad."
+  },
+  {
+    question: "¿La Mesa Grande resiste un festival de todo el día al aire libre?",
+    answer: "Sí. La Mesa Picnic Grande está fabricada en <strong>madera de pino lijada y barnizada a mano</strong>, con <strong>estructura reforzada para uso intensivo</strong> que aguanta jornadas largas de festival, sol y roce continuo sin ceder. Recomendamos no exponerla a lluvia prolongada; para clima incierto, combínala con nuestras <a href=\"/servicios/carpas/\">carpas profesionales</a>."
+  },
+  {
+    question: "¿Cuántas mesas grandes necesito para 120 invitados?",
+    answer: "Con 10-12 personas por mesa, para <strong>120 invitados</strong> necesitas entre <strong>10 y 12 Mesas Picnic Grande</strong>. La fórmula es invitados ÷ 11 ≈ número de mesas. Te recomendamos 1 mesa extra de reserva. Envíanos las dimensiones de tu venue y diseñamos el layout comunal con pasillos de circulación adecuados, sin costo."
+  },
+  {
+    question: "¿El precio incluye montaje y entrega?",
+    answer: "Sí. El precio <strong>desde $650 por mesa / evento</strong> incluye entrega, montaje, nivelación y recolección en CDMX y zona metropolitana. Por su tamaño y estructura reforzada, la Mesa Grande requiere una nivelación cuidadosa que nuestro equipo realiza en sitio, incluso en terreno irregular. El precio final depende del volumen y la ubicación del venue. Un anticipo del 30% confirma tu fecha y cantidad."
+  },
+];
+
+const specs = [
+  { label: "Medidas", value: "2.40 × 1.50 m (mesa + 2 bancas)" },
+  { label: "Capacidad", value: "10-12 personas" },
+  { label: "Material", value: "Madera de pino tratada para exterior" },
+  { label: "Acabado", value: "Lijado y barnizado a mano" },
+  { label: "Estructura", value: "Reforzada para uso intensivo" },
+  { label: "Bancas", value: "2 bancas integradas de pino" },
+  { label: "Altura de mesa", value: "75 cm (estándar de banquete)" },
+  { label: "Uso", value: "Mesa principal, corporativo, festival" },
+  { label: "Logística", value: "Entrega, montaje, nivelación y recolección incluidos" },
+  { label: "Precio referencial", value: "Desde $650 por pieza / evento" },
+];
+
+// PLACEHOLDER reviews — reemplazar por reseñas reales
+const reviews = [
+  { author: "Laura M.", text: "Rentamos 10 mesas grandes para un festival gastronómico de fin de semana. La estructura reforzada aguantó dos días completos de uso intensivo sin moverse. Las mesas comunales de 12 personas fueron el corazón del evento.", rating: 5, date: "2025-11-15" },
+  { author: "Diego R.", text: "Para nuestro evento corporativo al aire libre usamos la Mesa Grande como mesa principal. Cabían 12 directivos holgados y la madera se veía impecable en las fotos. Montaje y nivelación puntualísimos.", rating: 5, date: "2025-10-20" },
+  { author: "Fernanda T.", text: "Boda campestre con una mesa grande tipo head table para los novios y la familia. 10 personas cómodas y madera preciosa. El equipo niveló todo en terreno irregular sin ningún problema.", rating: 5, date: "2025-09-25" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta Mesa Picnic Grande para Eventos en CDMX — 10-12 Personas",
+    description: "Mesa picnic grande de 2.40×1.50 m para 10-12 personas en madera de pino con bancas integradas y estructura reforzada. Ideal para mesas comunales, corporativos y festivales en CDMX. Desde $650.",
+    url: "/servicios/mobiliario/mesas-picnic/picnic/grande/",
+    priceRange: { min: 650, max: 1500 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 41,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Mesas Picnic y Madera", url: "/servicios/mobiliario/mesas-picnic/" },
+    { name: "Mesas Picnic", url: "/servicios/mobiliario/mesas-picnic/picnic/" },
+    { name: "Grande — 10-12 Personas", url: "/servicios/mobiliario/mesas-picnic/picnic/grande/" },
+  ]),
+  faqJsonLd(faqs),
+];
+
+const sidebarNav = [
+  { name: "Mesa Estándar", href: "/servicios/mobiliario/mesas-picnic/picnic/estandar/" },
+  { name: "Mesa Grande", href: null, active: true },
+  { name: "Mesa XL", href: "/servicios/mobiliario/mesas-picnic/picnic/xl/" },
+  { name: "Mesa Premium", href: "/servicios/mobiliario/mesas-picnic/picnic/premium/" },
+  { name: "Mesa Rústica", href: "/servicios/mobiliario/mesas-picnic/picnic/rustica/" },
+  { name: "Mesa Hexagonal", href: "/servicios/mobiliario/mesas-picnic/picnic/hexagonal/" },
+  { name: "Mesa Plegable", href: "/servicios/mobiliario/mesas-picnic/picnic/plegable/" },
+  { name: "Mesa Farm Americana", href: "/servicios/mobiliario/mesas-picnic/picnic/farm-americana/" },
+];
+
+const sidebarRelated = [
+  { name: "Sillas Crossback", href: "/servicios/mobiliario/sillas/crossback/" },
+  { name: "Salas Lounge", href: "/servicios/mobiliario/salas-lounge/" },
+  { name: "Barras", href: "/servicios/mobiliario/barras/" },
+  { name: "Carpas", href: "/servicios/carpas/" },
+  { name: "Iluminación", href: "/servicios/iluminacion/" },
+  { name: "Mantelería y Textiles", href: "/servicios/accesorios/manteleria-textiles/" },
+];
+---
+
+<PageLayout
+  title="Renta Mesa Picnic Grande 10-12 Personas CDMX"
+  description="Renta mesa picnic grande 2.40×1.50 m en CDMX — 10-12 personas, pino con bancas integradas y estructura reforzada. Ideal para mesas comunales y festivales. Desde $650."
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={breadcrumbItems} slot="breadcrumbs" />
+
+  <!-- 1. HERO -->
+  <HeroPage
+    badge="El formato comunal de la familia de madera"
+    title='Mesa Picnic <span class="highlight">Grande</span> — 10-12 Personas — Renta CDMX'
+    subtitle="La Mesa Picnic Grande de 2.40×1.50 m es el formato comunal para eventos de alto flujo: 10 a 12 comensales en bancas de pino integradas, con estructura reforzada para uso intensivo. Madera lijada y barnizada a mano, tratada para exterior. Montaje incluido. Desde $650."
+    primaryCTA={{ label: "Cotizar mesa grande", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar por WhatsApp", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar la Mesa Picnic Grande para mi evento` }}
+    cards={[
+      {
+        title: "La mesa comunal para eventos de larga duración",
+        content: "La <strong>Mesa Picnic Grande</strong> es el formato que resuelve festivales, corporativos y mesas principales sin dividir a los invitados. Con <strong>2.40×1.50 m y 10-12 personas</strong>, crea mesas comunales de gran presencia sin rentar sillas por separado. Trabajamos con el <a href=\"https://mesaspicnic.com/\" target=\"_blank\" rel=\"noopener\">sitio especializado en mesas picnic</a> para garantizar madera de pino de calidad y acabado profesional en cada pieza.",
+      },
+      {
+        title: "Estructura reforzada y bancas integradas",
+        content: "Fabricada en <strong>madera de pino lijada y barnizada a mano</strong> con <strong>estructura reforzada para uso intensivo</strong>, resiste jornadas largas de festival, sol y roce continuo. Las <strong>bancas integradas</strong> se montan como una sola unidad. Combínala con <a href=\"/servicios/iluminacion/\">iluminación</a> colgante para la noche, con <a href=\"/servicios/carpas/\">carpas</a> como respaldo ante el clima y con <a href=\"/servicios/mobiliario/sillas/crossback/\">sillas crossback</a> para las cabeceras.",
+      },
+    ]}
+  />
+
+  <!-- 2. CTA BANNER -->
+  <CTABanner
+    headline="¿Cuántas mesas grandes necesitas? Te ayudamos a calcular el layout comunal"
+    subheadline="Asesoría de distribución sin costo — calcula cantidad exacta según tu venue y número de invitados"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- MOBILE SIDEBAR -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Modelos de Mesa Picnic</h2>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="sidebar-card sidebar-card--cta">
+          <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+          <p class="sidebar-card--cta-text">Mesa Picnic Grande para tu evento</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar la Mesa Picnic Grande`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT + SIDEBAR -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <div class="l4-main">
+
+          <!-- GALERÍA -->
+          <section class="section" aria-labelledby="galeria-heading">
+            <h2 id="galeria-heading" class="section__title">Galería — Mesa Picnic Grande en Eventos</h2>
+            <p class="section__subtitle">Festivales, corporativos y mesas principales en CDMX</p>
+            <!-- PLACEHOLDER: reemplazar por foto real del modelo -->
+            <Gallery4x4 images={galleryImages} />
+          </section>
+
+          <!-- SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones — Mesa Picnic Grande</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- DESCRIPCIÓN DE VENTA -->
+          <section class="section section--alt" aria-labelledby="descripcion-heading">
+            <ServiceShowcase
+    title="¿Por qué elegir la Mesa Grande para eventos de alto flujo?"
+    headingId="descripcion-heading"
+    badge="El formato comunal de la madera para eventos"
+    tags={["2.40×1.50 m", "10-12 personas", "Estructura reforzada", "Festivales y corporativos"]}
+  >
+    <Fragment slot="body">
+      <p class="showcase__text">El formato de 2.40×1.50 m está pensado para la convivencia: <strong>10 a 12 comensales</strong> comparten una misma mesa comunal sin dividirse en grupos pequeños. Es la opción natural para festivales gastronómicos, corporativos al aire libre y mesas principales donde la presencia visual importa tanto como la capacidad.</p>
+      <p class="showcase__text">La <strong>madera de pino lijada y barnizada a mano</strong> aporta la calidez rústica que buscan las bodas y los eventos campestres, mientras que la <strong>estructura reforzada para uso intensivo</strong> le permite aguantar jornadas largas de festival sin ceder. Las <strong>bancas integradas de pino</strong> eliminan la necesidad de sillas y simplifican el montaje de grandes volúmenes.</p>
+      <p class="showcase__text">Cada mesa se limpia e inspecciona antes de entregarse; por su tamaño, nuestro equipo realiza una nivelación cuidadosa en sitio, incluso en terrenos irregulares. Es el modelo ideal cuando necesitas mesas de gran capacidad con acabado profesional garantizado.</p>
+    </Fragment>
+    <Fragment slot="media">
+      <!-- PLACEHOLDER: reemplazar por foto real del modelo -->
+      <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main">
+                    <img src="/images/mobiliario/crossback-madera-02.avif" alt="Mesa Picnic Grande de pino montada como mesa comunal — imagen de referencia" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/candy-bar-jardin-exterior.avif" alt="Mesa Picnic Grande en festival al aire libre — imagen de referencia" loading="lazy" decoding="async" />
+                  </div>
+                  <div class="showcase__gallery3-thumb">
+                    <img src="/images/mobiliario/crossback-madera-01.avif" alt="Detalle de bancas integradas de la Mesa Picnic Grande — imagen de referencia" loading="lazy" decoding="async" />
+                  </div>
+                </div>
+    </Fragment>
+  </ServiceShowcase>
+          </section>
+
+          <!-- COMBINACIONES -->
+          <section class="section" aria-labelledby="combos-heading">
+            <h2 id="combos-heading" class="section__title">Montajes más pedidos con la Mesa Grande</h2>
+            <p class="section__subtitle">Combinaciones de estilo, textiles y complementos que funcionan</p>
+            <div class="grid grid--3" style="margin-top: var(--space-xl);">
+              <div class="sidebar-card">
+                <h3 class="sidebar-card__title">Festival Gastronómico</h3>
+                <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text);">
+                  Mesas grandes en hileras estilo <strong>mesa comunal</strong> + <a href="/servicios/iluminacion/">iluminación</a> colgante. El montaje de alto flujo que domina los festivales de comida y los food-truck parks de fin de semana.
+                </p>
+              </div>
+              <div class="sidebar-card">
+                <h3 class="sidebar-card__title">Corporativo al Aire Libre</h3>
+                <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text);">
+                  Mesa grande como <strong>mesa principal</strong> + <a href="/servicios/carpas/">carpa</a> de respaldo + mantelería corporativa. Capacidad para 12 sin perder la calidez de la madera natural.
+                </p>
+              </div>
+              <div class="sidebar-card">
+                <h3 class="sidebar-card__title">Mesa Principal de Boda</h3>
+                <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text);">
+                  Mesa grande tipo <strong>head table campestre</strong> para novios y familia + camino de mesa de lino + centros florales. Complementa las cabeceras con <a href="/servicios/mobiliario/sillas/crossback/">sillas crossback</a>.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- TESTIMONIALES -->
+          <section class="section section--alt" aria-labelledby="testimonios-heading">
+            <h2 id="testimonios-heading" class="section__title">Opiniones — Mesa Picnic Grande</h2>
+            <div class="grid grid--3" style="margin-top: var(--space-xl);">
+              {reviews.map((review) => (
+                <div class="sidebar-card">
+                  <div style="display: flex; gap: 4px; margin-bottom: var(--space-sm);">
+                    {[1,2,3,4,5].map(() => (
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    ))}
+                  </div>
+                  <p style="font-size: var(--text-sm); line-height: 1.7; color: var(--color-text); font-style: italic; margin-bottom: var(--space-sm);">"{review.text}"</p>
+                  <p style="font-size: var(--text-xs); font-weight: 700; color: var(--color-heading);">— {review.author}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <!-- FAQ -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas sobre la Mesa Picnic Grande"
+              subtitle="Lo que nos preguntan antes de reservar"
+              description={["El formato comunal de nuestra familia. 10-12 personas, bancas integradas y estructura reforzada, listo para festivales y corporativos al aire libre."]}
+            />
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿Tienes más dudas?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp — te ayudamos a calcular cuántas mesas necesitas para tu evento.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo dudas sobre la renta de la Mesa Picnic Grande`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">Escribir por WhatsApp</a>
+                </div>
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Dinos el número de invitados y te calculamos mesas y layout al instante.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- DESKTOP SIDEBAR -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Modelos de mesa picnic y servicios relacionados">
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Modelos de Mesa Picnic</h2>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/mesas-picnic/picnic/" class="sidebar-nav__back">&uarr; Todas las Mesas Picnic</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/mobiliario/" class="sidebar-nav__back">&uarr; Volver a Mobiliario</a>
+              </li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="sidebar-card sidebar-card--cta">
+            <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+            <p class="sidebar-card--cta-text">Mesa Picnic Grande para tu evento en CDMX</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar la Mesa Picnic Grande para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESERVA FORM -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tu Mesa Picnic Grande"
+        subtitle="Cuéntanos sobre tu evento y te respondemos de inmediato"
+        description={[
+          "Completa el formulario y un asesor te enviará cotización personalizada por WhatsApp. Sin compromiso, sin costos ocultos.",
+          "Dinos el número de invitados y te calculamos la cantidad exacta de mesas, el layout óptimo y el precio final.",
+        ]}
+      />
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">Nombre completo <span class="form-field__required">*</span></label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">Teléfono <span class="form-field__required">*</span></label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">Tipo de evento</label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda Campestre">Boda Campestre</option>
+                <option value="Festival / Feria">Festival / Feria</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">Fecha del evento</label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">Detalles del pedido <span class="form-field__required">*</span></label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Número de mesas o invitados, venue, si necesitas carpa o iluminación..." rows="4" required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta en 30 min</h3>
+            <p class="reserva-card__text">Te contactamos por WhatsApp con precio exacto y layout sugerido en menos de 30 minutos.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Asesoría de layout</h3>
+            <p class="reserva-card__text">Te calculamos la cantidad exacta de mesas según tu venue y número de invitados, sin costo.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Montaje incluido</h3>
+            <p class="reserva-card__text">Entrega, montaje, nivelación y recolección incluidos en CDMX y zona metropolitana.</p>
+          </div>
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+      let texto = `*Mesa Picnic Grande — Cotización*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      texto += `\n*Detalles:*\n${mensaje}`;
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() { this.classList.remove('form-field__input--error'); });
+    });
+  </script>
+
+  <!-- CTA FINAL -->
+  <CTABanner
+    headline="La Mesa Picnic Grande que convierte tu festival o corporativo en una experiencia comunal — cotiza sin compromiso"
+    subheadline="Formato para 10-12 personas · Estructura reforzada · Montaje profesional incluido"
+    primaryCTA={{ label: "Cotizar mesa grande", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar la Mesa Picnic Grande para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<style is:global>
+  :root {
+    --color-accent: #c2a24a;
+    --color-accent-hover: #a9883a;
+    --color-accent-light: #d4b96a;
+    --color-accent-soft: rgba(194, 162, 74, 0.1);
+    --gradient-accent: linear-gradient(135deg, #c2a24a 0%, #a9883a 100%);
+    --shadow-accent: 0 4px 14px rgba(194, 162, 74, 0.35);
+    --shadow-accent-hover: 0 6px 20px rgba(194, 162, 74, 0.45);
+  }
+</style>
