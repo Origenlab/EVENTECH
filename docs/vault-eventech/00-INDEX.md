@@ -24,10 +24,13 @@ Fuente única de verdad para mantener **homologado** todo lo que se construye en
 ### Contenido
 - [[Tono-y-copy]] — voz de marca, copy SEO/marketing
 - [[Resenas]] — testimonios de empresas aliadas (B2B)
+- [[MESPIC-Analisis-Servicios]] — análisis completo de mesaspicnic.com (22 modelos, servicios, paquetes, marca)
+- [[Plan-Mesas-Picnic-L4]] — **plan de nueva L4** `/mobiliario/mesas-picnic/` (blueprint + checklist de build)
 
 ### Registro
 - [[Cambios]] — changelog de todo lo generado
 - [[2026-07-07-auditoria-mejoras-4-categorias]] — auditoría + **plan de mejoras priorizado** de las 4 categorías homologadas (fotografía real, rich snippets, LCP, cross-linking)
+- [[2026-07-08-mesas-picnic-plan]] — análisis MESPIC + plan de nueva L4 mesas-picnic (5ª subcategoría de mobiliario)
 
 ## Datos del negocio (referencia)
 - Marca interna: EVENTECH.MX (no exponer en metas)

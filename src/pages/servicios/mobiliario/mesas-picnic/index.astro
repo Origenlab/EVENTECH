@@ -1,0 +1,668 @@
+---
+/**
+ * ─── EVENTECH.MX — Renta de Mesas Picnic y Mobiliario de Madera (L4 hub, sistema hm-) ───
+ * Picnic · Especiales & Farm · Sets & Complementos · Infantil — CDMX y Edomex
+ * Homólogo del hub de sillas (mismo layout, complementos y dorado institucional).
+ * Línea homologada del sitio hermano MESPIC (mesaspicnic.com). Cross-link white-label.
+ * PASS 1: enlaces de grupo → anclas internas (#picnic…); modelos → cotización WhatsApp.
+ *         Grupos L5 y fichas L6 se construyen en Fase 2 y se repuntan los enlaces.
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import { SITE } from "@config/site";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from "@lib/seo";
+import "@styles/home-2026.css";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const WA = SITE.contact.whatsapp;
+const waModel = (m) =>
+  `https://wa.me/${WA}?text=${encodeURIComponent(`Hola, quiero cotizar la ${m} (mesa picnic / mobiliario de madera) para mi evento.`)}`;
+
+const SUB_SERVICES = [
+  {
+    id: "picnic",
+    name: "Mesas Picnic",
+    badge: "Las más solicitadas",
+    excerpt: "Bancas de pino natural lijado y barnizado a mano — el corazón del catálogo. Desde la Estándar para 6 hasta la XL de 3 metros para 16 personas, con montaje incluido. Desde $350.",
+    href: "#picnic",
+    image: "/images/mobiliario/crossback-madera-01.avif",
+    subcategories: [
+      { name: "Mesa Picnic Estándar (6 pers.)", href: waModel("Mesa Picnic Estándar") },
+      { name: "Mesa Picnic Grande (10-12 pers.)", href: waModel("Mesa Picnic Grande") },
+      { name: "Mesa Picnic XL (14-16 pers.)", href: waModel("Mesa Picnic XL") },
+      { name: "Mesa Farm Americana", href: waModel("Mesa Farm Americana") },
+    ],
+  },
+  {
+    id: "especiales",
+    name: "Mesas Especiales & Farm",
+    badge: "Diseño de autor",
+    excerpt: "Formatos que se vuelven el centro visual del evento: redonda de conversación, biergarten de festival, farm de patas de horquilla, sweetheart de novios y maderas macizas de teca y parota.",
+    href: "#especiales",
+    image: "/images/mobiliario/candy-bar-boda-rustica-madera.avif",
+    subcategories: [
+      { name: "Mesa Redonda de Madera", href: waModel("Mesa Redonda de Madera") },
+      { name: "Mesa Biergarten", href: waModel("Mesa Biergarten") },
+      { name: "Mesa Farm Patas de Horquilla", href: waModel("Mesa Farm Patas de Horquilla") },
+      { name: "Mesa de Parota Maciza", href: waModel("Mesa de Parota") },
+    ],
+  },
+  {
+    id: "sets",
+    name: "Sets y Complementos",
+    badge: "Llave en mano",
+    excerpt: "Todo lo que rodea a la mesa: set picnic completo con mantelería, comedor con sillas crossback, lounge exterior VIP, mesa alta cocktail, banca individual y barra de madera para coctelería.",
+    href: "#sets",
+    image: "/images/mobiliario/barra-bebidas-madera-cocteleria-lujo.avif",
+    subcategories: [
+      { name: "Set Picnic Completo", href: waModel("Set Picnic Completo") },
+      { name: "Set Lounge Exterior VIP", href: waModel("Set Lounge Exterior") },
+      { name: "Mesa Alta Cocktail", href: waModel("Mesa Alta Cocktail") },
+      { name: "Barra de Madera", href: waModel("Barra de Madera") },
+    ],
+  },
+  {
+    id: "infantil",
+    name: "Para Niños",
+    badge: "Sin astillas · atóxico",
+    excerpt: "Mobiliario de madera diseñado para niños: altura reducida, bordes redondeados, lijado ultrafino y pintura atóxica certificada. Para cumpleaños, baby showers y kermeses.",
+    href: "#infantil",
+    image: "/images/mobiliario/candy-bar-jardin-exterior.avif",
+    subcategories: [
+      { name: "Mesa Picnic Infantil (3-10 años)", href: waModel("Mesa Picnic Infantil") },
+      { name: "Set Infantil Temático (5 colores)", href: waModel("Set Infantil Temático") },
+    ],
+  },
+];
+
+const whyFeatures = [
+  {
+    title: "Madera 100% natural, barnizada a mano",
+    body: "Pino nacional seleccionado, lijado a grano fino y con sellador más tres manos de barniz de exterior. Sin plásticos ni materiales sintéticos. La textura y el color de la madera real no se pueden imitar — y resisten sol, humedad y variaciones de temperatura.",
+  },
+  {
+    title: "Entrega, montaje y recolección incluidos",
+    body: "Nuestro equipo lleva el mobiliario a tu ubicación, lo monta donde indiques y lo recoge al terminar. El precio que cotizamos es el precio final: sin cargos por traslado ni maniobras dentro de CDMX y Edomex. Entrega promedio en 2 a 3 horas.",
+  },
+  {
+    title: "Sin límite de tiempo en tu evento",
+    body: "El mobiliario se queda hasta que la celebración termine. No cobramos por hora ni por tiempo extra. Si tu boda acaba a las 3 de la mañana, recogemos a las 3 de la mañana — sin sorpresas en la factura.",
+  },
+  {
+    title: "Inspección pieza por pieza antes de entregar",
+    body: "Cada mesa y banca pasa por revisión de estructura, uniones y barniz antes de salir de bodega. Si una pieza tiene una astilla, una grieta o el barniz deteriorado, no sale del almacén. Lo que llega a tu evento está impecable.",
+  },
+  {
+    title: "Más de 120 piezas en inventario",
+    body: "Capacidad real para eventos de 100+ personas con combinación de modelos en una sola entrega. Puedes mezclar mesas estándar para invitados, farm para la mesa de honor e infantiles para la zona de niños — todo en una sola cotización.",
+  },
+  {
+    title: "Seguro para niños y para exteriores",
+    body: "Todas las piezas están lijadas sin astillas ni bordes filosos, con un modelo infantil de altura adaptada. La madera con aceite de teca y barniz de exterior aguanta jardín, pasto y terraza sin deteriorarse durante el evento.",
+  },
+];
+
+const steps = [
+  { n: 1, t: "Cotización y aparto de fecha", p: "Nos indicas modelo, número de invitados, zona y fecha. En minutos te confirmamos disponibilidad y precio final. Apartamos tu fecha con anticipo — recomendamos reservar 1 semana antes (2+ en temporada alta de noviembre a febrero)." },
+  { n: 2, t: "Asesoría de modelo y cantidad", p: "¿Estándar o farm? ¿Cuántas bancas para tu número de invitados? Te recomendamos la configuración ideal y la combinación de modelos que mejor aprovecha tu espacio, con referencias visuales reales." },
+  { n: 3, t: "Entrega y montaje profesional", p: "Llegamos a tu ubicación en jardín, terraza, hacienda, parque o salón. Montamos y distribuimos las mesas según el espacio y el número de invitados, con tiempo suficiente antes de que empiece el evento." },
+  { n: 4, t: "Recolección al finalizar", p: "Al cierre, nuestro equipo recoge todas las piezas. Tú no desmontas ni acomodas nada. Si llueve y el evento se cancela, reagendas sin costo adicional. La recolección ya está incluida en el precio." },
+];
+
+const faqs = [
+  {
+    question: "¿Qué incluye el servicio de renta de mesas picnic?",
+    answer: "Entrega en tu ubicación, montaje profesional, uso sin límite de tiempo durante el evento y recolección al terminar. El precio que cotizamos es el precio final: sin cargos por traslado, maniobras ni tiempo extra dentro de CDMX y Edomex. Aceptamos efectivo, transferencia y tarjeta.",
+  },
+  {
+    question: "¿Cuántas personas caben por mesa picnic?",
+    answer: "La mesa estándar mide 1.80 × 1.50 m y acomoda 6 personas. La grande mide 2.40 × 1.50 m para 10 a 12. La XL de 3 metros llega a 14-16. La infantil (1.20 × 1.00 m) es para 8-10 niños. Te ayudamos a calcular cuántas piezas necesitas según tu número de invitados.",
+  },
+  {
+    question: "¿En qué zonas entregan?",
+    answer: "Cubrimos todas las alcaldías de la Ciudad de México y municipios del Estado de México como Naucalpan, Huixquilucan, Atizapán, Tlalnepantla e Interlomas. El tiempo de entrega promedio es de 2 a 3 horas.",
+  },
+  {
+    question: "¿Las bancas son seguras para niños?",
+    answer: "Sí. Todas las piezas están lijadas a grano fino, sin astillas ni bordes filosos. Además tenemos un modelo infantil con altura y dimensiones adaptadas para niños de 3 a 10 años, y un set temático con pintura atóxica certificada en 5 colores.",
+  },
+  {
+    question: "¿Puedo combinar diferentes modelos en un mismo evento?",
+    answer: "Sí, es lo más común. Puedes llevar mesas estándar para invitados, una farm o de parota para la mesa de honor e infantiles para la zona de niños — todo en una sola cotización y entrega. Contamos con más de 120 piezas en bodega para eventos de 100 o más personas.",
+  },
+  {
+    question: "¿Qué pasa si llueve el día del evento?",
+    answer: "Si tu evento se cancela por clima, puedes reagendar sin costo adicional. Si es en un espacio techado o con carpa, no hay problema: la madera funciona igual en interiores. Los modelos con aceite de teca y barniz de exterior son los más resistentes a la intemperie.",
+  },
+  {
+    question: "¿La madera combina con mi decoración?",
+    answer: "La madera natural combina con todo: manteles, flores, velas, telas y centros de mesa. Muchos clientes nos mandan fotos de referencia y adaptamos el montaje a su estilo — rústico, boho, clásico o minimalista. También tenemos modelos rústicos con veta visible que funcionan como elemento decorativo en sí mismos.",
+  },
+];
+
+const jsonLd = [
+  serviceJsonLd({
+    name: "Renta de Mesas Picnic y Mobiliario de Madera en CDMX",
+    description: "Renta de mesas picnic, farm, biergarten, parota, sets y mobiliario de madera para bodas, corporativos, fiestas infantiles y eventos al aire libre en CDMX y Edomex. Entrega, montaje y recolección incluidos.",
+    url: "/servicios/mobiliario/mesas-picnic/",
+    priceRange: { min: 200, max: 2500 },
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Mobiliario", url: "/servicios/mobiliario/" },
+    { name: "Mesas Picnic y Madera", url: "/servicios/mobiliario/mesas-picnic/" },
+  ]),
+  faqJsonLd(faqs),
+];
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Mobiliario", href: "/servicios/mobiliario/" },
+  { label: "Mesas Picnic y Madera" },
+];
+---
+
+<PageLayout
+  title="Renta de Mesas Picnic y Mobiliario de Madera para Eventos | CDMX y Edomex"
+  rawTitle={true}
+  image="/images/mobiliario/crossback-madera-01.avif"
+  description="Renta de mesas picnic, farm, biergarten y mobiliario de madera para bodas, corporativos y fiestas al aire libre en CDMX. Entrega y montaje incluidos. Desde $350."
+  jsonLd={jsonLd}
+>
+
+  <Breadcrumbs items={breadcrumbItems} slot="breadcrumbs" />
+  <div class="hm">
+
+    <!-- HERO ─────────────────────────────────────────────────── -->
+    <section class="hm-hero" aria-labelledby="picnic-hero-heading">
+      <div class="hm__wrap hm-hero__wrap">
+        <div class="hm-hero__grid">
+          <div class="hm-hero__main">
+            <p class="hm__eyebrow hm-hero__eyebrow">Mobiliario de madera · CDMX y Edomex</p>
+            <h1 id="picnic-hero-heading">
+              Renta de <em>mesas picnic y mobiliario de madera</em> para eventos al aire libre
+            </h1>
+            <p class="hm-hero__lead">
+              Bancas de pino natural barnizadas a mano para bodas, corporativos, fiestas
+              infantiles y picnics. 22 modelos: picnic, farm, biergarten, parota, sets y
+              lounge. Entrega, montaje y recolección incluidos. Desde $350.
+            </p>
+            <div class="sv-hero__ctas">
+              <a
+                class="hm__btn hm__btn--gold"
+                href={`https://wa.me/${WA}?text=Hola,%20quiero%20cotizar%20mesas%20picnic%20de%20madera%20para%20mi%20evento`}
+                target="_blank" rel="noopener noreferrer"
+              >
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.23 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+                Cotizar mesas picnic
+              </a>
+              <a class="hm__btn hm__btn--ghost" href="#catalogo">
+                Ver catálogo completo
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="hm-hero__seo">
+            <p>
+              EVENTECH incorpora la línea completa de <strong>mesas picnic y mobiliario de
+              madera</strong> para eventos al aire libre en la Ciudad de México y zona
+              metropolitana: 22 modelos en pino nacional, parota y teca, lijados a grano fino
+              y barnizados a mano. Desde la mesa picnic estándar para 6 personas hasta la XL de
+              3 metros, más farm americana, biergarten de festival, sets lounge y modelos
+              infantiles sin astillas.
+            </p>
+            <p>
+              Es la especialidad de nuestro sitio hermano
+              <a href="https://mesaspicnic.com/" target="_blank" rel="noopener">MESPIC — mesaspicnic.com</a>,
+              con más de 500 eventos montados y estética rústica de madera natural. Combina estas
+              mesas con nuestras <a href="/servicios/mobiliario/sillas/">sillas crossback</a>,
+              <a href="/servicios/mobiliario/barras/">barras</a> y
+              <a href="/servicios/iluminacion/">iluminación</a> para un montaje al aire libre
+              completo desde una sola empresa. Entrega y montaje incluidos, sin límite de tiempo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NAV SUBCATEGORÍAS ──────────────────────────────────────── -->
+    <nav class="hm-menu" aria-label="Tipos de mesa de madera disponibles">
+      <ul class="hm-menu__grid" style="grid-template-columns: repeat(5, 1fr);">
+        {SUB_SERVICES.map((s) => (
+          <li><a class="hm-menu__item" href={s.href}>{s.name}</a></li>
+        ))}
+        <li>
+          <a
+            class="hm-menu__item hm-menu__item--cta"
+            href={`https://wa.me/${WA}?text=Hola,%20quiero%20cotizar%20mesas%20picnic%20de%20madera%20para%20mi%20evento`}
+            target="_blank" rel="noopener noreferrer"
+          >Cotizar ahora</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- CATÁLOGO ──────────────────────────────────────────────── -->
+    <section id="catalogo" class="hm__section" aria-labelledby="catalogo-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">22 modelos de mobiliario de madera</p>
+            <h2 id="catalogo-heading">¿Qué mesa de madera necesita tu evento?</h2>
+            <p class="hm__head-sub">4 familias, 22 modelos — de la banca picnic clásica al lounge exterior VIP.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              No es lo mismo montar una boda de 150 personas en un jardín que un cumpleaños
+              infantil en una terraza. Por eso el catálogo cubre desde la banca picnic estándar
+              de pino hasta maderas macizas de parota y teca para eventos VIP, pasando por
+              formatos de festival, farm de patas de horquilla y sets con todo incluido.
+            </p>
+            <p>
+              Toda la madera es pino nacional lijado a grano fino y barnizado a mano, o maderas
+              premium con aceite de teca. Puedes combinar modelos en una sola cotización y
+              entrega. Traslado, montaje profesional y recolección incluidos sin costo adicional
+              dentro de CDMX y Edomex.
+            </p>
+          </div>
+        </div>
+        <div class="hm-cat-grid">
+          {SUB_SERVICES.map((s) => (
+            <article class="hm-cat">
+              <a class="hm-cat__media" href={s.href} aria-label={`Ver ${s.name}`}>
+                <img class="hm-cat__img" src={s.image} alt={`${s.name} de madera para eventos en CDMX — EVENTECH`} loading="lazy" decoding="async" />
+                <span class="hm-cat__badge">{s.badge}</span>
+                <span class="hm-cat__name">{s.name}</span>
+              </a>
+              <div class="hm-cat__body">
+                <p class="hm-cat__sub">{s.excerpt}</p>
+                <ul class="hm-cat__menu">
+                  {s.subcategories.map((sc) => (
+                    <li>
+                      <a href={sc.href} target="_blank" rel="noopener noreferrer">
+                        <span>{sc.name}</span>
+                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <a class="hm-cat__cta" href={s.href}>
+                  Ver {s.name}
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- MÓDULOS DETALLE ────────────────────────────────────────── -->
+    <section class="hm__section hm__section--ivory" aria-labelledby="detalle-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Cada familia, a fondo</p>
+            <h2 id="detalle-heading">Las 4 familias de mobiliario de madera</h2>
+            <p class="hm__head-sub">Materiales, medidas, capacidad y para qué evento funciona mejor cada línea.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              La madera natural aporta calidez y una estética que el plástico y el metal no
+              pueden imitar. Cada familia responde a un uso distinto: la picnic clásica para
+              la mayoría de los invitados, las especiales para los puntos focales, los sets
+              para resolver todo de una vez y la línea infantil para los más pequeños.
+            </p>
+            <p>
+              A continuación, lo que importa de cada familia y sus modelos disponibles.
+            </p>
+          </div>
+        </div>
+
+        <!-- PICNIC -->
+        <article class="hm-feat" id="picnic" aria-labelledby="feat-picnic">
+          <div class="hm-feat__text">
+            <p class="hm__eyebrow">Mesas Picnic</p>
+            <h3 class="hm-feat__title" id="feat-picnic">Bancas de pino natural — el corazón del catálogo, de 6 a 16 personas</h3>
+            <p class="hm-feat__lead">La mesa picnic con bancas integradas es el modelo más reservado semana a semana. Pino lijado a grano fino y barnizado a mano que combina con rústico, boho, clásico o corporativo.</p>
+            <p>
+              Ocho modelos cubren cualquier escala: la <strong>Estándar</strong> (1.80 × 1.50 m,
+              6 personas), la <strong>Grande</strong> reforzada (2.40 × 1.50 m, 10-12), la
+              <strong>XL</strong> con refuerzo de acero (3 m, 14-16), la <strong>Premium</strong>
+              sin nudos con 4 manos de barniz, la <strong>Rústica</strong> de veta visible, la
+              <strong>Hexagonal</strong> favorita de bodas boho, la <strong>Plegable</strong>
+              portátil y la <strong>Farm Americana</strong> sin bancas para combinar con sillas.
+            </p>
+            <p>
+              Es el formato ideal para bodas al aire libre, reuniones familiares, corporativos
+              y festivales. Combínalas con nuestras
+              <a href="/servicios/mobiliario/sillas/crossback/">sillas crossback</a> cuando
+              elijas la Farm Americana. Desde $350 por pieza con montaje incluido.
+            </p>
+            <ul class="hm-feat__chips">
+              {[
+                "Mesa Picnic Estándar","Mesa Picnic Grande","Mesa Picnic XL","Mesa Picnic Premium",
+                "Mesa Picnic Rústica","Mesa Picnic Hexagonal","Mesa Picnic Plegable","Mesa Farm Americana",
+              ].map((m) => (<li><a href={waModel(m)} target="_blank" rel="noopener noreferrer">{m}</a></li>))}
+            </ul>
+            <a class="hm-feat__cta" href={`https://wa.me/${WA}?text=${encodeURIComponent("Hola, quiero cotizar mesas picnic (línea clásica) para mi evento.")}`} target="_blank" rel="noopener noreferrer">
+              Cotizar Mesas Picnic
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <div class="hm-feat__media hm-feat__media--g3">
+            <img class="hm-feat__g3-main" src="/images/mobiliario/crossback-madera-01.avif" alt="Mesa picnic de madera de pino para boda al aire libre en CDMX" loading="lazy" decoding="async" />
+            <div class="hm-feat__g3-thumbs">
+              <img src="/images/mobiliario/crossback-madera-02.avif" alt="Mesa picnic de pino natural barnizada a mano" loading="lazy" decoding="async" />
+              <img src="/images/mobiliario/candy-bar-boda-rustica-madera.avif" alt="Mobiliario de madera rústica para evento en jardín" loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </article>
+
+        <!-- ESPECIALES -->
+        <article class="hm-feat" id="especiales" aria-labelledby="feat-especiales">
+          <div class="hm-feat__text">
+            <p class="hm__eyebrow">Mesas Especiales & Farm</p>
+            <h3 class="hm-feat__title" id="feat-especiales">Formatos de autor — el centro visual del evento</h3>
+            <p class="hm-feat__lead">Cuando la mesa tiene que ser protagonista: formatos que se convierten en elemento de diseño por sí mismos, en madera de pino, teca y parota maciza.</p>
+            <p>
+              Seis modelos de carácter: la <strong>Redonda de Madera</strong> que elimina
+              jerarquías y facilita la conversación, la <strong>Biergarten</strong> europea de
+              festival con bancas removibles, la <strong>Farm Patas de Horquilla</strong> de
+              hierro forjado negro (la más fotogénica), la <strong>Sweetheart</strong> exclusiva
+              para los novios, y las maderas macizas premium de <strong>Teca</strong> (resistente
+              UV) y <strong>Parota</strong> mexicana (dureza Janka 1,480 lbf).
+            </p>
+            <p>
+              Ideales para bodas de alto perfil, mesas de honor, festivales gastronómicos y
+              eventos VIP. Las maderas macizas son el modelo de mayor categoría del catálogo.
+            </p>
+            <ul class="hm-feat__chips">
+              {[
+                "Mesa Redonda de Madera","Mesa Biergarten","Mesa Madera Teka",
+                "Mesa Farm Patas de Horquilla","Mesa Sweetheart para Novios","Mesa de Parota",
+              ].map((m) => (<li><a href={waModel(m)} target="_blank" rel="noopener noreferrer">{m}</a></li>))}
+            </ul>
+            <a class="hm-feat__cta" href={`https://wa.me/${WA}?text=${encodeURIComponent("Hola, quiero cotizar una mesa especial / farm de madera para mi evento.")}`} target="_blank" rel="noopener noreferrer">
+              Cotizar Mesas Especiales
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <div class="hm-feat__media hm-feat__media--g3">
+            <img class="hm-feat__g3-main" src="/images/mobiliario/candy-bar-boda-rustica-madera.avif" alt="Mesa especial de madera para boda al aire libre en CDMX" loading="lazy" decoding="async" />
+            <div class="hm-feat__g3-thumbs">
+              <img src="/images/mobiliario/barras-postres-mesa-vintage.avif" alt="Mesa de madera vintage para evento" loading="lazy" decoding="async" />
+              <img src="/images/mobiliario/candy-bar-jardin-exterior.avif" alt="Mobiliario de madera en jardín exterior" loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </article>
+
+        <!-- SETS -->
+        <article class="hm-feat" id="sets" aria-labelledby="feat-sets">
+          <div class="hm-feat__text">
+            <p class="hm__eyebrow">Sets y Complementos</p>
+            <h3 class="hm-feat__title" id="feat-sets">Todo lo que rodea a la mesa — llave en mano</h3>
+            <p class="hm-feat__lead">Sets completos y complementos para resolver el montaje sin decoradora: mantelería, sillas, lounge, barra y bancas independientes.</p>
+            <p>
+              Seis opciones: el <strong>Set Picnic Completo</strong> (mesa + mantelería + cojines
+              + ambientación) para picnics románticos y pedidas de mano, el <strong>Set Comedor
+              Exterior</strong> con 6 sillas crossback incluidas, el <strong>Set Lounge Exterior
+              VIP</strong> con módulos tapizados en lona impermeable, la <strong>Mesa Alta
+              Cocktail</strong> para networking, la <strong>Banca Individual</strong> como
+              complemento y la <strong>Barra de Madera</strong> para coctelería y candy bar.
+            </p>
+            <p>
+              Perfectos para zonas VIP, coctel de recepción y experiencias todo incluido.
+              Complementa con nuestras <a href="/servicios/mobiliario/barras/">barras</a> y
+              <a href="/servicios/mobiliario/salas-lounge/">salas lounge</a>.
+            </p>
+            <ul class="hm-feat__chips">
+              {[
+                "Set Picnic Completo","Set Comedor Exterior","Set Lounge Exterior",
+                "Mesa Alta Cocktail","Banca Picnic Individual","Barra de Madera",
+              ].map((m) => (<li><a href={waModel(m)} target="_blank" rel="noopener noreferrer">{m}</a></li>))}
+            </ul>
+            <a class="hm-feat__cta" href={`https://wa.me/${WA}?text=${encodeURIComponent("Hola, quiero cotizar un set o complemento de madera para mi evento.")}`} target="_blank" rel="noopener noreferrer">
+              Cotizar Sets y Complementos
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <div class="hm-feat__media hm-feat__media--g3">
+            <img class="hm-feat__g3-main" src="/images/mobiliario/barra-bebidas-madera-cocteleria-lujo.avif" alt="Barra y set de madera para coctelería en evento CDMX" loading="lazy" decoding="async" />
+            <div class="hm-feat__g3-thumbs">
+              <img src="/images/mobiliario/barras-postres-mesa-madera-rustica.avif" alt="Set de madera rústica para postres en evento" loading="lazy" decoding="async" />
+              <img src="/images/mobiliario/barras-postres-mesa-vintage.avif" alt="Mesa de madera vintage como complemento de evento" loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </article>
+
+        <!-- INFANTIL -->
+        <article class="hm-feat" id="infantil" aria-labelledby="feat-infantil">
+          <div class="hm-feat__text">
+            <p class="hm__eyebrow">Para Niños</p>
+            <h3 class="hm-feat__title" id="feat-infantil">Mobiliario de madera pensado para los más pequeños</h3>
+            <p class="hm-feat__lead">Altura reducida, bordes redondeados, lijado ultrafino sin astillas y pintura atóxica certificada. El mobiliario más seguro del catálogo.</p>
+            <p>
+              Dos modelos: la <strong>Mesa Picnic Infantil</strong> (1.20 × 1.00 m, para 8-10
+              niños de 3 a 10 años) con altura adaptada y acabado ultrafino, y el <strong>Set
+              Infantil Temático</strong> (1.00 × 0.70 m, 52 cm de alto) con pintura atóxica en
+              5 colores: blanco, azul cielo, rosa palo, verde menta y lila.
+            </p>
+            <p>
+              Ideales para cumpleaños infantiles, baby showers y kermeses. Combínalos con
+              nuestros <a href="/servicios/inflables/">inflables infantiles</a> para una zona
+              de niños completa.
+            </p>
+            <ul class="hm-feat__chips">
+              {[
+                "Mesa Picnic Infantil","Set Infantil Temático",
+              ].map((m) => (<li><a href={waModel(m)} target="_blank" rel="noopener noreferrer">{m}</a></li>))}
+            </ul>
+            <a class="hm-feat__cta" href={`https://wa.me/${WA}?text=${encodeURIComponent("Hola, quiero cotizar mobiliario de madera infantil para mi evento.")}`} target="_blank" rel="noopener noreferrer">
+              Cotizar línea Infantil
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <div class="hm-feat__media hm-feat__media--g3">
+            <img class="hm-feat__g3-main" src="/images/mobiliario/candy-bar-jardin-exterior.avif" alt="Mobiliario de madera infantil para fiesta en jardín CDMX" loading="lazy" decoding="async" />
+            <div class="hm-feat__g3-thumbs">
+              <img src="/images/mobiliario/candy-bar-boda-rustica-madera.avif" alt="Mesa de madera para fiesta infantil" loading="lazy" decoding="async" />
+              <img src="/images/mobiliario/accesorios-decorativos-candelabros-mesa.avif" alt="Accesorios decorativos de madera para evento infantil" loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- POR QUÉ EVENTECH ────────────────────────────────────────── -->
+    <section class="hm__section hm__section--navy" aria-labelledby="why-heading">
+      <div class="hm__wrap">
+        <div class="hm__head">
+          <p class="hm__eyebrow">Por qué elegirnos</p>
+          <h2 id="why-heading">Lo que diferencia nuestro mobiliario de madera</h2>
+          <p class="hm__head-sub">Madera real, servicio completo y experiencia en eventos al aire libre.</p>
+        </div>
+        <ul class="hm-why">
+          {whyFeatures.map((f) => (
+            <li class="hm-why__item">
+              <div class="hm-why__ic" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <h3>{f.title}</h3>
+              <p>{f.body}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- CÓMO FUNCIONA ──────────────────────────────────────────── -->
+    <section class="hm__section hm__section--ivory" aria-labelledby="proceso-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Proceso de renta</p>
+            <h2 id="proceso-heading">De la cotización al montaje — sin complicaciones</h2>
+            <p class="hm__head-sub">4 pasos para que el mobiliario llegue listo y a tiempo.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Tú eliges el tipo de evento y el modelo; nosotros nos encargamos de que el
+              mobiliario llegue montado, a tiempo y en perfectas condiciones. El precio que
+              cotizamos es el precio final, sin cargos ocultos por traslado o tiempo extra.
+            </p>
+          </div>
+        </div>
+        <ol class="hm-steps">
+          {steps.map((s) => (
+            <li class="hm-step">
+              <div class="hm-step__num">{s.n}</div>
+              <h3>{s.t}</h3>
+              <p>{s.p}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES + FORMULARIO ──────────────────────── -->
+    <section class="hm__section hm__section--ivory" aria-labelledby="faq-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Antes de cotizar</p>
+            <h2 id="faq-heading">Preguntas frecuentes sobre mesas picnic</h2>
+            <p class="hm__head-sub">Las dudas más comunes — respondidas con claridad.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Reunimos las preguntas que más nos hacen por WhatsApp antes de cada evento:
+              qué incluye el servicio, capacidad, cobertura, seguridad para niños y clima.
+              Si tu duda no está aquí, un asesor te responde el mismo día.
+            </p>
+            <p>
+              Con más de 500 eventos al aire libre montados en CDMX y Edomex, conocemos la
+              logística de cada tipo de celebración. Cotiza con la tranquilidad de un
+              proveedor con experiencia.
+            </p>
+          </div>
+        </div>
+
+        <div class="hm-faqx">
+          <div class="hm-faq">
+            {faqs.map((faq) => (
+              <details class="hm-faq__item">
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+
+          <aside class="hm-faqx__aside" aria-labelledby="picnicform-heading">
+            <form id="picnicForm" class="hm-form" data-wa={WA}>
+              <p class="hm-form__eyebrow">Respuesta el mismo día</p>
+              <h3 id="picnicform-heading" class="hm-form__title">Cotiza tus mesas picnic</h3>
+              <p class="hm-form__sub">Cuéntanos lo esencial y te mandamos precio y disponibilidad el mismo día.</p>
+
+              <label class="hm-form__field">
+                <span>Nombre</span>
+                <input type="text" name="nombre" autocomplete="name" placeholder="Tu nombre" required />
+              </label>
+
+              <label class="hm-form__field">
+                <span>Tipo de evento</span>
+                <select name="tipo">
+                  <option value="">Selecciona…</option>
+                  <option>Boda</option>
+                  <option>Evento corporativo</option>
+                  <option>Fiesta infantil</option>
+                  <option>Picnic romántico</option>
+                  <option>Fiesta temática</option>
+                  <option>Reunión familiar</option>
+                  <option>Festival o feria</option>
+                  <option>Sesión fotográfica</option>
+                  <option>Otro</option>
+                </select>
+              </label>
+
+              <label class="hm-form__field">
+                <span>Fecha del evento</span>
+                <input type="date" name="fecha" />
+              </label>
+
+              <label class="hm-form__field">
+                <span>Modelo</span>
+                <select name="modelo">
+                  <option value="">Selecciona…</option>
+                  <option>Mesa Picnic Estándar</option>
+                  <option>Mesa Picnic Grande</option>
+                  <option>Mesa Picnic XL</option>
+                  <option>Mesa Picnic Premium</option>
+                  <option>Mesa Picnic Rústica</option>
+                  <option>Mesa Farm Americana</option>
+                  <option>Mesa de Parota / Teka</option>
+                  <option>Set Picnic Completo</option>
+                  <option>Set Lounge Exterior</option>
+                  <option>Barra de Madera</option>
+                  <option>Mesa Picnic Infantil</option>
+                  <option>Varios / No decidido</option>
+                </select>
+              </label>
+
+              <label class="hm-form__field">
+                <span>Detalles del evento</span>
+                <textarea name="mensaje" rows="3" placeholder="Número de invitados, venue o colonia, zona…"></textarea>
+              </label>
+
+              <button type="submit" class="hm-form__btn">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
+                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.23 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z" />
+                </svg>
+                Enviar por WhatsApp
+              </button>
+              <p class="hm-form__note">Se abrirá WhatsApp con tu información. Sin compromiso.</p>
+            </form>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /hm -->
+
+  <script>
+    const picnicForm = document.getElementById("picnicForm");
+    if (picnicForm) {
+      picnicForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const f = e.currentTarget as HTMLFormElement;
+        const wa = f.dataset.wa;
+        const data = new FormData(f);
+        const get = (k: string) => (data.get(k) || "").toString().trim();
+        let t = "Hola, quiero cotizar mesas picnic de madera para mi evento.";
+        if (get("nombre"))  t += `\nNombre: ${get("nombre")}`;
+        if (get("tipo"))    t += `\nTipo de evento: ${get("tipo")}`;
+        if (get("fecha"))   t += `\nFecha: ${get("fecha")}`;
+        if (get("modelo"))  t += `\nModelo: ${get("modelo")}`;
+        if (get("mensaje")) t += `\nDetalles: ${get("mensaje")}`;
+        window.open(`https://wa.me/${wa}?text=${encodeURIComponent(t)}`, "_blank", "noopener");
+      });
+    }
+  </script>
+
+</PageLayout>
+
+<style>
+  /* ── Nav CTA item ── */
+  .hm-menu__item--cta {
+    background: var(--color-gold, #c2a24a);
+    color: #1c1607 !important;
+    font-weight: 700;
+  }
+  .hm-menu__item--cta:hover {
+    background: var(--color-gold-deep, #a9883a) !important;
+    border-top-color: transparent !important;
+  }
+</style>
