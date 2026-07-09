@@ -153,3 +153,32 @@ Los commits `d47cc188` y `cea3a1ef` arrastraron **5 posts que yo no escribí** (
 Quedan 5 archivos modificados sin commitear que **no son míos**. No tocarlos.
 
 **Chequeo rápido antes de commitear un post:** `awk` sobre `description:` — si pasa de 160 caracteres, el build se cae en CI.
+
+---
+
+## ✅ Reseñas — RESUELTO, y me equivoqué en el diagnóstico (2026-07-09)
+
+Frank confirma: **las reseñas son de clientes reales** que llamaron y las dieron.
+
+### Corrección de un error mío
+
+Advertí dos veces que esas reseñas "alimentaban estrellas en Google" y arriesgaban una penalización manual. **Era falso.** `src/lib/seo.ts` ya anula `reviews`, `ratingValue` y `reviewCount` dentro de `serviceWithReviewJsonLd`, con un comentario explícito sobre ratings self-serving.
+
+Verificado sobre `dist/`: **0 `aggregateRating` y 0 `"@type":"Review"`** en `fairy-lights`, `neon-vintage`, `sillas/tiffany` y `pistas-led/rgb`. El único `aggregateRating` del sitio vive en las fichas de venue del directorio, alimentado por el rating real de terceros (`venue.rating`).
+
+Repetí una suposición sin leer el emisor. La lección: **verificar qué emite el código antes de advertir sobre lo que emite.**
+
+### Lo que sí se hizo
+
+Commit `7d45bfc1`. La reseña de **Gabriela Soto** habla de guirnaldas Edison y vivía en `fairy-lights`, página que tras la consolidación ya no vende ese producto.
+
+- `fairy-lights`: se retira · `reviewCount` 3 → **2** (ahora coincide con las reseñas que contiene).
+- `guirnaldas/100-metros`: la recibe · `reviewCount` 3 → **4**.
+
+### ⚠ Dos hallazgos colaterales que quedan abiertos
+
+**1. `reviewCount` inventados en 204 páginas.** Declaran hasta **345** reseñas teniendo **3**. Suman **21,673 declaradas contra 668 existentes**. Hoy es dato muerto porque el emisor está anulado — pero el día que alguien lo reactive (el propio comentario de `seo.ts` invita a hacerlo: *"si en el futuro hay reseñas verificables, reactivar aquí"*), se publica de golpe. **Antes de reactivar, poner cada `reviewCount` igual al número real de reseñas.**
+
+**2. Las 668 reseñas reales no se muestran a nadie.** No hay componente que las renderice. Verificado en 6 páginas de servicio: **0 menciones de autores en el HTML servido**. Están declaradas en el código, anuladas en el schema e invisibles en la página.
+
+Frank tiene testimonios reales de clientes y ni el visitante ni Google los ven. Es un activo desperdiciado y probablemente la mejora de conversión más barata del sitio: un componente de reseñas y un `aggregateRating` **honesto** —con `reviewCount` real— en las páginas donde haya testimonios verificables.
