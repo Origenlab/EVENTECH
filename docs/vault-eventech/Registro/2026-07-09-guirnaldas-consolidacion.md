@@ -115,3 +115,41 @@ Commit `d47cc188`. Action `deploy.yml` (Cloudflare Pages) → **completed / succ
 - `neon-vintage`: el bloque *"Otro producto, otra página"* está en vivo.
 - Los dos guías sirven **0 menciones de "Paquete 400"** en texto; todo dice 500 m / 1,000 focos.
 - Hub y las 5 páginas hijas siguen respondiendo **200**.
+
+---
+
+## ✅ Bloqueador de precios — RESUELTO (2026-07-09)
+
+Frank confirma: **los precios reales son los cerrados** ($3,500 / $6,500 / $11,500 / $24,000 + IVA).
+
+Commit `730d9a85`, Action verde, verificado en vivo:
+
+- **`cuanto-cuesta-rentar-guirnaldas-cdmx-precios-2026.md` reescrito.** Deja de vender rangos elásticos. Nueva estructura: tabla de 4 paquetes con precio cerrado · sección que separa fairy lights (micro LED, $800–$8,000, por m² de techo) de guirnaldas Edison (por metro lineal) · tabla de cálculo por patrón de montaje que enlaza las 4 páginas nuevas · los 3 casos de estudio recalculados. El CTA pasa de `fairy-lights` al hub.
+- **3 posts más** (`ambientacion-bodas-lujo`, `bodas-aire-libre`, `carpas-bodas`): las filas "Guirnaldas Edison 50/100/200 m" pasan a precio cerrado y ganan enlace a su ficha. El resto de sus precios (sillas, pistas, carpas) intacto.
+- `bodas-aire-libre`: corregido "100 focos de 4W" → "200 focos LED de 2W".
+- En vivo: 0 rastros de $1,800 / $1,600 / $3,200 / $5,500 / $7,800 en el post de precios.
+
+**Dos casos NO se tocaron a propósito** — no corresponden a ningún paquete del catálogo y no se inventan precios:
+
+- `cuanto-cuesta-rentar-letrero-neon-*`: "sets Edison" de 10–15 m ($2,500) y de jardín ($6,000).
+- `casos-estudio-eventos-exitosos-*`: montajes de 800 y 1,200 m ($12,500 y $18,500).
+
+Si esos scopes existen como producto, hay que definirlos; si no, deberían salir del blog.
+
+---
+
+## ⚠ Dos incidentes de proceso — leer antes del próximo commit
+
+### 1. Commiteé trabajo ajeno con `git add -A`
+
+Los commits `d47cc188` y `cea3a1ef` arrastraron **5 posts que yo no escribí** (`cuantos-metros-guirnaldas-necesito-evento-cdmx`, `guia-canopy-zigzag-perimetral-tree-wrap-guirnaldas-cdmx`, `guirnaldas-eventos-corporativos-festivales-terrazas-cdmx`, `guirnaldas-luces-boda-jardin-cdmx-guia-2026`, `rentar-vs-comprar-guirnaldas-luces-eventos`). Estaban sin trackear en el working tree. Los builds pasaron y el contenido usa los precios cerrados correctos, así que no hubo daño — pero es contenido que nadie revisó antes de publicarlo.
+
+**Regla nueva: en este repo no se usa `git add -A`.** Se listan los archivos explícitamente.
+
+### 2. Una edición concurrente rompió el build
+
+`cuantos-metros-guirnaldas-necesito-evento-cdmx.md` tenía una `description` de **163 caracteres** (el schema de la colección permite 160). El build local falló con `InvalidContentEntryDataError`. Se recortó a 156 caracteres y **se dejó sin commitear**, porque el archivo tiene edición en curso de otra persona.
+
+Quedan 5 archivos modificados sin commitear que **no son míos**. No tocarlos.
+
+**Chequeo rápido antes de commitear un post:** `awk` sobre `description:` — si pasa de 160 caracteres, el build se cae en CI.
