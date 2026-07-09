@@ -8,7 +8,7 @@ import PageLayout from "./PageLayout.astro";
 import Breadcrumbs from "@components/Breadcrumbs.astro";
 import RelatedContent from "@components/RelatedContent.astro";
 import { readingTime } from "@lib/helpers";
-import { articleJsonLd, breadcrumbJsonLd, canonicalURL } from "@lib/seo";
+import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, canonicalURL } from "@lib/seo";
 import {
   findRelatedServices,
   findRelatedEventTypes,
@@ -40,6 +40,7 @@ type Props = {
   relatedPosts?: string[];
   relatedServices?: string[];
   keywords?: string[];
+  faqs?: { question: string; answer: string }[];
 };
 
 const {
@@ -58,6 +59,7 @@ const {
   relatedPosts,
   relatedServices,
   keywords,
+  faqs,
 } = Astro.props;
 
 const minutes = readingTime(body);
@@ -112,9 +114,12 @@ const SERVICE_DATA: Record<string, { label: string; url: string; icon: string }>
   "accesorios": { label: "Accesorios", url: "/servicios/accesorios/", icon: "🔧" },
 };
 
-// Get dynamic services (from article) or default set
-const displayServices = relatedServices && relatedServices.length > 0
-  ? relatedServices.filter(s => SERVICE_DATA[s])
+// Get dynamic services (from article) or default set.
+// Fallback seguro: si el artículo declara relatedServices que no mapean a un
+// servicio real (ej. "bodas"), no dejamos el sidebar vacío.
+const declaredServices = (relatedServices ?? []).filter(s => SERVICE_DATA[s]);
+const displayServices = declaredServices.length > 0
+  ? declaredServices
   : ["mobiliario", "audiovisual", "iluminacion", "carpas"];
 
 const CATEGORY_LABELS: Record<string, string> = {
@@ -154,8 +159,8 @@ const jsonLd = [
     description,
     url: canonicalURL(`/blog/${slug}/`),
     image,
-    datePublished: undefined,
-    dateModified: undefined,
+    datePublished: date?.toISOString(),
+    dateModified: (updatedDate ?? date)?.toISOString(),
     author,
   }),
   breadcrumbJsonLd([
@@ -163,6 +168,8 @@ const jsonLd = [
     { name: "Blog", url: "/blog/" },
     { name: title, url: `/blog/${slug}/` },
   ]),
+  // FAQPage → rich snippets en Google. Usa el campo `faqs` del frontmatter.
+  ...(faqs && faqs.length > 0 ? [faqJsonLd(faqs)] : []),
 ];
 
 // Generar excerpt para las cards del hero
