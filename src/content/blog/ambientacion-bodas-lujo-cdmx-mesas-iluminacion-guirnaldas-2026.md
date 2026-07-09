@@ -300,9 +300,9 @@ Los precios varían según fecha, venue, distancia y configuración exacta. Los 
 | Uplighting perimetral | 10 unidades inalámbricas | $6,000–$9,000 |
 | Spots de fachada IP65 | 6 unidades | $7,500–$11,000 |
 | Gobo monograma | 1 proyector + diseño | $5,500–$8,500 |
-| Guirnaldas Edison 50 m | Instalación completa | $4,000–$6,500 |
-| Guirnaldas Edison 100 m | Instalación completa | $7,500–$11,000 |
-| Guirnaldas Edison 200 m | Instalación completa | $14,000–$20,000 |
+| [Guirnaldas Edison 50 m](/servicios/iluminacion/guirnaldas/50-metros/) | Precio cerrado, instalación incluida | $3,500 + IVA |
+| [Guirnaldas Edison 100 m](/servicios/iluminacion/guirnaldas/100-metros/) | Precio cerrado, instalación incluida | $6,500 + IVA |
+| [Guirnaldas Edison 200 m](/servicios/iluminacion/guirnaldas/200-metros/) | Precio cerrado, instalación incluida | $11,500 + IVA |
 
 *Precios en MXN. IVA no incluido. Incluyen instalación, operación y desmontaje. Solicita cotización exacta según tu fecha y venue.*
 

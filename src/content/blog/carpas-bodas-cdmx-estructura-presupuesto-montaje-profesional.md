@@ -231,7 +231,7 @@ Una carpa sola no es suficiente. Los accesorios son lo que la convierte en venue
 | Calentadores (si evento otoño/invierno) | 2-3 calentadores termoestáticos | $1,500 |
 | **Subtotal climatización** | | **$2,700** |
 | **ILUMINACIÓN INTERIOR** |
-| Guirnaldas Edison 100m | Instalación completa | $9,000 |
+| [Guirnaldas Edison 100 m](/servicios/iluminacion/guirnaldas/100-metros/) | Precio cerrado, instalación incluida | $6,500 + IVA |
 | Spots de enfoque (sobre mesas) | 8-10 unidades | $3,000 |
 | Dimmer y control | Sistema programable | $1,500 |
 | **Subtotal iluminación** | | **$13,500** |

@@ -130,7 +130,7 @@ Un evento al aire libre de 150 invitados con iluminación de producción, sistem
 | Categoría de equipo | Consumo típico | Observaciones |
 |---|---|---|
 | Iluminación arquitectónica (12 uplights) | 2.4 kW | LED de bajo consumo |
-| Guirnaldas Edison 100 m | 0.4 kW | 100 focos de 4W |
+| Guirnaldas Edison 100 m | 0.4 kW | 200 focos LED de 2W |
 | Sistema de sonido (300 invitados) | 4–8 kW | Depende del sistema |
 | Pista de baile LED (5×5 m) | 1.5 kW | Pista pixel estándar |
 | Iluminación escenario (4 moving heads) | 6 kW | Moving heads beam |
@@ -562,8 +562,8 @@ Los siguientes rangos aplican para bodas en CDMX y área metropolitana (en MXN, 
 
 | Elemento | Descripción | Rango de precio |
 |---|---|---|
-| [Guirnaldas Edison 100 m](/servicios/iluminacion/guirnaldas/100-metros/) | Con dimmer e instalación | $7,500–$11,000 |
-| [Guirnaldas Edison 200 m](/servicios/iluminacion/guirnaldas/200-metros/) | Con dimmer e instalación | $14,000–$20,000 |
+| [Guirnaldas Edison 100 m](/servicios/iluminacion/guirnaldas/100-metros/) | Con dimmer e instalación | $6,500 + IVA |
+| [Guirnaldas Edison 200 m](/servicios/iluminacion/guirnaldas/200-metros/) | Con dimmer e instalación | $11,500 + IVA |
 | [Uplighting inalámbrico (12 unidades)](/servicios/iluminacion/arquitectonica/uplighting/) | IP65 exterior | $7,000–$10,500 |
 | [Spots de fachada (6 unidades)](/servicios/iluminacion/arquitectonica/fachadas/) | IP65, instalación incluida | $7,500–$12,000 |
 | [Pista de baile LED 5×5 m](/servicios/pistas-baile/pistas-led/) | Con instalación | $14,000–$22,000 |
