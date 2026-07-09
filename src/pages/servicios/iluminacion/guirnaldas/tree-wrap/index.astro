@@ -1,0 +1,564 @@
+---
+/**
+ * ─── Tree Wrap — Patrón de Montaje (Nivel 5, hoja) ───
+ * Envolver troncos y ramas. HONESTIDAD TÉCNICA: el wrap real se hace con micro LED,
+ * no con foco Edison. La Edison se tiende ENTRE árboles. Esta página lo dice y
+ * enruta el micro LED a /decorativa/fairy-lights/.
+ * Molde: Template-L5-producto (variante hoja). Sin `reviews` inventadas.
+ *
+ * Jerarquía: Servicios > Iluminación > Guirnaldas (hub L4) > Patrón de montaje
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@config/site";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from "@lib/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+import ProveedorIluminacion from "@components/ProveedorIluminacion.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Iluminación", href: "/servicios/iluminacion/" },
+  { label: "Guirnaldas", href: "/servicios/iluminacion/guirnaldas/" },
+  { label: "Tree Wrap" },
+];
+
+const faqs = [
+  { question: "¿Se puede envolver un árbol con guirnaldas Edison?", answer: 'No, y conviene decirlo claro antes de que alguien lo cotice mal. El foco Edison es <strong>grande, rígido y va cada 50 cm</strong>: al enrollarlo en un tronco los focos se separan demasiado y el cable no sigue la curva. El wrap de tronco se hace con <strong><a href="/servicios/iluminacion/decorativa/fairy-lights/">fairy lights de micro LED</a></strong>, que son un hilo delgado y flexible con puntos de luz cada 5–10 cm. Lo que sí se hace con guirnalda Edison es <strong>tenderla entre árboles</strong>, usando los troncos como postes naturales. Son dos montajes distintos y los cotizamos por separado.' },
+  { question: "¿Cuántos metros de micro LED lleva envolver un árbol?", answer: 'Más de lo que la gente imagina. La cuenta: perímetro del tronco × número de vueltas. Un tronco de <strong>40 cm de diámetro</strong> tiene 1.26 m de perímetro; envolver <strong>3 metros de altura con paso de 10 cm</strong> son 30 vueltas, es decir <strong>unos 38 metros solo del tronco</strong>. Si además subes por las ramas principales, un árbol mediano se lleva entre <strong>50 y 100 metros</strong>. Por eso el tree wrap se cotiza por árbol y no por área: tres árboles pueden costar más que iluminar el jardín entero.' },
+  { question: "¿El montaje daña el árbol?", answer: 'No, si se hace bien y se retira a tiempo. Dos reglas: <strong>nunca apretar</strong> —el cable va apoyado, no ceñido, porque un tronco vivo crece y un cable tenso estrangula la corteza— y <strong>nunca dejarlo instalado indefinidamente</strong>. Usamos cable de silicona flexible que se adapta sin morder, y desmontamos al terminar el evento. En árboles jóvenes o de corteza delicada bajamos la tensión y aumentamos el paso de la espiral. Si el venue tiene ejemplares protegidos, lo consultamos con ellos antes de tocar nada.' },
+  { question: "¿Qué paso de espiral se usa y por qué importa?", answer: 'Entre <strong>8 y 12 centímetros</strong> entre vueltas. Es la distancia en la que el ojo deja de leer una espiral y empieza a leer un tronco luminoso — que es el efecto que se busca. Con paso mayor a 15 cm se ven las vueltas por separado y parece un adorno navideño mal puesto; con paso menor a 6 cm el consumo y el metraje se disparan sin ganancia visual. El paso también se ajusta al diámetro: un tronco grueso admite paso amplio, uno delgado necesita vueltas más juntas para no verse rayado.' },
+  { question: "¿Cómo se alimenta la corriente sin cables a la vista?", answer: 'La alimentación entra por <strong>la base del tronco</strong>, con conector IP65 sellado y el cable de acometida enterrado bajo el mantillo o corrido junto a la raíz y cubierto con un canal de piso si cruza un paso de invitados. Nunca dejamos una extensión colgando del tronco: se ve, se jala y es un riesgo. En jardines sin toma cercana llevamos <a href="/servicios/accesorios/plantas-energia/">planta de energía</a> silenciosa y la ubicamos fuera del campo visual y auditivo del evento.' },
+  { question: "¿Qué se hace cuando el árbol es muy alto?", answer: 'Se envuelve la parte que la gente ve. Por encima de los <strong>4 metros</strong> el wrap deja de leerse desde el nivel del invitado y empieza a ser gasto puro. En ejemplares altos hacemos dos cosas: envolver tronco y arranque de ramas hasta 3–4 m, y <strong>tender guirnalda Edison entre las copas o entre los troncos</strong> para llenar el plano superior. El resultado se ve mejor y cuesta una fracción. El montaje en altura se hace con escalera o arnés según el árbol; nunca improvisando.' },
+  { question: "¿Cuál es la alternativa más económica al tree wrap?", answer: 'Tender <strong>guirnalda Edison entre los árboles</strong>, usándolos como postes naturales. Cuesta una fracción del wrap, cubre mucha más superficie y da el mismo ambiente de jardín iluminado. Con el <a href="/servicios/iluminacion/guirnaldas/100-metros/">paquete de 100 metros</a> cruzas un jardín entero de árbol a árbol. El wrap tiene sentido cuando el árbol <em>es</em> el punto focal —el que está detrás de la mesa de novios, el del punto de foto— y no cuando solo quieres luz en el jardín. Te decimos cuál de los dos aplica en tu caso.' },
+  { question: "¿Se puede combinar tree wrap con otros patrones?", answer: 'Es lo que mejor funciona. La combinación de jardín: <strong>uno o dos árboles envueltos en micro LED</strong> como punto focal, más <strong>guirnalda Edison tendida entre los demás árboles</strong> o en <a href="/servicios/iluminacion/guirnaldas/perimetral-y-zigzag/">montaje perimetral</a>, todo a la misma temperatura de color (2700K). El ojo entiende el jardín como un solo diseño y no como tres proveedores distintos. Si el árbol focal está detrás del arco de ceremonia, súmale <a href="/servicios/iluminacion/arquitectonica/uplighting/">uplighting</a> a la base del tronco.' },
+];
+
+const specs = [
+  { label: "Producto correcto para wrap", value: "Fairy lights micro LED — no foco Edison" },
+  { label: "Paso de la espiral", value: "8–12 cm entre vueltas" },
+  { label: "Altura útil de envolvente", value: "Hasta 3–4 m (por encima deja de leerse)" },
+  { label: "Metraje por árbol", value: "Tronco de 3 m y 40 cm ø ≈ 38 m · Con ramas: 50–100 m" },
+  { label: "Tensión del cable", value: "Apoyado, nunca ceñido — el tronco crece" },
+  { label: "Tipo de cable", value: "Silicona flexible, resistente a UV" },
+  { label: "Alimentación", value: "Por la base, conector IP65 sellado, acometida oculta" },
+  { label: "Clasificación IP", value: "IP65 obligatorio (montaje siempre a intemperie)" },
+  { label: "Unidad de cotización", value: "Por árbol, no por área" },
+  { label: "Alternativa económica", value: "Guirnalda Edison tendida entre árboles" },
+];
+
+const sidebarNav = [
+  { name: "Canopy de Techo", href: "/servicios/iluminacion/guirnaldas/canopy-de-techo/" },
+  { name: "Tree Wrap (envolver árboles)", href: null, active: true },
+  { name: "Perimetral y Zigzag", href: "/servicios/iluminacion/guirnaldas/perimetral-y-zigzag/" },
+  { name: "Pérgolas y Arcos", href: "/servicios/iluminacion/guirnaldas/pergolas-y-arcos/" },
+];
+
+const sidebarPaquetes = [
+  { name: "50 metros — $3,500", href: "/servicios/iluminacion/guirnaldas/50-metros/" },
+  { name: "100 metros — $6,500", href: "/servicios/iluminacion/guirnaldas/100-metros/" },
+  { name: "200 metros — $11,500", href: "/servicios/iluminacion/guirnaldas/200-metros/" },
+  { name: "500 metros — $24,000", href: "/servicios/iluminacion/guirnaldas/500-metros/" },
+];
+
+const sidebarRelated = [
+  { name: "Fairy Lights Micro LED", href: "/servicios/iluminacion/decorativa/fairy-lights/" },
+  { name: "Uplighting Perimetral", href: "/servicios/iluminacion/arquitectonica/uplighting/" },
+  { name: "Esferas y Figuras LED", href: "/servicios/iluminacion/decorativa/esferas-led/" },
+  { name: "Plantas de Energía", href: "/servicios/accesorios/plantas-energia/" },
+  { name: "Mobiliario para Jardín", href: "/servicios/mobiliario/" },
+];
+
+const jsonLd = [
+  serviceJsonLd({
+    name: "Tree Wrap — Envolver Árboles con Luces para Eventos en CDMX",
+    description: "Tree wrap de árboles con fairy lights micro LED para bodas y eventos de jardín en CDMX. Paso de espiral 8–12 cm, cable de silicona sin ceñir, alimentación IP65 oculta. Cotización por árbol.",
+    url: "/servicios/iluminacion/guirnaldas/tree-wrap/",
+    image: "/images/guirnaldas/renta-guirnaldas-tree-wrap-jardin.avif",
+    priceRange: { min: 3500, max: 24000 },
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Iluminación", url: "/servicios/iluminacion/" },
+    { name: "Guirnaldas", url: "/servicios/iluminacion/guirnaldas/" },
+    { name: "Tree Wrap", url: "/servicios/iluminacion/guirnaldas/tree-wrap/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Tree Wrap — Envolver Árboles con Luces en CDMX | Equipo para eventos en México"
+  rawTitle={true}
+  image="/images/guirnaldas/renta-guirnaldas-tree-wrap-jardin.avif"
+  description="Tree wrap de árboles con micro LED para bodas de jardín en CDMX. Espiral de 8–12 cm, cable sin ceñir, alimentación oculta. Cotización por árbol."
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={breadcrumbItems} slot="breadcrumbs" />
+
+  <!-- 1. HERO -->
+  <HeroPage
+    badge="El punto focal del jardín"
+    title='<span class="highlight">Tree wrap</span> — envolver el árbol que ya era el protagonista'
+    subtitle="Espiral de micro LED a 8–12 cm de paso, cable de silicona apoyado y nunca ceñido, alimentación sellada por la base. Un árbol bien envuelto vale por toda la decoración del jardín."
+    primaryCTA={{ label: "Cotizar tree wrap", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar tree wrap para los árboles de mi evento` }}
+    cards={[
+      {
+        title: "Lo primero: el wrap no se hace con foco Edison",
+        content: "Conviene decirlo antes de que alguien lo cotice mal. El <strong>foco Edison es grande, rígido y va cada 50 cm</strong>: enrollado en un tronco, los focos se separan y el cable no sigue la curva. El wrap real se hace con <strong>fairy lights de micro LED</strong> —un hilo delgado con puntos de luz cada 5 a 10 cm— que envuelve la corteza y la dibuja. La guirnalda Edison sí trabaja en el jardín, pero <strong>tendida entre los árboles</strong>, usándolos como postes naturales. Son dos montajes, dos productos y dos presupuestos.",
+      },
+      {
+        title: "El árbol crece: el cable va apoyado, no apretado",
+        content: "Un tronco vivo aumenta de diámetro, y un cable tensado alrededor termina mordiendo la corteza. Montamos con <strong>cable de silicona flexible apoyado sin ceñir</strong>, con paso de espiral de <strong>8 a 12 cm</strong> —la distancia en la que el ojo deja de ver vueltas y empieza a ver un tronco luminoso—, y desmontamos al terminar el evento. En ejemplares jóvenes o de corteza delicada abrimos el paso y bajamos la tensión. Si el venue tiene árboles protegidos, preguntamos antes de tocarlos.",
+      },
+    ]}
+  />
+
+  <!-- 2. CTA BANNER -->
+  <CTABanner
+    headline="¿Cuántos árboles y de qué grosor?"
+    subheadline="El tree wrap se cotiza por árbol, no por área. Con una foto y el diámetro aproximado te damos el número"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- MOBILE SIDEBAR -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Patrones de Montaje</h2>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Paquetes por Metraje</h2>
+          <ul class="sidebar-related">
+            {sidebarPaquetes.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card sidebar-card--cta">
+          <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+          <p class="sidebar-card--cta-text">¿Cuántos árboles quieres envolver?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar tree wrap para los árboles de mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN + SIDEBAR -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <div class="l4-main">
+
+          <!-- SPECS -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones de montaje — Tree wrap</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- SHOWCASE 1 -->
+          <section class="section" aria-labelledby="wrap-heading">
+            <ServiceShowcase
+              title="El árbol envuelto: cuando el árbol es el punto focal"
+              headingId="wrap-heading"
+              badge="Micro LED, no Edison"
+              subtitle="Espiral de 8–12 cm que convierte el tronco en una columna de luz. Se cotiza por árbol porque el metraje se dispara."
+              tags={["38 m solo el tronco", "50–100 m con ramas", "Cable de silicona", "Cotización por árbol"]}
+              ctaHref="#reserva-heading"
+              ctaLabel="Cotizar árboles envueltos"
+            >
+              <Fragment slot="body">
+                <p class="showcase__text">La cuenta sorprende a todo el mundo. Un tronco de <strong>40 cm de diámetro</strong> tiene 1.26 metros de perímetro; envolver <strong>3 metros de altura con paso de 10 cm</strong> son treinta vueltas, o sea <strong>unos 38 metros de micro LED solo en el tronco</strong>. Si subes por las ramas principales, un árbol mediano se lleva entre 50 y 100 metros. Por eso el tree wrap se cotiza por árbol y nunca por área: tres árboles envueltos pueden costar más que iluminar el jardín completo.</p>
+                <p class="showcase__text">Eso no lo hace mala idea — lo hace una decisión de foco. El wrap tiene sentido cuando el árbol <em>ya</em> era el protagonista: el que está detrás de la mesa de novios, el del punto de foto, el que la gente rodea. Envolver los ocho árboles del jardín "para que se vean" es gastar en algo que a diez metros de distancia no se distingue. Nosotros te decimos cuáles vale la pena envolver, y normalmente son uno o dos.</p>
+              </Fragment>
+              <Fragment slot="media">
+                <img src="/images/guirnaldas/renta-guirnaldas-tree-wrap-jardin.avif" alt="Tree wrap de árbol con luces en jardín de eventos en CDMX" width="1200" height="686" loading="lazy" />
+              </Fragment>
+            </ServiceShowcase>
+          </section>
+
+          <!-- SHOWCASE 2 -->
+          <section class="section" aria-labelledby="entre-arboles-heading">
+            <ServiceShowcase
+              title="Guirnalda tendida entre árboles: la alternativa que casi siempre gana"
+              headingId="entre-arboles-heading"
+              badge="Una fracción del costo"
+              subtitle="Los troncos como postes naturales. Misma atmósfera de jardín iluminado, mucha más superficie, mucho menos metraje."
+              tags={["Foco Edison", "Sin dañar corteza", "100 m cruzan un jardín", "Postes gratis"]}
+              ctaHref="#reserva-heading"
+              ctaLabel="Cotizar tendido entre árboles"
+            >
+              <Fragment slot="body">
+                <p class="showcase__text">Si lo que quieres es un jardín con luz cálida y no un tronco esculpido en luz, la respuesta es tender <strong>guirnalda Edison de árbol a árbol</strong>. Los troncos hacen de postes —gratis, sólidos y ya colocados donde la naturaleza los puso—, y el foco de filamento visible flota sobre las cabezas de los invitados. Con el <a href="/servicios/iluminacion/guirnaldas/100-metros/">paquete de 100 metros</a> se cruza un jardín entero.</p>
+                <p class="showcase__text">La sujeción al tronco se hace con <strong>cinchos anchos de nylon sobre protección de fieltro</strong>, que reparten la presión y no marcan la corteza; en árboles delgados montamos un poste telescópico a un metro del tronco y no lo tocamos. Este montaje cuesta una fracción del wrap y cubre veinte veces más superficie. Cuando alguien nos pide "envolver todos los árboles", casi siempre lo que quería era esto.</p>
+              </Fragment>
+              <Fragment slot="media">
+                <img src="/images/guirnaldas/renta-guirnaldas-led-jardin-boda.avif" alt="Guirnaldas Edison tendidas entre los árboles de un jardín de boda" width="1200" height="686" loading="lazy" />
+              </Fragment>
+            </ServiceShowcase>
+          </section>
+
+          <!-- SHOWCASE 3 -->
+          <section class="section" aria-labelledby="combinado-heading">
+            <ServiceShowcase
+              title="Uno envuelto, el resto tendidos"
+              headingId="combinado-heading"
+              badge="El diseño de jardín completo"
+              subtitle="Un árbol focal en micro LED, guirnalda Edison entre los demás, todo a 2700K. El jardín se lee como un solo diseño."
+              tags={["1–2 árboles focales", "Edison en el resto", "2700K en todo", "Uplighting a la base"]}
+              ctaHref="#reserva-heading"
+              ctaLabel="Cotizar el diseño completo"
+            >
+              <Fragment slot="body">
+                <p class="showcase__text">El jardín que funciona en fotos tiene jerarquía: un punto donde la vista se detiene y un fondo que lo sostiene. <strong>Uno o dos árboles envueltos</strong> en micro LED hacen el punto; <strong>guirnalda Edison tendida entre los demás</strong>, o un <a href="/servicios/iluminacion/guirnaldas/perimetral-y-zigzag/">montaje perimetral</a>, hace el fondo. Sin jerarquía, todo brilla igual y nada destaca.</p>
+                <p class="showcase__text">La condición no negociable es que todo vaya a la <strong>misma temperatura de color: 2700K</strong>. Un micro LED frío junto a un foco Edison ámbar produce esa sensación de "aquí trabajaron dos proveedores distintos" que se nota en cada fotografía aunque nadie sepa explicarla. Si el árbol focal está detrás del arco de ceremonia, súmale <a href="/servicios/iluminacion/arquitectonica/uplighting/">uplighting</a> a la base del tronco: la luz rasante desde el piso saca la textura de la corteza y el árbol gana volumen.</p>
+              </Fragment>
+              <Fragment slot="media">
+                <img src="/images/guirnaldas/guirnaldas-vintage-iluminacion-boda.avif" alt="Jardín de boda con árbol envuelto y guirnaldas tendidas entre los demás" width="1200" height="686" loading="lazy" />
+              </Fragment>
+            </ServiceShowcase>
+          </section>
+
+          <!-- GALERÍA -->
+          <section class="section" aria-labelledby="galeria-heading">
+            <div class="container">
+              <h2 class="section-header__title" id="galeria-heading">Galería — Tree wrap y jardines iluminados</h2>
+              <p class="section-header__description">Árboles envueltos y tendidos de guirnalda entre troncos en jardines de CDMX y zona metropolitana.</p>
+              <div class="galeria-grid">
+                <img src="/images/guirnaldas/renta-guirnaldas-tree-wrap-jardin.avif" alt="Tree wrap de árbol en jardín de eventos" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/renta-guirnaldas-led-jardin-boda.avif" alt="Guirnaldas tendidas entre árboles en jardín de boda" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/guirnaldas-vintage-iluminacion-boda.avif" alt="Jardín de boda con iluminación vintage entre árboles" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/boda-jardin.avif" alt="Boda de jardín iluminada con guirnaldas cálidas" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/renta-fairy-lights-boda-romantica.avif" alt="Fairy lights de micro LED en montaje romántico de jardín" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/guirnaldas-100m-perimetro-jardin-cdmx.avif" alt="Perímetro de jardín iluminado apoyado en árboles" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/guirnaldas-200m-jardin-amplio-evento.avif" alt="Jardín amplio con guirnaldas tendidas de árbol a árbol" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/guirnaldas-led-vintage-decorativa-noche.avif" alt="Guirnaldas LED vintage encendidas de noche en jardín" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/renta-guirnaldas-edison-100m-salon-jardin.avif" alt="Salón jardín con árboles integrados al montaje de luz" width="600" height="343" loading="lazy" />
+              </div>
+            </div>
+          </section>
+
+          <!-- FAQ -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas frecuentes — Tree wrap"
+              subtitle="Producto correcto, metraje real y cuidado del árbol"
+              description={[
+                "Por qué el wrap no se hace con foco Edison, cuántos metros lleva realmente un árbol, cómo se monta sin dañar la corteza y cuándo conviene la alternativa.",
+                "Si tu pregunta no está aquí, mándanos una foto del árbol por WhatsApp. Te decimos si vale la pena envolverlo."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">Mándanos una foto del árbol</h3>
+                  <p class="faq-sidebar-card__text">Con el diámetro aproximado del tronco y la altura te decimos el metraje y si conviene envolverlo o tender entre árboles.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero saber si conviene envolver los árboles de mi jardín`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">Atención telefónica de lunes a viernes de 9:00 a 19:00 y sábados de 9:00 a 14:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Respetamos el árbol</h3>
+                  <p class="faq-sidebar-card__text">Cable apoyado sin ceñir, desmontaje al terminar el evento y consulta al venue si hay ejemplares protegidos.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- DESKTOP SIDEBAR -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Patrones de Montaje</h2>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/guirnaldas/" class="sidebar-nav__back">&uarr; Volver a Guirnaldas</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/" class="sidebar-nav__back">&uarr; Volver a Iluminación</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Paquetes por Metraje</h2>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Para el tendido entre árboles:</p>
+            <ul class="sidebar-related">
+              {sidebarPaquetes.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="sidebar-card sidebar-card--cta">
+            <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+            <p class="sidebar-card--cta-text">¿Cuántos árboles quieres envolver?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar tree wrap para los árboles de mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESERVA -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza tu tree wrap"
+        subtitle="Se cotiza por árbol — dinos cuántos y de qué grosor"
+        description={[
+          "Cuéntanos cuántos árboles quieres envolver, su altura y el diámetro aproximado del tronco. Si nos mandas una foto, mejor: te decimos cuáles vale la pena envolver y cuáles conviene solo conectar con guirnalda.",
+          "Sin compromiso. Transporte, montaje, operación y desmontaje incluidos en el precio."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">Nombre completo <span class="form-field__required">*</span></label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">Teléfono <span class="form-field__required">*</span></label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">Tipo de evento</label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Festival o Feria">Festival o Feria</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">Fecha del evento</label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="arboles">¿Qué necesitas?</label>
+              <select id="arboles" name="arboles" class="form-field__input form-field__select">
+                <option value="1 árbol focal envuelto">1 árbol focal envuelto</option>
+                <option value="2 a 3 árboles envueltos">2 a 3 árboles envueltos</option>
+                <option value="Tendido de guirnalda entre árboles">Tendido de guirnalda entre árboles</option>
+                <option value="Árbol focal + tendido en el resto" selected>Árbol focal + tendido en el resto</option>
+                <option value="No estoy seguro">No estoy seguro — asesórenme</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">Mensaje <span class="form-field__required">*</span></label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Cuántos árboles, altura y diámetro aproximado del tronco, si hay toma de corriente cerca, medidas del jardín..." rows="4" required></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Te decimos si conviene</h3>
+            <p class="reserva-card__text">Si envolver ese árbol cuesta más de lo que aporta, te lo decimos y proponemos el tendido entre árboles.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Sin daño a la corteza</h3>
+            <p class="reserva-card__text">Cable apoyado sin ceñir, cinchos sobre fieltro en los tendidos y desmontaje completo al terminar.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Alimentación oculta</h3>
+            <p class="reserva-card__text">Conector IP65 en la base y acometida cubierta. Nada de extensiones colgando del tronco.</p>
+          </div>
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const arboles = document.getElementById('arboles').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Tree Wrap — Cotización*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (arboles) texto += `*Necesita:* ${arboles}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <ProveedorIluminacion focus="montajes de jardín con árboles envueltos y tendidos de gran escala" />
+
+  <!-- CTA FINAL -->
+  <CTABanner
+    headline="Envuelve el árbol que ya era el protagonista"
+    subheadline="Uno o dos, no los ocho. Mándanos una foto y te decimos cuáles valen la pena."
+    primaryCTA={{ label: "Cotizar tree wrap", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa tree wrap para el jardín de mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<style is:global>
+  :root {
+    --color-accent: #c2a24a;
+    --color-accent-hover: #a9883a;
+    --color-accent-light: #d4b96a;
+    --color-accent-soft: rgba(194, 162, 74, 0.1);
+    --gradient-accent: linear-gradient(135deg, #c2a24a 0%, #a9883a 100%);
+    --shadow-accent: 0 4px 14px rgba(194, 162, 74, 0.35);
+    --shadow-accent-hover: 0 6px 20px rgba(194, 162, 74, 0.45);
+  }
+</style>

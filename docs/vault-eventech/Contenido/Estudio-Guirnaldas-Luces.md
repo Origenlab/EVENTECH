@@ -268,7 +268,7 @@ Motivo de alinear con `rentadeiluminacion.com` (el más caro de los dos) y no co
 |---|---|---|
 | ✅ **0** | Aprobación de este estudio + decisión de precios | Aprobado 2026-07-09 |
 | ✅ **1** | Hub L4 `/servicios/iluminacion/guirnaldas/` + 4 fichas de metraje + 301s | **Hecho 2026-07-09** — build 725 págs, 0 links rotos. Ver [[2026-07-09-guirnaldas-fase1]] |
-| **2** | 4 páginas de tipo de luz + 4 de patrón de montaje | 8 L5 |
+| 🟡 **2** | 4 páginas de tipo de luz + 4 de patrón de montaje | **Patrones hechos 2026-07-09** (canopy, perimetral-y-zigzag, pérgolas-y-arcos, tree-wrap). Ver [[2026-07-09-guirnaldas-fase2]]. Falta el eje tipo de luz. |
 | **3** | 5 páginas de tipo de evento + `CalculadoraMetros.astro` | Diferenciador vivo |
 | **4** | 10 landings de zona + taxonomía | SEO local |
 | **5** | 6 posts de blog + re-enlazado de los 15 existentes | Cluster cerrado |

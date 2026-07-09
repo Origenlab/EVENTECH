@@ -1,0 +1,564 @@
+---
+/**
+ * ─── Pérgolas y Arcos — Patrón de Montaje (Nivel 5, hoja) ───
+ * Montaje sobre estructura existente: pérgola, arco de ceremonia, viga de patio.
+ * Sin perforar: bridas y abrazaderas. Metraje bajo, impacto alto.
+ * Molde: Template-L5-producto (variante hoja). Sin `reviews` inventadas.
+ *
+ * Jerarquía: Servicios > Iluminación > Guirnaldas (hub L4) > Patrón de montaje
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import { SITE } from "@config/site";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from "@lib/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+import ProveedorIluminacion from "@components/ProveedorIluminacion.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Iluminación", href: "/servicios/iluminacion/" },
+  { label: "Guirnaldas", href: "/servicios/iluminacion/guirnaldas/" },
+  { label: "Pérgolas y Arcos" },
+];
+
+const faqs = [
+  { question: "¿Cuántos metros de guirnalda lleva una pérgola?", answer: 'Menos de los que la gente teme. Una <strong>pérgola de 4×6 metros</strong> se resuelve con unos <strong>30 metros</strong>: cinco tendidos a lo largo, más el remate perimetral sobre las vigas. Si quieres cubrir también las cuatro columnas envolviéndolas, súmale 5 metros por columna. Casi cualquier pérgola de patio o terraza cabe dentro del <a href="/servicios/iluminacion/guirnaldas/50-metros/">paquete de 50 metros</a>, y sobra metraje para el arco de la ceremonia. Es el patrón con la mejor relación entre metros gastados e impacto visual de todo el catálogo.' },
+  { question: "¿Se perfora la pérgola o el arco para colgar las guirnaldas?", answer: 'Nunca. Montamos con <strong>bridas de nylon y abrazaderas de correa</strong> que abrazan la viga sin morderla y no dejan marca al retirarse. En madera usamos protección de fieltro bajo la abrazadera; en herrería, la brida basta. En arcos de ceremonia —que suelen ser estructuras alquiladas a un tercero— el criterio es todavía más estricto: nadie quiere devolver un arco con agujeros. Si el venue exige un método específico de sujeción, lo respetamos y lo confirmamos por escrito antes del montaje.' },
+  { question: "¿Cómo se recorre una pérgola: a lo largo, a lo ancho o en cuadrícula?", answer: 'Depende de la proporción y de dónde mira la gente. En una pérgola alargada, los tendidos van <strong>a lo largo</strong> y siguen la dirección natural del recorrido: refuerzan la perspectiva y alargan el espacio. En una casi cuadrada, la <strong>cuadrícula</strong> —tendidos cruzados en las dos direcciones— llena el techo y se ve más denso, pero dobla el metraje. Nuestra recomendación por defecto: tendidos a lo largo cada <strong>60 a 80 cm</strong> más un remate perimetral que dibuja el contorno de la estructura. El contorno es lo que hace que la pérgola se lea de noche.' },
+  { question: "¿Se puede iluminar un arco de ceremonia con guirnalda Edison?", answer: 'Sí, y funciona mejor de lo que se espera. El foco Edison se ata a la estructura del arco siguiendo su curva, con espaciamiento amplio para que se lea como puntos de luz y no como un tubo iluminado. Suele combinarse con el arreglo floral, así que el montaje se coordina con la florista: nosotros pasamos primero, ella cubre los cables con follaje. Si buscas el efecto de <strong>cortina de luz cayendo desde el arco</strong>, ahí el producto correcto no es la Edison sino las <a href="/servicios/iluminacion/decorativa/cascadas-led/">cascadas y cortinas LED</a>.' },
+  { question: "¿Cuánto pesa el tendido y aguanta cualquier pérgola?", answer: 'La guirnalda con focos pesa alrededor de <strong>0.35 kg por metro lineal</strong>. Una pérgola con 30 metros carga poco más de 10 kilos repartidos en varias vigas — nada para una estructura sana. El problema nunca es el peso: es <strong>el estado de la estructura</strong>. Una pérgola de madera con vigas apolilladas o una herrería con soldaduras cansadas no soportan que alguien se apoye durante el montaje. Lo revisamos antes de subir. Si la estructura no está en condiciones, montamos postes independientes y no la tocamos.' },
+  { question: "¿Qué pasa si mi pérgola está a la intemperie?", answer: 'Se monta con la <strong>línea IP65</strong>, certificada para lluvia directa, y con los conectores orientados hacia abajo para que el agua escurra en lugar de acumularse en la unión. Una pérgola descubierta es exactamente el escenario para el que existe esa línea: la hemos montado en plena temporada de lluvias sin un solo corto. Si la pérgola tiene techo de policarbonato o lona, basta la línea IP44 de interior, que sale más barata de operar y da la misma luz.' },
+  { question: "¿Cuánto tarda el montaje de una pérgola?", answer: 'Entre <strong>1 y 2 horas</strong> para una pérgola estándar de 30 a 50 metros. Es el montaje más rápido de todos porque la estructura ya existe: no hay que tensar cables de acero ni plantar postes. El tiempo se va en atar limpio —cada brida en su sitio, el cable escondido sobre la viga y no colgando— y en la prueba de encendido. En eventos donde también hay <a href="/servicios/iluminacion/guirnaldas/canopy-de-techo/">canopy</a> o <a href="/servicios/iluminacion/guirnaldas/perimetral-y-zigzag/">perimetral</a>, la pérgola se monta al final.' },
+  { question: "¿Se puede combinar con velas LED o uplighting?", answer: 'Sí, y en pérgolas es donde mejor se nota. La guirnalda resuelve el plano superior; el volumen de las columnas lo saca el <a href="/servicios/iluminacion/arquitectonica/uplighting/">uplighting</a> rasante desde la base, que dibuja la textura de la madera o la herrería. Para la mesa bajo la pérgola, <a href="/servicios/iluminacion/decorativa/candiles/">velas LED</a> —muchos venues de CDMX prohíben llama abierta por protección civil—. Tres capas de luz, una sola temperatura de color: 2700K en todo. Es la receta de las fotos de pérgola que la gente guarda.' },
+];
+
+const specs = [
+  { label: "Metraje pérgola 4×6 m", value: "≈ 30 m (tendidos + remate perimetral)" },
+  { label: "Metraje por columna envuelta", value: "≈ 5 m adicionales" },
+  { label: "Separación entre tendidos", value: "60–80 cm a lo largo de la estructura" },
+  { label: "Sujeción", value: "Bridas de nylon y abrazaderas de correa — cero perforaciones" },
+  { label: "Protección en madera", value: "Fieltro bajo la abrazadera" },
+  { label: "Peso del tendido", value: "~0.35 kg por metro lineal (30 m ≈ 10.5 kg)" },
+  { label: "Revisión previa", value: "Estado de vigas, soldaduras y anclajes de la estructura" },
+  { label: "Clasificación IP", value: "IP65 pérgola descubierta / IP44 pérgola techada" },
+  { label: "Tiempo de montaje", value: "1–2 h (el más rápido de todos los patrones)" },
+  { label: "Arcos de ceremonia", value: "Montaje coordinado con la florista — cables cubiertos con follaje" },
+];
+
+const sidebarNav = [
+  { name: "Canopy de Techo", href: "/servicios/iluminacion/guirnaldas/canopy-de-techo/" },
+  { name: "Tree Wrap (envolver árboles)", href: "/servicios/iluminacion/guirnaldas/tree-wrap/" },
+  { name: "Perimetral y Zigzag", href: "/servicios/iluminacion/guirnaldas/perimetral-y-zigzag/" },
+  { name: "Pérgolas y Arcos", href: null, active: true },
+];
+
+const sidebarPaquetes = [
+  { name: "50 metros — $3,500", href: "/servicios/iluminacion/guirnaldas/50-metros/" },
+  { name: "100 metros — $6,500", href: "/servicios/iluminacion/guirnaldas/100-metros/" },
+  { name: "200 metros — $11,500", href: "/servicios/iluminacion/guirnaldas/200-metros/" },
+  { name: "500 metros — $24,000", href: "/servicios/iluminacion/guirnaldas/500-metros/" },
+];
+
+const sidebarRelated = [
+  { name: "Cascadas y Cortinas LED", href: "/servicios/iluminacion/decorativa/cascadas-led/" },
+  { name: "Candiles y Velas LED", href: "/servicios/iluminacion/decorativa/candiles/" },
+  { name: "Uplighting Perimetral", href: "/servicios/iluminacion/arquitectonica/uplighting/" },
+  { name: "Mobiliario para Terraza", href: "/servicios/mobiliario/salas-lounge/" },
+  { name: "Calefacción y Clima", href: "/servicios/accesorios/calefaccion-clima/" },
+];
+
+const jsonLd = [
+  serviceJsonLd({
+    name: "Guirnaldas en Pérgolas y Arcos de Ceremonia en CDMX",
+    description: "Montaje de guirnaldas Edison sobre pérgolas, arcos de ceremonia y vigas de patio en CDMX. Bridas sin perforar, línea IP65 para intemperie. Una pérgola de 4×6 m desde $3,500.",
+    url: "/servicios/iluminacion/guirnaldas/pergolas-y-arcos/",
+    image: "/images/guirnaldas/renta-guirnaldas-edison-50m-pergola.avif",
+    priceRange: { min: 3500, max: 24000 },
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Iluminación", url: "/servicios/iluminacion/" },
+    { name: "Guirnaldas", url: "/servicios/iluminacion/guirnaldas/" },
+    { name: "Pérgolas y Arcos", url: "/servicios/iluminacion/guirnaldas/pergolas-y-arcos/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Guirnaldas en Pérgolas y Arcos de Ceremonia en CDMX | Equipo para eventos en México"
+  rawTitle={true}
+  image="/images/guirnaldas/renta-guirnaldas-edison-50m-pergola.avif"
+  description="Guirnaldas Edison en pérgolas, arcos de ceremonia y patios de CDMX. Bridas sin perforar, IP65 para intemperie. Pérgola de 4×6 m desde $3,500."
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={breadcrumbItems} slot="breadcrumbs" />
+
+  <!-- 1. HERO -->
+  <HeroPage
+    badge="El mejor metraje por peso"
+    title='<span class="highlight">Pérgolas y arcos</span> — cuando la estructura ya está y solo falta encenderla'
+    subtitle="La pérgola, el arco de ceremonia y la viga del patio ya definen el espacio. Treinta metros de foco Edison, bridas que no perforan nada, y el lugar se transforma. Es el patrón más barato y el más agradecido."
+    primaryCTA={{ label: "Cotizar mi pérgola", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar guirnaldas para una pérgola o arco de ceremonia` }}
+    cards={[
+      {
+        title: "Treinta metros y una pérgola distinta",
+        content: "Una <strong>pérgola de 4×6 metros</strong> se resuelve con unos <strong>30 metros de guirnalda</strong>: cinco tendidos a lo largo cada 60–80 cm, más el remate perimetral que dibuja el contorno de la estructura. Ese remate es lo que hace que la pérgola exista de noche —sin él, la luz flota y la estructura desaparece—. Casi cualquier pérgola de patio o terraza cabe en el <strong>paquete de 50 metros</strong>, y sobra para el arco de la ceremonia. Ningún otro patrón devuelve tanto por tan poco metraje.",
+      },
+      {
+        title: "Ni un agujero en la viga",
+        content: "Montamos con <strong>bridas de nylon y abrazaderas de correa</strong> que abrazan la viga sin morderla. En madera, fieltro bajo la abrazadera; en herrería, la brida sola. Nada se perfora y nada queda marcado — lo cual importa el doble en arcos de ceremonia, que casi siempre están alquilados a un tercero. Antes de subir revisamos la estructura: el problema nunca es el peso —30 metros son 10 kilos repartidos— sino una viga apolillada o una soldadura cansada. Si no está sana, montamos postes aparte y no la tocamos.",
+      },
+    ]}
+  />
+
+  <!-- 2. CTA BANNER -->
+  <CTABanner
+    headline="¿Tienes pérgola, arco o una viga de patio?"
+    subheadline="Mándanos una foto con las medidas y te devolvemos metraje y precio cerrado el mismo día"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- MOBILE SIDEBAR -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Patrones de Montaje</h2>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Paquetes por Metraje</h2>
+          <ul class="sidebar-related">
+            {sidebarPaquetes.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card sidebar-card--cta">
+          <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+          <p class="sidebar-card--cta-text">¿Pérgola, arco o patio?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar guirnaldas para una pérgola o arco`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN + SIDEBAR -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <div class="l4-main">
+
+          <!-- SPECS -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Especificaciones de montaje — Pérgolas y arcos</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- SHOWCASE 1 -->
+          <section class="section" aria-labelledby="pergola-heading">
+            <ServiceShowcase
+              title="La pérgola: tendidos a lo largo y un remate que la dibuja"
+              headingId="pergola-heading"
+              badge="30 metros bastan"
+              subtitle="Cinco líneas cada 60–80 cm más el contorno perimetral. Sin ese contorno, la estructura desaparece de noche."
+              tags={["Pérgola 4×6 m ≈ 30 m", "Bridas sin perforar", "Montaje 1–2 h", "Desde $3,500"]}
+              ctaHref="#reserva-heading"
+              ctaLabel="Cotizar mi pérgola"
+            >
+              <Fragment slot="body">
+                <p class="showcase__text">Hay un detalle que separa una pérgola iluminada de una pérgola con luces colgadas: <strong>el remate perimetral</strong>. Los tendidos a lo largo dan el techo de focos, pero es la línea que recorre el contorno de las vigas la que hace que la estructura exista cuando cae la noche. Sin ella, la luz flota en el aire y la pérgola —la razón por la que elegiste ese rincón del patio— se vuelve invisible.</p>
+                <p class="showcase__text">La separación estándar entre tendidos es de <strong>60 a 80 centímetros</strong>. En pérgolas alargadas los corremos a lo largo, siguiendo la dirección natural del recorrido: refuerzan la perspectiva y el espacio se alarga. En pérgolas casi cuadradas se puede armar cuadrícula cruzada —se ve más denso, dobla el metraje—. Si además quieres envolver las columnas, calcula <strong>5 metros adicionales por columna</strong>.</p>
+              </Fragment>
+              <Fragment slot="media">
+                <img src="/images/guirnaldas/renta-guirnaldas-edison-50m-pergola.avif" alt="Guirnaldas Edison montadas sobre pérgola de patio para evento en CDMX" width="1200" height="686" loading="lazy" />
+              </Fragment>
+            </ServiceShowcase>
+          </section>
+
+          <!-- SHOWCASE 2 -->
+          <section class="section" aria-labelledby="arco-heading">
+            <ServiceShowcase
+              title="El arco de ceremonia: luz que no compite con las flores"
+              headingId="arco-heading"
+              badge="Coordinado con la florista"
+              subtitle="Foco Edison atado a la curva con espaciamiento amplio. Nosotros pasamos primero, el follaje cubre el cable."
+              tags={["Sin perforar", "Puntos, no tubo", "Se monta antes que la flor", "Arco alquilado a salvo"]}
+              ctaHref="#reserva-heading"
+              ctaLabel="Cotizar arco iluminado"
+            >
+              <Fragment slot="body">
+                <p class="showcase__text">Un arco de ceremonia se ilumina con <strong>espaciamiento amplio</strong>, para que la guirnalda se lea como una constelación de puntos y no como un tubo encendido. El foco Edison compite mal con las flores si va demasiado junto: la luz gana, el arreglo pierde, y la novia se dio cuenta desde el ensayo.</p>
+                <p class="showcase__text">El orden del montaje importa tanto como la técnica. Nosotros pasamos primero, atamos con <strong>bridas de nylon sobre la estructura</strong> y dejamos el cable corrido por la cara posterior; después llega la florista y el follaje cubre lo que quedó a la vista. El arco casi siempre está alquilado a un tercero, así que ni un agujero, ni una marca, ni una discusión al devolverlo. Si lo que buscas es una <strong>cortina de luz cayendo desde el arco</strong>, ese efecto no es Edison: son <a href="/servicios/iluminacion/decorativa/cascadas-led/">cascadas y cortinas LED</a>.</p>
+              </Fragment>
+              <Fragment slot="media">
+                <img src="/images/guirnaldas/guirnaldas-edison-patio-exterior-cdmx.avif" alt="Estructura de patio exterior iluminada con guirnaldas Edison para ceremonia" width="1200" height="686" loading="lazy" />
+              </Fragment>
+            </ServiceShowcase>
+          </section>
+
+          <!-- SHOWCASE 3 -->
+          <section class="section" aria-labelledby="terraza-heading">
+            <ServiceShowcase
+              title="Terrazas y patios: tres capas, una temperatura"
+              headingId="terraza-heading"
+              badge="La receta de las fotos que se guardan"
+              subtitle="Guirnalda arriba, uplighting rasante en las columnas, velas LED en la mesa. Todo a 2700K."
+              tags={["2700K en las 3 capas", "Velas LED sin llama", "IP65 a la intemperie", "Protección civil"]}
+              ctaHref="#reserva-heading"
+              ctaLabel="Cotizar terraza completa"
+            >
+              <Fragment slot="body">
+                <p class="showcase__text">Una terraza con solo guirnalda arriba se ve bien. Una terraza con tres capas de luz se ve diseñada. La guirnalda resuelve el plano superior; el <a href="/servicios/iluminacion/arquitectonica/uplighting/">uplighting rasante</a> desde la base de las columnas saca la textura de la madera o la herrería y le devuelve volumen a la estructura; las <a href="/servicios/iluminacion/decorativa/candiles/">velas LED</a> aterrizan la luz a la altura de la mesa, donde está la conversación.</p>
+                <p class="showcase__text">Dos condiciones. La primera: <strong>2700K en las tres capas</strong> — mezclar temperaturas es el error que arruina fotos sin que nadie sepa por qué. La segunda: si la terraza está descubierta, todo el tendido va en <strong>línea IP65</strong>, con los conectores orientados hacia abajo para que el agua escurra. Y las velas son LED, no de cera: muchos venues de CDMX prohíben llama abierta por normativa de protección civil, y ese detalle se descubre tarde.</p>
+              </Fragment>
+              <Fragment slot="media">
+                <img src="/images/guirnaldas/renta-guirnaldas-edison-vintage-terraza.avif" alt="Terraza con guirnaldas Edison vintage y iluminación en capas" width="1200" height="686" loading="lazy" />
+              </Fragment>
+            </ServiceShowcase>
+          </section>
+
+          <!-- GALERÍA -->
+          <section class="section" aria-labelledby="galeria-heading">
+            <div class="container">
+              <h2 class="section-header__title" id="galeria-heading">Galería — Pérgolas, arcos y terrazas</h2>
+              <p class="section-header__description">Montajes sobre estructura existente en patios, pérgolas y terrazas de CDMX y zona metropolitana.</p>
+              <div class="galeria-grid">
+                <img src="/images/guirnaldas/renta-guirnaldas-edison-50m-pergola.avif" alt="Pérgola iluminada con guirnaldas Edison" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/renta-guirnaldas-edison-vintage-terraza.avif" alt="Terraza con guirnaldas Edison vintage" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/guirnaldas-edison-patio-exterior-cdmx.avif" alt="Patio exterior de CDMX con guirnaldas Edison sobre estructura" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/guirnaldas-50m-iluminacion-patio-noche.avif" alt="Patio iluminado de noche con 50 metros de guirnaldas" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/renta-guirnaldas-50m-patio-terraza.avif" alt="Montaje de guirnaldas en patio y terraza" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/renta-guirnaldas-edison-50m-terraza-cdmx.avif" alt="Terraza en CDMX con tendido de guirnaldas Edison" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/renta-luces-edison-evento-terraza.avif" alt="Evento en terraza con luces Edison sobre estructura" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/renta-guirnaldas-100m-terraza-corporativo.avif" alt="Terraza corporativa iluminada con guirnaldas" width="600" height="343" loading="lazy" />
+                <img src="/images/guirnaldas/renta-guirnaldas-edison-50m-boda-intima.avif" alt="Boda íntima bajo pérgola iluminada con focos Edison" width="600" height="343" loading="lazy" />
+              </div>
+            </div>
+          </section>
+
+          <!-- FAQ -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas frecuentes — Pérgolas y arcos"
+              subtitle="Metraje, sujeción y estado de la estructura"
+              description={[
+                "Cuántos metros lleva una pérgola, cómo se ata sin perforar, qué pasa si la estructura no está sana y cómo se coordina un arco con la florista.",
+                "Si tu pregunta no está aquí, mándanos una foto de la estructura por WhatsApp. Con eso y las medidas te damos el metraje."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">Mándanos una foto</h3>
+                  <p class="faq-sidebar-card__text">Con una foto de la pérgola o el arco y las medidas aproximadas te damos metraje y precio cerrado el mismo día.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una pérgola o arco y quiero cotizar guirnaldas`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">Atención telefónica de lunes a viernes de 9:00 a 19:00 y sábados de 9:00 a 14:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cero perforaciones</h3>
+                  <p class="faq-sidebar-card__text">Bridas y abrazaderas que no dejan marca. Importa el doble si el arco es alquilado.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- DESKTOP SIDEBAR -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Patrones de Montaje</h2>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/guirnaldas/" class="sidebar-nav__back">&uarr; Volver a Guirnaldas</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/iluminacion/" class="sidebar-nav__back">&uarr; Volver a Iluminación</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Paquetes por Metraje</h2>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Una pérgola suele caber en 50 metros:</p>
+            <ul class="sidebar-related">
+              {sidebarPaquetes.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="sidebar-card sidebar-card--cta">
+            <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+            <p class="sidebar-card--cta-text">¿Pérgola, arco o patio?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar guirnaldas para una pérgola o arco`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESERVA -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza tu pérgola o arco iluminado"
+        subtitle="Con las medidas de la estructura te damos el metraje exacto"
+        description={[
+          "Cuéntanos qué estructura tienes —pérgola, arco de ceremonia, viga de patio o terraza—, sus medidas aproximadas y si está cubierta o a la intemperie. Te respondemos con metraje, tipo de sujeción y precio cerrado.",
+          "Sin compromiso. Transporte, montaje, operación y desmontaje incluidos en el precio."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">Nombre completo <span class="form-field__required">*</span></label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">Teléfono <span class="form-field__required">*</span></label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">Tipo de evento</label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Cena íntima">Cena íntima</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">Fecha del evento</label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="estructura">¿Qué estructura vas a iluminar?</label>
+              <select id="estructura" name="estructura" class="form-field__input form-field__select">
+                <option value="Pérgola" selected>Pérgola</option>
+                <option value="Arco de ceremonia">Arco de ceremonia</option>
+                <option value="Terraza con vigas">Terraza con vigas</option>
+                <option value="Patio con estructura">Patio con estructura</option>
+                <option value="Pérgola + arco">Pérgola + arco</option>
+                <option value="No estoy seguro">No estoy seguro</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">Mensaje <span class="form-field__required">*</span></label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Medidas de la estructura (largo × ancho), material (madera o herrería), si está cubierta o a la intemperie, número de invitados..." rows="4" required></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">El patrón más económico</h3>
+            <p class="reserva-card__text">La estructura ya existe. Una pérgola de 4×6 m se resuelve con 30 metros — cabe de sobra en el paquete de 50.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Revisamos la estructura</h3>
+            <p class="reserva-card__text">Si las vigas no están sanas te lo decimos y montamos postes aparte. No subimos a una pérgola dudosa.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Montaje en 1–2 horas</h3>
+            <p class="reserva-card__text">El más rápido de todos los patrones: no hay cables de acero que tensar ni postes que plantar.</p>
+          </div>
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const estructura = document.getElementById('estructura').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Guirnaldas en Pérgola / Arco — Cotización*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (estructura) texto += `*Estructura:* ${estructura}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <ProveedorIluminacion focus="iluminación de estructuras, pérgolas y arcos de ceremonia" />
+
+  <!-- CTA FINAL -->
+  <CTABanner
+    headline="La estructura ya está. Solo falta encenderla."
+    subheadline="Treinta metros, bridas que no perforan nada y dos horas de montaje. Cotiza tu pérgola hoy."
+    primaryCTA={{ label: "Cotizar mi pérgola", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesan guirnaldas para mi pérgola o arco` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<style is:global>
+  :root {
+    --color-accent: #c2a24a;
+    --color-accent-hover: #a9883a;
+    --color-accent-light: #d4b96a;
+    --color-accent-soft: rgba(194, 162, 74, 0.1);
+    --gradient-accent: linear-gradient(135deg, #c2a24a 0%, #a9883a 100%);
+    --shadow-accent: 0 4px 14px rgba(194, 162, 74, 0.35);
+    --shadow-accent-hover: 0 6px 20px rgba(194, 162, 74, 0.45);
+  }
+</style>

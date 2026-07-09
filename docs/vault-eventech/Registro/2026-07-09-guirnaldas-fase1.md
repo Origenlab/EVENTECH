@@ -59,3 +59,22 @@ En las 4 fichas: breadcrumb sin `Decorativa`/`Fairy Lights`, back-links al nuevo
 ## Siguiente
 
 Fase 2 del [[Estudio-Guirnaldas-Luces]]: 4 páginas de tipo de luz (incluida la migración de `fairy-lights` a `fairy-lights-micro-led`) + 4 de patrón de montaje (canopy, tree wrap, perimetral/zigzag, pérgolas y arcos).
+
+---
+
+## Deploy — verificado en vivo (2026-07-09)
+
+- Commit `94d2b777`, push a `master`. Los 4 `git mv` quedaron registrados como `R` (rename) → historial preservado.
+- Action `deploy.yml` (Cloudflare Pages, wrangler-action) → **completed / success**.
+- Hub y las 4 fichas: **HTTP 200**. Los 4 redirects viejos: **301** hacia la URL correcta (incluido `guirnaldas-400m/ → 500-metros/`).
+- `"minPrice":3500,"maxPrice":24000` presente en el hub en producción.
+- **No hizo falta purgar Cloudflare:** `cf-cache-status: DYNAMIC` en `/servicios/iluminacion/` y `/decorativa/`.
+
+### Dos trampas encontradas en el camino
+
+1. **`.fuse_hidden*`** — editar por el mount del sandbox dejó 15 archivos basura en `src/`. Se borraron antes del `git add`. Revisar siempre con `find src -name '.fuse_hidden*'` antes de commitear.
+2. **`.git/index.lock` huérfano** — un `git status` desde el sandbox dejó el lock (no puede hacer unlink por permisos). Se borró tras confirmar que no había proceso git vivo.
+
+### Nota sobre el nombre del workflow
+
+`gh run list` muestra los runs como **"Deploy to GitHub Pages"**, pero es un nombre cacheado por GitHub: el archivo `deploy.yml` (en HEAD y en origin) es **"Deploy to Cloudflare Pages"** y ejecuta `cloudflare/wrangler-action@v3`. Confirmado por los pasos del run y por `server: cloudflare` en los headers. Además, GitHub tiene registrado un `deploy-ghpages.yml` que **ya no existe en el repo** (huérfano) y `pages-build-deployment` activo. No estorban, pero conviene desregistrarlos algún día.
