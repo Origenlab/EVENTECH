@@ -267,7 +267,7 @@ CONFIGURACIÓN BASE - TERRAZA (100-200 pax)
 ```
 
 **Servicios EVENTECH recomendados:**
-- [Guirnaldas Edison 100-200m](/servicios/iluminacion/decorativa/fairy-lights/) — Ambiente íntimo
+- [Guirnaldas Edison 100-200m](/servicios/iluminacion/guirnaldas/) — Ambiente íntimo
 - [Letras Luminosas](/servicios/iluminacion/decorativa/letras-luminosas/) — Photo opportunity
 - [Salas Lounge Moderno](/servicios/mobiliario/salas-lounge/moderno/) — Estilo urbano
 - [Calentadores de Patio](/servicios/accesorios/calefaccion-clima/) — Esencial en rooftops

@@ -123,7 +123,7 @@ Estos 10 puntos no son opcionales. Son la diferencia entre un evento que fluye y
 
 [Jardín de Fiestas La Perita](/directorio/cdmx/magdalena-contreras/jardin-la-perita/) es el venue que recomendamos cuando un cliente busca la experiencia outdoor definitiva en CDMX. Ubicado en la zona alta de Magdalena Contreras, a 2,500 metros sobre el nivel del mar, este jardín de 2,000 m² ofrece algo que ningún espacio urbano puede replicar: aire de montaña, árboles centenarios que filtran la luz dorada del atardecer y una temperatura que oscila entre 14 °C y 22 °C durante los meses de evento.
 
-La vegetación madura —encinos, fresnos y ahuehuetes de más de 80 años— crea un dosel natural que reduce la necesidad de toldos en temporada seca y proporciona puntos de anclaje ideales para instalación de [guirnaldas Edison](/servicios/iluminacion/decorativa/fairy-lights/) a alturas de 4 a 6 metros. El resultado es un techo de luces que transforma el jardín en un escenario cinematográfico al caer la noche.
+La vegetación madura —encinos, fresnos y ahuehuetes de más de 80 años— crea un dosel natural que reduce la necesidad de toldos en temporada seca y proporciona puntos de anclaje ideales para instalación de [guirnaldas Edison](/servicios/iluminacion/guirnaldas/) a alturas de 4 a 6 metros. El resultado es un techo de luces que transforma el jardín en un escenario cinematográfico al caer la noche.
 
 | Dato clave | Detalle |
 |---|---|

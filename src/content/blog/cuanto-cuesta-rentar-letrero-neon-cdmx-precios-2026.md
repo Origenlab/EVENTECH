@@ -89,7 +89,7 @@ Estos son nuestros precios de referencia para la Ciudad de México y zona conurb
 | Ambiente Edison — jardín completo (canopy con dimmer) | Desde $6,000 | Jardín, cena al aire libre |
 | Producción combinada (letrero + Edison + fairy lights) | $12,000–$20,000 | Bodas grandes, festivales, lanzamientos |
 
-Para comparar contra otros elementos de la misma familia y armar tu escena completa, el [hub de iluminación decorativa](/servicios/iluminacion/decorativa/) tiene los rangos de [fairy lights y guirnaldas](/servicios/iluminacion/decorativa/fairy-lights/), [esferas y figuras LED](/servicios/iluminacion/decorativa/esferas-led/) y [cascadas y cortinas LED](/servicios/iluminacion/decorativa/cascadas-led/), que se combinan muy bien con el neón sin disparar el presupuesto.
+Para comparar contra otros elementos de la misma familia y armar tu escena completa, el [hub de iluminación decorativa](/servicios/iluminacion/decorativa/) tiene los rangos de [fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) y [guirnaldas](/servicios/iluminacion/guirnaldas/), [esferas y figuras LED](/servicios/iluminacion/decorativa/esferas-led/) y [cascadas y cortinas LED](/servicios/iluminacion/decorativa/cascadas-led/), que se combinan muy bien con el neón sin disparar el presupuesto.
 
 ---
 

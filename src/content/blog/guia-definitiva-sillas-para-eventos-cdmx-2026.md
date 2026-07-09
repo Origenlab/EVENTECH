@@ -113,7 +113,7 @@ Lo que distingue a la Chiavari de cualquier otra silla para eventos es su **rela
   <figcaption>Chiavari dorada en salón de banquete: el acabado más solicitado para bodas y galas en CDMX.</figcaption>
 </figure>
 
-**Dorado champagne.** Es el acabado más solicitado a nivel mundial y el más popular en el mercado de bodas de CDMX. El tono champagne —más cálido que el oro puro, más sofisticado que el amarillo— es universalmente elegante. Combina con decoraciones en blanco, crema, burdeos, esmeralda, azul marino y prácticamente cualquier paleta floral. Su interacción con la iluminación cálida de [guirnaldas Edison](/servicios/iluminacion/decorativa/fairy-lights/) produce el efecto visual más cotizado en fotografía de eventos: un baño dorado que envuelve la escena con calidez y glamour genuinos.
+**Dorado champagne.** Es el acabado más solicitado a nivel mundial y el más popular en el mercado de bodas de CDMX. El tono champagne —más cálido que el oro puro, más sofisticado que el amarillo— es universalmente elegante. Combina con decoraciones en blanco, crema, burdeos, esmeralda, azul marino y prácticamente cualquier paleta floral. Su interacción con la iluminación cálida de [guirnaldas Edison](/servicios/iluminacion/guirnaldas/) produce el efecto visual más cotizado en fotografía de eventos: un baño dorado que envuelve la escena con calidez y glamour genuinos.
 
 **Plateado anodizado.** El acabado plateado es la Chiavari del sector corporativo. Su metalizado frío y uniforme proyecta profesionalismo y modernidad —exactamente la imagen que buscan congresos, premiaciones, lanzamientos de producto y cenas de gala empresarial. Las paletas que mejor funcionan con la plateada son: gris + blanco, azul marino + plata, negro + plateado y lavanda + blanco. Es también la elección de XV años con temática de princesa contemporánea.
 
@@ -185,7 +185,7 @@ En el mercado de eventos de CDMX, la Ghost resolvió un problema que la industri
   <figcaption>Ghost Humo: la versión más contemporánea y sofisticada de la colección, ideal para eventos de diseño y arte.</figcaption>
 </figure>
 
-**Ámbar dorado.** La Ghost ámbar es calidez en forma de policarbonato. Su tono dorado-miel filtra la luz de una manera extraordinaria —bajo iluminación cálida de jardín o atardecer, crea reflejos dorados suaves sobre las superficies cercanas que resultan extraordinariamente fotogénicos. Es la Ghost que mejor funciona en exteriores durante el día porque complementa, en lugar de competir con, la luz natural. Combinada con [fairy lights y guirnaldas Edison](/servicios/iluminacion/decorativa/fairy-lights/) en un jardín al atardecer, es quizás el montaje más mágico disponible en el mercado actual.
+**Ámbar dorado.** La Ghost ámbar es calidez en forma de policarbonato. Su tono dorado-miel filtra la luz de una manera extraordinaria —bajo iluminación cálida de jardín o atardecer, crea reflejos dorados suaves sobre las superficies cercanas que resultan extraordinariamente fotogénicos. Es la Ghost que mejor funciona en exteriores durante el día porque complementa, en lugar de competir con, la luz natural. Combinada con [fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) y [guirnaldas Edison](/servicios/iluminacion/guirnaldas/) en un jardín al atardecer, es quizás el montaje más mágico disponible en el mercado actual.
 
 <figure>
   <img src="/images/mobiliario/silla-ghost-ambar-studio-01.avif" alt="Silla Ghost ámbar dorada en sesión de estudio profesional Kartell" loading="lazy" decoding="async" />
@@ -408,7 +408,7 @@ La elección correcta de silla depende tanto del tipo de evento como del venue y
 
 ### Boda de lujo en salón o hacienda
 
-**Primera opción:** Chiavari Dorada + cojín en el color del evento + [guirnaldas Edison](/servicios/iluminacion/decorativa/fairy-lights/) colgantes + [uplighting dorado](/servicios/iluminacion/arquitectonica/)
+**Primera opción:** Chiavari Dorada + cojín en el color del evento + [guirnaldas Edison](/servicios/iluminacion/guirnaldas/) colgantes + [uplighting dorado](/servicios/iluminacion/arquitectonica/)
 
 **Segunda opción:** Tiffany Dorada + cojín marfil o blanco + iluminación cálida ambiental
 

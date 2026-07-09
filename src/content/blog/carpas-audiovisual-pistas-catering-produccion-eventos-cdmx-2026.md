@@ -88,7 +88,7 @@ Su forma de picos ascendentes y el faldón perimetral crean un espacio que se pe
 - **Transparente** — Paneles de PVC cristal que mantienen la vista al jardín y las estrellas
 - **Beduina** — Acabados en arena, terracota o multicolor para eventos con carácter temático
 
-La instalación de [guirnaldas Edison](/servicios/iluminacion/decorativa/fairy-lights/) en el interior de una carpa árabe produce uno de los efectos visuales más impresionantes en fotografía de eventos: el pico de la carpa como punto de fuga rodeado de luz dorada, con los invitados iluminados desde arriba como en una película.
+La instalación de [guirnaldas Edison](/servicios/iluminacion/guirnaldas/) en el interior de una carpa árabe produce uno de los efectos visuales más impresionantes en fotografía de eventos: el pico de la carpa como punto de fuga rodeado de luz dorada, con los invitados iluminados desde arriba como en una película.
 
 ### Carpas Estructurales: La Solución para Cualquier Escala
 

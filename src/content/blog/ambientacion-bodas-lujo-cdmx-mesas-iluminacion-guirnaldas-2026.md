@@ -319,6 +319,6 @@ Esos detalles son posibles con el equipamiento correcto y un proveedor que entie
 - [WhatsApp directo](https://wa.me/5215511223344?text=Hola,%20quiero%20cotizar%20equipamiento%20para%20mi%20boda)
 - [Explorar mobiliario completo](/servicios/mobiliario/)
 - [Ver catálogo de iluminación](/servicios/iluminacion/)
-- [Guirnaldas Edison paquetes completos](/servicios/iluminacion/decorativa/fairy-lights/)
+- [Guirnaldas Edison paquetes completos](/servicios/iluminacion/guirnaldas/)
 - [Salas lounge para bodas](/servicios/mobiliario/salas-lounge/)
 - [Barras de servicio premium](/servicios/mobiliario/barras/)

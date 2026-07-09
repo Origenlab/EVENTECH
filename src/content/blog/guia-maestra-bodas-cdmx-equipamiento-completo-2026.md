@@ -511,7 +511,7 @@ Tu boda es el evento más importante de tu vida. Cada detalle cuenta, cada eleme
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
-**Paquetes disponibles:** [Guirnaldas Edison](/servicios/iluminacion/decorativa/fairy-lights/)
+**Paquetes disponibles:** [Guirnaldas Edison](/servicios/iluminacion/guirnaldas/)
 
 ---
 

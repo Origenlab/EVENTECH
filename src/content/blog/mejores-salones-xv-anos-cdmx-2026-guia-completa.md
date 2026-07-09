@@ -472,7 +472,7 @@ Nuestra experiencia en más de 200 celebraciones de XV años nos ha permitido de
 
 ### Iluminación profesional
 
-- **[Fairy lights y guirnaldas](/servicios/iluminacion/decorativa/fairy-lights/)** — doseles de luz sobre pista y mesas, enredaderas en columnas, cortinas de luz en entradas
+- **[Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) y [guirnaldas](/servicios/iluminacion/guirnaldas/)** — doseles de luz sobre pista y mesas, enredaderas en columnas, cortinas de luz en entradas
 - **[Cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/)** — cascadas de luz para fondo de mesa de honor y photobooth
 - **[Letras luminosas](/servicios/iluminacion/decorativa/letras-luminosas/)** — nombre de la quinceañera o número XV en LED de alto brillo
 - **[Uplighting arquitectónico](/servicios/iluminacion/arquitectonica/uplighting/)** — iluminación ascendente en columnas, paredes y elementos decorativos del venue

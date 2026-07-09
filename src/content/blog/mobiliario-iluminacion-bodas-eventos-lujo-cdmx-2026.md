@@ -83,7 +83,7 @@ Las [sillas Chiavari](/servicios/mobiliario/sillas/chiavari/) son el referente d
 - **Negro mate** — Para eventos corporativos y galas modernas
 - **Bronce envejecido** — Para bodas con paletas tierra y vintage
 
-La silla Chiavari dorada bajo un canopy de [guirnaldas Edison](/servicios/iluminacion/decorativa/fairy-lights/) es la combinación más fotografiada en bodas de jardín en la zona metropolitana. La razón es técnica: el acabado dorado refleja la luz cálida de los focos Edison creando destellos naturales que los fotógrafos no pueden reproducir con flash artificial.
+La silla Chiavari dorada bajo un canopy de [guirnaldas Edison](/servicios/iluminacion/guirnaldas/) es la combinación más fotografiada en bodas de jardín en la zona metropolitana. La razón es técnica: el acabado dorado refleja la luz cálida de los focos Edison creando destellos naturales que los fotógrafos no pueden reproducir con flash artificial.
 
 ### Sillas Ghost: La Elección de los Espacios Contemporáneos
 
@@ -230,7 +230,7 @@ Esta coherencia lumínica no es accidental — es el resultado de contratar un *
 
 ### La Ventaja del Proveedor Integral
 
-Cuando EVENTECH equipa un evento completo — [mobiliario](/servicios/mobiliario/), [iluminación](/servicios/iluminacion/), [guirnaldas](/servicios/iluminacion/decorativa/fairy-lights/), [carpa](/servicios/carpas/) y [accesorios](/servicios/accesorios/) — el beneficio no es solo operativo. Es **creativo**: nuestro equipo diseña cada elemento con conocimiento de los demás, optimizando la coherencia visual y eliminando los conflictos que surgen cuando cada proveedor ejecuta su parte sin contexto del conjunto.
+Cuando EVENTECH equipa un evento completo — [mobiliario](/servicios/mobiliario/), [iluminación](/servicios/iluminacion/), [guirnaldas](/servicios/iluminacion/guirnaldas/), [carpa](/servicios/carpas/) y [accesorios](/servicios/accesorios/) — el beneficio no es solo operativo. Es **creativo**: nuestro equipo diseña cada elemento con conocimiento de los demás, optimizando la coherencia visual y eliminando los conflictos que surgen cuando cada proveedor ejecuta su parte sin contexto del conjunto.
 
 Los clientes que contratan 3 o más categorías con EVENTECH acceden a **descuentos por paquete integral** que reducen el costo total entre un 10% y un 20%, dependiendo del volumen y la combinación de servicios.
 

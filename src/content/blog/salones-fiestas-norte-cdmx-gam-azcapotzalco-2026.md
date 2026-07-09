@@ -313,7 +313,7 @@ Con capacidad para hasta 300 personas, Imperial ofrece un espacio de planta clá
 Imperial es el tipo de venue donde la producción marca la mayor diferencia. Un salón de estética tradicional se transforma radicalmente con la iluminación y el mobiliario correctos:
 
 - **Transformación por luz** con [uplighting en tonos personalizados](/servicios/iluminacion/arquitectonica/uplighting/) — cambia completamente la percepción del espacio
-- **Fairy lights en techo** con [guirnaldas de 200m](/servicios/iluminacion/decorativa/fairy-lights/) que crean un cielo estrellado interior
+- **Fairy lights en techo** con [guirnaldas de 200m](/servicios/iluminacion/guirnaldas/200-metros/) que crean un cielo estrellado interior
 - **Mobiliario que eleva** con [sillas Crossback](/servicios/mobiliario/sillas/crossback/) que dan carácter rústico-elegante o [sillas plegables premium](/servicios/mobiliario/sillas/plegables/) para eventos de presupuesto optimizado
 - **Sala lounge boho** con [set boho completo](/servicios/mobiliario/salas-lounge/boho/) como zona de descanso alternativa
 - **Pista de baile** con [pista profesional](/servicios/pistas-baile/) y sistema de [sonido envolvente](/servicios/audiovisual/sonido/)
@@ -478,7 +478,7 @@ En EVENTECH somos el aliado de producción de eventos más activo en el norte de
 
 ### Iluminación Profesional
 
-- [Fairy lights y guirnaldas](/servicios/iluminacion/decorativa/fairy-lights/) — Desde guirnaldas de 50m para espacios íntimos hasta instalaciones de 400m para salones grandes
+- [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) y [guirnaldas](/servicios/iluminacion/guirnaldas/) — Desde guirnaldas de 50m para espacios íntimos hasta instalaciones de 400m para salones grandes
 - [Cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/) — Cascadas luminosas para muros, backdrops y separación de ambientes
 - [Letras luminosas](/servicios/iluminacion/decorativa/letras-luminosas/) — Iniciales, nombres y mensajes personalizados
 - [Uplighting arquitectónico](/servicios/iluminacion/arquitectonica/uplighting/) — Transformación cromática completa del salón

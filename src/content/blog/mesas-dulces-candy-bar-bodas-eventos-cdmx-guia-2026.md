@@ -329,7 +329,7 @@ EVENTECH no es solo un proveedor de mesas de dulces — somos el proveedor integ
 
 ### Iluminación que transforma
 
-Una mesa de dulces bajo la luz del salón se ve bien. La misma mesa bajo [guirnaldas Edison](/servicios/iluminacion/decorativa/fairy-lights/) con un [backdrop de letras luminosas](/servicios/iluminacion/decorativa/letras-luminosas/) se ve **espectacular**. La iluminación correcta transforma los colores de los dulces, crea brillos en los frascos de cristal, y produce fondos de fotografía que parecen sacados de revista.
+Una mesa de dulces bajo la luz del salón se ve bien. La misma mesa bajo [guirnaldas Edison](/servicios/iluminacion/guirnaldas/) con un [backdrop de letras luminosas](/servicios/iluminacion/decorativa/letras-luminosas/) se ve **espectacular**. La iluminación correcta transforma los colores de los dulces, crea brillos en los frascos de cristal, y produce fondos de fotografía que parecen sacados de revista.
 
 ### Mobiliario coordinado
 

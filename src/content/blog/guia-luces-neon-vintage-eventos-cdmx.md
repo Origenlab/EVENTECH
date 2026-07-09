@@ -104,7 +104,7 @@ El **letrero de neón** es **contenido**: dice algo (un nombre, un hashtag, una 
 
 El **ambiente Edison** es **atmósfera**: no comunica un mensaje, envuelve el espacio en luz cálida. Lo eliges cuando el venue se siente plano, cuando la cena es al aire libre o cuando quieres esa sensación de sobremesa larga bajo las luces.
 
-Lo más frecuente es que un evento use las dos capas: el letrero manda en el backdrop principal y los focos Edison bañan de calidez el resto del área. Si además sumas [fairy lights y guirnaldas](/servicios/iluminacion/decorativa/fairy-lights/) de fondo, obtienes profundidad y textura que ninguna de las tres cosas logra sola.
+Lo más frecuente es que un evento use las dos capas: el letrero manda en el backdrop principal y los focos Edison bañan de calidez el resto del área. Si además sumas [fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) y [guirnaldas](/servicios/iluminacion/guirnaldas/) de fondo, obtienes profundidad y textura que ninguna de las tres cosas logra sola.
 
 ---
 

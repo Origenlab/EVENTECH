@@ -180,7 +180,7 @@ Después de miles de montajes, los tropiezos se repiten. Estos son los que más 
 El candil es la joya, pero un evento de gala suma capas. Estas son las que más montamos alrededor de una pieza colgante.
 
 - **[Uplighting perimetral](/servicios/iluminacion/arquitectonica/uplighting/):** mientras el candil deslumbra desde arriba, el uplighting viste los muros. Juntos dan volumen sin dejar el espacio plano.
-- **[Fairy lights y guirnaldas](/servicios/iluminacion/decorativa/fairy-lights/):** tejen un cielo de puntos de luz que dialoga con los destellos del cristal. La combinación clásica de boda de jardín o carpa.
+- **[Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) y [guirnaldas](/servicios/iluminacion/guirnaldas/):** tejen un cielo de puntos de luz que dialoga con los destellos del cristal. La combinación clásica de boda de jardín o carpa.
 - **[Esferas y figuras LED](/servicios/iluminacion/decorativa/esferas-led/):** puntos de luz flotantes que llenan el espacio aéreo entre los candiles en una composición.
 - **[Letras y números luminosos](/servicios/iluminacion/decorativa/letras-luminosas/) y [neón vintage](/servicios/iluminacion/decorativa/neon-vintage/):** para el rincón fotográfico o el nombre de los festejados, con una estética que convive bien con el brillo clásico del candil.
 - **[Cascadas y cortinas LED](/servicios/iluminacion/decorativa/cascadas-led/):** como telón de fondo detrás del candil protagonista, para un backdrop de escena aérea completa.

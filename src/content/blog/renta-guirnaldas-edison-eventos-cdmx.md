@@ -1,9 +1,9 @@
 ---
 title: "Renta de Guirnaldas Edison para Eventos en CDMX"
 seoTitle: "Renta de Guirnaldas Edison CDMX"
-description: "Guía profesional de renta de guirnaldas Edison LED para bodas y eventos en CDMX. Paquetes de 50m a 400m con instalación incluida. Cotiza hoy."
+description: "Guía profesional de renta de guirnaldas Edison LED para bodas y eventos en CDMX. Paquetes de 50m a 500m con instalación incluida. Cotiza hoy."
 date: 2025-01-01
-seoDescription: "Guía profesional de renta de guirnaldas Edison LED para bodas y eventos en CDMX. Paquetes de 50m a 400m con instalación incluida. Cotiza hoy."
+seoDescription: "Guía profesional de renta de guirnaldas Edison LED para bodas y eventos en CDMX. Paquetes de 50m a 500m con instalación incluida. Cotiza hoy."
 category: "guias"
 image: "/images/guirnaldas/renta-guirnaldas-canopy-techo-boda.avif"
 imageAlt: "Guirnaldas Edison LED creando un techo de luces cálidas sobre recepción de boda al aire libre en CDMX"
@@ -22,7 +22,7 @@ keywords:
   - guirnaldas 50 metros eventos
   - guirnaldas 100 metros bodas
   - guirnaldas 200 metros eventos grandes
-  - guirnaldas 400 metros festivales
+  - guirnaldas 500 metros festivales
   - iluminación jardín eventos CDMX
   - renta iluminación decorativa México
   - guirnaldas Edison instalación profesional
@@ -325,7 +325,7 @@ Esta configuración crea una **experiencia de llegada** memorable: los invitados
 | **Longitud total** | 200 metros lineales |
 | **Número de focos** | ~400 focos LED Edison |
 | **Separación entre sockets** | 50 cm |
-| **Consumo total** | ~800W |
+| **Consumo total** | ~1,000W |
 | **Circuitos requeridos** | 2-3 circuitos dedicados (tablero de distribución) |
 | **Cobertura aproximada** | 150-250 m² de canopy |
 | **Capacidad de evento** | 200-400 personas |
@@ -375,27 +375,27 @@ Nuestro equipo técnico realiza una visita previa al venue para evaluar:
 
 ---
 
-### Paquete 400 Metros — Aproximadamente 800 Focos Edison
+### Paquete 500 Metros — Aproximadamente 1,000 Focos Edison
 
 **El paquete de máxima cobertura para eventos monumentales.**
 
 | Parámetro | Valor |
 |---|---|
-| **Longitud total** | 400 metros lineales |
-| **Número de focos** | ~800 focos LED Edison |
+| **Longitud total** | 500 metros lineales |
+| **Número de focos** | ~1,000 focos LED Edison |
 | **Separación entre sockets** | 50 cm |
-| **Consumo total** | ~1,600W |
-| **Circuitos requeridos** | 4+ circuitos dedicados |
+| **Consumo total** | ~2,000W |
+| **Circuitos requeridos** | 5 circuitos dedicados |
 | **Cobertura aproximada** | 300-500 m² de canopy |
 | **Capacidad de evento** | 400-1,000+ personas |
-| **Tiempo de montaje** | 4-6 horas (equipo de 4-6 técnicos) |
-| **Tiempo de desmontaje** | 3-4 horas |
+| **Tiempo de montaje** | 8-12 horas, el día previo (equipo de 4-5 técnicos) |
+| **Tiempo de desmontaje** | 5-6 horas |
 
-#### El Impacto Visual de 800 Focos Edison
+#### El Impacto Visual de 1,000 Focos Edison
 
-Para dimensionar lo que significan 800 focos Edison encendidos simultáneamente: es el equivalente visual a un **campo de futbol rápido completo cubierto por un cielo de estrellas doradas**. El efecto a nivel del suelo es envolvente — los invitados se sienten dentro de una burbuja de luz cálida que los separa del mundo exterior y los sumerge completamente en la experiencia del evento.
+Para dimensionar lo que significan 1,000 focos Edison encendidos simultáneamente: es el equivalente visual a un **campo de futbol rápido completo cubierto por un cielo de estrellas doradas**. El efecto a nivel del suelo es envolvente — los invitados se sienten dentro de una burbuja de luz cálida que los separa del mundo exterior y los sumerge completamente en la experiencia del evento.
 
-Los fotógrafos y videógrafos profesionales consideran esta escala de iluminación como un **asset de producción** de altísimo valor: las tomas aéreas con drone de un evento iluminado con 800 focos Edison producen contenido de nivel cinematográfico que eleva el portfolio de cualquier profesional de la imagen.
+Los fotógrafos y videógrafos profesionales consideran esta escala de iluminación como un **asset de producción** de altísimo valor: las tomas aéreas con drone de un evento iluminado con 1,000 focos Edison producen contenido de nivel cinematográfico que eleva el portfolio de cualquier profesional de la imagen.
 
 #### Requerimientos Técnicos Especiales
 
@@ -406,9 +406,9 @@ A esta escala, la instalación requiere **planeación de ingeniería formal**:
 - **Postes temporales** con bases contrapesadas de 50-100 kg cuando el venue no tiene suficientes puntos de anclaje naturales
 - **Cables tensores de acero** para tramos largos (más de 15 metros) donde el peso de la guirnalda genera flecha excesiva
 - **Coordinación con venue** para acceso de vehículos de carga, horarios de montaje ampliados, y plan de contingencia
-- Posible necesidad de [planta de energía](/servicios/accesorios/plantas-energia/) si la infraestructura eléctrica del venue no soporta 1,600W adicionales sobre la carga existente del evento
+- Posible necesidad de [planta de energía](/servicios/accesorios/plantas-energia/) si la infraestructura eléctrica del venue no soporta 2,000W adicionales sobre la carga existente del evento
 
-#### Eventos Típicos para 400 Metros
+#### Eventos Típicos para 500 Metros
 
 - **Bodas monumentales en ex-haciendas** (300-500+ invitados)
 - **Festivales gastronómicos y food courts** al aire libre
@@ -417,7 +417,7 @@ A esta escala, la instalación requiere **planeación de ingeniería formal**:
 - **Ferias y exposiciones** al aire libre
 - **Bodas destino** en fincas rurales del Estado de México
 
-[Especificaciones completas y galería del Paquete 400m →](/servicios/iluminacion/guirnaldas/500-metros/)
+[Especificaciones completas y galería del Paquete 500m →](/servicios/iluminacion/guirnaldas/500-metros/)
 
 ## Guía de Selección: Cómo Elegir el Paquete Correcto
 
@@ -433,10 +433,10 @@ A esta escala, la instalación requiere **planeación de ingeniería formal**:
 | Evento corporativo en terraza | 80-150 | Rooftop, terraza hotel | 100m |
 | XV años en jardín | 100-200 | Jardín de eventos | 100m |
 | Boda grande en explanada | 200-300 | Ex-hacienda, finca grande | 200m |
-| Festival gastronómico | 300-500 | Explanada, estacionamiento | 200m-400m |
-| Boda monumental | 300-500+ | Ex-hacienda, finca rural | 400m |
-| Bazar o feria comercial | 500-1,000+ | Explanada amplia | 400m |
-| Evento multi-zona | Variable | Múltiples áreas | 200m-400m |
+| Festival gastronómico | 300-500 | Explanada, estacionamiento | 200m-500m |
+| Boda monumental | 300-500+ | Ex-hacienda, finca rural | 500m |
+| Bazar o feria comercial | 500-1,000+ | Explanada amplia | 500m |
+| Evento multi-zona | Variable | Múltiples áreas | 200m-500m |
 
 ### El Factor Geometría
 
@@ -503,7 +503,7 @@ La configuración más completa para eventos grandes. Se combinan diferentes alt
 - **Zona lounge**: Guirnaldas a baja altura para ambiente íntimo
 - **Caminos de conexión**: Guirnaldas laterales guiando el flujo entre zonas
 
-**Metraje típico**: 200-400 metros.
+**Metraje típico**: 200-500 metros.
 
 ### 6. Envolvente de Carpa
 
@@ -692,10 +692,10 @@ El modelo de servicio EVENTECH incluye:
 - Coordinación con electricista del venue para identificar circuitos disponibles
 - Verificación de que el tablero principal del venue soporta la carga adicional
 
-**Paquete 400m (1,600W)**
+**Paquete 500m (2,000W)**
 - Requiere **planeación eléctrica formal** con electricista del venue
 - 4+ circuitos independientes
-- Posible necesidad de [planta de energía portátil](/servicios/accesorios/plantas-energia/) si la infraestructura del venue no soporta 1,600W adicionales
+- Posible necesidad de [planta de energía portátil](/servicios/accesorios/plantas-energia/) si la infraestructura del venue no soporta 2,000W adicionales
 - Cables de distribución de calibre 12 AWG o superior para alimentadores principales
 
 ### Coordinación con el Venue
@@ -857,7 +857,7 @@ No existen cargos adicionales por combustible, peajes, horas de espera razonable
 
 **¿Con cuánta anticipación debo reservar las guirnaldas?**
 
-Recomendamos 2-4 semanas para el paquete de 50m, 1-2 meses para 100m-200m, y 2-3 meses para el paquete de 400m o para fechas en temporada alta (mayo-junio para bodas, noviembre-diciembre para eventos de fin de año). En temporada alta, la disponibilidad se agota rápidamente.
+Recomendamos 2-4 semanas para el paquete de 50m, 1-2 meses para 100m-200m, y 2-3 meses para el paquete de 500m o para fechas en temporada alta (mayo-junio para bodas, noviembre-diciembre para eventos de fin de año). En temporada alta, la disponibilidad se agota rápidamente.
 
 **¿Puedo combinar guirnaldas con otros servicios de EVENTECH?**
 

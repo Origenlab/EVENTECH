@@ -495,7 +495,7 @@ En EVENTECH no somos un proveedor más en la lista del wedding planner. Somos el
 ### Catálogo Completo de Servicios para Bodas Elegantes
 
 **Iluminación Profesional:**
-- [Fairy lights y guirnaldas Edison](/servicios/iluminacion/decorativa/fairy-lights/) — Doseles, cortinas, enmarcados
+- [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) y [guirnaldas Edison](/servicios/iluminacion/guirnaldas/) — Doseles, cortinas, enmarcados
 - [Cortinas de luz LED](/servicios/iluminacion/decorativa/cascadas-led/) — Fondos de mesa de novios, photo walls
 - [Velas LED](/servicios/iluminacion/decorativa/) — Candlelight seguro en cada superficie
 - [Letras luminosas](/servicios/iluminacion/decorativa/letras-luminosas/) — Iniciales, palabras, números iluminados

@@ -629,6 +629,6 @@ Eso es exactamente lo que hacemos.
 - [Explorar carpas para bodas outdoor](/servicios/carpas/)
 - [Catálogo completo de mobiliario exterior](/servicios/mobiliario/)
 - [Iluminación para jardines y terrazas](/servicios/iluminacion/)
-- [Guirnaldas Edison paquetes completos](/servicios/iluminacion/decorativa/fairy-lights/)
+- [Guirnaldas Edison paquetes completos](/servicios/iluminacion/guirnaldas/)
 - [Pistas de baile para exterior](/servicios/pistas-baile/)
 - [Control climático y generadores](/servicios/accesorios/)
