@@ -1,0 +1,640 @@
+---
+/**
+ * ─── EVENTECH.MX — Renta de Guirnaldas de Luces (Hub L4, molde hm- 2026) ───
+ * 50m · 100m · 200m · 500m — CDMX y ZMVM
+ * Homologado al molde de sillas/index.astro (sistema hm-, dorado institucional).
+ * NOTA: las L5 son hojas (paquetes por metraje, sin L6) → specs como pills no enlazadas.
+ * Precio cerrado alineado con el aliado REDEIL. Ver vault: Contenido/Estudio-Guirnaldas-Luces.
+ *
+ * Jerarquía: Servicios > Iluminación > Guirnaldas (hub L4) > Paquete (L5)
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import { SITE } from "@config/site";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from "@lib/seo";
+import "@styles/home-2026.css";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+import ProveedorIluminacion from "@components/ProveedorIluminacion.astro";
+
+const SUB_SERVICES = [
+  {
+    id: "50-metros",
+    name: "Básico — 50 metros",
+    short: "50 metros",
+    badge: "Desde $3,500",
+    excerpt:
+      "100 focos Edison para pérgolas, terrazas y ceremonias íntimas de hasta 50 invitados. El metraje justo para una boda civil en patio o una cena a la luz de los focos, sin sobredimensionar.",
+    href: "/servicios/iluminacion/guirnaldas/50-metros/",
+    image: "/images/guirnaldas/renta-guirnaldas-edison-50m-pergola.avif",
+    specs: ["100 focos", "~50 m²", "Hasta 50 invitados", "$3,500 + IVA"],
+  },
+  {
+    id: "100-metros",
+    name: "Estándar — 100 metros",
+    short: "100 metros",
+    badge: "El más pedido",
+    excerpt:
+      "200 focos Edison: banquete, pista y coctel cubiertos en un solo montaje. El 60% de nuestras bodas eligen este paquete porque es el punto exacto donde la cobertura deja de crecer y el presupuesto sí.",
+    href: "/servicios/iluminacion/guirnaldas/100-metros/",
+    image: "/images/guirnaldas/guirnaldas-edison-100-metros-boda-cdmx.avif",
+    specs: ["200 focos", "~100 m²", "100–200 invitados", "$6,500 + IVA"],
+  },
+  {
+    id: "200-metros",
+    name: "Premium — 200 metros",
+    short: "200 metros",
+    badge: "Haciendas y fincas",
+    excerpt:
+      "400 focos Edison con dimmer por zona y asesoría en sitio. Para haciendas con explanada, jardines amplios y bodas de 200+ invitados donde ninguna esquina puede quedarse a oscuras.",
+    href: "/servicios/iluminacion/guirnaldas/200-metros/",
+    image: "/images/guirnaldas/guirnaldas-edison-200-metros-boda-grande.avif",
+    specs: ["400 focos", "~200 m²", "200+ invitados", "$11,500 + IVA"],
+  },
+  {
+    id: "500-metros",
+    name: "Producción — 500 metros",
+    short: "500 metros",
+    badge: "Escala festival",
+    excerpt:
+      "1,000 focos Edison, 5 circuitos independientes y equipo de 4-5 técnicos con montaje el día previo. Festivales, ferias, bazares navideños y explanadas completas de 500 a 1,000+ personas.",
+    href: "/servicios/iluminacion/guirnaldas/500-metros/",
+    image: "/images/guirnaldas/renta-guirnaldas-edison-400m-hero.avif",
+    specs: ["1,000 focos", "~500 m²", "500–1,000+ personas", "$24,000 + IVA"],
+  },
+];
+
+const whyFeatures = [
+  {
+    title: "Calculamos tus metros antes de cotizar",
+    body: "La pregunta que nadie responde bien es cuántos metros necesitas. La regla que usamos: largo del espacio × 1.5 para líneas paralelas, × 2 para cruce en zigzag. Una pérgola de 4×6 m lleva ~30 metros; un jardín de 100 m², entre 50 y 80. Mándanos fotos del venue y te decimos el metraje exacto antes de que pagues de más — o de menos, que es peor.",
+  },
+  {
+    title: "Cableado IP65 certificado para lluvia directa",
+    body: "Todo el cableado y las conexiones son IP65. Hemos montado en julio y agosto, en plena temporada de lluvias de CDMX, sin un solo corto. Para interiores usamos la línea IP44. El técnico elige la versión correcta según tu venue — no te vendemos exterior si vas a montar bajo techo.",
+  },
+  {
+    title: "Foco Edison LED o filamento real — al mismo precio",
+    body: "El LED Edison da el mismo tono ámbar consumiendo un tercio de la energía y no se calienta aunque esté encendido diez horas. El filamento real tiene un brillo que oscila, más parecido a una vela: los fotógrafos lo prefieren, pero se calienta y ocasionalmente hay que reemplazar uno. Tú eliges. Cuesta lo mismo y siempre llevamos focos de repuesto.",
+  },
+  {
+    title: "Postes telescópicos donde no hay dónde colgar",
+    body: "En haciendas usamos las columnas y vigas existentes. En jardines sin postes llevamos postes telescópicos de aluminio, clavados o lastrados con base de arena. En carpas, las guirnaldas van tensadas entre los postes de la estructura. Ningún venue se queda sin montaje por no tener puntos de anclaje.",
+  },
+  {
+    title: "Dimmer para que la luz acompañe cada momento",
+    body: "La misma guirnalda no sirve igual durante la cena que durante la fiesta. Los paquetes de 100 metros en adelante incluyen dimmer regulable del 10% al 100%, y a partir de 200 metros el control es por zonas independientes. Baja la intensidad para el brindis, súbela para la pista — sin tocar nada tú.",
+  },
+  {
+    title: "Instalación, operación y desmontaje siempre incluidos",
+    body: "El precio que ves es el precio final: transporte, montaje (2 a 4 horas según metraje), operación durante el evento y desmontaje al cierre. No cobramos instalación aparte ni traslado dentro de la ZMVM. Si tu venue no tiene corriente, coordinamos planta de luz.",
+  },
+];
+
+const steps = [
+  { n: 1, t: "Mándanos fotos del venue", p: "Por WhatsApp, con las medidas aproximadas del espacio y una idea del efecto que buscas: canopy sobre la pista, zigzag sobre las mesas, perímetro de jardín o tree wrap en los árboles. Calculamos el metraje exacto y te devolvemos propuesta con precio cerrado en menos de 24 horas." },
+  { n: 2, t: "Visita técnica y diagrama de montaje", p: "A partir de 100 metros hacemos visita previa sin costo: medimos, definimos alturas, puntos de anclaje y distribución de líneas, y te mandamos un diagrama del montaje propuesto. Con el 30% de anticipo apartamos equipo y fecha. En temporada alta —noviembre a febrero y mayo a junio— los fines de semana se agotan primero." },
+  { n: 3, t: "Montaje y prueba antes de que llegue nadie", p: "Llegamos con anticipación. El montaje toma de 2 a 4 horas según metraje (el paquete de 500 metros se monta el día anterior). Tendido de guirnaldas, anclajes, cableado, conexión del dimmer y encendido de prueba completo. Todo probado antes de que se abran las puertas." },
+  { n: 4, t: "Evento y desmontaje", p: "Durante el evento la luz hace su trabajo sin que tengas que pensar en ella; el técnico ajusta la intensidad según el momento. Al cierre desmontamos y retiramos todo. Montaje y desmontaje están incluidos sin costo adicional dentro de CDMX y zona metropolitana." },
+];
+
+const faqs = [
+  { question: "¿Cuántos metros de guirnaldas necesito para mi evento?", answer: "Depende del espacio y del patrón de montaje. La regla rápida: multiplica el largo del espacio por 1.5 si quieres líneas paralelas, o por 2 si quieres cruce en zigzag. Como referencia: una pérgola de 4×6 m lleva unos 30 metros; un jardín de 100 m² entre 50 y 80 metros; una carpa grande de 80 a 150 metros; una hacienda con explanada, 200 metros o más. Mándanos fotos de tu venue por WhatsApp con las medidas aproximadas y te calculamos el metraje exacto sin costo." },
+  { question: "¿Cuánto cuesta rentar guirnaldas de luces en CDMX?", answer: "Precios cerrados, sin sorpresas: 50 metros $3,500 + IVA (pérgola o terraza chica), 100 metros $6,500 + IVA (el más pedido para bodas en jardín), 200 metros $11,500 + IVA (haciendas y eventos de 200+ invitados) y 500 metros $24,000 + IVA (festivales y venues de gran escala). Todos incluyen focos, cableado IP65, transporte, montaje, operación durante el evento y desmontaje. No cobramos instalación aparte." },
+  { question: "¿Las guirnaldas funcionan bajo lluvia?", answer: "Sí. Todo el cableado y las conexiones de la línea de exterior son IP65, certificados para lluvia directa. Hemos montado en julio y agosto en plena temporada de lluvias de CDMX sin un solo corto. Para interiores —salones, carpas techadas— usamos la línea IP44, que es suficiente y más económica de operar. El técnico define qué línea corresponde a tu venue durante la visita previa." },
+  { question: "¿Cuál es la diferencia entre focos Edison LED y de filamento real?", answer: "Los Edison LED producen el mismo tono ámbar cálido pero consumen un tercio de la energía y no se calientan, así que aguantan montajes de ocho a diez horas sin problema — importante en venues con planta de luz limitada. Los de filamento real dan un brillo que oscila ligeramente, más parecido a una vela; los fotógrafos suelen preferirlos. Cuestan lo mismo. La diferencia es sutil en persona pero notoria en fotografía. Siempre llevamos focos de repuesto." },
+  { question: "¿Cómo se instalan las guirnaldas en un jardín sin postes ni árboles?", answer: "Llevamos postes telescópicos de aluminio que se clavan en tierra o se lastran con base de arena cuando el piso no permite perforación. En haciendas aprovechamos columnas, vigas y arcos existentes. En carpas, las guirnaldas van tensadas entre los postes de la estructura, sin tocar la lona. El montaje toma de 2 a 4 horas según el metraje. Ningún venue se queda sin montaje por falta de puntos de anclaje." },
+  { question: "¿Cuál es la diferencia entre guirnaldas Edison y fairy lights?", answer: "Son dos productos distintos aunque se confundan. Las guirnaldas Edison son cables con focos grandes de filamento visible, separados cada 50 cm: cada foco es un elemento decorativo y el efecto es rústico, vintage o industrial. Las fairy lights son hilos de micro LED diminutos que crean un manto etéreo tipo cielo estrellado, y se calculan por metro cuadrado de techo, no por metro lineal. Se pueden combinar: canopy de fairy lights arriba y Edison en el perímetro. Ver nuestra página de fairy lights y guirnaldas decorativas." },
+  { question: "¿Con cuánta anticipación debo reservar?", answer: "Dos a cuatro semanas es lo ideal. En temporada alta —noviembre a febrero por fiestas de fin de año y bazares navideños, mayo y junio por bodas— conviene apartar con cuatro a seis semanas, porque los fines de semana se agotan primero. Con el 30% de anticipo apartamos equipo y fecha. También atendemos solicitudes de último momento sujetas a inventario disponible." },
+];
+
+const jsonLd = [
+  serviceJsonLd({
+    name: "Renta de Guirnaldas de Luces para Eventos en CDMX",
+    description:
+      "Renta de guirnaldas de luces con focos Edison para bodas, XV años, jardines y festivales en CDMX. Paquetes de 50, 100, 200 y 500 metros desde $3,500. Cableado IP65. Transporte, montaje, operación y desmontaje incluidos.",
+    url: "/servicios/iluminacion/guirnaldas/",
+    image: "/images/iluminacion/guirnaldas-edison-jardin-boda.avif",
+    priceRange: { min: 3500, max: 24000 },
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Iluminación", url: "/servicios/iluminacion/" },
+    { name: "Guirnaldas", url: "/servicios/iluminacion/guirnaldas/" },
+  ]),
+  faqJsonLd(faqs),
+];
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Iluminación", href: "/servicios/iluminacion/" },
+  { label: "Guirnaldas" },
+];
+
+const WA_BASE = `https://wa.me/${SITE.contact.whatsapp}?text=`;
+const WA_COTIZA = `${WA_BASE}${encodeURIComponent("Hola, quiero cotizar guirnaldas de luces para mi evento")}`;
+---
+
+<PageLayout
+  title="Renta de Guirnaldas de Luces para Eventos en CDMX | Equipo para eventos en México"
+  rawTitle={true}
+  image="/images/iluminacion/guirnaldas-edison-jardin-boda.avif"
+  description="Renta de guirnaldas de luces con focos Edison para bodas y jardines en CDMX. Paquetes de 50 a 500 metros desde $3,500. IP65. Instalación incluida."
+  jsonLd={jsonLd}
+>
+
+  <Breadcrumbs items={breadcrumbItems} slot="breadcrumbs" />
+  <div class="hm">
+
+    <!-- HERO ─────────────────────────────────────────────────── -->
+    <section class="hm-hero" aria-labelledby="guirnaldas-hero-heading">
+      <div class="hm__wrap hm-hero__wrap">
+        <div class="hm-hero__grid">
+          <div class="hm-hero__main">
+            <p class="hm__eyebrow hm-hero__eyebrow">Guirnaldas de luces · CDMX y ZMVM</p>
+            <h1 id="guirnaldas-hero-heading">
+              Guirnaldas de luces vintage — <em>el techo de focos Edison que vuelve mágico un jardín</em>
+            </h1>
+            <p class="hm-hero__lead">
+              Paquetes de 50, 100, 200 y 500 metros lineales con focos Edison de filamento
+              visible. Cableado IP65 certificado para lluvia. Transporte, montaje, operación
+              y desmontaje incluidos — desde $3,500 + IVA.
+            </p>
+            <div class="sv-hero__ctas">
+              <a class="hm__btn hm__btn--gold" href={WA_COTIZA} target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.23 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+                Cotizar guirnaldas
+              </a>
+              <a class="hm__btn hm__btn--ghost" href="#catalogo">
+                Ver paquetes y precios
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="hm-hero__seo">
+            <p>
+              EVENTECH renta <strong>guirnaldas de luces para eventos</strong> en CDMX —
+              también llamadas luces vintage, series de luces o string lights. Paquetes de
+              <strong>50, 100, 200 y 500 metros lineales</strong> con focos Edison de
+              filamento visible, a elegir entre <strong>LED de bajo consumo o filamento
+              real</strong> al mismo precio. Todo el cableado de exterior es
+              <strong>IP65</strong>, certificado para lluvia directa: hemos montado en plena
+              temporada de lluvias sin un solo corto.
+            </p>
+            <p>
+              Ningún elemento transforma tanto un espacio por tan poco. Un canopy de
+              guirnaldas sobre la pista convierte un jardín en un cielo de focos cálidos —
+              es el efecto más fotografiado de una boda. Calculamos tu metraje exacto antes
+              de cotizar y montamos donde no hay dónde colgar, con postes telescópicos.
+              Combínalas con
+              <a href="/servicios/iluminacion/arquitectonica/uplighting/">uplighting ámbar</a>
+              en las columnas, o bajo nuestras
+              <a href="/servicios/carpas/">carpas</a> para un cielo estrellado interior.
+              Para el detalle delicado del micro LED, ve
+              <a href="/servicios/iluminacion/decorativa/fairy-lights/">fairy lights</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NAV PAQUETES ───────────────────────────────────────────── -->
+    <nav class="hm-menu" aria-label="Paquetes de guirnaldas disponibles">
+      <ul class="hm-menu__grid hm-menu__grid--guirnaldas">
+        {SUB_SERVICES.map((s) => (
+          <li><a class="hm-menu__item" href={s.href}>{s.short}</a></li>
+        ))}
+        <li class="hm-menu__cta-row">
+          <a class="hm-menu__item hm-menu__item--cta" href={WA_COTIZA} target="_blank" rel="noopener noreferrer">
+            Cotizar ahora
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- CATÁLOGO ──────────────────────────────────────────────── -->
+    <section id="catalogo" class="hm__section" aria-labelledby="catalogo-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Precio cerrado, todo incluido</p>
+            <h2 id="catalogo-heading">¿Cuántos metros necesita tu evento?</h2>
+            <p class="hm__head-sub">4 paquetes — de la pérgola íntima al festival de 1,000 personas. Sin cargo por instalación.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              La unidad de venta es el metro lineal, y la regla para calcularlo es simple:
+              multiplica el largo de tu espacio por <strong>1.5</strong> si quieres líneas
+              paralelas, o por <strong>2</strong> si quieres cruce en zigzag. Una pérgola de
+              4×6 m lleva unos 30 metros. Un jardín de 100 m², entre 50 y 80.
+            </p>
+            <p>
+              Cada paquete incluye focos (LED o filamento, a tu elección), cableado IP65,
+              transporte, montaje, operación durante el evento y desmontaje. Si tu evento no
+              encaja en ninguno, armamos uno a la medida — mándanos fotos del venue.
+            </p>
+          </div>
+        </div>
+        <div class="hm-cat-grid">
+          {SUB_SERVICES.map((s) => (
+            <article class="hm-cat">
+              <a class="hm-cat__media" href={s.href} aria-label={`Ver ${s.name}`}>
+                <img class="hm-cat__img" src={s.image} alt={`Renta de guirnaldas de luces ${s.short} para eventos en CDMX — EVENTECH`} loading="lazy" decoding="async" />
+                <span class="hm-cat__badge">{s.badge}</span>
+                <span class="hm-cat__name">{s.name}</span>
+              </a>
+              <div class="hm-cat__body">
+                <p class="hm-cat__sub">{s.excerpt}</p>
+                <ul class="hm-feat__stats hm-cat__specs">
+                  {s.specs.map((sp) => (<li>{sp}</li>))}
+                </ul>
+                <a class="hm-cat__cta" href={s.href}>
+                  Ver {s.short}
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- MÓDULOS DETALLE ────────────────────────────────────────── -->
+    <section class="hm__section hm__section--ivory" aria-labelledby="detalle-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Cada paquete, a fondo</p>
+            <h2 id="detalle-heading">Los 4 paquetes de guirnaldas — en detalle</h2>
+            <p class="hm__head-sub">Focos, cobertura, circuitos eléctricos y para qué tipo de evento funciona mejor cada metraje.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Detrás del metraje hay decisiones que deciden si la luz se ve diseñada o
+              improvisada: la altura y el ángulo de cada línea importan más que la cantidad
+              de focos, y el consumo eléctrico define cuántos circuitos necesita el venue.
+            </p>
+            <p>
+              Conocer estas diferencias te permite iluminar con criterio y no solo colgar
+              lucecitas. A continuación, lo que realmente importa de cada paquete.
+            </p>
+          </div>
+        </div>
+
+        <!-- 50 METROS -->
+        <article class="hm-feat" aria-labelledby="feat-50">
+          <div class="hm-feat__text">
+            <p class="hm__eyebrow">Básico — 50 metros</p>
+            <h3 class="hm-feat__title" id="feat-50">El metraje justo para una pérgola, una terraza o una boda civil en patio</h3>
+            <p class="hm-feat__lead">Cincuenta metros no suenan a mucho hasta que ves una pérgola de 4×6 m cubierta de focos Edison. Para un evento íntimo, más metraje no mejora nada — solo encarece.</p>
+            <p>
+              <strong>100 focos Edison</strong> distribuidos cada 50 cm sobre cable negro
+              industrial calibre 16 AWG, con cobertura aproximada de <strong>50 m²</strong>.
+              Consumo de ~200W: se conecta a cualquier toma doméstica de 120V sin circuitos
+              adicionales. Montaje de <strong>1 a 2 horas</strong>.
+            </p>
+            <p>
+              Perfecto para <strong>ceremonias civiles en patio, terrazas, pérgolas y cenas
+              íntimas de hasta 50 invitados</strong>. Es también el paquete que se suma a
+              otro cuando faltan metros para cubrir una segunda zona. Combínalo con
+              <a href="/servicios/iluminacion/decorativa/letras-luminosas/">letras luminosas</a>
+              para armar el punto de foto.
+            </p>
+            <ul class="hm-feat__stats">
+              {["100 focos", "~50 m²", "~200W", "Hasta 50 invitados", "Montaje 1–2 h", "$3,500 + IVA"].map((sp) => (<li>{sp}</li>))}
+            </ul>
+            <a class="hm-feat__cta" href="/servicios/iluminacion/guirnaldas/50-metros/">
+              Ver paquete de 50 metros
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <div class="hm-feat__media hm-feat__media--g3">
+            <img class="hm-feat__g3-main" src="/images/guirnaldas/renta-guirnaldas-edison-50m-pergola.avif" alt="Guirnaldas Edison de 50 metros iluminando una pérgola para ceremonia en CDMX" loading="lazy" decoding="async" />
+            <div class="hm-feat__g3-thumbs">
+              <img src="/images/guirnaldas/renta-guirnaldas-edison-50m-terraza-cdmx.avif" alt="Guirnaldas de 50 metros en terraza para evento íntimo en CDMX" loading="lazy" decoding="async" />
+              <img src="/images/guirnaldas/guirnaldas-50m-boda-civil-cdmx.avif" alt="Guirnaldas de 50 metros en boda civil en patio en CDMX" loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </article>
+
+        <!-- 100 METROS -->
+        <article class="hm-feat" aria-labelledby="feat-100">
+          <div class="hm-feat__text">
+            <p class="hm__eyebrow">Estándar — 100 metros</p>
+            <h3 class="hm-feat__title" id="feat-100">El punto exacto donde la cobertura deja de crecer y el presupuesto sí</h3>
+            <p class="hm-feat__lead">El 60% de nuestras bodas eligen 100 metros. No es casualidad: es el metraje donde una boda de jardín queda completamente cubierta sin que sobre un solo metro.</p>
+            <p>
+              <strong>200 focos Edison</strong> con cobertura de ~100 m², suficiente para las
+              tres zonas de una boda en un solo montaje: <strong>zigzag sobre las mesas de
+              banquete</strong> (40–60 m), <strong>líneas paralelas sobre la pista</strong>
+              (20–30 m) y <strong>perímetro del área de coctel</strong> (20–30 m). Consumo de
+              ~400W — menos que un microondas.
+            </p>
+            <p>
+              Incluye <strong>dimmer regulable del 10% al 100%</strong> y visita técnica
+              previa con diagrama de montaje. Ideal para <strong>bodas de 100 a 200
+              invitados, haciendas medianas y terrazas corporativas</strong>. La combinación
+              más pedida: guirnaldas en el techo +
+              <a href="/servicios/iluminacion/arquitectonica/uplighting/">uplighting ámbar</a>
+              en las columnas.
+            </p>
+            <ul class="hm-feat__stats">
+              {["200 focos", "~100 m²", "~400W", "100–200 invitados", "Dimmer incluido", "$6,500 + IVA"].map((sp) => (<li>{sp}</li>))}
+            </ul>
+            <a class="hm-feat__cta" href="/servicios/iluminacion/guirnaldas/100-metros/">
+              Ver paquete de 100 metros
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <div class="hm-feat__media hm-feat__media--g3">
+            <img class="hm-feat__g3-main" src="/images/guirnaldas/guirnaldas-edison-100-metros-boda-cdmx.avif" alt="Guirnaldas Edison de 100 metros en boda de jardín en CDMX" loading="lazy" decoding="async" />
+            <div class="hm-feat__g3-thumbs">
+              <img src="/images/guirnaldas/guirnaldas-edison-100m-hacienda-boda.avif" alt="Guirnaldas de 100 metros en hacienda para boda" loading="lazy" decoding="async" />
+              <img src="/images/guirnaldas/guirnaldas-100m-combo-canopy-uplighting.avif" alt="Guirnaldas de 100 metros combinadas con canopy y uplighting" loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </article>
+
+        <!-- 200 METROS -->
+        <article class="hm-feat" aria-labelledby="feat-200">
+          <div class="hm-feat__text">
+            <p class="hm__eyebrow">Premium — 200 metros</p>
+            <h3 class="hm-feat__title" id="feat-200">Cuando la hacienda es grande y ninguna esquina puede quedarse a oscuras</h3>
+            <p class="hm-feat__lead">Doscientos metros no son cien metros dos veces. Son un diseño de iluminación por zonas, con circuitos y dimmers independientes para cada momento del evento.</p>
+            <p>
+              <strong>400 focos Edison</strong> con cobertura de ~200 m², distribuidos en
+              <strong>2 circuitos eléctricos independientes</strong> (~800W totales) con
+              dimmer por zona. Montaje de <strong>4 a 6 horas</strong> con equipo de 2–3
+              técnicos y <strong>asesoría en sitio</strong> antes del evento.
+            </p>
+            <p>
+              El paquete de las <strong>haciendas, fincas y bodas de 200+ invitados</strong>:
+              explanada, corredor, jardines laterales y patio de coctel cubiertos a la vez.
+              También el favorito de eventos corporativos en terrazas industriales. Bajo
+              <a href="/servicios/carpas/estructurales/">carpa estructural</a> las guirnaldas
+              van tensadas entre los postes, sin tocar la lona.
+            </p>
+            <ul class="hm-feat__stats">
+              {["400 focos", "~200 m²", "2 circuitos", "200+ invitados", "Asesoría en sitio", "$11,500 + IVA"].map((sp) => (<li>{sp}</li>))}
+            </ul>
+            <a class="hm-feat__cta" href="/servicios/iluminacion/guirnaldas/200-metros/">
+              Ver paquete de 200 metros
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <div class="hm-feat__media hm-feat__media--g3">
+            <img class="hm-feat__g3-main" src="/images/guirnaldas/guirnaldas-edison-200-metros-boda-grande.avif" alt="Guirnaldas Edison de 200 metros en boda grande de hacienda en CDMX" loading="lazy" decoding="async" />
+            <div class="hm-feat__g3-thumbs">
+              <img src="/images/guirnaldas/renta-guirnaldas-edison-200m-hacienda.avif" alt="Guirnaldas de 200 metros iluminando la explanada de una hacienda" loading="lazy" decoding="async" />
+              <img src="/images/guirnaldas/renta-guirnaldas-edison-200m-carpa-estructural.avif" alt="Guirnaldas de 200 metros tensadas en carpa estructural" loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </article>
+
+        <!-- 500 METROS -->
+        <article class="hm-feat" aria-labelledby="feat-500">
+          <div class="hm-feat__text">
+            <p class="hm__eyebrow">Producción — 500 metros</p>
+            <h3 class="hm-feat__title" id="feat-500">Escala festival: 1,000 focos, 5 circuitos y montaje el día previo</h3>
+            <p class="hm-feat__lead">A partir de cierta escala la guirnalda deja de ser decoración y se vuelve infraestructura. Quinientos metros se planean como un proyecto eléctrico, no como un adorno.</p>
+            <p>
+              <strong>1,000 focos Edison</strong> con cobertura de ~500 m², repartidos en
+              <strong>5 circuitos independientes</strong> (~2,000W) con dimmer y temporizador
+              por circuito. Incluye <strong>tablero de distribución portátil</strong> y, si el
+              venue no tiene corriente,
+              <a href="/servicios/accesorios/plantas-energia/">planta de energía</a>.
+            </p>
+            <p>
+              Equipo de <strong>4 a 5 técnicos</strong>, montaje de 8 a 12 horas programado
+              el día anterior, y revisión técnica diaria en eventos multi-día. Para
+              <strong>festivales gastronómicos, ferias, bazares navideños, explanadas y bodas
+              monumentales de 500 a 1,000+ personas</strong>. Los focos LED aguantan más de
+              25,000 horas encendidos sin degradación.
+            </p>
+            <ul class="hm-feat__stats">
+              {["1,000 focos", "~500 m²", "5 circuitos", "500–1,000+ personas", "Montaje día previo", "$24,000 + IVA"].map((sp) => (<li>{sp}</li>))}
+            </ul>
+            <a class="hm-feat__cta" href="/servicios/iluminacion/guirnaldas/500-metros/">
+              Ver paquete de 500 metros
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <div class="hm-feat__media hm-feat__media--g3">
+            <img class="hm-feat__g3-main" src="/images/guirnaldas/renta-guirnaldas-edison-400m-hero.avif" alt="Guirnaldas Edison de 500 metros iluminando una explanada de gran escala en CDMX" loading="lazy" decoding="async" />
+            <div class="hm-feat__g3-thumbs">
+              <img src="/images/guirnaldas/renta-guirnaldas-400m-festival-musica.avif" alt="Guirnaldas de 500 metros en festival de música al aire libre" loading="lazy" decoding="async" />
+              <img src="/images/guirnaldas/guirnaldas-400m-feria-navidad-cdmx.avif" alt="Guirnaldas de 500 metros en feria navideña en CDMX" loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- POR QUÉ EVENTECH ────────────────────────────────────────── -->
+    <section class="hm__section hm__section--navy" aria-labelledby="why-heading">
+      <div class="hm__wrap">
+        <div class="hm__head">
+          <p class="hm__eyebrow">Por qué elegirnos</p>
+          <h2 id="why-heading">Lo que diferencia nuestras guirnaldas del resto</h2>
+          <p class="hm__head-sub">Lo que hace la diferencia no es la cantidad de focos — es la altura y el ángulo de cada línea.</p>
+        </div>
+        <ul class="hm-why">
+          {whyFeatures.map((f) => (
+            <li class="hm-why__item">
+              <div class="hm-why__ic" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <h3>{f.title}</h3>
+              <p>{f.body}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- CÓMO FUNCIONA ──────────────────────────────────────────── -->
+    <section class="hm__section hm__section--ivory" aria-labelledby="proceso-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Proceso de renta</p>
+            <h2 id="proceso-heading">De las fotos del venue al desmontaje</h2>
+            <p class="hm__head-sub">4 pasos para que la luz quede diseñada, no improvisada.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              El error más común es comprar lucecitas y colgarlas sin diseño ni anclaje
+              seguro, y terminar con líneas caídas, focos apagados a mitad de la noche o un
+              montaje que se ve improvisado en cada foto. Nuestro proceso elimina cada punto
+              de falla — con cálculo de metraje, diagrama de montaje y prueba de encendido
+              antes de que llegue el primer invitado.
+            </p>
+          </div>
+        </div>
+        <ol class="hm-steps">
+          {steps.map((s) => (
+            <li class="hm-step">
+              <div class="hm-step__num">{s.n}</div>
+              <h3>{s.t}</h3>
+              <p>{s.p}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES + FORMULARIO ──────────────────────── -->
+    <section class="hm__section hm__section--ivory" aria-labelledby="faq-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Antes de cotizar</p>
+            <h2 id="faq-heading">Preguntas frecuentes sobre renta de guirnaldas</h2>
+            <p class="hm__head-sub">Las dudas más comunes — respondidas con claridad.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Reunimos las preguntas que más nos hacen sobre metraje, precio, lluvia, tipo de
+              foco, anclaje y anticipación. Si tu duda no está aquí, un asesor te responde en
+              minutos por WhatsApp.
+            </p>
+            <p>
+              Con más de 500 montajes de guirnaldas en CDMX y zona metropolitana, hemos
+              resuelto prácticamente cualquier venue. Cotiza con la tranquilidad de un
+              proveedor que ya lo ha hecho antes.
+            </p>
+          </div>
+        </div>
+
+        <div class="hm-faqx">
+          <div class="hm-faq">
+            {faqs.map((faq) => (
+              <details class="hm-faq__item">
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+
+          <aside class="hm-faqx__aside" aria-labelledby="guirnaldasform-heading">
+            <form id="guirnaldasForm" class="hm-form" data-wa={SITE.contact.whatsapp}>
+              <p class="hm-form__eyebrow">Respuesta en menos de 30 min</p>
+              <h3 id="guirnaldasform-heading" class="hm-form__title">Cotiza tus guirnaldas</h3>
+              <p class="hm-form__sub">Cuéntanos lo esencial y te mandamos el metraje sugerido y el precio el mismo día.</p>
+
+              <label class="hm-form__field">
+                <span>Nombre</span>
+                <input type="text" name="nombre" autocomplete="name" placeholder="Tu nombre" required />
+              </label>
+
+              <label class="hm-form__field">
+                <span>Tipo de evento</span>
+                <select name="tipo">
+                  <option value="">Selecciona…</option>
+                  <option>Boda</option>
+                  <option>XV años</option>
+                  <option>Cumpleaños</option>
+                  <option>Corporativo</option>
+                  <option>Festival / Feria</option>
+                  <option>Bazar navideño</option>
+                  <option>Fiesta social</option>
+                  <option>Otro</option>
+                </select>
+              </label>
+
+              <label class="hm-form__field">
+                <span>Fecha del evento</span>
+                <input type="date" name="fecha" />
+              </label>
+
+              <label class="hm-form__field">
+                <span>Paquete de guirnaldas</span>
+                <select name="paquete">
+                  <option value="">Selecciona…</option>
+                  <option>50 metros — $3,500 + IVA</option>
+                  <option>100 metros — $6,500 + IVA</option>
+                  <option>200 metros — $11,500 + IVA</option>
+                  <option>500 metros — $24,000 + IVA</option>
+                  <option>No sé cuántos metros necesito</option>
+                </select>
+              </label>
+
+              <label class="hm-form__field">
+                <span>Detalles del evento</span>
+                <textarea name="mensaje" rows="3" placeholder="Tipo de venue (jardín, hacienda, terraza, carpa), medidas aproximadas del espacio, número de invitados…"></textarea>
+              </label>
+
+              <button type="submit" class="hm-form__btn">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor">
+                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.23 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z" />
+                </svg>
+                Enviar por WhatsApp
+              </button>
+              <p class="hm-form__note">Se abrirá WhatsApp con tu información. Sin compromiso.</p>
+            </form>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /hm -->
+
+  <ProveedorIluminacion focus="guirnaldas Edison y fairy lights" />
+
+  <!-- ── Nav de 4 paquetes + CTA full-width ──
+       Nota: se usa <style is:global> con media queries en lugar del atributo
+       inline `style=` porque un inline gana siempre a las media queries de
+       home-2026.css y rompía el responsive del hm-menu en móvil. -->
+  <style is:global>
+    .hm-menu__grid--guirnaldas {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .hm-menu__grid--guirnaldas li:nth-child(4n + 1) {
+      border-left: 0;
+    }
+    .hm-menu__grid--guirnaldas .hm-menu__cta-row {
+      grid-column: 1 / -1;
+      border-left: 0 !important;
+      border-top: 1px solid var(--color-hairline);
+    }
+    .hm-menu__grid--guirnaldas .hm-menu__item--cta {
+      background: var(--color-gold);
+      color: #fff;
+    }
+    @media (max-width: 560px) {
+      .hm-menu__grid--guirnaldas {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hm-menu__grid--guirnaldas li:nth-child(4n + 1) {
+        border-left: 1px solid var(--color-hairline);
+      }
+      .hm-menu__grid--guirnaldas li:nth-child(2n + 1) {
+        border-left: 0;
+      }
+    }
+  </style>
+
+  <script>
+    const guirnaldasForm = document.getElementById("guirnaldasForm");
+    if (guirnaldasForm) {
+      guirnaldasForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const f = e.currentTarget as HTMLFormElement;
+        const wa = f.dataset.wa;
+        const data = new FormData(f);
+        const get = (k: string) => (data.get(k) || "").toString().trim();
+        let t = "Hola, quiero cotizar guirnaldas de luces para mi evento.";
+        if (get("nombre"))  t += `\nNombre: ${get("nombre")}`;
+        if (get("tipo"))    t += `\nTipo de evento: ${get("tipo")}`;
+        if (get("fecha"))   t += `\nFecha: ${get("fecha")}`;
+        if (get("paquete")) t += `\nPaquete: ${get("paquete")}`;
+        if (get("mensaje")) t += `\nDetalles: ${get("mensaje")}`;
+        window.open(`https://wa.me/${wa}?text=${encodeURIComponent(t)}`, "_blank", "noopener");
+      });
+    }
+  </script>
+
+</PageLayout>

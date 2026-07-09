@@ -255,8 +255,8 @@ Las guirnaldas Edison son el primer sistema que debes resolver porque definen el
 *Canopy de guirnaldas Edison sobre zona de banquete en jardín. La densidad visual recomendada para que el efecto funcione: 1 guirnalda cada 50–60 cm, instalada a 3–4 m de altura. Por debajo de esa densidad el efecto se pierde.*
 
 Para una boda en jardín de 150 invitados, el presupuesto de guirnaldas considera:
-- Zona de banquete (200 m² aprox): **[paquete de 100 m](/servicios/iluminacion/decorativa/fairy-lights/guirnaldas-100m/)** con 200 focos Edison
-- Zona de recepción/cocktail (80 m² aprox): **[paquete de 50 m](/servicios/iluminacion/decorativa/fairy-lights/guirnaldas-50m/)** adicional
+- Zona de banquete (200 m² aprox): **[paquete de 100 m](/servicios/iluminacion/guirnaldas/100-metros/)** con 200 focos Edison
+- Zona de recepción/cocktail (80 m² aprox): **[paquete de 50 m](/servicios/iluminacion/guirnaldas/50-metros/)** adicional
 - Perímetro del jardín o árboles principales: **50 m adicionales** para tree wrap o delimitación
 
 Total para 150 invitados en jardín completo: **200 m de guirnaldas**.
@@ -562,8 +562,8 @@ Los siguientes rangos aplican para bodas en CDMX y área metropolitana (en MXN, 
 
 | Elemento | Descripción | Rango de precio |
 |---|---|---|
-| [Guirnaldas Edison 100 m](/servicios/iluminacion/decorativa/fairy-lights/guirnaldas-100m/) | Con dimmer e instalación | $7,500–$11,000 |
-| [Guirnaldas Edison 200 m](/servicios/iluminacion/decorativa/fairy-lights/guirnaldas-200m/) | Con dimmer e instalación | $14,000–$20,000 |
+| [Guirnaldas Edison 100 m](/servicios/iluminacion/guirnaldas/100-metros/) | Con dimmer e instalación | $7,500–$11,000 |
+| [Guirnaldas Edison 200 m](/servicios/iluminacion/guirnaldas/200-metros/) | Con dimmer e instalación | $14,000–$20,000 |
 | [Uplighting inalámbrico (12 unidades)](/servicios/iluminacion/arquitectonica/uplighting/) | IP65 exterior | $7,000–$10,500 |
 | [Spots de fachada (6 unidades)](/servicios/iluminacion/arquitectonica/fachadas/) | IP65, instalación incluida | $7,500–$12,000 |
 | [Pista de baile LED 5×5 m](/servicios/pistas-baile/pistas-led/) | Con instalación | $14,000–$22,000 |

@@ -253,7 +253,7 @@ Si el espacio tiene un perímetro de hasta 50 metros, las guirnaldas pueden inst
 
 La ventaja principal de este paquete es su **simplicidad logística**: funciona con una sola toma doméstica, el montaje es rápido, y el impacto visual es desproporcionadamente alto respecto a la inversión.
 
-[Especificaciones completas y galería del Paquete 50m →](/servicios/iluminacion/decorativa/fairy-lights/guirnaldas-50m/)
+[Especificaciones completas y galería del Paquete 50m →](/servicios/iluminacion/guirnaldas/50-metros/)
 
 ---
 
@@ -312,7 +312,7 @@ Esta configuración crea una **experiencia de llegada** memorable: los invitados
 - **Recepciones** de bautizo o primera comunión en espacios privados
 - **Eventos de marca** o lanzamientos de producto en rooftops
 
-[Especificaciones completas y galería del Paquete 100m →](/servicios/iluminacion/decorativa/fairy-lights/guirnaldas-100m/)
+[Especificaciones completas y galería del Paquete 100m →](/servicios/iluminacion/guirnaldas/100-metros/)
 
 ---
 
@@ -371,7 +371,7 @@ Nuestro equipo técnico realiza una visita previa al venue para evaluar:
 - **Fincas y quintas** en zona norte del Estado de México
 - **Terrazas panorámicas** de hoteles y centros de convenciones
 
-[Especificaciones completas y galería del Paquete 200m →](/servicios/iluminacion/decorativa/fairy-lights/guirnaldas-200m/)
+[Especificaciones completas y galería del Paquete 200m →](/servicios/iluminacion/guirnaldas/200-metros/)
 
 ---
 
@@ -417,7 +417,7 @@ A esta escala, la instalación requiere **planeación de ingeniería formal**:
 - **Ferias y exposiciones** al aire libre
 - **Bodas destino** en fincas rurales del Estado de México
 
-[Especificaciones completas y galería del Paquete 400m →](/servicios/iluminacion/decorativa/fairy-lights/guirnaldas-400m/)
+[Especificaciones completas y galería del Paquete 400m →](/servicios/iluminacion/guirnaldas/500-metros/)
 
 ## Guía de Selección: Cómo Elegir el Paquete Correcto
 

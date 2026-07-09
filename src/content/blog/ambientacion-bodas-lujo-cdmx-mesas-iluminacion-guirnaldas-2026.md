@@ -213,7 +213,7 @@ Las guirnaldas Edison son el elemento de iluminación decorativa que más bodas 
 
 ### Canopy de 50 m para Ceremonia Civil o Cena Íntima
 
-El [paquete de 50 m](/servicios/iluminacion/decorativa/fairy-lights/guirnaldas-50m/) con 100 focos Edison de 4W es el formato ideal para ceremonias civiles en jardín, cenas íntimas de 40–60 personas o zonas de cocktail delimitadas.
+El [paquete de 50 m](/servicios/iluminacion/guirnaldas/50-metros/) con 100 focos Edison de 4W es el formato ideal para ceremonias civiles en jardín, cenas íntimas de 40–60 personas o zonas de cocktail delimitadas.
 
 ![Guirnaldas Edison 50m en boda civil CDMX, jardín nocturno](/images/guirnaldas/guirnaldas-50m-boda-civil-cdmx.avif)
 
@@ -231,7 +231,7 @@ La iluminación determina la experiencia emocional de la cena. Una misma mesa, c
 
 ### Guirnaldas de 100 m para Bodas de 150–200 Invitados
 
-Para recepciones de 150 a 200 personas en espacios abiertos o bajo carpa, el [paquete de 100 m](/servicios/iluminacion/decorativa/fairy-lights/guirnaldas-100m/) con 200 focos Edison ofrece la densidad y el alcance necesarios para cubrir el área completa sin espacios oscuros.
+Para recepciones de 150 a 200 personas en espacios abiertos o bajo carpa, el [paquete de 100 m](/servicios/iluminacion/guirnaldas/100-metros/) con 200 focos Edison ofrece la densidad y el alcance necesarios para cubrir el área completa sin espacios oscuros.
 
 ![Guirnaldas Edison 100m en boda de 200 invitados, exterior CDMX](/images/guirnaldas/guirnaldas-100m-boda-200-invitados.avif)
 
@@ -245,7 +245,7 @@ La combinación de guirnaldas Edison con [uplighting perimetral](/servicios/ilum
 
 ### Guirnaldas de 200 m en Hacienda: La Escala que Impresiona
 
-Las bodas de destino en haciendas de los alrededores de CDMX requieren escalas de iluminación que la mayoría de los proveedores no pueden manejar. El [paquete de 200 m](/servicios/iluminacion/decorativa/fairy-lights/guirnaldas-200m/) con 400 focos Edison cubre jardines de hasta 600 m², incluyendo zonas de recepción, banquete, baile y postres.
+Las bodas de destino en haciendas de los alrededores de CDMX requieren escalas de iluminación que la mayoría de los proveedores no pueden manejar. El [paquete de 200 m](/servicios/iluminacion/guirnaldas/200-metros/) con 400 focos Edison cubre jardines de hasta 600 m², incluyendo zonas de recepción, banquete, baile y postres.
 
 ![Guirnaldas Edison 200m en boda de destino en hacienda colonial](/images/guirnaldas/guirnaldas-200m-boda-destino-hacienda.avif)
 
