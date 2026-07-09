@@ -54,3 +54,15 @@ Con esto el hub explica **las dos variables independientes**: el paquete dice cu
 Fase 2 restante: el eje **tipo de luz** (`edison-vintage`, `fairy-lights-micro-led`, `cortinas-y-cascadas`), que incluye migrar `/decorativa/fairy-lights/` con sus **121 referencias** — el trabajo más delicado del plan.
 
 Después, Fase 3: 5 páginas de tipo de evento + `CalculadoraMetros.astro`, el único diferenciador sin competencia en el mercado mexicano.
+
+---
+
+## Deploy — verificado en vivo (2026-07-09)
+
+Commit `0992db3d`. Action `deploy.yml` (Cloudflare Pages) → **completed / success**.
+
+- Las 4 páginas nuevas: **HTTP 200**.
+- Hub: las **8 cards** (4 paquetes + 4 patrones) y el ancla `#patrones` presentes en producción.
+- `"@type":"Review"` = **0** en las cuatro, confirmado sobre el HTML servido.
+- El texto *"el wrap no se hace con foco Edison"* está en vivo en `/tree-wrap/`.
+- Los 301 de Fase 1 siguen respondiendo (`guirnaldas-400m/ → 500-metros/`).
