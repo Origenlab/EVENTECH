@@ -104,3 +104,14 @@ Sigue sin resolverse si esos testimonios son reales. Las páginas que yo constru
 ## Siguiente
 
 Fase 3: 5 páginas de tipo de evento (`guirnaldas-para-bodas`, `xv-anos`, `jardin`, `carpas`, `corporativas-y-navidenas`) — cero duplicación con lo existente — y `CalculadoraMetros.astro`.
+
+---
+
+## Deploy — verificado en vivo (2026-07-09)
+
+Commit `d47cc188`. Action `deploy.yml` (Cloudflare Pages) → **completed / success**.
+
+- `fairy-lights` en producción: title *"Renta de Fairy Lights Micro LED para Bodas en CDMX"*, H1 *"el micro LED que convierte un techo en cielo"*, **0 menciones de "guirnalda" en la meta description**, 3 enlaces al hub.
+- `neon-vintage`: el bloque *"Otro producto, otra página"* está en vivo.
+- Los dos guías sirven **0 menciones de "Paquete 400"** en texto; todo dice 500 m / 1,000 focos.
+- Hub y las 5 páginas hijas siguen respondiendo **200**.
