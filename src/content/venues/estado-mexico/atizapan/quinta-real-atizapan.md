@@ -195,6 +195,6 @@ Como partner oficial de EVENTECH, ofrecemos soluciones que complementan la elega
 Si buscas quintas con capilla y servicio completo en el norte del Estado de México:
 
 - **[Hacienda Santa Cecilia](/directorio/estado-mexico/huixquilucan/hacienda-santa-cecilia/)** — Mayor escala, capilla del siglo XVII, precio premium
-- **[Jardines de México Naucalpan](/directorio/estado-mexico/naucalpan/jardines-de-mexico/)** — Más versátil, precio accesible
+- **[Jardines de México Naucalpan](/directorio/estado-mexico/naucalpan/jardines-de-mexico-naucalpan/)** — Más versátil, precio accesible
 - **[Salón Tlalnepantla Real](/directorio/estado-mexico/tlalnepantla/salon-tlalnepantla-real/)** — Climatizado, ideal para temporada de lluvias
 - **[Jardín Los Arcos](/directorio/estado-mexico/atizapan/jardin-los-arcos/)** — Tradición familiar, precio económico

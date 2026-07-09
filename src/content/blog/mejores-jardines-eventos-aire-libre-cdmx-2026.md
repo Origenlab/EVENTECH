@@ -97,7 +97,7 @@ Antes de firmar contrato con cualquier jardín, verifica estos 10 puntos. En EVE
 
 2. **Superficie del terreno** — Pasto, tierra, grava o adoquín determinan el tipo de [pista de baile](/servicios/pistas-baile/) y la estabilidad de [mesas](/servicios/mobiliario/mesas/rectangulares/) y [sillas](/servicios/mobiliario/sillas/crossback/).
 
-3. **Puntos de anclaje para iluminación** — Árboles maduros, postes o estructuras donde instalar [guirnaldas fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) y [cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/) a mínimo 3.5 metros de altura.
+3. **Puntos de anclaje para iluminación** — Árboles maduros, postes o estructuras donde instalar [guirnaldas fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) y [cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/) a mínimo 3.5 metros de altura.
 
 4. **Acceso vehicular para montaje** — Camiones de 3.5 toneladas necesitan acceso directo al área de evento. Sin esto, el montaje duplica su tiempo y costo.
 
@@ -142,7 +142,7 @@ Como partner premium de La Perita, el equipo de EVENTECH ha ejecutado más de 40
 
 - **Iluminación principal**: [Guirnaldas fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) instaladas entre los árboles centenarios en configuración de techo (200-400 metros lineales según capacidad)
 - **Iluminación ambiental**: [Uplighting](/servicios/iluminacion/arquitectonica/uplighting/) en base de árboles para crear profundidad visual nocturna
-- **Iluminación decorativa**: [Velas LED](/servicios/iluminacion/decorativa/velas-led/) en caminos y mesas para complementar la temperatura cálida
+- **Iluminación decorativa**: [Velas LED](/servicios/iluminacion/decorativa/) en caminos y mesas para complementar la temperatura cálida
 - **Mobiliario ceremonia**: [Sillas crossback natural](/servicios/mobiliario/sillas/crossback/) en configuración semicircular (el respaldo de madera armoniza con el entorno)
 - **Mobiliario banquete**: [Mesas rectangulares](/servicios/mobiliario/mesas/rectangulares/) de 240 cm en configuración imperial bajo el dosel principal
 - **Área lounge**: [Salas lounge boho](/servicios/mobiliario/salas-lounge/boho/) junto a la fogata central
@@ -170,7 +170,7 @@ Si La Perita no tiene disponibilidad en tu fecha, estos venues cercanos en Magda
 
 [Jardín Colonial](/directorio/cdmx/cuajimalpa/jardin-colonial/) es la prueba de que un venue extraordinario no necesita un presupuesto de seis cifras. Ubicado en Cuajimalpa —la alcaldía con el clima más fresco de la CDMX, con temperaturas de 14 a 18 °C durante todo el año— este jardín combina arquitectura colonial con vegetación madura para crear un escenario que parece hacienda del siglo XVIII pero a 35 minutos del centro de la ciudad.
 
-Los arcos de cantera rosa son el elemento diferenciador. Funcionan como marco natural para ceremonias civiles y religiosas, eliminan la necesidad de arco floral independiente y generan las mejores fotografías del evento. La vegetación madura (bugambilias, jacarandas, enredaderas) proporciona sombra natural durante ceremonias vespertinas y puntos de anclaje para [cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/) en los arcos.
+Los arcos de cantera rosa son el elemento diferenciador. Funcionan como marco natural para ceremonias civiles y religiosas, eliminan la necesidad de arco floral independiente y generan las mejores fotografías del evento. La vegetación madura (bugambilias, jacarandas, enredaderas) proporciona sombra natural durante ceremonias vespertinas y puntos de anclaje para [cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/) en los arcos.
 
 | Dato clave | Detalle |
 |---|---|
@@ -187,7 +187,7 @@ Los arcos de cantera rosa son el elemento diferenciador. Funcionan como marco na
 
 El formato íntimo de Jardín Colonial requiere producción precisa: cada elemento cuenta más cuando el espacio es compacto. Nuestra configuración recomendada:
 
-- **Iluminación focal**: [Cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/) instaladas en los arcos de cantera para crear un muro luminoso como fondo de ceremonia
+- **Iluminación focal**: [Cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/) instaladas en los arcos de cantera para crear un muro luminoso como fondo de ceremonia
 - **Iluminación ambiental**: [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) en zigzag entre los muros del jardín (80-120 metros lineales)
 - **Iluminación decorativa**: [Letras luminosas](/servicios/iluminacion/decorativa/letras-luminosas/) personalizadas junto al arco principal
 - **Mobiliario ceremonia**: [Sillas Chiavari doradas](/servicios/mobiliario/sillas/chiavari/) para mantener la elegancia colonial
@@ -233,7 +233,7 @@ La ventaja logística de Jardín Nevado es su acceso urbano: nuestros camiones d
 
 - **Iluminación principal**: [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) entre los árboles de ficus (100-150 metros lineales en configuración de dosel)
 - **Iluminación de acento**: [Uplighting](/servicios/iluminacion/arquitectonica/uplighting/) en tonos personalizados en la base de árboles y muros perimetrales
-- **Iluminación terraza**: [Cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/) en el acceso terraza-jardín para crear transición visual
+- **Iluminación terraza**: [Cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/) en el acceso terraza-jardín para crear transición visual
 - **Mobiliario banquete**: [Mesas redondas](/servicios/mobiliario/mesas/redondas/) de 150 cm en jardín + [mesas rectangulares](/servicios/mobiliario/mesas/rectangulares/) en terraza para buffet
 - **Sillas**: [Sillas Chiavari](/servicios/mobiliario/sillas/chiavari/) en dorado o plateado según paleta del evento
 - **Entretenimiento**: [Pista de baile](/servicios/pistas-baile/) de 4x4 metros instalada sobre el pasto con base niveladora
@@ -278,7 +278,7 @@ El lago cambia completamente la estrategia de iluminación. Cada luz se duplica 
 
 - **Iluminación sobre agua**: [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) instaladas entre los sauces que bordean el lago (la reflexión duplica el efecto visual con la mitad de metros lineales)
 - **Iluminación perimetral**: [Uplighting](/servicios/iluminacion/arquitectonica/uplighting/) en tonos ámbar en la base de los ahuehuetes para crear profundidad entre la vegetación
-- **Iluminación de acento**: [Velas LED](/servicios/iluminacion/decorativa/velas-led/) flotantes en el lago (coordinadas con el equipo del venue)
+- **Iluminación de acento**: [Velas LED](/servicios/iluminacion/decorativa/) flotantes en el lago (coordinadas con el equipo del venue)
 - **Mobiliario ceremonia**: [Sillas crossback natural](/servicios/mobiliario/sillas/crossback/) orientadas hacia el lago como fondo de ceremonia
 - **Mobiliario recepción**: [Mesas redondas](/servicios/mobiliario/mesas/redondas/) de 180 cm en la explanada principal, con [sillas Chiavari](/servicios/mobiliario/sillas/chiavari/) doradas
 - **Área lounge**: [Sala lounge boho](/servicios/mobiliario/salas-lounge/boho/) junto al borde del lago para zona de fotos nocturna
@@ -292,7 +292,7 @@ El lago cambia completamente la estrategia de iluminación. Cada luz se duplica 
 Xochimilco ofrece opciones complementarias para diferentes presupuestos:
 
 - [Salón Venecia](/directorio/cdmx/xochimilco/salon-venecia/) — Formato salón + jardín con precio más accesible
-- [Jardín Los Ahuehuetes](/directorio/cdmx/xochimilco/jardin-los-ahuehuetes-xoch/) — Jardín arbolado sin lago, enfocado en eventos íntimos
+- [Jardín Los Ahuehuetes](/directorio/cdmx/milpa-alta/jardin-los-ahuehuetes-milpa-alta/) — Jardín arbolado sin lago, enfocado en eventos íntimos
 
 ---
 
@@ -322,7 +322,7 @@ Fuera de la temporada de floración (junio-febrero), Las Jacarandas sigue siendo
 La floración de jacarandas dicta la estrategia visual. Durante marzo-mayo el techo púrpura es el protagonista y la producción debe complementar, no competir. Fuera de temporada, la iluminación asume el rol principal:
 
 - **Iluminación en temporada de floración**: [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) en tono blanco cálido (2700K) entre las ramas, mínimo 200 metros lineales para el corredor principal
-- **Iluminación fuera de temporada**: [Cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/) verticales entre troncos para compensar la ausencia de follaje denso
+- **Iluminación fuera de temporada**: [Cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/) verticales entre troncos para compensar la ausencia de follaje denso
 - **Iluminación base**: [Uplighting](/servicios/iluminacion/arquitectonica/uplighting/) en tonos lavanda que refuercen la paleta cromática de las jacarandas
 - **Mobiliario ceremonia**: [Sillas crossback](/servicios/mobiliario/sillas/crossback/) en acabado blanco vintage bajo el corredor principal
 - **Mobiliario recepción**: [Mesas rectangulares](/servicios/mobiliario/mesas/rectangulares/) de 240 cm en formato imperial para aprovechar la linealidad del corredor
@@ -338,7 +338,7 @@ Tlalpan tiene la mayor concentración de jardines campestres de la CDMX:
 
 - [Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/) — Formato hacienda con capilla, ideal para bodas religiosas + recepción
 - [Salón Mirador Tlalpan](/directorio/cdmx/tlalpan/salon-mirador-tlalpan/) — Salón con vista panorámica y jardín complementario
-- [Jardín Botánico](/directorio/cdmx/tlalpan/jardin-botanico/) — Opción premium con vegetación curada y ambientes temáticos
+- [Jardín Botánico](/directorio/cdmx/tlalpan/jardin-botanico-tlalpan/) — Opción premium con vegetación curada y ambientes temáticos
 
 ---
 
@@ -425,10 +425,10 @@ Cada jardín de esta guía requiere producción profesional para transformar un 
 La iluminación es el servicio más transformador en un jardín. Sin ella, tu evento termina cuando el sol se pone.
 
 - [Guirnaldas Fairy Lights](/servicios/iluminacion/decorativa/fairy-lights/) — El estándar dorado para jardines. Instalación entre árboles, postes o estructuras a 3.5-6 m de altura. Desde 50 hasta 400 metros lineales.
-- [Cortinas de Luz](/servicios/iluminacion/decorativa/cortinas-luz/) — Ideales para crear muros luminosos en arcos, pérgolas y accesos.
+- [Cortinas de Luz](/servicios/iluminacion/decorativa/cascadas-led/) — Ideales para crear muros luminosos en arcos, pérgolas y accesos.
 - [Uplighting Arquitectónico](/servicios/iluminacion/arquitectonica/uplighting/) — Bañadores de luz en base de árboles, muros y elementos arquitectónicos. Colores personalizables.
 - [Letras Luminosas](/servicios/iluminacion/decorativa/letras-luminosas/) — Iniciales, nombres o hashtags iluminados como punto focal para fotos.
-- [Velas LED](/servicios/iluminacion/decorativa/velas-led/) — Complemento ambiental para mesas, caminos y zona de ceremonia. Sin riesgo de incendio.
+- [Velas LED](/servicios/iluminacion/decorativa/) — Complemento ambiental para mesas, caminos y zona de ceremonia. Sin riesgo de incendio.
 
 ### Mobiliario Outdoor
 
@@ -476,7 +476,7 @@ El plan B debe definirse al momento de firmar contrato con el venue, no la seman
 
 ### ¿EVENTECH hace la producción completa o solo renta equipo?
 
-EVENTECH ofrece ambos modelos. La **renta de equipo individual** incluye entrega, montaje y desmontaje de cada elemento (sillas, mesas, iluminación, sonido, pistas). La **producción integral** incluye visita técnica al venue, diseño de layout, coordinación de montaje, operación durante el evento y desmontaje completo. Para jardines al aire libre recomendamos la producción integral porque la logística outdoor tiene variables (clima, terreno, electricidad) que requieren supervisión profesional en sitio. Consulta disponibilidad y cotización a través de nuestro [formulario de contacto](/contacto/) o directamente por WhatsApp.
+EVENTECH ofrece ambos modelos. La **renta de equipo individual** incluye entrega, montaje y desmontaje de cada elemento (sillas, mesas, iluminación, sonido, pistas). La **producción integral** incluye visita técnica al venue, diseño de layout, coordinación de montaje, operación durante el evento y desmontaje completo. Para jardines al aire libre recomendamos la producción integral porque la logística outdoor tiene variables (clima, terreno, electricidad) que requieren supervisión profesional en sitio. Consulta disponibilidad y cotización a través de nuestro [formulario de contacto](/cotizar/) o directamente por WhatsApp.
 
 ---
 

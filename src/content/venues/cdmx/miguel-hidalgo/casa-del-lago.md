@@ -215,7 +215,7 @@ Como partner oficial de EVENTECH, ofrecemos soluciones que respetan el entorno n
 
 Si buscas espacios donde naturaleza y eventos corporativos convergen:
 
-- **[Jardín Botánico Tlalpan](/directorio/cdmx/tlalpan/jardin-botanico/)** — Naturaleza espectacular, ambiente académico
-- **[Hotel Camino Real Polanco](/directorio/cdmx/polanco/hotel-camino-real/)** — Jardín escultórico con obras de Tamayo y Calder
+- **[Jardín Botánico Tlalpan](/directorio/cdmx/tlalpan/jardin-botanico-tlalpan/)** — Naturaleza espectacular, ambiente académico
+- **[Hotel Camino Real Polanco](/directorio/cdmx/polanco/hotel-camino-real-polanco/)** — Jardín escultórico con obras de Tamayo y Calder
 - **[Centro Citibanamex](/directorio/cdmx/miguel-hidalgo/centro-citibanamex/)** — Convenciones de gran formato, más capacidad
 - **[Loreto y Peña Pobre](/directorio/cdmx/san-angel/loreto-pena-pobre/)** — Jardines y arquitectura histórica

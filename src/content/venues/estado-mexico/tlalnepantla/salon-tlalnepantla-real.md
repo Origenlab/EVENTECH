@@ -187,5 +187,5 @@ Como partner oficial de EVENTECH, ofrecemos soluciones de gran escala:
 Si buscas espacios con alta capacidad en el norte del Estado de México:
 
 - **[Hacienda Santa Cecilia](/directorio/estado-mexico/huixquilucan/hacienda-santa-cecilia/)** — Hasta 1,200 personas, jardines coloniales, precio premium
-- **[Jardines de México Naucalpan](/directorio/estado-mexico/naucalpan/jardines-de-mexico/)** — Hasta 600 personas, jardín y salón, precio similar
+- **[Jardines de México Naucalpan](/directorio/estado-mexico/naucalpan/jardines-de-mexico-naucalpan/)** — Hasta 600 personas, jardín y salón, precio similar
 - **[Centro Citibanamex](/directorio/cdmx/miguel-hidalgo/centro-citibanamex/)** — Escala masiva hasta 30,000, eventos corporativos

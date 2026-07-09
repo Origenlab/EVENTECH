@@ -251,5 +251,5 @@ Si buscas la máxima exclusividad en ubicaciones premium:
 
 - **[Hotel W Mexico City](/directorio/cdmx/polanco/hotel-w-mexico-city/)** — Lujo contemporáneo, estética moderna
 - **[Four Seasons Hotel Mexico City](/directorio/cdmx/cuauhtemoc/four-seasons-mexico-city/)** — Elegancia clásica, servicio impecable
-- **[Hotel Camino Real Polanco](/directorio/cdmx/polanco/hotel-camino-real/)** — Arquitectura icónica de Ricardo Legorreta
-- **[Club de Banqueros](/directorio/cdmx/lomas-chapultepec/club-de-banqueros/)** — Exclusividad social, Lomas de Chapultepec
+- **[Hotel Camino Real Polanco](/directorio/cdmx/polanco/hotel-camino-real-polanco/)** — Arquitectura icónica de Ricardo Legorreta
+- **[Club de Banqueros](/directorio/cdmx/lomas-chapultepec/club-de-banqueros-lomas/)** — Exclusividad social, Lomas de Chapultepec

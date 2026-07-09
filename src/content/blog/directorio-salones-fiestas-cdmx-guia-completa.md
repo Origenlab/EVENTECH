@@ -43,7 +43,7 @@ relatedEvents:
   - fiestas-infantiles
 relatedPosts:
   - eventech-renta-equipo-eventos-cdmx-guia-completa
-  - como-organizar-boda-perfecta-cdmx
+  - guia-maestra-bodas-cdmx-equipamiento-completo-2026
 draft: false
 featured: true
 cta:
@@ -296,7 +296,7 @@ Las **haciendas** son la opción favorita para bodas y XV años. Característica
 
 **Ideales para:** Bodas, XV años, aniversarios, primeras comuniones
 
-[Ver todas las haciendas →](/directorio/tipo-venue/hacienda/)
+[Ver todas las haciendas →](/directorio/tipo-venue/haciendas/)
 
 ### Jardines: Naturaleza y Libertad
 
@@ -312,7 +312,7 @@ Los **jardines para eventos** ofrecen flexibilidad total:
 
 **Ideales para:** Bodas civiles, fiestas infantiles, eventos sociales
 
-[Explorar jardines →](/directorio/tipo-venue/jardin/)
+[Explorar jardines →](/directorio/tipo-venue/jardines/)
 
 ### Salones de Eventos: Elegancia Controlada
 
@@ -328,7 +328,7 @@ Los **salones** garantizan eventos sin sorpresas climáticas:
 
 **Ideales para:** Bodas formales, eventos corporativos, galas
 
-[Ver salones →](/directorio/tipo-venue/salon/)
+[Ver salones →](/directorio/tipo-venue/salones/)
 
 ### Hoteles: Servicio Integral
 
@@ -344,7 +344,7 @@ Los **hoteles** ofrecen la experiencia más completa:
 
 **Ideales para:** Bodas destino, convenciones, eventos multi-día
 
-[Explorar hoteles →](/directorio/tipo-venue/hotel/)
+[Explorar hoteles →](/directorio/tipo-venue/hoteles/)
 
 ### Terrazas: Vistas Espectaculares
 
@@ -360,7 +360,7 @@ Las **terrazas** combinan arquitectura urbana con vistas impresionantes:
 
 **Ideales para:** Cocktails, lanzamientos, eventos corporativos, cumpleaños
 
-[Ver terrazas →](/directorio/tipo-venue/terraza/)
+[Ver terrazas →](/directorio/tipo-venue/terrazas/)
 
 ### Quintas: Lo Mejor de Dos Mundos
 
@@ -376,7 +376,7 @@ Las **quintas** ofrecen jardines amplios con instalaciones completas:
 
 **Ideales para:** Bodas, XV años, fiestas grandes
 
-[Explorar quintas →](/directorio/tipo-venue/quinta/)
+[Explorar quintas →](/directorio/tipo-venue/quintas/)
 
 ### Centros de Convenciones: Eventos Masivos
 
@@ -392,7 +392,7 @@ Para **eventos de gran escala**, los centros de convenciones ofrecen:
 
 **Ideales para:** Convenciones, exposiciones, conciertos, conferencias
 
-[Ver centros de convenciones →](/directorio/tipo-venue/centro-convenciones/)
+[Ver centros de convenciones →](/directorio/tipo-venue/centros-convenciones/)
 
 ---
 
@@ -456,7 +456,7 @@ Las **fiestas infantiles** requieren seguridad y diversión:
 - Estacionamiento cercano
 - Flexibilidad de horarios
 
-[Explorar venues para fiestas infantiles →](/directorio/tipo-evento/fiestas-infantiles/)
+[Explorar venues para fiestas infantiles →](/directorio/tipo-evento/cumpleanos/)
 
 ---
 
@@ -612,4 +612,4 @@ El venue perfecto existe, y está en nuestro directorio. Ya sea que busques la e
 
 ---
 
-*¿Conoces un venue que debería estar en nuestro directorio? [Contáctanos](/contacto/) para sugerirlo.*
+*¿Conoces un venue que debería estar en nuestro directorio? [Contáctanos](/cotizar/) para sugerirlo.*

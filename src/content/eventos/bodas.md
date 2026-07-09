@@ -89,7 +89,7 @@ hero:
     href: "/cotizar/"
   secondaryCTA:
     label: "Ver paquetes"
-    href: "/paquetes/bodas/"
+    href: "/precios/"
   cards:
     - title: "Equipo para bodas de ensueño"
       content: "<strong>Equipo para eventos</strong> diseñado para el día más especial. Sillas Tiffany y Crossback para ceremonia y recepción, mesas elegantes con mantelería premium, pistas de baile LED para tu primer baile, e iluminación romántica que crea la atmósfera perfecta."

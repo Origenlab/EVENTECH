@@ -245,7 +245,7 @@ Como partner oficial de EVENTECH, ofrecemos soluciones que complementan la tradi
 
 Si buscas espacios con autenticidad cultural y conexión con la naturaleza:
 
-- **[Jardín Botánico Tlalpan](/directorio/cdmx/tlalpan/jardin-botanico/)** — 7 hectáreas de flora mexicana, lagos naturales
+- **[Jardín Botánico Tlalpan](/directorio/cdmx/tlalpan/jardin-botanico-tlalpan/)** — 7 hectáreas de flora mexicana, lagos naturales
 - **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — Colonial del siglo XVII, capilla consagrada
 - **[Hacienda Panoaya](/directorio/estado-mexico/amecameca/hacienda-panoaya/)** — Tradición y naturaleza con vista a los volcanes
 - **[San Ángel Inn](/directorio/cdmx/san-angel/san-angel-inn/)** — Hacienda colonial, gastronomía tradicional de leyenda

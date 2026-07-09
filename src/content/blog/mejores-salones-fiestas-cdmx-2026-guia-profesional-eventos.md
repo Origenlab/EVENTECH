@@ -124,8 +124,8 @@ La arquitectura clásica de Partenón se potencia extraordinariamente con produc
 Si Partenón está ocupado en tu fecha o buscas opciones alternativas en la zona sur:
 
 - **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — Hacienda histórica con jardines amplios
-- **[Salón Los Volcanes](/directorio/cdmx/tlalpan/salon-los-volcanes-tlalpan/)** — Salón versátil con vista al Ajusco
-- **[Jardín Las Ánimas](/directorio/cdmx/tlalpan/salon-jardin-las-animas/)** — Opción al aire libre en Tlalpan
+- **[Salón Los Volcanes](/directorio/cdmx/tlalpan/)** — Salón versátil con vista al Ajusco
+- **[Jardín Las Ánimas](/directorio/cdmx/tlalpan/)** — Opción al aire libre en Tlalpan
 
 ---
 
@@ -154,7 +154,7 @@ La combinación de espacios interiores y exteriores de Kalesh exige producción 
 
 - **[Iluminación de jardín con fairy lights](/servicios/iluminacion/decorativa/fairy-lights/)** — guirnaldas tendidas entre árboles y postes crean un dosel luminoso sobre el jardín para eventos nocturnos
 - **[Uplighting en vegetación](/servicios/iluminacion/arquitectonica/uplighting/)** — iluminación verde y ámbar en árboles del jardín que transforma el paisaje nocturno
-- **[Cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/)** en ventanales del salón que conectan visualmente interior y exterior
+- **[Cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/)** en ventanales del salón que conectan visualmente interior y exterior
 - **[Salas lounge boho](/servicios/mobiliario/salas-lounge/boho/)** en el jardín — mobiliario orgánico que integra la naturaleza del entorno
 - **[Sillas Crossback](/servicios/mobiliario/sillas/crossback/)** en madera natural para ceremonias al aire libre
 - **[Sonido outdoor](/servicios/audiovisual/sonido/)** — sistemas direccionales que mantienen volumen uniforme sin molestar a vecinos
@@ -248,7 +248,7 @@ La arquitectura medieval de Castillo permite efectos de producción que serían 
 
 - **[Salón Las Américas](/directorio/cdmx/azcapotzalco/salon-las-americas-azc/)** — Salón moderno y versátil en Azcapotzalco Centro
 - **[Salón Dorado](/directorio/cdmx/azcapotzalco/salon-dorado-azc/)** — Opción elegante en la Ferrería
-- **[Salón Royal](/directorio/cdmx/azcapotzalco/salon-royal-azc/)** — Salón accesible con buena capacidad
+- **[Salón Royal](/directorio/cdmx/azcapotzalco/salon-fiesta-royal-azc/)** — Salón accesible con buena capacidad
 
 ---
 
@@ -290,7 +290,7 @@ Los eventos al aire libre en La Perita requieren producción especializada que d
 
 - **[Jardín Los Encinos](/directorio/cdmx/magdalena-contreras/jardin-los-encinos-mc/)** — Jardín con ambiente de bosque en La Magdalena
 - **[Salón Villa Contenta](/directorio/cdmx/magdalena-contreras/salon-villa-contenta-mc/)** — Opción con jardín en San Jerónimo Lídice
-- **[Salón Los Fresnos](/directorio/cdmx/magdalena-contreras/salon-los-fresnos-mc/)** — Salón accesible en la alcaldía
+- **[Salón Los Fresnos](/directorio/cdmx/magdalena-contreras/)** — Salón accesible en la alcaldía
 
 ---
 
@@ -358,7 +358,7 @@ Estos 5 salones son socios premium de EVENTECH, lo que significa que ofrecen **a
 La iluminación define el 60% de la percepción visual de un evento. Nuestros servicios incluyen:
 
 - **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** — [uplighting](/servicios/iluminacion/arquitectonica/uplighting/), [wash lights](/servicios/iluminacion/arquitectonica/wash-lights/), [bañadores](/servicios/iluminacion/arquitectonica/banadores/) y [fachadas](/servicios/iluminacion/arquitectonica/fachadas/)
-- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [fairy lights](/servicios/iluminacion/decorativa/fairy-lights/), [cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/), [letras luminosas](/servicios/iluminacion/decorativa/letras-luminosas/), [velas LED](/servicios/iluminacion/decorativa/velas-led/)
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [fairy lights](/servicios/iluminacion/decorativa/fairy-lights/), [cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/), [letras luminosas](/servicios/iluminacion/decorativa/letras-luminosas/), [velas LED](/servicios/iluminacion/decorativa/)
 - **[Iluminación de escenario](/servicios/iluminacion/escenario/)** — spots, moving heads, gobos personalizados
 
 ### [Mobiliario Premium](/servicios/mobiliario/)
@@ -413,7 +413,7 @@ Los 5 venues de esta guía permiten proveedores externos con diferentes polític
 
 Estos 5 salones representan lo mejor de la CDMX en estilos, zonas geográficas y rangos de precio completamente diferentes. Pero son solo una muestra de lo que nuestro **[directorio completo](/directorio/)** ofrece — con más de **140 venues verificados** en toda la zona metropolitana, filtrados por alcaldía, capacidad, tipo de evento y rango de precio.
 
-**¿Necesitas producción profesional para tu evento?** Ya sea que elijas uno de estos 5 venues o cualquier otro espacio en la CDMX, EVENTECH lleva la iluminación, el mobiliario, el sonido y la producción que transforma un salón en una experiencia. Cotiza sin compromiso a través de nuestro **[formulario de contacto](/contacto/)** o por **[WhatsApp](https://wa.me/5215512345678)**.
+**¿Necesitas producción profesional para tu evento?** Ya sea que elijas uno de estos 5 venues o cualquier otro espacio en la CDMX, EVENTECH lleva la iluminación, el mobiliario, el sonido y la producción que transforma un salón en una experiencia. Cotiza sin compromiso a través de nuestro **[formulario de contacto](/cotizar/)** o por **[WhatsApp](https://wa.me/5215512345678)**.
 
 ---
 

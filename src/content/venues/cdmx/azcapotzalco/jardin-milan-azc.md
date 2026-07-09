@@ -167,7 +167,7 @@ Un jardín con vegetación real es el lienzo ideal para la producción de luz pr
 
 - **[Iluminación decorativa](/servicios/iluminacion/)** — Uplighting cálido sobre la vegetación, fairy lights en árboles y estructuras, iluminación de caminos y wash lights de colores para transformar el ambiente entre ceremonia y fiesta
 - **[Sonido y audiovisual](/servicios/audiovisual/)** — Sistema de audio calibrado para jardines, DJ profesional, microfonía inalámbrica para ceremonias y discursos al aire libre
-- **[Decoración y ambientación](/servicios/decoracion/)** — Arcos florales y centros de mesa que se integran con la estética natural del jardín
+- **[Decoración y ambientación](/servicios/mobiliario/barras/accesorios-decorativos/)** — Arcos florales y centros de mesa que se integran con la estética natural del jardín
 
 La combinación de vegetación real e iluminación profesional produce efectos únicos: las texturas naturales crean sombras y reflejos que ningún interior puede replicar, y esa magia es la propuesta fotográfica de Jardín Milán con producción nocturna.
 

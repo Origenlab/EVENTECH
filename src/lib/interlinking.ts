@@ -88,21 +88,30 @@ export const EVENT_TYPES = {
     directoryHref: "/directorio/tipo-evento/corporativos/",
     keywords: ["corporativo", "empresa", "conferencia", "convención", "lanzamiento"],
   },
+  "fiestas-infantiles": {
+    label: "Fiestas Infantiles",
+    href: "/eventos/fiestas-infantiles/",
+    directoryHref: "/directorio/tipo-evento/cumpleanos/",
+    keywords: ["fiesta infantil", "infantil", "niños", "cumpleaños infantil"],
+  },
+  // Las 3 siguientes NO tienen landing propia en /eventos/ — solo existe la
+  // página de directorio. `href` apunta al directorio a propósito: no inventar
+  // rutas. Si algún día se crea /eventos/<x>/, actualizar aquí.
   cumpleanos: {
     label: "Cumpleaños",
-    href: "/eventos/cumpleanos/",
+    href: "/directorio/tipo-evento/cumpleanos/",
     directoryHref: "/directorio/tipo-evento/cumpleanos/",
     keywords: ["cumpleaños", "fiesta", "celebración", "birthday"],
   },
   bautizos: {
     label: "Bautizos",
-    href: "/eventos/bautizos/",
+    href: "/directorio/tipo-evento/bautizos/",
     directoryHref: "/directorio/tipo-evento/bautizos/",
     keywords: ["bautizo", "bautismo", "religioso"],
   },
   graduaciones: {
     label: "Graduaciones",
-    href: "/eventos/graduaciones/",
+    href: "/directorio/tipo-evento/graduaciones/",
     directoryHref: "/directorio/tipo-evento/graduaciones/",
     keywords: ["graduación", "graduaciones", "egresados"],
   },

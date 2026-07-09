@@ -185,7 +185,7 @@ La **pista de baile** central tiene dimensiones generosas con acabado especial a
 
 El sistema LED integrado del salón se complementa con la producción profesional de EVENTECH:
 
-- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/) y efectos adicionales que complementan los LEDs del salón
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/) y efectos adicionales que complementan los LEDs del salón
 - **[Iluminación de escenario](/servicios/iluminacion/escenario/)** — Cabezas móviles, seguidor para vals y efectos especiales de pista
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** — Sistemas que aprovechan la acústica controlada del salón cerrado
 - **[Mobiliario premium](/servicios/mobiliario/)** — [Sillas Ghost transparentes](/servicios/mobiliario/sillas/ghost/) que complementan la estética moderna, o [Chiavari](/servicios/mobiliario/sillas/chiavari/) para un toque clásico-elegante

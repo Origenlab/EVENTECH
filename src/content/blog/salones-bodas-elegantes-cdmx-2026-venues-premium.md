@@ -45,7 +45,7 @@ relatedPosts:
   - bodas-aire-libre-cdmx-2026-jardines-terrazas-haciendas-guia-definitiva
 cta:
   label: "Cotiza tu Boda con EVENTECH"
-  href: "/contacto/"
+  href: "/cotizar/"
 ---
 
 # 5 Salones para Bodas Elegantes en CDMX 2026: Venues Premium para Celebraciones que Trascienden
@@ -76,7 +76,7 @@ El salón no es solo el contenedor del evento — es su primer elemento de dise�
 
 ### 2. Iluminación como Directora de Emociones
 
-La iluminación es el elemento más subestimado y el más transformador. Un [sistema de uplighting](/servicios/iluminacion/arquitectonica/uplighting/) bien calibrado cambia completamente la percepción del espacio. [Wash lights](/servicios/iluminacion/arquitectonica/wash-lights/) que bañan las paredes en tonos ámbar crean calidez instantánea. [Cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/) detrás de la mesa de novios generan el focal point perfecto para fotografía. La iluminación no decora — dirige la atención.
+La iluminación es el elemento más subestimado y el más transformador. Un [sistema de uplighting](/servicios/iluminacion/arquitectonica/uplighting/) bien calibrado cambia completamente la percepción del espacio. [Wash lights](/servicios/iluminacion/arquitectonica/wash-lights/) que bañan las paredes en tonos ámbar crean calidez instantánea. [Cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/) detrás de la mesa de novios generan el focal point perfecto para fotografía. La iluminación no decora — dirige la atención.
 
 ### 3. Mobiliario como Lenguaje de Diseño
 
@@ -106,7 +106,7 @@ La temporada 2026 consolida cuatro estéticas principales para bodas elegantes e
 
 ### Garden Party Elevado
 
-**Paleta:** Sage green, dusty rose, terracotta, crema. **Flores:** Eucalipto, lavanda, dalias, runners de follaje. **Mobiliario:** [Crossback natural](/servicios/mobiliario/sillas/crossback/), mesas imperiales de madera, [salas lounge vintage](/servicios/mobiliario/salas-lounge/vintage/) en el jardín. **Iluminación:** [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) suspendidas entre árboles + [velas LED](/servicios/iluminacion/decorativa/velas-led/) sobre las mesas + [bañadores](/servicios/iluminacion/arquitectonica/banadores/) en fachadas de piedra. **Venue ideal:** Haciendas con jardín maduro, espacios con vegetación. Hacienda de Cortés, Kalesh.
+**Paleta:** Sage green, dusty rose, terracotta, crema. **Flores:** Eucalipto, lavanda, dalias, runners de follaje. **Mobiliario:** [Crossback natural](/servicios/mobiliario/sillas/crossback/), mesas imperiales de madera, [salas lounge vintage](/servicios/mobiliario/salas-lounge/vintage/) en el jardín. **Iluminación:** [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) suspendidas entre árboles + [velas LED](/servicios/iluminacion/decorativa/) sobre las mesas + [bañadores](/servicios/iluminacion/arquitectonica/banadores/) en fachadas de piedra. **Venue ideal:** Haciendas con jardín maduro, espacios con vegetación. Hacienda de Cortés, Kalesh.
 
 ### Industrial Chic
 
@@ -141,11 +141,11 @@ Los invitados recorren los tres ambientes de forma orgánica — ceremonia en el
 
 La versatilidad de los tres ambientes permite un diseño de boda por capítulos que es imposible en salones de un solo espacio. La paleta recomendada para Kalesh 2026: **crema, sage green y dorado**, aprovechando el verde natural del jardín como telón de fondo durante la ceremonia.
 
-**Ceremonia en el jardín:** Altar bajo un arco de ramas con runners de eucalipto. [Sillas Chiavari doradas](/servicios/mobiliario/sillas/chiavari/) sin cojín (el jardín pide simplicidad). Pasillo con pétalos de rosa blanca y [velas LED](/servicios/iluminacion/decorativa/velas-led/) en fanales de cristal.
+**Ceremonia en el jardín:** Altar bajo un arco de ramas con runners de eucalipto. [Sillas Chiavari doradas](/servicios/mobiliario/sillas/chiavari/) sin cojín (el jardín pide simplicidad). Pasillo con pétalos de rosa blanca y [velas LED](/servicios/iluminacion/decorativa/) en fanales de cristal.
 
 **Cóctel en la terraza:** [Mesas cocktail](/servicios/mobiliario/mesas/cocktail/) con arreglos bajos y [periqueras](/servicios/mobiliario/barras/periqueras/) distribuidas para facilitar la conversación. [Sala lounge elegante](/servicios/mobiliario/salas-lounge/elegante/) en una esquina como estación de fotos con vista a la ciudad.
 
-**Cena en el salón:** [Mesas redondas](/servicios/mobiliario/mesas/redondas/) de 180 cm para 10 personas con centros de mesa altos de cristal y velas. Mesa de novios imperial ([mesa rectangular](/servicios/mobiliario/mesas/rectangulares/) de 2.40 m) elevada sobre tarima con [cortina de luz](/servicios/iluminacion/decorativa/cortinas-luz/) como fondo.
+**Cena en el salón:** [Mesas redondas](/servicios/mobiliario/mesas/redondas/) de 180 cm para 10 personas con centros de mesa altos de cristal y velas. Mesa de novios imperial ([mesa rectangular](/servicios/mobiliario/mesas/rectangulares/) de 2.40 m) elevada sobre tarima con [cortina de luz](/servicios/iluminacion/decorativa/cascadas-led/) como fondo.
 
 ### Mesa Imperial vs Mesas Redondas en Kalesh
 
@@ -279,8 +279,8 @@ Para bodas íntimas de 60-100 personas, sí funciona una mesa imperial única qu
 ### Producción EVENTECH Premium en D'Valle
 
 - **[Uplighting en columnas](/servicios/iluminacion/arquitectonica/uplighting/)** — 12 unidades con gel ámbar rosado que acentúan el mármol sin alterar su color natural.
-- **[Cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/)** — Fondo de mesa de novios con 6 m de cortina LED en tono warm white, creando el efecto de cascada luminosa.
-- **[Velas LED](/servicios/iluminacion/decorativa/velas-led/)** — 200 unidades distribuidas en cada mesa, en los alféizares y a lo largo de los pasillos. El efecto de candlelight multiplicado por el reflejo del mármol es el sello visual de D'Valle.
+- **[Cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/)** — Fondo de mesa de novios con 6 m de cortina LED en tono warm white, creando el efecto de cascada luminosa.
+- **[Velas LED](/servicios/iluminacion/decorativa/)** — 200 unidades distribuidas en cada mesa, en los alféizares y a lo largo de los pasillos. El efecto de candlelight multiplicado por el reflejo del mármol es el sello visual de D'Valle.
 - **[Sillas Chiavari doradas](/servicios/mobiliario/sillas/chiavari/)** — 300 unidades con cojín blanco. La Chiavari se integra perfectamente con la estética neoclásica.
 - **[Mesas redondas](/servicios/mobiliario/mesas/redondas/)** — 30 mesas de 180 cm con mantelería en champagne.
 - **[Sala lounge moderno](/servicios/mobiliario/salas-lounge/moderno/)** — Estación de cóctel en el vestíbulo con mobiliario contemporáneo que contrasta elegantemente con la estética clásica del salón.
@@ -329,7 +329,7 @@ Este es el venue donde la estética **Garden Party Elevado** alcanza su máxima 
 
 **Cóctel en el patio colonial:** La fuente central como punto focal, rodeada de [mesas cocktail](/servicios/mobiliario/mesas/cocktail/) con runners de follaje y velas. [Barra de bebidas](/servicios/mobiliario/barras/barras-bebidas/) artesanal en madera bajo el arco del patio. Música de trío de cuerdas amplificado con [sonido profesional](/servicios/audiovisual/sonido/) discreto.
 
-**Cena en el salón:** Mesas imperiales (máximo 120 personas) o [mesas redondas](/servicios/mobiliario/mesas/redondas/) para eventos mayores. Centros de mesa con follaje cascada, velas en candelabros de hierro forjado (o [velas LED](/servicios/iluminacion/decorativa/velas-led/) por seguridad), y runners de lino crudo sobre madera.
+**Cena en el salón:** Mesas imperiales (máximo 120 personas) o [mesas redondas](/servicios/mobiliario/mesas/redondas/) para eventos mayores. Centros de mesa con follaje cascada, velas en candelabros de hierro forjado (o [velas LED](/servicios/iluminacion/decorativa/) por seguridad), y runners de lino crudo sobre madera.
 
 ### Mesa Imperial vs Mesas Redondas en Hacienda de Cortés
 
@@ -342,7 +342,7 @@ Para bodas de 150+, combinar una mesa imperial central (familia) con mesas redon
 - **[Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/)** — 150 m suspendidos entre los árboles del jardín a 3.5 m. El dosel de luz sobre el espacio exterior es el elemento transformador.
 - **[Bañadores de piedra](/servicios/iluminacion/arquitectonica/banadores/)** — 10 unidades en los muros de piedra volcánica del salón y patio, acentuando la textura colonial.
 - **[Uplighting](/servicios/iluminacion/arquitectonica/uplighting/)** — 8 unidades en tono ámbar cálido dentro del salón, reforzando la calidez de la viga expuesta.
-- **[Velas LED](/servicios/iluminacion/decorativa/velas-led/)** — 150 unidades distribuidas en mesas, alféizares, escalones y bordes de la fuente del patio.
+- **[Velas LED](/servicios/iluminacion/decorativa/)** — 150 unidades distribuidas en mesas, alféizares, escalones y bordes de la fuente del patio.
 - **[Sillas Crossback natural](/servicios/mobiliario/sillas/crossback/)** — 250 unidades. La textura de la madera dialoga con las vigas del techo y el entorno de jardín.
 - **[Mesas rectangulares](/servicios/mobiliario/mesas/rectangulares/)** — Configuración imperial con 10 mesas de 2.40 m para banquete lineal de 120 personas.
 - **[Sala lounge vintage](/servicios/mobiliario/salas-lounge/vintage/)** — Estación de descanso en el jardín con tapizado en tonos terrosos, perfecta para sobremesa bajo las estrellas.
@@ -496,8 +496,8 @@ En EVENTECH no somos un proveedor más en la lista del wedding planner. Somos el
 
 **Iluminación Profesional:**
 - [Fairy lights y guirnaldas Edison](/servicios/iluminacion/decorativa/fairy-lights/) — Doseles, cortinas, enmarcados
-- [Cortinas de luz LED](/servicios/iluminacion/decorativa/cortinas-luz/) — Fondos de mesa de novios, photo walls
-- [Velas LED](/servicios/iluminacion/decorativa/velas-led/) — Candlelight seguro en cada superficie
+- [Cortinas de luz LED](/servicios/iluminacion/decorativa/cascadas-led/) — Fondos de mesa de novios, photo walls
+- [Velas LED](/servicios/iluminacion/decorativa/) — Candlelight seguro en cada superficie
 - [Letras luminosas](/servicios/iluminacion/decorativa/letras-luminosas/) — Iniciales, palabras, números iluminados
 - [Uplighting arquitectónico](/servicios/iluminacion/arquitectonica/uplighting/) — Columnas, paredes, fachadas
 - [Wash lights](/servicios/iluminacion/arquitectonica/wash-lights/) — Baño de color para ambientación general
@@ -597,7 +597,7 @@ Pero un venue extraordinario sin producción profesional es solo un espacio vac�
 
 **EVENTECH produce bodas elegantes en los mejores venues de la CDMX.** Desde el diseño de iluminación hasta la última silla Chiavari, cada elemento está coordinado para crear una celebración que trasciende.
 
-[Cotiza tu boda premium con EVENTECH](/contacto/) y descubre cómo transformamos el venue de tus sueños en la boda que mereces.
+[Cotiza tu boda premium con EVENTECH](/cotizar/) y descubre cómo transformamos el venue de tus sueños en la boda que mereces.
 
 ---
 

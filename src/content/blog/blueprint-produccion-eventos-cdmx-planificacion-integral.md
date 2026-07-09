@@ -114,7 +114,7 @@ Al visitar un venue, el equipo de producción debe verificar:
 | Venue | Ubicación | Capacidad | Fortalezas | Consideraciones |
 |-------|-----------|-----------|------------|-----------------|
 | [Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/) | Tlalpan | 350 | Arquitectura, jardines, capilla | Requiere planta de luz para jardines |
-| [Hacienda Panoaya](/directorio/estado-mexico/metepec/hacienda-panoaya/) | Estado de México | 500 | Entorno natural, múltiples espacios | Distancia desde CDMX, clima variable |
+| [Hacienda Panoaya](/directorio/estado-mexico/amecameca/hacienda-panoaya/) | Estado de México | 500 | Entorno natural, múltiples espacios | Distancia desde CDMX, clima variable |
 | [Hotel Naucalpan](/directorio/estado-mexico/naucalpan/) | Naucalpan | 400 | Infraestructura completa, estacionamiento | Ambiente menos íntimo |
 
 **Configuración técnica recomendada:**

@@ -210,7 +210,7 @@ El equipo de cocina de Monarquía Coronado Imperial trabaja con el menú de banq
 Para llevar la producción visual y técnica al siguiente nivel:
 
 - **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** — [Uplighting](/servicios/iluminacion/arquitectonica/uplighting/) y [wash lights](/servicios/iluminacion/arquitectonica/wash-lights/) que realzan los acabados renovados del salón
-- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/) y efectos para bodas y quinceañeras
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/) y efectos para bodas y quinceañeras
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** — Refuerzo calibrado para el salón Imperial con 500 personas
 - **[Mobiliario premium](/servicios/mobiliario/)** — [Sillas Tiffany](/servicios/mobiliario/sillas/tiffany/) o [Chiavari doradas](/servicios/mobiliario/sillas/chiavari/) para elevar la estética del evento
 - **[Pistas de baile LED](/servicios/pistas-baile/)** — Complemento perfecto para la salida por rampa hidráulica

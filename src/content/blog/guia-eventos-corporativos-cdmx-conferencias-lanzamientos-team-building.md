@@ -938,7 +938,7 @@ Los eventos corporativos son **inversiones estratégicas**. Una conferencia mal 
 
 Cada evento empresarial es una inversión en tu marca. Nuestro equipo de producción corporativa diseña soluciones técnicas que garantizan el éxito de tu objetivo.
 
-**[Solicitar Cotización Corporativa](/contacto/)**
+**[Solicitar Cotización Corporativa](/cotizar/)**
 
 *Incluye: Propuesta técnica detallada, visita al venue, coordinación de proveedores, director técnico en sitio.*
 

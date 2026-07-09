@@ -247,7 +247,7 @@ Esta flexibilidad permite que la paleta de color del evento se exprese desde el 
 La libertad de contratar música externa hace de Gran Salón del Valle un venue ideal para integrar los servicios especializados de **EVENTECH**:
 
 - **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** — [Uplighting](/servicios/iluminacion/arquitectonica/uplighting/) y wash lights que transforman el salón principal para cada evento
-- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/) y efectos especiales que complementan la pantalla gigante
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/) y efectos especiales que complementan la pantalla gigante
 - **[Sonido y DJ profesional](/servicios/audiovisual/sonido/)** — Sistemas calibrados para la acústica de salones de gran aforo
 - **[Pistas de baile LED](/servicios/pistas-baile/)** — Pistas iluminadas que potencian el área de baile central
 - **[Mobiliario premium](/servicios/mobiliario/)** — Mesas, lounge y elementos decorativos adicionales para producción de alto impacto

@@ -50,7 +50,7 @@ El primer paso es **seleccionar el venue**. No todos los jardines son iguales.
 - **Estacionamiento:** para 100-150 personas, o contrata valet
 - **Baños:** mínimo 2 independientes de la casa
 
-Si tu familia tiene jardín, excelente. Si no, consulta nuestro **[directorio de jardines y venues para eventos en CDMX](/blogs/directorio-salones-fiestas-cdmx-guia-completa/)** — encontrarás opciones en todas las delegaciones.
+Si tu familia tiene jardín, excelente. Si no, consulta nuestro **[directorio de jardines y venues para eventos en CDMX](/blog/directorio-salones-fiestas-cdmx-guia-completa/)** — encontrarás opciones en todas las delegaciones.
 
 **Recomendación pro:** Visita el jardín a la MISMA HORA en que será la fiesta. La luz del atardecer es diferente a las 2 p.m., y eso impacta la decoración.
 
@@ -121,7 +121,7 @@ No rentes solo equipo de catering vacío. Contrata con caterer profesional que e
 
 **Recomendación:** Busca caterer que incluya **meseros uniformados**. El servicio impacta más que la comida.
 
-**[Consulta nuestros aliados de catering profesional en CDMX](/directorio-salones-fiestas-cdmx-guia-completa/)** — te damos referencias verificadas.
+**[Consulta nuestros aliados de catering profesional en CDMX](/blog/directorio-salones-fiestas-cdmx-guia-completa/)** — te damos referencias verificadas.
 
 ## 6. Sonido y Entretenimiento
 
@@ -196,7 +196,7 @@ Nosotros rentamos todo lo que necesitas. Tú disfruta la fiesta.
 ---
 
 **Artículos relacionados:**
-- [Bodas en aire libre CDMX: Guía definitiva de jardines, terrazas y haciendas](/blogs/bodas-aire-libre-cdmx-2026-jardines-terrazas-haciendas-guia-definitiva/)
-- [Carpas, audiovisual y producción eventos CDMX 2026](/blogs/carpas-audiovisual-pistas-catering-produccion-eventos-cdmx-2026/)
-- [Guía completa de accesorios: energía, clima y seguridad en eventos](/blogs/guia-accesorios-infraestructura-eventos-energia-clima-cdmx/)
-- [Ambientación bodas de lujo: mesas, iluminación y guirnaldas](/blogs/ambientacion-bodas-lujo-cdmx-mesas-iluminacion-guirnaldas-2026/)
+- [Bodas en aire libre CDMX: Guía definitiva de jardines, terrazas y haciendas](/blog/bodas-aire-libre-cdmx-2026-jardines-terrazas-haciendas-guia-definitiva/)
+- [Carpas, audiovisual y producción eventos CDMX 2026](/blog/carpas-audiovisual-pistas-catering-produccion-eventos-cdmx-2026/)
+- [Guía completa de accesorios: energía, clima y seguridad en eventos](/blog/guia-accesorios-infraestructura-eventos-energia-clima-cdmx/)
+- [Ambientación bodas de lujo: mesas, iluminación y guirnaldas](/blog/ambientacion-bodas-lujo-cdmx-mesas-iluminacion-guirnaldas-2026/)

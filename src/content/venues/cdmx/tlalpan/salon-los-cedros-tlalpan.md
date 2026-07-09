@@ -214,7 +214,7 @@ Si buscas más opciones en la zona:
 - **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — Hacienda histórica con jardines amplios y capilla
 - **[Casa González Luna](/directorio/cdmx/tlalpan/casa-gonzalez-luna/)** — Mansión histórica con capilla en Tlalpan Centro
 - **[Salón Partenón](/directorio/cdmx/tlalpan/salon-partenon/)** — Salón monumental si necesitas mayor capacidad
-- **[Jardín Botánico](/directorio/cdmx/tlalpan/jardin-botanico/)** — Espacio natural único para sesiones y eventos íntimos
+- **[Jardín Botánico](/directorio/cdmx/tlalpan/jardin-botanico-tlalpan/)** — Espacio natural único para sesiones y eventos íntimos
 
 ## El Encanto de Celebrar entre Árboles Centenarios
 

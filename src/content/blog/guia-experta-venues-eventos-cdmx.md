@@ -34,7 +34,7 @@ relatedEvents:
   - xv-anos
   - corporativos
 relatedPosts:
-  - directorio-salones-fiestas-cdmx-guia
+  - directorio-salones-fiestas-cdmx-guia-completa
   - eventech-renta-equipo-eventos-cdmx-guia-completa
 draft: false
 featured: true
@@ -543,8 +543,8 @@ Tu siguiente paso: **explora nuestro [Directorio de Venues](/directorio/)** con 
 **Recursos adicionales:**
 
 - [Directorio completo de venues →](/directorio/)
-- [Venues por tipo de evento →](/directorio/tipo-evento/)
-- [Venues por tipo de espacio →](/directorio/tipo-venue/)
+- [Venues por tipo de evento →](/directorio/)
+- [Venues por tipo de espacio →](/directorio/)
 - [Cotizar equipo para tu evento →](/cotizar/)
 
 ---

@@ -203,7 +203,7 @@ Los rincones del jardín, los detalles arquitectónicos de la casa y la fachada 
 
 El carácter residencial de Villa Contenta se beneficia de producción que realce sin sobrecargar:
 
-- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) en el jardín y [cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/) como transición entre espacios
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) en el jardín y [cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/) como transición entre espacios
 - **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** — [Uplighting sutil](/servicios/iluminacion/arquitectonica/uplighting/) que resalte los acabados residenciales del salón
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** — Sistemas de volumen controlado adecuados para zona residencial
 - **[Mobiliario elegante](/servicios/mobiliario/)** — [Sillas Tiffany](/servicios/mobiliario/sillas/tiffany/) o [Ghost](/servicios/mobiliario/sillas/ghost/) que complementen la estética residencial

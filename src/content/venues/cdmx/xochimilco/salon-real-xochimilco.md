@@ -204,7 +204,7 @@ El salón cuenta con rincones preparados para **sesiones fotográficas** con ilu
 
 Para elevar el nivel de tu evento en Salón Real Xochimilco, **EVENTECH** ofrece:
 
-- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/) y efectos que complementan la iluminación LED del salón
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/) y efectos que complementan la iluminación LED del salón
 - **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** — [Wash lights](/servicios/iluminacion/arquitectonica/wash-lights/) y [uplighting](/servicios/iluminacion/arquitectonica/uplighting/) que transforman los muros en lienzos de color
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** — Sistemas que llenan el salón con claridad sin distorsión
 - **[Mobiliario premium](/servicios/mobiliario/)** — [Sillas Chiavari](/servicios/mobiliario/sillas/chiavari/) o [Tiffany](/servicios/mobiliario/sillas/tiffany/) para elevar la elegancia del espacio

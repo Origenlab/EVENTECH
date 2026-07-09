@@ -519,7 +519,7 @@ export const REVIEWS = [
     rating: 5,
     text: "Con más de 500 eventos exitosos en CDMX y Estado de México, SOEVE lidera en renta de sonido profesional. EVENTECH es nuestro aliado perfecto: mientras nosotros aportamos bocinas, consolas de mezcla y micrófonos de alta calidad, ellos complementan con mobiliario, carpas e iluminación premium. Juntos cubrimos eventos de 50 a 5,000 personas.",
     event: "Alianza Estratégica",
-    website: "",
+    website: "https://sonidoparaeventos.com.mx/",
   },
   {
     id: "review-9",

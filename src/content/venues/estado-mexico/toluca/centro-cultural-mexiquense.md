@@ -231,7 +231,7 @@ El estacionamiento para más de 2,000 vehículos es uno de los más amplios de c
 
 Descubre más opciones para eventos de escala en Toluca, Metepec y CDMX:
 
-- **[Hacienda San Antonio Metepec](/directorio/estado-mexico/metepec/hacienda-san-antonio/)** — Hacienda colonial en Metepec a 15 minutos, ideal para bodas y galas
+- **[Hacienda San Antonio Metepec](/directorio/estado-mexico/metepec/hacienda-san-antonio-metepec/)** — Hacienda colonial en Metepec a 15 minutos, ideal para bodas y galas
 - **[Ex Convento San Juan Bautista](/directorio/estado-mexico/metepec/ex-convento-san-juan-bautista/)** — Venue histórico en Metepec con arquitectura del siglo XVI
 - **[Rancho La Providencia Jilotepec](/directorio/estado-mexico/jilotepec/rancho-la-providencia/)** — Experiencia campirana auténtica a 90 minutos, sin restricciones
 - **[Salón Partenón Tlalpan](/directorio/cdmx/tlalpan/salon-partenon/)** — Opción premium en el sur de CDMX con excelente acceso desde Toluca

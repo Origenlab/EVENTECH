@@ -906,7 +906,7 @@ Tu boda es el evento más importante de tu vida. Cada detalle cuenta, cada eleme
 
 Cada boda es única. Nuestro equipo de especialistas te ayuda a diseñar el equipamiento perfecto para tu día, optimizando presupuesto sin comprometer calidad.
 
-**[Solicitar Cotización Personalizada](/contacto/)**
+**[Solicitar Cotización Personalizada](/cotizar/)**
 
 *Incluye: Visita técnica al venue, propuesta integral, coordinación de proveedores, supervisión día del evento.*
 

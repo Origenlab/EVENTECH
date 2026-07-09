@@ -199,7 +199,7 @@ El ambiente natural reduce considerablemente la necesidad de decoración excesiv
 
 Para elevar tu evento en Jardín Nevado, EVENTECH ofrece servicios de producción especializados para espacios al aire libre:
 
-- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) entre los árboles y [cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/) que transforman el jardín al anochecer en un espacio mágico
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) entre los árboles y [cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/) que transforman el jardín al anochecer en un espacio mágico
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** — Sistemas de audio calibrados para espacios exteriores, optimizados para evitar eco y garantizar cobertura uniforme
 - **[Mobiliario de diseño](/servicios/mobiliario/)** — [Sillas Crossback](/servicios/mobiliario/sillas/crossback/) en madera natural que armonizan con la vegetación del jardín
 - **[Salas lounge boho](/servicios/mobiliario/salas-lounge/boho/)** — Estilo rústico-natural con texturas orgánicas, perfecto para la estética de jardín

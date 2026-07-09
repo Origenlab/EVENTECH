@@ -1,0 +1,623 @@
+---
+/**
+ * ─── Accesorios y Cableado de Audio — Página de Producto (L5) ───
+ * El "detrás de cámaras" del audio: stage box y snake Cat6, cajas DI y cableado
+ * balanceado, pedestales/trípodes/rigging y distribución eléctrica / plantas de luz.
+ * Ángulo: los accesorios separan un montaje profesional de uno improvisado; el 90%
+ * de las fallas de audio en eventos son de cable o de corriente, no de bocinas.
+ * NOTA: estos accesorios YA VIENEN INCLUIDOS en cualquier renta de sistema o paquete.
+ *
+ * Jerarquía: Servicios > Audiovisual > Sonido > Accesorios y Cableado
+ * Template: sillas/tiffany (l3-shared + l4-shared, dorado institucional).
+ * IMG: reusadas de /images/audiovisual — no hay fotos de cables/DI/stage box; alt honesto.
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import ServiceShowcase from "@components/ServiceShowcase.astro";
+import HeroPage from "@components/HeroPage.astro";
+import CTABanner from "@components/CTABanner.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import ProveedorSonido from "@components/ProveedorSonido.astro";
+import { SITE } from "@config/site";
+import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@lib/seo";
+import '@styles/l3-shared.css';
+import '@styles/l4-shared.css';
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Audiovisual", href: "/servicios/audiovisual/" },
+  { label: "Sonido", href: "/servicios/audiovisual/sonido/" },
+  { label: "Accesorios y Cableado" },
+];
+
+const faqs = [
+  { question: "¿Los accesorios y el cableado se cotizan aparte del equipo?", answer: 'No. En EVENTECH <strong>el cableado, las cajas DI, los pedestales, el stage box y el rigging ya vienen incluidos</strong> en cualquier renta de sistema o en cualquiera de nuestros <a href="/servicios/audiovisual/sonido/paquetes/">paquetes de sonido</a>. Esta página existe por dos razones: para quien necesita <strong>accesorios sueltos</strong> —porque ya tiene equipo y solo le falta el snake o unas cajas directas— y para explicar qué hay detrás de un montaje bien hecho. Cuando rentas un sistema completo, todo esto es transparente: llega, se instala y funciona, sin cargos por separado dentro de CDMX.' },
+  { question: "¿Qué es un stage box y por qué usar cable Cat6 en vez de un snake analógico?", answer: 'Un <strong>snake</strong> es el multicable que lleva todas las señales del escenario hasta la consola. En su versión analógica es una manguera pesada con decenas de líneas de cobre: entre más largo el tendido, más se degrada la señal y más ruido induce de las líneas de corriente y de luz que corren cerca. Un <strong>stage box digital</strong> convierte todas esas señales a datos en el escenario y las manda por <strong>un solo cable Cat6</strong> usando protocolos como <strong>AES50 o Dante</strong>. El resultado: menos peso, tendidos de más de 100 metros sin pérdida, menos puntos de falla y un montaje mucho más limpio. Es la misma tecnología que usamos en los <a href="/servicios/audiovisual/sonido/paquetes/">paquetes de concierto</a>.' },
+  { question: "¿Por qué se escucha un zumbido en el audio y cómo lo eliminan?", answer: 'Ese zumbido grave y constante es casi siempre un <strong>loop de tierra</strong>: dos equipos conectados a tomas de corriente distintas crean una diferencia de potencial que se cuela en la señal como un tono de <strong>60 Hz</strong>. Se resuelve de dos maneras: con <strong>cableado balanceado XLR</strong>, que lleva la señal por dos conductores en fase opuesta para que la consola cancele el ruido común a ambos (rechazo de modo común), y con <strong>cajas DI</strong> que aíslan galvánicamente la fuente. Por eso un tendido de <a href="/servicios/audiovisual/sonido/mezcladoras/">mezcladora</a> bien hecho no zumba: no es suerte, es cableado balanceado y tierras bien resueltas.' },
+  { question: "¿Necesito una caja DI para conectar mi laptop, teclado o bajo?", answer: 'Sí, casi siempre. Una <strong>caja directa (DI)</strong> convierte una señal no balanceada y de alta impedancia —la de una laptop, un teclado o un bajo eléctrico— en una señal balanceada de baja impedancia que viaja por XLR sin ruido hasta la consola. La <strong>DI pasiva</strong> (con transformador) es ideal para instrumentos de señal fuerte como el bajo; la <strong>DI activa</strong> (alimentada, marcas como Radial o BSS) da más ganancia y headroom para fuentes débiles como teclados o reproductores. Sin DI, una laptop conectada directo suele meter zumbido y perder nivel. Todos nuestros <a href="/servicios/audiovisual/sonido/paquetes/">paquetes</a> ya incluyen las DI necesarias según las fuentes de tu evento.' },
+  { question: "¿El rigging para volar bocinas es seguro? ¿Quién lo certifica?", answer: 'Sí, cuando se hace con material certificado y bajo responsabilidad técnica. <strong>Volar</strong> una caja acústica significa colgarla de una estructura (truss o punto de anclaje) en vez de apoyarla en el piso, para ganar cobertura y liberar espacio. Usamos <strong>herrajes, eslingas y grilletes con carga de trabajo certificada</strong>, siempre con factor de seguridad sobre el peso real del arreglo. Lo importante: <strong>el rigging lo firma un responsable técnico</strong> que calcula cargas y valida los puntos de anclaje antes de subir una sola caja. Nunca improvisamos un vuelo. Para sistemas grandes lo coordinamos con <a href="/servicios/audiovisual/sonido/amplificadores/">amplificación</a> y estructura en el mismo montaje.' },
+  { question: "¿Qué pasa si mi venue no tiene suficiente corriente eléctrica?", answer: 'Es más común de lo que parece: muchos jardines, terrazas y patios tienen una <strong>acometida</strong> pensada para iluminación doméstica, no para un sistema de audio de varios miles de watts. Antes de confirmar, medimos la corriente disponible y calculamos las <strong>cargas por fase</strong> y el <strong>factor de potencia</strong> del sistema. Si la acometida no alcanza —o si de plano no hay corriente—, coordinamos una <strong>planta de luz dimensionada al sistema completo</strong>, con tierra física y corriente limpia y estable para no dañar el equipo ni meter ruido. Es el mismo criterio con el que montamos audio bajo <a href="/servicios/carpas/">carpas</a> en terrenos sin instalación eléctrica.' },
+];
+
+const specs = [
+  { label: "Stage box digital", value: "Sobre Cat6 · hasta 48 canales" },
+  { label: "Protocolo de audio", value: "AES50 y Dante" },
+  { label: "Cajas directas (DI)", value: "Activas y pasivas · Radial / BSS" },
+  { label: "Conectores", value: "Neutrik XLR y Speakon NL4" },
+  { label: "Cableado de señal", value: "Balanceado · rechazo de zumbido" },
+  { label: "Pedestales y trípodes", value: "Bocina, micrófono y sub-pole" },
+  { label: "Rigging", value: "Certificado y firmado por técnico" },
+  { label: "Distribución eléctrica", value: "Tableros con tierra física" },
+  { label: "Planta de luz", value: "Dimensionada al sistema de audio" },
+  { label: "En sistemas y paquetes", value: "Accesorios ya incluidos" },
+];
+
+const sidebarNav = [
+  { name: "Sistemas Line Array", href: "/servicios/audiovisual/sonido/line-array/" },
+  { name: "Bocinas Amplificadas", href: "/servicios/audiovisual/sonido/bocinas/" },
+  { name: "Subwoofers y Graves", href: "/servicios/audiovisual/sonido/subwoofers/" },
+  { name: "Mezcladoras y Monitoreo", href: "/servicios/audiovisual/sonido/mezcladoras/" },
+  { name: "Amplificadores de Potencia", href: "/servicios/audiovisual/sonido/amplificadores/" },
+  { name: "Monitores de Escenario", href: "/servicios/audiovisual/sonido/monitores-escenario/" },
+  { name: "Paquetes de Sonido", href: "/servicios/audiovisual/sonido/paquetes/" },
+  { name: "Accesorios y Cableado", href: null, active: true },
+];
+
+const sidebarRelated = [
+  { name: "Mezcladoras y Monitoreo", href: "/servicios/audiovisual/sonido/mezcladoras/" },
+  { name: "Amplificadores de Potencia", href: "/servicios/audiovisual/sonido/amplificadores/" },
+  { name: "Micrófonos y Cabina DJ", href: "/servicios/audiovisual/microfonos-dj/" },
+  { name: "Paquetes de Sonido", href: "/servicios/audiovisual/sonido/paquetes/" },
+  { name: "Carpas para Eventos", href: "/servicios/carpas/" },
+];
+
+const reviews = [
+  { author: "Adrián Cervantes", text: "Soy productor de espectáculos y trabajo con varios proveedores, así que soy exigente con el cableado. EVENTECH montó el stage box digital sobre Cat6 para un festival en el Parque Bicentenario y por primera vez en mucho tiempo no peleé con zumbidos ni con canales que se caen. El tendido quedó limpio, etiquetado y el desmontaje fue rapidísimo.", rating: 5, date: "2025-09-14" },
+  { author: "Gabriela Núñez", text: "Coordiné un congreso médico de dos días en Expo Santa Fe con transmisión en vivo. Mi mayor miedo era el zumbido en el streaming al conectar las laptops de los ponentes, y su equipo llegó con cajas DI para cada posición. El audio salió limpio tanto a la grabación como al refuerzo de sala. La diferencia contra proveedores anteriores estuvo justo en ese detalle del cableado.", rating: 5, date: "2026-03-05" },
+  { author: "Renata Salcedo", text: "Como wedding planner me tocó una boda en una hacienda de Tlalpan sin corriente suficiente en el jardín. EVENTECH dimensionó una planta de luz para todo el sistema y escondió los tendidos por debajo del entarimado, sin un solo cable a la vista en las fotos. Que el mismo equipo resolviera la corriente y el audio me quitó un dolor de cabeza enorme.", rating: 5, date: "2025-11-22" },
+];
+
+const jsonLd = [
+  serviceWithReviewJsonLd({
+    name: "Renta de Accesorios y Cableado de Audio CDMX",
+    description: "Renta de accesorios y cableado de audio en CDMX: stage box y snake Cat6, cajas DI, pedestales, trípodes, rigging certificado y planta de luz. Incluidos en cada montaje EVENTECH.",
+    url: "/servicios/audiovisual/sonido/accesorios-audio/",
+    priceRange: { min: 300, max: 6000 },
+    reviews,
+    ratingValue: 5,
+    reviewCount: 78,
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Audiovisual", url: "/servicios/audiovisual/" },
+    { name: "Sonido", url: "/servicios/audiovisual/sonido/" },
+    { name: "Accesorios y Cableado", url: "/servicios/audiovisual/sonido/accesorios-audio/" },
+  ]),
+  faqJsonLd(faqs),
+];
+---
+
+<PageLayout
+  title="Renta de Accesorios y Cableado de Audio en CDMX | Equipo para eventos en México"
+  rawTitle={true}
+  image="/images/audiovisual/audio-evento-04.avif"
+  description="Renta de accesorios y cableado de audio en CDMX: stage box, snake Cat6, cajas DI, pedestales, rigging y planta de luz. Incluidos en cada montaje EVENTECH."
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={breadcrumbItems} slot="breadcrumbs" />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       1. HERO (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <HeroPage
+    badge="El detrás de cámaras del audio"
+    title='<span class="highlight">Accesorios y Cableado</span> de Audio para Eventos'
+    subtitle="Stage box, snake Cat6, cajas DI, pedestales, rigging y distribución eléctrica. Lo invisible que separa un montaje profesional de uno improvisado — y que ya viene incluido en cada sistema y paquete EVENTECH."
+    primaryCTA={{ label: "Cotizar accesorios", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar accesorios y cableado de audio para mi evento` }}
+    cards={[
+      {
+        title: "El 90% de las fallas de audio son de cable, no de bocina",
+        content: "<strong>Casi ninguna emergencia de audio en un evento es culpa de las bocinas.</strong> Es un cable pisado, un conector barato que hace falso, un loop de tierra que zumba, una laptop conectada sin caja directa o una acometida eléctrica que no aguanta el sistema. Los accesorios y el cableado son precisamente donde se gana o se pierde un evento: un stage box digital, un snake bien tendido, cajas DI de calidad, conectores <strong>Neutrik</strong> y tierras resueltas son la diferencia entre un audio impecable y uno que a media fiesta empieza a fallar.",
+      },
+      {
+        title: "Ya vienen incluidos en tu sistema o paquete",
+        content: "<strong>Esta página no vende dos veces lo mismo.</strong> Cuando rentas un sistema completo o cualquiera de nuestros paquetes, todo el cableado, las cajas DI, los pedestales, el stage box y el rigging <strong>ya están incluidos</strong> — llegan, se instalan y funcionan, sin cargos por separado dentro de CDMX. Este apartado existe para quien necesita <strong>accesorios sueltos</strong> porque ya tiene equipo, y para explicar con transparencia qué hay detrás de un montaje profesional. Si dudas de qué necesitas, la visita técnica es sin costo.",
+      },
+    ]}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       2. CTA BANNER (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="¿Necesitas accesorios sueltos o un montaje completo?"
+    subheadline="Dinos qué equipo ya tienes y qué te falta — te decimos exactamente qué cableado o accesorio resuelve tu evento"
+    primaryCTA={{ label: "Cotizar ahora", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Llamar a un asesor", href: `tel:${SITE.contact.phoneRaw}` }}
+  />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MOBILE SIDEBAR — Se muestra solo en ≤1024px, entre CTA y specs
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="l4-mobile-nav" aria-label="Navegación rápida">
+    <div class="container">
+      <div class="l4-sidebar--mobile">
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Sonido Profesional</h2>
+          <ul class="sidebar-nav">
+            {sidebarNav.map((item) => (
+              <li class="sidebar-nav__item">
+                {item.active ? (
+                  <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                ) : (
+                  <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+          <ul class="sidebar-related">
+            {sidebarRelated.map((item) => (
+              <li>
+                <a href={item.href} class="sidebar-related__link">
+                  <span class="sidebar-related__arrow">&rarr;</span>
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="sidebar-card sidebar-card--cta">
+          <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+          <p class="sidebar-card--cta-text">¿Qué accesorio o cableado te falta?</p>
+          <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar accesorios y cableado de audio para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+          <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR (desktop grid)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <div class="l4-content-section">
+    <div class="container">
+      <div class="l4-layout">
+        <div class="l4-main">
+
+          <!-- 3. SPECS TABLE -->
+          <section aria-labelledby="specs-heading">
+            <div class="specs-table">
+              <div class="specs-table__header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                <h2 class="specs-table__header-title" id="specs-heading">Ficha Técnica — Accesorios y Cableado de Audio</h2>
+              </div>
+              <div class="specs-table__body">
+                {specs.map((spec) => (
+                  <div class="specs-table__row">
+                    <div class="specs-table__label">{spec.label}</div>
+                    <div class="specs-table__value">{spec.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. SHOWCASE: Stage Box Digital y Snake Cat6 -->
+          <section class="section" aria-labelledby="stagebox-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">La columna vertebral · digital sobre Cat6</span>
+                <h2 class="showcase__title" id="stagebox-heading">Stage Box Digital y Snake Cat6</h2>
+                <p class="showcase__subtitle">Un solo cable de red reemplaza la manguera de cobre — menos peso, menos ruido y menos puntos de falla.</p>
+                <p class="showcase__text">El <strong>snake</strong> es el multicable que conecta todo lo que pasa en el escenario —micrófonos, instrumentos, retornos— con la consola de mezcla. En su forma analógica es una manguera pesada con decenas de líneas de cobre, y ahí está el problema: <strong>entre más largo el tendido, más se degrada la señal y más ruido induce</strong> de los cables de corriente y de iluminación que corren cerca. Un tendido analógico de 50 o 60 metros pierde agudos, gana zumbido y multiplica los puntos donde algo puede fallar. En un evento grande, ese cable es la causa número uno de problemas que aparecen a media función.</p>
+                <p class="showcase__text">Un <strong>stage box digital</strong> —de familias como Behringer o Midas— convierte todas las señales a datos en el mismo escenario y las envía por <strong>un solo cable Cat6</strong> mediante protocolos como <strong>AES50 o Dante</strong>. Con eso ganamos tendidos de más de 100 metros sin pérdida, cableado inmune a la interferencia, un montaje visiblemente más limpio y menos conectores que revisar. Es el mismo backbone que corre en nuestros <a href="/servicios/audiovisual/sonido/paquetes/">paquetes de concierto</a> y en cualquier montaje con <a href="/servicios/audiovisual/sonido/mezcladoras/">consola digital</a>. Si solo necesitas el stage box y el snake porque ya tienes consola, te lo rentamos suelto.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Snake Cat6</span>
+                  <span class="showcase__tag">AES50 / Dante</span>
+                  <span class="showcase__tag">Hasta 48 canales</span>
+                  <span class="showcase__tag">Behringer / Midas</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Stage Box y Snake
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main"><img src="/images/audiovisual/audio-evento-02.avif" alt="Cableado y equipo de audio conectados durante el montaje de un evento en CDMX" loading="lazy" decoding="async" /></div>
+                  <div class="showcase__gallery3-thumb"><img src="/images/audiovisual/audio-evento-05.avif" alt="Equipo de audio profesional preparado antes de un evento" loading="lazy" decoding="async" /></div>
+                  <div class="showcase__gallery3-thumb"><img src="/images/audiovisual/audio-evento-06.avif" alt="Detalle del montaje de audio con conexiones y cableado" loading="lazy" decoding="async" /></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. SHOWCASE: Cajas Directas (DI) y Cableado Balanceado -->
+          <section class="section" aria-labelledby="di-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Sin zumbido · señal limpia a consola</span>
+                <h2 class="showcase__title" id="di-heading">Cajas Directas (DI) y Cableado Balanceado</h2>
+                <p class="showcase__subtitle">Por qué una laptop conectada directo zumba, y cómo el cableado balanceado y las cajas DI lo eliminan.</p>
+                <p class="showcase__text">El zumbido grave y constante que arruina tantos eventos casi siempre es un <strong>loop de tierra</strong>: cuando dos equipos se conectan a tomas de corriente distintas, la diferencia de potencial entre sus tierras se cuela en la señal de audio como un tono de <strong>60 Hz</strong>. La solución de fondo es el <strong>cableado balanceado XLR</strong>, que envía la señal por dos conductores en fase opuesta más una malla; la consola resta ambas señales y, al hacerlo, cancela todo el ruido que se indujo por igual en ambos conductores. Eso se llama <strong>rechazo de modo común</strong>, y es la razón física por la que un tendido XLR bien hecho, con conectores <strong>Neutrik</strong>, simplemente no zumba.</p>
+                <p class="showcase__text">Para conectar fuentes no balanceadas —una <strong>laptop</strong>, un <strong>teclado</strong> o un <strong>bajo eléctrico</strong>— se necesita una <strong>caja directa (DI)</strong>, que convierte esa señal en balanceada y de baja impedancia. La <strong>DI pasiva</strong> (con transformador) es perfecta para el bajo y señales fuertes; la <strong>DI activa</strong> (alimentada, de marcas como Radial o BSS) da más ganancia y headroom para teclados y reproductores. Nota técnica: la señal de micrófono e instrumento viaja por XLR delgado, pero la señal amplificada hacia las bocinas usa conector <strong>Speakon NL4</strong>, más robusto y seguro para potencia. Todo esto ya viene resuelto en nuestros <a href="/servicios/audiovisual/sonido/paquetes/">paquetes</a>; si solo te faltan un par de cajas DI para tus ponentes, también las rentamos por separado. Consulta también la <a href="/servicios/audiovisual/microfonos-dj/">microfonía y cabina DJ</a>.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">DI activa y pasiva</span>
+                  <span class="showcase__tag">XLR balanceado</span>
+                  <span class="showcase__tag">Neutrik</span>
+                  <span class="showcase__tag">Speakon NL4</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Cajas DI y Cableado
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main"><img src="/images/audiovisual/audio-evento-03.avif" alt="Conexiones de audio y cableado en el montaje de un evento en CDMX" loading="lazy" decoding="async" /></div>
+                  <div class="showcase__gallery3-thumb"><img src="/images/audiovisual/cabina-dj-profesional-boda-cdmx.avif" alt="Cabina de DJ conectada al sistema de sonido del evento" loading="lazy" decoding="async" /></div>
+                  <div class="showcase__gallery3-thumb"><img src="/images/audiovisual/sistema-audio-bafle-jbl-evento-corporativo.avif" alt="Sistema de audio conectado para un evento corporativo" loading="lazy" decoding="async" /></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 6. SHOWCASE: Pedestales, Trípodes y Rigging -->
+          <section class="section" aria-labelledby="rigging-heading">
+            <div class="showcase">
+              <div class="showcase__content">
+                <span class="showcase__badge">Soportería · el rigging lo firma un técnico</span>
+                <h2 class="showcase__title" id="rigging-heading">Pedestales, Trípodes y Rigging</h2>
+                <p class="showcase__subtitle">Dónde va cada bocina y cada micrófono no es un detalle estético: define la cobertura y la seguridad del montaje.</p>
+                <p class="showcase__text">La soportería es lo primero que se ve y lo último en lo que la gente piensa. Un <strong>trípode de bocina</strong> mal elegido limita la altura y deja el sonido chocando con las cabezas de las primeras filas; un <strong>sub-pole</strong> permite montar la caja de medios-agudos directamente sobre el subwoofer para alinear la fuente. En micrófonos, la diferencia entre un <strong>pedestal recto</strong>, uno de <strong>boom</strong> (jirafa) y uno <strong>corto</strong> de mesa es la diferencia entre un ponente cómodo y uno peleando con el equipo. Llevamos la variedad completa para que cada posición —atril, panel, instrumento— quede resuelta sin improvisar.</p>
+                <p class="showcase__text">Cuando el evento requiere <strong>volar</strong> las cajas —colgarlas de una estructura en vez de apoyarlas en el piso— entramos en terreno de <strong>rigging</strong>, y aquí no hay atajos. Usamos <strong>herrajes, eslingas y grilletes con carga de trabajo certificada</strong> y siempre con factor de seguridad sobre el peso real del arreglo. Lo esencial: <strong>el rigging lo calcula y lo firma un responsable técnico</strong> que valida cada punto de anclaje antes de subir una sola caja; nunca improvisamos un vuelo. Para arreglos grandes lo coordinamos con la <a href="/servicios/audiovisual/sonido/amplificadores/">amplificación</a> y el <a href="/servicios/audiovisual/sonido/line-array/">line array</a> en el mismo montaje, y con <a href="/servicios/iluminacion/escenario/">estructura de iluminación</a> cuando comparten truss.</p>
+                <div class="showcase__tags">
+                  <span class="showcase__tag">Trípodes de bocina</span>
+                  <span class="showcase__tag">Pedestales de micrófono</span>
+                  <span class="showcase__tag">Sub-pole</span>
+                  <span class="showcase__tag">Rigging certificado</span>
+                </div>
+                <a href="#reserva-heading" class="btn btn--primary btn--lg">
+                  Cotizar Soportería y Rigging
+                </a>
+              </div>
+              <div class="showcase__image">
+                <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main"><img src="/images/audiovisual/audio-evento-01.avif" alt="Bocinas montadas en altura durante el montaje de un evento de gran formato en CDMX" loading="lazy" decoding="async" /></div>
+                  <div class="showcase__gallery3-thumb"><img src="/images/audiovisual/equipo-audiovisual-completo-boda.avif" alt="Equipo de audio completo montado sobre soportes para un evento" loading="lazy" decoding="async" /></div>
+                  <div class="showcase__gallery3-thumb"><img src="/images/audiovisual/audio-evento-04.avif" alt="Bocina sobre soporte durante el montaje de un evento" loading="lazy" decoding="async" /></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 7. SHOWCASE: Distribución Eléctrica y Plantas de Luz (ServiceShowcase) -->
+          <section class="section" aria-labelledby="electrico-heading">
+            <ServiceShowcase
+              title="Distribución Eléctrica y Plantas de Luz"
+              headingId="electrico-heading"
+              badge="Corriente limpia · tierra física estable"
+              subtitle="Un sistema de audio no falla por las bocinas: falla porque el venue no tiene la corriente que necesita."
+              tags={["Cargas por fase", "Factor de potencia", "Tierra física", "Planta dimensionada"]}
+              ctaHref="#reserva-heading"
+              ctaLabel="Cotizar Distribución Eléctrica"
+            >
+              <Fragment slot="body">
+                <p class="showcase__text">Es el problema silencioso de tantos eventos: el venue se ve perfecto, pero su <strong>acometida eléctrica</strong> está pensada para iluminación doméstica, no para un sistema de audio de varios miles de watts operando durante horas. Cuando la corriente no alcanza, el sistema se cae en los picos, mete ruido o —peor— daña el equipo. Antes de confirmar cualquier montaje medimos la corriente disponible y calculamos las <strong>cargas por fase</strong> y el <strong>factor de potencia</strong> del sistema completo, para no dejar una sola fase sobrecargada. Es un cálculo que casi nadie hace y que evita el 90% de las emergencias eléctricas en sitio.</p>
+                <p class="showcase__text">Cuando la acometida no alcanza —o cuando de plano <strong>no hay corriente</strong>, como en un jardín abierto o un terreno bajo carpa— coordinamos una <strong>planta de luz dimensionada al sistema de audio</strong>, con tierra física y salida estable para no inducir ruido ni arriesgar el equipo. No es rentar la planta más grande, sino la correcta: sobredimensionar desperdicia combustible y subdimensionar apaga el evento. Es el mismo criterio con el que montamos audio bajo <a href="/servicios/carpas/">carpas</a> en terrenos sin instalación eléctrica, y viene incluido en los <a href="/servicios/audiovisual/sonido/paquetes/">paquetes</a> cuando el venue lo requiere. Si solo necesitas la planta para tu propio equipo, también la cotizamos suelta.</p>
+              </Fragment>
+              <Fragment slot="media">
+                <div class="showcase__gallery3">
+                  <div class="showcase__gallery3-main"><img src="/images/audiovisual/sistema-audio-bafle-jbl-evento-corporativo.avif" alt="Sistema de audio alimentado por la distribución eléctrica de un evento corporativo en CDMX" loading="lazy" decoding="async" /></div>
+                  <div class="showcase__gallery3-thumb"><img src="/images/audiovisual/audio-evento-05.avif" alt="Equipo de audio conectado a la corriente durante un evento" loading="lazy" decoding="async" /></div>
+                  <div class="showcase__gallery3-thumb"><img src="/images/audiovisual/monitor-pantalla-presentacion-congreso.avif" alt="Equipo audiovisual alimentado por la distribución eléctrica del congreso" loading="lazy" decoding="async" /></div>
+                </div>
+              </Fragment>
+            </ServiceShowcase>
+          </section>
+
+          <!-- 8. FAQ -->
+          <section class="section" aria-labelledby="faq-heading">
+            <SectionHeader
+              id="faq-heading"
+              title="Preguntas Frecuentes sobre Accesorios y Cableado"
+              subtitle="Resolvemos tus dudas"
+              description={[
+                "El cableado y los accesorios son la parte del audio que menos se ve y más problemas causa cuando falla. Aquí respondemos lo que más nos preguntan sobre stage box, cajas DI, rigging y corriente eléctrica.",
+                "Recuerda: en un sistema o paquete completo todo esto ya viene incluido. Este apartado es para accesorios sueltos o para entender qué hay detrás del montaje."
+              ]}
+            />
+
+            <div class="faq-layout">
+              <div class="faq-list">
+                {faqs.map((faq) => (
+                  <details class="faq-item">
+                    <summary class="faq-item__question">
+                      <span>{faq.question}</span>
+                      <svg class="faq-item__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <div class="faq-item__answer">
+                      <p set:html={faq.answer} />
+                    </div>
+                  </details>
+                ))}
+              </div>
+
+              <aside class="faq-sidebar">
+                <div class="faq-sidebar-card faq-sidebar-card--accent">
+                  <h3 class="faq-sidebar-card__title">¿No encuentras tu pregunta?</h3>
+                  <p class="faq-sidebar-card__text">Escríbenos por WhatsApp y un ingeniero de audio te dice qué cableado o accesorio resuelve tu evento.</p>
+                  <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, tengo una duda sobre accesorios y cableado de audio para eventos`} target="_blank" rel="noopener noreferrer" class="faq-sidebar-card__btn">
+                    Escribir por WhatsApp
+                  </a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Llámanos</h3>
+                  <p class="faq-sidebar-card__text">¿Prefieres atención telefónica? Estamos disponibles de lunes a viernes de 9:00 a 19:00.</p>
+                  <a href={`tel:${SITE.contact.phoneRaw}`} class="faq-sidebar-card__link faq-sidebar-card__link--phone">{SITE.contact.phone}</a>
+                </div>
+
+                <div class="faq-sidebar-card">
+                  <h3 class="faq-sidebar-card__title">Cotización express</h3>
+                  <p class="faq-sidebar-card__text">Completa el formulario y recibe una propuesta personalizada sin compromiso.</p>
+                  <a href="#reserva-heading" class="faq-sidebar-card__link">Ir al formulario &darr;</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             DESKTOP SIDEBAR (sticky)
+             ═══════════════════════════════════════════════════════════════ -->
+        <aside class="l4-sidebar l4-sidebar--desktop" aria-label="Navegación y enlaces relacionados">
+
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Sonido Profesional</h2>
+            <ul class="sidebar-nav">
+              {sidebarNav.map((item) => (
+                <li class="sidebar-nav__item">
+                  {item.active ? (
+                    <span class="sidebar-nav__link sidebar-nav__link--active">{item.name}</span>
+                  ) : (
+                    <a href={item.href} class="sidebar-nav__link">{item.name}</a>
+                  )}
+                </li>
+              ))}
+              <li><div class="sidebar-nav__divider"></div></li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/audiovisual/sonido/" class="sidebar-nav__back">&uarr; Volver a Sonido</a>
+              </li>
+              <li class="sidebar-nav__item">
+                <a href="/servicios/audiovisual/" class="sidebar-nav__back">&uarr; Volver a Audiovisual</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h2 class="sidebar-card__title">Servicios Relacionados</h2>
+            <p style="font-size: var(--text-xs); color: var(--color-text-light); margin-block-end: var(--space-sm);">Complementa tu montaje de audio:</p>
+            <ul class="sidebar-related">
+              {sidebarRelated.map((item) => (
+                <li>
+                  <a href={item.href} class="sidebar-related__link">
+                    <span class="sidebar-related__arrow">&rarr;</span>
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="sidebar-card sidebar-card--cta">
+            <h2 class="sidebar-card__title">Cotiza Ahora</h2>
+            <p class="sidebar-card--cta-text">¿Qué accesorio o cableado te falta?</p>
+            <a href={`https://wa.me/${SITE.contact.whatsapp}?text=Hola, quiero cotizar accesorios y cableado de audio para mi evento`} target="_blank" rel="noopener noreferrer" class="sidebar-cta__btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href={`tel:${SITE.contact.phoneRaw}`} class="sidebar-cta__phone">{SITE.contact.phone}</a>
+            <a href="#reserva-heading" class="sidebar-cta__form-link">O completa el formulario &darr;</a>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       9. RESERVA FORM (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="reserva-heading">
+    <div class="container">
+      <SectionHeader
+        id="reserva-heading"
+        title="Cotiza Tus Accesorios y Cableado"
+        subtitle="Cuéntanos qué necesitas y te contactamos de inmediato"
+        description={[
+          "Completa el formulario con los detalles de tu evento y uno de nuestros ingenieros de audio te responderá por WhatsApp con una cotización personalizada. Sin compromiso, sin costos ocultos.",
+          "Si vas a rentar un sistema o paquete completo, recuerda que todos estos accesorios ya vienen incluidos — no los cotizamos dos veces."
+        ]}
+      />
+
+      <div class="reserva-layout">
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="reserva-form__grid">
+            <div class="form-field">
+              <label class="form-field__label" for="nombre">
+                Nombre completo <span class="form-field__required">*</span>
+              </label>
+              <input type="text" id="nombre" name="nombre" class="form-field__input" placeholder="Tu nombre" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="telefono">
+                Teléfono <span class="form-field__required">*</span>
+              </label>
+              <input type="tel" id="telefono" name="telefono" class="form-field__input" placeholder="55 1234 5678" required />
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="tipoEvento">
+                Tipo de evento
+              </label>
+              <select id="tipoEvento" name="tipoEvento" class="form-field__input form-field__select">
+                <option value="">Selecciona una opción</option>
+                <option value="Boda">Boda</option>
+                <option value="XV Años">XV Años</option>
+                <option value="Evento Corporativo">Evento Corporativo</option>
+                <option value="Congreso / Conferencia">Congreso / Conferencia</option>
+                <option value="Festival / Concierto">Festival / Concierto</option>
+                <option value="Feria / Expo">Feria / Expo</option>
+                <option value="Fiesta Social">Fiesta Social</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-field__label" for="fecha">
+                Fecha del evento
+              </label>
+              <input type="date" id="fecha" name="fecha" class="form-field__input" />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="tipoAccesorio">
+                Accesorio de interés
+              </label>
+              <select id="tipoAccesorio" name="tipoAccesorio" class="form-field__input form-field__select">
+                <option value="">Selecciona el accesorio</option>
+                <option value="Stage box y snake">Stage box y snake</option>
+                <option value="Cajas DI">Cajas DI</option>
+                <option value="Pedestales y trípodes">Pedestales y trípodes</option>
+                <option value="Rigging">Rigging</option>
+                <option value="Planta de luz">Planta de luz</option>
+                <option value="Cableado suelto">Cableado suelto</option>
+                <option value="No estoy seguro">No estoy seguro</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-field__label" for="mensaje">
+                Mensaje <span class="form-field__required">*</span>
+              </label>
+              <textarea id="mensaje" name="mensaje" class="form-field__input form-field__textarea" placeholder="Cuéntanos los detalles: qué equipo ya tienes, cuántos canales o posiciones necesitas, tipo de venue (salón/jardín/terraza), si hay corriente disponible..." rows="4" required></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="reserva-form__submit" id="btnEnviar">
+            <svg class="reserva-form__submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+
+        <aside class="reserva-sidebar">
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Respuesta inmediata</h3>
+            <p class="reserva-card__text">Te respondemos por WhatsApp en menos de 30 minutos durante horario de atención.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Visita técnica gratis</h3>
+            <p class="reserva-card__text">Medimos tu venue y la corriente disponible sin costo antes de confirmar cualquier montaje.</p>
+          </div>
+          <div class="reserva-card">
+            <h3 class="reserva-card__title">Ya incluido en el sistema</h3>
+            <p class="reserva-card__text">Cableado, DI, pedestales y rigging vienen incluidos en cada renta completa. Sin cargos sorpresa en CDMX.</p>
+          </div>
+          <div class="reserva-card reserva-card--highlight">
+            <h3 class="reserva-card__title">Horario de atención</h3>
+            <p class="reserva-card__text">Lunes a Viernes: 9:00 - 19:00<br/>Sábados: 9:00 - 14:00</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
+    document.getElementById('reservaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const tipoEvento = document.getElementById('tipoEvento').value;
+      const fecha = document.getElementById('fecha').value;
+      const tipoAccesorio = document.getElementById('tipoAccesorio').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      if (!nombre || !telefono || !mensaje) {
+        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
+        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
+        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
+        return;
+      }
+
+      let fechaTexto = 'No especificada';
+      if (fecha) {
+        const d = new Date(fecha + 'T12:00:00');
+        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      let texto = `*Accesorios y Cableado de Audio*\n\n`;
+      texto += `*Nombre:* ${nombre}\n`;
+      texto += `*Teléfono:* ${telefono}\n`;
+      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
+      texto += `*Fecha del evento:* ${fechaTexto}\n`;
+      if (tipoAccesorio) texto += `*Accesorio de interés:* ${tipoAccesorio}\n`;
+      texto += `\n*Mensaje:*\n${mensaje}`;
+
+      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+
+    document.querySelectorAll('.form-field__input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('form-field__input--error');
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       10. PROVEEDOR ALIADO — SOEVE
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <ProveedorSonido focus="cableado, stage box y accesorios técnicos de audio" />
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       11. CTA FINAL (full-width)
+       ═══════════════════════════════════════════════════════════════════════ -->
+  <CTABanner
+    headline="El montaje profesional se nota en lo que no se ve"
+    subheadline="Cable, stage box, cajas DI y corriente bien resuelta: el detalle que evita el 90% de las fallas de audio. Cotiza hoy con asesoría técnica sin compromiso."
+    primaryCTA={{ label: "Cotizar accesorios de audio", href: "#reserva-heading" }}
+    secondaryCTA={{ label: "Hablar con un asesor", href: `https://wa.me/${SITE.contact.whatsapp}?text=Hola, me interesa cotizar accesorios y cableado de audio para mi evento` }}
+    variant="accent"
+  />
+</PageLayout>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     DORADO INSTITUCIONAL — Solo aplica a esta página (Astro SSG)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style is:global>
+  :root {
+    --color-accent: #c2a24a;
+    --color-accent-hover: #a9883a;
+    --color-accent-light: #d4b96a;
+    --color-accent-soft: rgba(194, 162, 74, 0.1);
+    --gradient-accent: linear-gradient(135deg, #c2a24a 0%, #a9883a 100%);
+    --shadow-accent: 0 4px 14px rgba(194, 162, 74, 0.35);
+    --shadow-accent-hover: 0 6px 20px rgba(194, 162, 74, 0.45);
+  }
+</style>

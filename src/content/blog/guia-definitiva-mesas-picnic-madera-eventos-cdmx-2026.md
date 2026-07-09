@@ -36,7 +36,8 @@ relatedEvents:
 relatedPosts:
   - "cuanto-cuesta-rentar-mesas-picnic-cdmx-precios-2026"
   - "bodas-aire-libre-mesas-madera-farm-picnic-campestre-cdmx"
-  - "guia-definitiva-sillas-para-eventos-cdmx-2026"
+  - "mesas-picnic-fiestas-infantiles-kermeses-familiares-cdmx"
+  - "mesas-picnic-biergarten-corporativos-festivales-cdmx"
 cta:
   label: "Cotiza tus mesas picnic"
   href: "/servicios/mobiliario/mesas-picnic/"

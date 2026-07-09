@@ -248,7 +248,7 @@ Como partner de EVENTECH, complementamos la belleza natural:
 
 Si buscas espacios donde la naturaleza sea el escenario principal:
 
-- **[Jardín Botánico UNAM](/directorio/cdmx/tlalpan/jardin-botanico/)** — Biodiversidad curada, ambiente académico
+- **[Jardín Botánico UNAM](/directorio/cdmx/tlalpan/jardin-botanico-tlalpan/)** — Biodiversidad curada, ambiente académico
 - **[Nativitas Xochimilco](/directorio/cdmx/xochimilco/nativitas/)** — Jardines flotantes, tradición mexicana
 - **[La Cantera](/directorio/cdmx/pedregal/la-cantera/)** — Cantera natural, arquitectura integrada
 - **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — Jardines históricos, tradición colonial

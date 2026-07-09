@@ -195,7 +195,7 @@ La renta de Diamante Azul incluye un paquete completo:
 
 La iluminación azul existente del salón se puede complementar y potenciar con servicios profesionales de EVENTECH:
 
-- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) en tono blanco cálido que contrastan con el azul, [cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/) y velas LED
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) en tono blanco cálido que contrastan con el azul, [cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/) y velas LED
 - **[Iluminación de escenario](/servicios/iluminacion/escenario/)** — Cabezas móviles y efectos que complementen el esquema azul para la fiesta
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** — Upgrade del sistema básico con DJ y equipo de mayor potencia
 - **[Mobiliario premium](/servicios/mobiliario/)** — [Sillas Ghost cristal](/servicios/mobiliario/sillas/ghost/) que reflejan la iluminación azul, [salas lounge modernas](/servicios/mobiliario/salas-lounge/moderno/) en tonos complementarios

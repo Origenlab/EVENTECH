@@ -227,6 +227,6 @@ Como partner de EVENTECH, complementamos la magia de la hacienda:
 Si buscas la autenticidad de haciendas coloniales:
 
 - **[Ex-Hacienda Chapingo](/directorio/estado-mexico/texcoco/ex-hacienda-chapingo/)** — Historia agrícola, murales de Rivera
-- **[Hacienda San Antonio Metepec](/directorio/estado-mexico/metepec/hacienda-san-antonio/)** — Colonial cerca de Toluca
+- **[Hacienda San Antonio Metepec](/directorio/estado-mexico/metepec/hacienda-san-antonio-metepec/)** — Colonial cerca de Toluca
 - **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — Colonial dentro de CDMX
 - **[Ex-Hacienda Tepotzotlán](/directorio/estado-mexico/tepotzotlan/ex-hacienda-tepotzotlan/)** — Barroco novohispano

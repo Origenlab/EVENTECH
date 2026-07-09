@@ -172,6 +172,6 @@ Cuando tus invitados comenten lo bonito que estuvo tu evento, cuando las fotos b
 Si buscas opciones en el norte del Estado de México con diferentes características:
 
 - **[Quinta Real Atizapán](/directorio/estado-mexico/atizapan/quinta-real-atizapan/)** — Mayor elegancia, capilla con vitrales, precio medio
-- **[Jardines de México Naucalpan](/directorio/estado-mexico/naucalpan/jardines-de-mexico/)** — Mayor capacidad, múltiples espacios
+- **[Jardines de México Naucalpan](/directorio/estado-mexico/naucalpan/jardines-de-mexico-naucalpan/)** — Mayor capacidad, múltiples espacios
 - **[Salón Tlalnepantla Real](/directorio/estado-mexico/tlalnepantla/salon-tlalnepantla-real/)** — Climatizado, ideal para temporada de lluvias
 - **[Quinta Jardines del Edén](/directorio/estado-mexico/coacalco/quinta-jardines-eden/)** — Similar estilo familiar en Coacalco

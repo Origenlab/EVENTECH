@@ -98,8 +98,8 @@ Las [estaciones de servicio](/servicios/catering/estaciones-servicio/) son donde
 
 | Estación | Función | Dimensiones | Capacidad |
 |----------|---------|-------------|-----------|
-| [Barra buffet](/servicios/catering/estaciones-servicio/barras/) | Servicio principal | 180-360cm | 50-200 personas |
-| [Estación de tacos](/servicios/catering/estaciones-servicio/tacos/) | Comida mexicana | 150-240cm | 30-100 personas |
+| [Barra buffet](/servicios/catering/estaciones-servicio/barras-bebidas/) | Servicio principal | 180-360cm | 50-200 personas |
+| [Estación de tacos](/servicios/catering/estaciones-servicio/tacos-parrilla/) | Comida mexicana | 150-240cm | 30-100 personas |
 | [Mesa de postres](/servicios/catering/estaciones-servicio/postres/) | Dulces y pastel | 120-240cm | Display |
 | [Cocina en vivo](/servicios/catering/estaciones-servicio/cocina-vivo/) | Show cooking | 200-300cm | 50-150 personas |
 
@@ -213,10 +213,10 @@ La [cocina móvil](/servicios/catering/cocina-movil/) permite preparar en cualqu
 | Equipo | Uso | Capacidad | Combustible |
 |--------|-----|-----------|-------------|
 | [Parrilla industrial](/servicios/catering/cocina-movil/parrillas/) | Carnes, verduras | 50-200 porciones/hr | Gas LP |
-| [Plancha](/servicios/catering/cocina-movil/planchas/) | Tortillas, hotcakes | 100+ porciones/hr | Gas LP |
-| [Horno convección](/servicios/catering/cocina-movil/hornos/) | Gratinados, pan | 20-50 porciones | Eléctrico |
-| [Freidora](/servicios/catering/cocina-movil/hornos/) | Frituras | 30-60 porciones/hr | Gas LP |
-| [Mesas de trabajo](/servicios/catering/cocina-movil/mesas-trabajo/) | Preparación | — | — |
+| [Plancha](/servicios/catering/cocina-movil/planchas-freidoras/) | Tortillas, hotcakes | 100+ porciones/hr | Gas LP |
+| [Horno convección](/servicios/catering/cocina-movil/hornos-conveccion/) | Gratinados, pan | 20-50 porciones | Eléctrico |
+| [Freidora](/servicios/catering/cocina-movil/hornos-conveccion/) | Frituras | 30-60 porciones/hr | Gas LP |
+| [Mesas de trabajo](/servicios/catering/cocina-movil/mesas-inoxidable/) | Preparación | — | — |
 | Tanque de gas | Combustible | 20-45 kg | — |
 
 ### Layout de Cocina Móvil Profesional
@@ -416,9 +416,9 @@ La [refrigeración](/servicios/catering/refrigeracion/) garantiza la seguridad a
 | [Refrigerador vertical](/servicios/catering/refrigeracion/refrigeradores/) | 2-4°C | 400-800 litros | Ingredientes, preparados |
 | [Refrigerador horizontal](/servicios/catering/refrigeracion/refrigeradores/) | 2-4°C | 200-500 litros | Bebidas, postres |
 | [Hielera industrial](/servicios/catering/refrigeracion/hieleras/) | 0-4°C | 50-200 litros | Bebidas, mariscos |
-| [Dispensador bebidas](/servicios/catering/refrigeracion/dispensadores/) | 4-8°C | 10-20 litros | Aguas frescas, jugos |
-| [Fuente chocolate](/servicios/catering/refrigeracion/fuentes/) | 45°C (caliente) | 3-5 kg | Postre interactivo |
-| [Fuente chamoy](/servicios/catering/refrigeracion/fuentes/) | Ambiente | 3-5 kg | Snacks |
+| [Dispensador bebidas](/servicios/catering/refrigeracion/dispensadores-bebidas/) | 4-8°C | 10-20 litros | Aguas frescas, jugos |
+| [Fuente chocolate](/servicios/catering/refrigeracion/fuentes-conservacion/) | 45°C (caliente) | 3-5 kg | Postre interactivo |
+| [Fuente chamoy](/servicios/catering/refrigeracion/fuentes-conservacion/) | Ambiente | 3-5 kg | Snacks |
 
 ### Zonas de Temperatura para Alimentos
 

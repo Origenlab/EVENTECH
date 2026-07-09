@@ -200,7 +200,7 @@ Varios puntos de la terraza están diseñados como **fondos fotográficos natura
 
 La vista panorámica merece una producción que la complemente sin competir:
 
-- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) sutiles en la terraza que no interfieran con la vista nocturna, [cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/) como transición entre salón y terraza
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) sutiles en la terraza que no interfieran con la vista nocturna, [cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/) como transición entre salón y terraza
 - **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** — [Uplighting](/servicios/iluminacion/arquitectonica/uplighting/) en el salón interior para crear ambiente de gala
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** — Sistemas con cobertura interior y extensión controlada a terraza sin exceder normas de ruido
 - **[Mobiliario premium](/servicios/mobiliario/)** — [Sillas Ghost transparentes](/servicios/mobiliario/sillas/ghost/) para la terraza que no obstruyan la vista

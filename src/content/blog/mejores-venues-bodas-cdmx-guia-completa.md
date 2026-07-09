@@ -575,4 +575,4 @@ Encontrar el venue perfecto para tu boda es un proceso que requiere tiempo e inv
 
 ---
 
-*¿Tienes un venue favorito que no está en nuestro directorio? [Cuéntanos](/contacto/) y lo evaluamos para incluirlo.*
+*¿Tienes un venue favorito que no está en nuestro directorio? [Cuéntanos](/cotizar/) y lo evaluamos para incluirlo.*

@@ -522,7 +522,7 @@ No se realizan misas católicas formales, pero sí **ceremonias simbólicas, civ
 
 - **[Kalesh Tarango Álvaro Obregón](/directorio/cdmx/alvaro-obregon/kalesh-salon/)** — Naturaleza del poniente con salón cerrado de lujo, precio $$$
 - **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — Arquitectura colonial, jardines formales, formato de hacienda clásica
-- **[Jardín Botánico Tlalpan](/directorio/cdmx/tlalpan/jardin-botanico/)** — 7 hectáreas de flora, estilo más institucional y botánico
+- **[Jardín Botánico Tlalpan](/directorio/cdmx/tlalpan/jardin-botanico-tlalpan/)** — 7 hectáreas de flora, estilo más institucional y botánico
 - **[Jardín Escondido San Ángel](/directorio/cdmx/san-angel/jardin-escondido/)** — Jardín boutique urbano, encanto íntimo, capacidad reducida
 - **[Terraza Contadero](/directorio/cdmx/alvaro-obregon/terraza-contadero/)** — Vista panorámica del poniente, formato terraza vs. bosque
 

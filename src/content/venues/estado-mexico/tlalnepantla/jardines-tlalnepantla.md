@@ -201,6 +201,6 @@ Como partner oficial de EVENTECH, ofrecemos soluciones flexibles que complementa
 Si buscas espacios con libertad de proveedores en el norte del Estado de México:
 
 - **[Jardín Los Arcos](/directorio/estado-mexico/atizapan/jardin-los-arcos/)** — Tradición familiar, arcos de cantera, precio similar
-- **[Jardines de México Naucalpan](/directorio/estado-mexico/naucalpan/jardines-de-mexico/)** — Mayor capacidad, paquetes incluidos
+- **[Jardines de México Naucalpan](/directorio/estado-mexico/naucalpan/jardines-de-mexico-naucalpan/)** — Mayor capacidad, paquetes incluidos
 - **[Quinta Jardines del Edén](/directorio/estado-mexico/coacalco/quinta-jardines-eden/)** — Cascadas y ambiente mágico en Coacalco
 - **[Quinta Real Atizapán](/directorio/estado-mexico/atizapan/quinta-real-atizapan/)** — Mayor elegancia con capilla

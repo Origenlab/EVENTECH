@@ -111,6 +111,6 @@ Calz. Gral. Mariano Escobedo 756, **Anzures**, CP 11590 — a pasos del Bosque d
 
 ## Venues similares
 
-- **[Hotel Camino Real Polanco](/directorio/cdmx/polanco/hotel-camino-real/)** — Ícono arquitectónico vecino
+- **[Hotel Camino Real Polanco](/directorio/cdmx/polanco/hotel-camino-real-polanco/)** — Ícono arquitectónico vecino
 - **[Centro Citibanamex](/directorio/cdmx/miguel-hidalgo/centro-citibanamex/)** — Gran formato en Lomas de Sotelo
 - **[Hacienda de los Morales](/directorio/cdmx/polanco/hacienda-de-los-morales/)** — Hacienda clásica en Polanco

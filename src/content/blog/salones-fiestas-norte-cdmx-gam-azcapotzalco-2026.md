@@ -170,7 +170,7 @@ Este tipo de venue temático tiene una ventaja económica que muchas familias no
 La arquitectura temática de Castillo requiere un enfoque de producción específico: trabajar **con** la estética del espacio, no contra ella. En EVENTECH hemos desarrollado configuraciones que potencian el concepto medieval:
 
 - **Iluminación ámbar y cálida** con [uplighting](/servicios/iluminacion/arquitectonica/uplighting/) en tonos dorados que resaltan la textura de los muros de piedra
-- **Fairy lights en arcos** con [cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/) que añaden calidez sin competir con la arquitectura
+- **Fairy lights en arcos** con [cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/) que añaden calidez sin competir con la arquitectura
 - **Mobiliario que complementa** con [sillas Tiffany doradas](/servicios/mobiliario/sillas/tiffany/) o [Chiavari](/servicios/mobiliario/sillas/chiavari/) que dialogan con la estética del castillo
 - **Mesas imperiales** con [mesas rectangulares](/servicios/mobiliario/mesas/rectangulares/) estilo banquete medieval
 - **Sala lounge elegante** con [lounge premium](/servicios/mobiliario/salas-lounge/elegante/) en zonas de descanso
@@ -269,7 +269,7 @@ La ventaja de trabajar en un venue que ya incluye coordinación es que la comuni
 - **Sillas Tiffany o Chiavari** con [opciones en dorado, plateado o transparente](/servicios/mobiliario/sillas/chiavari/) según la paleta del evento
 - **Mesas redondas o rectangulares** con [configuración flexible](/servicios/mobiliario/mesas/rectangulares/) para diferentes estilos de banquete
 - **Barra de bebidas premium** con [barra iluminada LED](/servicios/mobiliario/barras/barras-bebidas/) como punto focal
-- **Cortinas de luz** con [cascadas luminosas](/servicios/iluminacion/decorativa/cortinas-luz/) en muros laterales
+- **Cortinas de luz** con [cascadas luminosas](/servicios/iluminacion/decorativa/cascadas-led/) en muros laterales
 - **Letras luminosas** con [iniciales de los novios o nombre de la quinceañera](/servicios/iluminacion/decorativa/letras-luminosas/) como backdrop de mesa principal
 
 ### Eventos Estrella
@@ -384,7 +384,7 @@ Los XV años del norte son eventos con coreografía de chambelanes, vals, brindi
 - **XV años con sesión en jardín:** [Mónaco Jardín](/directorio/cdmx/gustavo-a-madero/salon-monaco-jardin/) — fotos al aire libre previas a la recepción
 - **XV años grandes (300+ invitados):** [Emperador](/directorio/cdmx/gustavo-a-madero/salon-emperador-gam/) — espacio amplio para coreografía completa
 
-Producción recomendada: [pista de baile](/servicios/pistas-baile/) + [wash lights](/servicios/iluminacion/arquitectonica/wash-lights/) + [cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/) + [sonido profesional](/servicios/audiovisual/sonido/) + [sala lounge](/servicios/mobiliario/salas-lounge/elegante/).
+Producción recomendada: [pista de baile](/servicios/pistas-baile/) + [wash lights](/servicios/iluminacion/arquitectonica/wash-lights/) + [cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/) + [sonido profesional](/servicios/audiovisual/sonido/) + [sala lounge](/servicios/mobiliario/salas-lounge/elegante/).
 
 ### Bautizos y Primeras Comuniones
 
@@ -479,7 +479,7 @@ En EVENTECH somos el aliado de producción de eventos más activo en el norte de
 ### Iluminación Profesional
 
 - [Fairy lights y guirnaldas](/servicios/iluminacion/decorativa/fairy-lights/) — Desde guirnaldas de 50m para espacios íntimos hasta instalaciones de 400m para salones grandes
-- [Cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/) — Cascadas luminosas para muros, backdrops y separación de ambientes
+- [Cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/) — Cascadas luminosas para muros, backdrops y separación de ambientes
 - [Letras luminosas](/servicios/iluminacion/decorativa/letras-luminosas/) — Iniciales, nombres y mensajes personalizados
 - [Uplighting arquitectónico](/servicios/iluminacion/arquitectonica/uplighting/) — Transformación cromática completa del salón
 - [Wash lights](/servicios/iluminacion/arquitectonica/wash-lights/) — Iluminación de pista de baile y áreas focales

@@ -146,7 +146,7 @@ Detrás de cada evento exitoso existe una **infraestructura invisible** que los 
 | 40 kW Silenciada | 40,000W | Bodas 200 pers | 7 hrs | 70 dB |
 | 50 kW Silenciada | 50,000W | Corporativos medianos | 6-7 hrs | 72 dB |
 
-**Más información:** [Plantas 20-50 kW](/servicios/accesorios/plantas-energia/20-50kw/)
+**Más información:** [Plantas 20-50 kW](/servicios/accesorios/plantas-energia/gen-20-50/)
 
 ### Rango 50-150 kW: Eventos Medianos a Grandes
 
@@ -157,7 +157,7 @@ Detrás de cada evento exitoso existe una **infraestructura invisible** que los 
 | 125 kW Silenciada | 125,000W | Eventos corporativos grandes | 5 hrs | 76 dB |
 | 150 kW Silenciada | 150,000W | Ferias y exposiciones | 5 hrs | 78 dB |
 
-**Más información:** [Plantas 50-150 kW](/servicios/accesorios/plantas-energia/50-150kw/)
+**Más información:** [Plantas 50-150 kW](/servicios/accesorios/plantas-energia/gen-50-150/)
 
 ### Rango 150-500 kW: Eventos Masivos e Industriales
 
@@ -168,7 +168,7 @@ Detrás de cada evento exitoso existe una **infraestructura invisible** que los 
 | 400 kW | 400,000W | Expo multi-día | 12+ hrs | 84 dB |
 | 500 kW | 500,000W | Producciones masivas | 12+ hrs | 85 dB |
 
-**Más información:** [Plantas 150-500 kW](/servicios/accesorios/plantas-energia/150-500kw/)
+**Más información:** [Plantas 150-500 kW](/servicios/accesorios/plantas-energia/gen-150-500/)
 
 ---
 
@@ -225,7 +225,7 @@ Detrás de cada evento exitoso existe una **infraestructura invisible** que los 
 | Portátil | 32A | 4 salidas | Sonido/Iluminación | Térmico |
 | Catering | 16A | 6 salidas | Cocina móvil | GFCI + Térmico |
 
-**Más información:** [Tableros de Distribución](/servicios/accesorios/plantas-energia/tableros/)
+**Más información:** [Tableros de Distribución](/servicios/accesorios/plantas-energia/tableros-distribucion/)
 
 ---
 
@@ -292,7 +292,7 @@ Detrás de cada evento exitoso existe una **infraestructura invisible** que los 
 | Mesa Integrada | 10,000 | Mesa + 4 sillas | 0.2 kg/hr | Mesa | Bronce |
 | Hongo Industrial | 60,000 | 6-7m radio | 0.8 kg/hr | 2.6m | Acero |
 
-**Más información:** [Calentadores de Patio](/servicios/accesorios/calefaccion-clima/calentadores/)
+**Más información:** [Calentadores de Patio](/servicios/accesorios/calefaccion-clima/calentadores-patio/)
 
 #### Calefacción Industrial (Carpas)
 
@@ -303,7 +303,7 @@ Detrás de cada evento exitoso existe una **infraestructura invisible** que los 
 | Calefactor 250K | 250,000 | 200-300 m² | Gas LP | Incluidos | Carpas grandes |
 | Calefactor 400K | 400,000 | 400-500 m² | Gas Natural | Incluidos | Hangares |
 
-**Más información:** [Calefacción Industrial](/servicios/accesorios/calefaccion-clima/calefaccion/)
+**Más información:** [Calefacción Industrial](/servicios/accesorios/calefaccion-clima/calefaccion-industrial/)
 
 ---
 
@@ -347,7 +347,7 @@ Detrás de cada evento exitoso existe una **infraestructura invisible** que los 
 | Circular | 5m diámetro | 8 | 10-12°C | 1200 PSI |
 | Ventilador | 3m radio | 6 | 12-15°C | 1200 PSI |
 
-**Más información:** [Sistemas de Nebulización](/servicios/accesorios/calefaccion-clima/nebulizacion/)
+**Más información:** [Sistemas de Nebulización](/servicios/accesorios/calefaccion-clima/nebulizacion-ventilacion/)
 
 #### Aire Acondicionado Portátil
 
@@ -358,7 +358,7 @@ Detrás de cada evento exitoso existe una **infraestructura invisible** que los 
 | Grande | 10 ton | 120,000 | 150-200 m² | 12 kW | 4 salidas |
 | Industrial | 20 ton | 240,000 | 300-400 m² | 24 kW | 6 salidas |
 
-**Más información:** [AC Portátil](/servicios/accesorios/calefaccion-clima/ac/)
+**Más información:** [AC Portátil](/servicios/accesorios/calefaccion-clima/ac-portatil/)
 
 ---
 
@@ -475,7 +475,7 @@ Detrás de cada evento exitoso existe una **infraestructura invisible** que los 
 | 300 × 90 cm | 10 personas | 420 × 210 cm | 60 cm |
 | 360 × 90 cm | 12 personas | 480 × 210 cm | 60 cm |
 
-**Más información:** [Manteles Premium](/servicios/accesorios/manteleria-textiles/manteles/)
+**Más información:** [Manteles Premium](/servicios/accesorios/manteleria-textiles/manteles-cubremesas/)
 
 ---
 
@@ -569,7 +569,7 @@ Detrás de cada evento exitoso existe una **infraestructura invisible** que los 
 | Lazos/Moños | Cualquiera | 40+ | 15 seg/silla |
 | Cojines | Chiavari, Crossback | 20+ | 10 seg/silla |
 
-**Más información:** [Fundas y Cubresillas](/servicios/accesorios/manteleria-textiles/cubresillas/)
+**Más información:** [Fundas y Cubresillas](/servicios/accesorios/manteleria-textiles/cubresillas-bandas/)
 
 ---
 
@@ -585,7 +585,7 @@ Detrás de cada evento exitoso existe una **infraestructura invisible** que los 
 | Cisne | ⭐⭐⭐⭐⭐ | Gala | 60 seg |
 | Esmoquin | ⭐⭐⭐ | Corporativo | 30 seg |
 
-**Más información:** [Servilletas Premium](/servicios/accesorios/manteleria-textiles/servilletas/)
+**Más información:** [Servilletas Premium](/servicios/accesorios/manteleria-textiles/servilletas-caminos/)
 
 ---
 
@@ -600,7 +600,7 @@ Detrás de cada evento exitoso existe una **infraestructura invisible** que los 
 | Lentejuela | 120×35 cm runner | Eventos nocturnos | Glamour |
 | Arpillera | 120×35 cm runner | Rústico/Boho | Natural |
 
-**Más información:** [Overlays Decorativos](/servicios/accesorios/manteleria-textiles/overlays/)
+**Más información:** [Overlays Decorativos](/servicios/accesorios/manteleria-textiles/overlays-especiales/)
 
 ---
 
@@ -704,7 +704,7 @@ Detrás de cada evento exitoso existe una **infraestructura invisible** que los 
 | Retráctil | 90 cm | Negro mate | 3m retráctil | 32 cm | Filas largas |
 | Exterior | 100 cm | Acero inox | 2m reforzada | Base agua | Exteriores |
 
-**Más información:** [Postes y Catenarias](/servicios/accesorios/senalizacion-alfombras/postes/)
+**Más información:** [Postes y Catenarias](/servicios/accesorios/senalizacion-alfombras/postes-separadores/)
 
 ---
 
@@ -718,7 +718,7 @@ Detrás de cada evento exitoso existe una **infraestructura invisible** que los 
 | Portátil | 100 cm | Aluminio | Clip | No | Eventos móviles |
 | Presidential | 125 cm | Madera + Acrílico | Doble | LED | Gobierno/VIP |
 
-**Más información:** [Podiums y Atriles](/servicios/accesorios/senalizacion-alfombras/podiums/)
+**Más información:** [Podiums y Atriles](/servicios/accesorios/senalizacion-alfombras/podiums-atriles/)
 
 ---
 
@@ -756,7 +756,7 @@ Detrás de cada evento exitoso existe una **infraestructura invisible** que los 
 | Sequin Wall | 3×2.5m | Lentejuela | 20 min | Fiestas |
 | Balloon Garland | Variable | Globos | 45 min | Cumpleaños |
 
-**Más información:** [Backdrops Eventos](/servicios/accesorios/senalizacion-alfombras/backdrops/)
+**Más información:** [Backdrops Eventos](/servicios/accesorios/senalizacion-alfombras/backdrops-senaletica/)
 
 ---
 
@@ -771,7 +771,7 @@ Detrás de cada evento exitoso existe una **infraestructura invisible** que los 
 | Pasto Sintético | 2m | Rollos 25m | Verde | Exteriores |
 | Alfombra Tipo Feria | 2m | Rollos 30m | Gris/Azul/Rojo | Expos |
 
-**Más información:** [Alfombras Eventos](/servicios/accesorios/senalizacion-alfombras/alfombras/)
+**Más información:** [Alfombras Eventos](/servicios/accesorios/senalizacion-alfombras/alfombras-premium/)
 
 ---
 
@@ -1036,28 +1036,28 @@ Señalización profesional diseñada con la imagen del evento
 ## 🔗 Servicios Relacionados EVENTECH
 
 ### Mantelería y Textiles
-- [Manteles Premium](/servicios/accesorios/manteleria-textiles/manteles/)
-- [Cubresillas y Fundas](/servicios/accesorios/manteleria-textiles/cubresillas/)
-- [Servilletas Decorativas](/servicios/accesorios/manteleria-textiles/servilletas/)
-- [Overlays y Caminos](/servicios/accesorios/manteleria-textiles/overlays/)
+- [Manteles Premium](/servicios/accesorios/manteleria-textiles/manteles-cubremesas/)
+- [Cubresillas y Fundas](/servicios/accesorios/manteleria-textiles/cubresillas-bandas/)
+- [Servilletas Decorativas](/servicios/accesorios/manteleria-textiles/servilletas-caminos/)
+- [Overlays y Caminos](/servicios/accesorios/manteleria-textiles/overlays-especiales/)
 
 ### Señalización y Alfombras
-- [Alfombras para Eventos](/servicios/accesorios/senalizacion-alfombras/alfombras/)
-- [Postes y Catenarias](/servicios/accesorios/senalizacion-alfombras/postes/)
-- [Podiums y Atriles](/servicios/accesorios/senalizacion-alfombras/podiums/)
-- [Backdrops y Photowalls](/servicios/accesorios/senalizacion-alfombras/backdrops/)
+- [Alfombras para Eventos](/servicios/accesorios/senalizacion-alfombras/alfombras-premium/)
+- [Postes y Catenarias](/servicios/accesorios/senalizacion-alfombras/postes-separadores/)
+- [Podiums y Atriles](/servicios/accesorios/senalizacion-alfombras/podiums-atriles/)
+- [Backdrops y Photowalls](/servicios/accesorios/senalizacion-alfombras/backdrops-senaletica/)
 
 ### Plantas de Energía
-- [Plantas 20-50 kW](/servicios/accesorios/plantas-energia/20-50kw/)
-- [Plantas 50-150 kW](/servicios/accesorios/plantas-energia/50-150kw/)
-- [Plantas 150-500 kW](/servicios/accesorios/plantas-energia/150-500kw/)
-- [Tableros de Distribución](/servicios/accesorios/plantas-energia/tableros/)
+- [Plantas 20-50 kW](/servicios/accesorios/plantas-energia/gen-20-50/)
+- [Plantas 50-150 kW](/servicios/accesorios/plantas-energia/gen-50-150/)
+- [Plantas 150-500 kW](/servicios/accesorios/plantas-energia/gen-150-500/)
+- [Tableros de Distribución](/servicios/accesorios/plantas-energia/tableros-distribucion/)
 
 ### Calefacción y Clima
-- [Calentadores de Patio](/servicios/accesorios/calefaccion-clima/calentadores/)
-- [Calefacción Industrial](/servicios/accesorios/calefaccion-clima/calefaccion/)
-- [Sistemas de Nebulización](/servicios/accesorios/calefaccion-clima/nebulizacion/)
-- [AC Portátil](/servicios/accesorios/calefaccion-clima/ac/)
+- [Calentadores de Patio](/servicios/accesorios/calefaccion-clima/calentadores-patio/)
+- [Calefacción Industrial](/servicios/accesorios/calefaccion-clima/calefaccion-industrial/)
+- [Sistemas de Nebulización](/servicios/accesorios/calefaccion-clima/nebulizacion-ventilacion/)
+- [AC Portátil](/servicios/accesorios/calefaccion-clima/ac-portatil/)
 
 ### Servicios Complementarios
 - [Carpas y Estructuras](/servicios/carpas/) — Para eventos exteriores
@@ -1072,7 +1072,7 @@ Señalización profesional diseñada con la imagen del evento
 
 La infraestructura correcta es la diferencia entre un evento que funciona y uno que falla. Nuestro equipo evalúa tu espacio, calcula requerimientos y garantiza que todo opere perfectamente.
 
-**[Solicitar Cotización de Infraestructura](/contacto/)**
+**[Solicitar Cotización de Infraestructura](/cotizar/)**
 
 ---
 

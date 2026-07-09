@@ -234,7 +234,7 @@ Como partner estratégico de EVENTECH, ofrecemos paquetes integrados:
 
 Si buscas jardines para eventos de gran formato:
 
-- **[Jardines de México](/directorio/estado-mexico/naucalpan/jardines-de-mexico/)** — Múltiples jardines temáticos
+- **[Jardines de México](/directorio/estado-mexico/naucalpan/jardines-de-mexico-naucalpan/)** — Múltiples jardines temáticos
 - **[Hacienda Santa Cecilia](/directorio/estado-mexico/huixquilucan/hacienda-santa-cecilia/)** — Hacienda cerca de Santa Fe
 - **[Jardines Tlalnepantla](/directorio/estado-mexico/tlalnepantla/jardines-tlalnepantla/)** — Capacidad masiva
 - **[Loreto y Peña Pobre](/directorio/cdmx/san-angel/loreto-pena-pobre/)** — Histórico, gran capacidad

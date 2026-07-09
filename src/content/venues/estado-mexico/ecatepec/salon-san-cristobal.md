@@ -191,4 +191,4 @@ Si buscas opciones económicas en el norte y oriente del Estado de México:
 - **[Quinta Jardines del Edén](/directorio/estado-mexico/coacalco/quinta-jardines-eden/)** — Cascadas y ambiente mágico, precio similar
 - **[Jardín Los Arcos](/directorio/estado-mexico/atizapan/jardin-los-arcos/)** — Tradición familiar en Atizapán
 - **[Jardines Tlalnepantla](/directorio/estado-mexico/tlalnepantla/jardines-tlalnepantla/)** — Flexibilidad de proveedores
-- **[Jardines de México Naucalpan](/directorio/estado-mexico/naucalpan/jardines-de-mexico/)** — Paquetes completos a buen precio
+- **[Jardines de México Naucalpan](/directorio/estado-mexico/naucalpan/jardines-de-mexico-naucalpan/)** — Paquetes completos a buen precio

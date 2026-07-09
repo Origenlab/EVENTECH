@@ -99,11 +99,11 @@ Los [juegos infantiles](/servicios/inflables/juegos-infantiles/) son el corazón
 
 | Tipo | Dimensiones | Capacidad | Edad | Características |
 |------|-------------|-----------|------|-----------------|
-| [Castillo básico](/servicios/inflables/juegos-infantiles/brincolines/) | 3 x 3m | 6-8 niños | 3-8 | Solo saltar |
-| [Castillo mediano](/servicios/inflables/juegos-infantiles/brincolines/) | 4 x 4m | 8-10 niños | 3-10 | Área más grande |
-| [Castillo grande](/servicios/inflables/juegos-infantiles/brincolines/) | 5 x 5m | 10-15 niños | 4-12 | Múltiples zonas |
-| [Con tobogán](/servicios/inflables/juegos-infantiles/brincolines/) | 5 x 6m | 8-12 niños | 4-12 | Brinca + desliza |
-| [Mega combo](/servicios/inflables/juegos-infantiles/brincolines/) | 6 x 8m | 15-20 niños | 5-14 | Todo incluido |
+| [Castillo básico](/servicios/inflables/juegos-infantiles/) | 3 x 3m | 6-8 niños | 3-8 | Solo saltar |
+| [Castillo mediano](/servicios/inflables/juegos-infantiles/) | 4 x 4m | 8-10 niños | 3-10 | Área más grande |
+| [Castillo grande](/servicios/inflables/juegos-infantiles/) | 5 x 5m | 10-15 niños | 4-12 | Múltiples zonas |
+| [Con tobogán](/servicios/inflables/juegos-infantiles/) | 5 x 6m | 8-12 niños | 4-12 | Brinca + desliza |
+| [Mega combo](/servicios/inflables/juegos-infantiles/) | 6 x 8m | 15-20 niños | 5-14 | Todo incluido |
 
 ### Anatomía de un Brincolin Seguro
 
@@ -142,7 +142,7 @@ Los [juegos infantiles](/servicios/inflables/juegos-infantiles/) son el corazón
 
 ### Toboganes Inflables
 
-Los [toboganes](/servicios/inflables/juegos-infantiles/toboganes/) son los favoritos de los niños mayores:
+Los [toboganes](/servicios/inflables/acuaticos/toboganes-agua/) son los favoritos de los niños mayores:
 
 | Altura | Longitud Total | Espacio Requerido | Edad |
 |--------|----------------|-------------------|------|
@@ -153,7 +153,7 @@ Los [toboganes](/servicios/inflables/juegos-infantiles/toboganes/) son los favor
 
 ### Circuitos de Obstáculos
 
-Los [circuitos](/servicios/inflables/juegos-infantiles/circuitos-obstaculos/) son perfectos para competencias:
+Los [circuitos](/servicios/inflables/juegos-infantiles/) son perfectos para competencias:
 
 ```
 CIRCUITO DE OBSTÁCULOS - VISTA SUPERIOR
@@ -179,7 +179,7 @@ ENTRADA                                                    SALIDA
 
 ### Temáticos Infantiles
 
-Los [inflables temáticos](/servicios/inflables/juegos-infantiles/tematicos/) agregan magia:
+Los [inflables temáticos](/servicios/inflables/juegos-infantiles/) agregan magia:
 
 | Tema | Edades | Incluye | Popular Para |
 |------|--------|---------|--------------|

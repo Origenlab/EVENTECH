@@ -221,7 +221,7 @@ Si buscas más opciones para tu evento al aire libre:
 
 - **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — Hacienda colonial con jardines extensos y capilla
 - **[Salón Río Azul](/directorio/cdmx/tlalpan/salon-rio-azul/)** — Si prefieres opción con salón cerrado y terraza
-- **[Jardín Botánico](/directorio/cdmx/tlalpan/jardin-botanico/)** — Espacio natural único para eventos íntimos
+- **[Jardín Botánico](/directorio/cdmx/tlalpan/jardin-botanico-tlalpan/)** — Espacio natural único para eventos íntimos
 - **[Jardín Los Encinos](/directorio/cdmx/magdalena-contreras/jardin-los-encinos-mc/)** — Jardín de bosque en la alcaldía vecina
 
 ## Donde la Naturaleza es la Mejor Decoración

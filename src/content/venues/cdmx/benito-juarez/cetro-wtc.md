@@ -306,8 +306,8 @@ El WTC está a menos de 30 minutos del Aeropuerto Internacional Felipe Ángeles 
 
 EVENTECH es el socio de producción audiovisual recomendado para eventos en CETRO, con experiencia de integración nativa al sistema de pantalla perimetral de 360 grados.
 
-- **[Contenido audiovisual para pantalla 360°](/servicios/audiovisual/contenido-360/)** — Diseño y producción de piezas específicas para el formato perimetral de CETRO: looping de marca, secuencias cinematográficas, visualizadores en tiempo real
-- **[Activaciones de Realidad Aumentada](/servicios/activaciones-ar/)** — Integración de experiencias AR con el sistema nativo de CETRO para activaciones de branding corporativo o momentos memorables en bodas
+- **[Contenido audiovisual para pantalla 360°](/servicios/audiovisual/pantallas-led/)** — Diseño y producción de piezas específicas para el formato perimetral de CETRO: looping de marca, secuencias cinematográficas, visualizadores en tiempo real
+- **[Activaciones de Realidad Aumentada](/servicios/audiovisual/)** — Integración de experiencias AR con el sistema nativo de CETRO para activaciones de branding corporativo o momentos memorables en bodas
 - **[Sonido de Alta Fidelidad](/servicios/audiovisual/sonido/)** — Sistemas de audio específicos para el formato circular del Piso 46, con distribución envolvente sincronizada
 - **[Iluminación de Evento](/servicios/iluminacion/)** — Diseño de iluminación complementario a la pantalla perimetral que amplifica la experiencia inmersiva
 - **[Video Mapping](/servicios/audiovisual/proyectores/mapping/)** — Para activaciones especiales sobre superficies físicas dentro del espacio, complementarias a la pantalla LED

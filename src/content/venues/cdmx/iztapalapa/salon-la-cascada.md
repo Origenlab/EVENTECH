@@ -368,7 +368,7 @@ Para aprovechar al maximo el potencial de este venue, el equipo EVENTECH recomie
 **Esenciales (todo tipo de evento):**
 - [Iluminacion profesional para cascada](/servicios/iluminacion/arquitectonica/) — el upgrade que transforma la experiencia
 - [Sonido profesional](/servicios/audiovisual/sonido/) — ecualizacion especifica para convivir con el agua
-- [Coordinacion de produccion](/servicios/produccion/) — sincronizacion de todos los elementos
+- [Coordinacion de produccion](/servicios/) — sincronizacion de todos los elementos
 
 **Altamente recomendados para bodas y XV anos:**
 - [Neblina baja](/servicios/iluminacion/efectos-especiales/) para el vals frente a la cascada

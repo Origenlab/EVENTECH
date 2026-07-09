@@ -354,7 +354,7 @@ Ciudad de México tiene un clima "de ciudad" que sorprende a quienes no lo conoc
 | Septiembre–Octubre | 12–15°C | Calefacción recomendada |
 | Noviembre–Diciembre | 8–12°C | Calefacción obligatoria |
 
-Los [calentadores de gas tipo pirámide](/servicios/accesorios/calefaccion-clima/calentadores/) son la solución más flexible para exteriores: no requieren instalación eléctrica, cubren un radio de 4–5 m por unidad y se pueden reubicar durante el evento. La distribución estándar es 1 calentador por cada 12–15 invitados en zonas de mesa.
+Los [calentadores de gas tipo pirámide](/servicios/accesorios/calefaccion-clima/calentadores-patio/) son la solución más flexible para exteriores: no requieren instalación eléctrica, cubren un radio de 4–5 m por unidad y se pueden reubicar durante el evento. La distribución estándar es 1 calentador por cada 12–15 invitados en zonas de mesa.
 
 Para espacios bajo carpa estructural o en terrazas parcialmente cubiertas, los sistemas de [calefacción tipo cortina de aire](/servicios/accesorios/calefaccion-clima/) son más eficientes: mantienen el calor dentro del espacio en lugar de simplemente generar calor local.
 

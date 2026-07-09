@@ -187,11 +187,11 @@ El catering es el servicio que más directamente impacta en el juicio de los inv
 
 Las [estaciones de servicio](/servicios/catering/estaciones-servicio/) de EVENTECH están diseñadas para resolver simultáneamente dos problemas: la operación eficiente del equipo de cocina y la percepción visual de los invitados. Una estación de servicio bien diseñada es un **elemento decorativo funcional** — integrada estéticamente al espacio del evento y operativamente fluida para el servicio.
 
-Las [barras de bebidas especializadas](/servicios/catering/estaciones-servicio/barras-bebidas/) con fregaderos integrados, hielo en seco y almacenamiento de cristalería; las [estaciones de tacos](/servicios/catering/estaciones-servicio/tacos-y-cocina-mexicana/) con comal y zona de mise en place; los [mostradores de postres](/servicios/catering/estaciones-servicio/postres-y-reposteria/) con iluminación LED integrada; y las [estaciones de cocina en vivo](/servicios/catering/estaciones-servicio/cocina-en-vivo/) donde el chef interactúa con los invitados — todas estas configuraciones están disponibles en el catálogo de EVENTECH.
+Las [barras de bebidas especializadas](/servicios/catering/estaciones-servicio/barras-bebidas/) con fregaderos integrados, hielo en seco y almacenamiento de cristalería; las [estaciones de tacos](/servicios/catering/estaciones-servicio/tacos-parrilla/) con comal y zona de mise en place; los [mostradores de postres](/servicios/catering/estaciones-servicio/postres/) con iluminación LED integrada; y las [estaciones de cocina en vivo](/servicios/catering/estaciones-servicio/cocina-vivo/) donde el chef interactúa con los invitados — todas estas configuraciones están disponibles en el catálogo de EVENTECH.
 
 ### Cocina Móvil: La Operación en Campo
 
-Para eventos en venues sin cocina industrial, o para servicios de alta producción culinaria en espacios abiertos, el [equipamiento de cocina móvil](/servicios/catering/cocina-movil/) es la solución: [parrillas y ahumadores](/servicios/catering/cocina-movil/parrillas-ahumadores/) de gas e inducción, [planchas y sartenes](/servicios/catering/cocina-movil/planchas-y-comals/) de acero inox, [hornos de convección](/servicios/catering/cocina-movil/hornos-conveccion/) portátiles y [mesas de trabajo inox](/servicios/catering/cocina-movil/mesas-trabajo-inox/) certificadas para uso en campo.
+Para eventos en venues sin cocina industrial, o para servicios de alta producción culinaria en espacios abiertos, el [equipamiento de cocina móvil](/servicios/catering/cocina-movil/) es la solución: [parrillas y ahumadores](/servicios/catering/cocina-movil/parrillas/) de gas e inducción, [planchas y sartenes](/servicios/catering/cocina-movil/planchas-freidoras/) de acero inox, [hornos de convección](/servicios/catering/cocina-movil/hornos-conveccion/) portátiles y [mesas de trabajo inox](/servicios/catering/cocina-movil/mesas-inoxidable/) certificadas para uso en campo.
 
 ### Vajilla y Refrigeración: Los Detalles que Definen la Calidad
 
@@ -201,13 +201,13 @@ La [vajilla y cristalería](/servicios/catering/vajilla-cristaleria/) de EVENTEC
 
 ## Inflables y Entretenimiento: El Factor Sorpresa que Nadie Olvida
 
-Existe una categoría de servicio que transforma radicalmente el tipo de conversación que se tiene sobre un evento después de que termina: el entretenimiento interactivo. Las fotografías de los invitados en el [toro mecánico](/servicios/inflables/adultos/toro-mecanico/) o compitiendo en [futbolito humano](/servicios/inflables/adultos/futbolito-humano/) circulan en redes sociales durante días. Los niños que pasaron tres horas en el [brincolin temático](/servicios/inflables/juegos-infantiles/brincolines/) no quieren irse a casa. Los adultos que intentaron mantenerse en el [tobogán de agua](/servicios/inflables/acuaticos/toboganes-agua/) ríen mientras cuentan la historia meses después.
+Existe una categoría de servicio que transforma radicalmente el tipo de conversación que se tiene sobre un evento después de que termina: el entretenimiento interactivo. Las fotografías de los invitados en el [toro mecánico](/servicios/inflables/adultos/toro-mecanico/) o compitiendo en [futbolito humano](/servicios/inflables/adultos/futbolito-humano/) circulan en redes sociales durante días. Los niños que pasaron tres horas en el [brincolin temático](/servicios/inflables/juegos-infantiles/) no quieren irse a casa. Los adultos que intentaron mantenerse en el [tobogán de agua](/servicios/inflables/acuaticos/toboganes-agua/) ríen mientras cuentan la historia meses después.
 
 ![Festival con entretenimiento al aire libre y producción profesional completa](/images/guirnaldas/renta-guirnaldas-200m-festival-feria.avif)
 
 ### Para Eventos Familiares y Fiestas Infantiles
 
-El catálogo [inflables infantiles](/servicios/inflables/juegos-infantiles/) cubre desde castillos brincolin de 3×3 metros para fiestas de cumpleaños íntimas hasta circuitos de obstáculos de 20 metros para eventos familiares masivos. Los [inflables temáticos](/servicios/inflables/juegos-infantiles/tematicos/) —Princesas, Superhéroes, Jurásico, Unicornio— se coordinan visualmente con la decoración del evento para crear una experiencia coherente.
+El catálogo [inflables infantiles](/servicios/inflables/juegos-infantiles/) cubre desde castillos brincolin de 3×3 metros para fiestas de cumpleaños íntimas hasta circuitos de obstáculos de 20 metros para eventos familiares masivos. Los [inflables temáticos](/servicios/inflables/juegos-infantiles/) —Princesas, Superhéroes, Jurásico, Unicornio— se coordinan visualmente con la decoración del evento para crear una experiencia coherente.
 
 Los [juegos acuáticos](/servicios/inflables/acuaticos/) —toboganes de agua, albercas inflables y resbaladillas splash— son el servicio de mayor demanda en eventos de verano: el parque acuático portátil que convierte cualquier jardín en una atracción de temporada.
 

@@ -123,7 +123,7 @@ La celebración de XV años evoluciona cada temporada. Estas son las 5 tendencia
 
 Ya no basta con "decoración rosa". Las quinceañeras 2026 piden ambientaciones completas que transformen el salón en otro mundo: jardín encantado con vegetación real y fairy lights, palacio de cristal con mobiliario transparente y LED, galaxia con proyección cenital y pista de baile de espejo, o bosque de fantasía con troncos, musgo y cortinas de luz entre los árboles. La temática debe sentirse desde la entrada hasta el baño.
 
-Las temáticas más solicitadas este año incluyen "Jardín de Versalles" (con [sillas Tiffany doradas](/servicios/mobiliario/sillas/tiffany/) y [uplighting](/servicios/iluminacion/arquitectonica/uplighting/) ámbar en columnas), "Noche de Estrellas" (con pista LED de espejo y [cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/) descendiendo del techo) y "Mariposas Encantadas" (con [fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) en tonos cálidos y mobiliario transparente). Cada temática exige un diseño de producción diferente — y un salón con la infraestructura para soportarlo.
+Las temáticas más solicitadas este año incluyen "Jardín de Versalles" (con [sillas Tiffany doradas](/servicios/mobiliario/sillas/tiffany/) y [uplighting](/servicios/iluminacion/arquitectonica/uplighting/) ámbar en columnas), "Noche de Estrellas" (con pista LED de espejo y [cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/) descendiendo del techo) y "Mariposas Encantadas" (con [fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) en tonos cálidos y mobiliario transparente). Cada temática exige un diseño de producción diferente — y un salón con la infraestructura para soportarlo.
 
 ### 2. El "Momento Instagram"
 
@@ -181,7 +181,7 @@ Con producción EVENTECH, ese spotlight se convierte en un sistema de iluminaci�
 - **[Uplighting en arcos góticos](/servicios/iluminacion/arquitectonica/uplighting/)** — cada arco se convierte en un portal luminoso que cambia de color entre el vals, el brindis y la fiesta
 - **[Wash lights en torres y vitrales](/servicios/iluminacion/arquitectonica/wash-lights/)** — iluminación que revela los detalles medievales del espacio
 - **[Fairy lights en la Escalinata](/servicios/iluminacion/decorativa/fairy-lights/)** — guirnaldas de luz cálida en la balaustrada que enmarcan la Gran Entrada
-- **[Cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/)** en arcos laterales para crear profundidad visual
+- **[Cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/)** en arcos laterales para crear profundidad visual
 - **[Pista de baile LED](/servicios/pistas-baile/)** al pie de la escalinata — transiciones programadas del vals al baile sorpresa
 - **[Sillas Chiavari doradas](/servicios/mobiliario/sillas/chiavari/)** que armonizan con la estética de castillo y realeza
 - **[Mesas redondas](/servicios/mobiliario/mesas/redondas/)** con mantelería premium en tonos que complementen la paleta medieval
@@ -324,7 +324,7 @@ Cuando la luz natural se desvanece, la quinceañera y sus invitados entran al sa
 
 - **[Fairy lights en jardín](/servicios/iluminacion/decorativa/fairy-lights/)** — guirnaldas tendidas entre árboles y postes que transforman el jardín en un espacio de ensueño al anochecer
 - **[Uplighting en fuentes](/servicios/iluminacion/arquitectonica/uplighting/)** — iluminación sumergible y perimetral que convierte las fuentes en elementos escultóricos de luz
-- **[Cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/)** en la transición entre jardín y salón para crear un portal luminoso
+- **[Cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/)** en la transición entre jardín y salón para crear un portal luminoso
 - **[Pista de baile LED](/servicios/pistas-baile/)** en el salón interior como centro del vals y la fiesta
 - **[Sillas Chiavari doradas](/servicios/mobiliario/sillas/chiavari/)** en el salón interior para el banquete formal
 - **[Sillas Crossback](/servicios/mobiliario/sillas/crossback/)** en el jardín para la ceremonia o el cóctel
@@ -473,7 +473,7 @@ Nuestra experiencia en más de 200 celebraciones de XV años nos ha permitido de
 ### Iluminación profesional
 
 - **[Fairy lights y guirnaldas](/servicios/iluminacion/decorativa/fairy-lights/)** — doseles de luz sobre pista y mesas, enredaderas en columnas, cortinas de luz en entradas
-- **[Cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/)** — cascadas de luz para fondo de mesa de honor y photobooth
+- **[Cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/)** — cascadas de luz para fondo de mesa de honor y photobooth
 - **[Letras luminosas](/servicios/iluminacion/decorativa/letras-luminosas/)** — nombre de la quinceañera o número XV en LED de alto brillo
 - **[Uplighting arquitectónico](/servicios/iluminacion/arquitectonica/uplighting/)** — iluminación ascendente en columnas, paredes y elementos decorativos del venue
 - **[Wash lights](/servicios/iluminacion/arquitectonica/wash-lights/)** — baños de color en techos, molduras y elementos arquitectónicos destacados
@@ -546,6 +546,6 @@ Si estás planificando XV años en la Ciudad de México, estas guías complement
 
 **¿Lista para planificar los XV años perfectos?** Contacta a EVENTECH para una cotización personalizada que incluya el salón de tu elección, producción de iluminación, sonido profesional, pista de baile LED y mobiliario premium. Diseñamos cada detalle para que esa noche sea exactamente como la soñaste.
 
-**[Solicita tu cotización de producción para XV años →](/contacto/)**
+**[Solicita tu cotización de producción para XV años →](/cotizar/)**
 
 *Artículo actualizado en marzo 2026. Precios y disponibilidad sujetos a confirmación directa con cada venue. EVENTECH opera como partner de producción independiente — la contratación del salón se realiza directamente con el venue.*

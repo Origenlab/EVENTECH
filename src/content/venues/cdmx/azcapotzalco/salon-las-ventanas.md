@@ -210,7 +210,7 @@ El mismo espacio funciona igual de bien para una boda de 200 personas que para u
 
 Para potenciar tu evento en Las Ventanas, EVENTECH ofrece producción profesional adaptable:
 
-- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/) cálidas y [fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) que complementan la luz natural durante el día y toman protagonismo por la noche
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/) cálidas y [fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) que complementan la luz natural durante el día y toman protagonismo por la noche
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** — Sistema de audio optimizado para el espacio y número de invitados
 - **[Mobiliario premium](/servicios/mobiliario/)** — [Sillas Chiavari](/servicios/mobiliario/sillas/chiavari/), [Crossback](/servicios/mobiliario/sillas/crossback/) o [Ghost](/servicios/mobiliario/sillas/ghost/) para elevar la estética del evento
 - **[Pantallas LED](/servicios/audiovisual/pantallas-led/)** — Para presentaciones corporativas, retrospectivas de bodas o videos emotivos

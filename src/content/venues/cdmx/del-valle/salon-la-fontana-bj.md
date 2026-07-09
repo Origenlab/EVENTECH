@@ -191,7 +191,7 @@ Varios rincones del salón ofrecen **fondos elegantes para fotografía**: la fue
 Para transformar la elegancia natural de La Fontana en una experiencia inmersiva, **EVENTECH** ofrece servicios de producción profesional:
 
 - **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** — [Uplighting](/servicios/iluminacion/arquitectonica/uplighting/) en muros de cantera y [wash lights](/servicios/iluminacion/arquitectonica/wash-lights/) que realzan los acabados del salón
-- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/) y efectos cálidos que complementan la fuente
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/) y efectos cálidos que complementan la fuente
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** — Sistemas calibrados para la acústica del salón cerrado
 - **[Mobiliario premium](/servicios/mobiliario/)** — [Sillas Tiffany](/servicios/mobiliario/sillas/tiffany/) o [Chiavari doradas](/servicios/mobiliario/sillas/chiavari/) que armonizan con los acabados en cantera
 - **[Pistas de baile LED](/servicios/pistas-baile/)** — Pistas iluminadas que elevan el nivel de la celebración

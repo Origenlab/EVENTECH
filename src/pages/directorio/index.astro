@@ -28,8 +28,21 @@ const cdmxVenues = allVenues.filter((v) => v.data.region === "cdmx");
 const edomexVenues = allVenues.filter(
   (v) => v.data.region === "estado-mexico"
 );
-const cdmxZones = [...new Set(cdmxVenues.map((v) => v.data.zone))].sort();
-const edomexZones = [...new Set(edomexVenues.map((v) => v.data.zone))].sort();
+/**
+ * Zonas como pares {name, slug}. El slug SIEMPRE sale de `zoneSlug` del frontmatter,
+ * nunca de slugificar `zone`: "Cuajimalpa de Morelos" → zoneSlug "cuajimalpa",
+ * no "cuajimalpa-de-morelos". Slugificar el nombre generaba 5 enlaces rotos.
+ */
+const uniqueZones = (venues: CollectionEntry<"venues">[]) => {
+  const seen = new Map<string, string>();
+  for (const v of venues) seen.set(v.data.zoneSlug, v.data.zone);
+  return [...seen.entries()]
+    .map(([slug, name]) => ({ slug, name }))
+    .sort((a, b) => a.name.localeCompare(b.name, "es"));
+};
+
+const cdmxZones = uniqueZones(cdmxVenues);
+const edomexZones = uniqueZones(edomexVenues);
 
 const totalVenues = allVenues.length;
 const totalZones = cdmxZones.length + edomexZones.length;
@@ -349,11 +362,8 @@ const breadcrumbItems = [
               <p class="dr-region-card__zones-label">Zonas disponibles</p>
               <div class="dr-region-card__zones">
                 {cdmxZones.map((zone) => (
-                  <a
-                    class="dr-region-card__zone"
-                    href={`/directorio/cdmx/${zone.toLowerCase().replace(/\s+/g, "-").normalize("NFD").replace(/[̀-ͯ]/g, "")}/`}
-                  >
-                    {zone}
+                  <a class="dr-region-card__zone" href={`/directorio/cdmx/${zone.slug}/`}>
+                    {zone.name}
                   </a>
                 ))}
               </div>
@@ -394,11 +404,8 @@ const breadcrumbItems = [
               <p class="dr-region-card__zones-label">Municipios disponibles</p>
               <div class="dr-region-card__zones">
                 {edomexZones.map((zone) => (
-                  <a
-                    class="dr-region-card__zone"
-                    href={`/directorio/estado-mexico/${zone.toLowerCase().replace(/\s+/g, "-").normalize("NFD").replace(/[̀-ͯ]/g, "")}/`}
-                  >
-                    {zone}
+                  <a class="dr-region-card__zone" href={`/directorio/estado-mexico/${zone.slug}/`}>
+                    {zone.name}
                   </a>
                 ))}
               </div>

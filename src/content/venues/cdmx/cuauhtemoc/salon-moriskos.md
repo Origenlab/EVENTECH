@@ -182,7 +182,7 @@ La renta de Morisko's incluye un paquete completo que facilita significativament
 
 Para eventos que buscan una producción más elaborada, EVENTECH ofrece servicios profesionales que potencian la estética y la experiencia del salón:
 
-- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) cálidas y [cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/) que realzan el ambiente del espacio y crean profundidad visual
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) cálidas y [cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/) que realzan el ambiente del espacio y crean profundidad visual
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** — Upgrade del sistema básico con DJ y equipo calibrado para la acústica específica del salón
 - **[Pantallas LED](/servicios/audiovisual/pantallas-led/)** — Para retrospectivas emotivas en bodas, presentaciones corporativas y videos de graduación
 - **[Mobiliario de diseño](/servicios/mobiliario/)** — [Sillas Crossback](/servicios/mobiliario/sillas/crossback/) en madera natural y [salas lounge vintage](/servicios/mobiliario/salas-lounge/vintage/) que armonizan con la estética bohemia del barrio

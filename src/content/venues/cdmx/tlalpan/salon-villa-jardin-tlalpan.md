@@ -189,7 +189,7 @@ Tanto el jardín como el interior del salón ofrecen **rincones para sesiones fo
 
 Para maximizar el potencial del espacio interior-exterior, **EVENTECH** ofrece servicios de producción adaptados:
 
-- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) entre los árboles del jardín y [cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/) en la transición interior-exterior
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) entre los árboles del jardín y [cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/) en la transición interior-exterior
 - **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** — [Uplighting](/servicios/iluminacion/arquitectonica/uplighting/) en muros del salón para crear ambientes diferenciados
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** — Sistemas con cobertura interior y extensión controlada al jardín
 - **[Mobiliario premium](/servicios/mobiliario/)** — [Sillas Crossback](/servicios/mobiliario/sillas/crossback/) para jardín, [Chiavari](/servicios/mobiliario/sillas/chiavari/) para salón

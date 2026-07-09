@@ -327,5 +327,5 @@ Equipamiento especializado para monumentos históricos del siglo XVI:
 ## Venues similares
 
 - **[Casa del Conde Toluca](/directorio/estado-mexico/toluca/casa-del-conde-toluca/)** — Palacete porfiriano en Toluca
-- **[Hacienda Vista Hermosa](/directorio/estado-mexico/huixquilucan/hacienda-vista-hermosa/)** — Hacienda del XVIII con capilla
+- **[Hacienda Vista Hermosa](/directorio/estado-mexico/huixquilucan/hacienda-vista-hermosa-huixquilucan/)** — Hacienda del XVIII con capilla
 - **[Hacienda San Miguel](/directorio/estado-mexico/cuautitlan-izcalli/hacienda-san-miguel/)** — Colonial en Cuautitlán

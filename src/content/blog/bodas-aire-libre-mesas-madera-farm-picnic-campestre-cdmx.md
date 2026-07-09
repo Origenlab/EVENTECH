@@ -30,6 +30,7 @@ relatedEvents:
 relatedPosts:
   - "guia-definitiva-mesas-picnic-madera-eventos-cdmx-2026"
   - "cuanto-cuesta-rentar-mesas-picnic-cdmx-precios-2026"
+  - "mesas-picnic-fiestas-infantiles-kermeses-familiares-cdmx"
   - "guia-definitiva-sillas-para-eventos-cdmx-2026"
 cta:
   label: "Diseña tu boda campestre"

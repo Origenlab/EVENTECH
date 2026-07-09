@@ -244,7 +244,7 @@ Si buscas autenticidad, naturaleza y libertad en diferentes estilos y distancias
 
 - **[Quinta El Encinar Nicolás Romero](/directorio/estado-mexico/nicolas-romero/quinta-el-encinar/)** — Bosque de encinos a 40 min de CDMX, más íntimo y cercano, sin caballos
 - **[Centro Cultural Mexiquense Toluca](/directorio/estado-mexico/toluca/centro-cultural-mexiquense/)** — Escala monumental con arquitectura icónica, ideal para eventos grandes formales
-- **[Hacienda San Antonio Metepec](/directorio/estado-mexico/metepec/hacienda-san-antonio/)** — Hacienda colonial en Metepec para bodas con estilo tradicional
+- **[Hacienda San Antonio Metepec](/directorio/estado-mexico/metepec/hacienda-san-antonio-metepec/)** — Hacienda colonial en Metepec para bodas con estilo tradicional
 - **[Hacienda de Tlalpan](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/)** — Colonial centenaria dentro de CDMX con jardines históricos
 - **[Salón Partenón Tlalpan](/directorio/cdmx/tlalpan/salon-partenon/)** — Opción premium en el sur de CDMX con ambiente verde
 

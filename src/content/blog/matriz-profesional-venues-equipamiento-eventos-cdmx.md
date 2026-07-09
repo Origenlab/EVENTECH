@@ -68,8 +68,8 @@ La selección correcta de venue y equipamiento representa el **73% del éxito pe
 | Venue | Zona | Capacidad | Características | Link |
 |-------|------|-----------|-----------------|------|
 | Hacienda de Tlalpan | Tlalpan | 350 | Capilla, jardines, salón colonial | [Ver →](/directorio/cdmx/tlalpan/hacienda-de-tlalpan/) |
-| Hacienda Panoaya | Estado de México | 500 | Bosque, lagos, múltiples salones | [Ver →](/directorio/estado-mexico/metepec/hacienda-panoaya/) |
-| Ex-Hacienda San Gabriel | Tepotzotlán | 400 | Arquitectura virreinal, jardines formales | [Ver →](/directorio/estado-mexico/tepotzotlan/ex-hacienda-san-gabriel/) |
+| Hacienda Panoaya | Estado de México | 500 | Bosque, lagos, múltiples salones | [Ver →](/directorio/estado-mexico/metepec/) |
+| Ex-Hacienda San Gabriel | Tepotzotlán | 400 | Arquitectura virreinal, jardines formales | [Ver →](/directorio/estado-mexico/tepotzotlan/ex-hacienda-tepotzotlan/) |
 
 #### Requerimientos Técnicos Estándar
 

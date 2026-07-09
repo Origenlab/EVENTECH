@@ -30,8 +30,9 @@ relatedEvents:
   - "cumpleanos"
 relatedPosts:
   - "guia-definitiva-mesas-picnic-madera-eventos-cdmx-2026"
-  - "cuanto-cuesta-rentar-mobiliario-eventos-cdmx-precios-2026"
   - "bodas-aire-libre-mesas-madera-farm-picnic-campestre-cdmx"
+  - "mesas-picnic-fiestas-infantiles-kermeses-familiares-cdmx"
+  - "mesas-picnic-biergarten-corporativos-festivales-cdmx"
 cta:
   label: "Pide tu cotización el mismo día"
   href: "/servicios/mobiliario/mesas-picnic/"

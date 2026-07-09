@@ -200,7 +200,7 @@ La **pista de baile** se instala en la zona más firme del jardín, alejada de l
 
 La presencia del lago multiplica el impacto de cualquier iluminación:
 
-- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) reflejadas en el lago duplican su efecto visual; [cortinas de luz](/servicios/iluminacion/decorativa/cortinas-luz/) junto al agua crean cascadas luminosas
+- **[Iluminación decorativa](/servicios/iluminacion/decorativa/)** — [Fairy lights](/servicios/iluminacion/decorativa/fairy-lights/) reflejadas en el lago duplican su efecto visual; [cortinas de luz](/servicios/iluminacion/decorativa/cascadas-led/) junto al agua crean cascadas luminosas
 - **[Iluminación arquitectónica](/servicios/iluminacion/arquitectonica/)** — [Uplighting](/servicios/iluminacion/arquitectonica/uplighting/) perimetral del lago con colores que se reflejan en la superficie del agua
 - **[Sonido profesional](/servicios/audiovisual/sonido/)** — Sistemas calibrados para exteriores con la absorción acústica natural del agua y la vegetación
 - **[Mobiliario natural](/servicios/mobiliario/)** — [Sillas Crossback](/servicios/mobiliario/sillas/crossback/) y [mesas de tablón](/servicios/mobiliario/mesas/tablones/) que armonizan con el entorno lacustre

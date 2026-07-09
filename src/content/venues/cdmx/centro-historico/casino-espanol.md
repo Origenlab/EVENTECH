@@ -231,5 +231,5 @@ Si buscas la sofisticación de los grandes salones históricos:
 
 - **[Palacio de Minería](/directorio/cdmx/centro-historico/palacio-de-mineria/)** — Neoclásico monumental, frescos de Ximeno y Planes
 - **[Palacio de la Autonomía](/directorio/cdmx/centro-historico/palacio-autonomia/)** — Siglo XVIII, frescos coloniales, ambiente académico
-- **[Club de Banqueros](/directorio/cdmx/lomas-chapultepec/club-de-banqueros/)** — Elegancia de club privado en Lomas
+- **[Club de Banqueros](/directorio/cdmx/lomas-chapultepec/club-de-banqueros-lomas/)** — Elegancia de club privado en Lomas
 - **[Hacienda de los Morales](/directorio/cdmx/polanco/hacienda-de-los-morales/)** — Colonial del siglo XVI, gastronomía galardonada

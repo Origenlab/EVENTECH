@@ -233,5 +233,5 @@ Si buscas sofisticación atemporal en CDMX:
 
 - **[The St. Regis Mexico City](/directorio/cdmx/cuauhtemoc/st-regis-mexico-city/)** — Ultra lujo, vistas panorámicas
 - **[Hacienda de los Morales](/directorio/cdmx/polanco/hacienda-de-los-morales/)** — Herencia colonial, jardines históricos
-- **[Hotel Camino Real Polanco](/directorio/cdmx/polanco/hotel-camino-real/)** — Arquitectura mexicana moderna icónica
+- **[Hotel Camino Real Polanco](/directorio/cdmx/polanco/hotel-camino-real-polanco/)** — Arquitectura mexicana moderna icónica
 - **[San Ángel Inn](/directorio/cdmx/san-angel/san-angel-inn/)** — Hacienda del siglo XVII, tradición pura

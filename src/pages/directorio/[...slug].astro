@@ -10,8 +10,18 @@ import { getCollection, render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { breadcrumbJsonLd, venueJsonLd, collectionPageJsonLd, itemListJsonLd, faqJsonLd } from "@lib/seo";
 import { SERVICE_CATEGORIES, SITE } from "@config/site";
+import { hasEventTypePage, hasVenueTypePage } from "@lib/directorio-taxonomy";
 import "@styles/home-2026.css";
 import "@styles/directorio-2026.css";
+
+/** Forma de cada reseña en el frontmatter de un venue (ver src/content.config.ts). */
+type VenueReview = {
+  author: string;
+  date: string;
+  rating: number;
+  text: string;
+  eventType?: string;
+};
 
 // Get all venues
 const allVenues: CollectionEntry<"venues">[] = await getCollection("venues");
@@ -518,7 +528,7 @@ const jsonLd = [
           "@type": "EventVenue",
           "@id": `${SITE.url}/directorio/${region}/${zone}/${venue.data.slug}/#venue`,
           name: venue.data.name,
-          review: venue.data.reviews.map((r) => ({
+          review: venue.data.reviews.map((r: VenueReview) => ({
             "@type": "Review",
             author: { "@type": "Person", name: r.author },
             datePublished: r.date,
@@ -768,7 +778,7 @@ const jsonLd = [
               <>
                 <p class="hm__eyebrow" style="margin-bottom:6px;">Por tipo de evento</p>
                 <div class="dr-etype-grid" style="margin-top:0;">
-                  {zoneEventTypes.slice(0, 10).map(eventType => {
+                  {zoneEventTypes.filter(hasEventTypePage).slice(0, 10).map(eventType => {
                     const countInZone = venues.filter(v => v.data.eventTypes?.includes(eventType)).length;
                     return (
                       <a href={`/directorio/tipo-evento/${eventType}/`} class="dr-etype-tag">
@@ -788,9 +798,19 @@ const jsonLd = [
                   {zoneVenueTypes.map(venueType => {
                     const countInZone = venues.filter(v => v.data.type === venueType).length;
                     const typeSlug = venueTypeSlugs[venueType];
+                    const label = venueTypeLabels[venueType] || venueType;
+                    // Sin landing publicada → etiqueta de texto, no enlace roto.
+                    if (!typeSlug || !hasVenueTypePage(typeSlug)) {
+                      return (
+                        <span class="dr-etype-tag">
+                          <span class="dr-etype-tag__name">{label}</span>
+                          <span class="dr-etype-tag__count">{countInZone}</span>
+                        </span>
+                      );
+                    }
                     return (
-                      <a href={typeSlug ? `/directorio/tipo-venue/${typeSlug}/` : '#'} class="dr-etype-tag">
-                        <span class="dr-etype-tag__name">{venueTypeLabels[venueType] || venueType}</span>
+                      <a href={`/directorio/tipo-venue/${typeSlug}/`} class="dr-etype-tag">
+                        <span class="dr-etype-tag__name">{label}</span>
                         <span class="dr-etype-tag__count">{countInZone}</span>
                       </a>
                     );
@@ -1027,9 +1047,13 @@ const jsonLd = [
                 <div class="dr-vsec">
                   <h2 class="dr-vsec__title">Ideal para</h2>
                   <div class="dr-chips">
-                    {venue.data.eventTypes.map((eventType: string) => (
-                      <a href={`/directorio/tipo-evento/${eventType}/`} class="dr-chip">{eventTypeLabels[eventType] || eventType}</a>
-                    ))}
+                    {venue.data.eventTypes.map((eventType: string) => {
+                      const label = eventTypeLabels[eventType] || eventType;
+                      // Sin landing publicada → chip de texto, no enlace roto.
+                      return hasEventTypePage(eventType)
+                        ? <a href={`/directorio/tipo-evento/${eventType}/`} class="dr-chip">{label}</a>
+                        : <span class="dr-chip">{label}</span>;
+                    })}
                   </div>
                   <p class="dr-vsec__hint">
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>

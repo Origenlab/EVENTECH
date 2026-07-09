@@ -137,4 +137,4 @@ Para orientarte rápidamente:
 
 Los precios anteriores son estimados base; la cotización final depende del mix exacto de piezas, zona y fecha.
 
-[Cotiza tu mobiliario por WhatsApp →](/contacto/)
+[Cotiza tu mobiliario por WhatsApp →](/cotizar/)

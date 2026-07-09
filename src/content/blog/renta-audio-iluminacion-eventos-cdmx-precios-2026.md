@@ -172,4 +172,4 @@ Referencia rápida por tipo de evento:
 - **Evento corporativo grande (300 pax):** $20,000–$35,000 MXN
 - **Producción especial (concierto / congreso):** cotización personalizada
 
-[Cotiza audio e iluminación por WhatsApp →](/contacto/)
+[Cotiza audio e iluminación por WhatsApp →](/cotizar/)

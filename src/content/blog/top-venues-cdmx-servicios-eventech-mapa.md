@@ -542,5 +542,5 @@ Esta guía te presenta los **12 venues más destacados** de CDMX y Estado de Mé
 **Explora más opciones:**
 
 - [Directorio completo de venues →](/directorio/)
-- [Venues por tipo de evento →](/directorio/tipo-evento/)
+- [Venues por tipo de evento →](/directorio/)
 - [Todos nuestros servicios →](/servicios/)
