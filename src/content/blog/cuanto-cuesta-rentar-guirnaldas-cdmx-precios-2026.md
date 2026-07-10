@@ -43,7 +43,7 @@ faqs:
   - question: "¿Qué debe incluir la cotización además del alquiler del cable?"
     answer: "Una cotización seria incluye transporte, montaje con puntos de anclaje verificados, dimmer, técnico durante el evento y desmontaje, todo dentro del precio. El cable suelto no sirve de nada sin la instalación, que en cientos de metros y en altura es la parte laboriosa. Desconfía de un número bajo que después suma la maniobra, los postes, el dimmer o el traslado por separado; la pregunta que lo resuelve es si ese precio es el total puesto e instalado."
   - question: "¿Cuánto cuesta un canopy de guirnaldas para una boda de jardín?"
-    answer: "Una pista de seis por seis metros se cubre con 50 a 60 metros lineales, así que entra en el paquete de 50 metros por 3,500 pesos más IVA. Si además quieres cubrir el banquete y la zona de coctel, lo normal son 100 metros por 6,500. Una hacienda con explanada, jardines laterales y patio de coctel se va a los 200 metros por 11,500. El metraje exacto lo calculamos con las medidas del espacio antes de cotizar, sin costo."
+    answer: "Un canopy sobre una pista de seis por seis metros se resuelve con unos 48 metros lineales: siete líneas paralelas cada 90 centímetros, más las caídas hacia los anclajes. Entra justo en el paquete de 50 metros, 3,500 pesos más IVA. Si además quieres cubrir el banquete y la zona de coctel, lo normal son 100 metros por 6,500. Una hacienda con explanada, jardines laterales y patio de coctel se va a los 200 metros por 11,500. El metraje exacto lo calculamos con las medidas del espacio antes de cotizar, sin costo."
   - question: "¿Y las fairy lights de micro LED cuestan lo mismo?"
     answer: "No, es otro producto y se calcula distinto. Las guirnaldas Edison son cable con focos grandes de filamento visible cada 50 centímetros y se cotizan por metro lineal en paquetes cerrados. Las fairy lights son un hilo de micro LED con puntos de luz cada 5 a 10 centímetros y se calculan por metro cuadrado de techo: un canopy denso lleva unos 10 metros de micro LED por cada metro cuadrado. Su renta va de 800 a 8,000 pesos según la superficie. Se combinan muy bien, pero se cotizan por separado."
   - question: "¿El precio cambia por la zona o la temporada?"
@@ -94,7 +94,7 @@ El paquete te dice cuánto pagas. El **patrón de montaje** te dice cuántos met
 |---|---|---|
 | **[Canopy de techo](/servicios/iluminacion/guirnaldas/canopy-de-techo/)** | Líneas paralelas cada 90 cm–1.2 m, más caídas | Pista de 6×6 m ≈ 50–60 m |
 | **[Perimetral](/servicios/iluminacion/guirnaldas/perimetral-y-zigzag/)** | Perímetro del área × 1.15 | Jardín de 12×8 m ≈ 46 m |
-| **[Zigzag](/servicios/iluminacion/guirnaldas/perimetral-y-zigzag/)** | Largo del espacio × 2 | Ese mismo jardín ≈ 80 m |
+| **[Zigzag](/servicios/iluminacion/guirnaldas/perimetral-y-zigzag/)** | Perímetro × 2 | Ese mismo jardín ≈ 80 m |
 | **[Pérgolas y arcos](/servicios/iluminacion/guirnaldas/pergolas-y-arcos/)** | Tendidos cada 60–80 cm + remate perimetral | Pérgola de 4×6 m ≈ 30 m |
 
 Ahí está la respuesta al "¿por qué a mi vecina le costó menos?": probablemente montó perimetral y tú quieres zigzag. Mismo jardín, casi el doble de metros.
@@ -250,6 +250,6 @@ Un detalle que agradecen nuestros clientes: si el evento se cae por causas de fu
 
 Rentar guirnaldas de luces en CDMX cuesta **$3,500 + IVA por 50 metros**, **$6,500 por 100**, **$11,500 por 200** y **$24,000 por 500**, y ese precio es el total puesto e instalado: focos, cableado IP65, transporte, montaje, operación y desmontaje. Lo único que se suma aparte es la planta de energía cuando el venue no tiene corriente cerca.
 
-Lo que de verdad hay que resolver antes de hablar de dinero es **cuántos metros necesitas**, y eso lo decide el patrón de montaje: perímetro × 1.15 si vas a bordear, largo × 2 si vas a cruzar en zigzag. Y no confundas las guirnaldas Edison con las [fairy lights de micro LED](/servicios/iluminacion/decorativa/fairy-lights/): son productos distintos, se miden distinto y cuestan distinto.
+Lo que de verdad hay que resolver antes de hablar de dinero es **cuántos metros necesitas**, y eso lo decide el patrón de montaje: perímetro × 1.15 si vas a bordear, perímetro × 2 si vas a cruzar en zigzag. Y no confundas las guirnaldas Edison con las [fairy lights de micro LED](/servicios/iluminacion/decorativa/fairy-lights/): son productos distintos, se miden distinto y cuestan distinto.
 
 Si todavía estás decidiendo cuántos metros necesitas o cómo funcionan por dentro, dale un ojo a la [guía técnica de fairy lights y guirnaldas Edison](/blog/guia-fairy-lights-guirnaldas-edison-eventos-cdmx/). Y cuando quieras el número exacto para tu evento, mándanos tu venue, tu fecha y el montaje que imaginas en [renta de guirnaldas de luces](/servicios/iluminacion/guirnaldas/); [cotiza aquí](/cotizar/) y te devolvemos la propuesta el mismo día, con el metraje, el anclaje y el dimmer ya considerados.

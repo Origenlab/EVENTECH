@@ -14,6 +14,7 @@ import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from "@lib/seo";
 import "@styles/home-2026.css";
 import Breadcrumbs from "@components/Breadcrumbs.astro";
 import ProveedorIluminacion from "@components/ProveedorIluminacion.astro";
+import CalculadoraMetros from "@components/CalculadoraMetros.astro";
 
 const SUB_SERVICES = [
   {
@@ -76,10 +77,10 @@ const PATRONES = [
     name: "Perimetral y Zigzag",
     short: "Perimetral y zigzag",
     excerpt:
-      "El perimetral bordea el jardín con postes cada 6–8 m y deja el centro libre. El zigzag lo cruza en diagonal sobre las mesas. Cuestan distinto porque miden distinto: perímetro × 1.15 contra largo × 2.",
+      "El perimetral bordea el jardín con postes cada 6–8 m y deja el centro libre. El zigzag lo cruza en diagonal sobre las mesas. Cuestan distinto porque miden distinto: perímetro × 1.15 contra perímetro × 2.",
     href: "/servicios/iluminacion/guirnaldas/perimetral-y-zigzag/",
     image: "/images/guirnaldas/guirnaldas-100m-perimetro-jardin-cdmx.avif",
-    stats: ["Perímetro × 1.15", "Largo × 2", "Postes telescópicos"],
+    stats: ["Perímetro × 1.15", "Perímetro × 2", "Postes telescópicos"],
   },
   {
     name: "Pérgolas y Arcos",
@@ -104,7 +105,7 @@ const PATRONES = [
 const whyFeatures = [
   {
     title: "Calculamos tus metros antes de cotizar",
-    body: "La pregunta que nadie responde bien es cuántos metros necesitas. La regla que usamos: largo del espacio × 1.5 para líneas paralelas, × 2 para cruce en zigzag. Una pérgola de 4×6 m lleva ~30 metros; un jardín de 100 m², entre 50 y 80. Mándanos fotos del venue y te decimos el metraje exacto antes de que pagues de más — o de menos, que es peor.",
+    body: "La pregunta que nadie responde bien es cuántos metros necesitas. La regla que usamos: perímetro del área × 1.15 si vas a bordear, × 2 si vas a cruzar en zigzag. Una pérgola de 4×6 m lleva ~30 metros; un jardín de 12×8 m, 46 en perimetral u 80 en zigzag. Mándanos fotos del venue y te decimos el metraje exacto antes de que pagues de más — o de menos, que es peor.",
   },
   {
     title: "Cableado IP65 certificado para lluvia directa",
@@ -136,7 +137,7 @@ const steps = [
 ];
 
 const faqs = [
-  { question: "¿Cuántos metros de guirnaldas necesito para mi evento?", answer: "Depende del espacio y del patrón de montaje. La regla rápida: multiplica el largo del espacio por 1.5 si quieres líneas paralelas, o por 2 si quieres cruce en zigzag. Como referencia: una pérgola de 4×6 m lleva unos 30 metros; un jardín de 100 m² entre 50 y 80 metros; una carpa grande de 80 a 150 metros; una hacienda con explanada, 200 metros o más. Mándanos fotos de tu venue por WhatsApp con las medidas aproximadas y te calculamos el metraje exacto sin costo." },
+  { question: "¿Cuántos metros de guirnaldas necesito para mi evento?", answer: "Depende del espacio y del patrón de montaje. La regla rápida: mide el perímetro del área y multiplícalo por 1.15 si vas a bordear, o por 2 si vas a cruzar en zigzag. Como referencia: una pérgola de 4×6 m lleva unos 30 metros; un jardín de 100 m² entre 50 y 80 metros; una carpa grande de 80 a 150 metros; una hacienda con explanada, 200 metros o más. Mándanos fotos de tu venue por WhatsApp con las medidas aproximadas y te calculamos el metraje exacto sin costo." },
   { question: "¿Cuánto cuesta rentar guirnaldas de luces en CDMX?", answer: "Precios cerrados, sin sorpresas: 50 metros $3,500 + IVA (pérgola o terraza chica), 100 metros $6,500 + IVA (el más pedido para bodas en jardín), 200 metros $11,500 + IVA (haciendas y eventos de 200+ invitados) y 500 metros $24,000 + IVA (festivales y venues de gran escala). Todos incluyen focos, cableado IP65, transporte, montaje, operación durante el evento y desmontaje. No cobramos instalación aparte." },
   { question: "¿Las guirnaldas funcionan bajo lluvia?", answer: "Sí. Todo el cableado y las conexiones de la línea de exterior son IP65, certificados para lluvia directa. Hemos montado en julio y agosto en plena temporada de lluvias de CDMX sin un solo corto. Para interiores —salones, carpas techadas— usamos la línea IP44, que es suficiente y más económica de operar. El técnico define qué línea corresponde a tu venue durante la visita previa." },
   { question: "¿Cuál es la diferencia entre focos Edison LED y de filamento real?", answer: "Los Edison LED producen el mismo tono ámbar cálido pero consumen un tercio de la energía y no se calientan, así que aguantan montajes de ocho a diez horas sin problema — importante en venues con planta de luz limitada. Los de filamento real dan un brillo que oscila ligeramente, más parecido a una vela; los fotógrafos suelen preferirlos. Cuestan lo mismo. La diferencia es sutil en persona pero notoria en fotografía. Siempre llevamos focos de repuesto." },
@@ -247,6 +248,9 @@ const WA_COTIZA = `${WA_BASE}${encodeURIComponent("Hola, quiero cotizar guirnald
           <a class="hm-menu__item" href="#patrones">Patrones de montaje</a>
         </li>
         <li class="hm-menu__cta-row">
+          <a class="hm-menu__item" href="#calculadora">Calcular mis metros</a>
+        </li>
+        <li class="hm-menu__cta-row">
           <a class="hm-menu__item hm-menu__item--cta" href={WA_COTIZA} target="_blank" rel="noopener noreferrer">
             Cotizar ahora
           </a>
@@ -278,7 +282,9 @@ const WA_COTIZA = `${WA_BASE}${encodeURIComponent("Hola, quiero cotizar guirnald
             <p>
               ¿No sabes cuántos metros necesitas? Depende del
               <a href="#patrones">patrón de montaje</a>: canopy, perimetral, zigzag,
-              pérgola o tree wrap. Cada uno tiene su cálculo.
+              pérgola o tree wrap. Mete las medidas de tu espacio en la
+              <a href="#calculadora">calculadora de metraje</a> y te decimos el número
+              y el paquete que te toca.
             </p>
           </div>
         </div>
@@ -521,6 +527,13 @@ const WA_COTIZA = `${WA_BASE}${encodeURIComponent("Hola, quiero cotizar guirnald
             </article>
           ))}
         </div>
+      </div>
+    </section>
+
+    <!-- CALCULADORA DE METRAJE ─────────────────────────────────── -->
+    <section id="calculadora" class="hm__section hm__section--ivory" aria-labelledby="calculadora-heading">
+      <div class="hm__wrap">
+        <CalculadoraMetros />
       </div>
     </section>
 

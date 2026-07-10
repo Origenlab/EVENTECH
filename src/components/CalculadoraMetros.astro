@@ -1,0 +1,345 @@
+---
+/**
+ * ─── CalculadoraMetros — estimador de metraje de guirnaldas ───
+ *
+ * Convierte la pregunta informacional de mayor volumen ("¿cuántos metros
+ * necesito?") en un lead calificado por WhatsApp. Ningún competidor mexicano
+ * publica una: REDEIL y redeil.com venden metros sin explicar cómo calcularlos.
+ *
+ * MATEMÁTICA — coherente con lo publicado en /guirnaldas/ y sus 4 patrones:
+ *   perimetral : perímetro × 1.15          (12×8 m → 46 m)
+ *   zigzag     : perímetro × 2             (12×8 m → 80 m)
+ *   canopy     : líneas cada 0.9 m a lo ancho, + 1.2 m de caída por línea
+ *                (pista 6×6 m → 7 líneas × 6 m + 8.4 = ~50 m)
+ *   pergola    : tendidos cada 0.8 m a lo largo   (pérgola 4×6 m → 5 × 6 = 30 m)
+ *
+ * El resultado es una ESTIMACIÓN. El metraje fino sale de la visita técnica —
+ * la calculadora lo dice explícitamente, no vende certeza que no tiene.
+ *
+ * Sin localStorage ni dependencias. Vanilla JS.
+ */
+import { SITE } from "@config/site";
+
+interface Props {
+  /** Título de la sección. Permite adaptarlo al contexto donde se inserta. */
+  title?: string;
+  /** Si true, se renderiza sin el <section> contenedor (para embeber). */
+  bare?: boolean;
+}
+const { title = "Calcula tus metros antes de cotizar", bare = false } = Astro.props as Props;
+---
+
+<div class="calcm" data-wa={SITE.contact.whatsapp}>
+  {!bare && (
+    <div class="calcm__head">
+      <p class="calcm__eyebrow">Calculadora de metraje</p>
+      <h2 id="calculadora-heading">{title}</h2>
+      <p class="calcm__sub">
+        El paquete te dice cuánto pagas. El patrón te dice cuántos metros necesitas.
+        Mete las medidas de tu espacio y te decimos las dos cosas.
+      </p>
+    </div>
+  )}
+
+  <div class="calcm__grid">
+    <form class="calcm__form" id="calcmForm" novalidate>
+      <div class="calcm__row">
+        <label class="calcm__field">
+          <span>Largo del área <em>(m)</em></span>
+          <input type="number" id="calcmLargo" min="1" max="200" step="0.5" value="12" required />
+        </label>
+        <label class="calcm__field">
+          <span>Ancho del área <em>(m)</em></span>
+          <input type="number" id="calcmAncho" min="1" max="200" step="0.5" value="8" required />
+        </label>
+      </div>
+
+      <fieldset class="calcm__patrones">
+        <legend>¿Cómo quieres montarlas?</legend>
+
+        <label class="calcm__opt">
+          <input type="radio" name="patron" value="perimetral" checked />
+          <span class="calcm__opt-body">
+            <strong>Perimetral</strong>
+            <em>Bordea el área y deja el centro libre. El que más rinde por peso.</em>
+          </span>
+        </label>
+
+        <label class="calcm__opt">
+          <input type="radio" name="patron" value="zigzag" />
+          <span class="calcm__opt-body">
+            <strong>Zigzag</strong>
+            <em>Cruza el espacio en diagonal sobre las mesas. Más envolvente, casi el doble de metros.</em>
+          </span>
+        </label>
+
+        <label class="calcm__opt">
+          <input type="radio" name="patron" value="canopy" />
+          <span class="calcm__opt-body">
+            <strong>Canopy de techo</strong>
+            <em>Líneas paralelas cada 90 cm sobre la pista. El efecto más fotografiado.</em>
+          </span>
+        </label>
+
+        <label class="calcm__opt">
+          <input type="radio" name="patron" value="pergola" />
+          <span class="calcm__opt-body">
+            <strong>Pérgola o estructura</strong>
+            <em>Tendidos sobre una pérgola, arco o viga que ya existe.</em>
+          </span>
+        </label>
+      </fieldset>
+
+      <p class="calcm__note">
+        ¿No sabes cuál elegir? Lee la diferencia en
+        <a href="/servicios/iluminacion/guirnaldas/perimetral-y-zigzag/">perimetral y zigzag</a>,
+        <a href="/servicios/iluminacion/guirnaldas/canopy-de-techo/">canopy</a> y
+        <a href="/servicios/iluminacion/guirnaldas/pergolas-y-arcos/">pérgolas y arcos</a>.
+      </p>
+    </form>
+
+    <aside class="calcm__out" aria-live="polite">
+      <p class="calcm__out-label">Metraje estimado</p>
+      <p class="calcm__metros"><span id="calcmMetros">46</span> <small>metros lineales</small></p>
+      <p class="calcm__formula" id="calcmFormula">Perímetro 40 m × 1.15</p>
+
+      <div class="calcm__paquete">
+        <p class="calcm__out-label">Paquete que te corresponde</p>
+        <p class="calcm__paquete-name" id="calcmPaqueteName">Estándar — 100 metros</p>
+        <p class="calcm__paquete-precio" id="calcmPaquetePrecio">$6,500 + IVA</p>
+        <a class="calcm__paquete-link" id="calcmPaqueteLink" href="/servicios/iluminacion/guirnaldas/100-metros/">
+          Ver qué incluye
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <p class="calcm__warn" id="calcmWarn" hidden></p>
+
+      <a class="calcm__cta" id="calcmCta" href="#" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.23 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+        Enviar mi cálculo por WhatsApp
+      </a>
+
+      <p class="calcm__disclaimer">
+        Es una <strong>estimación</strong>, no una cotización. El metraje fino sale de la
+        visita técnica, donde medimos alturas y puntos de anclaje. La hacemos sin costo
+        a partir de 100 metros.
+      </p>
+    </aside>
+  </div>
+</div>
+
+<style>
+  .calcm {
+    --calcm-gold: #c2a24a;
+    --calcm-gold-deep: #a9883a;
+    --calcm-navy: #1a1a2e;
+    --calcm-ink: #23232f;
+    --calcm-muted: #6b6b78;
+    --calcm-line: rgba(35, 35, 47, 0.12);
+    max-width: 1200px;
+    margin-inline: auto;
+  }
+
+  .calcm__head { text-align: center; margin-block-end: 40px; }
+  .calcm__eyebrow {
+    font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase;
+    font-weight: 700; color: var(--calcm-gold-deep); margin: 0 0 12px;
+  }
+  .calcm__head h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); line-height: 1.2; margin: 0 0 14px; color: var(--calcm-navy); }
+  .calcm__sub { color: var(--calcm-muted); max-width: 620px; margin-inline: auto; line-height: 1.6; }
+
+  .calcm__grid {
+    display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 32px; align-items: start;
+  }
+
+  .calcm__form {
+    background: #fff; border: 1px solid var(--calcm-line); border-radius: 14px; padding: 28px;
+  }
+  .calcm__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-block-end: 24px; }
+  .calcm__field { display: flex; flex-direction: column; gap: 7px; }
+  .calcm__field > span { font-size: 0.82rem; font-weight: 600; color: var(--calcm-ink); }
+  .calcm__field em { font-style: normal; color: var(--calcm-muted); font-weight: 400; }
+  .calcm__field input {
+    font-size: 1rem; padding: 12px 14px; border: 1px solid var(--calcm-line);
+    border-radius: 9px; background: #fbfaf8; color: var(--calcm-ink); width: 100%;
+  }
+  .calcm__field input:focus-visible { outline: 2px solid var(--calcm-gold); outline-offset: 1px; }
+
+  .calcm__patrones { border: 0; padding: 0; margin: 0; }
+  .calcm__patrones legend {
+    font-size: 0.82rem; font-weight: 600; color: var(--calcm-ink); padding: 0; margin-block-end: 12px;
+  }
+  .calcm__opt {
+    display: flex; gap: 12px; align-items: flex-start; padding: 13px 15px;
+    border: 1px solid var(--calcm-line); border-radius: 10px; margin-block-end: 9px; cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .calcm__opt:hover { border-color: var(--calcm-gold); }
+  .calcm__opt:has(input:checked) { border-color: var(--calcm-gold); background: rgba(194, 162, 74, 0.07); }
+  .calcm__opt input { margin-top: 3px; accent-color: var(--calcm-gold); flex-shrink: 0; }
+  .calcm__opt-body { display: flex; flex-direction: column; gap: 3px; }
+  .calcm__opt-body strong { font-size: 0.94rem; color: var(--calcm-ink); }
+  .calcm__opt-body em { font-style: normal; font-size: 0.83rem; color: var(--calcm-muted); line-height: 1.45; }
+
+  .calcm__note { font-size: 0.82rem; color: var(--calcm-muted); margin: 18px 0 0; line-height: 1.55; }
+  .calcm__note a { color: var(--calcm-gold-deep); font-weight: 600; }
+
+  .calcm__out {
+    background: var(--calcm-navy); color: #fff; border-radius: 14px; padding: 30px 28px;
+    position: sticky; top: 24px;
+  }
+  .calcm__out-label {
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55); margin: 0 0 8px; font-weight: 600;
+  }
+  .calcm__metros { font-size: 3rem; line-height: 1; font-weight: 700; margin: 0 0 6px; color: var(--calcm-gold); }
+  .calcm__metros small { font-size: 0.95rem; font-weight: 400; color: rgba(255, 255, 255, 0.7); display: block; margin-top: 6px; }
+  .calcm__formula { font-size: 0.83rem; color: rgba(255, 255, 255, 0.6); margin: 0 0 26px; font-variant-numeric: tabular-nums; }
+
+  .calcm__paquete { border-top: 1px solid rgba(255, 255, 255, 0.14); padding-top: 22px; }
+  .calcm__paquete-name { font-size: 1.15rem; font-weight: 700; margin: 0 0 4px; }
+  .calcm__paquete-precio { font-size: 1.5rem; font-weight: 700; color: var(--calcm-gold); margin: 0 0 12px; }
+  .calcm__paquete-link {
+    display: inline-flex; align-items: center; gap: 6px; font-size: 0.87rem; font-weight: 600;
+    color: #fff; text-decoration: underline; text-underline-offset: 3px;
+  }
+
+  .calcm__warn {
+    margin: 20px 0 0; padding: 12px 14px; border-radius: 9px;
+    background: rgba(194, 162, 74, 0.16); border: 1px solid rgba(194, 162, 74, 0.4);
+    font-size: 0.83rem; line-height: 1.5; color: #f4ecd8;
+  }
+
+  .calcm__cta {
+    display: flex; align-items: center; justify-content: center; gap: 9px;
+    margin-top: 24px; padding: 15px 18px; border-radius: 10px;
+    background: var(--calcm-gold); color: #fff; font-weight: 700; font-size: 0.94rem;
+    transition: background 0.15s;
+  }
+  .calcm__cta:hover { background: var(--calcm-gold-deep); }
+
+  .calcm__disclaimer {
+    font-size: 0.78rem; color: rgba(255, 255, 255, 0.55);
+    margin: 16px 0 0; line-height: 1.55;
+  }
+  .calcm__disclaimer strong { color: rgba(255, 255, 255, 0.8); }
+
+  @media (max-width: 900px) {
+    .calcm__grid { grid-template-columns: 1fr; }
+    .calcm__out { position: static; }
+  }
+  @media (max-width: 480px) {
+    .calcm__row { grid-template-columns: 1fr; }
+    .calcm__form, .calcm__out { padding: 22px 18px; }
+    .calcm__metros { font-size: 2.4rem; }
+  }
+</style>
+
+<script>
+  const root = document.querySelector<HTMLElement>(".calcm");
+  if (root) {
+    const wa = root.dataset.wa || "";
+
+    const PAQUETES = [
+      { metros: 50,  name: "Básico — 50 metros",      precio: "$3,500 + IVA",  href: "/servicios/iluminacion/guirnaldas/50-metros/" },
+      { metros: 100, name: "Estándar — 100 metros",   precio: "$6,500 + IVA",  href: "/servicios/iluminacion/guirnaldas/100-metros/" },
+      { metros: 200, name: "Premium — 200 metros",    precio: "$11,500 + IVA", href: "/servicios/iluminacion/guirnaldas/200-metros/" },
+      { metros: 500, name: "Producción — 500 metros", precio: "$24,000 + IVA", href: "/servicios/iluminacion/guirnaldas/500-metros/" },
+    ];
+
+    const PATRON_LABEL: Record<string, string> = {
+      perimetral: "Perimetral",
+      zigzag: "Zigzag",
+      canopy: "Canopy de techo",
+      pergola: "Pérgola o estructura",
+    };
+
+    const $largo = document.getElementById("calcmLargo") as HTMLInputElement;
+    const $ancho = document.getElementById("calcmAncho") as HTMLInputElement;
+    const $metros = document.getElementById("calcmMetros")!;
+    const $formula = document.getElementById("calcmFormula")!;
+    const $pName = document.getElementById("calcmPaqueteName")!;
+    const $pPrecio = document.getElementById("calcmPaquetePrecio")!;
+    const $pLink = document.getElementById("calcmPaqueteLink") as HTMLAnchorElement;
+    const $warn = document.getElementById("calcmWarn") as HTMLElement;
+    const $cta = document.getElementById("calcmCta") as HTMLAnchorElement;
+
+    function calcular(l: number, a: number, patron: string): { metros: number; formula: string } {
+      const perimetro = 2 * (l + a);
+      if (patron === "perimetral") {
+        return { metros: perimetro * 1.15, formula: `Perímetro ${perimetro.toFixed(0)} m × 1.15` };
+      }
+      if (patron === "zigzag") {
+        return { metros: perimetro * 2, formula: `Perímetro ${perimetro.toFixed(0)} m × 2` };
+      }
+      if (patron === "canopy") {
+        const lineas = Math.ceil(a / 0.9);
+        const metros = lineas * l + lineas * 0.8;
+        return { metros, formula: `${lineas} líneas × ${l} m + caídas (0.8 m c/u)` };
+      }
+      // pergola
+      const tendidos = Math.ceil(a / 0.8);
+      return { metros: tendidos * l, formula: `${tendidos} tendidos × ${l} m` };
+    }
+
+    function paquetePara(metros: number) {
+      return PAQUETES.find((p) => metros <= p.metros) || null;
+    }
+
+    function render() {
+      const l = parseFloat($largo.value);
+      const a = parseFloat($ancho.value);
+      const patron = (document.querySelector('input[name="patron"]:checked') as HTMLInputElement)?.value || "perimetral";
+
+      if (!Number.isFinite(l) || !Number.isFinite(a) || l <= 0 || a <= 0) {
+        $metros.textContent = "—";
+        $formula.textContent = "Mete el largo y el ancho del área";
+        $warn.hidden = true;
+        return;
+      }
+
+      const { metros, formula } = calcular(l, a, patron);
+      // Se redondea hacia arriba al metro. Nunca hacia abajo: quedarse corto el día
+      // del montaje cuesta más que sobrar dos metros de cable.
+      const redondeado = Math.ceil(metros);
+      $metros.textContent = String(redondeado);
+      $formula.textContent = formula;
+
+      const paq = paquetePara(redondeado);
+      if (paq) {
+        $pName.textContent = paq.name;
+        $pPrecio.textContent = paq.precio;
+        $pLink.href = paq.href;
+        $pLink.hidden = false;
+
+        const sobra = paq.metros - redondeado;
+        if (sobra >= paq.metros * 0.4 && paq.metros > 50) {
+          $warn.hidden = false;
+          $warn.textContent = `Te sobran ${sobra} metros del paquete. Si puedes concentrar el montaje o cambiar de patrón, quizá te alcance el escalón de abajo — pregúntanos antes de contratar de más.`;
+        } else {
+          $warn.hidden = true;
+        }
+      } else {
+        $pName.textContent = "Más de 500 metros";
+        $pPrecio.textContent = "Cotización a medida";
+        $pLink.href = "/servicios/iluminacion/guirnaldas/500-metros/";
+        $warn.hidden = false;
+        $warn.textContent = "Tu montaje pasa del paquete de producción. A esta escala manda la infraestructura eléctrica, no el metro suelto: lo cotizamos caso por caso.";
+      }
+
+      const texto =
+        `Hola, calculé mi metraje de guirnaldas en su sitio.\n` +
+        `Área: ${l} × ${a} m\n` +
+        `Patrón: ${PATRON_LABEL[patron]}\n` +
+        `Metraje estimado: ${redondeado} metros lineales\n` +
+        `Paquete sugerido: ${paq ? paq.name + " (" + paq.precio + ")" : "Más de 500 m — a medida"}\n\n` +
+        `¿Me confirman el metraje exacto?`;
+      $cta.href = `https://wa.me/${wa}?text=${encodeURIComponent(texto)}`;
+    }
+
+    root.addEventListener("input", render);
+    root.addEventListener("change", render);
+    render();
+  }
+</script>
