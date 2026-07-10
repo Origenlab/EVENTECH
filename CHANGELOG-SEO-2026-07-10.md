@@ -31,13 +31,15 @@ Auditoría + reparación con el Prompt Maestro (SEO técnico + Schema + Social C
 - ¿@eventechmx (X), facebook/instagram.com/eventechmx son cuentas reales? Si no, quitar `twitter:site` y depurar `sameAs` en `config/site.ts`.
 - ¿"EVENTECH S.A. de C.V." (legalName) y fundación 2024 son reales?
 
-## Validación post-deploy (checklist)
+## Validación post-deploy (resultado 2026-07-10)
 
-- [ ] `curl -sI 'https://www.eventech.mx/x/?q=1'` → 301 + query preservado
-- [ ] `curl -sI` a un og JPEG del CDN → 200 image/jpeg
-- [ ] og:image .jpg en HTML servido de /servicios/carpas/
-- [ ] sitemap live con lastmod variado
-- [ ] Rich Results sin errores
+- [ ] www → 301: **PENDIENTE** — sigue 200; `_redirects` no aplica porque www no está adjunto al proyecto Pages. Requiere Redirect Rule en dashboard (pendiente manual #1).
+- [x] og JPEG CDN → `200 image/jpeg` ✓
+- [x] og:image .jpg + og:image:type + og:image:alt en HTML servido de /servicios/carpas/ ✓
+- [x] sitemap live con lastmod real variado ✓ (requirió 2º commit: `fetch-depth: 0` en deploy.yml — checkout shallow devolvía fecha del HEAD para todo)
+- [ ] Rich Results Test + FB Debugger re-scrape (manual)
+
+Actions verdes: `5a4eb5e5` (fixes) y `ba881d84` (fetch-depth). Gate cumplido.
 
 ## Mejora para el prompt maestro (Regla 6)
 
