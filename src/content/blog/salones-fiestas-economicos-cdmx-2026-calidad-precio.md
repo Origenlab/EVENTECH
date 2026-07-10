@@ -4,7 +4,7 @@ seoTitle: "Salones Fiestas Económicos CDMX 2026"
 description: "Los 5 mejores salones económicos para fiestas en CDMX 2026. Análisis de precios, servicios incluidos y cómo maximizar tu presupuesto con EVENTECH."
 date: 2026-03-06
 category: "guias"
-image: "/images/moviliario-para-eventos/evento-familiar-sillas-plegables-montaje-salon.avif"
+image: "/images/venues/gran-salon-del-valle-hero.avif"
 author: "Equipo EVENTECH"
 featured: false
 tags:
@@ -62,7 +62,7 @@ Esta guía analiza **5 salones económicos probados** en la CDMX, con precios de
 
 ---
 
-![Montaje de evento familiar con sillas plegables en salón de fiestas económico en CDMX](/images/moviliario-para-eventos/evento-familiar-sillas-plegables-montaje-salon.avif)
+![Montaje de evento familiar con sillas plegables en salón de fiestas económico en CDMX](/images/venues/gran-salon-del-valle-hero.avif)
 
 *Un presupuesto inteligente no significa un evento mediocre. Con la selección correcta de venue y producción profesional accesible, tu celebración puede superar todas las expectativas.*
 

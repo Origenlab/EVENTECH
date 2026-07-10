@@ -4,7 +4,7 @@ seoTitle: "Mobiliario Corporativo CDMX | Renta"
 description: "Guía profesional de renta de mobiliario para eventos corporativos en CDMX: mesas de reunión, sillas ejecutivas, salas lounge, banquetas y equipamiento técnico."
 date: 2026-03-23
 category: "corporativos"
-image: "/images/mobiliario/evento-corporativo-mesas-lounge-sala-reunion.avif"
+image: "/images/eventos/corporativos-hero-full.avif"
 author: "Equipo EVENTECH"
 featured: true
 tags:

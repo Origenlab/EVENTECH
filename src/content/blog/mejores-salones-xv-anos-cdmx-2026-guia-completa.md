@@ -4,7 +4,7 @@ seoTitle: "5 Mejores Salones XV Años CDMX | Guía Completa"
 description: "Los 5 mejores salones para XV años en CDMX 2026. Análisis de pista de baile, vals, iluminación, capacidad y producción profesional EVENTECH."
 date: 2026-03-06
 category: "xv-anos"
-image: "/images/moviliario-para-eventos/xv-anos-salon-elegante-sillas-doradas-iluminacion.avif"
+image: "/images/eventos/xv-hero-full.avif"
 author: "Equipo EVENTECH"
 featured: true
 tags:
@@ -60,7 +60,7 @@ Cada salón fue seleccionado por un criterio específico: su capacidad para pote
 
 ---
 
-![Salón elegante para XV años con sillas doradas e iluminación profesional](/images/moviliario-para-eventos/xv-anos-salon-elegante-sillas-doradas-iluminacion.avif)
+![Salón elegante para XV años con sillas doradas e iluminación profesional](/images/eventos/xv-hero-full.avif)
 
 *La elección del salón define la experiencia de los XV años. Los 5 venues de esta guía ofrecen la infraestructura técnica, la estética y la versatilidad que una celebración de primer nivel exige.*
 

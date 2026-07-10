@@ -55,6 +55,9 @@ export function organizationJsonLd() {
       "@type": "ImageObject",
       "@id": `${SITE.url}/#logo`,
       url: canonicalURL(SITE.organization.logo),
+      // Dimensiones reales del archivo public/images/logo.png (verificado)
+      width: 600,
+      height: 160,
       caption: SITE.organization.name,
     },
     image: { "@id": `${SITE.url}/#logo` },

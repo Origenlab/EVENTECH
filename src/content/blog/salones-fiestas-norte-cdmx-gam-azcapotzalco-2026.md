@@ -4,7 +4,7 @@ seoTitle: "Salones Fiestas Norte CDMX: GAM y Azcapotzalco"
 description: "Los 5 mejores salones para fiestas en GAM y Azcapotzalco 2026. Bodas, XV años y bautizos con producción profesional EVENTECH."
 date: 2026-03-06
 category: "guias"
-image: "/images/moviliario-para-eventos/salon-evento-mesas-redondas-sillas-elegantes-noche.avif"
+image: "/images/venues/hacienda-contreras-eventos-hero.avif"
 author: "Equipo EVENTECH"
 featured: false
 tags:
@@ -61,7 +61,7 @@ Esta guía analiza los **5 mejores salones de fiestas en GAM y Azcapotzalco** pa
 
 ---
 
-![Salón de fiestas elegante con mesas redondas y sillas para evento nocturno en el norte de la CDMX](/images/moviliario-para-eventos/salon-evento-mesas-redondas-sillas-elegantes-noche.avif)
+![Salón de fiestas elegante con mesas redondas y sillas para evento nocturno en el norte de la CDMX](/images/venues/hacienda-contreras-eventos-hero.avif)
 
 *Los salones del norte de la CDMX ofrecen espacios versátiles que, con la producción adecuada, rivalizan con cualquier venue de la ciudad.*
 

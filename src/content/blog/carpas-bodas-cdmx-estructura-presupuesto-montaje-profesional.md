@@ -4,7 +4,7 @@ seoTitle: "Carpas para Bodas CDMX | Renta y Montaje"
 description: "Guía: carpas para bodas CDMX - estructura, climatización, iluminación y montaje profesional."
 date: 2026-04-10
 category: "bodas"
-image: "/images/carpas/carpa-boda-blanca-iluminacion-interior-cdmx.avif"
+image: "/images/carpas/carpa-boda-01.avif"
 author: "Equipo EVENTECH"
 tags:
   - carpas para bodas

@@ -2,8 +2,72 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import { readdir, readFile, writeFile } from "node:fs/promises";
-import { join } from "node:path";
+import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { execSync } from "node:child_process";
+import { existsSync, statSync } from "node:fs";
+
+// ─── Sitemap lastmod dinámico ──────────────────────────────────────────────
+// Resuelve URL → archivo fuente → fecha real (git log → mtime → omitir).
+// Mejor omitir lastmod que mentir con la fecha del build.
+const ROOT = dirname(fileURLToPath(import.meta.url));
+const _dateCache = new Map();
+
+function sourceDate(relPath) {
+  if (_dateCache.has(relPath)) return _dateCache.get(relPath);
+  let date = null;
+  const abs = join(ROOT, relPath);
+  if (existsSync(abs)) {
+    try {
+      const out = execSync(`git log -1 --format=%cI -- "${relPath}"`, {
+        cwd: ROOT,
+        encoding: "utf8",
+        stdio: ["ignore", "pipe", "ignore"],
+      }).trim();
+      if (out) date = new Date(out);
+    } catch {}
+    if (!date) {
+      try {
+        date = statSync(abs).mtime;
+      } catch {}
+    }
+  }
+  _dateCache.set(relPath, date);
+  return date;
+}
+
+function lastmodForUrl(url) {
+  const path = new URL(url).pathname.replace(/\/+$/, "");
+  const rel = path === "" ? "index" : path.replace(/^\//, "");
+  const last = rel.split("/").pop();
+  const candidates = [
+    `src/pages/${rel}/index.astro`,
+    `src/pages/${rel}.astro`,
+    `src/pages/${rel}/index.md`,
+  ];
+  // Content collections: probar ruta completa bajo la colección y el slug final
+  for (const col of ["blog", "servicios", "eventos", "venues", "zonas", "pages"]) {
+    const sub = rel.startsWith(`${col}/`) ? rel.slice(col.length + 1) : rel;
+    for (const ext of ["md", "mdx"]) {
+      candidates.push(`src/content/${col}/${sub}.${ext}`);
+      candidates.push(`src/content/${col}/${sub}/index.${ext}`);
+      candidates.push(`src/content/${col}/${last}.${ext}`);
+    }
+  }
+  // Directorio de venues: /directorio/<ciudad>/<zona>/<venue>/
+  if (rel.startsWith("directorio/")) {
+    const sub = rel.slice("directorio/".length);
+    for (const ext of ["md", "mdx"]) {
+      candidates.push(`src/content/venues/${sub}.${ext}`);
+      candidates.push(`src/content/venues/${sub}/index.${ext}`);
+    }
+  }
+  for (const c of candidates) {
+    const d = sourceDate(c);
+    if (d) return d;
+  }
+  return null;
+}
 
 // ─── ExactDN CDN ───────────────────────────────────────────────────────────
 const CDN_BASE = "https://ehzpd66uywy.exactdn.com";
@@ -112,7 +176,6 @@ export default defineConfig({
       filter: (page) => !page.includes("/draft/") && !page.includes("/admin/"),
       changefreq: "weekly",
       priority: 0.7,
-      lastmod: new Date(),
       serialize: (item) => {
         // Custom priorities by page type
         if (item.url === "https://eventech.mx/") {
@@ -148,6 +211,13 @@ export default defineConfig({
         } else if (item.url.includes("/blog/")) {
           item.priority = 0.6;
           item.changefreq = "monthly";
+        }
+        // lastmod real por archivo fuente; si no se resuelve, se omite
+        const lm = lastmodForUrl(item.url);
+        if (lm) {
+          item.lastmod = lm.toISOString();
+        } else {
+          delete item.lastmod;
         }
         return item;
       },

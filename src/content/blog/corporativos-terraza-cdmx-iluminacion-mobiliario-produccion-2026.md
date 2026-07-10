@@ -4,7 +4,7 @@ seoTitle: "Eventos Corporativos Terraza CDMX"
 description: "Guía para corporativos en terraza CDMX: iluminación, mobiliario, presupuesto y montaje profesional."
 date: 2026-04-15
 category: "corporativos"
-image: "/images/corporativos/evento-corporativo-terraza-iluminacion-nocturo-cdmx.avif"
+image: "/images/eventos/corporativos-hero.avif"
 author: "Equipo EVENTECH"
 tags:
   - eventos corporativos CDMX

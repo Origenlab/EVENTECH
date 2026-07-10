@@ -4,7 +4,7 @@ seoTitle: "XV Años en Jardín CDMX | Ideas y Tips"
 description: "Guía para organizar XV años en jardín CDMX: venue, iluminación, mobiliario, ambientación y catering. Checklist y presupuesto profesional."
 date: 2026-03-31
 category: "xv-anos"
-image: "/images/eventos-sociales/xv-anos-jardin-pista-baile-iluminacion-dorada.avif"
+image: "/images/eventos/xv-hero.avif"
 author: "Equipo EVENTECH"
 featured: true
 tags:
