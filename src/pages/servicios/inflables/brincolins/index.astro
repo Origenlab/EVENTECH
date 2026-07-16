@@ -1,0 +1,646 @@
+---
+/**
+ * ─── EVENTECH.MX — BRINCOLINS, aliado operador de inflables (L4, 2026) ───
+ * Hub homologado al sistema hm- (home-2026.css), mismo molde que
+ * /servicios/inflables/inflapy/ y /servicios/inflables/juegos-infantiles/.
+ *
+ * ⚠️ NOTA DE ARQUITECTURA — leer antes de editar:
+ *
+ * 1. CATÁLOGO COMPARTIDO. Los 8 modelos salen de @data/inflables-juegos.ts,
+ *    los mismos de /juegos-infantiles/ y /inflapy/. Decisión del DG: mantener
+ *    las tres URLs. Las fichas L5 NO se duplican — todo enlaza a
+ *    /juegos-infantiles/{slug}/.
+ *
+ * 2. EL EJE PROPIO DE ESTA PÁGINA SON LOS PAQUETES (evento completo), no el
+ *    catálogo. Es lo único que la separa de /inflapy/ (cuyo eje es tamaño/edad
+ *    + protocolo de seguridad). Si alguien quita el bloque #paquetes, esta
+ *    página deja de tener razón de existir.
+ *
+ * 3. LOS PAQUETES SON DE EVENTECH, NO DE BRINCOLINS — decisión deliberada.
+ *    BRINCOLINS vende Básico $2,800 / Premium $4,500 / VIP $6,800 con
+ *    mobiliario e iluminación de su lado. Replicarlos aquí le regalaría a un
+ *    tercero dos líneas que EVENTECH ya opera (/servicios/mobiliario/ y
+ *    /servicios/iluminacion/). Aquí la estructura de 3 niveles se conserva
+ *    (30/50/80 invitados · 4/6/6 hrs) pero se arma con mobiliario e
+ *    iluminación PROPIOS + el inflable del aliado.
+ *    → SIN PRECIOS DUROS DE PAQUETE: es la convención del sitio
+ *      (ver /servicios/audiovisual/sonido/paquetes/, 0 price cards) y además
+ *      no hay precio autorizado por el DG. Solo se citan los "desde" reales
+ *      del catálogo de inflables, que sí vienen del data file.
+ *
+ * 4. SIN SECCIÓN DE HISTORIA — deliberado. BRINCOLINS dice "fundada 2005,
+ *    +20 años"; INFLAPY dice "fundada 1994, 30 años". Mismo teléfono
+ *    (55 3128 1706) y mismas 3 sucursales. Publicar ambas historias haría que
+ *    EVENTECH avale dos fundaciones distintas para la misma operación.
+ *    No escribir aquí fechas de fundación hasta que el DG aclare la relación
+ *    real entre las dos marcas.
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import { SITE } from "@config/site";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from "@lib/seo";
+import { INFLABLES, byCat, CAT_LABEL, cardImg, mainImg, photoImg, PRICE_RANGE, type Cat } from "@data/inflables-juegos";
+import "@styles/home-2026.css";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const BASE = "/servicios/inflables/brincolins";
+/** Las fichas L5 viven en juegos-infantiles — no se duplican aquí. */
+const FICHAS = "/servicios/inflables/juegos-infantiles";
+/** Sitio del aliado. */
+const BRINCOLINS_URL = "https://brincolins.com/";
+
+const catOrder: Record<Cat, number> = { chico: 0, mediano: 1, grande: 2 };
+const catalogo = [...INFLABLES].sort((a, b) => catOrder[a.cat] - catOrder[b.cat]);
+
+// ── Paquetes (estructura de 3 niveles, armados con equipo EVENTECH) ─────────
+const PAQUETES = [
+  {
+    id: "basico",
+    name: "Básico",
+    badge: "Fiesta en casa",
+    invitados: "Hasta 30 invitados",
+    horas: "4 horas",
+    lead: "El cumpleaños de casa: jardín o patio, la familia y los amigos del salón.",
+    incluye: [
+      "Inflable a elegir del catálogo",
+      "3 mesas rectangulares",
+      "24 sillas plegables",
+      "Entrega, instalación y recolección",
+      "Soplador con extensión",
+      "Seguro de responsabilidad civil",
+    ],
+    excluye: ["Manteles y toldo", "Iluminación"],
+  },
+  {
+    id: "premium",
+    name: "Premium",
+    badge: "El más pedido",
+    invitados: "Hasta 50 invitados",
+    horas: "6 horas",
+    lead: "Cuando ya no cabe en el patio y hay que resolver sombra y mesa para todos.",
+    incluye: [
+      "Inflable a elegir (cualquier modelo)",
+      "5 mesas rectangulares",
+      "40 sillas plegables",
+      "Manteles a elegir color",
+      "Toldo de 3 × 6 m",
+      "Entrega, instalación y recolección",
+      "Seguro de responsabilidad civil",
+    ],
+    excluye: ["Iluminación"],
+    featured: true,
+  },
+  {
+    id: "vip",
+    name: "VIP",
+    badge: "Evento completo",
+    invitados: "Hasta 80 invitados",
+    horas: "6 horas",
+    lead: "Kermés, corporativo o fiesta que se pasa de la tarde a la noche.",
+    incluye: [
+      "Inflable grande (Barco Pirata, Extremo o Castillo Blanco)",
+      "8 mesas rectangulares",
+      "64 sillas plegables",
+      "Manteles a elegir color",
+      "Toldo de 6 × 6 m",
+      "Iluminación para el área de fiesta",
+      "Entrega, instalación y recolección",
+      "Coordinación de montaje del evento completo",
+    ],
+    excluye: [],
+  },
+];
+
+// ── Cobertura — el diferenciador real de BRINCOLINS ─────────────────────────
+const COBERTURA = [
+  { zona: "CDMX · 16 alcaldías", detalle: "Álvaro Obregón, Azcapotzalco, Benito Juárez, Coyoacán, Cuajimalpa, Cuauhtémoc, Gustavo A. Madero, Iztacalco, Iztapalapa, Magdalena Contreras, Miguel Hidalgo, Milpa Alta, Tlalpan, Tláhuac, Venustiano Carranza y Xochimilco.", nota: "Entrega sin costo." },
+  { zona: "Edomex poniente", detalle: "Naucalpan, Satélite, Interlomas, Huixquilucan, Atizapán y Tlalnepantla.", nota: "Traslado cotizado antes de apartar." },
+  { zona: "Edomex norte y oriente", detalle: "Ecatepec, Cuautitlán Izcalli, Coacalco y Nezahualcóyotl.", nota: "Zona que no todos los proveedores cubren." },
+];
+
+const whyFeatures = [
+  { title: "Un pedido en lugar de cuatro", body: "El problema de una fiesta no es el inflable: es que el inflable llega a las 10, las sillas a las 12 y los manteles no llegan. En paquete todo sale del mismo montaje, con un solo horario y un solo responsable. Si algo se atrasa, hay una sola persona a quien llamarle." },
+  { title: "El mobiliario y la luz son nuestros", body: "El inflable lo opera BRINCOLINS; las mesas, las sillas, los manteles, el toldo y la iluminación salen de nuestro propio inventario. Por eso podemos responder por el estado en que llegan y ajustar el paquete sin pedirle permiso a nadie." },
+  { title: "Seguro de responsabilidad civil incluido", body: "En cada renta, no como extra. Es el punto que más se salta el proveedor barato y el que más importa cuando hay treinta niños en un jardín ajeno." },
+  { title: "Cobertura hasta donde otros no llegan", body: "Además de las 16 alcaldías y el poniente del Edomex, BRINCOLINS cubre Ecatepec, Cuautitlán Izcalli, Coacalco y Nezahualcóyotl. Si te dijeron que no llegan a tu zona, pregúntanos antes de darlo por perdido." },
+  { title: "Si llueve, se mueve la fecha", body: "Sin costo adicional, sujeto a la disponibilidad que elijas. Y si cancelas con más de 48 horas, se devuelve el anticipo completo. Julio en CDMX no debería costarte la fiesta entera." },
+  { title: "El precio que cotizamos es el que pagas", body: "Entrega, instalación, soplador, recolección y seguro van dentro. No cobramos aparte escaleras, distancia dentro de la zona habitual ni la hora del evento. Lo que cambia el precio es el inflable, el mobiliario y las horas — nada más." },
+];
+
+const steps = [
+  { n: 1, t: "Nos cuentas la fiesta", p: "Fecha, zona, cuántos invitados y qué tipo de espacio. Con eso te decimos qué nivel de paquete te queda y qué inflable cabe. Contestamos en menos de una hora." },
+  { n: 2, t: "Ajustamos el paquete", p: "Ninguna fiesta cae exacto en un nivel. Súmale mesas, quítale el toldo, cambia el inflable o el color de manteles: se cotiza al momento y se te manda por escrito." },
+  { n: 3, t: "Apartas con anticipo", p: "50% para apartar la fecha; el resto el día del evento antes del montaje. Transferencia, efectivo o tarjeta. Te confirmamos por escrito hora de llegada y dirección." },
+  { n: 4, t: "Montamos todo junto", p: "Llegamos con el inflable y el mobiliario en el mismo montaje: se ancla, se acomodan mesas y sillas, se cuelga el toldo. Al terminar volvemos y recogemos todo. Tú no cargas nada." },
+];
+
+const faqs = [
+  { question: "¿Quién es BRINCOLINS y qué relación tiene con EVENTECH?", answer: "BRINCOLINS es uno de nuestros dos aliados operadores en inflables, especializado en fiestas infantiles y eventos en CDMX y Estado de México, con más de 20 años operando. La división del trabajo es simple: EVENTECH coordina y responde por tu evento completo; BRINCOLINS opera la parte de inflables con su flota y su equipo. El mobiliario, el toldo y la iluminación de los paquetes salen de nuestro propio inventario. Puedes ver su catálogo y sus términos en su sitio, brincolins.com." },
+  { question: "¿Qué diferencia hay entre los tres paquetes?", answer: "El Básico resuelve el cumpleaños de casa: inflable, 3 mesas y 24 sillas, 4 horas, hasta 30 invitados. El Premium —el más pedido— sube a 5 mesas, 40 sillas, manteles y toldo de 3 × 6 m, 6 horas y hasta 50 invitados. El VIP es para evento completo: inflable grande, 8 mesas, 64 sillas, manteles, toldo de 6 × 6 m, iluminación del área y 6 horas, hasta 80 invitados. Los tres incluyen entrega, instalación, recolección y seguro de responsabilidad civil." },
+  { question: "¿Cuánto cuesta un paquete?", answer: "Depende de tres cosas y solo de tres: qué inflable eliges, cuánto mobiliario necesitas y cuántas horas dura el evento. Por eso cotizamos en lugar de publicar un precio fijo que después habría que corregir — preferimos decirte el número exacto de tu fiesta a colgarte un «desde» que no se parece a lo que vas a pagar. Mándanos por WhatsApp la fecha, la zona y el número de invitados y te llega el total por escrito en menos de una hora, sin cargos que aparezcan después." },
+  { question: "¿Puedo armar un paquete a mi medida?", answer: "Sí, y es lo más común. Ninguna fiesta cae exacto en un nivel: casi siempre sobran o faltan diez sillas, o el jardín no necesita toldo, o quieren el inflable grande con el mobiliario del Básico. Dinos qué quieres mover y te lo cotizamos al momento. También puedes rentar solo el inflable, sin paquete, si ya tienes resuelto el resto." },
+  { question: "¿Cuánto cuesta rentar solo el inflable?", answer: "Los chicos desde $800 (Mini Castillo), los medianos desde $1,200 (Dragones Rojos y Castillo de Princesas) y los grandes desde $1,700 (Castillo Blanco). Es por un evento de 4 a 6 horas e incluye entrega, instalación, soplador, recolección y seguro. Cada ficha del catálogo trae las medidas, la edad y la capacidad reales del modelo." },
+  { question: "¿Hasta cuántas horas puede durar la renta?", answer: "El inflable se renta de 4 a 6 horas, con paquete o sin él: el Básico cubre 4 horas y el Premium y el VIP llegan a 6. Lo que separa a los tres paquetes es el inflable, el mobiliario y cuánta gente cubren, no las horas. Si tu evento se pasa de ahí, dinos el horario real y lo cotizamos aparte." },
+  { question: "¿Qué pasa si llueve?", answer: "Se reprograma sin costo adicional en la fecha disponible que prefieras. Si cancelas con más de 48 horas de anticipación, se devuelve el 100% del anticipo. Y si el día del evento el viento o la lluvia hacen inseguro el montaje, el equipo lo dice en el momento y se reagenda — no se monta un inflable en condiciones malas por cumplir el compromiso." },
+  { question: "¿Hasta dónde entregan?", answer: "Las 16 alcaldías de CDMX con entrega sin costo. En el Estado de México, la zona poniente —Naucalpan, Satélite, Interlomas, Huixquilucan, Atizapán y Tlalnepantla— y también el norte y oriente: Ecatepec, Cuautitlán Izcalli, Coacalco y Nezahualcóyotl. Esa última franja es la que varios proveedores no cubren, así que si ya te dijeron que no, pregúntanos. El traslado fuera de CDMX se cotiza antes de apartar, nunca después." },
+  { question: "¿Cómo aparto la fecha?", answer: "Con el 50% de anticipo. El saldo se liquida el día del evento, antes de la instalación. Aceptamos transferencia, efectivo y tarjeta. Recomendamos apartar con 5 a 7 días de anticipación; en temporada alta —mayo por el Día del Niño, y diciembre— con más, porque los modelos grandes y los temáticos se van primero." },
+];
+
+const jsonLd = [
+  serviceJsonLd({
+    name: "Paquetes de Inflables para Fiestas en CDMX — EVENTECH y BRINCOLINS",
+    description: "Paquetes de fiesta todo incluido en CDMX y Edomex: inflable operado por BRINCOLINS más mobiliario, toldo e iluminación de EVENTECH en un solo montaje. Tres niveles para 30, 50 u 80 invitados. Renta de inflable suelto desde $800.",
+    url: `${BASE}/`,
+    image: mainImg(catalogo[catalogo.length - 1]),
+    priceRange: { min: PRICE_RANGE.min, max: PRICE_RANGE.max },
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Inflables", url: "/servicios/inflables/" },
+    { name: "BRINCOLINS", url: `${BASE}/` },
+  ]),
+  faqJsonLd(faqs),
+];
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Inflables", href: "/servicios/inflables/" },
+  { label: "BRINCOLINS" },
+];
+
+const waBase = `https://wa.me/${SITE.contact.whatsapp}?text=`;
+---
+
+<PageLayout
+  title="Paquetes de Inflables para Fiestas en CDMX — Todo Incluido"
+  rawTitle={true}
+  description="Paquetes de fiesta todo incluido en CDMX y Edomex: inflable operado por BRINCOLINS más mesas, sillas, toldo e iluminación en un solo montaje. Tres niveles, de 30 a 80 invitados."
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={breadcrumbItems} slot="breadcrumbs" />
+  <div class="hm">
+
+    <!-- HERO ─────────────────────────────────────────────────── -->
+    <section class="hm-hero" aria-labelledby="br-hero-heading">
+      <div class="hm__wrap hm-hero__wrap">
+        <div class="hm-hero__grid">
+          <div class="hm-hero__main">
+            <p class="hm__eyebrow hm-hero__eyebrow">BRINCOLINS · Aliado operador de EVENTECH · CDMX y Edomex</p>
+            <h1 id="br-hero-heading">El inflable no es el problema. <em>Es todo lo demás.</em></h1>
+            <p class="hm-hero__lead">
+              Paquetes de fiesta con el inflable, las mesas, las sillas, el toldo y la luz
+              en <strong>un solo montaje y un solo horario</strong>. Tres niveles: 30, 50
+              u 80 invitados. O renta el inflable suelto <strong>desde $800</strong>.
+            </p>
+            <ul class="br-trust">
+              <li><strong>3</strong><span>Niveles de paquete</span></li>
+              <li><strong>8</strong><span>Modelos en catálogo</span></li>
+              <li><strong>20+</strong><span>Municipios y alcaldías</span></li>
+            </ul>
+            <div class="sv-hero__ctas">
+              <a class="hm__btn hm__btn--gold" href={`${waBase}${encodeURIComponent("Hola, quiero cotizar un paquete de fiesta con inflable")}`} target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.23 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+                Cotizar mi paquete
+              </a>
+              <a class="hm__btn hm__btn--ghost" href="#paquetes">
+                Ver los tres niveles
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="hm-hero__seo">
+            <p>
+              Quien ya organizó una fiesta sabe dónde se rompe: el inflable llega a las
+              diez, las sillas a las doce y los manteles no llegan. Nadie falló del todo
+              y aun así la mañana se fue en llamadas.
+            </p>
+            <p>
+              El inflable lo opera <strong>BRINCOLINS</strong>, nuestro aliado
+              especializado. El mobiliario, el toldo y la
+              <a href="/servicios/iluminacion/">iluminación</a> salen de
+              <a href="/servicios/mobiliario/">nuestro propio inventario</a>. Todo llega
+              en el mismo montaje, con un horario y un responsable — y si algo se mueve,
+              le llamas a una sola persona. Su catálogo y términos están en
+              <a href={BRINCOLINS_URL} target="_blank" rel="noopener noreferrer">brincolins.com</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NAV ─────────────────────────────────────────────────────── -->
+    <nav class="hm-menu" aria-label="Secciones de paquetes BRINCOLINS">
+      <ul class="hm-menu__grid">
+        <li><a class="hm-menu__item" href="#paquetes">Paquetes</a></li>
+        <li><a class="hm-menu__item" href="#inflables">Inflables</a></li>
+        <li><a class="hm-menu__item" href="#cobertura">Cobertura</a></li>
+        <li><a class="hm-menu__item" href="#proceso">Cómo funciona</a></li>
+        <li><a class="hm-menu__item" href="#faq">Preguntas</a></li>
+        <li><a class="hm-menu__item hm-menu__item--cta" href="#cotiza">Cotizar ahora</a></li>
+      </ul>
+    </nav>
+
+    <!-- PAQUETES — contenido propio ───────────────────────────── -->
+    <section id="paquetes" class="hm__section" aria-labelledby="paq-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Tres niveles · 30, 50 u 80 invitados</p>
+            <h2 id="paq-heading">Paquetes de fiesta, armados completos</h2>
+            <p class="hm__head-sub">Inflable, mesas, sillas, manteles, toldo y luz. Un montaje, un horario, un responsable.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Los niveles son un punto de partida, no un menú cerrado: casi ninguna fiesta
+              cae exacto en uno. Lo normal es que sobren diez sillas, que el jardín no
+              necesite toldo o que quieran el inflable grande con el mobiliario del chico.
+              Todo eso se mueve.
+            </p>
+            <p>
+              No publicamos precio de paquete porque dependería de tres variables —el
+              inflable, el mobiliario y las horas— y cualquier número aquí sería un
+              «desde» que no se parece a tu cuenta. Preferimos cotizarte el total exacto
+              por escrito, en menos de una hora.
+            </p>
+          </div>
+        </div>
+
+        <div class="br-paq">
+          {PAQUETES.map((p) => (
+            <article class={`br-paq__item${p.featured ? " br-paq__item--feat" : ""}`}>
+              <div class="br-paq__head">
+                <span class="br-paq__badge">{p.badge}</span>
+                <h3>Paquete {p.name}</h3>
+                <p class="br-paq__meta">{p.invitados} · {p.horas}</p>
+                <p class="br-paq__lead">{p.lead}</p>
+              </div>
+              <ul class="br-paq__list">
+                {p.incluye.map((x) => (
+                  <li class="br-paq__yes">
+                    <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                    <span>{x}</span>
+                  </li>
+                ))}
+                {p.excluye.map((x) => (
+                  <li class="br-paq__no">
+                    <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12h14" /></svg>
+                    <span>{x}</span>
+                  </li>
+                ))}
+              </ul>
+              <a class="br-paq__cta" href={`${waBase}${encodeURIComponent(`Hola, quiero cotizar el Paquete ${p.name} (${p.invitados.toLowerCase()}, ${p.horas}) para mi fiesta.`)}`} target="_blank" rel="noopener noreferrer">
+                Cotizar el {p.name}
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </article>
+          ))}
+        </div>
+        <p class="br-paq__note">
+          ¿Ya tienes resuelto el mobiliario? También rentamos el
+          <a href="#inflables">inflable suelto, desde $800</a>, con entrega, instalación,
+          recolección y seguro incluidos.
+        </p>
+      </div>
+    </section>
+
+    <!-- CATÁLOGO ──────────────────────────────────────────────── -->
+    <section id="inflables" class="hm__section hm__section--ivory" aria-labelledby="catalogo-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">8 modelos · desde $800</p>
+            <h2 id="catalogo-heading">El inflable que va dentro del paquete</h2>
+            <p class="hm__head-sub">Cualquiera de estos ocho entra en el Básico o el Premium. El VIP monta uno de los tres grandes.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Elige por el espacio que tienes y la edad de los invitados: son las dos
+              variables que deciden, y las dos que casi nadie mide antes de apartar.
+              Cada ficha trae medidas, edad y capacidad reales.
+            </p>
+            <p>
+              Si vas a rentar solo el inflable, sin paquete, la renta es de 4 a 6 horas e
+              incluye entrega, instalación con anclaje, soplador, recolección y seguro de
+              responsabilidad civil.
+            </p>
+          </div>
+        </div>
+
+        <div class="hm-cat-grid">
+          {catalogo.map((i) => (
+            <article class="hm-cat">
+              <a class="hm-cat__media" href={`${FICHAS}/${i.slug}/`} aria-label={`Ver ${i.name}`}>
+                <img class="hm-cat__img" src={cardImg(i)} alt={`Renta de inflable ${i.name} en paquete de fiesta en CDMX — EVENTECH`} loading="lazy" decoding="async" width="640" height="480" />
+                <span class="hm-cat__badge">{i.badge}</span>
+                <span class="hm-cat__name">{i.name}</span>
+              </a>
+              <div class="hm-cat__body">
+                <p class="br-price">{i.price} <span>· {CAT_LABEL[i.cat]}</span></p>
+                <p class="hm-cat__sub">{i.excerpt}</p>
+                <ul class="br-specs">
+                  {i.specsLine.map((s) => (<li>{s}</li>))}
+                </ul>
+                <a class="hm-cat__cta" href={`${FICHAS}/${i.slug}/`}>
+                  Ver ficha de {i.name}
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- COBERTURA — contenido propio ──────────────────────────── -->
+    <section id="cobertura" class="hm__section" aria-labelledby="cob-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Hasta dónde llegamos</p>
+            <h2 id="cob-heading">Si te dijeron que no llegan a tu zona, pregunta otra vez</h2>
+            <p class="hm__head-sub">Las 16 alcaldías, el poniente del Edomex — y también el norte y el oriente.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              La cobertura de inflables en la ZMVM tiene un hueco conocido: casi todos los
+              proveedores se pelean el poniente —Interlomas, Satélite, Huixquilucan— y muy
+              pocos cruzan al norte o al oriente. Si vives en Ecatepec o en Neza, seguro
+              ya te tocó el «no llegamos hasta allá».
+            </p>
+            <p>
+              BRINCOLINS sí cubre esa franja, y es una de las razones por las que
+              trabajamos con ellos. El traslado fuera de CDMX se cotiza antes de apartar,
+              nunca después. Su mapa de zonas completo está en
+              <a href="https://brincolins.com/cobertura/" target="_blank" rel="noopener noreferrer">brincolins.com/cobertura</a>.
+            </p>
+          </div>
+        </div>
+        <ul class="br-cob">
+          {COBERTURA.map((c) => (
+            <li class="br-cob__item">
+              <h3>{c.zona}</h3>
+              <p>{c.detalle}</p>
+              <p class="br-cob__nota">{c.nota}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- POR QUÉ ────────────────────────────────────────────────── -->
+    <section class="hm__section hm__section--navy" aria-labelledby="why-heading">
+      <div class="hm__wrap">
+        <div class="hm__head">
+          <p class="hm__eyebrow">Por qué en paquete</p>
+          <h2 id="why-heading">Lo que cambia cuando todo llega junto</h2>
+          <p class="hm__head-sub">BRINCOLINS pone el inflable; nosotros ponemos el resto del evento y la cara.</p>
+        </div>
+        <ul class="hm-why">
+          {whyFeatures.map((f) => (
+            <li class="hm-why__item">
+              <div class="hm-why__ic" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+              </div>
+              <h3>{f.title}</h3>
+              <p>{f.body}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- CÓMO FUNCIONA ──────────────────────────────────────────── -->
+    <section id="proceso" class="hm__section hm__section--ivory" aria-labelledby="proceso-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Cómo funciona</p>
+            <h2 id="proceso-heading">De la primera pregunta al último mantel</h2>
+            <p class="hm__head-sub">Cuatro pasos. Tú no montas, no cargas y no persigues a nadie.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Un solo contacto: EVENTECH. Nos escribes, ajustamos el paquete a tu fiesta,
+              apartas con anticipo y el día del evento llega todo junto. El saldo se paga
+              antes del montaje y no aparece nada más en la cuenta.
+            </p>
+          </div>
+        </div>
+        <ol class="hm-steps">
+          {steps.map((s) => (
+            <li class="hm-step">
+              <div class="hm-step__num">{s.n}</div>
+              <h3>{s.t}</h3>
+              <p>{s.p}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- FAQ + FORMULARIO ──────────────────────────────────────── -->
+    <section id="cotiza" class="hm__section" aria-labelledby="faq-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Antes de apartar</p>
+            <h2 id="faq-heading">Preguntas frecuentes sobre los paquetes</h2>
+            <p class="hm__head-sub">Qué incluye cada nivel, cuánto cuesta, hasta dónde llegan y qué pasa si llueve.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Estas son las dudas que más nos llegan antes de una reserva. Si la tuya no
+              está —un espacio raro, un horario largo, una zona lejana— escríbenos: una
+              persona te contesta, no un bot.
+            </p>
+            <p>
+              Cobertura en las 16 alcaldías de CDMX y en el poniente, norte y oriente del
+              Estado de México.
+            </p>
+          </div>
+        </div>
+
+        <div class="hm-faqx" id="faq">
+          <div class="hm-faq">
+            {faqs.map((faq) => (
+              <details class="hm-faq__item">
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+
+          <aside class="hm-faqx__aside" aria-labelledby="brform-heading">
+            <form id="brForm" class="hm-form" data-wa={SITE.contact.whatsapp}>
+              <p class="hm-form__eyebrow">Respuesta en menos de 1 hora</p>
+              <h3 id="brform-heading" class="hm-form__title">Cotiza tu paquete</h3>
+              <p class="hm-form__sub">Cuéntanos de la fiesta y te armamos el paquete con el total por escrito.</p>
+
+              <label class="hm-form__field">
+                <span>Nombre</span>
+                <input type="text" name="nombre" autocomplete="name" placeholder="Tu nombre" required />
+              </label>
+
+              <label class="hm-form__field">
+                <span>Paquete que te interesa</span>
+                <select name="paquete">
+                  <option value="">No estoy seguro, asesórenme</option>
+                  <option>Básico — hasta 30 invitados, 4 hrs</option>
+                  <option>Premium — hasta 50 invitados, 6 hrs</option>
+                  <option>VIP — hasta 80 invitados, 6 hrs</option>
+                  <option>Solo el inflable, sin paquete</option>
+                </select>
+              </label>
+
+              <label class="hm-form__field">
+                <span>Número de invitados</span>
+                <input type="number" name="invitados" min="1" placeholder="Ej. 45" />
+              </label>
+
+              <label class="hm-form__field">
+                <span>Fecha del evento</span>
+                <input type="date" name="fecha" />
+              </label>
+
+              <label class="hm-form__field">
+                <span>¿Qué inflable te interesa?</span>
+                <select name="modelo">
+                  <option value="">No estoy seguro, asesórenme</option>
+                  {catalogo.map((i) => (<option>{i.name}</option>))}
+                </select>
+              </label>
+
+              <label class="hm-form__field">
+                <span>Zona o alcaldía</span>
+                <input type="text" name="zona" placeholder="Ej. Ecatepec, Coyoacán, Satélite…" />
+              </label>
+
+              <label class="hm-form__field">
+                <span>¿Algo más que debamos saber?</span>
+                <textarea name="mensaje" rows="3" placeholder="Tipo de espacio (jardín/salón/patio), horario, ajustes al paquete…"></textarea>
+              </label>
+
+              <button type="submit" class="hm-form__btn">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.23 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z" /></svg>
+                Enviar por WhatsApp
+              </button>
+              <p class="hm-form__note">Se abrirá WhatsApp con tu consulta. Sin compromiso.</p>
+            </form>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /hm -->
+
+  <script>
+    const brForm = document.getElementById("brForm");
+    if (brForm) {
+      brForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const f = e.currentTarget as HTMLFormElement;
+        const wa = f.dataset.wa;
+        const data = new FormData(f);
+        const get = (k: string) => (data.get(k) || "").toString().trim();
+        let t = "Hola, quiero cotizar un paquete de fiesta con inflable.";
+        if (get("paquete"))   t += `\nPaquete: ${get("paquete")}`;
+        if (get("nombre"))    t += `\nNombre: ${get("nombre")}`;
+        if (get("invitados")) t += `\nInvitados: ${get("invitados")}`;
+        if (get("fecha"))     t += `\nFecha: ${get("fecha")}`;
+        if (get("modelo"))    t += `\nInflable: ${get("modelo")}`;
+        if (get("zona"))      t += `\nZona: ${get("zona")}`;
+        if (get("mensaje"))   t += `\nDetalles: ${get("mensaje")}`;
+        window.open(`https://wa.me/${wa}?text=${encodeURIComponent(t)}`, "_blank", "noopener");
+      });
+    }
+  </script>
+</PageLayout>
+
+<style>
+  /* Barra de confianza en el hero */
+  .br-trust { list-style: none; margin: 0 0 24px; padding: 0; display: flex; flex-wrap: wrap; gap: 28px; }
+  .br-trust li { display: flex; flex-direction: column; gap: 2px; }
+  .br-trust strong {
+    font-family: var(--font-display); font-size: 1.6rem; line-height: 1;
+    color: var(--color-gold, #c2a24a);
+  }
+  .br-trust span { font-size: 0.78rem; color: rgba(255, 255, 255, 0.7); }
+
+  /* Paquetes */
+  .br-paq {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: clamp(16px, 1.6vw, 24px);
+    align-items: start;
+  }
+  .br-paq__item {
+    display: flex; flex-direction: column; height: 100%;
+    background: #fff; border: 1px solid var(--color-hairline, #e7e1d6);
+    border-top: 3px solid var(--color-hairline, #e7e1d6);
+    padding: 24px 22px;
+  }
+  .br-paq__item--feat { border-top-color: var(--color-gold, #c2a24a); }
+  .br-paq__head { padding-bottom: 16px; border-bottom: 1px solid var(--color-hairline, #e7e1d6); }
+  .br-paq__badge {
+    display: inline-block; margin-bottom: 10px;
+    font-size: 0.66rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    background: var(--color-ivory-alt, #f3efe7); color: var(--color-gold-deep, #a9883a);
+    border: 1px solid var(--color-hairline, #e7e1d6);
+    padding: 4px 10px; border-radius: 999px;
+  }
+  .br-paq__item--feat .br-paq__badge { background: var(--color-gold, #c2a24a); color: #1c1607; border-color: transparent; }
+  .br-paq__head h3 {
+    margin: 0 0 4px; font-family: var(--font-display); font-size: 1.5rem;
+    color: var(--color-primary, #1a1a2e);
+  }
+  .br-paq__meta { margin: 0 0 10px; font-size: 0.85rem; font-weight: 700; color: var(--color-gold-deep, #a9883a); }
+  .br-paq__lead { margin: 0; font-size: 0.9rem; line-height: 1.6; color: var(--color-muted, #7a7264); }
+  .br-paq__list { list-style: none; margin: 16px 0 20px; padding: 0; display: grid; gap: 9px; flex: 1; }
+  .br-paq__list li { display: grid; grid-template-columns: 15px 1fr; gap: 9px; align-items: start; font-size: 0.86rem; line-height: 1.45; }
+  .br-paq__list svg { margin-top: 3px; }
+  .br-paq__yes { color: var(--color-primary, #1a1a2e); }
+  .br-paq__yes svg { color: var(--color-gold-deep, #a9883a); }
+  .br-paq__no { color: var(--color-muted, #7a7264); }
+  .br-paq__no svg { color: var(--color-hairline, #c9c2b4); }
+  .br-paq__cta {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 12px 18px; font-size: 0.85rem; font-weight: 700; text-decoration: none;
+    border: 1px solid var(--color-primary, #1a1a2e); color: var(--color-primary, #1a1a2e);
+  }
+  .br-paq__cta:hover { background: var(--color-primary, #1a1a2e); color: #fff; }
+  .br-paq__item--feat .br-paq__cta { background: var(--color-gold, #c2a24a); border-color: var(--color-gold, #c2a24a); color: #1c1607; }
+  .br-paq__item--feat .br-paq__cta:hover { background: var(--color-gold-deep, #a9883a); border-color: var(--color-gold-deep, #a9883a); color: #1c1607; }
+  .br-paq__note {
+    margin: 24px 0 0; padding-top: 18px;
+    border-top: 1px solid var(--color-hairline, #e7e1d6);
+    font-size: 0.92rem; color: var(--color-muted, #7a7264);
+  }
+
+  /* Precio + specs en tarjeta de catálogo */
+  .br-price { margin: 0 0 8px; font-weight: 700; color: var(--color-gold-deep, #a9883a); font-size: 0.95rem; }
+  .br-price span { color: var(--color-muted, #7a7264); font-weight: 600; }
+  .br-specs { list-style: none; margin: 0 0 16px; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+  .br-specs li {
+    font-size: 0.72rem; font-weight: 600; color: var(--color-primary, #1a1a2e);
+    background: #fff; border: 1px solid var(--color-hairline, #e7e1d6);
+    padding: 3px 9px; border-radius: 999px;
+  }
+
+  /* Cobertura */
+  .br-cob { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 1.6vw, 24px); }
+  .br-cob__item {
+    background: var(--color-ivory-alt, #f3efe7);
+    border-left: 3px solid var(--color-gold, #c2a24a);
+    padding: 20px 18px;
+  }
+  .br-cob__item h3 { margin: 0 0 8px; font-family: var(--font-display); font-size: 1.1rem; color: var(--color-primary, #1a1a2e); }
+  .br-cob__item p { margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--color-muted, #7a7264); }
+  .br-cob__nota { margin-top: 10px !important; font-weight: 700; color: var(--color-gold-deep, #a9883a) !important; font-size: 0.8rem !important; }
+
+  @media (max-width: 960px) {
+    .br-paq, .br-cob { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .br-trust { gap: 18px; }
+  }
+</style>

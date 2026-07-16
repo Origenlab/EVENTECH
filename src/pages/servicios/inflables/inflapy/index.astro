@@ -1,0 +1,686 @@
+---
+/**
+ * ─── EVENTECH.MX — INFLAPY, aliado operador de inflables (L4, 2026) ───
+ * Hub homologado al sistema hm- (home-2026.css), mismo molde que
+ * /servicios/inflables/juegos-infantiles/ y /servicios/mobiliario/sillas/.
+ *
+ * Modelo white-label con marca explícita (igual que REDEIL en iluminación,
+ * SOEVE en sonido y MESPIC en mesas-picnic): EVENTECH al frente, INFLAPY
+ * nombrado como aliado operador.
+ *
+ * ⚠️ NOTA DE ARQUITECTURA (leer antes de editar):
+ * El catálogo de esta página es EL MISMO que el de /juegos-infantiles/ —
+ * ambos leen de @data/inflables-juegos.ts (los 8 modelos reales).
+ * Decisión de negocio del DG: mantener las dos URLs.
+ * Para contener la canibalización se tomaron dos medidas:
+ *   1. NO se duplican las fichas L5. Las tarjetas enlazan a las fichas
+ *      existentes en /juegos-infantiles/{slug}/.
+ *   2. El contenido propio de esta página son los bloques #historia y
+ *      #seguridad, que NO existen en /juegos-infantiles/.
+ * Si en algún momento se decide consolidar, esta página debería llevar
+ * canonical → /servicios/inflables/juegos-infantiles/ (PageLayout ya lo soporta).
+ *
+ * ⚠️ DATOS: los hitos e cifras de INFLAPY vienen de su propio sitio
+ * (inflablesparafiestas.com.mx, consultado 2026-07-15) y se presentan
+ * ATRIBUIDOS a ellos, no afirmados como hecho propio de EVENTECH.
+ * Deliberadamente NO se usan "+50,000 celebraciones" ni "200,000 familias":
+ * su home y su footer se contradicen (footer dice "500+ eventos").
+ */
+import PageLayout from "@layouts/PageLayout.astro";
+import { SITE } from "@config/site";
+import { serviceJsonLd, breadcrumbJsonLd, faqJsonLd } from "@lib/seo";
+import { INFLABLES, byCat, CAT_LABEL, cardImg, mainImg, photoImg, PRICE_RANGE, type Cat } from "@data/inflables-juegos";
+import "@styles/home-2026.css";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+
+const BASE = "/servicios/inflables/inflapy";
+/** Las fichas L5 viven en juegos-infantiles — no se duplican aquí. */
+const FICHAS = "/servicios/inflables/juegos-infantiles";
+/** Sitio del aliado. */
+const INFLAPY_URL = "https://inflablesparafiestas.com.mx/";
+
+// Catálogo ordenado chico → mediano → grande
+const catOrder: Record<Cat, number> = { chico: 0, mediano: 1, grande: 2 };
+const catalogo = [...INFLABLES].sort((a, b) => catOrder[a.cat] - catOrder[b.cat]);
+
+// ── Línea de tiempo (fuente: sitio de INFLAPY) ──────────────────────────────
+const HITOS = [
+  { year: "1994", t: "Un inflable y una camioneta prestada", p: "Una familia de la Ciudad de México compra un solo castillo inflable. Ese primer año cierran 23 fiestas — casi todas en su propia colonia, casi todas de niños que conocían por nombre." },
+  { year: "1998", t: "La primera camioneta propia", p: "La demanda no cabía en fines de semana prestados. Suman tres inflables, compran su primer vehículo y formalizan la empresa. Ese año pasan de 200 eventos." },
+  { year: "2003", t: "Los primeros temáticos", p: "Princesas, piratas, dinosaurios. Fueron de los primeros del sector en traerlos a CDMX, cuando el estándar seguía siendo el castillo genérico de colores. Ese año también montan su protocolo de desinfección." },
+  { year: "2008", t: "La crisis que otros no aguantaron", p: "Mientras varios competidores cerraban, ellos metieron el dinero en renovar lona y anclajes. La apuesta fue que un cliente que vuelve vale más que un evento barato. Les funcionó." },
+  { year: "2012", t: "Entra la segunda generación", p: "Los hijos se suman al negocio y llega la primera página web. Las reservas dejan de ser solo por teléfono y empiezan a llegar por correo y WhatsApp." },
+  { year: "2020", t: "El año sin fiestas", p: "La pandemia les quitó el negocio entero de un día para otro. Usaron el tiempo muerto para revisar cada inflable de la flota y reescribir los protocolos de higiene desde cero." },
+  { year: "Hoy", t: "Tercera generación, mismos apellidos", p: "Familias que los contrataron para el cumpleaños de sus hijos hoy los llaman para el de sus nietos. Es el tipo de dato que no sale en un folleto pero explica por qué siguen aquí." },
+];
+
+// ── Grupos por tamaño (módulos hm-feat) ──────────────────────────────────────
+const GRUPOS: { id: string; cat: Cat; eyebrow: string; title: string; lead: string; body1: string; body2: string }[] = [
+  {
+    id: "chicos",
+    cat: "chico",
+    eyebrow: "Inflables chicos · 1 a 5 años",
+    title: "Para el primer cumpleaños, cuando el salón es la sala de tu casa",
+    lead: "A esta edad nadie pide altura ni velocidad. Lo que importa es que quepa, que las paredes sean blandas y que mamá lo alcance con la mano.",
+    body1: "El <strong>Mini Castillo</strong> mide 2 × 2 × 2.5 m y es el único modelo del catálogo <strong>apto para interiores</strong>: cabe en una sala despejada, en una terraza o en un salón chico con techo de 2.5 m. Paredes acolchonadas, sin bordes rígidos, altura baja. Está pensado exactamente para el escenario más común de CDMX: un departamento, veinte personas y un niño que cumple uno.",
+    body2: "El equipo de INFLAPY tiene una regla para este grupo que no negocia: <strong>pocos niños por turno y un adulto junto a la entrada</strong>, sin mezclar con los grandes. Se instala en 15 a 20 minutos y se recoge al terminar. Desde $800.",
+  },
+  {
+    id: "medianos",
+    cat: "mediano",
+    eyebrow: "Inflables medianos · 4 a 10 años",
+    title: "El corazón del catálogo — aquí cae la fiesta típica de CDMX",
+    lead: "Cuatro modelos para 5 a 7 niños, con mallas laterales para que los papás vean todo sin tener que asomarse.",
+    body1: "Los <strong>Dragones Rojos</strong> son el más rentado de la flota, con dos toboganes. El <strong>Castillo de Princesas</strong> lleva resbaladilla. La <strong>Mini Jungla</strong> es un circuito de exploradores y los <strong>Gusanitos</strong> son los más coloridos, con túneles para entrar y salir. Casi cualquier fiesta de primaria cae en alguno de estos cuatro.",
+    body2: "Piden 5 × 5 m libres y un contacto a menos de 15 metros; se montan en 20 a 35 minutos. Aquí INFLAPY organiza <strong>turnos por estatura, no por edad</strong> — dos niños de siete años pueden llevarse 20 centímetros, y es justo esa diferencia la que termina en un golpe. Desde $1,200.",
+  },
+  {
+    id: "grandes",
+    cat: "grande",
+    eyebrow: "Inflables grandes · todas las edades",
+    title: "Cuando el evento necesita algo que se vea desde la entrada",
+    lead: "Kermés escolar, corporativo o jardín de boda: tres modelos que cambian la escala de la fiesta completa.",
+    body1: "El <strong>Barco Pirata</strong> de 7 m con tobogán es la pieza de mayor impacto visual — es la que sale en las fotos. El <strong>Extremo</strong> es un circuito de obstáculos para competir por equipos, apto desde los 6 años y también para adultos. El <strong>Castillo Blanco</strong> no lleva personajes ni colores primarios, y por eso es el que piden para bodas y XV años.",
+    body2: "Estos van en camión grande y con anclaje reforzado. INFLAPY manda <strong>más de un adulto supervisando</strong> y separa por edad y tamaño. Si el evento lleva también carpa, mobiliario o luz, lo coordinamos nosotros en el mismo montaje. Desde $1,700.",
+  },
+];
+
+// ── Protocolo de seguridad — contenido propio de esta página ────────────────
+const PROTOCOLO = [
+  {
+    t: "Antes de encender",
+    p: "Piso plano y sin piedras. Anclaje según la superficie: estacas en tierra o pasto, contrapesos en cemento o azotea — el inflable nunca se usa sin anclar. Dos metros libres alrededor, sin bardas, vidrios ni alberca pegada. Contacto de 110V a menos de 15 m, con los cables fuera del paso.",
+  },
+  {
+    t: "Durante la fiesta",
+    p: "Un adulto por cada 5 a 8 niños, según el tamaño. Turnos por estatura, no por edad: mezclar chicos con grandes es lo que más golpes provoca. Sin zapatos, sin comida ni bebida, sin lentes ni juguetes duros adentro. Y alguien asignado al inflable — no «todos viendo», porque eso significa nadie.",
+  },
+  {
+    t: "Si cambia el clima",
+    p: "Con viento fuerte se para: un inflable que empieza a moverse deja de ser un juego. Con lluvia se apaga y se desocupa, porque la lona mojada resbala. Si el equipo llega y las condiciones no son seguras, lo dice ahí mismo y se reagenda sin costo — prefieren perder el evento a montarlo mal.",
+  },
+  {
+    t: "Cuándo detener, sin pensarlo",
+    p: "Si el viento levanta los faldones. Si se moja el piso. Si el soplador se apaga o el inflable pierde presión. Si ves una costura abierta. Si el juego se volvió brusco. Ante la duda, se pausa: bajar a los niños cinco minutos no le arruina la fiesta a nadie.",
+  },
+];
+
+// ── Por qué INFLAPY ──────────────────────────────────────────────────────────
+const whyFeatures = [
+  { title: "Treinta años en las calles de esta ciudad", body: "INFLAPY empezó en 1994 con un inflable y hoy va en la tercera generación de la misma familia. Eso significa que ya montaron en tu tipo de piso, en tu tipo de acceso y con tu tipo de vecino — en Iztapalapa, en Polanco y en una azotea de la Roma. La experiencia no está en un diploma: está en que ya les pasó." },
+  { title: "Operan directo, sin reventa", body: "El equipo que llega a tu evento es de INFLAPY, no un subcontratado que consiguieron el jueves. La flota es propia y el personal lleva años ahí. Cuando algo se complica, quien responde es alguien que conoce el inflable, no un intermediario buscando a quién llamarle." },
+  { title: "4.9★ con 312 reseñas en Google", body: "Es una calificación pública que cualquiera puede auditar, con volumen suficiente para que signifique algo. Cuando EVENTECH pone su nombre en tu evento, el operador de atrás tiene historial verificable — no una promesa nuestra." },
+  { title: "Anclaje según el piso, no «según se pueda»", body: "Estacas en tierra y pasto, contrapesos en cemento y azotea. Suena obvio y es justo lo que más se salta el proveedor improvisado, porque anclar bien toma veinte minutos más. Aquí no es opcional." },
+  { title: "Llegan 1 a 2 horas antes", body: "No a la hora del evento: antes. El inflable queda montado, anclado y revisado antes de que toque el timbre el primer invitado. Y te dejan un checklist por escrito de qué vigilar durante la fiesta, para que la seguridad no dependa de que alguien se acuerde." },
+  { title: "Un solo contacto: nosotros", body: "Tú tratas con EVENTECH. Si tu evento además lleva mobiliario, carpa, audio o iluminación, va todo en un contrato y un montaje coordinado. No acabas persiguiendo a cinco proveedores el sábado en la mañana." },
+];
+
+const steps = [
+  { n: 1, t: "Nos cuentas de la fiesta", p: "Por WhatsApp: la fecha, la zona y la edad de los invitados. Con eso te decimos cuál cabe en tu espacio y cuánto cuesta. Solemos contestar en menos de una hora." },
+  { n: 2, t: "Apartas con anticipo", p: "Si la fecha está libre, dejas anticipo y queda a tu nombre. Te confirmamos por escrito la hora de llegada, la dirección y cómo se paga el resto. Con 5 a 7 días de anticipación va cómodo; en mayo y diciembre, más." },
+  { n: 3, t: "Llegan, montan y anclan", p: "El equipo de INFLAPY llega 1 a 2 horas antes, monta, ancla según tu piso y revisa. Te deja el checklist de supervisión y un teléfono directo que sí contesta durante la fiesta." },
+  { n: 4, t: "Recogen al final", p: "Termina la fiesta, vuelven, lo desinflan y se lo llevan. Tú no cargas nada. El lavado y la desinfección para el siguiente evento corren de su lado." },
+];
+
+const faqs = [
+  { question: "¿Quién es INFLAPY y qué relación tiene con EVENTECH?", answer: "INFLAPY es nuestro aliado operador especializado en inflables: una empresa familiar mexicana fundada en 1994, hoy en su tercera generación, con 4.9★ y 312 reseñas verificadas en Google. La división del trabajo es simple: EVENTECH coordina tu evento completo —inflables, mobiliario, carpas, audio e iluminación— con un solo contrato y un solo contacto; INFLAPY opera la parte de inflables con su flota propia, su equipo y su protocolo. Tú tratas con nosotros y el montaje lo hace gente que lleva 30 años haciéndolo. Puedes revisar su historia y sus reseñas en su propio sitio, inflablesparafiestas.com.mx." },
+  { question: "¿Por qué solo ocho modelos?", answer: "Porque son los que hay, y es a propósito. El catálogo de INFLAPY son ocho modelos curados: elegidos por durabilidad probada en evento real, seguridad de anclaje en distintos pisos y cómo se ven en fotografía. Preferimos ocho que conocemos a fondo —medidas reales, edades reales, cuántos niños aguantan— que un catálogo de cien donde nadie te sabe decir si cabe en tu jardín. Si buscas algo que no está aquí, pregúntanos y te decimos de frente si podemos o no." },
+  { question: "¿Cuánto cuesta rentar un inflable?", answer: "Los chicos desde $800 (Mini Castillo), los medianos desde $1,200 (Dragones Rojos y Castillo de Princesas) y los grandes desde $1,700 (Castillo Blanco). Es por un evento de 4 a 6 horas e incluye entrega, instalación y recolección en CDMX. Te confirmamos el total exacto por WhatsApp según la zona y la duración; en Estado de México puede aplicar un costo de traslado que te informamos antes de apartar, nunca después." },
+  { question: "¿Para qué edades es cada grupo?", answer: "Los chicos son para 1 a 5 años (el Mini Castillo está pensado para 1 a 3). Los medianos cubren de 4 a 10: los Dragones Rojos para 4 a 12, el Castillo de Princesas y la Mini Jungla para 3 a 10, y los Gusanitos desde los 3. Los grandes son para todas las edades: el Barco Pirata desde los 4, el Extremo de 6 en adelante —incluidos adolescentes y adultos— y el Castillo Blanco sin restricción. Cada ficha trae la edad y la capacidad reales, no un rango de folleto." },
+  { question: "¿Cuántos adultos necesito supervisando?", answer: "Un adulto por cada 5 a 8 niños, según el tamaño del inflable, y alguien asignado exclusivamente al inflable durante toda la fiesta. En los modelos grandes conviene más de un adulto, separando por edad y estatura. Al instalar te entregan un checklist con esto por escrito — la idea es que no dependa de que alguien se acuerde a media fiesta." },
+  { question: "¿Cuánto espacio necesito?", answer: "El Mini Castillo pide 3 × 3 m y es el único apto para interiores, con techo de 2.5 m o más. Los medianos van de 5 × 5 a 6 × 5 m. El circuito Extremo necesita 8 × 5 m, y el Barco Pirata y el Castillo Blanco de 7 × 6 a 8 × 6 m con 5 m de altura libre. Además hay que dejar 2 m de separación alrededor y tener un contacto de 110V a menos de 15 m. Si no estás seguro, mándanos las medidas del espacio por WhatsApp y te decimos cuál cabe — es la duda más común y la resolvemos en dos mensajes." },
+  { question: "¿Qué pasa si hay viento o llueve?", answer: "Con viento fuerte se suspende el uso. Con lluvia se apaga y se desocupa de inmediato, porque la lona mojada resbala. Si el equipo llega y las condiciones no son seguras, lo dice en el momento y se reagenda sin costo, sujeto a disponibilidad. Si quieres mover la fecha por pronóstico, avísanos con al menos 2 horas de anticipación." },
+  { question: "¿En qué zonas entregan?", answer: "Las 16 alcaldías de la Ciudad de México con entrega gratuita: Álvaro Obregón, Azcapotzalco, Benito Juárez, Coyoacán, Cuajimalpa, Cuauhtémoc, Gustavo A. Madero, Iztacalco, Iztapalapa, Magdalena Contreras, Miguel Hidalgo, Milpa Alta, Tlalpan, Tláhuac, Venustiano Carranza y Xochimilco. También la zona poniente del Estado de México —Satélite, Interlomas, Naucalpan, Huixquilucan, Atizapán y Tlalnepantla— con un costo de traslado que te confirmamos antes de apartar." },
+  { question: "¿Los inflables están limpios?", answer: "Cada inflable se lava, desinfecta y revisa —costuras, soplador, anclajes y conexiones— antes de cada salida. Se usan productos seguros, sin olor fuerte, aptos para niños que van a estar ahí tres horas con la cara pegada a la lona. Es parte del protocolo, no un extra que se cobra aparte." },
+];
+
+const jsonLd = [
+  serviceJsonLd({
+    name: "Renta de Inflables INFLAPY en CDMX y Edomex — EVENTECH",
+    description: "Catálogo de inflables por tamaño y edad operado por INFLAPY, aliado de EVENTECH desde 1994: chicos (1–5 años), medianos (4–10) y grandes. Desde $800, con entrega, instalación, anclaje profesional y recolección incluidas en las 16 alcaldías de CDMX.",
+    url: `${BASE}/`,
+    image: mainImg(catalogo[0]),
+    priceRange: { min: PRICE_RANGE.min, max: PRICE_RANGE.max },
+  }),
+  breadcrumbJsonLd([
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/servicios/" },
+    { name: "Inflables", url: "/servicios/inflables/" },
+    { name: "INFLAPY", url: `${BASE}/` },
+  ]),
+  faqJsonLd(faqs),
+];
+
+const breadcrumbItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios/" },
+  { label: "Inflables", href: "/servicios/inflables/" },
+  { label: "INFLAPY" },
+];
+
+const waBase = `https://wa.me/${SITE.contact.whatsapp}?text=`;
+---
+
+<PageLayout
+  title="Inflables INFLAPY en CDMX — 30 Años y Catálogo por Edad"
+  rawTitle={true}
+  description="El catálogo de INFLAPY, aliado operador de EVENTECH desde 1994: inflables chicos, medianos y grandes desde $800. Entrega, anclaje profesional y recolección incluidas en CDMX."
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={breadcrumbItems} slot="breadcrumbs" />
+  <div class="hm">
+
+    <!-- HERO ─────────────────────────────────────────────────── -->
+    <section class="hm-hero" aria-labelledby="ip-hero-heading">
+      <div class="hm__wrap hm-hero__wrap">
+        <div class="hm-hero__grid">
+          <div class="hm-hero__main">
+            <p class="hm__eyebrow hm-hero__eyebrow">INFLAPY · Aliado operador de EVENTECH · CDMX y Edomex</p>
+            <h1 id="ip-hero-heading">Empezaron en 1994 con un inflable. <em>Hoy van en la tercera generación.</em></h1>
+            <p class="hm-hero__lead">
+              INFLAPY es la empresa familiar que opera nuestros inflables. Su catálogo,
+              organizado por tamaño y edad — chicos de 1 a 5 años, medianos de 4 a 10 y
+              grandes para todas. <strong>Desde $800</strong>, con entrega, anclaje
+              profesional y recolección incluidas.
+            </p>
+            <ul class="ip-trust">
+              <li><strong>1994</strong><span>Año de fundación</span></li>
+              <li><strong>4.9★</strong><span>312 reseñas en Google</span></li>
+              <li><strong>16</strong><span>Alcaldías con entrega</span></li>
+            </ul>
+            <div class="sv-hero__ctas">
+              <a class="hm__btn hm__btn--gold" href={`${waBase}${encodeURIComponent("Hola, quiero cotizar un inflable INFLAPY para mi fiesta")}`} target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.23 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+                Cotizar mi inflable
+              </a>
+              <a class="hm__btn hm__btn--ghost" href="#catalogo">
+                Ver catálogo
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="hm-hero__seo">
+            <p>
+              Rentar un inflable parece simple hasta que llega el sábado y el equipo no
+              cabe por el pasillo, o lo anclan con dos costales porque nadie preguntó si
+              el piso era cemento. Esas cosas no se arreglan con catálogo: se arreglan
+              con oficio.
+            </p>
+            <p>
+              Por eso los nuestros los opera <strong>INFLAPY</strong>, una empresa
+              familiar mexicana fundada en <strong>1994</strong> que solo hace esto. De su
+              flota curamos <strong>ocho modelos</strong>, del Mini Castillo para un primer
+              cumpleaños en departamento al Barco Pirata de 7 m para kermés. Tú tratas con
+              EVENTECH y, si el evento lo pide, sumamos
+              <a href="/servicios/mobiliario/">mobiliario</a>,
+              <a href="/servicios/carpas/">carpas</a> e
+              <a href="/servicios/iluminacion/">iluminación</a> en el mismo montaje.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NAV ─────────────────────────────────────────────────────── -->
+    <nav class="hm-menu" aria-label="Secciones del catálogo INFLAPY">
+      <ul class="hm-menu__grid hm-menu__grid--7">
+        <li><a class="hm-menu__item" href="#catalogo">Catálogo</a></li>
+        <li><a class="hm-menu__item" href="#historia">Historia</a></li>
+        <li><a class="hm-menu__item" href="#chicos">Chicos</a></li>
+        <li><a class="hm-menu__item" href="#medianos">Medianos</a></li>
+        <li><a class="hm-menu__item" href="#grandes">Grandes</a></li>
+        <li><a class="hm-menu__item" href="#seguridad">Seguridad</a></li>
+        <li><a class="hm-menu__item hm-menu__item--cta" href="#cotiza">Cotizar ahora</a></li>
+      </ul>
+    </nav>
+
+    <!-- CATÁLOGO ──────────────────────────────────────────────── -->
+    <section id="catalogo" class="hm__section" aria-labelledby="catalogo-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">8 modelos curados · 3 tamaños · desde $800</p>
+            <h2 id="catalogo-heading">Ocho inflables que conocemos de memoria</h2>
+            <p class="hm__head-sub">Ordenados de chico a grande, con el precio, las medidas y la edad reales de cada uno.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              El catálogo de INFLAPY son ocho modelos, y es una decisión, no una
+              limitación: preferimos ocho que conocemos a fondo
+              —cuántos niños aguantan, en qué piso se ancla bien, si cabe en tu jardín—
+              a un catálogo de cien donde nadie te sabe contestar eso.
+            </p>
+            <p>
+              Elige por el espacio que tienes y la edad de los invitados. Si buscas algo
+              que no está aquí, pregúntanos: si existe en su flota, lo conseguimos.
+            </p>
+          </div>
+        </div>
+
+        <div class="hm-cat-grid">
+          {catalogo.map((i) => (
+            <article class="hm-cat">
+              <a class="hm-cat__media" href={`${FICHAS}/${i.slug}/`} aria-label={`Ver ${i.name}`}>
+                <img class="hm-cat__img" src={cardImg(i)} alt={`Renta de inflable ${i.name} de INFLAPY para fiestas en CDMX — EVENTECH`} loading="lazy" decoding="async" width="640" height="480" />
+                <span class="hm-cat__badge">{i.badge}</span>
+                <span class="hm-cat__name">{i.name}</span>
+              </a>
+              <div class="hm-cat__body">
+                <p class="ip-price">{i.price} <span>· {CAT_LABEL[i.cat]}</span></p>
+                <p class="hm-cat__sub">{i.excerpt}</p>
+                <ul class="ip-specs">
+                  {i.specsLine.map((s) => (<li>{s}</li>))}
+                </ul>
+                <a class="hm-cat__cta" href={`${FICHAS}/${i.slug}/`}>
+                  Ver ficha de {i.name}
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- HISTORIA — contenido propio ────────────────────────────── -->
+    <section id="historia" class="hm__section hm__section--ivory" aria-labelledby="hist-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Quién está detrás · 1994–hoy</p>
+            <h2 id="hist-heading">Treinta años, tres generaciones, un solo oficio</h2>
+            <p class="hm__head-sub">La historia de INFLAPY explica mejor que cualquier argumento por qué trabajamos con ellos.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              En este negocio abrir es fácil: compras dos inflables y una camioneta y ya
+              eres proveedor. Lo difícil es seguir abierto en treinta años, porque el
+              oficio solo se aprende de una forma — montando en pisos imposibles, aguantando
+              temporadas malas y contestando el teléfono un sábado a las siete de la tarde.
+            </p>
+            <p>
+              INFLAPY lleva haciendo eso desde 1994. Los hitos de abajo son de su propia
+              historia, publicada en
+              <a href={INFLAPY_URL} target="_blank" rel="noopener noreferrer">inflablesparafiestas.com.mx</a>.
+            </p>
+          </div>
+        </div>
+
+        <ol class="ip-time">
+          {HITOS.map((h) => (
+            <li class="ip-time__item">
+              <span class="ip-time__year">{h.year}</span>
+              <div class="ip-time__body">
+                <h3>{h.t}</h3>
+                <p>{h.p}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+
+        <blockquote class="ip-quote">
+          <p>
+            «Llevamos 15 años contratando a INFLAPY para todas las fiestas de nuestros
+            hijos. Los vi crecer como empresa y ellos vieron crecer a mis hijos. Ahora mi
+            hija mayor ya los contrata para los cumpleaños de mis nietos.»
+          </p>
+          <footer>
+            <strong>Martha R.</strong> · Coyoacán · cliente de INFLAPY desde 2009
+            <span>Reseña publicada en <a href="https://inflablesparafiestas.com.mx/opiniones/" target="_blank" rel="noopener noreferrer">las opiniones de INFLAPY</a> — 4.9★ con 312 reseñas verificadas en Google.</span>
+          </footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- MÓDULOS POR TAMAÑO ─────────────────────────────────────── -->
+    <section class="hm__section" aria-labelledby="detalle-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Cómo elegir</p>
+            <h2 id="detalle-heading">Los tres tamaños, y qué cambia en cada uno</h2>
+            <p class="hm__head-sub">No solo cambia la medida: cambian la edad, la capacidad y cuántos adultos hacen falta.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              La pregunta que más nos hacen no es cuál es el más bonito, es «¿cuál cabe?».
+              Y la segunda es «¿le va a gustar a niños de seis y de doce al mismo tiempo?».
+              Las dos se contestan igual: mide tu espacio y dinos las edades.
+            </p>
+            <p>
+              INFLAPY divide su flota en tres grupos porque los tres piden operaciones
+              distintas. Un Mini Castillo en una sala y un Barco Pirata en una kermés no
+              se parecen en nada: ni el anclaje, ni el camión, ni el número de adultos.
+            </p>
+          </div>
+        </div>
+
+        {GRUPOS.map((g) => {
+          const models = byCat(g.cat);
+          const hero = models[0];
+          return (
+          <article class="hm-feat" id={g.id} aria-labelledby={`feat-${g.id}`}>
+            <div class="hm-feat__text">
+              <p class="hm__eyebrow">{g.eyebrow}</p>
+              <h3 class="hm-feat__title" id={`feat-${g.id}`}>{g.title}</h3>
+              <p class="hm-feat__lead">{g.lead}</p>
+              <p set:html={g.body1} />
+              <p set:html={g.body2} />
+              <ul class="hm-feat__chips">
+                {models.map((m) => (<li><a href={`${FICHAS}/${m.slug}/`}>{m.name}</a></li>))}
+              </ul>
+              <a class="hm-feat__cta" href="#catalogo">
+                Ver estos inflables
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </div>
+            <div class="hm-feat__media hm-feat__media--g3">
+              <img class="hm-feat__g3-main" src={mainImg(hero)} alt={`Inflables ${CAT_LABEL[g.cat].toLowerCase()}s de INFLAPY para fiestas en CDMX — EVENTECH`} loading="lazy" decoding="async" />
+              <div class="hm-feat__g3-thumbs">
+                <img src={photoImg(hero.slug, 2, true)} alt={`Renta del inflable ${hero.name} en CDMX`} loading="lazy" decoding="async" />
+                <img src={photoImg(hero.slug, 3, true)} alt={`Inflable ${hero.name} instalado en un evento`} loading="lazy" decoding="async" />
+              </div>
+            </div>
+          </article>
+          );
+        })}
+      </div>
+    </section>
+
+    <!-- PROTOCOLO DE SEGURIDAD — contenido propio ──────────────── -->
+    <section id="seguridad" class="hm__section hm__section--ivory" aria-labelledby="seg-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Protocolo INFLAPY</p>
+            <h2 id="seg-heading">Lo que sale mal, casi siempre sale mal igual</h2>
+            <p class="hm__head-sub">Anclaje flojo, demasiados niños en un turno, o seguir jugando cuando ya empezó el aire.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Los accidentes con inflables casi nunca son culpa del inflable. Son tres
+              causas, siempre las mismas, y las tres se evitan: mal anclado, sobrecargado,
+              o usado cuando el clima ya dijo que no.
+            </p>
+            <p>
+              Este es el resumen del protocolo que INFLAPY aplica en cada montaje y que
+              entrega por escrito al adulto responsable. La versión completa está en su
+              <a href="https://inflablesparafiestas.com.mx/guia-seguridad/" target="_blank" rel="noopener noreferrer">guía de seguridad</a>.
+            </p>
+          </div>
+        </div>
+        <ul class="ip-proto">
+          {PROTOCOLO.map((s) => (
+            <li class="ip-proto__item">
+              <h3>{s.t}</h3>
+              <p>{s.p}</p>
+            </li>
+          ))}
+        </ul>
+        <p class="ip-proto__note">
+          La regla que resume todo: <strong>ante la duda, se pausa</strong>. Y si algo se
+          ofrece durante tu evento, escríbenos — hay alguien contestando los siete días.
+        </p>
+      </div>
+    </section>
+
+    <!-- POR QUÉ INFLAPY ────────────────────────────────────────── -->
+    <section class="hm__section hm__section--navy" aria-labelledby="why-heading">
+      <div class="hm__wrap">
+        <div class="hm__head">
+          <p class="hm__eyebrow">Por qué ellos</p>
+          <h2 id="why-heading">Lo que aporta un aliado con treinta años</h2>
+          <p class="hm__head-sub">EVENTECH coordina el evento completo; INFLAPY pone el oficio en la parte que más cuidado pide.</p>
+        </div>
+        <ul class="hm-why">
+          {whyFeatures.map((f) => (
+            <li class="hm-why__item">
+              <div class="hm-why__ic" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+              </div>
+              <h3>{f.title}</h3>
+              <p>{f.body}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- CÓMO FUNCIONA ──────────────────────────────────────────── -->
+    <section class="hm__section" aria-labelledby="proceso-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Cómo funciona</p>
+            <h2 id="proceso-heading">Pides, llegan, se infla, se vacía</h2>
+            <p class="hm__head-sub">Cuatro pasos. Tú no montas, no cargas y no desmontas nada.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Un solo contacto: EVENTECH. Nos escribes por WhatsApp, confirmamos
+              disponibilidad y precio por escrito, el equipo llega el día acordado a la
+              hora acordada y al final recoge todo. Sin letras chiquitas y sin sorpresas
+              en la factura.
+            </p>
+          </div>
+        </div>
+        <ol class="hm-steps">
+          {steps.map((s) => (
+            <li class="hm-step">
+              <div class="hm-step__num">{s.n}</div>
+              <h3>{s.t}</h3>
+              <p>{s.p}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- FAQ + FORMULARIO ──────────────────────────────────────── -->
+    <section id="cotiza" class="hm__section hm__section--ivory" aria-labelledby="faq-heading">
+      <div class="hm__wrap">
+        <div class="hm__head hm__head--split">
+          <div class="hm__head-title">
+            <p class="hm__eyebrow">Antes de apartar</p>
+            <h2 id="faq-heading">Preguntas frecuentes sobre los inflables de INFLAPY</h2>
+            <p class="hm__head-sub">Quién opera, cuánto cuesta, cuánto espacio pide y qué pasa si llueve.</p>
+          </div>
+          <div class="hm__head-copy">
+            <p>
+              Estas son las dudas que escuchamos casi todos los días. Si la tuya no está
+              aquí —un espacio raro, una azotea, una fecha de temporada alta— escríbenos
+              por WhatsApp: se resuelve en dos mensajes.
+            </p>
+            <p>
+              Cobertura en las 16 alcaldías de CDMX y la zona poniente del Estado de
+              México, con entrega, instalación y recolección incluidas.
+            </p>
+          </div>
+        </div>
+
+        <div class="hm-faqx">
+          <div class="hm-faq">
+            {faqs.map((faq) => (
+              <details class="hm-faq__item">
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+
+          <aside class="hm-faqx__aside" aria-labelledby="ipform-heading">
+            <form id="ipForm" class="hm-form" data-wa={SITE.contact.whatsapp}>
+              <p class="hm-form__eyebrow">Respuesta en menos de 1 hora</p>
+              <h3 id="ipform-heading" class="hm-form__title">Cotiza tu inflable</h3>
+              <p class="hm-form__sub">Cuéntanos de la fiesta y te decimos cuál cabe en tu espacio y va con la edad de los invitados.</p>
+
+              <label class="hm-form__field">
+                <span>Nombre</span>
+                <input type="text" name="nombre" autocomplete="name" placeholder="Tu nombre" required />
+              </label>
+
+              <label class="hm-form__field">
+                <span>Tipo de evento</span>
+                <select name="tipo">
+                  <option value="">Selecciona…</option>
+                  <option>Cumpleaños</option>
+                  <option>Bautizo</option>
+                  <option>Primera comunión</option>
+                  <option>Kermés escolar</option>
+                  <option>Boda / XV años</option>
+                  <option>Evento corporativo</option>
+                  <option>Otro</option>
+                </select>
+              </label>
+
+              <label class="hm-form__field">
+                <span>Fecha del evento</span>
+                <input type="date" name="fecha" />
+              </label>
+
+              <label class="hm-form__field">
+                <span>¿Qué inflable te interesa?</span>
+                <select name="modelo">
+                  <option value="">No estoy seguro, asesórenme</option>
+                  <option>Inflable chico (1–5 años)</option>
+                  <option>Inflable mediano (4–10 años)</option>
+                  <option>Inflable grande (todas las edades)</option>
+                  {catalogo.map((i) => (<option>{i.name}</option>))}
+                </select>
+              </label>
+
+              <label class="hm-form__field">
+                <span>¿Qué necesitas?</span>
+                <textarea name="mensaje" rows="3" placeholder="Zona, número de niños, tipo de espacio (jardín/salón/departamento)…"></textarea>
+              </label>
+
+              <button type="submit" class="hm-form__btn">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.23 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42l-.48-.01c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z" /></svg>
+                Enviar por WhatsApp
+              </button>
+              <p class="hm-form__note">Se abrirá WhatsApp con tu consulta. Sin compromiso.</p>
+            </form>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /hm -->
+
+  <script>
+    const ipForm = document.getElementById("ipForm");
+    if (ipForm) {
+      ipForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const f = e.currentTarget as HTMLFormElement;
+        const wa = f.dataset.wa;
+        const data = new FormData(f);
+        const get = (k: string) => (data.get(k) || "").toString().trim();
+        let t = "Hola, quiero cotizar un inflable INFLAPY para mi fiesta.";
+        if (get("nombre"))  t += `\nNombre: ${get("nombre")}`;
+        if (get("tipo"))    t += `\nTipo de evento: ${get("tipo")}`;
+        if (get("fecha"))   t += `\nFecha: ${get("fecha")}`;
+        if (get("modelo"))  t += `\nInflable: ${get("modelo")}`;
+        if (get("mensaje")) t += `\nDetalles: ${get("mensaje")}`;
+        window.open(`https://wa.me/${wa}?text=${encodeURIComponent(t)}`, "_blank", "noopener");
+      });
+    }
+  </script>
+</PageLayout>
+
+<style>
+  /* Barra de confianza en el hero */
+  .ip-trust {
+    list-style: none; margin: 0 0 24px; padding: 0;
+    display: flex; flex-wrap: wrap; gap: 28px;
+  }
+  .ip-trust li { display: flex; flex-direction: column; gap: 2px; }
+  .ip-trust strong {
+    font-family: var(--font-display); font-size: 1.6rem; line-height: 1;
+    color: var(--color-gold, #c2a24a);
+  }
+  .ip-trust span { font-size: 0.78rem; color: rgba(255, 255, 255, 0.7); }
+
+  /* Precio + categoría en tarjeta */
+  .ip-price { margin: 0 0 8px; font-weight: 700; color: var(--color-gold-deep, #a9883a); font-size: 0.95rem; }
+  .ip-price span { color: var(--color-muted, #7a7264); font-weight: 600; }
+
+  /* Specs chips dentro de la tarjeta */
+  .ip-specs { list-style: none; margin: 0 0 16px; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+  .ip-specs li {
+    font-size: 0.72rem; font-weight: 600; color: var(--color-primary, #1a1a2e);
+    background: var(--color-ivory-alt, #f3efe7); border: 1px solid var(--color-hairline, #e7e1d6);
+    padding: 3px 9px; border-radius: 999px;
+  }
+
+  /* Línea de tiempo */
+  .ip-time { list-style: none; margin: 0; padding: 0; }
+  .ip-time__item {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: clamp(16px, 2.5vw, 36px);
+    padding: 24px 0;
+    border-top: 1px solid var(--color-hairline, #e7e1d6);
+  }
+  .ip-time__item:first-child { border-top: 0; padding-top: 0; }
+  .ip-time__item:last-child { padding-bottom: 0; }
+  .ip-time__year {
+    font-family: var(--font-display); font-size: 1.5rem; line-height: 1.1;
+    color: var(--color-gold-deep, #a9883a); font-weight: 600;
+  }
+  .ip-time__body h3 {
+    margin: 0 0 6px; font-family: var(--font-display); font-size: 1.15rem;
+    color: var(--color-primary, #1a1a2e);
+  }
+  .ip-time__body p { margin: 0; font-size: 0.95rem; line-height: 1.7; color: var(--color-muted, #7a7264); }
+
+  /* Cita de cliente */
+  .ip-quote {
+    margin: clamp(32px, 4vw, 48px) 0 0;
+    padding: clamp(24px, 3vw, 36px);
+    background: #fff;
+    border: 1px solid var(--color-hairline, #e7e1d6);
+    border-left: 3px solid var(--color-gold, #c2a24a);
+  }
+  .ip-quote p {
+    margin: 0 0 16px;
+    font-family: var(--font-display); font-style: italic;
+    font-size: clamp(1.05rem, 1.6vw, 1.3rem); line-height: 1.6;
+    color: var(--color-primary, #1a1a2e);
+  }
+  .ip-quote footer { font-size: 0.85rem; color: var(--color-muted, #7a7264); }
+  .ip-quote footer strong { color: var(--color-primary, #1a1a2e); }
+  .ip-quote footer span { display: block; margin-top: 6px; font-size: 0.8rem; }
+
+  /* Protocolo de seguridad */
+  .ip-proto {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: clamp(16px, 1.6vw, 24px);
+  }
+  .ip-proto__item {
+    background: #fff; border: 1px solid var(--color-hairline, #e7e1d6);
+    border-top: 3px solid var(--color-gold, #c2a24a);
+    border-radius: 0; padding: 20px 18px;
+  }
+  .ip-proto__item h3 {
+    margin: 0 0 8px; font-family: var(--font-display); font-size: 1.05rem;
+    color: var(--color-primary, #1a1a2e);
+  }
+  .ip-proto__item p { margin: 0; font-size: 0.88rem; line-height: 1.65; color: var(--color-muted, #7a7264); }
+  .ip-proto__note {
+    margin: 24px 0 0; padding-top: 18px;
+    border-top: 1px solid var(--color-hairline, #e7e1d6);
+    font-size: 0.92rem; color: var(--color-muted, #7a7264);
+  }
+
+  @media (max-width: 1024px) {
+    .ip-proto { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .ip-proto { grid-template-columns: 1fr; }
+    .ip-trust { gap: 18px; }
+    .ip-time__item { grid-template-columns: 1fr; gap: 6px; }
+    .ip-time__year { font-size: 1.25rem; }
+  }
+</style>
