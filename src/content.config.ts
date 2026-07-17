@@ -31,100 +31,6 @@ const heroSchema = z.object({
 });
 
 // ============================================
-// SERVICIOS Collection
-// ============================================
-const servicios = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/servicios" }),
-  schema: z.object({
-    // Basic metadata
-    title: z.string(),
-    description: z.string().max(160),
-
-    // Hierarchy
-    category: z.enum([
-      "mobiliario",
-      "audiovisual",
-      "carpas",
-      "pistas-baile",
-      "barras",
-      "accesorios",
-      "iluminacion",
-    ]),
-    subcategory: z.string().optional(),
-    parentService: z.string().optional(),
-
-    // SEO
-    seoTitle: z.string().max(70).optional(),
-    seoDescription: z.string().max(160).optional(),
-    keywords: z.array(z.string()).optional(),
-    noindex: z.boolean().default(false),
-
-    // Visual
-    image: z.string().optional(),
-    gallery: z.array(z.string()).optional(),
-
-    // Pricing (for transparency)
-    pricing: z
-      .object({
-        min: z.number(),
-        max: z.number(),
-        unit: z.enum(["pieza", "set", "evento", "hora", "día"]),
-        note: z.string().optional(),
-      })
-      .optional(),
-
-    // Specs
-    specs: z
-      .array(
-        z.object({
-          label: z.string(),
-          value: z.string(),
-        })
-      )
-      .optional(),
-
-    // What's included
-    includes: z.array(z.string()).optional(),
-
-    // Relationships
-    relatedServices: z.array(z.string()).optional(),
-    idealForEvents: z.array(z.string()).optional(),
-
-    // Sub-services (for hub pages)
-    subServices: z
-      .array(
-        z.object({
-          name: z.string(),
-          excerpt: z.string(),
-          cta: z.string(),
-          href: z.string(),
-          icon: z.string().optional(),
-        })
-      )
-      .optional(),
-
-    // FAQs
-    faqs: z
-      .array(
-        z.object({
-          question: z.string(),
-          answer: z.string(),
-        })
-      )
-      .optional(),
-
-    // Hero section
-    hero: heroSchema.optional(),
-
-    // Metadata
-    order: z.number().default(0),
-    featured: z.boolean().default(false),
-    isHub: z.boolean().default(false),
-    publishedAt: z.coerce.date().optional(),
-  }),
-});
-
-// ============================================
 // EVENTOS Collection
 // ============================================
 const eventos = defineCollection({
@@ -534,29 +440,11 @@ const venues = defineCollection({
 });
 
 // ============================================
-// PAGES Collection (for static pages)
-// ============================================
-const pages = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/pages" }),
-  schema: z.object({
-    title: z.string(),
-    description: z.string().max(160),
-    image: z.string().optional(),
-    noindex: z.boolean().default(false),
-
-    // Hero section (usa el schema reutilizable)
-    hero: heroSchema.optional(),
-  }),
-});
-
-// ============================================
 // Export all collections
 // ============================================
 export const collections = {
-  servicios,
   eventos,
   zonas,
   blog,
-  pages,
   venues,
 };

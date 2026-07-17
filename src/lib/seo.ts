@@ -163,7 +163,9 @@ export function serviceJsonLd(service: {
     "@context": "https://schema.org",
     // Multi-type Service+Product: los motores de IA (ZeroRank check) buscan
     // Product en páginas de equipo rentable; Service describe la renta.
-    "@type": ["Service", "Product"],
+    // Sin priceRange NO emitimos Product: Google exige offers/review/rating
+    // en Product y generaría avisos en Search Console (hubs L3).
+    "@type": service.priceRange ? ["Service", "Product"] : "Service",
     name: service.name,
     description: service.description,
     url: canonicalURL(service.url),
