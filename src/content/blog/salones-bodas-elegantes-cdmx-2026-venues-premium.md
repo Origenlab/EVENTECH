@@ -48,7 +48,7 @@ cta:
   href: "/cotizar/"
 ---
 
-# 5 Salones para Bodas Elegantes en CDMX 2026: Venues Premium para Celebraciones que Trascienden
+## 5 Salones para Bodas Elegantes en CDMX 2026: Venues Premium para Celebraciones que Trascienden
 
 Una boda elegante no se improvisa. Se diseña. Cada detalle — desde la textura del mantel hasta el ángulo preciso de los candelabros, desde la temperatura de color de la iluminación hasta la acústica del primer vals — debe responder a una visión integral que transforma un espacio en una experiencia sensorial completa. En Ciudad de México, donde conviven haciendas coloniales del siglo XVII con terrazas urbanas de cristal y acero, la elección del venue define el 80% del carácter de la celebración.
 

@@ -50,7 +50,7 @@ cta:
   href: "/directorio/"
 ---
 
-# 5 Jardines para Eventos al Aire Libre en CDMX que Debes Conocer en 2026
+## 5 Jardines para Eventos al Aire Libre en CDMX que Debes Conocer en 2026
 
 En 2026 los eventos al aire libre en Ciudad de México no son una tendencia: son una preferencia consolidada. Después de que la demanda de jardines para bodas creció un 42% entre 2023 y 2025 según la Asociación de Banqueteros de la CDMX, los mejores venues ajardinados de la capital operan con reservaciones de 6 a 10 meses de anticipación —especialmente entre marzo y mayo, cuando la floración de jacarandas y las temperaturas de 22-26 °C crean las condiciones perfectas para ceremonias al aire libre.
 

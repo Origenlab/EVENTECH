@@ -32,7 +32,7 @@ relatedPosts:
   - guia-mobiliario-eventos-sillas-mesas-lounge-cdmx
 ---
 
-# La Guía Definitiva para Equipar Tu Boda en CDMX
+## La Guía Definitiva para Equipar Tu Boda en CDMX
 
 Tu boda es el evento más importante de tu vida. Cada detalle cuenta, cada elemento contribuye a la experiencia. Esta guía integra **los 8 pilares del equipamiento profesional** para que tu día sea absolutamente perfecto—sin sorpresas, sin improvisaciones, solo momentos memorables.
 

@@ -84,12 +84,17 @@ const breadcrumbItems = [
   { label: "Inicio", href: "/" },
   { label: "Blog" },
 ];
+
+// Descripción única por página de paginación (evita metas duplicadas)
+const pageDescription = currentPage > 1
+  ? `Página ${currentPage} de ${totalPages} del blog EVENTECH: artículos ${page.start + 1} al ${page.end + 1} de ${page.total} sobre bodas, XV años y eventos corporativos en CDMX.`
+  : "Guías prácticas, tendencias y consejos de expertos para organizar bodas, XV años y eventos corporativos en CDMX. 30 años de experiencia en cada artículo.";
 ---
 
 <PageLayout
   title={pageTitle}
   rawTitle={true}
-  description="Guías prácticas, tendencias y consejos de expertos para organizar bodas, XV años y eventos corporativos en CDMX. 30 años de experiencia en cada artículo."
+  description={pageDescription}
   jsonLd={jsonLd}
 >
 
@@ -162,9 +167,11 @@ const breadcrumbItems = [
             <p class="hm__eyebrow">
               {currentPage === 1 ? `${allPosts.length} artículos publicados` : `Página ${currentPage} de ${totalPages}`}
             </p>
-            <h2 id="articulos-heading">
-              {currentPage === 1 ? "Artículos y guías" : `Artículos · Página ${currentPage}`}
-            </h2>
+            {currentPage === 1 ? (
+              <h2 id="articulos-heading">Artículos y guías</h2>
+            ) : (
+              <h1 id="articulos-heading">Blog — Artículos · Página {currentPage}</h1>
+            )}
             <p class="hm__head-sub">
               {currentPage === 1
                 ? "Usa los filtros para navegar por tipo de evento. El artículo destacado es el más reciente."

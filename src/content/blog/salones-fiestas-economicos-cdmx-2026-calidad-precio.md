@@ -50,7 +50,7 @@ cta:
   href: "/directorio/"
 ---
 
-# 5 Salones de Fiestas Económicos en CDMX 2026: Calidad Real sin Gastar de Más
+## 5 Salones de Fiestas Económicos en CDMX 2026: Calidad Real sin Gastar de Más
 
 Celebrar es un derecho, no un privilegio. Cada familia en la Ciudad de México merece reunirse para festejar los momentos que importan — un bautizo, unos XV años, una boda, el cumpleaños de los hijos — sin que el presupuesto se convierta en una fuente de estrés que opaque la alegría del evento.
 
