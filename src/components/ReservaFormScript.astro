@@ -1,0 +1,83 @@
+---
+/**
+ * ─── ReservaFormScript ───
+ * Script ÚNICO del formulario "reserva/cotiza por WhatsApp" de las páginas de
+ * servicio (antes: ~233 copias inline con define:vars, una por página).
+ *
+ * Uso en la página:
+ *   <form class="reserva-form" id="reservaForm" novalidate
+ *         data-wa-number={SITE.contact.whatsapp}
+ *         data-wa-title="Pista Disco con Espejos">
+ *   ...
+ *   <ReservaFormScript />
+ *
+ * El mensaje se construye genéricamente recorriendo los campos del form en orden
+ * DOM, usando el texto del <label> asociado. Campos vacíos opcionales se omiten.
+ * Requeridos: #nombre, #telefono, #mensaje (marcados con error si faltan).
+ * Al ser un <script> procesado (sin atributos), Astro lo bundlea y dedupea:
+ * un solo archivo JS compartido por todas las páginas.
+ */
+---
+
+<script>
+  const form = document.getElementById("reservaForm") as HTMLFormElement | null;
+  if (form) {
+    const REQUIRED = ["nombre", "telefono", "mensaje"];
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      // Validación de requeridos
+      let missing = false;
+      for (const id of REQUIRED) {
+        const el = document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement | null;
+        if (el && !el.value.trim()) {
+          el.classList.add("form-field__input--error");
+          missing = true;
+        }
+      }
+      if (missing) return;
+
+      const title = form.dataset.waTitle || document.title.split("|")[0].trim();
+      const number = form.dataset.waNumber || "525530682988";
+
+      const labelFor = (id: string): string => {
+        const lab = form.querySelector(`label[for="${id}"]`);
+        return (lab?.textContent || id).replace("*", "").trim();
+      };
+
+      let texto = `*${title}*\n\n`;
+      const fields = form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(
+        "input[id], select[id], textarea[id]"
+      );
+      let mensajeFinal = "";
+      fields.forEach((el) => {
+        const val = el.value.trim();
+        if (!val) return;
+        if (el.id === "mensaje") {
+          mensajeFinal = val; // el mensaje libre va al final
+          return;
+        }
+        if (el.id === "fecha") {
+          const d = new Date(val + "T12:00:00");
+          const fechaTexto = d.toLocaleDateString("es-MX", {
+            weekday: "long", year: "numeric", month: "long", day: "numeric",
+          });
+          texto += `*${labelFor(el.id)}:* ${fechaTexto}\n`;
+          return;
+        }
+        texto += `*${labelFor(el.id)}:* ${val}\n`;
+      });
+      if (mensajeFinal) texto += `\n*Mensaje:*\n${mensajeFinal}`;
+
+      window.open(`https://wa.me/${number}?text=${encodeURIComponent(texto)}`, "_blank");
+    });
+
+    // Quitar marca de error al teclear
+    form.querySelectorAll(".form-field__input").forEach((input) => {
+      input.addEventListener("input", function (this: HTMLElement) {
+        this.classList.remove("form-field__input--error");
+      });
+    });
+  }
+</script>

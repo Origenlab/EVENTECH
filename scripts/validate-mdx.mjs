@@ -147,6 +147,48 @@ function validateProps(content, file, errors, warnings) {
   }
 }
 
+// ── Checks añadidos en auditoría 2026-07-17 (los 2 bugs que llegaron a producción) ──
+
+// H1 en el body de un post: el layout ya emite <h1> desde el frontmatter → doble H1.
+function validateNoBodyH1(content, rel, errors) {
+  const parts = content.split(/^---\s*$/m);
+  const body = parts.length >= 3 ? parts.slice(2).join('---') : content;
+  let inCode = false;
+  for (const line of body.split('\n')) {
+    if (/^```/.test(line.trim())) { inCode = !inCode; continue; }
+    if (!inCode && /^# /.test(line)) {
+      errors.push(`${rel}: H1 markdown en el body ("${line.slice(0, 60)}…") — el layout ya emite el H1; usa ##`);
+      return;
+    }
+  }
+}
+
+// Galerías de venues apuntando a imágenes inexistentes en public/
+// (bug histórico: 959/959 refs rotas). Warning, no error: el filtro de build
+// evita 404s, pero el frontmatter no debe mentir indefinidamente.
+function validateVenueGalleries(warnings) {
+  const VENUES_DIR = path.join(ROOT, 'src', 'content', 'venues');
+  if (!fs.existsSync(VENUES_DIR)) return;
+  let broken = 0, files = 0;
+  function walk(dir) {
+    for (const n of fs.readdirSync(dir)) {
+      const p = path.join(dir, n);
+      if (fs.statSync(p).isDirectory()) { walk(p); continue; }
+      if (!n.endsWith('.md')) continue;
+      const content = fs.readFileSync(p, 'utf8');
+      const fmEnd = content.indexOf('---', 3);
+      const fm = fmEnd > 0 ? content.slice(0, fmEnd) : content;
+      const refs = [...fm.matchAll(/^\s*-\s*["']?(\/images\/[^"'\s]+)["']?\s*$/gm)].map(m => m[1]);
+      const missing = refs.filter(r => !fs.existsSync(path.join(ROOT, 'public', r)));
+      if (missing.length) { broken += missing.length; files++; }
+    }
+  }
+  walk(VENUES_DIR);
+  if (broken > 0) {
+    warnings.push(`venues: ${broken} imagen(es) de galería inexistentes en public/ (en ${files} fichas) — se filtran en build, pero conviene poblar o podar`);
+  }
+}
+
 function main() {
   const files = listMdx(BLOG_DIR);
   if (files.length === 0) {
@@ -164,7 +206,10 @@ function main() {
     validateImports(content, rel, componentIdx, errors);
     validateClosingTags(content, rel, errors);
     validateProps(content, rel, errors, warnings);
+    validateNoBodyH1(content, rel, errors);
   }
+
+  validateVenueGalleries(warnings);
 
   if (warnings.length) {
     console.warn('validate-mdx WARNINGS:');

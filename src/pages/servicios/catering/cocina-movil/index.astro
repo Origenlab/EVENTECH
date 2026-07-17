@@ -17,6 +17,7 @@ import '@styles/l3-shared.css';
 import Gallery4x4 from "@components/Gallery4x4.astro";
 import PricingCards from "@components/PricingCards.astro";
 import FaqSection from "@components/FaqSection.astro";
+import ReservaFormScript from "@components/ReservaFormScript.astro";
 
 const breadcrumbItems = [
   { label: "Inicio", href: "/" },
@@ -411,7 +412,7 @@ const jsonLd = [
       />
 
       <div class="reserva-layout">
-        <form class="reserva-form" id="reservaForm" novalidate>
+        <form class="reserva-form" id="reservaForm" novalidate data-wa-number={SITE.contact.whatsapp} data-wa-title="Nueva solicitud desde EVENTECH.MX — Cocina Móvil">
           <div class="reserva-form__grid">
             <div class="form-field">
               <label class="form-field__label" for="nombre">
@@ -537,48 +538,7 @@ const jsonLd = [
     </div>
   </section>
 
-  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
-    document.getElementById('reservaForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const nombre = document.getElementById('nombre').value.trim();
-      const telefono = document.getElementById('telefono').value.trim();
-      const tipoEvento = document.getElementById('tipoEvento').value;
-      const fecha = document.getElementById('fecha').value;
-      const tipoCocina = document.getElementById('tipoCocina').value;
-      const mensaje = document.getElementById('mensaje').value.trim();
-
-      if (!nombre || !telefono || !mensaje) {
-        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
-        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
-        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
-        return;
-      }
-
-      let fechaTexto = 'No especificada';
-      if (fecha) {
-        const d = new Date(fecha + 'T12:00:00');
-        fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-      }
-
-      let texto = `*Nueva solicitud desde EVENTECH.MX — Cocina Móvil*\n\n`;
-      texto += `*Nombre:* ${nombre}\n`;
-      texto += `*Teléfono:* ${telefono}\n`;
-      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
-      texto += `*Fecha del evento:* ${fechaTexto}\n`;
-      if (tipoCocina) texto += `*Tipo de equipo:* ${tipoCocina}\n`;
-      texto += `\n*Mensaje:*\n${mensaje}`;
-
-      const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`;
-      window.open(url, '_blank');
-    });
-
-    document.querySelectorAll('.form-field__input').forEach(function(input) {
-      input.addEventListener('input', function() {
-        this.classList.remove('form-field__input--error');
-      });
-    });
-  </script>
+  <ReservaFormScript />
 
   <!-- ═══════════════════════════════════════════════════════════════════════
        CTA FINAL
@@ -597,7 +557,7 @@ const jsonLd = [
      ═══════════════════════════════════════════════════════════════════════ -->
 <style is:global>
   :root {
-    --color-accent: #6c5ce7;
+    --color-accent: #6c5ce7; --color-accent-text: #584ac2;
     --color-accent-hover: #5a4fd6;
     --color-accent-light: #8b7ff0;
     --color-accent-soft: rgba(108, 92, 231, 0.1);

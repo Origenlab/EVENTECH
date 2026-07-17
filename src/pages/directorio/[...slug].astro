@@ -8,6 +8,7 @@ import Breadcrumbs from "@components/Breadcrumbs.astro";
 import VenueCard from "@components/directorio/VenueCard.astro";
 import { getCollection, render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 import { breadcrumbJsonLd, venueJsonLd, collectionPageJsonLd, itemListJsonLd, faqJsonLd } from "@lib/seo";
 import { SERVICE_CATEGORIES, SITE } from "@config/site";
 import { hasEventTypePage, hasVenueTypePage } from "@lib/directorio-taxonomy";
@@ -26,13 +27,28 @@ type VenueReview = {
 // Get all venues
 const allVenues: CollectionEntry<"venues">[] = await getCollection("venues");
 
+// Props tipados por tipo de página del directorio
+type DirectorioProps =
+  | { type: "region"; region: string; venues: CollectionEntry<"venues">[]; zones: string[] }
+  | { type: "zone"; region: string; zone: string; zoneName: string; venues: CollectionEntry<"venues">[] }
+  | { type: "venue"; region: string; zone: string; zoneName: string; venue: CollectionEntry<"venues"> };
+
 // Generate static paths
 export async function getStaticPaths() {
   const allVenues: CollectionEntry<"venues">[] = await getCollection("venues");
-  const paths: Array<{ params: { slug: string }, props: any }> = [];
+  const paths: Array<{ params: { slug: string }, props: DirectorioProps }> = [];
 
-  // Region paths: /directorio/cdmx/, /directorio/estado-mexico/
-  const regions = ["cdmx", "estado-mexico"];
+  // Regiones derivadas de la colección; las conocidas primero para orden estable.
+  const KNOWN_REGIONS = ["cdmx", "estado-mexico"];
+  const foundRegions = [...new Set(allVenues.map(v => v.data.region))];
+  const regions = [...KNOWN_REGIONS.filter(r => foundRegions.includes(r)),
+    ...foundRegions.filter(r => !KNOWN_REGIONS.includes(r))];
+  // Aviso en build si aparece una región nueva (antes se omitía en silencio → venues invisibles)
+  for (const r of foundRegions) {
+    if (!KNOWN_REGIONS.includes(r)) {
+      console.warn(`[directorio] Región no reconocida "${r}" — se genera igualmente; revisa taxonomía/labels.`);
+    }
+  }
   for (const region of regions) {
     const regionVenues = allVenues.filter(v => v.data.region === region);
     const zones = [...new Set(regionVenues.map(v => v.data.zoneSlug))];
@@ -83,8 +99,10 @@ export async function getStaticPaths() {
   return paths;
 }
 
+// Nota: cast plano (no union) porque el template accede a los campos según `type`;
+// el union DirectorioProps garantiza el tipado en getStaticPaths, que es donde se construyen.
 const { type, region, zone, zoneName, venues, venue } = Astro.props as {
-  type: string;
+  type: "region" | "zone" | "venue";
   region: string;
   zone: string;
   zoneName: string;
@@ -93,7 +111,7 @@ const { type, region, zone, zoneName, venues, venue } = Astro.props as {
 };
 
 // Render venue markdown content if it's a venue page
-let VenueContent: any = null;
+let VenueContent: AstroComponentFactory | null = null;
 if (type === "venue" && venue) {
   const { Content } = await render(venue);
   VenueContent = Content;

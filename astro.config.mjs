@@ -244,19 +244,10 @@ export default defineConfig({
   },
 
   // ─── Vite (cache en /tmp para evitar EPERM en sandbox) ───
+  // Alias: fuente única = tsconfig.json "paths" (Astro los aplica solo).
+  // El bloque vite.resolve.alias duplicado se eliminó en la auditoría F5.
   vite: {
     cacheDir: process.env.VITE_CACHE_DIR || "/tmp/vite-eventech",
-    resolve: {
-      alias: {
-        "@": fileURLToPath(new URL("./src", import.meta.url)),
-        "@components": fileURLToPath(new URL("./src/components", import.meta.url)),
-        "@layouts": fileURLToPath(new URL("./src/layouts", import.meta.url)),
-        "@config": fileURLToPath(new URL("./src/config", import.meta.url)),
-        "@data": fileURLToPath(new URL("./src/data", import.meta.url)),
-        "@lib": fileURLToPath(new URL("./src/lib", import.meta.url)),
-        "@styles": fileURLToPath(new URL("./src/styles", import.meta.url)),
-      },
-    },
   },
 
   // ─── Dev Server ───

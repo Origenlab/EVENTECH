@@ -14,6 +14,7 @@ import { serviceWithReviewJsonLd, breadcrumbJsonLd, faqJsonLd } from "@lib/seo";
 import '@styles/l3-shared.css';
 import '@styles/l4-shared.css';
 import Breadcrumbs from "@components/Breadcrumbs.astro";
+import ReservaFormScript from "@components/ReservaFormScript.astro";
 
 const breadcrumbItems = [
   { label: "Inicio", href: "/" },
@@ -330,7 +331,7 @@ const sidebarRelated = [
         description={["Completa el formulario y te enviamos cotización personalizada por WhatsApp. Sin compromiso.", "Dinos configuración, invitados y venue — te diseñamos el layout imperial."]}
       />
       <div class="reserva-layout">
-        <form class="reserva-form" id="reservaForm" novalidate>
+        <form class="reserva-form" id="reservaForm" novalidate data-wa-number={SITE.contact.whatsapp} data-wa-title="Mesa Rectangular 240cm — Cotización">
           <div class="reserva-form__grid">
             <div class="form-field">
               <label class="form-field__label" for="nombre">Nombre completo <span class="form-field__required">*</span></label>
@@ -382,31 +383,7 @@ const sidebarRelated = [
     </div>
   </section>
 
-  <script define:vars={{ whatsapp: SITE.contact.whatsapp }}>
-    document.getElementById('reservaForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const nombre = document.getElementById('nombre').value.trim();
-      const telefono = document.getElementById('telefono').value.trim();
-      const tipoEvento = document.getElementById('tipoEvento').value;
-      const fecha = document.getElementById('fecha').value;
-      const mensaje = document.getElementById('mensaje').value.trim();
-      if (!nombre || !telefono || !mensaje) {
-        if (!nombre) document.getElementById('nombre').classList.add('form-field__input--error');
-        if (!telefono) document.getElementById('telefono').classList.add('form-field__input--error');
-        if (!mensaje) document.getElementById('mensaje').classList.add('form-field__input--error');
-        return;
-      }
-      let fechaTexto = 'No especificada';
-      if (fecha) { const d = new Date(fecha + 'T12:00:00'); fechaTexto = d.toLocaleDateString('es-MX', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }); }
-      let texto = `*Mesa Rectangular 240cm — Cotización*\n\n*Nombre:* ${nombre}\n*Teléfono:* ${telefono}\n`;
-      if (tipoEvento) texto += `*Tipo de evento:* ${tipoEvento}\n`;
-      texto += `*Fecha:* ${fechaTexto}\n\n*Detalles:*\n${mensaje}`;
-      window.open(`https://wa.me/${whatsapp}?text=${encodeURIComponent(texto)}`, '_blank');
-    });
-    document.querySelectorAll('.form-field__input').forEach(function(input) {
-      input.addEventListener('input', function() { this.classList.remove('form-field__input--error'); });
-    });
-  </script>
+  <ReservaFormScript />
 
   <CTABanner
     headline="La mesa rectangular 240cm que convierte tu boda en obra de arte visual"
@@ -419,7 +396,7 @@ const sidebarRelated = [
 
 <style is:global>
   :root {
-    --color-accent: #c2a24a;
+    --color-accent: #c2a24a; --color-accent-text: #8a6d2f;
     --color-accent-hover: #a9883a;
     --color-accent-light: #d4b96a;
     --color-accent-soft: rgba(194, 162, 74, 0.1);

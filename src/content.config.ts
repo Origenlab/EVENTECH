@@ -436,7 +436,15 @@ const venues = defineCollection({
     order: z.number().default(0),
     publishedAt: z.coerce.date().optional(),
     updatedAt: z.coerce.date().optional(),
-  }),
+  })
+    // Política anti reseñas sin fuente: rating/reviews exigen reviewsSource
+    // (habría prevenido los ~200 venues con rating oculto detectados en la auditoría).
+    .refine((d) => !d.rating || !!d.reviewsSource, {
+      message: "rating requiere reviewsSource (fuente de las reseñas; puede ser privada, ej. 'Clientes EVENTECH')",
+    })
+    .refine((d) => !(d.reviews && d.reviews.length > 0) || !!d.reviewsSource, {
+      message: "reviews[] requiere reviewsSource",
+    }),
 });
 
 // ============================================
