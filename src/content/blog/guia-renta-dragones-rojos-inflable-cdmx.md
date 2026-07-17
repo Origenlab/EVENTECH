@@ -137,7 +137,7 @@ Estas decoraciones complementan bien la paleta de los Dragones Rojos sin saturar
 
 La renta de los Dragones Rojos **parte desde $1,200 MXN** para eventos en CDMX y área metropolitana. El precio puede variar según duración del evento, zona de entrega y fecha. Solicitamos anticipo para confirmar tu reserva.
 
-[Cotizar por WhatsApp](https://wa.me/5215512345678?text=Hola%2C%20quiero%20cotizar%20un%20inflable)
+[Cotizar por WhatsApp](https://wa.me/525530682988?text=Hola%2C%20quiero%20cotizar%20un%20inflable)
 
 ## Preguntas frecuentes
 
@@ -165,4 +165,4 @@ Si los Dragones Rojos te llamaron la atención, vale la pena que también veas o
 
 ¿Listo para reservar? Visita la [ficha completa del inflable Dragones Rojos](/servicios/inflables/juegos-infantiles/dragones-rojos/) o escríbenos directamente para revisar disponibilidad en tu fecha.
 
-[Cotizar por WhatsApp](https://wa.me/5215512345678?text=Hola%2C%20quiero%20cotizar%20un%20inflable)
+[Cotizar por WhatsApp](https://wa.me/525530682988?text=Hola%2C%20quiero%20cotizar%20un%20inflable)

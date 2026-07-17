@@ -98,4 +98,4 @@ Explora otras opciones de gran formato: el [Castillo Blanco](/servicios/inflable
 
 ---
 
-[Cotizar por WhatsApp](https://wa.me/5215512345678?text=Hola%2C%20quiero%20cotizar%20un%20inflable%20grande%20para%20mi%20evento)
+[Cotizar por WhatsApp](https://wa.me/525530682988?text=Hola%2C%20quiero%20cotizar%20un%20inflable%20grande%20para%20mi%20evento)

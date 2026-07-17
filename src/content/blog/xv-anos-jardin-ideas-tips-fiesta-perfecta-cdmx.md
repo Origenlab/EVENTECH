@@ -189,7 +189,7 @@ Organizar una XV años en jardín en CDMX es perfectamente viable si sigues este
 4. **Planificar con anticipación** (mínimo 2-3 meses)
 5. **Tener plan B por lluvia**
 
-**Si quieres asesoramiento profesional GRATIS** sobre cómo equipar tu evento, cotizar renta de mobiliario e iluminación, o conectarte con nuestros aliados de catering y venues verificados, **[escríbenos por WhatsApp aquí](https://wa.me/525564328954)**.
+**Si quieres asesoramiento profesional GRATIS** sobre cómo equipar tu evento, cotizar renta de mobiliario e iluminación, o conectarte con nuestros aliados de catering y venues verificados, **[escríbenos por WhatsApp aquí](https://wa.me/525530682988)**.
 
 Nosotros rentamos todo lo que necesitas. Tú disfruta la fiesta.
 

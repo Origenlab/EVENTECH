@@ -34,7 +34,7 @@ relatedPosts:
   - mobiliario-iluminacion-bodas-eventos-lujo-cdmx-2026
 ---
 
-# Ambientación de Bodas de Lujo en CDMX: La Guía Visual Definitiva
+## Ambientación de Bodas de Lujo en CDMX: La Guía Visual Definitiva
 
 Una boda de lujo no se define por el presupuesto: se define por la coherencia visual, la precisión técnica y la capacidad de transformar un espacio en una experiencia sensorial completa. En EVENTECH llevamos años perfeccionando cada elemento del equipamiento nupcial—desde la curvatura de un candelabro hasta el ángulo exacto de un uplighting sobre columnas de mármol.
 
@@ -316,7 +316,7 @@ Esos detalles son posibles con el equipamiento correcto y un proveedor que entie
 
 **Solicita tu cotización personalizada:**
 
-- [WhatsApp directo](https://wa.me/5215511223344?text=Hola,%20quiero%20cotizar%20equipamiento%20para%20mi%20boda)
+- [WhatsApp directo](https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20equipamiento%20para%20mi%20boda)
 - [Explorar mobiliario completo](/servicios/mobiliario/)
 - [Ver catálogo de iluminación](/servicios/iluminacion/)
 - [Guirnaldas Edison paquetes completos](/servicios/iluminacion/guirnaldas/)

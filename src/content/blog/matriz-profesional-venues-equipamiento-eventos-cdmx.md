@@ -483,4 +483,4 @@ En EVENTECH combinamos más de una década de experiencia con un inventario prop
 
 Nuestro equipo técnico puede realizar una evaluación detallada de tu venue y crear una propuesta de equipamiento optimizada para tus objetivos y presupuesto.
 
-[Solicitar Análisis Técnico →](/cotizar/) | [Contactar Asesor →](https://wa.me/5215512345678)
+[Solicitar Análisis Técnico →](/cotizar/) | [Contactar Asesor →](https://wa.me/525530682988)

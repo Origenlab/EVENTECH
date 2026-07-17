@@ -803,7 +803,7 @@ RESOIL mantiene técnicos en sitio durante todo el evento. Además, el equipo de
 
 ### A través de EVENTECH (Recomendado)
 
-**WhatsApp:** [55 1234 5678](https://wa.me/5215512345678)
+**WhatsApp:** [55 1234 5678](https://wa.me/525530682988)
 
 **Beneficios:**
 - Coordinación con todos los servicios

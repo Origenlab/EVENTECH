@@ -41,7 +41,7 @@ cta:
   href: "/cotizar/"
 ---
 
-# Carpas para Bodas CDMX: Estructura, Presupuesto y Montaje Profesional 2026
+## Carpas para Bodas CDMX: Estructura, Presupuesto y Montaje Profesional 2026
 
 Una carpa no es simplemente "un techo sobre las mesas". Una carpa es un venue completo: define la arquitectura del evento, el flujo de invitados, la experiencia sensorial y, crucialmente, la contingencia ante clima impredecible.
 
@@ -459,7 +459,7 @@ En CDMX, el clima es impredecible. Lluvia en junio, frío en diciembre, calor so
 
 ### Próximos Pasos
 
-1. **Whatsapp:** [+52 55 1122 3344](https://wa.me/5215511223344?text=Hola,%20quiero%20cotizar%20una%20carpa%20para%20mi%20boda)
+1. **Whatsapp:** [+52 55 1122 3344](https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20una%20carpa%20para%20mi%20boda)
 2. **Email:** carpas@eventech.mx
 3. **Visita:** Ven a nuestra bodega a ver muestras de carpa in situ (cita previa)
 

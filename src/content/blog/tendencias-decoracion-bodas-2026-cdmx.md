@@ -33,7 +33,7 @@ relatedPosts:
   - bodas-aire-libre-cdmx-2026-jardines-terrazas-haciendas-guia-definitiva
 ---
 
-# Tendencias en Decoración para Bodas 2026 en CDMX
+## Tendencias en Decoración para Bodas 2026 en CDMX
 
 El 2026 trae consigo una revolución silenciosa en la forma en que las parejas capitalinas conciben la decoración de su boda. Ya no basta con un salón bonito y flores sobre las mesas: las bodas de este año buscan **experiencias sensoriales completas**, donde cada rincón cuenta una historia y cada detalle refleja la personalidad de quienes se casan.
 
@@ -52,7 +52,7 @@ Las bodas 2026 en CDMX se alejan de los tonos pastel uniformes que dominaron añ
 - **Centros de mesa** con follaje verde oscuro, pampas secas y velas en tonos ámbar
 - **Iluminación cálida** (2700K-3000K) que refuerce la atmósfera orgánica
 
-Esta paleta funciona extraordinariamente bien en [jardines y venues al aire libre en CDMX](/blog/bodas-aire-libre-cdmx-2026-jardines-terrazas-haciendas-guia-definitiva), donde la vegetación natural del entorno se integra con la decoración.
+Esta paleta funciona extraordinariamente bien en [jardines y venues al aire libre en CDMX](/blog/bodas-aire-libre-cdmx-2026-jardines-terrazas-haciendas-guia-definitiva/), donde la vegetación natural del entorno se integra con la decoración.
 
 > **Tip profesional:** Evita saturar con un solo tono. La clave es combinar 3-4 tonos de la misma familia con acentos metálicos sutiles —cobre o latón— para dar profundidad.
 
@@ -64,9 +64,9 @@ Si hay una tendencia que define las bodas 2026 en la Ciudad de México, es esta:
 
 ### Las técnicas que están dominando
 
-**Guirnaldas Edison en exteriores.** Las luces cálidas tipo Edison suspendidas sobre la zona de banquete crean ese ambiente íntimo y festivo que toda boda al aire libre necesita. En EVENTECH contamos con [guirnaldas de luz profesionales](/blog/renta-guirnaldas-edison-eventos-cdmx) en distintas configuraciones para cubrir desde jardines pequeños hasta haciendas completas.
+**Guirnaldas Edison en exteriores.** Las luces cálidas tipo Edison suspendidas sobre la zona de banquete crean ese ambiente íntimo y festivo que toda boda al aire libre necesita. En EVENTECH contamos con [guirnaldas de luz profesionales](/blog/renta-guirnaldas-edison-eventos-cdmx/) en distintas configuraciones para cubrir desde jardines pequeños hasta haciendas completas.
 
-**Uplighting arquitectónico.** La iluminación desde el piso hacia muros y columnas transforma cualquier salón. Con la paleta correcta —ámbar, durazno, lavanda suave— un espacio ordinario se convierte en un escenario cinematográfico. Consulta nuestra [guía de iluminación profesional para eventos](/blog/guia-iluminacion-eventos-arquitectonica-decorativa-escenario) para entender las opciones disponibles.
+**Uplighting arquitectónico.** La iluminación desde el piso hacia muros y columnas transforma cualquier salón. Con la paleta correcta —ámbar, durazno, lavanda suave— un espacio ordinario se convierte en un escenario cinematográfico. Consulta nuestra [guía de iluminación profesional para eventos](/blog/guia-iluminacion-eventos-arquitectonica-decorativa-escenario/) para entender las opciones disponibles.
 
 **Gobo con monograma.** Proyectar las iniciales de los novios o un diseño personalizado sobre la pista de baile o una pared sigue siendo tendencia, pero en 2026 se usa con más sutileza: menos tamaño, mejor ubicación, integrado con la iluminación general.
 
@@ -85,7 +85,7 @@ Adiós a las mesas redondas uniformes para 200 invitados. La tendencia 2026 es e
 - **Salas lounge** con sillones y mesas bajas en la zona de coctelería o junto a la pista
 - **Mesas de madera rústica** sin mantel, con runners de follaje
 
-En EVENTECH manejamos [todo el catálogo de mobiliario para eventos](/blog/guia-mobiliario-eventos-sillas-mesas-lounge-cdmx) que necesitas para ejecutar estas combinaciones. La clave está en planificar el layout con anticipación para que la mezcla se vea intencional, no improvisada.
+En EVENTECH manejamos [todo el catálogo de mobiliario para eventos](/blog/guia-mobiliario-eventos-sillas-mesas-lounge-cdmx/) que necesitas para ejecutar estas combinaciones. La clave está en planificar el layout con anticipación para que la mezcla se vea intencional, no improvisada.
 
 ---
 
@@ -97,7 +97,7 @@ Los **backdrops naturales** son la tendencia fotográfica más fuerte del 2026. 
 - **Arcos asimétricos** con vegetación natural y detalles en tela
 - **Estructuras metálicas** (tipo grid o hexagonales) decoradas con enredaderas y luces
 
-Estos elementos no solo funcionan para la ceremonia: después se reutilizan como **fondo para la mesa de regalos, la mesa de dulces o el photobooth**. Si estás considerando una [mesa de dulces profesional](/blog/mesas-dulces-candy-bar-bodas-eventos-cdmx-guia-2026), un muro floral detrás eleva toda la presentación.
+Estos elementos no solo funcionan para la ceremonia: después se reutilizan como **fondo para la mesa de regalos, la mesa de dulces o el photobooth**. Si estás considerando una [mesa de dulces profesional](/blog/mesas-dulces-candy-bar-bodas-eventos-cdmx-guia-2026/), un muro floral detrás eleva toda la presentación.
 
 ---
 
@@ -112,7 +112,7 @@ La pista de baile ya no es simplemente "el espacio donde se quitan las mesas". E
 - **Tarimas elevadas** que definen la zona de baile y le dan protagonismo visual
 - **Perímetro iluminado** con guirnaldas o uplighting que enmarca la pista
 
-Conoce las opciones disponibles en nuestra [guía de pistas de baile para eventos en CDMX](/blog/guia-pistas-baile-eventos-led-madera-tarimas-cdmx) y elige la que mejor se adapte al estilo de tu boda.
+Conoce las opciones disponibles en nuestra [guía de pistas de baile para eventos en CDMX](/blog/guia-pistas-baile-eventos-led-madera-tarimas-cdmx/) y elige la que mejor se adapte al estilo de tu boda.
 
 ---
 
@@ -124,7 +124,7 @@ Las bodas al aire libre en CDMX siguen creciendo, y con ellas la demanda de **ca
 - **Carpas tipo velaria** con techos dramáticos y forrados en tela
 - **Estructuras abiertas** (tipo pérgola o marco) que definen el espacio sin cerrarlo
 
-Lo importante: una carpa bonita necesita **iluminación interior profesional** para lucir. Sin luz adecuada, hasta la mejor estructura se ve apagada al caer la noche. Te recomendamos revisar nuestra [guía de carpas y estructuras para eventos exteriores](/blog/guia-carpas-estructuras-eventos-exteriores-cdmx) para dimensionar correctamente.
+Lo importante: una carpa bonita necesita **iluminación interior profesional** para lucir. Sin luz adecuada, hasta la mejor estructura se ve apagada al caer la noche. Te recomendamos revisar nuestra [guía de carpas y estructuras para eventos exteriores](/blog/guia-carpas-estructuras-eventos-exteriores-cdmx/) para dimensionar correctamente.
 
 ---
 
@@ -132,7 +132,7 @@ Lo importante: una carpa bonita necesita **iluminación interior profesional** p
 
 Nadie quiere ver bocinas industriales al lado del altar. La tendencia 2026 privilegia el **audio de alta calidad con presencia visual mínima**: sistemas de sonido compactos, microfonía inalámbrica, y configuraciones que se integren con la decoración.
 
-Para la parte visual, las pantallas LED siguen ganando terreno —especialmente para proyectar videos de los novios durante la recepción o transmitir la ceremonia en vivo para invitados en mesas lejanas—. El truco está en integrarlas naturalmente. Nuestra [guía de audiovisual para eventos](/blog/guia-audiovisual-eventos-pantallas-sonido-proyectores-cdmx) detalla las opciones técnicas.
+Para la parte visual, las pantallas LED siguen ganando terreno —especialmente para proyectar videos de los novios durante la recepción o transmitir la ceremonia en vivo para invitados en mesas lejanas—. El truco está en integrarlas naturalmente. Nuestra [guía de audiovisual para eventos](/blog/guia-audiovisual-eventos-pantallas-sonido-proyectores-cdmx/) detalla las opciones técnicas.
 
 ---
 
@@ -147,7 +147,7 @@ La renta de equipo para eventos es la opción inteligente:
 - **Variedad** — puedes elegir exactamente lo que necesitas para tu estilo
 - **Calidad profesional** — equipo mantenido y en óptimas condiciones
 
-En EVENTECH manejamos [el catálogo más completo de renta de equipo para eventos en CDMX](/blog/eventech-renta-equipo-eventos-cdmx-guia-completa): mobiliario, iluminación, audio, carpas, pistas de baile, inflables, equipo de catering y más.
+En EVENTECH manejamos [el catálogo más completo de renta de equipo para eventos en CDMX](/blog/eventech-renta-equipo-eventos-cdmx-guia-completa/): mobiliario, iluminación, audio, carpas, pistas de baile, inflables, equipo de catering y más.
 
 ---
 
@@ -168,7 +168,7 @@ Las mejores fechas de boda en CDMX (febrero-mayo, octubre-noviembre) se saturan 
 
 ## Los Venues que Mejor Se Adaptan a Estas Tendencias
 
-No todos los espacios permiten el mismo nivel de personalización. Si aún no tienes venue, consulta nuestro [directorio de venues para eventos en CDMX](/blog/guia-experta-venues-eventos-cdmx) y el listado de [los mejores venues para bodas en la Ciudad de México](/blog/mejores-venues-bodas-cdmx-guia-completa) para encontrar espacios que den libertad decorativa.
+No todos los espacios permiten el mismo nivel de personalización. Si aún no tienes venue, consulta nuestro [directorio de venues para eventos en CDMX](/blog/guia-experta-venues-eventos-cdmx/) y el listado de [los mejores venues para bodas en la Ciudad de México](/blog/mejores-venues-bodas-cdmx-guia-completa/) para encontrar espacios que den libertad decorativa.
 
 Los jardines y haciendas suelen ofrecer mayor flexibilidad que los salones cerrados, pero estos últimos tienen la ventaja del control climático. Todo depende de tu visión.
 
@@ -180,7 +180,7 @@ Cada boda es única, y las tendencias son solo inspiración. Lo que realmente im
 
 **¿Lista para planear la decoración de tu boda 2026?**
 
-📲 [Contáctanos por WhatsApp](https://wa.me/525564328954) y cuéntanos tu idea. Te armamos una cotización personalizada con todo el equipo que necesitas, sin compromisos.
+📲 [Contáctanos por WhatsApp](https://wa.me/525530682988) y cuéntanos tu idea. Te armamos una cotización personalizada con todo el equipo que necesitas, sin compromisos.
 
 ---
 

@@ -389,7 +389,7 @@ El proceso de cotización es simple y rápido:
 - Nosotros nos encargamos de todo lo demás
 
 **Canales de contacto:**
-- **WhatsApp**: [55 6432 8954](tel:5564328954) — Respuesta en menos de 2 horas
+- **WhatsApp**: [55 3068 2988](tel:+525530682988) — Respuesta en menos de 2 horas
 - **Formulario web**: [eventech.mx/cotizar/](/cotizar/)
 - **Catálogo completo**: [Ver las 8 estaciones disponibles](/servicios/mobiliario/barras/postres/)
 

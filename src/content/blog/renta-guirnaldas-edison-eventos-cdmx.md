@@ -769,8 +769,8 @@ Nuestra experiencia en la zona metropolitana de la Ciudad de México nos ha dado
 
 El proceso comienza con una conversación para entender las necesidades específicas del evento. Los clientes pueden contactarnos a través de:
 
-- **WhatsApp**: 55 6432 8954 (respuesta en menos de 2 horas durante horario de atención)
-- **Teléfono**: 55 6432 8954
+- **WhatsApp**: 55 3068 2988 (respuesta en menos de 2 horas durante horario de atención)
+- **Teléfono**: 55 3068 2988
 - **Formulario web**: [eventech.mx/cotizar/](/cotizar/)
 - **Email**: contacto@eventech.mx
 
@@ -889,7 +889,7 @@ Sí. Atendemos eventos en toda la zona metropolitana (CDMX + Estado de México) 
 
 **EVENTECH — Renta de Guirnaldas Edison para Eventos**
 
-- **WhatsApp y Teléfono**: [55 6432 8954](tel:5564328954)
+- **WhatsApp y Teléfono**: [55 3068 2988](tel:+525530682988)
 - **Email**: contacto@eventech.mx
 - **Cotización en línea**: [eventech.mx/cotizar/](/cotizar/)
 - **Página de guirnaldas**: [Ver todos los paquetes disponibles](/servicios/iluminacion/decorativa/fairy-lights/)

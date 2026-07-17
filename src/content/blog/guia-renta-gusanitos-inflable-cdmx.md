@@ -138,7 +138,7 @@ Estas ideas de decoración complementan bien los 4 colores sin saturar el espaci
 
 La renta de los Gusanitos **parte desde $1,350 MXN** para eventos en CDMX y área metropolitana. El precio puede variar según duración, zona de entrega y fecha. Solicitamos anticipo para confirmar tu reserva.
 
-[Cotizar por WhatsApp](https://wa.me/5215512345678?text=Hola%2C%20quiero%20cotizar%20un%20inflable)
+[Cotizar por WhatsApp](https://wa.me/525530682988?text=Hola%2C%20quiero%20cotizar%20un%20inflable)
 
 ## Preguntas frecuentes
 
@@ -166,4 +166,4 @@ Sí. El material PVC grado comercial está diseñado exactamente para eso: uso d
 
 ¿Lista tu fiesta tropical? Visita la [ficha completa del inflable Gusanitos](/servicios/inflables/juegos-infantiles/gusanitos/) o escríbenos para confirmar disponibilidad en tu fecha.
 
-[Cotizar por WhatsApp](https://wa.me/5215512345678?text=Hola%2C%20quiero%20cotizar%20un%20inflable)
+[Cotizar por WhatsApp](https://wa.me/525530682988?text=Hola%2C%20quiero%20cotizar%20un%20inflable)

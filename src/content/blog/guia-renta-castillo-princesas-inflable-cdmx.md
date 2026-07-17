@@ -144,7 +144,7 @@ El Castillo de Princesas brilla en estas celebraciones específicas, especialmen
 
 La renta del Castillo de Princesas **parte desde $1,200 MXN** para eventos en CDMX y área metropolitana. Solicitamos un anticipo para confirmar disponibilidad en tu fecha.
 
-[Cotizar por WhatsApp](https://wa.me/5215512345678?text=Hola%2C%20quiero%20cotizar%20un%20inflable)
+[Cotizar por WhatsApp](https://wa.me/525530682988?text=Hola%2C%20quiero%20cotizar%20un%20inflable)
 
 ## Preguntas frecuentes
 
@@ -172,4 +172,4 @@ La renta estándar cubre el evento completo, generalmente 4–6 horas. Si tu fie
 
 ¿Lista para reservar el castillo? Visita la [ficha completa del Castillo de Princesas](/servicios/inflables/juegos-infantiles/castillo-princesas/) o escríbenos para confirmar disponibilidad en tu fecha.
 
-[Cotizar por WhatsApp](https://wa.me/5215512345678?text=Hola%2C%20quiero%20cotizar%20un%20inflable)
+[Cotizar por WhatsApp](https://wa.me/525530682988?text=Hola%2C%20quiero%20cotizar%20un%20inflable)

@@ -140,7 +140,7 @@ Estas ideas de ambientación funcionan bien sin requerir presupuesto adicional g
 
 La renta de la Mini Jungla **parte desde $1,300 MXN** para eventos en CDMX y área metropolitana. El precio puede ajustarse según duración, zona y fecha. Solicitamos anticipo para confirmar tu reserva.
 
-[Cotizar por WhatsApp](https://wa.me/5215512345678?text=Hola%2C%20quiero%20cotizar%20un%20inflable)
+[Cotizar por WhatsApp](https://wa.me/525530682988?text=Hola%2C%20quiero%20cotizar%20un%20inflable)
 
 ## Preguntas frecuentes
 
@@ -168,4 +168,4 @@ La Mini Jungla incluye múltiples figuras decorativas integradas — leones, jir
 
 ¿Lista tu fiesta safari? Visita la [ficha completa del inflable Mini Jungla](/servicios/inflables/juegos-infantiles/mini-jungla/) o contáctanos para verificar disponibilidad en tu fecha.
 
-[Cotizar por WhatsApp](https://wa.me/5215512345678?text=Hola%2C%20quiero%20cotizar%20un%20inflable)
+[Cotizar por WhatsApp](https://wa.me/525530682988?text=Hola%2C%20quiero%20cotizar%20un%20inflable)

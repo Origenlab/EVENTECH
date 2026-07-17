@@ -40,7 +40,7 @@ cta:
   href: "/cotizar/"
 ---
 
-# Corporativos en Terraza CDMX 2026: La Guía Completa de Iluminación, Mobiliario y Producción
+## Corporativos en Terraza CDMX 2026: La Guía Completa de Iluminación, Mobiliario y Producción
 
 Un evento corporativo de calidad en terraza es el escenario perfecto para **potenciar tu marca**, celebrar hitos empresariales y crear experiencias que tus invitados recuerden. En CDMX, con decenas de terrazas premium, el desafío no es encontrar venue—es elegir el equipo correcto para transformar ese espacio en una producción profesional sin fisuras.
 
@@ -431,7 +431,7 @@ Aquí los presupuestos completos (solo equipo EVENTECH, sin catering, speakers, 
 
 ### Próximos Pasos
 
-- **WhatsApp directo:** [+52 55 1122 3344](https://wa.me/5215511223344?text=Hola,%20quiero%20cotizar%20un%20evento%20corporativo)
+- **WhatsApp directo:** [+52 55 1122 3344](https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20un%20evento%20corporativo)
 - **Email:** eventos@eventech.mx
 - **Portal de cotización:** [https://eventech.mx/cotizar/](https://eventech.mx/cotizar/)
 

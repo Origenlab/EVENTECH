@@ -99,7 +99,7 @@ Los siguientes elementos están incluidos en el servicio sin costo adicional:
 
 El Castillo Blanco tiene precio variable según dimensiones exactas, venue y duración. Para cotizar, contáctanos con la fecha, tipo de evento, número aproximado de niños y las dimensiones del área donde se instalará. Te respondemos con una propuesta detallada en menos de 24 horas.
 
-[Cotizar por WhatsApp](https://wa.me/5215512345678?text=Hola%2C%20quiero%20cotizar%20un%20inflable%20grande%20para%20mi%20evento)
+[Cotizar por WhatsApp](https://wa.me/525530682988?text=Hola%2C%20quiero%20cotizar%20un%20inflable%20grande%20para%20mi%20evento)
 
 ## Preguntas frecuentes
 
@@ -131,4 +131,4 @@ Para eventos con temática más definida, considera el [Barco Pirata](/servicios
 
 Consulta disponibilidad en la página del [Castillo Blanco](/servicios/inflables/juegos-infantiles/castillo-blanco/).
 
-[Cotizar por WhatsApp](https://wa.me/5215512345678?text=Hola%2C%20quiero%20cotizar%20un%20inflable%20grande%20para%20mi%20evento)
+[Cotizar por WhatsApp](https://wa.me/525530682988?text=Hola%2C%20quiero%20cotizar%20un%20inflable%20grande%20para%20mi%20evento)

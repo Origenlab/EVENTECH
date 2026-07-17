@@ -99,7 +99,7 @@ La renta del Extremo incluye todo para que el circuito funcione sin complicacion
 
 La renta del Extremo comienza desde **$1,900 MXN** para un evento estándar en CDMX y área metropolitana. El precio final depende de la duración del evento, distancia al venue y si se requiere monitor adicional. Para eventos corporativos o kermeses de día completo, solicita una cotización especial por WhatsApp.
 
-[Cotizar por WhatsApp](https://wa.me/5215512345678?text=Hola%2C%20quiero%20cotizar%20un%20inflable%20grande%20para%20mi%20evento)
+[Cotizar por WhatsApp](https://wa.me/525530682988?text=Hola%2C%20quiero%20cotizar%20un%20inflable%20grande%20para%20mi%20evento)
 
 ## Preguntas frecuentes
 
@@ -127,4 +127,4 @@ Si el Extremo te atrae pero necesitas algo más versátil por rango de edad, con
 
 Consulta disponibilidad y detalles en la página del [Extremo](/servicios/inflables/juegos-infantiles/extremo/).
 
-[Cotizar por WhatsApp](https://wa.me/5215512345678?text=Hola%2C%20quiero%20cotizar%20un%20inflable%20grande%20para%20mi%20evento)
+[Cotizar por WhatsApp](https://wa.me/525530682988?text=Hola%2C%20quiero%20cotizar%20un%20inflable%20grande%20para%20mi%20evento)

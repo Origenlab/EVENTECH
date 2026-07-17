@@ -257,7 +257,7 @@ La propuesta detalla cada elemento con precio total todo incluido: mobiliario, i
 La propuesta inicial es un punto de partida. Nuestro equipo está disponible para ajustar modelos, cantidades y combinaciones hasta que la propuesta sea exactamente lo que el evento requiere.
 
 **Canales de contacto:**
-- **WhatsApp**: [55 6432 8954](tel:5564328954)
+- **WhatsApp**: [55 3068 2988](tel:+525530682988)
 - **Formulario**: [eventech.mx/cotizar/](/cotizar/)
 - **Email**: contacto@eventech.mx
 

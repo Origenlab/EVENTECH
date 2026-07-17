@@ -338,7 +338,7 @@ Combinados con [mobiliario de lujo](/servicios/mobiliario/) e [iluminación prof
 
 Contáctanos con los datos básicos de tu evento —fecha, venue, número de invitados y tipo de celebración— y en menos de 24 horas recibirás una propuesta integral todo incluido.
 
-- **WhatsApp**: [55 6432 8954](tel:5564328954)
+- **WhatsApp**: [55 3068 2988](tel:+525530682988)
 - **Cotización online**: [eventech.mx/cotizar/](/cotizar/)
 - **Email**: contacto@eventech.mx
 

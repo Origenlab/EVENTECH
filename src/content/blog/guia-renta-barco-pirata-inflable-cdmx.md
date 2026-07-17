@@ -100,7 +100,7 @@ La renta del Barco Pirata incluye todo lo que necesitas para que el inflable fun
 
 La renta del Barco Pirata comienza desde **$1,800 MXN** para un evento estándar en CDMX y área metropolitana. El precio final depende de la duración, la distancia al venue y si requieres monitor adicional. Para reservar, contáctanos por WhatsApp con la fecha, dirección y número aproximado de niños, y te mandamos cotización en menos de 2 horas.
 
-[Cotizar por WhatsApp](https://wa.me/5215512345678?text=Hola%2C%20quiero%20cotizar%20un%20inflable%20grande%20para%20mi%20evento)
+[Cotizar por WhatsApp](https://wa.me/525530682988?text=Hola%2C%20quiero%20cotizar%20un%20inflable%20grande%20para%20mi%20evento)
 
 ## Preguntas frecuentes
 
@@ -128,4 +128,4 @@ Si el Barco Pirata te llama la atención por su escala, probablemente también q
 
 ¿Ya tienes fecha? Consulta todos los detalles y disponibilidad directamente en la página del [Barco Pirata](/servicios/inflables/juegos-infantiles/barco-pirata/) o explora el [catálogo completo de inflables infantiles](/servicios/inflables/juegos-infantiles/).
 
-[Cotizar por WhatsApp](https://wa.me/5215512345678?text=Hola%2C%20quiero%20cotizar%20un%20inflable%20grande%20para%20mi%20evento)
+[Cotizar por WhatsApp](https://wa.me/525530682988?text=Hola%2C%20quiero%20cotizar%20un%20inflable%20grande%20para%20mi%20evento)

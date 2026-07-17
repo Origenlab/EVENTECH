@@ -1740,8 +1740,8 @@ Para conferencias, lanzamientos, convenciones y eventos empresariales, EVENTECH 
 El proceso comienza con una conversación para entender necesidades:
 
 **Canales de Contacto**
-- Teléfono: 55 6432 8954
-- WhatsApp: 55 6432 8954
+- Teléfono: 55 3068 2988
+- WhatsApp: 55 3068 2988
 - Email: contacto@eventech.mx
 - Formulario web: eventech.mx/cotizar/
 
@@ -1976,7 +1976,7 @@ Cada evento cuenta con:
 
 **EVENTECH - Renta de Equipo para Eventos**
 
-**Teléfono y WhatsApp:** 55 6432 8954
+**Teléfono y WhatsApp:** 55 3068 2988
 **Email:** contacto@eventech.mx
 **Sitio Web:** [eventech.mx](https://eventech.mx)
 

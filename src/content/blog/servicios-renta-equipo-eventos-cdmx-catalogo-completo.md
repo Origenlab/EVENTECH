@@ -464,4 +464,4 @@ Explora más contenido para planear tu evento perfecto:
 
 **EVENTECH** — Transformamos espacios en experiencias memorables.
 
-[Cotizar ahora →](/cotizar/) | [Ver todos los servicios →](/servicios/) | [Contactar →](https://wa.me/5215512345678)
+[Cotizar ahora →](/cotizar/) | [Ver todos los servicios →](/servicios/) | [Contactar →](https://wa.me/525530682988)

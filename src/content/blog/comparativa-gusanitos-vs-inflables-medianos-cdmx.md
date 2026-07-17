@@ -159,4 +159,4 @@ No hay perdedor en esta comparativa. Los dos inflan bien, los dos funcionan en e
 
 ¿Ya decidiste? Escríbenos y revisamos disponibilidad para tu fecha.
 
-[Cotizar por WhatsApp](https://wa.me/5215512345678?text=Hola%2C%20quiero%20cotizar%20un%20inflable)
+[Cotizar por WhatsApp](https://wa.me/525530682988?text=Hola%2C%20quiero%20cotizar%20un%20inflable)

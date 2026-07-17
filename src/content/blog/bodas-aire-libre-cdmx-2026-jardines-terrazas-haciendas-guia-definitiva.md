@@ -40,7 +40,7 @@ relatedPosts:
   - guirnaldas-edison-bodas-eventos-cdmx-guia-definitiva
 ---
 
-# Bodas al Aire Libre en CDMX 2026: La Guía Definitiva de Montaje y Equipamiento
+## Bodas al Aire Libre en CDMX 2026: La Guía Definitiva de Montaje y Equipamiento
 
 Una boda al aire libre en Ciudad de México no es simplemente mover las mesas al jardín. Es una operación logística completa que demanda dominar cinco variables simultáneamente: el clima impredecible de la temporada, la iluminación que desaparece cuando el sol cae, el sonido que se dispersa sin paredes, el piso que puede convertirse en barro si llueve, y la electricidad que no existe fuera del salón. Los proveedores que no conocen estas variables cobran barato y generan el caos que arruina los momentos que no tienen segunda oportunidad.
 
@@ -625,7 +625,7 @@ Eso es exactamente lo que hacemos.
 
 **Solicita tu visita técnica y cotización:**
 
-- [WhatsApp directo](https://wa.me/5215511223344?text=Hola,%20quiero%20cotizar%20equipamiento%20para%20mi%20boda%20al%20aire%20libre)
+- [WhatsApp directo](https://wa.me/525530682988?text=Hola,%20quiero%20cotizar%20equipamiento%20para%20mi%20boda%20al%20aire%20libre)
 - [Explorar carpas para bodas outdoor](/servicios/carpas/)
 - [Catálogo completo de mobiliario exterior](/servicios/mobiliario/)
 - [Iluminación para jardines y terrazas](/servicios/iluminacion/)

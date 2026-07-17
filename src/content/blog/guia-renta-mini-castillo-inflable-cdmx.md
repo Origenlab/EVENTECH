@@ -104,7 +104,7 @@ Este inflable funciona mejor cuando los protagonistas son menores de 4 años y e
 
 El Mini Castillo tiene un precio de renta **desde $800 MXN** por evento, lo que lo convierte en uno de los inflables para cumpleaños más accesibles del mercado en CDMX. El precio final varía según la zona, duración del evento y disponibilidad de fecha. Te recomendamos reservar con al menos una semana de anticipación, especialmente para sábados y domingos.
 
-¿Listo para apartar la fecha? [Cotiza por WhatsApp](https://wa.me/5215512345678?text=Hola%2C%20quiero%20cotizar%20un%20inflable) y te respondemos en menos de una hora.
+¿Listo para apartar la fecha? [Cotiza por WhatsApp](https://wa.me/525530682988?text=Hola%2C%20quiero%20cotizar%20un%20inflable) y te respondemos en menos de una hora.
 
 ## Preguntas frecuentes
 
