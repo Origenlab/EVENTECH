@@ -97,6 +97,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "20% en carpas para eventos de temporada"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.8
 reviewCount: 187
 reviews:

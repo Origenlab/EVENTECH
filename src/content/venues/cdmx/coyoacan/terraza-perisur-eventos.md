@@ -93,6 +93,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "15% en renta de equipo audiovisual"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.7
 reviewCount: 112
 reviews:

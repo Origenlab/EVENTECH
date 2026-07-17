@@ -119,6 +119,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "15% en iluminación decorativa, robótica y mobiliario premium"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.8
 reviewCount: 387
 reviews:

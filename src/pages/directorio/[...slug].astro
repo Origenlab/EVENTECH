@@ -112,6 +112,13 @@ const heroSrc: string = (type === "venue" && venue && imgExists(venue.data.image
 const galleryImgs: string[] = (type === "venue" && venue && venue.data.gallery)
   ? venue.data.gallery.filter(imgExists)
   : [];
+// ── Reviews: dos niveles de fuente ──
+// Fuente PÚBLICA (URL citable, ej. bodas.com.mx) → badge "Datos verificados" +
+// AggregateRating/Review en JSON-LD. Fuente PRIVADA (ej. "Clientes EVENTECH",
+// testimonios recopilados directamente) → reseñas y estrellas visibles en UI,
+// pero SIN structured data (Google exige reseñas verificables; evita acción manual).
+const hasPublicReviewSource: boolean = !!(type === "venue" && venue &&
+  venue.data.reviewsSource && /https?:\/\/|\.(com|mx)\b/.test(venue.data.reviewsSource));
 // Filtros L2 por colonia/capacidad/precio (solo zonas con 6+ venues)
 const showZoneFilters: boolean = type === "zone" && Array.isArray(venues) && venues.length >= 6;
 const zoneColonias: Array<[string, number]> = showZoneFilters
@@ -511,8 +518,8 @@ const jsonLd = [
       // aggregateRating solo si la ficha tiene reviewsSource (fuente real
       // citable). Ratings sin fuente en structured data = fake reviews para
       // Google, riesgo de acción manual. Ver vault Template-Ficha-Venue.
-      rating: venue.data.reviewsSource ? venue.data.rating : undefined,
-      reviewCount: venue.data.reviewsSource ? venue.data.reviewCount : undefined,
+      rating: hasPublicReviewSource ? venue.data.rating : undefined,
+      reviewCount: hasPublicReviewSource ? venue.data.reviewCount : undefined,
       amenities: venue.data.amenities,
       openingHours: venue.data.schedule,
     }),
@@ -522,7 +529,7 @@ const jsonLd = [
       : []
     ),
     // Review Schema — solo fichas con reviewsSource (misma regla que aggregateRating)
-    ...(venue.data.reviewsSource && venue.data.reviews && venue.data.reviews.length > 0
+    ...(hasPublicReviewSource && venue.data.reviews && venue.data.reviews.length > 0
       ? [{
           "@context": "https://schema.org",
           "@type": "EventVenue",
@@ -982,7 +989,7 @@ const jsonLd = [
           <div class="dr-vhero__badges">
             <span class="dr-vhero__badge dr-vhero__badge--type">{venueTypeLabels[venue.data.type] || venue.data.type}</span>
             {venue.data.premium && <span class="dr-vhero__badge dr-vhero__badge--premium">Premium</span>}
-            {venue.data.reviewsSource && <span class="dr-vhero__badge dr-vhero__badge--verified" title="Calificación y datos contrastados con fuente pública">Datos verificados</span>}
+            {hasPublicReviewSource && <span class="dr-vhero__badge dr-vhero__badge--verified" title="Calificación y datos contrastados con fuente pública">Datos verificados</span>}
           </div>
           <h1>{venue.data.name}</h1>
           <p class="dr-vhero__location">

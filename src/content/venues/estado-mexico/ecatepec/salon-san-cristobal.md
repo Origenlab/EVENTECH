@@ -73,6 +73,7 @@ gallery:
   - "/images/venues/san-cristobal-pista.jpg"
 
 eventechPartner: false
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.2
 reviewCount: 356
 

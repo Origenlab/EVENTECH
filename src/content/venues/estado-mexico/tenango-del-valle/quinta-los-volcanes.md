@@ -98,6 +98,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "Iluminación arquitectónica del venue incluida"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.8
 reviewCount: 178
 reviews:

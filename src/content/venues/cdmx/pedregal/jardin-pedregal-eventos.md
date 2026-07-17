@@ -96,6 +96,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "10% en renta de equipo para bodas de jardín"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.6
 reviewCount: 145
 reviews:

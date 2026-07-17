@@ -103,6 +103,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "Iluminación del lago incluida en paquetes premium"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.8
 reviewCount: 512
 reviews:

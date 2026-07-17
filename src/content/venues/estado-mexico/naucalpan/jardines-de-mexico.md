@@ -93,6 +93,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "Carpa 6x6 gratis en eventos de más de 200 personas"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.4
 reviewCount: 198
 reviews:

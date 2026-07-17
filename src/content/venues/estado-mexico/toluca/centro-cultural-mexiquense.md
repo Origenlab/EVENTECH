@@ -83,6 +83,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "15% en producción audiovisual"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.5
 reviewCount: 234
 reviews:

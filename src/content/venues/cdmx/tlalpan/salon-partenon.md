@@ -121,6 +121,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "15% en paquetes de iluminación monumental, sonido line array y mobiliario"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.7
 reviewCount: 445
 reviews:

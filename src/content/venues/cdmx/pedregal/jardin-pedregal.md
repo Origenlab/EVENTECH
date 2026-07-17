@@ -82,6 +82,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "10% en carpas estructurales"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.6
 reviewCount: 187
 reviews:

@@ -71,6 +71,7 @@ gallery:
   - "/images/venues/terraza-roma-noche.jpg"
 
 eventechPartner: false
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.6
 reviewCount: 112
 reviews:

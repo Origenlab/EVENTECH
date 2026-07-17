@@ -94,6 +94,7 @@ eventechServices:
   - "inflables"
 eventechPartner: false
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.0
 reviewCount: 68
 reviews:

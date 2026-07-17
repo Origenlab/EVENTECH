@@ -103,6 +103,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "Paquete histórico: iluminación arquitectónica de monumentos incluida"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.9
 reviewCount: 847
 reviews:

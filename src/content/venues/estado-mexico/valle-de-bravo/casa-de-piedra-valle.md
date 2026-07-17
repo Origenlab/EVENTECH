@@ -90,6 +90,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "30% en iluminación arquitectónica contemporánea"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 5.0
 reviewCount: 156
 

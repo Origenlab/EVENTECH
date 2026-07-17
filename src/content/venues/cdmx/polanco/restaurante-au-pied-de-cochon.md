@@ -77,6 +77,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "Servicio de audiovisual incluido en eventos"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.8
 reviewCount: 892
 reviews:

@@ -93,6 +93,7 @@ eventechServices:
   - "mobiliario"
 eventechPartner: false
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.1
 reviewCount: 63
 reviews:

@@ -83,6 +83,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "10% en paquetes de iluminación"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.7
 reviewCount: 189
 reviews:

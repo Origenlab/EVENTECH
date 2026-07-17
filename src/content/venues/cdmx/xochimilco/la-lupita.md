@@ -94,6 +94,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "15% en carpas e iluminación"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.6
 reviewCount: 234
 reviews:

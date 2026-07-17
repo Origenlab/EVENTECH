@@ -91,6 +91,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "Carpa gratis en paquetes premium"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.7
 reviewCount: 124
 reviews:

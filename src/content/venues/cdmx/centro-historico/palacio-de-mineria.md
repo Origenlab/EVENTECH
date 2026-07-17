@@ -83,6 +83,7 @@ gallery:
   - "/images/venues/palacio-mineria-escalera.jpg"
 
 eventechPartner: false
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.9
 reviewCount: 89
 reviews:

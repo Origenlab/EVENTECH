@@ -81,6 +81,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "15% en calefacción para eventos de otoño-invierno"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.8
 reviewCount: 389
 reviews:

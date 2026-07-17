@@ -89,6 +89,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "Iluminación arquitectónica incluida"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.9
 reviewCount: 98
 reviews:

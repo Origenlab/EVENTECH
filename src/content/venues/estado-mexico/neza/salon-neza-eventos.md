@@ -94,6 +94,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "10% en renta de equipo de iluminación"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.2
 reviewCount: 341
 

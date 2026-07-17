@@ -79,6 +79,7 @@ gallery:
   - "/images/venues/club-banqueros-jardin.jpg"
 
 eventechPartner: false
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.8
 reviewCount: 112
 reviews:

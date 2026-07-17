@@ -83,6 +83,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "20% en iluminación decorativa"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.9
 reviewCount: 45
 reviews:

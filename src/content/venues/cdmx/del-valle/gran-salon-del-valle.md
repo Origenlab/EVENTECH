@@ -106,6 +106,7 @@ eventechServices:
   - "pistas-baile"
 eventechPartner: false
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.4
 reviewCount: 17
 reviews:

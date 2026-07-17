@@ -97,6 +97,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "Paquete montaña: calefacción e iluminación incluidas"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.9
 reviewCount: 234
 reviews:

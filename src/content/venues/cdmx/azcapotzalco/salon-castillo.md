@@ -120,6 +120,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "15% en iluminación temática, efectos especiales y mobiliario premium"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.7
 reviewCount: 378
 reviews:

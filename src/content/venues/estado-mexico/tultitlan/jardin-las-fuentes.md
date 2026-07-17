@@ -100,6 +100,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "15% en paquetes completos de equipo"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.6
 reviewCount: 423
 reviews:

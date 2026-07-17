@@ -75,6 +75,7 @@ gallery:
   - "/images/venues/chapingo-jardin.jpg"
 
 eventechPartner: false
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.7
 reviewCount: 87
 

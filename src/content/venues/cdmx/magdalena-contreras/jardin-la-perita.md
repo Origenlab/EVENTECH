@@ -134,6 +134,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "15% en carpas transparentes, iluminación de bosque, pisos y mobiliario rústico"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.8
 reviewCount: 289
 reviews:

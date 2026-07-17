@@ -87,6 +87,7 @@ eventechServices:
   - "audiovisual"
 eventechPartner: true
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.7
 reviewCount: 89
 reviews:

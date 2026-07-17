@@ -83,6 +83,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "30% en iluminación arquitectónica industrial"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.8
 reviewCount: 678
 reviews:

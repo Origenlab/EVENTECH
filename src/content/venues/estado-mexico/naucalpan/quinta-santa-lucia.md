@@ -87,6 +87,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "10% en iluminación de jardín"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.7
 reviewCount: 1456
 reviews:

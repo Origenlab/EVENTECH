@@ -123,6 +123,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "15% en paquetes de iluminación de jardín, mobiliario premium y carpas"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.8
 reviewCount: 315
 reviews:

@@ -110,6 +110,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "10% en iluminación para bodas de hacienda en bosque"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.7
 reviewCount: 198
 reviews:

@@ -106,6 +106,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "Producción audiovisual premium con integración nativa al sistema de pantalla 360°"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 reviews:
   - author: "Dir. Mktg. Valentina Rojas — Coordinadora de Activaciones F1 México"
     date: "2025-10"

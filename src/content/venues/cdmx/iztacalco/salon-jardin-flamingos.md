@@ -120,6 +120,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "15% en iluminación tropical, carpas transparentes y mobiliario boho"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.6
 reviewCount: 334
 reviews:

@@ -93,6 +93,7 @@ eventechServices:
   - "iluminacion"
 eventechPartner: false
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.2
 reviewCount: 287
 reviews:

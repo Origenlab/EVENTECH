@@ -117,6 +117,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "15% en iluminación premium para cascada y carpas para jardín"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.6
 reviewCount: 356
 reviews:

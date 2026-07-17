@@ -136,6 +136,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "15% en iluminación decorativa de jardín, carpas y mobiliario rústico"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.7
 reviewCount: 398
 reviews:

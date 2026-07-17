@@ -71,6 +71,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "Cotización especial en paquetes AV"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.3
 reviewCount: 156
 reviews:

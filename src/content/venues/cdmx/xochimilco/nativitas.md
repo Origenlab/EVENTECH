@@ -92,6 +92,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "10% en renta de carpas"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.5
 reviewCount: 234
 reviews:

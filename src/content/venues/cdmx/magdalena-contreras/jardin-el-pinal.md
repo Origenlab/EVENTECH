@@ -87,6 +87,7 @@ eventechServices:
   - "carpas"
 eventechPartner: false
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.4
 reviewCount: 96
 reviews:

@@ -73,6 +73,7 @@ gallery:
   - "/images/venues/jardin-arcos-arcos.jpg"
 
 eventechPartner: false
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.4
 reviewCount: 287
 

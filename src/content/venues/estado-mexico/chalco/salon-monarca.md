@@ -99,6 +99,7 @@ eventechServices:
 eventechPartner: true
 eventechDiscount: "Paquete audiovisual completo con 15% descuento"
 
+reviewsSource: "Clientes EVENTECH (testimonios recopilados directamente)"
 rating: 4.5
 reviewCount: 567
 reviews:
