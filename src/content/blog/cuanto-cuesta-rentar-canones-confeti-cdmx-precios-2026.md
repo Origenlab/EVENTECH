@@ -4,6 +4,8 @@ seoTitle: "Precios de Renta de Cañones de Confeti y CO₂ CDMX 2026"
 description: "Cuánto cuesta rentar cañones de confeti y CO₂ en CDMX en 2026: precios por configuración y paquete, qué incluye y casos con presupuesto desglosado."
 date: 2026-07-08
 category: "guias"
+image: "/images/pistas-baile/pista-led-rgb-fiesta.avif"
+imageAlt: "Pista de baile LED en plena fiesta, momento típico para el disparo de cañones de confeti"
 author: "Equipo EVENTECH"
 featured: false
 tags:

@@ -4,6 +4,8 @@ seoTitle: "Sky Trackers para Eventos CDMX: Guía Técnica"
 description: "Qué es un sky tracker, cómo funciona y cómo elegir la configuración para tu evento en CDMX: potencia, alcance, DMX y montaje. Guía técnica sin humo."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion/iluminacion-evento-01.avif"
+imageAlt: "Iluminación de gran potencia en un evento nocturno en CDMX"
 author: "Equipo EVENTECH"
 featured: false
 tags:

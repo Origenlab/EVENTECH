@@ -30,6 +30,15 @@ relatedPosts:
   - guia-accesorios-infraestructura-eventos-energia-clima-cdmx
   - guia-iluminacion-eventos-arquitectonica-decorativa-escenario
   - guia-mobiliario-eventos-sillas-mesas-lounge-cdmx
+faqs:
+  - question: "¿Cuánto presupuestar para el mobiliario de una boda?"
+    answer: "Como referencia, 10 mesas redondas, 80 sillas Chiavari y una sala lounge van de 8,000 a 12,000 pesos. Los presupuestos generales de la guía van del básico de 8,000 a 15,000 al medio de 15,000 a 30,000 y al premium de 30,000 a 60,000."
+  - question: "¿Cuánto cuesta el audiovisual de una boda?"
+    answer: "Un sistema de 3,000 watts con 2 micrófonos y pantalla de 55 pulgadas ronda los 5,000 a 8,000 pesos, con configuraciones por tamaño de boda para sonido, pantallas y micrófonos de ceremonia y fiesta."
+  - question: "¿Y la iluminación de la boda?"
+    answer: "Un paquete con 10 uplights, 100 metros de fairy lights y follow spot va de 8,000 a 15,000 pesos, según el venue y el diseño."
+  - question: "¿Qué pilares de equipamiento cubre la guía?"
+    answer: "Mobiliario, audiovisual, carpas, iluminación, pistas y catering, con matriz de estilos de boda, configuraciones de mesas por capacidad, timelines y checklists profesionales."
 ---
 
 ## La Guía Definitiva para Equipar Tu Boda en CDMX

@@ -4,6 +4,8 @@ seoTitle: "Rentar Letrero de Neón CDMX: Precios y Paquetes 2026"
 description: "¿Cuánto cuesta rentar un letrero de neón o luz vintage en CDMX? Precios 2026 desde $1,500, paquetes por evento y 3 casos con presupuesto desglosado."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion/luces-neon-uv-fiesta-glow.avif"
+imageAlt: "Iluminación de neón brillando en una fiesta nocturna"
 author: "Equipo EVENTECH"
 featured: false
 tags:

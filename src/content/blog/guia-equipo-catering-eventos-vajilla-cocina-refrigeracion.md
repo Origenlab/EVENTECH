@@ -36,6 +36,15 @@ featured: false
 cta:
   label: "Cotiza Equipo Catering"
   href: "/cotizar/"
+faqs:
+  - question: "¿Qué categorías de equipo de catering existen?"
+    answer: "Cuatro: estaciones de servicio, cocina móvil, vajilla y cristalería, y refrigeración. Juntas cubren el flujo completo del servicio de banquete, desde la preparación hasta la mesa."
+  - question: "¿Cómo se calculan los chafers para un banquete?"
+    answer: "Con la configuración de chafers o calentadores por estación buffet y el cálculo por evento según el número de invitados, que la guía detalla junto con la anatomía de una estación buffet profesional."
+  - question: "¿Qué estaciones de servicio son las más pedidas?"
+    answer: "Los distintos tipos de estación buffet, la estación de tacos, el favorito mexicano, y la cocina en vivo, que convierte la preparación en parte del espectáculo del evento."
+  - question: "¿Qué requiere una cocina móvil en el venue?"
+    answer: "Un layout profesional con su equipo de cocina y requerimientos de espacio y servicios definidos, que funcionan como el backstage del banquete para servir a tiempo y a temperatura."
 ---
 
 ## El Equipo Detrás de Cada Platillo Perfecto

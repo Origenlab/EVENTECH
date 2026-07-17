@@ -4,6 +4,8 @@ seoTitle: "Láser Multicolor para Shows y Eventos CDMX | Guía"
 description: "Qué es el láser RGB para eventos, cómo funciona el protocolo ILDA, la seguridad IEC 60825 y cómo elegir tu show láser en CDMX sin arriesgar a nadie."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion/iluminacion-evento-06.avif"
+imageAlt: "Show de luces con haces multicolores en un evento nocturno"
 author: "Equipo EVENTECH"
 featured: false
 tags:

@@ -4,6 +4,8 @@ seoTitle: "Barras LED Motorizadas para Eventos | Guía 2026"
 description: "Guía técnica de barras LED motorizadas para eventos en CDMX: pixel mapping, tilt motorizado, montaje en truss y cómo dimensionar tu backdrop."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion-arquitectonica/wash-lights-led-truss-escenario-colores.avif"
+imageAlt: "Luminarias LED montadas en truss de escenario con efectos de colores"
 author: "Equipo EVENTECH"
 featured: false
 tags:

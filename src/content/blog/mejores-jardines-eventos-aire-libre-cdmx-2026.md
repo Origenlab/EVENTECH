@@ -48,6 +48,15 @@ relatedPosts:
 cta:
   label: "Explora el Directorio Completo"
   href: "/directorio/"
+faqs:
+  - question: "¿Cuánto cuesta rentar un jardín para eventos en CDMX en 2026?"
+    answer: "El rango va desde 8,000 pesos por un evento de 30 personas entre semana hasta 75,000 pesos por eventos premium de 350 personas en temporada alta. El promedio para una boda de 150 invitados en jardín de calidad es de 25,000 a 45,000 pesos solo por el venue, y la producción profesional añade entre 35,000 y 120,000 según el nivel de servicio."
+  - question: "¿Qué pasa si llueve el día de mi evento al aire libre?"
+    answer: "El plan B debe definirse al firmar el contrato con el venue. Las tres estrategias son elegir un jardín con terraza cubierta integrada, presupuestar una carpa estructural desde el inicio que se monta 48 a 72 horas antes, o contratar un seguro de evento que cubra reprogramación. En temporada de lluvias, de junio a septiembre, la carpa es la opción recomendada."
+  - question: "¿Cuál es la mejor época del año para un evento al aire libre en CDMX?"
+    answer: "Marzo y abril son los meses óptimos, con temperaturas de 14 a 27 grados, lluvia mínima y jacarandas en floración. Noviembre y diciembre también son excelentes, aunque las noches frías requieren calefacción exterior. Conviene evitar de junio a septiembre para eventos totalmente al aire libre, a menos que se incluya carpa."
+  - question: "¿EVENTECH hace la producción completa o solo renta equipo?"
+    answer: "Ofrece ambos modelos: renta de equipo individual con entrega, montaje y desmontaje de cada elemento, o producción integral con visita técnica al venue, diseño de layout, coordinación de montaje, operación durante el evento y desmontaje completo. Para jardines al aire libre se recomienda la producción integral por las variables de clima, terreno y electricidad."
 ---
 
 ## 5 Jardines para Eventos al Aire Libre en CDMX que Debes Conocer en 2026

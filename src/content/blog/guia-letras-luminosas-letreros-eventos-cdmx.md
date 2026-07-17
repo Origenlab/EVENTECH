@@ -4,6 +4,8 @@ seoTitle: "Letras Luminosas Marquee para Eventos CDMX | Guía Técnica"
 description: "Guía técnica de letras luminosas marquee de 80 cm para eventos en CDMX: cómo funcionan las bombillas, qué letras elegir y cuántas rentar por evento."
 date: 2026-07-08
 category: "guias"
+image: "/images/mobiliario/muro-donas-letras-luminosas.avif"
+imageAlt: "Letras luminosas tipo marquee decorando un evento junto a un muro de donas"
 author: "Equipo EVENTECH"
 featured: false
 tags:

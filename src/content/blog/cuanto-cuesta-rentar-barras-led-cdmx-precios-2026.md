@@ -4,6 +4,8 @@ seoTitle: "Precios de Barras LED Motorizadas CDMX 2026"
 description: "Cuánto cuesta rentar barras LED motorizadas en CDMX en 2026: precios por paquete, qué incluye, factores de costo y casos con presupuesto real."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion-arquitectonica/wash-lights-led-truss-escenario-colores.avif"
+imageAlt: "Luminarias LED montadas en truss de escenario proyectando haces de colores"
 author: "Equipo EVENTECH"
 featured: false
 tags:

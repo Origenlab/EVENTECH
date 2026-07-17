@@ -17,6 +17,15 @@ relatedServices:
   - inflables
 relatedPosts:
   - guia-renta-dragones-rojos-inflable-cdmx
+faqs:
+  - question: "¿Se puede instalar el Castillo de Princesas en interiores como salones de fiestas?"
+    answer: "Sí, siempre que el techo tenga al menos 3.5 metros de altura libre y haya un espacio de 5 por 5 metros disponible. El equipo verifica las condiciones antes de instalar y avisa con anticipación si hay accesos angostos o columnas que compliquen el montaje."
+  - question: "¿Funciona para fiestas con niños y niñas mezclados?"
+    answer: "Sí. Aunque el diseño rosa y turquesa atrae más a las niñas, los niños disfrutan igual la resbaladilla y el área de brinco. En la mayoría de los eventos mixtos se integran sin problema."
+  - question: "¿Puedo personalizar el inflable con el nombre de mi hija?"
+    answer: "El inflable no tiene personalización impresa, pero puedes agregar un banner personalizado en la entrada del castillo. El equipo orienta sobre cómo anclarlo de forma segura para que no estorbe el acceso."
+  - question: "¿Cuántas horas dura la renta estándar?"
+    answer: "La renta estándar cubre el evento completo, generalmente de 4 a 6 horas. Si la fiesta requiere más tiempo, se cotizan horas adicionales con anticipación sin problema."
 ---
 
 Hay inflables que los niños usan. Y hay inflables que los niños no quieren dejar. El **Castillo de Princesas** cae en la segunda categoría — no porque sea el más grande del catálogo, sino porque tiene exactamente lo que una niña de 4 a 8 años imagina cuando piensa en "castillo de princesa": torres en rosa y turquesa, almenas de cuento y una resbaladilla que sube en bucle. Lo hemos visto cientos de veces: el momento en que el camión abre la compuerta y aparecen las torres, las niñas corren antes de que estemos terminando de instalarlo.

@@ -4,6 +4,8 @@ seoTitle: "Precios de Renta de Uplighting en CDMX 2026"
 description: "Cuánto cuesta rentar uplighting en CDMX en 2026: precios por luminaria y paquete de salón, qué incluye la cotización y casos con presupuesto desglosado."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion-arquitectonica/uplighting-led-renta-eventos-cdmx.avif"
+imageAlt: "Uplighting LED marcando muros y columnas en un evento en CDMX"
 author: "Equipo EVENTECH"
 featured: false
 tags:
@@ -140,7 +142,7 @@ Producción de gran formato: **decenas o cientos de luminarias** con control cen
 
 ## Tres casos con presupuesto desglosado
 
-Nada explica mejor un precio que verlo abierto. Estos son tres montajes reales (con cifras redondeadas) para que veas cómo se arma el total.
+La mejor forma de entender el precio del uplighting es contar luminarias en eventos terminados. Estos tres montajes reales (cifras redondeadas) muestran cómo suma cada zona.
 
 ### Caso 1 — XV años en salón mediano · 8 luminarias
 

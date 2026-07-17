@@ -49,6 +49,15 @@ relatedPosts:
 cta:
   label: "Explora el Directorio Completo"
   href: "/directorio/"
+faqs:
+  - question: "¿Cuánto cuesta rentar un salón de fiestas en la CDMX?"
+    answer: "Los precios varían según zona, capacidad y nivel del venue. En esta selección los rangos van desde 20,000 hasta 95,000 pesos, y la mayoría de los salones de calidad para 200 a 300 personas se ubican entre 25,000 y 60,000 pesos por evento."
+  - question: "¿Los servicios de EVENTECH se cotizan aparte de la renta del salón?"
+    answer: "Sí. La renta del venue cubre el espacio, el mobiliario básico y los servicios incluidos, mientras que la producción de iluminación, mobiliario premium, sonido y pistas de baile se cotiza por separado según las necesidades de cada evento. Los venues socios premium ofrecen descuentos en paquetes."
+  - question: "¿Cuánto tiempo antes debo reservar el salón?"
+    answer: "Para fechas populares como mayo, junio, septiembre, octubre y diciembre se recomienda reservar con 6 a 12 meses de anticipación, ya que algunos venues tienen lista de espera para fines de semana en temporada alta."
+  - question: "¿Los salones permiten proveedores externos?"
+    answer: "Los 5 venues de la guía permiten proveedores externos con diferentes políticas: algunos trabajan con caterings autorizados y otros permiten libertad total. Los detalles se pueden consultar en la ficha de cada venue del directorio."
 ---
 
 ## Los 5 Mejores Salones de Fiestas en CDMX 2026: Análisis Profesional con Producción de Primer Nivel

@@ -17,6 +17,15 @@ relatedServices:
   - inflables
 relatedPosts:
   - guia-renta-gusanitos-inflable-cdmx
+faqs:
+  - question: "¿La Mini Jungla funciona si mi fiesta tiene otra temática, como superhéroes?"
+    answer: "Técnicamente sí, pero la temática de selva puede verse fuera de lugar en una fiesta muy definida de otro universo. Si la decoración ya está comprometida con otra paleta, conviene revisar las opciones más neutras del catálogo."
+  - question: "¿Por qué la Mini Jungla se instala más rápido que los demás inflables?"
+    answer: "Su diseño tiene menos puntos de anclaje y una estructura de inflado más directa que otros inflables del mismo tamaño, lo que reduce la instalación de 20 a 15 minutos sin comprometer la estabilidad."
+  - question: "¿Se puede usar en superficies de pasto húmedo?"
+    answer: "No se recomienda instalar sobre pasto mojado o lodoso porque afecta la estabilidad y ensucia el interior. Si hubo lluvia reciente, el equipo evalúa el piso antes de instalar y usa una superficie más firme si existe en el mismo espacio."
+  - question: "¿Cuántos animales tiene el inflable?"
+    answer: "Incluye múltiples figuras decorativas integradas como leones, jirafas y monos. El número exacto puede variar ligeramente según el modelo disponible para la fecha, pero la densidad de figuras es la misma."
 ---
 
 Cuando un papá nos dice que el jardín de su casa mide exactamente lo mínimo para un inflable mediano y que la fiesta empieza en una hora, hay un inflable que recomendamos sin dudar: la **Mini Jungla**. No solo porque cabe en el espacio, sino porque es la instalación más rápida de todo el catálogo — 15 minutos del camión al jardín, listo para brincar — y porque una vez inflada, los niños no necesitan que nadie les explique qué hacer. Entran y se convierten en exploradores solos.

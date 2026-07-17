@@ -38,6 +38,13 @@ featured: true
 cta:
   label: "Ver Venues Corporativos"
   href: "/directorio/tipo-evento/corporativos/"
+faqs:
+  - question: "¿Cuánto cuesta un evento corporativo en CDMX?"
+    answer: "Según formato y escala: una conferencia básica va de 80 a 150 mil pesos en formato chico hasta más de 500 mil en grande, un lanzamiento premium de 150 a 300 mil hasta más de 1 millón, una gala o premiación de 200 a 400 mil hasta más de 1.2 millones y un team building de 50 a 100 mil hasta más de 300 mil."
+  - question: "¿Qué zonas de CDMX son estratégicas para eventos corporativos?"
+    answer: "Santa Fe como hub empresarial, Polanco por prestigio y accesibilidad, el Centro Histórico por impacto arquitectónico y Roma-Condesa por creatividad y modernidad."
+  - question: "¿Qué tipos de eventos corporativos cubre la guía?"
+    answer: "Conferencias y congresos, lanzamientos de producto, team building y eventos de integración, galas, premiaciones y cenas de fin de año, y reuniones ejecutivas y boards."
 ---
 
 ## El Evento Corporativo como Herramienta Estratégica

@@ -4,6 +4,8 @@ seoTitle: "Mesas Biergarten para Corporativos y Festivales"
 description: "Mesas biergarten y de madera para eventos corporativos, festivales y activaciones en CDMX: capacidades, logística, branding y montaje profesional incluido."
 date: 2026-07-08
 category: "corporativos"
+image: "/images/moviliario-para-eventos/boda-jardin-mesas-rectangulares-madera-terrazas.avif"
+imageAlt: "Mesas rectangulares de madera montadas al aire libre para un evento en jardín"
 author: "Equipo EVENTECH"
 featured: false
 tags:
@@ -37,6 +39,17 @@ cta:
   label: "Cotiza tu evento corporativo"
   href: "/servicios/mobiliario/mesas-picnic/"
 draft: false
+faqs:
+  - question: "¿Cuántas mesas biergarten necesito para un festival?"
+    answer: "Cada una sienta a 10 personas. Para 200 asistentes con rotación, unas 12 a 15 mesas más zonas de mesa alta cocktail para el networking de pie. Con el aforo y el plano del espacio se arma la distribución."
+  - question: "¿El montaje de gran escala trae coordinación dedicada?"
+    answer: "Sí. Para eventos de 100 o más personas, un coordinador supervisa entrega, montaje y recolección, con planeación previa de ventanas de acceso y logística de descarga."
+  - question: "¿Puedo personalizar las mesas con mi marca?"
+    answer: "Sí. La madera se presta a runners, señalización y numeración en el color de la marca, más iluminación con gobos o color corporativo, sin cubrir la mesa por completo."
+  - question: "¿Aguantan un evento de todo el día al sol?"
+    answer: "Sí. El barniz de exterior resiste sol y uso intenso, y la teca aún más los rayos UV. Para sombra y protección se suman carpas."
+  - question: "¿Entregan en parques corporativos y zonas industriales del Edomex?"
+    answer: "Sí. Se cubre CDMX y municipios del Estado de México como Naucalpan, Huixquilucan, Atizapán, Tlalnepantla e Interlomas."
 ---
 
 Durante años, el evento de empresa tuvo una sola cara: salón cerrado, mesas redondas con mantel, sillas vestidas y clima artificial. Esa fórmula sigue viva —y para ciertas cenas de gala es la correcta—, pero cada vez más marcas la dejan atrás para sus activaciones, festivales internos, comidas de fin de año y lanzamientos. Nos lo piden con otras palabras: "queremos algo más relajado", "que la gente se mezcle", "que se vea bien en fotos". Y lo que resuelve esas tres frases, casi siempre, es la madera: biergarten, farm y picnic que convierten un patio, una terraza o un jardín corporativo en un lugar con carácter.

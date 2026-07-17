@@ -46,6 +46,17 @@ relatedPosts:
 cta:
   label: "Cotiza tu Boda con EVENTECH"
   href: "/cotizar/"
+faqs:
+  - question: "¿Cuánto cuesta rentar un salón premium para boda en CDMX 2026?"
+    answer: "Los 5 venues analizados tienen rangos de 20,000 a 95,000 pesos dependiendo del día, horario y número de invitados. El costo del venue representa entre el 15 y 20 por ciento del presupuesto total; la inversión real está en la producción de iluminación, mobiliario, sonido y decoración."
+  - question: "¿Cuántos meses de anticipación necesito para reservar un venue premium?"
+    answer: "Para fechas en temporada alta, en mayo, junio, octubre, noviembre y diciembre, se recomienda reservar con 12 a 18 meses de anticipación, ya que estos venues tienen ocupación del 85 al 95 por ciento en fines de semana. Para la producción el lead time mínimo recomendado es de 3 meses."
+  - question: "¿Es mejor mesa imperial o mesas redondas para mi boda?"
+    answer: "Depende del venue, el número de invitados y la estética. La mesa imperial crea un efecto de banquete formal para grupos de hasta 120 personas, las redondas son más versátiles y optimizan el espacio, y la combinación de imperial para novios con redondas para invitados es la configuración más solicitada."
+  - question: "¿Qué tipo de silla es la más elegante para una boda?"
+    answer: "La silla Chiavari dorada sigue siendo el estándar de elegancia clásica. Para estéticas contemporáneas la Ghost aporta sofisticación minimalista, la Crossback en madera natural comunica elegancia orgánica en bodas garden party, y la Tiffany dorada es la opción para galas de más de 400 personas."
+  - question: "¿Cómo afecta la iluminación al ambiente de una boda elegante?"
+    answer: "La iluminación es responsable del 40 por ciento de la percepción del ambiente, más que la decoración floral, el mobiliario o la música. Un sistema profesional con uplighting, fairy lights y wash lights con control DMX permite transformar el espacio en distintos momentos de la noche."
 ---
 
 ## 5 Salones para Bodas Elegantes en CDMX 2026: Venues Premium para Celebraciones que Trascienden

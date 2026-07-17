@@ -39,6 +39,15 @@ featured: true
 cta:
   label: "Cotizar Mi Evento"
   href: "/cotizar/"
+faqs:
+  - question: "¿Cuánto costó la producción de la boda de lujo en hacienda del caso 1?"
+    answer: "El paquete EVENTECH sumó 273,500 pesos: carpa transparente de 20 por 15 metros por 78,000, piso de duela de 300 metros cuadrados por 42,000, pista LED blanca por 28,000, iluminación decorativa y arquitectónica, sonido line array por 35,000, planta de 80 kVA y dos días de montaje con operación."
+  - question: "¿Qué proporción del presupuesto representó el venue en ese caso?"
+    answer: "El venue con banquete para 380 personas costó 684,000 pesos, el 48.2 por ciento del presupuesto total del evento."
+  - question: "¿Qué desafíos reales se resolvieron en los eventos analizados?"
+    answer: "Entre otros, lluvia durante la ceremonia, una falla de generador a las 23:45 y contenido de video no compatible en una convención de 1,200 asistentes, todos resueltos con protocolos de contingencia y equipo de respaldo."
+  - question: "¿Qué metodología siguen los casos de estudio?"
+    answer: "Cada caso incluye ficha técnica, objetivos del cliente, servicios contratados, cronograma de ejecución, presupuesto total, desafíos resueltos, métricas de éxito y testimonial post-evento."
 ---
 
 ## Metodología de Análisis de Casos

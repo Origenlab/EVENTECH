@@ -4,6 +4,8 @@ seoTitle: "Precios de Renta de Láser para Eventos CDMX 2026"
 description: "Cuánto cuesta rentar un láser multicolor para eventos en CDMX en 2026: precios por potencia y show, qué incluye la cotización y paquetes por evento."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion/iluminacion-evento-06.avif"
+imageAlt: "Show de iluminación con haces de luz en un evento nocturno"
 author: "Equipo EVENTECH"
 featured: false
 tags:
@@ -150,7 +152,7 @@ Otra liga: **multi-proyector de 10 vatios o más**, operador certificado, contro
 
 ## Tres casos con presupuesto desglosado
 
-Para que veas cómo se arma el total, aquí van tres montajes reales (cifras redondeadas de referencia 2026, total puesto y montado):
+Así se ve un show láser ya cotizado: tres montajes reales con cifras redondeadas de referencia 2026, con el total puesto, calibrado y operado:
 
 ### Caso 1 — XV años de 200 invitados, salón en Naucalpan
 

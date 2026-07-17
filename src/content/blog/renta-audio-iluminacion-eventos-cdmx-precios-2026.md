@@ -26,6 +26,17 @@ keywords:
   - audiovisual para eventos empresariales CDMX
 relatedServices:
   - audiovisual
+faqs:
+  - question: "¿El precio de renta de audio e iluminación incluye transporte y montaje?"
+    answer: "Sí. Todos los paquetes incluyen traslado desde el almacén al venue, montaje completo del sistema, pruebas, operación durante el evento y desmontaje al finalizar. Para venues dentro de CDMX no hay cargo de flete adicional."
+  - question: "¿Cuánto tiempo necesitan para instalar el sistema?"
+    answer: "Depende del tamaño de la producción: un paquete básico de audio se instala en 1 a 2 horas, mientras que una producción completa con iluminación programada requiere de 4 a 6 horas. El horario de montaje se coordina con el venue y el resto de proveedores."
+  - question: "¿Trabajan con música en vivo como bandas o mariachi?"
+    answer: "Sí. Hay experiencia integrando sistemas de PA con bandas de más de 10 músicos, mariachi, tríos y orquestas. El técnico de audio hace el patch de la banda y ajusta el balance en tiempo real."
+  - question: "¿Tienen equipo para eventos al aire libre?"
+    answer: "Sí, con luminarias IP65 certificadas para exteriores y sistemas de PA orientados a espacios abiertos. También se atienden jardines y haciendas en el Estado de México con el mismo equipo."
+  - question: "¿Pueden coordinarse con el DJ del cliente?"
+    answer: "Sí. Cuando el cliente trae su propio DJ se proporciona el sistema de PA, el subwoofer y el booth, y el técnico se coordina directamente con el DJ para niveles y canales."
 ---
 
 El audio y la iluminación son los dos elementos que más transforma la experiencia de un evento — y también los que generan más dudas al momento de cotizar. **¿Cuánto cuesta rentar audio para un evento en CDMX? ¿Qué paquete de iluminación necesito?** Esta guía responde con precios reales 2026 y rangos por tipo de producción.

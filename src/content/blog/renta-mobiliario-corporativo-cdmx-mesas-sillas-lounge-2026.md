@@ -39,6 +39,17 @@ draft: false
 cta:
   label: "Cotiza tu mobiliario corporativo"
   href: "https://wa.me/525530682988"
+faqs:
+  - question: "¿Qué pasa si el evento corporativo se cancela?"
+    answer: "Con más de 14 días de anticipación se reembolsa el 80 por ciento; con menos de 14 días se retiene el 30 por ciento. En casos de fuerza mayor se negocia con flexibilidad."
+  - question: "¿La renta incluye setup y desmontaje?"
+    answer: "Sí, la logística y el montaje van incluidos en la tarifa. El desmontaje está incluido si es el mismo día del evento; si es al día siguiente se suma un 20 por ciento."
+  - question: "¿Qué pasa con los daños al mobiliario?"
+    answer: "El desgaste normal está incluido en la renta. Roturas o manchas permanentes se cotizan como reparación, en promedio de 500 a 2,000 pesos, y el daño total se cobra a valor de reposición."
+  - question: "¿Puedo pedir especificaciones custom como logos?"
+    answer: "Sí. El bordado de logos cuesta de 150 a 300 pesos por pieza y la pintura custom suma un 20 por ciento sobre la tarifa base, con pedido mínimo de 25 piezas."
+  - question: "¿Qué pasa si el mobiliario se daña en tránsito?"
+    answer: "El traslado se hace en furgones asegurados con personal profesional. Cualquier daño en montaje lo cubre EVENTECH, con garantía hasta 2 horas antes del evento."
 ---
 
 ## Renta de Mobiliario para Eventos Corporativos en CDMX: La Guía Profesional 2026

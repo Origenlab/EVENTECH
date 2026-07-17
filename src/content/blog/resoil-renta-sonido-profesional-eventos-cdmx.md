@@ -23,6 +23,17 @@ relatedPosts:
   - paled-renta-pantallas-led-eventos-cdmx
 featured: false
 readingTime: 18
+faqs:
+  - question: "¿Cuánta potencia de sonido necesito para mi evento?"
+    answer: "La regla general es de 5 a 10 watts por persona para eventos sociales y de 20 a 30 watts para conciertos. Un evento de 200 personas requiere aproximadamente de 2,000 a 4,000 watts de potencia total."
+  - question: "¿Necesito subwoofers?"
+    answer: "Depende del tipo de música y las expectativas. Para música de fondo o discursos no son esenciales, pero para fiesta con DJ o música en vivo son altamente recomendados."
+  - question: "¿Cuántos micrófonos inalámbricos necesito?"
+    answer: "Una boda típica usa de 2 a 4 micrófonos, unos XV años de 4 a 6, un corporativo con panel de 6 a 8 y una conferencia grande 10 o más."
+  - question: "¿Qué tan temprano deben llegar a montar el sonido?"
+    answer: "Para un evento pequeño con PA simple de 2 a 3 horas antes, para uno mediano con line array pequeño de 4 a 6 horas, y para una producción completa de 8 a 12 horas antes."
+  - question: "¿Qué pasa si hay problemas técnicos durante el evento?"
+    answer: "RESOIL mantiene técnicos en sitio durante todo el evento, con equipo de respaldo disponible para reemplazar cualquier componente defectuoso en minutos."
 ---
 
 ## La Importancia del Sonido Profesional en Eventos

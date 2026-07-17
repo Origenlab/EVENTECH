@@ -36,6 +36,15 @@ featured: false
 cta:
   label: "Cotiza Mobiliario"
   href: "/cotizar/"
+faqs:
+  - question: "¿Qué tipos de sillas de gala existen para eventos?"
+    answer: "Cuatro protagonistas: la Tiffany, el clásico atemporal; la Chiavari, de elegancia italiana; la Ghost, de modernidad transparente; y la Crossback, de encanto rústico. La guía incluye una comparativa completa entre ellas."
+  - question: "¿Qué tipos de mesas conviene usar en un evento?"
+    answer: "Las redondas son las favoritas para banquetes, las rectangulares dan la elegancia de los montajes imperiales y las cocktail funcionan para networking y cócteles, cada una con sus capacidades por tamaño."
+  - question: "¿Qué es una sala lounge y cuándo conviene?"
+    answer: "Es una zona de comodidad y estilo con sofás y mesas de centro, disponible en distintos estilos. Conviene como espacio de descanso y convivencia en bodas, XV años y eventos corporativos."
+  - question: "¿Qué mobiliario complementa a las sillas y mesas?"
+    answer: "Las barras para bebidas y coctelería, que junto con las salas lounge completan la experiencia del evento más allá del área de banquete."
 ---
 
 ## El Mobiliario Define la Experiencia de Tu Evento

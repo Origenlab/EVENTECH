@@ -38,6 +38,15 @@ featured: true
 cta:
   label: "Ver Venues para Bodas"
   href: "/directorio/tipo-evento/bodas/"
+faqs:
+  - question: "¿Con cuánta anticipación debo reservar un venue para boda?"
+    answer: "En temporada alta de 12 a 18 meses antes, en temporada media de 6 a 12 meses y en temporada baja de 3 a 6 meses. Los venues más populares en las fechas más demandadas pueden estar reservados con 2 años de anticipación."
+  - question: "¿Puedo hacer la ceremonia y recepción en el mismo lugar?"
+    answer: "Sí, la mayoría de los venues para bodas están diseñados para ambos momentos. Las haciendas suelen tener capilla integrada y los jardines permiten montar una estructura para la ceremonia civil, lo que simplifica mucho la logística."
+  - question: "¿Qué pasa si llueve el día de mi boda?"
+    answer: "Depende del venue: algunos tienen salón de respaldo como plan B, otros permiten rentar una carpa estructural, algunos ofrecen seguro contra lluvia y otros manejan cambio de fecha. Si la boda es al aire libre en temporada de lluvias, de mayo a septiembre, conviene incluir carpa en el presupuesto como seguro."
+  - question: "¿Cuánto cuesta en promedio un venue para boda?"
+    answer: "Los jardines económicos van de 15,000 a 40,000 pesos, los jardines y quintas de 40,000 a 80,000, las haciendas de 60,000 a 150,000 y los hoteles 5 estrellas desde 150,000 hasta más de 400,000. Estos precios son solo por el espacio; catering, decoración y servicios son adicionales."
 ---
 
 ## Tu Boda Merece el Escenario Perfecto

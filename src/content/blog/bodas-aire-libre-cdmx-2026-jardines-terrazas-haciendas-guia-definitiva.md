@@ -38,6 +38,17 @@ relatedPosts:
   - guia-maestra-bodas-cdmx-equipamiento-completo-2026
   - guia-carpas-estructuras-eventos-exteriores-cdmx
   - guirnaldas-edison-bodas-eventos-cdmx-guia-definitiva
+faqs:
+  - question: "¿Qué meses son los mejores para una boda al aire libre en CDMX?"
+    answer: "Los meses de temporada seca, de noviembre a mayo, ofrecen las condiciones más predecibles. Diciembre y enero son los más fríos y requieren calefacción, mientras que marzo y abril tienen los días más claros. De junio a octubre es temporada de lluvias y las bodas requieren carpa y plan de contingencia obligatorios."
+  - question: "¿Es obligatoria la carpa en temporada de lluvias?"
+    answer: "Técnicamente no, pero es la decisión de mayor impacto en la tranquilidad de los novios. Una boda de 180 invitados sin carpa en agosto en CDMX tiene una probabilidad de lluvia del 65 por ciento durante el evento, por lo que la carpa no es el plan B sino el plan A inteligente."
+  - question: "¿Cuánto tiempo antes necesita el equipo para montar una boda outdoor?"
+    answer: "Para una boda de 150 invitados con carpa, iluminación completa, pista y mobiliario se ocupa el día previo completo, de 6 a 14 horas según complejidad. Sin carpa y con montaje simplificado bastan 6 a 8 horas el mismo día."
+  - question: "¿Las sillas Chiavari funcionan sobre pasto?"
+    answer: "Sí, siempre que el pasto esté compactado y seco. En pasto blando, húmedo o con pendiente las patas se hunden y generan inestabilidad; la solución es instalar duela flotante bajo el área de mesas, que además mejora la estética y protege el jardín."
+  - question: "¿Qué pasa si llueve el día del evento?"
+    answer: "Con carpa el evento continúa normalmente. Sin carpa, según la intensidad, el evento puede continuar en zonas parcialmente cubiertas del venue o trasladarse a un espacio interior alternativo previamente acordado; ese protocolo de contingencia se define en el contrato antes del evento."
 ---
 
 ## Bodas al Aire Libre en CDMX 2026: La Guía Definitiva de Montaje y Equipamiento

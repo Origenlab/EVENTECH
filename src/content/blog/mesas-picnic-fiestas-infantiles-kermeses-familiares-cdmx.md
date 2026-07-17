@@ -4,6 +4,8 @@ seoTitle: "Mesas Picnic Infantiles para Fiestas CDMX"
 description: "Mesas picnic infantiles y familiares para fiestas, kermeses y baby showers en CDMX: madera atóxica sin astillas, seguridad, medidas y montaje incluido."
 date: 2026-07-08
 category: "tips"
+image: "/images/eventos/infantiles/exterior.avif"
+imageAlt: "Fiesta infantil al aire libre con montaje de mesas para niños en CDMX"
 author: "Equipo EVENTECH"
 featured: false
 tags:
@@ -37,6 +39,17 @@ cta:
   label: "Cotiza tu fiesta infantil"
   href: "/servicios/mobiliario/mesas-picnic/"
 draft: false
+faqs:
+  - question: "¿Las mesas infantiles son de verdad seguras para niños pequeños?"
+    answer: "Sí. Se lijan en tres etapas para que queden sin astillas, con bordes redondeados y altura baja, y el set temático usa pintura atóxica certificada. Están hechas específicamente para niños de 3 a 10 años."
+  - question: "¿A partir de qué edad se usan?"
+    answer: "La Mesa Picnic Infantil es para 3 a 10 años y el Set Infantil Temático de 3 a 8. Para bebés y niños más chicos, siempre con un adulto cerca."
+  - question: "¿La madera se calienta al sol como el plástico?"
+    answer: "No como el plástico. El pino barnizado no acumula ese calor, es más estable y cuesta más volcarlo, tres puntos a favor para el exterior."
+  - question: "¿Puedo escoger el color del set infantil?"
+    answer: "Sí, el Set Infantil Temático viene en cinco colores para coordinar con la temática de la fiesta."
+  - question: "¿Incluyen montaje aunque sea un evento chico?"
+    answer: "Sí. La entrega, el montaje, el uso sin límite de tiempo y la recolección van incluidos sin importar el tamaño, dentro de CDMX y municipios cercanos del Estado de México."
 ---
 
 Cualquiera que haya organizado una fiesta de niños sabe que hay un abismo entre "poner unas mesas" y montar un espacio pensado para ellos. Los niños no se sientan como los adultos: se trepan, se cuelgan del borde, corren alrededor y se recargan donde no deben. Una mesa de altura de grande, con esquinas filosas y una superficie que ya suelta astillas, no es solo incómoda —es un riesgo. Y es, exactamente, lo que la mayoría de las fiestas termina usando porque "era lo que había".

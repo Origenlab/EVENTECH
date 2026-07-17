@@ -32,6 +32,17 @@ featured: false
 cta:
   label: "Cotiza pantallas LED para tu evento"
   href: "/cotizar/"
+faqs:
+  - question: "¿Con cuánta anticipación debo reservar una pantalla LED?"
+    answer: "Se recomiendan 2 a 4 semanas para eventos pequeños y medianos, 1 a 2 meses para grandes eventos o temporada alta, y 2 a 3 meses de planificación para conciertos y eventos masivos."
+  - question: "¿Qué incluye el servicio de renta de pantallas LED?"
+    answer: "Típicamente incluye las pantallas, el procesador de video, la estructura de montaje, el cableado, transporte, instalación, calibración, operación durante el evento y desmontaje. El contenido puede incluirse o cotizarse por separado."
+  - question: "¿Las pantallas LED se pueden usar en exteriores?"
+    answer: "Sí, PALED cuenta con inventario de pantallas outdoor certificadas IP65 para resistir condiciones climáticas. Conviene confirmar disponibilidad con anticipación."
+  - question: "¿Cuál es el brillo suficiente para mi evento?"
+    answer: "Para interiores con iluminación controlada bastan de 800 a 1,500 nits. Para exteriores o espacios con mucha luz natural se requieren más de 5,000 nits."
+  - question: "¿Qué pasa si hay una falla durante el evento?"
+    answer: "El equipo técnico presente puede resolver la mayoría de los problemas de inmediato, y para fallas críticas se cuenta con módulos de respaldo que se intercambian en minutos."
 ---
 
 ## PALED: Tres Décadas Liderando la Revolución Visual en Eventos de México

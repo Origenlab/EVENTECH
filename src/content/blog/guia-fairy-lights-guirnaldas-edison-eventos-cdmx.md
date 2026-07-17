@@ -4,6 +4,8 @@ seoTitle: "Guía de Fairy Lights y Guirnaldas Edison en CDMX"
 description: "Qué son los fairy lights y las guirnaldas Edison, cómo funcionan y cómo elegir el metraje para tu boda o evento en CDMX. Guía técnica sin humo."
 date: 2026-07-08
 category: "guias"
+image: "/images/guirnaldas/renta-fairy-lights-canopy-techo.avif"
+imageAlt: "Canopy de fairy lights formando un techo de luces en un evento"
 author: "Equipo EVENTECH"
 featured: false
 tags:

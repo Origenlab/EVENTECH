@@ -49,6 +49,15 @@ relatedPosts:
 cta:
   label: "Explora el Directorio Completo"
   href: "/directorio/"
+faqs:
+  - question: "¿Cuánto cuesta rentar un salón de fiestas en el norte de la CDMX?"
+    answer: "Los precios en GAM y Azcapotzalco van desde 16,000 pesos para salones clásicos de capacidad media hasta 80,000 para venues temáticos o premium. El rango más común para un evento de 150 a 200 personas es de 20,000 a 40,000 pesos, más accesible que venues equivalentes en Polanco, Santa Fe o Coyoacán."
+  - question: "¿Los salones del norte permiten llevar proveedores externos?"
+    answer: "La mayoría de los salones en GAM y Azcapotzalco permiten proveedores externos de producción como iluminación, mobiliario, sonido, DJ, foto y video. Algunos tienen restricciones en catering y bebidas, por lo que conviene confirmar directamente con cada venue."
+  - question: "¿Es seguro celebrar eventos de noche en el norte de la CDMX?"
+    answer: "Los 5 salones recomendados están en zonas comerciales bien iluminadas, con estacionamiento propio y vigilancia durante el evento. Se recomienda valet parking para eventos nocturnos grandes y compartir con los invitados las indicaciones de acceso por las vialidades principales."
+  - question: "¿Cuánto tiempo antes debo reservar un salón en el norte?"
+    answer: "Para fechas populares como mayo, junio, octubre y diciembre se recomienda reservar con 6 a 8 meses de anticipación; los sábados de temporada alta se agotan primero. Para viernes o domingo suele haber disponibilidad con 3 a 4 meses y generalmente a mejor precio."
 ---
 
 ## 5 Salones de Fiestas en el Norte de la CDMX para 2026: GAM y Azcapotzalco con Producción Profesional

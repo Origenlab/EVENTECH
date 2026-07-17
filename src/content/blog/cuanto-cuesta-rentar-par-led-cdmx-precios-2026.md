@@ -4,6 +4,8 @@ seoTitle: "Precios de Renta de Par LED RGBWA CDMX 2026"
 description: "Cuánto cuesta rentar par LED RGBWA en CDMX en 2026: precios por luminaria y paquete, qué incluye, factores de costo y presupuestos por tipo de evento."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion-arquitectonica/uplighting-bateria-led-wireless.avif"
+imageAlt: "Luminarias par LED inalámbricas de batería colocadas en un evento"
 author: "Equipo EVENTECH"
 featured: false
 tags:

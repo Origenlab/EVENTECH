@@ -38,6 +38,15 @@ featured: true
 cta:
   label: "Ver Venues para XV Años"
   href: "/directorio/tipo-evento/xv-anos/"
+faqs:
+  - question: "¿Cuánto cuestan los venues para XV años en CDMX?"
+    answer: "Según el tipo de venue, los rangos van de 20,000 a 60,000 pesos en jardines, más carpa si aplica, de 25,000 a 80,000 y de 50,000 a 150,000 en categorías superiores, hasta 80,000 a 200,000 en opciones que incluyen catering."
+  - question: "¿Qué zonas convienen según mi presupuesto?"
+    answer: "Económico, menos de 50 mil: Xochimilco, Iztapalapa, Ecatepec o Chalco. Medio, de 50 a 100 mil: Coyoacán, Tlalpan, Del Valle o Naucalpan. Alto, de 100 a 200 mil: San Ángel, Roma-Condesa o Huixquilucan. Premium, más de 200 mil: Polanco, Lomas o Valle de Bravo."
+  - question: "¿Con cuánto tiempo se planifican unos XV años?"
+    answer: "La guía propone un cronograma de 12 meses: fundamentos en los meses 12 a 10, proveedores principales del 9 al 7 y vestido y corte del 6 al 4, hasta llegar al día del evento."
+  - question: "¿Qué momentos incluye el protocolo de XV años?"
+    answer: "La anatomía completa de la celebración con los momentos del protocolo tradicional, como el vals y los chambelanes, y las variaciones modernas que muchas quinceañeras adoptan hoy."
 ---
 
 ## La Celebración de la Transformación

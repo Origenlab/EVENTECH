@@ -4,6 +4,8 @@ seoTitle: "Mesas de Madera para Bodas al Aire Libre CDMX"
 description: "Cómo usar mesas de madera farm y picnic en bodas al aire libre en CDMX: estilos campestre y boho, combinaciones, layouts y montaje en haciendas y jardines."
 date: 2026-07-08
 category: "bodas"
+image: "/images/mobiliario/tablon-crossback-jardin-string-lights.avif"
+imageAlt: "Tablones de madera con sillas crossback en boda de jardín iluminada con series de luces"
 author: "Equipo EVENTECH"
 featured: true
 tags:
@@ -36,6 +38,17 @@ cta:
   label: "Diseña tu boda campestre"
   href: "/servicios/mobiliario/mesas-picnic/"
 draft: false
+faqs:
+  - question: "¿Cuántas mesas de madera necesito para mi boda?"
+    answer: "Una mesa Estándar por cada 6 invitados o una Grande por cada 10 a 12, más un 10 por ciento de colchón. Para 100 personas, unas 8 Grandes más las mesas de honor, buffet y pastel. Con tu lista y el plano se arma el layout completo."
+  - question: "¿La madera aguanta un jardín con clima variable?"
+    answer: "Sí. El barniz de exterior resiste sol y humedad, y la teca y la parota aún más. Si amenaza lluvia fuerte, el montaje va bajo carpa, y si el evento se cancela por clima se reagenda sin costo."
+  - question: "¿Qué silla combina mejor con la mesa farm?"
+    answer: "La Crossback natural para campestre clásico, en blanco vintage para boho y en nogal para rústico-elegante. La Tiffany dorada sobre farm también logra un contraste elegante."
+  - question: "¿Puedo mezclar mesas con banca y mesas con silla?"
+    answer: "Sí, y es una jugada elegante: picnic con banca para los invitados y una Farm o Parota con sillas para la mesa de honor, todo en la misma cotización."
+  - question: "¿Con cuánta anticipación debo reservar?"
+    answer: "Para bodas en temporada alta, entre más anticipación mejor; dos semanas o más es lo sano. El anticipo bloquea fecha e inventario."
 ---
 
 Piénsalo un segundo: son las siete y media de la tarde en una hacienda al sur de la ciudad. El sol acaba de bajar, alguien enciende las guirnaldas y, de golpe, las mesas de madera se prenden en un tono dorado. Los invitados se sientan en las bancas, el runner de lino cae suave, las velas tiemblan. Nadie está pensando en el mobiliario —y ese es justo el punto. Todo se ve como si siempre hubiera estado ahí.

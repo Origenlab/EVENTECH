@@ -4,6 +4,8 @@ seoTitle: "Cascadas y Cortinas LED para Eventos CDMX | Guía 2026"
 description: "Guía técnica de cascadas y cortinas de luces LED para eventos en CDMX: efectos de lluvia, meteoro y twinkle, blanco cálido o RGB, control DMX y cómo elegir."
 date: 2026-07-08
 category: "guias"
+image: "/images/guirnaldas/renta-guirnaldas-cortina-lluvia-luces.avif"
+imageAlt: "Cortina de luces con efecto de lluvia como fondo luminoso de un evento"
 author: "Equipo EVENTECH"
 featured: false
 tags:

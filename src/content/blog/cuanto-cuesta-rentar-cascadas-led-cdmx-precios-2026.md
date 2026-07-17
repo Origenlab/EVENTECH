@@ -4,6 +4,8 @@ seoTitle: "Precios de Renta de Cascadas y Cortinas LED CDMX 2026"
 description: "Cuánto cuesta rentar cascadas y cortinas LED en CDMX en 2026: precios por cortina y paquete, qué incluye una cotización y presupuestos por evento."
 date: 2026-07-08
 category: "guias"
+image: "/images/guirnaldas/renta-guirnaldas-cortina-lluvia-luces.avif"
+imageAlt: "Cortina de luces tipo lluvia creando un telón luminoso en un evento"
 author: "Equipo EVENTECH"
 featured: false
 tags:
@@ -143,7 +145,7 @@ La lectura rápida: una boda o unos XV en salón caben casi siempre entre **$2,0
 
 ## Tres casos con presupuesto desglosado
 
-Los números sueltos no dicen tanto como un evento completo. Estos tres son representativos de lo que montamos cada temporada.
+Más que la tarifa por telón, lo que ayuda es ver eventos completos. Aquí van tres montajes de cortinas y cascadas LED tal como los desglosamos en cotización.
 
 ### Caso 1 — Boda en salón, 130 invitados
 
@@ -212,7 +214,7 @@ Ninguno de estos trucos baja la calidad: bajan el desperdicio. El error caro no 
 
 ## Cómo comparar cotizaciones sin que te sorprendan
 
-Cuando tengas dos o tres presupuestos sobre la mesa, compáralos con esta lista y sabrás cuál es de verdad el más barato —que casi nunca es el del número más chico—.
+Con dos o tres presupuestos de cortinas LED enfrente, esta lista te dice cuál conviene de verdad; el total más bajito suele dejar fuera estructura u operador.
 
 - **Exige el total, puesto, colgado y operado.** Un "$1,800 por cortina" que luego suma estructura, traslado y operador puede salir más caro que un "$2,000 todo incluido". Compara totales, no precios de telón.
 - **Confirma que los píxeles sean direccionables.** Si no lo especifican, quizá es una cortina que solo prende y no hace lluvia ni meteoro. Es la trampa más común.

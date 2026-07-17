@@ -4,6 +4,8 @@ seoTitle: "Precios de Renta de City Color en CDMX 2026"
 description: "Cuánto cuesta rentar city color en CDMX en 2026: precios por paquete de cañones, qué incluye la cotización y casos reales. Con planta de luz y operador."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion-arquitectonica/fachada-flood-rgbw-edificio-moderno.avif"
+imageAlt: "Fachada de edificio moderno bañada con luz flood RGBW de gran potencia"
 author: "Equipo EVENTECH"
 featured: false
 tags:
@@ -142,7 +144,7 @@ Producción de gran formato: **20 o más cañones** combinados con otros sistema
 
 ## Tres casos con presupuesto desglosado
 
-Nada explica mejor un precio que verlo abierto. Estos son tres montajes reales (con cifras redondeadas) para que veas cómo se arma el total.
+Para aterrizar los rangos, aquí van tres eventos reales iluminados con city color —cifras redondeadas— con el desglose de cañones, zonas cubiertas y operación.
 
 ### Caso 1 — Boda en terraza, un muro con color · 4 cañones
 
@@ -192,7 +194,7 @@ Aniversario de marca en un recinto, 600 asistentes, veinticuatro cañones de gam
 
 ## Cómo comparar cotizaciones sin que te sorprendan
 
-Cuando pidas dos o tres cotizaciones, ponlas lado a lado y revisa que hablen el mismo idioma. Estas son las preguntas que igualan la comparación:
+Con city color es fácil comparar mal: dos propuestas con el mismo número de cañones pueden cubrir muros muy distintos. Antes de elegir, alinea las cotizaciones con estas preguntas:
 
 1. **¿Cuántos cañones y de cuántos watts?** No es lo mismo ocho de 250W que ocho de 1500W. Si una cotización no dice la potencia, pídela.
 2. **¿Son RGB o RGBW?** Para pasteles y blancos de ceremonia necesitas RGBW. Si te cotizan solo RGB y tu paleta es suave, el color no va a quedar como esperas.

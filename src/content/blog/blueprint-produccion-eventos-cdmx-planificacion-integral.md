@@ -40,6 +40,15 @@ featured: true
 cta:
   label: "Solicitar Consultoría de Producción"
   href: "/cotizar/"
+faqs:
+  - question: "¿Qué fases tiene la producción profesional de un evento?"
+    answer: "Cinco fases: análisis de requerimientos, selección y evaluación de venue, dimensionamiento técnico, cronograma de producción y gestión de contingencias, cada una con sus matrices y checklists."
+  - question: "¿Cómo se distribuye el presupuesto de una boda de gran formato?"
+    answer: "El venue con catering concentra del 45 al 55 por ciento, con 450,000 a 700,000 pesos de referencia. El mobiliario completo toma del 8 al 12 por ciento, el audio con DJ del 6 al 10, la iluminación del 8 al 12 y siempre se reserva del 5 al 10 por ciento para contingencia."
+  - question: "¿Por qué reservar presupuesto de contingencia?"
+    answer: "El framework recomienda destinar del 5 al 10 por ciento del total a contingencias, respaldado por una matriz de riesgos y mitigación, un kit de emergencia técnica y un protocolo de comunicación para el día del evento."
+  - question: "¿Qué cubre el cronograma de producción?"
+    answer: "Un timeline macro por semanas antes del evento, el timeline de montaje del día del evento y el protocolo de desmontaje, para que cada proveedor tenga ventana y responsable definidos."
 ---
 
 ## Introducción: El Arte de la Producción Profesional

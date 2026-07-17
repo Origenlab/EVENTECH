@@ -4,6 +4,8 @@ seoTitle: "Luces Neón y Vintage Eventos CDMX: Guía Técnica 2026"
 description: "Todo sobre letreros de neón LED a medida y luz vintage Edison para bodas, XV y eventos en CDMX: cómo funcionan, tipos, medidas y cómo elegir. Desde $1,500."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion/luces-neon-uv-fiesta-glow.avif"
+imageAlt: "Luces de neón brillando en la ambientación de una fiesta"
 author: "Equipo EVENTECH"
 featured: false
 tags:

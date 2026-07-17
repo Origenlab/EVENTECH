@@ -4,6 +4,8 @@ seoTitle: "Precios de Renta de Letras Luminosas en CDMX 2026"
 description: "Cuánto cuesta rentar letras luminosas marquee en CDMX en 2026: precio por letra y por conjunto, qué incluye la cotización y presupuestos por evento."
 date: 2026-07-08
 category: "guias"
+image: "/images/mobiliario/muro-donas-letras-luminosas.avif"
+imageAlt: "Letras luminosas decorativas montadas junto a un muro de donas en un evento"
 author: "Equipo EVENTECH"
 featured: false
 tags:
@@ -151,7 +153,7 @@ La lectura rápida: casi cualquier evento social o corporativo de tamaño están
 
 ## Tres casos con presupuesto desglosado
 
-Los números sueltos no dicen tanto como un evento completo. Estos tres son representativos de lo que montamos cada temporada.
+El costo por letra cobra sentido cuando ves la palabra completa montada. Aquí van tres eventos con letras luminosas y su presupuesto desglosado.
 
 ### Caso 1 — Boda en jardín, 140 invitados
 
@@ -212,7 +214,7 @@ Ninguno de estos trucos baja la calidad: bajan el desperdicio. El error caro no 
 
 ## Cómo comparar cotizaciones sin que te sorprendan
 
-Cuando tengas dos o tres presupuestos sobre la mesa, compáralos con esta lista y sabrás cuál es de verdad el más barato —que casi nunca es el del número más chico—.
+Antes de apartar tus letras, compara los presupuestos contra esta lista: el precio más chico por letra no siempre es el montaje más barato al final.
 
 - **Exige el total, puesto y montado.** Un "$250 por letra" que luego suma traslado, montaje y encendido puede terminar más caro que un "$300 todo incluido". Compara totales, no precios de pieza.
 - **Confirma que sean letras marquee de 80 centímetros.** Si no lo especifican, podrían ser piezas chicas de manualidad, más baratas pero sin el efecto de marquesina. Es la confusión más común.

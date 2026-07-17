@@ -4,6 +4,8 @@ seoTitle: "Bañadores de Muros LED para Eventos CDMX: Guía Técnica 2026"
 description: "Qué es un bañador de muros LED, cómo funciona el wall washer, óptica asimétrica y pixel mapping, y cómo elegir el tuyo para eventos en CDMX."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion-arquitectonica/banador-lineal-rgbw-muro-textura.avif"
+imageAlt: "Bañador lineal RGBW lavando de luz un muro con textura"
 author: "Equipo EVENTECH"
 featured: false
 tags:

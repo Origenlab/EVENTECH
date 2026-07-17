@@ -46,6 +46,17 @@ relatedPosts:
 cta:
   label: "Explora el Directorio Completo"
   href: "/directorio/"
+faqs:
+  - question: "¿Con cuánta anticipación debo reservar el salón para XV años?"
+    answer: "Para fechas en temporada alta, de mayo a julio y de octubre a diciembre, conviene reservar con 12 a 18 meses de anticipación porque los salones más solicitados agotan fines de semana con más de un año de antelación. Para temporada baja suelen bastar de 6 a 9 meses."
+  - question: "¿Cuánto cuesta en total unos XV años en CDMX?"
+    answer: "El rango total para XV años de 200 invitados en 2026 va desde 113,000 pesos en formato económico hasta 495,000 en formato premium, con un promedio de 180,000 a 280,000 para una celebración completa con producción profesional. La renta del salón representa solo el 20 a 25 por ciento del presupuesto."
+  - question: "¿Qué tamaño de pista necesito para el vals con chambelanes?"
+    answer: "Para vals con padre únicamente basta una pista de 6 por 6 metros. Para vals con chambelanes de 7 a 15 bailarines se necesitan mínimo 8 por 8 metros, y para baile sorpresa con coreografía elaborada la pista ideal es de 10 por 10 metros."
+  - question: "¿Los salones incluyen iluminación y sonido o debo contratar aparte?"
+    answer: "La mayoría incluye iluminación básica de techo y un equipo de sonido elemental. Para una producción de alto nivel con uplighting, fairy lights, pista LED, sonido line array y efectos se requiere producción profesional independiente."
+  - question: "¿EVENTECH trabaja con todos los salones de esta guía?"
+    answer: "Sí, los 5 salones son partners premium. El equipo conoce la infraestructura eléctrica, dimensiones, puntos de anclaje y acústica de cada uno, lo que significa instalación más rápida y una producción optimizada para cada espacio."
 ---
 
 ## Los 5 Mejores Salones para XV Años en CDMX 2026: Guía Completa de Producción Profesional

@@ -32,6 +32,15 @@ relatedPosts:
   - guia-maestra-bodas-cdmx-equipamiento-completo-2026
   - guirnaldas-edison-bodas-eventos-cdmx-guia-definitiva
   - mobiliario-iluminacion-bodas-eventos-lujo-cdmx-2026
+faqs:
+  - question: "¿Cuánto cuesta el mobiliario de lujo para una boda en CDMX?"
+    answer: "Como referencia, 100 sillas Chiavari doradas van de 4,500 a 6,500 pesos, 10 mesas redondas de 180 cm de 3,500 a 5,000, una mesa imperial de 300 cm de 4,000 a 6,000 y una sala lounge elegante de 7,500 a 12,000 pesos."
+  - question: "¿Cuánto cuesta la iluminación arquitectónica para una boda de lujo?"
+    answer: "El uplighting perimetral con 10 unidades inalámbricas va de 6,000 a 9,000 pesos, los spots de fachada IP65 de 7,500 a 11,000 y el gobo de monograma con proyector y diseño de 5,500 a 8,500."
+  - question: "¿Qué es un gobo de monograma?"
+    answer: "Es la proyección luminosa de las iniciales de la pareja, su firma en luz, sobre la pista, un muro o la fachada del venue. Se cotiza con el proyector y el diseño incluidos."
+  - question: "¿Qué barras de lujo se pueden montar en una boda?"
+    answer: "Barra de bebidas de madera de 2.4 metros con bartender de 5,000 a 8,000 pesos, barra de coctelería premium como statement del evento y barra de postres nupcial con estructura y montaje de 4,500 a 7,500."
 ---
 
 ## Ambientación de Bodas de Lujo en CDMX: La Guía Visual Definitiva

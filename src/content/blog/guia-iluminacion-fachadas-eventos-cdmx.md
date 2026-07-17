@@ -4,6 +4,8 @@ seoTitle: "Iluminación de Fachadas en Eventos CDMX: Guía Técnica"
 description: "Qué es iluminar una fachada, cómo funcionan flood, grazing, spot y gobos, y cómo elegir para tu evento en CDMX. Guía técnica con specs reales."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion-arquitectonica/iluminacion-fachadas-renta-eventos-cdmx.avif"
+imageAlt: "Fachada iluminada con técnicas arquitectónicas para un evento en CDMX"
 author: "Equipo EVENTECH"
 featured: false
 tags:

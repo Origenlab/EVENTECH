@@ -4,6 +4,8 @@ seoTitle: "Precios de Renta de Guirnaldas Edison en CDMX 2026"
 description: "Cuánto cuesta rentar guirnaldas de luces en CDMX en 2026: precio cerrado por paquete (50, 100, 200 y 500 m), qué incluye y tres casos con presupuesto abierto."
 date: 2026-07-08
 category: "guias"
+image: "/images/guirnaldas/renta-guirnaldas-edison-hero-fairy-lights.avif"
+imageAlt: "Guirnaldas Edison instaladas como techo de luces cálidas en un evento"
 author: "Equipo EVENTECH"
 featured: false
 tags:
@@ -211,7 +213,7 @@ Feria de tres días en una explanada abierta. Quinientos metros cubriendo pasill
 
 ## Cómo comparar cotizaciones sin que te sorprendan
 
-Cuando pidas dos o tres cotizaciones, ponlas lado a lado y revisa que hablen el mismo idioma. Estas son las preguntas que igualan la comparación:
+En guirnaldas todo se cotiza por metro lineal, y ahí es donde dos presupuestos se vuelven incomparables. Antes de decidir, haz que cada propuesta responda exactamente lo mismo:
 
 1. **¿Cuántos metros lineales incluye?** No es lo mismo 100 que 200. Si una cotización no dice el metraje, pídelo; es la unidad real del precio.
 2. **¿Son focos Edison de 2700K?** Un metraje barato en el Kelvin equivocado se ve frío y arruina las fotos. Confirma el tono antes de comparar precios.

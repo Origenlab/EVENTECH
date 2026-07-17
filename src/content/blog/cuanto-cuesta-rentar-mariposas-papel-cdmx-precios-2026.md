@@ -4,6 +4,8 @@ seoTitle: "Precios de Mariposas de Papel en CDMX 2026"
 description: "Cuánto cuesta rentar mariposas de papel en CDMX en 2026: precios por paquete, qué incluye la cotización y casos por evento. Para el vals de XV años."
 date: 2026-07-08
 category: "xv-anos"
+image: "/images/eventos/xv-hero.avif"
+imageAlt: "Celebración de XV años, escenario típico para la lluvia de mariposas de papel en el vals"
 author: "Equipo EVENTECH"
 featured: false
 tags:
@@ -142,7 +144,7 @@ Aquí las mariposas dejan de ser romance y se vuelven **reveal**: la caída de p
 
 ## Tres casos con presupuesto desglosado
 
-Nada explica mejor un precio que verlo abierto. Estos son tres montajes reales (con cifras redondeadas) para que veas cómo se arma el total.
+Un vals se cotiza mejor viendo ejemplos completos. Aquí van tres momentos reales con cañones de mariposas y papelitos, con cifras redondeadas y el total desglosado.
 
 ### Caso 1 — Vals de XV años en salón de Naucalpan · 2 cañones manuales
 
@@ -189,7 +191,7 @@ Lanzamiento de producto, 300 asistentes, dos cañones de CO2 para el momento del
 
 ## Cómo comparar cotizaciones sin que te sorprendan
 
-Cuando pidas dos o tres cotizaciones, ponlas lado a lado y revisa que hablen el mismo idioma. Estas son las preguntas que igualan la comparación:
+Con cañones de papel, dos cotizaciones con el mismo total pueden cubrir momentos muy distintos: disparos, papel por carga, operador. Iguala la comparación con estas preguntas:
 
 1. **¿Es papel de seda o metálico?** No es lo mismo. El de seda flota y se limpia fácil; el metálico cae rápido y se pega. Si no lo dicen, pregúntalo.
 2. **¿El operador y el timing están incluidos?** El efecto es medio disparo y medio momento. Un precio sin operador no es un precio real.

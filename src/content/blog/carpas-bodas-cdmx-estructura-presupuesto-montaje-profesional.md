@@ -39,6 +39,15 @@ featured: true
 cta:
   label: "Cotizar Carpa para Mi Boda"
   href: "/cotizar/"
+faqs:
+  - question: "¿Qué tipos de carpa existen para bodas?"
+    answer: "Cuatro principales: la carpa árabe, la más elegante; la carpa marco o marquee de estilo industrial; la lineal o túnel, la más versátil; y la asiática o yurta, de sofisticación moderna. Cada una con distinta estética, estructura y capacidad."
+  - question: "¿Cuánto cuesta la carpa para una boda de 150 personas?"
+    answer: "Una carpa árabe para 150 personas va de 15,000 a 22,000 pesos de renta más 3,500 a 5,500 de instalación y desmontaje, con un total de 18,500 a 27,500. Una carpa marco de 20 por 30 metros para 250 personas con paredes de cristal llega a un total de 30,000 a 44,000 pesos."
+  - question: "¿Cuándo se monta la carpa de la boda?"
+    answer: "El montaje se realiza el día anterior al evento, con supervisión y visita desde la semana previa y últimos detalles el mismo día. Así la estructura queda lista antes de que entren florista, mobiliario y audiovisual."
+  - question: "¿La climatización de la carpa es opcional?"
+    answer: "No. De mayo a septiembre el calor exige ventilación o nebulización, y en los meses fríos se requiere calefacción. La climatización es parte del diseño de la carpa, no un extra de última hora."
 ---
 
 ## Carpas para Bodas CDMX: Estructura, Presupuesto y Montaje Profesional 2026

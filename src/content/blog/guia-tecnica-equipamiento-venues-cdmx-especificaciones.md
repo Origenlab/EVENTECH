@@ -37,6 +37,13 @@ featured: true
 cta:
   label: "Solicitar Análisis Técnico"
   href: "/cotizar/"
+faqs:
+  - question: "¿Qué venues analiza esta guía técnica?"
+    answer: "Diez venues premium de CDMX y alrededores, entre ellos el Club de Banqueros de México, el Casino Español, el Centro Citibanamex, Hacienda Tlalpan, Hotel Avándaro y Hacienda Panoaya, con especificaciones y cálculos de potencia."
+  - question: "¿Cuánto cuesta equipar estos venues?"
+    answer: "Referencias por nivel de producción: Club de Banqueros de 45,000 a 85,000 pesos, Casino Español de 55,000 a 110,000, Centro Citibanamex de 250,000 a 850,000, Hacienda Tlalpan de 65,000 a 180,000 y Hacienda Panoaya de 95,000 a 320,000."
+  - question: "¿Qué incluye el análisis de cada venue?"
+    answer: "Especificaciones del espacio, análisis acústico, equipamiento EVENTECH recomendado y carga eléctrica total, además de matrices de decisión frente a venues similares."
 ---
 
 ## Marco de Análisis Técnico para Equipamiento de Eventos

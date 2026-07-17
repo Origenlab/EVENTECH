@@ -30,6 +30,13 @@ featured: false
 cta:
   label: "Cotiza iluminación para tu evento"
   href: "/cotizar/"
+faqs:
+  - question: "¿Qué categorías de iluminación profesional existen para eventos?"
+    answer: "Guirnaldas y series LED, neón y efectos UV, city color y city light para fachadas, sky tracker, cabezas móviles robotizadas, cascadas LED y cortinas de luz, proyección de gobos personalizados y seguidores de luz."
+  - question: "¿Qué es un sky tracker?"
+    answer: "Es el equipo que proyecta haces de luz hacia el cielo para marcar la ubicación del evento y hacerlo visible a distancia, un recurso clásico de inauguraciones y grandes celebraciones."
+  - question: "¿Además de iluminación ofrecen audio y efectos?"
+    answer: "Sí, hay servicios complementarios de sistemas de sonido profesional y efectos especiales atmosféricos, con cobertura logística en CDMX y zona metropolitana."
 ---
 
 ## La Iluminación Como Elemento Transformador de Eventos

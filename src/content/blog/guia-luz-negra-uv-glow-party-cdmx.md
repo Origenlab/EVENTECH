@@ -4,6 +4,8 @@ seoTitle: "Luz Negra y UV Glow Party CDMX: Guía Técnica"
 description: "Qué es la luz negra UV, cómo funciona el blacklight de 395 nm y cómo dimensionar tu glow party en CDMX por m² de pista. Guía técnica sin humo."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion/luces-neon-uv-fiesta-glow.avif"
+imageAlt: "Glow party con luz negra UV haciendo brillar los colores neón"
 author: "Equipo EVENTECH"
 featured: false
 tags:

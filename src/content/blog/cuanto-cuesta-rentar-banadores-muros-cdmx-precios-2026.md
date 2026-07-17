@@ -4,6 +4,8 @@ seoTitle: "Cuánto Cuesta Rentar Bañadores de Muros CDMX: Precios 2026"
 description: "Cuánto cuesta rentar bañadores de muros LED en CDMX en 2026: precios por barra y paquete, qué incluye y casos reales. Montaje y operador incluidos."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion-arquitectonica/banadores-led-renta-eventos-cdmx.avif"
+imageAlt: "Bañadores de muros LED iluminando paredes en un evento en CDMX"
 author: "Equipo EVENTECH"
 featured: false
 tags:

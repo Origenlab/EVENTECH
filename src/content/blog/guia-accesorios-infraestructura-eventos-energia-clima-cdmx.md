@@ -32,6 +32,15 @@ relatedPosts:
   - guia-equipo-catering-eventos-vajilla-cocina-refrigeracion
   - guia-carpas-estructuras-eventos-exteriores-cdmx
   - guia-iluminacion-eventos-arquitectonica-decorativa-escenario
+faqs:
+  - question: "¿Cuánto cuesta rentar una planta de energía para un evento?"
+    answer: "Una planta de 20 a 30 kW va de 3,500 a 5,000 pesos por evento, una de 50 a 75 kW de 6,000 a 9,000 y una de 100 a 150 kW de 10,000 a 15,000, con operador y combustible para 8 horas incluidos. El tablero de distribución con protecciones y cables suma de 800 a 1,500 pesos."
+  - question: "¿Qué tamaño de planta de energía necesita mi evento?"
+    answer: "Se calcula sumando el consumo base por tipo de equipo de cada área. Los rangos de referencia son de 20 a 50 kW para eventos pequeños a medianos, de 50 a 150 kW para medianos a grandes y de 150 a 500 kW para eventos masivos e industriales."
+  - question: "¿Cuánto cuesta la climatización de un evento?"
+    answer: "Los calentadores de patio van de 350 a 500 pesos por evento con gas para 8 horas, el calefactor industrial de 2,000 a 4,000, la nebulización de 10 metros de 1,200 a 1,800 y el aire acondicionado portátil de 5 toneladas de 3,500 a 5,000 pesos."
+  - question: "¿Qué distancia debe haber entre la planta y el evento?"
+    answer: "La guía incluye la distancia recomendada entre planta y evento para que el ruido no se perciba, junto con los tableros de distribución eléctrica necesarios para repartir la carga con seguridad."
 ---
 
 ## La Infraestructura Invisible que Hace Posibles los Eventos Memorables

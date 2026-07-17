@@ -38,6 +38,13 @@ featured: true
 cta:
   label: "Explorar Directorio Completo"
   href: "/directorio/"
+faqs:
+  - question: "¿Qué venues incluye esta selección?"
+    answer: "12 venues de CDMX y Estado de México con ubicación en mapa, entre ellos Hacienda de los Morales, San Ángel Inn, Hotel W, Casa Awolly, Palacio de Minería, Ex Hacienda de Tepotzotlán y Quinta Real Atizapán."
+  - question: "¿Cuánto cuesta la producción EVENTECH según el venue?"
+    answer: "Referencias: Hacienda de los Morales de 45,000 a 80,000 pesos, San Ángel Inn de 35,000 a 60,000, Hotel W de 50,000 a 90,000, Hacienda San Ángel de 25,000 a 45,000 y Quinta Real Atizapán de 20,000 a 40,000."
+  - question: "¿Qué servicios se recomiendan para cada venue?"
+    answer: "Cada espacio lleva su combinación: iluminación arquitectónica con pista de madera y sonido line array en haciendas clásicas, fairy lights con uplighting en jardines, o pantallas LED con moving heads y pista LED en hoteles modernos."
 ---
 
 ## Los Mejores Venues + Los Servicios que los Complementan

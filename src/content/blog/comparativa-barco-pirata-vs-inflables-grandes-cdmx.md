@@ -17,6 +17,13 @@ relatedServices:
 relatedPosts:
   - guia-renta-barco-pirata-inflable-cdmx
   - guia-renta-extremo-inflable-cdmx
+faqs:
+  - question: "¿Cuál es más barato, el Barco Pirata o el Extremo?"
+    answer: "El Barco Pirata parte desde 1,800 pesos y el Extremo desde 1,900. El Barco además necesita menos espacio, funciona con 8 por 6 metros, y requiere menor tiempo de instalación."
+  - question: "¿Cuál conviene según la edad de los invitados?"
+    answer: "Si los invitados tienen entre 3 y 10 años y buscas impacto visual, el Barco Pirata es la mejor apuesta. Si el público es más grande, con adolescentes, adultos o grupos mixtos, o el evento necesita mover a muchas personas en poco tiempo, el Extremo justifica los 500 pesos adicionales."
+  - question: "¿Y para una kermés escolar con edades mezcladas?"
+    answer: "La combinación ideal es el Extremo como atracción principal y el Barco Pirata como módulo secundario temático. Esa dupla cubre a todos los asistentes sin que nadie se quede sin actividad."
 ---
 
 El Barco Pirata y el Extremo son los dos inflables grandes más solicitados de la flota, y nos los preguntan juntos constantemente porque ambos son opciones "de peso" para eventos grandes. Pero sirven propósitos completamente distintos, y poner el incorrecto en tu evento es un desperdicio real — no de dinero, sino de potencial.

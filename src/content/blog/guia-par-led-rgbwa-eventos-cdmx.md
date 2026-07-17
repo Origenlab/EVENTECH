@@ -4,6 +4,8 @@ seoTitle: "Par LED RGBWA para Eventos CDMX | Guía Técnica 2026"
 description: "Guía técnica del par LED RGBWA para eventos en CDMX: cómo funciona la mezcla 5-en-1, control DMX, haz de 25°, cómo dimensionar y con qué combinarlo."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion-arquitectonica/uplighting-bateria-led-wireless.avif"
+imageAlt: "Luminarias par LED de batería inalámbricas listas para un evento"
 author: "Equipo EVENTECH"
 featured: false
 tags:

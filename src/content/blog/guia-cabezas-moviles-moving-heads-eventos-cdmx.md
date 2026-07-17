@@ -4,6 +4,8 @@ seoTitle: "Cabezas Móviles Moving Heads para Eventos CDMX | Guía"
 description: "Qué son las cabezas móviles beam, spot, wash e hybrid, cómo funcionan por dentro y cómo elegirlas según venue e invitados para tu evento en CDMX."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion/cabezas-moviles-beam-evento.avif"
+imageAlt: "Cabezas móviles beam en acción durante un evento nocturno"
 author: "Equipo EVENTECH"
 featured: false
 tags:

@@ -4,6 +4,8 @@ seoTitle: "Follow Spots para Eventos CDMX | Guía Técnica 2026"
 description: "Qué es un follow spot, cómo funciona el tracking manual y cómo elegir el seguidor de luz correcto para bodas, galas y conciertos en CDMX."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion/iluminacion-evento-05.avif"
+imageAlt: "Iluminación de escenario con haz protagonista durante un evento"
 author: "Equipo EVENTECH"
 featured: false
 tags:

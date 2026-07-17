@@ -17,6 +17,15 @@ relatedServices:
   - inflables
 relatedPosts:
   - guia-renta-mini-jungla-inflable-cdmx
+faqs:
+  - question: "¿Por qué los Gusanitos son el inflable más fotografiado?"
+    answer: "La combinación de 4 colores intensos, verde, morado, amarillo y azul, crea un contraste natural que la cámara del celular captura sin ajustes, y las palmeras decorativas dan profundidad a la composición de forma natural."
+  - question: "¿Es seguro para niños de 4 años?"
+    answer: "Sí, el rango recomendado es de 4 a 10 años. Para menores de 4 años la escala puede ser grande y la zona de salto muy amplia, por lo que conviene revisar otras opciones más chicas del catálogo."
+  - question: "¿Los colores se ven igual en fotos nocturnas?"
+    answer: "Los colores brillan más con luz natural directa. En eventos nocturnos el efecto se suaviza, y la solución más práctica es apuntar 2 o 3 reflectores LED de colores complementarios al inflable."
+  - question: "¿El inflable resiste el uso intensivo de una kermés?"
+    answer: "Sí. El PVC grado comercial está diseñado para uso durante horas, muchos turnos de niños y sol directo, y la zona de salto amplia distribuye a los niños de forma natural reduciendo el desgaste."
 ---
 
 Los papás que nos piden los **Gusanitos** generalmente llegan con dos cosas claras: quieren fotos buenas y quieren colores que exploten. Son el inflable correcto para eso. Verde brillante, morado intenso, amarillo solar, azul cielo — cuatro colores que el celular captura en automático sin ningún ajuste, con palmeras decorativas integradas que dan profundidad a cualquier composición. La cámara no puede ignorarlos.

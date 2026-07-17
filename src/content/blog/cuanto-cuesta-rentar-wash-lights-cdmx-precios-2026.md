@@ -4,6 +4,8 @@ seoTitle: "Precios de Renta de Wash Lights LED en CDMX 2026"
 description: "Cuánto cuesta rentar wash lights LED en CDMX en 2026: precios por luminaria y paquete, qué incluye una cotización y presupuestos por tipo de evento."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion-arquitectonica/wash-lights-led-renta-eventos-cdmx.avif"
+imageAlt: "Wash lights LED bañando de color un evento en CDMX"
 author: "Equipo EVENTECH"
 featured: false
 tags:
@@ -61,7 +63,7 @@ Así que en lugar de venderte humo, aquí te dejamos con qué llegar a comparar:
 
 La renta de [wash lights de iluminación arquitectónica](/servicios/iluminacion/arquitectonica/wash-lights/) arranca **desde $350 por luminaria con montaje incluido**, dentro de CDMX y municipios cercanos del Estado de México. Ese es el precio de una pieza suelta de interior; a partir de ahí, el número se mueve según cuántas necesites, si van adentro o afuera, si llevan operador y qué tan complejo es el montaje.
 
-Hay una frase que separa una cotización profesional de una barata que después te muerde: **el precio final es el precio final**. Sin cargos sorpresa por traslado, por maniobra, por subir a un segundo piso ni por "tiempo extra" si tu fiesta se alarga —dentro de la zona metropolitana. Cuando compares presupuestos, esa es la línea que tienes que buscar. Si no la ves escrita, pregúntala antes de firmar.
+Busca en la cotización una línea concreta: **el total ya lo incluye todo**. Traslado, maniobra, subir los wash al mezzanine y el tiempo extra si la pista sigue prendida de madrugada —dentro de la zona metropolitana— no deberían generar cargos sorpresa. Si el presupuesto no lo dice por escrito, pregúntalo antes de apartar la fecha.
 
 ¿Por qué no hay una sola cifra? Porque el wash casi nunca se renta solo. Se renta en cantidad —seis, diez, veinte— para cubrir una superficie completa, y el costo de llevar el equipo, montarlo, programarlo y recogerlo se reparte entre esas piezas. Rentar una luminaria y rentar doce no cuestan doce veces lo mismo, y ahí está la primera clave para no pagar de más.
 
@@ -155,7 +157,7 @@ La lectura rápida: casi cualquier evento social o corporativo de tamaño están
 
 ## Tres casos con presupuesto desglosado
 
-Los números sueltos no dicen tanto como un evento completo. Estos tres son representativos de lo que montamos cada temporada.
+Una tarifa por wash aislada no dice cuántos equipos necesita tu salón. Estos tres montajes muestran cómo se reparte el presupuesto en eventos reales.
 
 ### Caso 1 — Boda en hacienda, 120 invitados
 
@@ -213,13 +215,13 @@ Estos son los consejos que le damos a un cliente que nos dice "quiero que se vea
 4. **Define bien interior y exterior.** No pagues equipo de exterior para luminarias que van dentro del salón. Un plano claro de qué va adentro y qué a la intemperie evita cotizar de más "por si acaso".
 5. **Junta la logística.** Resolver [iluminación](/servicios/iluminacion/), [carpa](/servicios/carpas/) y audio en un mismo pedido reparte el traslado y casi siempre baja el total frente a contratar tres proveedores por separado.
 
-Ninguno de estos trucos baja la calidad: bajan el desperdicio. El error caro no es gastar en luz, es gastar en luz mal repartida —o pagar de más por lo que no se ve.
+Estos ajustes no le quitan nada al resultado; le quitan desperdicio al presupuesto. Lo caro no es rentar wash lights: es pagar cobertura en muros que nadie voltea a ver —o quedarte corto justo donde está la pista—.
 
 ---
 
 ## Cómo comparar cotizaciones sin que te sorprendan
 
-Cuando tengas dos o tres presupuestos sobre la mesa, compáralos con esta lista y sabrás cuál es de verdad el más barato —que casi nunca es el del número más chico.
+Cuando ya tengas dos o tres propuestas de wash lights, revísalas contra esta lista; verás que el total más pequeño rara vez es el que más conviene.
 
 - **Exige el total, puesto y montado.** Un "$300 por wash" que luego suma traslado, montaje y operador puede terminar más caro que un "$350 todo incluido". Compara totales, no precios de pieza.
 - **Confirma que sean RGBWA+UV y no RGB.** Si no lo especifican, probablemente son de tres colores, más baratos y con peor rendimiento en tonos cálidos y pastel. Es la trampa más común.

@@ -4,6 +4,8 @@ seoTitle: "Precios de Renta de Follow Spot en CDMX 2026"
 description: "Cuánto cuesta rentar un follow spot en CDMX en 2026: precios por configuración, qué incluye la renta con operador y paquetes por tipo de evento."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion/iluminacion-evento-05.avif"
+imageAlt: "Iluminación profesional de escenario durante un evento en CDMX"
 author: "Equipo EVENTECH"
 featured: false
 tags:

@@ -4,6 +4,8 @@ seoTitle: "Mesas Picnic para Eventos CDMX | Guía 2026"
 description: "Guía completa de mesas picnic y de madera para eventos en CDMX: modelos, medidas, capacidades, usos y precios. Picnic, farm, biergarten, parota e infantil."
 date: 2026-07-08
 category: "guias"
+image: "/images/mobiliario/mesas-tablones-crossback-boda-rustica.avif"
+imageAlt: "Mesas tablón de madera con sillas crossback en montaje de boda rústica"
 author: "Equipo EVENTECH"
 featured: true
 tags:
@@ -42,6 +44,15 @@ cta:
   label: "Cotiza tus mesas picnic"
   href: "/servicios/mobiliario/mesas-picnic/"
 draft: false
+faqs:
+  - question: "¿Qué capacidad tiene cada modelo de mesa picnic?"
+    answer: "La Picnic Estándar de 1.80 metros sienta a 6 personas, la Grande de 2.40 a 10 o 12, la XL de 3 metros a 14 o 16 con cuatro bancas, la Farm Americana a 8 o 10 con sillas, la Biergarten a 10 y la Infantil a 8 o 10 niños."
+  - question: "¿Qué diferencia a la mesa Farm de las mesas picnic?"
+    answer: "La Farm Americana no trae banca integrada: se combina con sillas, típicamente Crossback, y es la favorita para bodas. Las mesas de la familia picnic traen banca integrada y son el caballo de batalla de jardines y fiestas."
+  - question: "¿Cómo sé que una mesa de madera aguanta un evento?"
+    answer: "Por el proceso de fabricación: pino nacional seleccionado con teca y parota en gama alta, lijado en dos etapas más una pasada ultrafina en la línea infantil, sellador de poros más tres manos de barniz de exterior e inspección pieza por pieza antes de subir al camión."
+  - question: "¿Tienen inventario para eventos grandes?"
+    answer: "Sí, más de 120 piezas propias, con capacidad real para eventos de 100 o más personas combinando modelos en una sola entrega."
 ---
 
 La primera vez que un cliente nos pidió mesas de madera "sin mantel, que se vea la madera", hace ya varios años, tuvimos que confirmarlo dos veces. En ese entonces, tapar la mesa era la regla. Hoy es al revés: en buena parte de las bodas de jardín, las comidas de rancho y los festivales que montamos cada temporada en la Ciudad de México, lo que el cliente quiere es exactamente eso —la veta a la vista, la banca de pino, el runner de lino y nada más.

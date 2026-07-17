@@ -48,6 +48,13 @@ relatedPosts:
 cta:
   label: "Explora el Directorio Completo"
   href: "/directorio/"
+faqs:
+  - question: "¿Cuánto cuesta un salón de fiestas económico en CDMX?"
+    answer: "La guía analiza 5 salones probados con rentas de 5,000 a 8,000 pesos. Por zona, los promedios de renta básica van de 8,000 en la periferia sur y 11,000 en el norte hasta 28,000 en el centro."
+  - question: "¿Qué costos ocultos debo preguntar antes de firmar?"
+    answer: "La guía lista los costos ocultos frecuentes, como cargos por hora extra, descorche o servicios que parecen incluidos y no lo están, junto con la pregunta de oro para destaparlos y 10 señales de calidad para evaluar un salón económico."
+  - question: "¿Un salón barato puede verse premium?"
+    answer: "Sí. La iluminación correcta, el mobiliario bien seleccionado y un montaje con criterio profesional transforman cualquier espacio; EVENTECH ha montado producción en salones desde 5,000 hasta 90,000 pesos de renta."
 ---
 
 ## 5 Salones de Fiestas Económicos en CDMX 2026: Calidad Real sin Gastar de Más

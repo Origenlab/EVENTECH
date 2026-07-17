@@ -4,6 +4,8 @@ seoTitle: "Mariposas de Papel para el Vals de XV Años | Guía CDMX"
 description: "Qué son las mariposas de papel, cómo funciona el cañón de aire y cómo elegir el efecto para el vals de XV años, primer baile y bodas en CDMX."
 date: 2026-07-08
 category: "xv-anos"
+image: "/images/eventos/xv-hero.avif"
+imageAlt: "Fiesta de XV años, momento del vals donde caen las mariposas de papel"
 author: "Equipo EVENTECH"
 featured: false
 tags:
@@ -181,7 +183,7 @@ Cuando el efecto de mariposas es apenas una señal dentro de una **producción g
 
 ## Checklist antes de contratar tus mariposas
 
-Lleva estas preguntas a cualquier cotización —a la nuestra o a la de quien sea— y en cinco minutos sabrás si tratas con profesionales:
+Antes de apartar tus cañones de mariposas, dispara estas preguntas en cada cotización —incluida la nuestra—: las respuestas te dicen en minutos si estás tratando con profesionales:
 
 - **¿Es papel de seda, no metálico?** Del material depende que floten y que la limpieza sea fácil.
 - **¿El color se personaliza a mi paleta?** Blush, dorado, blanco, lavanda… debe igualar tu vestido o tu tema.

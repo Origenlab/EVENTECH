@@ -17,6 +17,15 @@ relatedServices:
   - inflables
 relatedPosts:
   - guia-renta-barco-pirata-inflable-cdmx
+faqs:
+  - question: "¿El Extremo cabe en el patio de una escuela primaria?"
+    answer: "Depende del patio. Se necesitan de 13 a 14 metros de largo por 6 de ancho sin obstáculos en ningún extremo. Lo que más limita son postes, canchas techadas y accesos del edificio, así que conviene enviar medidas o fotos del espacio antes de comprometer la fecha."
+  - question: "¿Pueden usar el Extremo adultos sin riesgo?"
+    answer: "Sí. Está diseñado estructuralmente para resistir el peso y la dinámica de adultos, y es el único inflable de la flota con esa capacidad. Se recomienda separar los turnos de adultos y niños cuando hay mezcla de edades."
+  - question: "¿Cuánto tarda en instalarse?"
+    answer: "Aproximadamente 60 minutos desde que el camión llega al venue. El equipo llega 90 minutos antes del inicio del evento para instalar, revisar anclajes y probar el soplador antes de abrir al público."
+  - question: "¿Puedo organizar un torneo con el Extremo?"
+    answer: "Sí. El doble carril está diseñado para relevos, eliminatorias por tiempo y competencias por equipos. En kermeses escolares suele convertirse en la actividad más popular del día cuando hay una tabla de tiempos visible."
 ---
 
 El **Extremo** no es un brincolín. Es un circuito de obstáculos de 7 metros donde los niños entran por un extremo y salen corriendo a hacer fila de nuevo. Muros de escalada, túneles de gateo, barreras laterales, tobogán final — todo en una estructura pensada para carreras por equipos donde los niños compiten por turnos. Si buscas algo que mantenga a 30, 50 o 100 niños ocupados durante horas con mínima supervisión por parte tuya, este es el inflable. Si buscas algo para 15 niños en una fiesta de cumpleaños íntima, probablemente es demasiado para tu escenario.
@@ -99,7 +108,7 @@ La renta del Extremo incluye todo para que el circuito funcione sin complicacion
 
 La renta del Extremo comienza desde **$1,900 MXN** para un evento estándar en CDMX y área metropolitana. El precio final depende de la duración del evento, distancia al venue y si se requiere monitor adicional. Para eventos corporativos o kermeses de día completo, solicita una cotización especial por WhatsApp.
 
-[Cotizar por WhatsApp](https://wa.me/525530682988?text=Hola%2C%20quiero%20cotizar%20un%20inflable%20grande%20para%20mi%20evento)
+[Cotiza el Extremo por WhatsApp](https://wa.me/525530682988?text=Hola%2C%20quiero%20cotizar%20el%20inflable%20Extremo%20para%20mi%20evento)
 
 ## Preguntas frecuentes
 
@@ -127,4 +136,4 @@ Si el Extremo te atrae pero necesitas algo más versátil por rango de edad, con
 
 Consulta disponibilidad y detalles en la página del [Extremo](/servicios/inflables/juegos-infantiles/extremo/).
 
-[Cotizar por WhatsApp](https://wa.me/525530682988?text=Hola%2C%20quiero%20cotizar%20un%20inflable%20grande%20para%20mi%20evento)
+[Apartar el Extremo por WhatsApp](https://wa.me/525530682988?text=Hola%2C%20quiero%20apartar%20el%20inflable%20Extremo%2C%20%C2%BFme%20cotizan%3F)

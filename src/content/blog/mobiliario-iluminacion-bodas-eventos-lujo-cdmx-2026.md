@@ -53,6 +53,17 @@ featured: true
 cta:
   label: "Cotiza mobiliario e iluminación para tu evento"
   href: "/cotizar/"
+faqs:
+  - question: "¿Puedo combinar diferentes modelos de sillas en un mismo evento?"
+    answer: "Sí, y es una tendencia creciente. La combinación más solicitada es Chiavari para la mesa de honor y Crossback para las mesas de invitados en bodas con estética rústico-elegante, con asesoría para que la combinación sea visualmente coherente."
+  - question: "¿El equipo de iluminación incluye técnico de operación durante el evento?"
+    answer: "Los sistemas de uplighting son de configuración estática y se programan en el montaje sin requerir operador. Los wash lights y moving heads para escenario incluyen técnico de operación cuando el servicio lo requiere, y se especifica en la cotización."
+  - question: "¿Con cuánta anticipación debo reservar?"
+    answer: "Para bodas en temporada alta, de mayo a julio y de noviembre a enero, se recomienda reservar con 4 a 8 semanas de anticipación. Para eventos corporativos y celebraciones fuera de temporada alta, 2 a 4 semanas suelen ser suficientes."
+  - question: "¿El servicio incluye montaje y desmontaje?"
+    answer: "Sí. Todos los servicios incluyen entrega al venue, montaje profesional y recolección al finalizar el evento, sin cargos adicionales dentro de la zona metropolitana de CDMX."
+  - question: "¿Puedo ver el equipo antes de contratarlo?"
+    answer: "Sí, hay showroom en cuatro ubicaciones de la zona metropolitana y también se comparten fotografías de eventos reales donde se ha utilizado el equipo de tu interés."
 ---
 
 ## El Detalle que Separa un Evento Ordinario de uno Extraordinario

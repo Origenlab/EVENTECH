@@ -43,6 +43,17 @@ featured: true
 cta:
   label: "Cotiza Tu Evento"
   href: "/cotizar/"
+faqs:
+  - question: "¿Cuánto tiempo antes debo reservar?"
+    answer: "Se recomienda reservar con 2 a 3 meses de anticipación para eventos sociales y 3 a 6 meses para corporativos grandes. Para temporada alta, en mayo, octubre y diciembre, conviene reservar con más anticipación."
+  - question: "¿Incluyen montaje y desmontaje?"
+    answer: "Sí. Todos los servicios incluyen transporte, montaje profesional, operación durante el evento y desmontaje."
+  - question: "¿Qué pasa si algo falla durante mi evento?"
+    answer: "Siempre se lleva equipo de backup y el técnico presente está capacitado para resolver cualquier contingencia en minutos."
+  - question: "¿Trabajan en venues fuera de CDMX?"
+    answer: "Sí. Se cubre el Estado de México y destinos hasta 100 km de CDMX; para distancias mayores se cotiza logística especial."
+  - question: "¿Puedo ver el equipo antes de contratarlo?"
+    answer: "Por supuesto. Se puede agendar una visita al showroom para conocer el inventario."
 ---
 
 ## Transformamos Espacios en Experiencias Memorables

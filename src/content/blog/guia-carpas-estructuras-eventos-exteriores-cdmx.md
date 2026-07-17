@@ -37,6 +37,15 @@ featured: true
 cta:
   label: "Cotiza Tu Carpa"
   href: "/cotizar/"
+faqs:
+  - question: "¿Qué tipos de carpas existen para eventos al aire libre?"
+    answer: "Tres tipos principales: carpas árabes, las favoritas para eventos sociales; carpas estructurales, de versatilidad profesional con paredes modulares; y carpas tipo hangar, pensadas para eventos masivos."
+  - question: "¿Qué variantes de carpa árabe puedo elegir?"
+    answer: "Además de la árabe clásica, hay carpas árabes con forros para un toque de lujo y carpas transparentes que dejan el cielo como techo, cada una con sus dimensiones y capacidades."
+  - question: "¿Qué complementos necesita una carpa?"
+    answer: "Las carpas estructurales admiten sistema de paredes modulares y accesorios, y la guía cubre también pisos y complementos para nivelar y vestir el espacio exterior."
+  - question: "¿Cómo sé de qué tamaño necesito la carpa?"
+    answer: "Por las tablas de dimensiones y capacidades por configuración que incluye la guía: el aforo cambia según el montaje sea banquete, auditorio o cóctel, y de ahí sale el tamaño correcto."
 ---
 
 ## Lleva Tu Evento al Exterior con Total Confianza

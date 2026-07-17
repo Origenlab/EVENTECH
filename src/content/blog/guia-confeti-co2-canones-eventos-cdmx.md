@@ -4,6 +4,8 @@ seoTitle: "Cañones de Confeti y CO₂ para Eventos CDMX | Guía"
 description: "Qué son los cañones de confeti biodegradable y CO₂ criogénico, cómo funcionan por dentro y cómo elegirlos según tu venue, invitados y evento en CDMX."
 date: 2026-07-08
 category: "guias"
+image: "/images/pistas-baile/pista-led-rgb-fiesta.avif"
+imageAlt: "Pista LED en plena fiesta, momento clásico para disparar cañones de confeti"
 author: "Equipo EVENTECH"
 featured: false
 tags:

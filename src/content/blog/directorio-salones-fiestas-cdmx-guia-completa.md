@@ -49,6 +49,17 @@ featured: true
 cta:
   label: "Explora el Directorio Completo"
   href: "/directorio/"
+faqs:
+  - question: "¿Cuánto cuesta rentar un salón para fiestas en CDMX?"
+    answer: "Los precios varían mucho según zona y tipo: salones económicos de 15,000 a 40,000 pesos, jardines y quintas de 30,000 a 80,000, haciendas premium de 80,000 a 200,000 y hoteles 5 estrellas desde 150,000 hasta más de 500,000 pesos. Son aproximados y cambian según temporada y día de la semana."
+  - question: "¿Con cuánta anticipación debo reservar un venue?"
+    answer: "Para bodas en temporada alta de 12 a 18 meses, bodas en temporada baja de 6 a 12 meses, XV años de 6 a 9 meses, eventos corporativos de 2 a 6 meses y fiestas sociales de 1 a 3 meses."
+  - question: "¿Qué incluye típicamente la renta de un venue?"
+    answer: "Generalmente incluye el uso del espacio por tiempo definido, mobiliario básico de mesas y sillas, estacionamiento, seguridad básica y limpieza inicial. Según el venue puede incluir catering, iluminación decorativa, mantelería, coordinador de eventos y montaje."
+  - question: "¿Puedo llevar mis propios proveedores?"
+    answer: "Depende del venue: los jardines y quintas generalmente permiten proveedores externos, los hoteles usualmente solo catering propio, las haciendas varían y los salones independientes suelen ser flexibles. Siempre conviene confirmar las políticas antes de reservar."
+  - question: "¿Qué pasa si llueve en un evento al aire libre?"
+    answer: "Las opciones son un plan B con salón de respaldo si el venue lo tiene, rentar carpas estructurales como respaldo, contratar seguro contra lluvia o verificar las políticas de cambio de fecha del venue."
 ---
 
 ## Introducción: Tu Guía Definitiva para Encontrar el Venue Perfecto

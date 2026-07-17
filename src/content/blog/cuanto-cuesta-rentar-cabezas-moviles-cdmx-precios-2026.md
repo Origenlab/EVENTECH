@@ -4,6 +4,8 @@ seoTitle: "Precios de Renta de Cabezas Móviles CDMX 2026"
 description: "Cuánto cuesta rentar cabezas móviles (moving heads) en CDMX en 2026: precios por tipo beam, spot, wash e hybrid, qué incluye y paquetes por evento."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion/cabezas-moviles-beam-evento.avif"
+imageAlt: "Cabezas móviles beam proyectando haces de luz en un evento"
 author: "Equipo EVENTECH"
 featured: false
 tags:

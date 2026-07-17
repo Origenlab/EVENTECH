@@ -4,6 +4,8 @@ seoTitle: "Precios de City Light en CDMX 2026: Paquetes de Ambientación"
 description: "Cuánto cuesta rentar City Light en CDMX en 2026: precios de los paquetes de 8, 16 y 24 luminarias PAR LED, qué incluyen y presupuestos por tipo de evento."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion-arquitectonica/uplighting-led-salon-boda-elegante.avif"
+imageAlt: "Salón de boda elegante ambientado con luminarias LED de piso"
 author: "Equipo EVENTECH"
 featured: false
 tags:
@@ -145,7 +147,7 @@ Para las producciones de gran escala —festivales, conciertos, lanzamientos con
 
 ## Tres casos con presupuesto desglosado
 
-Los números sueltos no dicen tanto como un evento completo. Estos tres son representativos de lo que montamos cada temporada.
+El precio por cañón dice poco hasta que lo ves aplicado a un venue completo. Estos tres eventos iluminados con city light muestran el desglose real.
 
 ### Caso 1 — Boda en salón, 200 invitados
 
@@ -189,7 +191,7 @@ Un lanzamiento de producto en un salón de hotel. El cliente quería el salón e
 
 Ocho luminarias con el Pantone exacto de la marca bastaron para dar identidad a todo el salón. Las [pantallas](/servicios/audiovisual/) y el mobiliario del evento se cotizaron por separado, con la misma logística.
 
-*Todos los montos son de referencia para 2026, con montaje incluido en CDMX y municipios cercanos. Tu cotización se ajusta a tu venue, tu fecha y tu programa.*
+*Cifras de referencia 2026 para CDMX y municipios cercanos, con montaje incluido. El número final de tus city light se ajusta según el venue, la fecha y el programa de la noche.*
 
 ---
 
@@ -209,7 +211,7 @@ Ninguno de estos trucos baja la calidad: bajan el desperdicio. El error caro no 
 
 ## Cómo comparar cotizaciones sin que te sorprendan
 
-Cuando tengas dos o tres presupuestos sobre la mesa, compáralos con esta lista y sabrás cuál es de verdad el más barato —que casi nunca es el del número más chico.
+Antes de firmar, pon tus presupuestos de city light uno junto a otro y pásalos por esta lista: el más conveniente casi nunca es el del total más bajo.
 
 - **Exige el total, puesto y montado.** Un paquete "económico" que luego suma traslado, montaje y operador puede terminar más caro que uno todo incluido. Compara totales, no precios de luminaria.
 - **Confirma que sean RGBWA y a tu paleta.** Si no lo especifican, probablemente son RGB de tres colores y color "a ojo", más baratos y con peor rendimiento en tonos cálidos y pastel. Es la trampa más común.

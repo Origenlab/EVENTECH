@@ -42,6 +42,17 @@ featured: false
 cta:
   label: "Cotiza tu evento completo"
   href: "/cotizar/"
+faqs:
+  - question: "¿Con cuánta anticipación debo reservar?"
+    answer: "Se recomiendan 2 a 4 semanas para eventos pequeños, 1 a 2 meses para medianos y 2 a 3 meses para grandes eventos o temporada alta, que va de mayo a junio y de noviembre a diciembre."
+  - question: "¿El precio incluye montaje y desmontaje?"
+    answer: "Sí. Todas las cotizaciones incluyen transporte, montaje profesional, operación cuando aplica y desmontaje."
+  - question: "¿Qué pasa si un equipo falla durante el evento?"
+    answer: "Se cuenta con equipos de respaldo y técnicos que pueden reemplazar cualquier equipo con problema de inmediato."
+  - question: "¿Puedo modificar mi pedido después de confirmar?"
+    answer: "Sí, con al menos 7 días de anticipación se pueden agregar o modificar elementos, sujeto a disponibilidad."
+  - question: "¿Cubren eventos fuera de CDMX?"
+    answer: "Sí. Se atiende el Estado de México sin costo adicional, y otros estados con un cargo por traslado que se cotiza individualmente."
 ---
 
 ## EVENTECH: La Solución Integral para Equipar Eventos en México

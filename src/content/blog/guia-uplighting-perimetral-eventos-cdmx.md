@@ -4,6 +4,8 @@ seoTitle: "Uplighting Perimetral CDMX: Guía Técnica"
 description: "Qué es el uplighting perimetral, cómo funciona y cuántas luminarias necesitas para transformar tu salón en CDMX. Guía técnica sin humo, con specs reales."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion-arquitectonica/uplighting-led-renta-eventos-cdmx.avif"
+imageAlt: "Uplighting perimetral LED transformando los muros de un salón de eventos"
 author: "Equipo EVENTECH"
 featured: false
 tags:

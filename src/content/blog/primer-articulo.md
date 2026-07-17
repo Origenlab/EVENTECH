@@ -21,6 +21,13 @@ relatedEvents:
   - "bodas"
 draft: false
 featured: false
+faqs:
+  - question: "¿Cuánto cuesta rentar sillas para una boda?"
+    answer: "Como referencia de precios promedio por pieza: las sillas Tiffany van de 80 a 120 pesos, las Crossback de 100 a 150 y las Ghost de 120 a 180."
+  - question: "¿Qué tipos de sillas son tendencia para bodas?"
+    answer: "Tiffany, Crossback y Ghost, cada una con un estilo distinto: del clásico elegante de la Tiffany al aire rústico de la Crossback y el minimalismo moderno de la Ghost."
+  - question: "¿Qué mesas conviene usar en una boda?"
+    answer: "Las mesas redondas favorecen la convivencia del banquete clásico y las rectangulares permiten montajes tipo imperial. La elección define la distribución completa del salón."
 ---
 
 ## Introducción

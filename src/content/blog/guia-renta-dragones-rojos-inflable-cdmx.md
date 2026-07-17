@@ -17,6 +17,15 @@ relatedServices:
   - inflables
 relatedPosts:
   - guia-renta-castillo-princesas-inflable-cdmx
+faqs:
+  - question: "¿Los Dragones Rojos funcionan en azotea o terraza de edificio?"
+    answer: "Sí, siempre que la terraza tenga al menos 5 por 5 metros libres y el acceso permita subir el inflable enrollado. Antes del evento se piden fotos del acceso; los elevadores chicos de edificios residenciales son el punto de atención más común."
+  - question: "¿Cuánto tiempo dura la renta?"
+    answer: "La renta estándar cubre el evento completo, generalmente de 4 a 6 horas. Si la fiesta va a ser más larga, se cotizan horas adicionales siempre que se planeen con anticipación."
+  - question: "¿El inflable es seguro para niños de 4 años?"
+    answer: "Sí. Las mallas perimetrales y la resbaladilla de velocidad controlada están diseñadas para el rango de 4 a 10 años. Se recomienda un adulto designado cerca del inflable, especialmente las primeras horas de la fiesta."
+  - question: "¿Qué pasa si llueve el día de mi evento?"
+    answer: "Hay que avisar con al menos 2 horas de anticipación para evaluar condiciones y buscar la mejor solución, como reagendar o instalar bajo cubierta si el espacio lo permite. Ante lluvia fuerte o viento sostenido el inflable se evacúa por seguridad."
 ---
 
 El inflable mediano más rentado de nuestra flota no es el que tiene la mejor foto. Es el que tiene resbaladilla de alta velocidad. Y los **Dragones Rojos** tienen exactamente eso.

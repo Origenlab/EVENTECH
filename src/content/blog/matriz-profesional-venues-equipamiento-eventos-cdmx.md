@@ -38,6 +38,13 @@ featured: true
 cta:
   label: "Solicitar Análisis Personalizado"
   href: "/cotizar/"
+faqs:
+  - question: "¿Cuánto cuesta el equipamiento completo para una boda de 200 personas?"
+    answer: "Por niveles: iluminación completa de 45,000 a 150,000 pesos, audio profesional de 35,000 a 120,000, mobiliario de 60,000 a 160,000 y complementos de 25,000 a 90,000. El total estimado va de 165,000 en nivel base a 520,000 en nivel premium."
+  - question: "¿Qué categorías de venues analiza la matriz?"
+    answer: "Haciendas y fincas, salones de hotel, jardines y quintas, y terrazas y rooftops, con matrices de decisión específicas para bodas de 150 a 400 invitados, XV años de 150 a 300 y corporativos de 200 a 1,000 asistentes."
+  - question: "¿Incluye estrategias para optimizar el presupuesto?"
+    answer: "Sí, una guía de optimización con estrategias de ahorro inteligente y la distribución óptima del presupuesto por tipo de evento."
 ---
 
 ## Metodología de Planificación Integral

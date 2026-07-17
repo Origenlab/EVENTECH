@@ -4,6 +4,8 @@ seoTitle: "Wash Lights LED para Eventos CDMX | Guía Técnica 2026"
 description: "Guía técnica de wash lights LED RGBWA+UV para eventos en CDMX: cómo bañan muros y fachadas de color, temperatura 2700K–6500K, control DMX y cómo elegir."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion-arquitectonica/wash-lights-led-renta-eventos-cdmx.avif"
+imageAlt: "Wash lights LED bañando muros de color en un evento en CDMX"
 author: "Equipo EVENTECH"
 featured: false
 tags:

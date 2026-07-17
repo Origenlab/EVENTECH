@@ -61,6 +61,17 @@ featured: true
 cta:
   label: "Cotiza tu mesa de dulces"
   href: "/servicios/mobiliario/barras/postres/"
+faqs:
+  - question: "¿Los dulces están incluidos en el servicio o solo la estructura?"
+    answer: "Hay ambas modalidades. El servicio estándar incluye estructura, frascos, decoración y montaje, y el cliente proporciona los dulces. El servicio premium incluye además la selección de dulces curada por el equipo, y es el que la mayoría elige por conveniencia."
+  - question: "¿Con cuánta anticipación debo reservar la mesa de dulces?"
+    answer: "Para eventos en temporada alta, de mayo a julio y de noviembre a enero, se recomienda reservar con 4 a 6 semanas de anticipación. En temporada regular suelen bastar 2 a 3 semanas. Las mesas de dulces tradicionales mexicanos y los muros de donas se agotan más rápido."
+  - question: "¿Puedo personalizar los colores de los dulces?"
+    answer: "Sí. Se puede teñir gomitas, glasear donas y decorar cupcakes en cualquier color de la paleta del evento, confirmando los colores exactos con 2 semanas de anticipación para garantizar disponibilidad."
+  - question: "¿El servicio incluye personal durante el evento?"
+    answer: "Los paquetes básicos incluyen montaje y desmontaje. Los premium añaden personal de servicio durante las primeras 3 a 4 horas del evento para reponer productos y mantener la presentación impecable."
+  - question: "¿Trabajan con dietas especiales?"
+    answer: "Sí, hay opciones sin azúcar, sin gluten, veganas y sin nueces, marcadas con etiquetas especiales para que los invitados con restricciones alimentarias puedan identificarlas fácilmente."
 ---
 
 ## El Rincón que Todos los Invitados Recuerdan
@@ -410,4 +421,4 @@ El proceso de cotización es simple y rápido:
 
 ---
 
-*EVENTECH — Renta profesional de equipo para eventos en CDMX. Más de 500 eventos exitosos. Cotización en 24 horas. [eventech.mx](/servicios/)*
+*EVENTECH — Renta de mobiliario, iluminación y equipo para tu mesa de dulces y todo el evento en CDMX. Más de 500 eventos exitosos, cotización en 24 horas. [eventech.mx](/servicios/)*

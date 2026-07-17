@@ -36,6 +36,15 @@ featured: true
 cta:
   label: "Cotiza Tu Pista"
   href: "/cotizar/"
+faqs:
+  - question: "¿Qué tipos de pistas de baile existen?"
+    answer: "Cuatro familias: pistas LED RGB de máximo impacto visual, pistas de madera de elegancia atemporal, pistas vintage y tarimas con escenarios modulares, cada una con tamaños y capacidades propios."
+  - question: "¿Qué es la pista LED infinita?"
+    answer: "Es el efecto más impresionante de las pistas LED: un acabado de espejo con luces que crean sensación de profundidad infinita, además de los modos de iluminación programables de las pistas LED."
+  - question: "¿Se pueden instalar pistas de baile en cualquier terreno?"
+    answer: "Sí, la guía cubre la instalación en cualquier terreno: sobre pasto, superficies irregulares o exteriores se usan sistemas de nivelación y tarimas para dejar la pista firme y pareja."
+  - question: "¿Qué acabados hay en pistas de madera?"
+    answer: "Distintos tipos de acabado y de piso de madera, incluyendo patrones de parquet, para que la pista combine con el estilo del evento."
 ---
 
 ## El Centro de la Fiesta Merece Ser Espectacular

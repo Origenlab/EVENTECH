@@ -41,6 +41,15 @@ featured: true
 cta:
   label: "Explorar Directorio de Venues"
   href: "/directorio/"
+faqs:
+  - question: "¿Cuáles son los criterios profesionales para elegir un venue?"
+    answer: "Siete: capacidad real frente a capacidad nominal, accesibilidad técnica para proveedores, infraestructura de servicios, política de proveedores externos, condiciones contractuales, historial y reputación, y relación valor-experiencia."
+  - question: "¿Cuánto debo presupuestar para el venue?"
+    answer: "El presupuesto típico de venue va de 25,000 a 80,000 pesos. Un venue de 80,000 que incluye mobiliario, iluminación base, coordinador y plan B puede ser mejor negocio que uno de 40,000 donde todo es extra."
+  - question: "¿Qué costos ocultos debo revisar antes de firmar?"
+    answer: "Entre otros, el cobro por descorche o uso de instalaciones, que puede sumar de 5,000 a 15,000 pesos. Conviene revisar las condiciones contractuales completas y la política de proveedores externos antes de firmar."
+  - question: "¿Qué zonas compara la guía?"
+    answer: "Las zonas premium de CDMX, las zonas de alto valor y el Estado de México, con su ventaja de espacio y naturaleza, además de la selección por tipo de evento."
 ---
 
 ## Introducción: El Arte de Seleccionar el Espacio Perfecto

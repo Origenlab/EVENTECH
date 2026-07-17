@@ -4,6 +4,8 @@ seoTitle: "Precios de Iluminación de Fachadas en CDMX 2026"
 description: "Cuánto cuesta iluminar la fachada de tu evento en CDMX en 2026: precios por técnica y paquete, qué incluye la cotización y casos reales. Desde $500."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion-arquitectonica/iluminacion-fachadas-renta-eventos-cdmx.avif"
+imageAlt: "Fachada de venue iluminada con luz arquitectónica de color para un evento en CDMX"
 author: "Equipo EVENTECH"
 featured: false
 tags:
@@ -192,7 +194,7 @@ Quince años con la fachada del salón iluminada en rosa y dorado, cambios de co
 
 ## Cómo comparar cotizaciones sin que te sorprendan
 
-Cuando pidas dos o tres cotizaciones, ponlas lado a lado y revisa que hablen el mismo idioma. Estas son las preguntas que igualan la comparación:
+Antes de decidir quién ilumina tu fachada, junta dos o tres propuestas y asegúrate de que describan lo mismo: metros de muro, potencia y óptica de cada equipo. Estas preguntas ponen la comparación en una sola mesa:
 
 1. **¿Incluye levantamiento y simulación 3D?** Sin medir tu fachada, cualquier cifra es un tiro al aire. Un proveedor serio visita antes de cotizar en firme.
 2. **¿Cuántas luminarias, de cuánta potencia y qué óptica?** No es lo mismo cubrir tu fachada con seis equipos de 150W que con doce de 300W. Si la cotización no lo dice, pídelo.

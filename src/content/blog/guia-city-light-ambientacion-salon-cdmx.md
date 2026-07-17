@@ -4,6 +4,8 @@ seoTitle: "City Light: Ambientación de Salón con PAR LED | CDMX 2026"
 description: "Qué es City Light y cómo ambientar el salón completo con PAR LED RGBWA en CDMX: paquetes de 8, 16 o 24 luminarias, color a tu paleta y control DMX."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion-arquitectonica/uplighting-rgbwa-boda-salon-dorado.avif"
+imageAlt: "Salón de boda ambientado con luminarias PAR LED RGBWA en tono dorado"
 author: "Equipo EVENTECH"
 featured: false
 tags:

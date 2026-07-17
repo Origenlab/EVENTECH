@@ -4,6 +4,8 @@ seoTitle: "Precios de Renta de Candiles de Cristal en CDMX 2026"
 description: "Cuánto cuesta rentar candiles de cristal en CDMX en 2026: precios por pieza y paquete de $1,500 a $12,000, qué incluye la instalación y casos reales."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion/iluminacion-evento-02.avif"
+imageAlt: "Iluminación decorativa elegante en un evento en CDMX"
 author: "Equipo EVENTECH"
 featured: false
 tags:
@@ -144,7 +146,7 @@ La lectura rápida: casi cualquier evento social de tamaño estándar en la ciud
 
 ## Tres casos con presupuesto desglosado
 
-Los números sueltos no dicen tanto como un evento completo. Estos tres son representativos de lo que montamos cada temporada.
+Una lista de precios no cuenta cómo se ve un candil colgado sobre la pista. Estos tres montajes —hacienda, gala corporativa y XV años— muestran cómo se arma el total pieza por pieza.
 
 ### Caso 1 — Boda en hacienda, 150 invitados
 

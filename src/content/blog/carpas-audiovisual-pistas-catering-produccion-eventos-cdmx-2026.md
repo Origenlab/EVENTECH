@@ -55,6 +55,17 @@ featured: true
 cta:
   label: "Cotiza la producción completa de tu evento"
   href: "/cotizar/"
+faqs:
+  - question: "¿Con cuánta anticipación debo contratar una carpa para mi evento?"
+    answer: "Para carpas árabes y estructurales medianas de hasta 10 por 10 metros se recomienda reservar con 4 semanas de anticipación mínimo. Para carpas estructurales grandes y carpas hangar, la reserva debe hacerse con 6 a 10 semanas porque requieren planeación técnica previa y en temporada alta la disponibilidad se agota pronto."
+  - question: "¿El sistema de sonido incluye técnico de operación durante el evento?"
+    answer: "Sí. Todos los sistemas de sonido se entregan con técnico que opera el sistema durante la duración completa del evento y ajusta la ecualización en tiempo real conforme cambian las condiciones acústicas del espacio."
+  - question: "¿Pueden los generadores operar toda la noche sin recarga?"
+    answer: "Los generadores tienen autonomía de 8 a 12 horas de operación continua en tanque estándar. Para eventos más largos o sin acceso para recarga se coordina el suministro de combustible adicional sin cargo por el servicio de reabastecimiento."
+  - question: "¿Las pistas de baile LED se pueden instalar en superficies irregulares?"
+    answer: "Las pistas LED modulares requieren superficie plana y firme. Para superficies con pendiente o irregularidades se instala primero una plataforma nivelada y sobre ella la pista; ese sistema resuelve diferencias de nivel de hasta 30 cm."
+  - question: "¿Qué incluye el servicio de inflables?"
+    answer: "Incluye transporte al venue, instalación completa con inflado, operación por personal capacitado durante el horario del evento y desmontaje al finalizar. Todos los inflables cuentan con certificación de seguridad y el personal tiene capacitación en primeros auxilios."
 ---
 
 ## La Infraestructura Invisible que Hace Posible la Magia

@@ -4,6 +4,8 @@ seoTitle: "Precios de Renta de Luz Negra UV en CDMX 2026"
 description: "Cuánto cuesta rentar luz negra y UV en CDMX en 2026: precios por m² de pista, qué incluye la cotización y paquetes por evento. Con operador y accesorios."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion/luces-neon-uv-fiesta-glow.avif"
+imageAlt: "Fiesta glow con luz negra UV haciendo brillar colores neón"
 author: "Equipo EVENTECH"
 featured: false
 tags:
@@ -141,7 +143,7 @@ Producción de gran formato: **varios equipos** cubriendo pistas y escenarios, c
 
 ## Tres casos con presupuesto desglosado
 
-Nada explica mejor un precio que verlo abierto. Estos son tres montajes reales (con cifras redondeadas) para que veas cómo se arma el total.
+Los rangos de arriba aterrizan mejor con fiestas reales. Estos tres montajes UV —con cifras redondeadas— muestran qué llevó cada uno: cañones, barras, kits glow y operador.
 
 ### Caso 1 — Hora loca de XV años en Coyoacán · 2 cañones
 
@@ -192,7 +194,7 @@ Activación de bebida, 200 asistentes, rooftop sin carga eléctrica suficiente. 
 
 ## Cómo comparar cotizaciones sin que te sorprendan
 
-Cuando pidas dos o tres cotizaciones, ponlas lado a lado y revisa que hablen el mismo idioma. Estas son las preguntas que igualan la comparación:
+En luz negra UV las cotizaciones se distorsionan fácil: unas incluyen kits glow y pintura neón, otras solo los cañones. Para comparar parejo, exige que cada propuesta responda esto:
 
 1. **¿Cuántos cañones y para cuántos m² de pista?** No es lo mismo dos cañones para 40 m² que dos para 120 m². Si una cotización no dice la cobertura, pídela.
 2. **¿Incluye accesorios glow y para cuántos invitados?** Es el hueco más común. Sin kits, la fiesta no brilla, y si no vienen en el número, te los van a cobrar después.

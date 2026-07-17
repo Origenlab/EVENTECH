@@ -4,6 +4,8 @@ seoTitle: "Precios de Renta de Sky Tracker CDMX 2026"
 description: "Cuánto cuesta rentar un sky tracker en CDMX en 2026: precios por configuración, qué incluye la cotización y paquetes por evento. Instalación y operador."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion/iluminacion-evento-01.avif"
+imageAlt: "Iluminación de gran formato en un evento nocturno en CDMX"
 author: "Equipo EVENTECH"
 featured: false
 tags:
@@ -141,7 +143,7 @@ Producción de gran formato: **varios equipos sincronizados por DMX**, con logí
 
 ## Tres casos con presupuesto desglosado
 
-Nada explica mejor un precio que verlo abierto. Estos son tres montajes reales (con cifras redondeadas) para que veas cómo se arma el total.
+Para dimensionar, nada como ver montajes terminados. Estos tres eventos con sky tracker traen cifras redondeadas y el detalle de equipos y horas que armó cada total.
 
 ### Caso 1 — Boda íntima en jardín de Tepoztlán · 1 equipo
 
@@ -190,7 +192,7 @@ Festival nocturno al aire libre, batería de 8 equipos sincronizados por DMX com
 
 ## Cómo comparar cotizaciones sin que te sorprendan
 
-Cuando pidas dos o tres cotizaciones, ponlas lado a lado y revisa que hablen el mismo idioma. Estas son las preguntas que igualan la comparación:
+Con sky trackers, lo primero es confirmar que las propuestas hablen del mismo número de equipos y las mismas horas de haz encendido. Pon las cotizaciones frente a frente con estas preguntas:
 
 1. **¿Cuántos equipos y de cuántos watts?** No es lo mismo cuatro de 4,000W que cuatro de 7,000W. Si una cotización no dice la potencia, pídela.
 2. **¿Incluye planta de luz?** Si tu venue no tiene carga trifásica y una cotización no menciona planta, o se les olvidó o te la van a cobrar después. Es el hueco más caro.

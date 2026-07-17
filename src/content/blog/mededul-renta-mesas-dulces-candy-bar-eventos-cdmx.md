@@ -56,6 +56,17 @@ featured: true
 cta:
   label: "Cotiza tu mesa de dulces"
   href: "/servicios/mobiliario/barras/postres/"
+faqs:
+  - question: "¿Con cuánta anticipación debo reservar una mesa de dulces?"
+    answer: "En temporada regular de 4 a 6 semanas, en temporada alta de mayo a octubre de 2 a 3 meses, para bodas en temporada alta de 4 a 6 meses, y para fechas especiales como el 14 de febrero o el Día de las Madres, 3 meses o más."
+  - question: "¿Cuánto cuesta una mesa de dulces?"
+    answer: "Una mesa básica solo con estructura parte desde 2,500 pesos, una mesa estándar completa para 80 a 150 invitados va de 12,000 a 20,000 pesos, y una mesa premium para 150 a 300 invitados de 20,000 a 35,000 pesos."
+  - question: "¿Qué incluye el precio de la mesa de dulces?"
+    answer: "Siempre incluye estructuras, recipientes, accesorios decorativos, transporte, montaje profesional y desmontaje. Los dulces pueden o no estar incluidos, y también existe la opción de rentar solo la estructura y poner tus propios dulces."
+  - question: "¿Cuánto tiempo tardan en montar la mesa?"
+    answer: "De 2 a 5 horas dependiendo de la complejidad, llegando siempre con tiempo suficiente. El cliente solo proporciona el espacio y la hora de acceso."
+  - question: "¿Ofrecen opciones para restricciones alimentarias?"
+    answer: "Sí, hay opciones veganas, sin gluten, sin azúcar, orgánicas, kosher y halal, además de personalización de colores con matching Pantone en macarons, cupcakes y galletas."
 ---
 
 ## MEDEDUL: La Autoridad Definitiva en Mesas de Dulces, Candy Bars y Exhibiciones Gastronómicas para Eventos en México — Guía Maestra 2026

@@ -36,6 +36,15 @@ featured: false
 cta:
   label: "Cotiza Inflables"
   href: "/cotizar/"
+faqs:
+  - question: "¿Cómo se clasifican los inflables y juegos por edades?"
+    answer: "Con un sistema de clasificación por edades y una tabla por tipo de juego que cubre tres categorías: juegos infantiles como brincolines, toboganes y circuitos de obstáculos, juegos acuáticos y juegos para adultos."
+  - question: "¿Qué costos adicionales puede tener la renta de inflables?"
+    answer: "La distancia de entrega puede sumar de 500 a 2,000 pesos y un operador adicional de 500 a 1,000. El servicio incluye seguro de responsabilidad civil de 1 millón de pesos."
+  - question: "¿Qué requieren los inflables acuáticos?"
+    answer: "Tienen requerimientos específicos de espacio, suministro de agua y temporada: la guía detalla el clima adecuado y los tipos de inflables acuáticos disponibles."
+  - question: "¿Qué hace seguro a un brincolín?"
+    answer: "La guía repasa la anatomía de un brincolín seguro: estructura, anclajes, mallas y supervisión, además de los espacios requeridos por cada tipo de juego."
 ---
 
 ## Diversión Garantizada con Seguridad Profesional

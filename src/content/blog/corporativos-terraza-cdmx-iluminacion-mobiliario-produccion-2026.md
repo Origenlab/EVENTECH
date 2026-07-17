@@ -38,6 +38,15 @@ featured: true
 cta:
   label: "Cotizar Evento Corporativo"
   href: "/cotizar/"
+faqs:
+  - question: "¿Cuánto cuesta producir un evento corporativo en terraza en CDMX?"
+    answer: "Como referencia sin catering: una cena de networking de 50 a 80 personas va de 18,000 a 28,000 pesos, una conferencia con cena de 100 a 200 personas de 35,000 a 65,000, y una gala corporativa de 200 a 400 personas de 75,000 a más de 150,000."
+  - question: "¿Cuánto presupuestar solo de iluminación en terraza?"
+    answer: "De 6,000 a 9,500 pesos para una cena corporativa elegante de 80 a 100 personas, de 15,000 a 25,000 para una conferencia con escenario de 150 a 200, y de 35,000 a más de 60,000 para una gala con baile de 300 a 400 asistentes."
+  - question: "¿Qué debo preguntar al venue antes de rentar la terraza?"
+    answer: "Cuatro frentes: infraestructura eléctrica disponible, estructura y seguridad de la terraza, acústica y restricciones de ruido, y logística de accesos y montaje."
+  - question: "¿Qué silla conviene para un corporativo?"
+    answer: "La Chiavari dorada o plateada, de 70 a 100 pesos por pieza, para eventos premium; la Chiavari transparente de 80 a 120 para estética contemporánea; la silla de banquete de respaldo alto de 40 a 60 para formatos muy formales; y la stackable metalizada de 20 a 40 cuando prima la eficiencia."
 ---
 
 ## Corporativos en Terraza CDMX 2026: La Guía Completa de Iluminación, Mobiliario y Producción

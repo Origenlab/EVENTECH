@@ -36,6 +36,15 @@ featured: false
 cta:
   label: "Cotiza Audiovisual"
   href: "/cotizar/"
+faqs:
+  - question: "¿Qué es el pixel pitch de una pantalla LED?"
+    answer: "Es la distancia entre píxeles de la pantalla, el dato que determina la resolución y la distancia mínima de visualización adecuada. La guía explica cómo elegirlo según el tamaño del espacio y la audiencia."
+  - question: "¿Cuándo conviene proyector en lugar de pantalla LED?"
+    answer: "La pantalla LED ofrece el máximo impacto visual y funciona bien incluso con luz ambiental, mientras que la proyección es la alternativa versátil para espacios con iluminación controlada. La guía compara ambos escenarios junto con los tipos de proyectores y pantallas de proyección."
+  - question: "¿Qué sistema de sonido es el estándar profesional?"
+    answer: "El sistema line array, que distribuye el sonido de forma uniforme para que todos los asistentes escuchen igual. Un sistema completo incluye bocinas, cálculo de potencia según el aforo y los componentes de consola y microfonía."
+  - question: "¿Pantalla en pedestal o videowall?"
+    answer: "Depende del formato del evento y del contenido. La guía cubre las diferencias entre pantallas en pedestal y videowall, además de las configuraciones populares de videowall por tipo de evento."
 ---
 
 ## El Audio y Video Definen el Impacto de Tu Evento

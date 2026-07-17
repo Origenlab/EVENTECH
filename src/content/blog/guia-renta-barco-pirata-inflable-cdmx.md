@@ -17,6 +17,15 @@ relatedServices:
   - inflables
 relatedPosts:
   - guia-renta-extremo-inflable-cdmx
+faqs:
+  - question: "¿El Barco Pirata inflable cabe en mi patio trasero?"
+    answer: "Necesitas un espacio libre de 8 por 6 metros, sin árboles bajos, cables ni obstáculos en la vertical del mástil. Si tienes duda, envía fotos del área y las medidas aproximadas para confirmar que aplica antes del día del evento."
+  - question: "¿Funciona en superficies de pasto, concreto o adoquín?"
+    answer: "Sí, en las tres superficies. El sistema de anclaje se adapta a cada caso, con estacas en pasto o tierra compacta y sacos de arena en concreto o adoquín. No daña el piso y la estabilidad es la misma."
+  - question: "¿Qué pasa si llueve el día del evento?"
+    answer: "Con lluvia moderada y viento manejable se cubre el soplador y se revisan las condiciones minuto a minuto. Si la lluvia es intensa o el viento supera los 40 km/h, el inflable se desinfla por seguridad y se coordina el reagendamiento con anticipación."
+  - question: "¿Puedo tener otros inflables además del Barco Pirata?"
+    answer: "Sí, es una combinación muy popular. En kermeses grandes el Barco Pirata funciona como atracción central acompañado de inflables medianos como estaciones secundarias, y el paquete completo se cotiza con descuento por volumen."
 ---
 
 Hay inflables y hay inflables. El **Barco Pirata** es otra categoría: un galeón de 7 metros con mástil, velas pintadas y tobogán de alta velocidad en la popa que convierte cualquier jardín o explanada en escenario de aventura corsaria. Cuando este inflable llega a tu evento, los niños lo ven desde la calle y ya no quieren otra cosa. Ese nivel de impacto visual es real — lo vemos en cada evento donde lo instalamos.
@@ -100,7 +109,7 @@ La renta del Barco Pirata incluye todo lo que necesitas para que el inflable fun
 
 La renta del Barco Pirata comienza desde **$1,800 MXN** para un evento estándar en CDMX y área metropolitana. El precio final depende de la duración, la distancia al venue y si requieres monitor adicional. Para reservar, contáctanos por WhatsApp con la fecha, dirección y número aproximado de niños, y te mandamos cotización en menos de 2 horas.
 
-[Cotizar por WhatsApp](https://wa.me/525530682988?text=Hola%2C%20quiero%20cotizar%20un%20inflable%20grande%20para%20mi%20evento)
+[Cotiza tu Barco Pirata por WhatsApp](https://wa.me/525530682988?text=Hola%2C%20quiero%20cotizar%20el%20Barco%20Pirata%20inflable%20para%20mi%20evento)
 
 ## Preguntas frecuentes
 
@@ -128,4 +137,4 @@ Si el Barco Pirata te llama la atención por su escala, probablemente también q
 
 ¿Ya tienes fecha? Consulta todos los detalles y disponibilidad directamente en la página del [Barco Pirata](/servicios/inflables/juegos-infantiles/barco-pirata/) o explora el [catálogo completo de inflables infantiles](/servicios/inflables/juegos-infantiles/).
 
-[Cotizar por WhatsApp](https://wa.me/525530682988?text=Hola%2C%20quiero%20cotizar%20un%20inflable%20grande%20para%20mi%20evento)
+[Reservar el Barco Pirata por WhatsApp](https://wa.me/525530682988?text=Hola%2C%20me%20interesa%20reservar%20el%20Barco%20Pirata%2C%20%C2%BFme%20cotizan%20mi%20fecha%3F)

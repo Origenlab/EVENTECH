@@ -26,6 +26,17 @@ keywords:
   - barras eventos precio renta
 relatedServices:
   - mobiliario
+faqs:
+  - question: "¿Cuánto cuesta rentar sillas para 100 personas en CDMX?"
+    answer: "Con sillas Tiffany desde 15 pesos por pieza, 100 sillas salen desde 1,500 pesos; sumando el 10 por ciento de reserva, 110 piezas quedan en 1,650 pesos. Con sillas Chiavari desde 25 pesos por pieza el total sería de 2,750 pesos."
+  - question: "¿Cuánto sale rentar mesas para una boda de 150 personas?"
+    answer: "Una boda de 150 personas necesita aproximadamente 15 mesas redondas de 10 personas. Con mesas a 100 pesos cada una el total sería de 1,500 pesos, y el paquete de mesa más sillas Chiavari para 150 personas queda en aproximadamente 5,250 pesos."
+  - question: "¿Los precios de renta incluyen mantelería?"
+    answer: "No. La mantelería, con manteles, cubremanteles y caminos de mesa, se cotiza por separado en más de 30 colores y telas. Conviene preguntar por el paquete de mesa más mantelería coordinada."
+  - question: "¿Cuánto tiempo antes debo reservar el mobiliario?"
+    answer: "Se recomiendan de 4 a 6 semanas para fechas en temporada alta como bodas, graduaciones y fiestas de diciembre. Para eventos corporativos entre semana, 1 a 2 semanas generalmente son suficientes."
+  - question: "¿El mobiliario llega armado o lo tengo que montar yo?"
+    answer: "Eventech hace la entrega, colocación y recolección. El cliente solo indica dónde va cada pieza y el equipo lo arma según el plano del evento."
 ---
 
 La pregunta que más recibimos antes de una cotización es siempre la misma: **¿cuánto cuesta rentar mobiliario para un evento en CDMX?** Esta guía responde con precios reales 2026, rangos por tipo de pieza y todo lo que necesitas saber para cotizar correctamente.

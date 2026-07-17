@@ -4,6 +4,8 @@ seoTitle: "Precios de Renta de Humo Bajo Ice Fog CDMX 2026"
 description: "Cuánto cuesta rentar humo bajo o ice fog en CDMX en 2026: precios por tipo de máquina, qué incluye la renta y paquetes por evento."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion/efectos-especiales-humo-bajo.avif"
+imageAlt: "Efecto de humo bajo cubriendo la pista durante un evento"
 author: "Equipo EVENTECH"
 featured: false
 tags:
@@ -115,7 +117,7 @@ Estos son los seis que de verdad mueven la aguja, en orden de impacto:
 
 ## Cuánto presupuestar según tu tipo de evento
 
-Estos son los paquetes de referencia por tipo de evento. El número final se ajusta en la cotización, pero te dan el orden de magnitud para dimensionar.
+La tabla resume los paquetes típicos de humo bajo según el tipo de evento. El total exacto sale en la cotización, pero con esto ya sabes en qué orden de magnitud vive tu momento.
 
 | Tipo de evento | Configuración típica | Presupuesto orientativo |
 |---|---|---|
@@ -176,7 +178,7 @@ Niebla uniforme sobre el escenario, encendido y apagado instantáneo sincronizad
 
 ## Cómo comparar cotizaciones sin que te sorprendan
 
-Cuando tengas dos o tres presupuestos enfrente, no compares el número grande de arriba: compara qué incluye cada uno. Estos son los cuatro filtros que usamos para saber cuál es la buena:
+En humo bajo, el presupuesto que se ve más barato casi siempre trae el insumo o el técnico cobrados aparte. Antes de decidir, pasa cada cotización por estos cuatro filtros:
 
 1. **¿El insumo y el operador están dentro del precio?** Si una cotización se ve "más barata", casi siempre es porque el hielo seco o el técnico van aparte. Súmalos y vuelve a comparar.
 2. **¿Es la tecnología correcta para tus momentos?** Hielo seco para una canción, sistema con hielo para varios, CO2 para lo grande. Que no te vendan CO2 para un solo primer baile ni una sola carga de hielo seco "para toda la noche".

@@ -37,6 +37,15 @@ featured: true
 cta:
   label: "Cotiza Iluminación"
   href: "/cotizar/"
+faqs:
+  - question: "¿Cuáles son las capas de la iluminación profesional de un evento?"
+    answer: "Cuatro capas: arquitectónica, decorativa, de escenario y efectos especiales. Un diseño completo las combina para transformar el espacio en distintos momentos de la noche."
+  - question: "¿Qué es el uplighting y cómo se dimensiona?"
+    answer: "Es la técnica de iluminación arquitectónica con luminarias desde el piso para marcar muros y columnas. La guía cubre las técnicas de uplighting, la cantidad de luminarias por espacio y la paleta de colores recomendada por tipo de evento."
+  - question: "¿Qué tipos de iluminación decorativa existen?"
+    answer: "Los fairy lights, el favorito universal, con sus distintos tipos de focos; los candiles y candelabros; y las letras luminosas, cada uno con su papel en la ambientación."
+  - question: "¿Por qué importa la temperatura de color?"
+    answer: "Porque define el mood del evento: la guía explica la ciencia de la temperatura de color y cómo elegir tonos cálidos o fríos según la atmósfera que se busca crear."
 ---
 
 ## La Luz Es Emoción: Transforma Cualquier Espacio

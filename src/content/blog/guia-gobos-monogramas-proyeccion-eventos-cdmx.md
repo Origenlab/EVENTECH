@@ -4,6 +4,8 @@ seoTitle: "Gobos y Monogramas para Eventos CDMX: Guía Técnica 2026"
 description: "Qué es un gobo, cómo funciona el proyector LED, gobo de metal vs vidrio y cómo elegir el tuyo para bodas, XV y eventos corporativos en CDMX."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion-arquitectonica/banador-puntual-gobo-monograma-boda.avif"
+imageAlt: "Gobo de monograma proyectado con luz puntual en una boda"
 author: "Equipo EVENTECH"
 featured: false
 tags:

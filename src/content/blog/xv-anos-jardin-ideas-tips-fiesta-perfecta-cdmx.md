@@ -31,6 +31,15 @@ relatedServices:
   - audiovisual
 relatedEvents:
   - xv-anos
+faqs:
+  - question: "¿Qué iluminación necesito para XV años en jardín?"
+    answer: "Tres tipos: iluminación de árboles y muros con colores como dorado, rosa o azul pastel, con presupuesto de 2,000 a 4,500 pesos; guirnaldas tensadas Edison o RGB de 1,500 a 3,500; y pista o escena con spot, láser o gobo del monograma de 3,000 a 6,000."
+  - question: "¿Cuánto cuesta la ambientación de unos XV años en jardín?"
+    answer: "El costo estimado va de 4,000 a 8,000 pesos, sin contar flores premium que pueden llevar el total hasta 12,000."
+  - question: "¿Cuánto presupuestar en total por rubro?"
+    answer: "Referencias por nivel: renta de mobiliario de 2,500 a 7,000 pesos, iluminación de 3,000 a 10,000, catering de 8,000 a 18,000 y ambientación de 2,000 a 10,000."
+  - question: "¿Qué debo revisar en las semanas previas?"
+    answer: "La guía incluye un checklist profesional con tareas concretas a 4 semanas y a 2 semanas del evento, desde confirmaciones de proveedores hasta detalles de montaje."
 ---
 
 Una fiesta de XV años es uno de los eventos más memorables en la vida de una joven. Cuando se celebra en jardín, tienes la oportunidad de crear un escenario mágico, sofisticado y totalmente personalizado. En CDMX, donde el clima permite celebrar al aire libre casi todo el año, la renta de equipo profesional es clave para transformar un espacio verde en un venue de ensueño.

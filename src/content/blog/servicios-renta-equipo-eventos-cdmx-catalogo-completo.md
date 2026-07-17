@@ -45,6 +45,13 @@ featured: true
 cta:
   label: "Cotizar Equipo"
   href: "/cotizar/"
+faqs:
+  - question: "¿Qué categorías de servicio incluye el catálogo EVENTECH?"
+    answer: "Ocho categorías: mobiliario, audiovisual, carpas y estructuras, iluminación, pistas de baile, catering, inflables y accesorios, para equipar un evento completo con un solo proveedor."
+  - question: "¿Desde cuánto cuesta rentar sillas para un evento?"
+    answer: "Las sillas Chiavari parten desde 40 pesos por pieza, las Tiffany desde 45, las Crossback desde 50, las Ghost desde 55 y las plegables desde 20 pesos."
+  - question: "¿También rentan vajilla y cristalería?"
+    answer: "Sí: platos de porcelana o vidrio desde 8 pesos por pieza, copas de vino, champagne y agua desde 6, y cubiertos de acero o dorados desde 5 pesos por set."
 ---
 
 ## Tu Evento Merece el Mejor Equipamiento

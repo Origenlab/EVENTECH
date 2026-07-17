@@ -4,6 +4,8 @@ seoTitle: "City Color CDMX: Guía Técnica de Iluminación"
 description: "Qué es un city color, cómo funciona y cómo elegir cuántos cañones para iluminar fachadas y haciendas en tu evento en CDMX. Guía técnica sin humo."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion-arquitectonica/fachada-grazing-edificio-rgb-colores.avif"
+imageAlt: "Fachada de edificio iluminada con técnica grazing en colores RGB"
 author: "Equipo EVENTECH"
 featured: false
 tags:

@@ -4,6 +4,8 @@ seoTitle: "Candiles de Cristal para Eventos CDMX | Guía Técnica 2026"
 description: "Guía técnica de candiles de cristal cortado para eventos en CDMX: diámetros de 60 a 100 cm, velas LED sin flama, dimmer y rigging certificado sobre invitados."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion/iluminacion-evento-03.avif"
+imageAlt: "Iluminación decorativa elegante en el montaje de un evento"
 author: "Equipo EVENTECH"
 featured: false
 tags:

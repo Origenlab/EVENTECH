@@ -4,6 +4,8 @@ seoTitle: "Humo Bajo Ice Fog para Eventos CDMX | Guía 2026"
 description: "Qué es el humo bajo o ice fog, cómo funciona la niebla a ras de piso y por qué no dispara los detectores de humo en bodas y XV."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion/efectos-especiales-humo-bajo.avif"
+imageAlt: "Humo bajo a ras de piso creando el efecto de baile en las nubes"
 author: "Equipo EVENTECH"
 featured: false
 tags:

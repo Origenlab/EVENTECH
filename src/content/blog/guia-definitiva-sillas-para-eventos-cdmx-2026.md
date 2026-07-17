@@ -40,6 +40,15 @@ relatedPosts:
   - "mobiliario-iluminacion-bodas-eventos-lujo-cdmx-2026"
   - "guia-maestra-bodas-cdmx-equipamiento-completo-2026"
 draft: false
+faqs:
+  - question: "¿Cuáles son las 5 familias de sillas para eventos?"
+    answer: "Chiavari, Ghost, Tiffany, Crossback y Plegables, esta última con las variantes de plástico, madera acolchada y Napoleón. Cada familia tiene materiales, acabados y usos ideales distintos."
+  - question: "¿Cuánto cuesta rentar cada tipo de silla en CDMX?"
+    answer: "Como referencia por unidad: Chiavari de 55 a 75 pesos, Ghost de 45 a 65, Tiffany de 50 a 70, Crossback de 40 a 60, Plegable de plástico de 15 a 25, Plegable de madera de 20 a 35 y Plegable Napoleón de 25 a 40."
+  - question: "¿Qué diferencia hay entre Chiavari y Tiffany?"
+    answer: "La Chiavari es de aluminio anodizado, pesa 1.8 kg, soporta 200 kg, se apila de a 12 y es ideal en exteriores. La Tiffany, de resina con acero, pesa 4.5 kg, soporta 180 kg y es el clásico atemporal de los salones, aunque pide más cuidado a la intemperie."
+  - question: "¿Los cojines van incluidos en la renta?"
+    answer: "Para Chiavari, Tiffany y Plegable de madera los cojines se incluyen sin costo. Para la Ghost el cojín transparente de gel es opcional con costo de 8 a 12 pesos por unidad, y para la Crossback hay cojín de lino opcional."
 ---
 
 Existe un dato que los fotógrafos de eventos conocen muy bien pero que la mayoría de los organizadores descubre demasiado tarde: **las sillas aparecen en más del 90% de las fotografías de cualquier evento**. Están en los primeros planos cuando los invitados toman asiento. En el fondo de los retratos de novios. En las tomas aéreas del salón. En los videos de la recepción. La silla no es un accesorio menor —es el elemento de mobiliario más presente, más repetido y más fotografiado de todo el montaje.

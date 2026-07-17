@@ -43,6 +43,13 @@ featured: true
 cta:
   label: "Cotiza guirnaldas para tu evento"
   href: "/servicios/iluminacion/decorativa/fairy-lights/"
+faqs:
+  - question: "¿Qué paquetes de guirnaldas Edison existen?"
+    answer: "Paquetes de 50 a 500 metros con instalación incluida: el de 50 metros trae aproximadamente 100 focos Edison, el de 100 metros unos 200 y el de 200 metros alrededor de 400, para cubrir desde cenas íntimas hasta eventos masivos."
+  - question: "¿Qué hace profesional a una guirnalda Edison?"
+    answer: "Cuatro elementos: el foco Edison LED de filamento visible, el cable de grado industrial, los sockets con la separación correcta y un sistema eléctrico con conectividad segura para montajes largos."
+  - question: "¿La renta incluye instalación?"
+    answer: "Sí, todos los paquetes de 50 a 500 metros incluyen instalación profesional, y la guía detalla las preguntas técnicas que conviene hacer a cualquier proveedor antes de contratar."
 ---
 
 ## Guirnaldas Edison: El Elemento de Iluminación Decorativa Más Solicitado para Eventos en México

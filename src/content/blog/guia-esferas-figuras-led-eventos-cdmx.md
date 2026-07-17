@@ -4,6 +4,8 @@ seoTitle: "Esferas LED para Eventos CDMX | Guía Técnica 2026"
 description: "Guía técnica de esferas y figuras LED para eventos en CDMX: RGB de 16 colores, inalámbricas con batería, IP65 para exterior y alberca, y cómo elegirlas."
 date: 2026-07-08
 category: "guias"
+image: "/images/iluminacion/iluminacion-evento-04.avif"
+imageAlt: "Ambientación con luz decorativa de color en un evento nocturno"
 author: "Equipo EVENTECH"
 featured: false
 tags:
