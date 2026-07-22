@@ -40,11 +40,6 @@ relatedEvents:
   - bautizos
   - cumpleanos
   - fiestas-infantiles
-relatedPosts:
-  - mejores-salones-fiestas-cdmx-2026-guia-profesional-eventos
-  - directorio-salones-fiestas-cdmx-guia-completa
-  - guia-mobiliario-eventos-sillas-mesas-lounge-cdmx
-  - guia-iluminacion-eventos-arquitectonica-decorativa-escenario
 cta:
   label: "Explora el Directorio Completo"
   href: "/directorio/"
@@ -55,6 +50,11 @@ faqs:
     answer: "La guía lista los costos ocultos frecuentes, como cargos por hora extra, descorche o servicios que parecen incluidos y no lo están, junto con la pregunta de oro para destaparlos y 10 señales de calidad para evaluar un salón económico."
   - question: "¿Un salón barato puede verse premium?"
     answer: "Sí. La iluminación correcta, el mobiliario bien seleccionado y un montaje con criterio profesional transforman cualquier espacio; EVENTECH ha montado producción en salones desde 5,000 hasta 90,000 pesos de renta."
+relatedPosts:
+  - mejores-jardines-eventos-aire-libre-cdmx-2026
+  - salones-fiestas-norte-cdmx-gam-azcapotzalco-2026
+  - mejores-salones-xv-anos-cdmx-2026-guia-completa
+  - xv-anos-jardin-ideas-tips-fiesta-perfecta-cdmx
 ---
 
 ## 5 Salones de Fiestas Económicos en CDMX 2026: Calidad Real sin Gastar de Más

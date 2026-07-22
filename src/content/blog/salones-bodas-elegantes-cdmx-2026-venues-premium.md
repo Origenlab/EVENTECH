@@ -38,11 +38,6 @@ relatedServices:
   - carpas
 relatedEvents:
   - bodas
-relatedPosts:
-  - guia-maestra-bodas-cdmx-equipamiento-completo-2026
-  - ambientacion-bodas-lujo-cdmx-mesas-iluminacion-guirnaldas-2026
-  - mejores-salones-fiestas-cdmx-2026-guia-profesional-eventos
-  - bodas-aire-libre-cdmx-2026-jardines-terrazas-haciendas-guia-definitiva
 cta:
   label: "Cotiza tu Boda con EVENTECH"
   href: "/cotizar/"
@@ -57,6 +52,11 @@ faqs:
     answer: "La silla Chiavari dorada sigue siendo el estándar de elegancia clásica. Para estéticas contemporáneas la Ghost aporta sofisticación minimalista, la Crossback en madera natural comunica elegancia orgánica en bodas garden party, y la Tiffany dorada es la opción para galas de más de 400 personas."
   - question: "¿Cómo afecta la iluminación al ambiente de una boda elegante?"
     answer: "La iluminación es responsable del 40 por ciento de la percepción del ambiente, más que la decoración floral, el mobiliario o la música. Un sistema profesional con uplighting, fairy lights y wash lights con control DMX permite transformar el espacio en distintos momentos de la noche."
+relatedPosts:
+  - carpas-bodas-cdmx-estructura-presupuesto-montaje-profesional
+  - primer-articulo
+  - tendencias-decoracion-bodas-2026-cdmx
+  - mededul-renta-mesas-dulces-candy-bar-eventos-cdmx
 ---
 
 ## 5 Salones para Bodas Elegantes en CDMX 2026: Venues Premium para Celebraciones que Trascienden

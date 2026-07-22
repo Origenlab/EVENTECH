@@ -40,6 +40,11 @@ faqs:
     answer: "Referencias por nivel: renta de mobiliario de 2,500 a 7,000 pesos, iluminación de 3,000 a 10,000, catering de 8,000 a 18,000 y ambientación de 2,000 a 10,000."
   - question: "¿Qué debo revisar en las semanas previas?"
     answer: "La guía incluye un checklist profesional con tareas concretas a 4 semanas y a 2 semanas del evento, desde confirmaciones de proveedores hasta detalles de montaje."
+relatedPosts:
+  - mejores-jardines-eventos-aire-libre-cdmx-2026
+  - salones-fiestas-economicos-cdmx-2026-calidad-precio
+  - salones-fiestas-norte-cdmx-gam-azcapotzalco-2026
+  - mejores-salones-xv-anos-cdmx-2026-guia-completa
 ---
 
 Una fiesta de XV años es uno de los eventos más memorables en la vida de una joven. Cuando se celebra en jardín, tienes la oportunidad de crear un escenario mágico, sofisticado y totalmente personalizado. En CDMX, donde el clima permite celebrar al aire libre casi todo el año, la renta de equipo profesional es clave para transformar un espacio verde en un venue de ensueño.

@@ -27,10 +27,6 @@ relatedServices:
   - iluminacion
 relatedEvents:
   - corporativos
-relatedPosts:
-  - guia-maestra-bodas-cdmx-equipamiento-completo-2026
-  - guia-audiovisual-eventos-pantallas-sonido-proyectores-cdmx
-  - guia-accesorios-infraestructura-eventos-energia-clima-cdmx
 faqs:
   - question: "¿Cuánto cuesta el audiovisual de un evento corporativo?"
     answer: "Como referencia, una configuración con pantalla de 100 pulgadas, sonido de 3 kW y 4 micrófonos va de 6,000 a 10,000 pesos, y la iluminación básica de escenario y ambiente de 4,000 a 8,000."
@@ -40,6 +36,11 @@ faqs:
     answer: "Sí, incluye streaming y eventos híbridos dentro del sistema audiovisual corporativo, junto con configuraciones de pantallas por formato y micrófonos para presentaciones."
   - question: "¿Qué layouts de mobiliario se usan en corporativos?"
     answer: "La guía presenta los layouts corporativos principales y una matriz de necesidades por tipo de evento: conferencias, lanzamientos de producto y team building tienen configuraciones distintas."
+relatedPosts:
+  - corporativos-terraza-cdmx-iluminacion-mobiliario-produccion-2026
+  - cuanto-cuesta-rentar-mobiliario-eventos-cdmx-precios-2026
+  - renta-audio-iluminacion-eventos-cdmx-precios-2026
+  - resoil-renta-sonido-profesional-eventos-cdmx
 ---
 
 ## La Guía Definitiva de Equipamiento para Eventos Corporativos en CDMX

@@ -41,11 +41,6 @@ relatedEvents:
   - xv-anos
   - bautizos
   - cumpleanos
-relatedPosts:
-  - mejores-salones-fiestas-cdmx-2026-guia-profesional-eventos
-  - directorio-salones-fiestas-cdmx-guia-completa
-  - guia-mobiliario-eventos-sillas-mesas-lounge-cdmx
-  - guia-iluminacion-eventos-arquitectonica-decorativa-escenario
 cta:
   label: "Explora el Directorio Completo"
   href: "/directorio/"
@@ -58,6 +53,11 @@ faqs:
     answer: "Los 5 salones recomendados están en zonas comerciales bien iluminadas, con estacionamiento propio y vigilancia durante el evento. Se recomienda valet parking para eventos nocturnos grandes y compartir con los invitados las indicaciones de acceso por las vialidades principales."
   - question: "¿Cuánto tiempo antes debo reservar un salón en el norte?"
     answer: "Para fechas populares como mayo, junio, octubre y diciembre se recomienda reservar con 6 a 8 meses de anticipación; los sábados de temporada alta se agotan primero. Para viernes o domingo suele haber disponibilidad con 3 a 4 meses y generalmente a mejor precio."
+relatedPosts:
+  - mejores-jardines-eventos-aire-libre-cdmx-2026
+  - salones-fiestas-economicos-cdmx-2026-calidad-precio
+  - mejores-salones-xv-anos-cdmx-2026-guia-completa
+  - xv-anos-jardin-ideas-tips-fiesta-perfecta-cdmx
 ---
 
 ## 5 Salones de Fiestas en el Norte de la CDMX para 2026: GAM y Azcapotzalco con Producción Profesional

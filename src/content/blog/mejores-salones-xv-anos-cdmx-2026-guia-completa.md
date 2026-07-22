@@ -38,11 +38,6 @@ relatedServices:
   - inflables
 relatedEvents:
   - xv-anos
-relatedPosts:
-  - guia-profesional-xv-anos-cdmx-planificacion-completa
-  - mejores-salones-fiestas-cdmx-2026-guia-profesional-eventos
-  - guia-iluminacion-eventos-arquitectonica-decorativa-escenario
-  - guia-mobiliario-eventos-sillas-mesas-lounge-cdmx
 cta:
   label: "Explora el Directorio Completo"
   href: "/directorio/"
@@ -57,6 +52,11 @@ faqs:
     answer: "La mayoría incluye iluminación básica de techo y un equipo de sonido elemental. Para una producción de alto nivel con uplighting, fairy lights, pista LED, sonido line array y efectos se requiere producción profesional independiente."
   - question: "¿EVENTECH trabaja con todos los salones de esta guía?"
     answer: "Sí, los 5 salones son partners premium. El equipo conoce la infraestructura eléctrica, dimensiones, puntos de anclaje y acústica de cada uno, lo que significa instalación más rápida y una producción optimizada para cada espacio."
+relatedPosts:
+  - mejores-jardines-eventos-aire-libre-cdmx-2026
+  - salones-fiestas-economicos-cdmx-2026-calidad-precio
+  - salones-fiestas-norte-cdmx-gam-azcapotzalco-2026
+  - xv-anos-jardin-ideas-tips-fiesta-perfecta-cdmx
 ---
 
 ## Los 5 Mejores Salones para XV Años en CDMX 2026: Guía Completa de Producción Profesional

@@ -30,10 +30,6 @@ relatedServices:
   - audiovisual
 relatedEvents:
   - bodas
-relatedPosts:
-  - ambientacion-bodas-lujo-cdmx-mesas-iluminacion-guirnaldas-2026
-  - guia-maestra-bodas-cdmx-equipamiento-completo-2026
-  - renta-guirnaldas-edison-eventos-cdmx
 draft: false
 featured: true
 cta:
@@ -48,6 +44,11 @@ faqs:
     answer: "El montaje se realiza el día anterior al evento, con supervisión y visita desde la semana previa y últimos detalles el mismo día. Así la estructura queda lista antes de que entren florista, mobiliario y audiovisual."
   - question: "¿La climatización de la carpa es opcional?"
     answer: "No. De mayo a septiembre el calor exige ventilación o nebulización, y en los meses fríos se requiere calefacción. La climatización es parte del diseño de la carpa, no un extra de última hora."
+relatedPosts:
+  - primer-articulo
+  - salones-bodas-elegantes-cdmx-2026-venues-premium
+  - tendencias-decoracion-bodas-2026-cdmx
+  - mededul-renta-mesas-dulces-candy-bar-eventos-cdmx
 ---
 
 ## Carpas para Bodas CDMX: Estructura, Presupuesto y Montaje Profesional 2026

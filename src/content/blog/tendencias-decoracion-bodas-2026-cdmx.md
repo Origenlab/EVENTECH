@@ -27,10 +27,6 @@ relatedServices:
   - carpas
 relatedEvents:
   - bodas
-relatedPosts:
-  - ambientacion-bodas-lujo-cdmx-mesas-iluminacion-guirnaldas-2026
-  - guia-maestra-bodas-cdmx-equipamiento-completo-2026
-  - bodas-aire-libre-cdmx-2026-jardines-terrazas-haciendas-guia-definitiva
 faqs:
   - question: "¿Cuáles son las tendencias de decoración para bodas 2026?"
     answer: "Ocho: paletas de color naturales y terrosas, iluminación como protagonista, mobiliario orgánico y mixto, jardines verticales y muros florales, pistas de baile como centro de atención, carpas transparentes y estructuras al aire libre, audiovisual discreto pero potente, y sostenibilidad con renta sobre compra."
@@ -38,6 +34,11 @@ faqs:
     answer: "Porque deja de ser un complemento: las técnicas de luz cálida que están dominando definen el ambiente de la boda tanto como las flores o el mobiliario, y transforman el espacio a lo largo de la noche."
   - question: "¿Qué significa la tendencia de renta sobre compra?"
     answer: "Es la apuesta por la sostenibilidad: rentar mobiliario, iluminación y equipo en lugar de comprarlo reduce costos y desperdicio, y permite acceder a piezas de mejor calidad."
+relatedPosts:
+  - carpas-bodas-cdmx-estructura-presupuesto-montaje-profesional
+  - primer-articulo
+  - salones-bodas-elegantes-cdmx-2026-venues-premium
+  - mededul-renta-mesas-dulces-candy-bar-eventos-cdmx
 ---
 
 ## Tendencias en Decoración para Bodas 2026 en CDMX

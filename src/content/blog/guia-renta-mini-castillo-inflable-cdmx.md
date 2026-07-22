@@ -15,8 +15,6 @@ seoTitle: "Renta Mini Castillo Inflable CDMX | Desde $800 | EVENTECH"
 seoDescription: "Renta el Mini Castillo inflable en CDMX desde $800. Perfecto para bebés 1–4 años. Cabe en sala o departamento. Instalación en 15 min. Cotiza con EVENTECH."
 relatedServices:
   - inflables
-relatedPosts:
-  - guia-renta-castillo-princesas-inflable-cdmx
 faqs:
   - question: "¿El Mini Castillo realmente cabe en un departamento?"
     answer: "Sí, y es su escenario más común. Necesitas un espacio libre de 3 por 3 metros y al menos 2.5 metros de altura libre, medidas que la sala-comedor de un departamento estándar en CDMX suele tener. Si tienes duda, envía las medidas exactas para confirmarlo antes de apartar."
@@ -26,6 +24,10 @@ faqs:
     answer: "La motobomba mantiene el inflado continuo, así que las pérdidas pequeñas de aire no afectan el funcionamiento. Para un daño mayor existe protocolo de atención el mismo día y equipo de respaldo disponible."
   - question: "¿Limpian el inflable antes de cada evento?"
     answer: "Sí, sin excepción. Todos los inflables pasan por lavado y desinfección completos antes de cada renta, con productos aprobados para superficies de contacto con niños."
+relatedPosts:
+  - comparativa-barco-pirata-vs-inflables-grandes-cdmx
+  - comparativa-gusanitos-vs-inflables-medianos-cdmx
+  - guia-renta-castillo-blanco-inflable-cdmx
 ---
 
 Hay una pregunta que nos hacen en casi cada cotización del Mini Castillo: "¿Es para mi bebé de un año, sirve?" Sí, y de hecho para eso fue diseñado. El Mini Castillo es el inflable más pequeño de nuestra flota — 2×2×2 m — y su rango de edad no es un accidente: está pensado específicamente para niños de 1 a 4 años que están aprendiendo a caminar, que no necesitan resbaladillas de altura, y cuyos papás quieren algo seguro sin renunciar a la magia visual de un castillo de brinco.

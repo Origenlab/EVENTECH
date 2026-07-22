@@ -15,8 +15,6 @@ seoTitle: "Castillo Blanco Inflable CDMX | Bodas y Eventos Formales"
 seoDescription: "El único inflable grande que encaja en bodas, XV años y eventos corporativos en CDMX. Estética neutra, gran formato. Cotiza en EVENTECH."
 relatedServices:
   - inflables
-relatedPosts:
-  - guia-renta-barco-pirata-inflable-cdmx
 faqs:
   - question: "¿El Castillo Blanco es solo para niñas o es unisex?"
     answer: "El diseño blanco lo hace completamente unisex. Se renta para quinceañeras con área infantil y cumpleaños mixtos. Funciona mejor en eventos con paleta de color controlada de blancos, dorados o pasteles que junto a temáticas muy coloridas."
@@ -26,6 +24,10 @@ faqs:
     answer: "El material es PVC tratado que se limpia con paño húmedo. Se entrega limpio y las manchas de alimentos pueden gestionarse durante el evento; solo los daños intencionales o manchas permanentes pueden generar cargos adicionales."
   - question: "¿Pueden llegar después del montaje principal de la boda o el evento?"
     answer: "Sí, y es lo recomendable. La llegada se coordina en el horario que menos interfiera con flores, mesas y otros proveedores. Se necesitan al menos 90 minutos antes de que los invitados lleguen al área donde estará el inflable."
+relatedPosts:
+  - comparativa-barco-pirata-vs-inflables-grandes-cdmx
+  - comparativa-gusanitos-vs-inflables-medianos-cdmx
+  - guia-renta-mini-castillo-inflable-cdmx
 ---
 
 La mayoría de los inflables grandes son imposibles en bodas y quince años. Dragones de colores saturados, castillos amarillos con toboganes —todo eso choca directamente con la producción de un evento formal. El Castillo Blanco es la excepción: estructura blanca, acabados limpios, sin temática infantil obvia. Es el único inflable de nuestra flota que los coordinadores de bodas aprueban sin chistar y que los fotógrafos agradecen porque entra en el encuadre sin dominar la paleta de color del evento.

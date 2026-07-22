@@ -40,11 +40,6 @@ relatedEvents:
   - bodas
   - xv-anos
   - bautizos
-relatedPosts:
-  - bodas-aire-libre-cdmx-2026-jardines-terrazas-haciendas-guia-definitiva
-  - mejores-salones-fiestas-cdmx-2026-guia-profesional-eventos
-  - guia-carpas-estructuras-eventos-exteriores-cdmx
-  - guia-iluminacion-eventos-arquitectonica-decorativa-escenario
 cta:
   label: "Explora el Directorio Completo"
   href: "/directorio/"
@@ -57,6 +52,11 @@ faqs:
     answer: "Marzo y abril son los meses óptimos, con temperaturas de 14 a 27 grados, lluvia mínima y jacarandas en floración. Noviembre y diciembre también son excelentes, aunque las noches frías requieren calefacción exterior. Conviene evitar de junio a septiembre para eventos totalmente al aire libre, a menos que se incluya carpa."
   - question: "¿EVENTECH hace la producción completa o solo renta equipo?"
     answer: "Ofrece ambos modelos: renta de equipo individual con entrega, montaje y desmontaje de cada elemento, o producción integral con visita técnica al venue, diseño de layout, coordinación de montaje, operación durante el evento y desmontaje completo. Para jardines al aire libre se recomienda la producción integral por las variables de clima, terreno y electricidad."
+relatedPosts:
+  - salones-fiestas-economicos-cdmx-2026-calidad-precio
+  - salones-fiestas-norte-cdmx-gam-azcapotzalco-2026
+  - mejores-salones-xv-anos-cdmx-2026-guia-completa
+  - xv-anos-jardin-ideas-tips-fiesta-perfecta-cdmx
 ---
 
 ## 5 Jardines para Eventos al Aire Libre en CDMX que Debes Conocer en 2026

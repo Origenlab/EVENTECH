@@ -15,9 +15,6 @@ seoTitle: "Gusanitos vs Mini Jungla CDMX: ¿Cuál elegir? | EVENTECH"
 seoDescription: "¿Gusanitos o Mini Jungla? Comparamos colores, temática, instalación y experiencia real para que elijas el inflable mediano perfecto en CDMX desde $1,300."
 relatedServices:
   - inflables
-relatedPosts:
-  - guia-renta-gusanitos-inflable-cdmx
-  - guia-renta-mini-jungla-inflable-cdmx
 faqs:
   - question: "¿Cuánto cuesta rentar los Gusanitos o la Mini Jungla en CDMX?"
     answer: "Los Gusanitos se rentan desde 1,350 pesos y la Mini Jungla desde 1,300, ambos inflables medianos del catálogo EVENTECH."
@@ -25,6 +22,10 @@ faqs:
     answer: "Los Gusanitos, con su paleta de verde, morado, amarillo y azul, combinan con cualquier decoración colorida y son los más fotografiados. La Mini Jungla aporta temática de selva con animales, ideal para fiestas de exploradores o safari."
   - question: "¿Cuál de los dos se instala más rápido?"
     answer: "La Mini Jungla tiene la instalación más rápida del catálogo, en unos 15 minutos, una ventaja real cuando el salón tiene ventanas cortas de acceso."
+relatedPosts:
+  - comparativa-barco-pirata-vs-inflables-grandes-cdmx
+  - guia-renta-castillo-blanco-inflable-cdmx
+  - guia-renta-mini-castillo-inflable-cdmx
 ---
 
 Dos inflables medianos de naturaleza, mismo precio, mismo rango de edad, mismos 5×5 m de espacio mínimo. La diferencia entre **Gusanitos** y **Mini Jungla** no está en los números — está en lo que los niños hacen adentro y en cómo se ven en la foto.

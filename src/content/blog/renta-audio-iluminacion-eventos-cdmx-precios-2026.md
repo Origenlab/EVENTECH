@@ -37,6 +37,11 @@ faqs:
     answer: "Sí, con luminarias IP65 certificadas para exteriores y sistemas de PA orientados a espacios abiertos. También se atienden jardines y haciendas en el Estado de México con el mismo equipo."
   - question: "¿Pueden coordinarse con el DJ del cliente?"
     answer: "Sí. Cuando el cliente trae su propio DJ se proporciona el sistema de PA, el subwoofer y el booth, y el técnico se coordina directamente con el DJ para niveles y canales."
+relatedPosts:
+  - corporativos-terraza-cdmx-iluminacion-mobiliario-produccion-2026
+  - guia-eventos-corporativos-cdmx-conferencias-lanzamientos-team-building
+  - cuanto-cuesta-rentar-mobiliario-eventos-cdmx-precios-2026
+  - resoil-renta-sonido-profesional-eventos-cdmx
 ---
 
 El audio y la iluminación son los dos elementos que más transforma la experiencia de un evento — y también los que generan más dudas al momento de cotizar. **¿Cuánto cuesta rentar audio para un evento en CDMX? ¿Qué paquete de iluminación necesito?** Esta guía responde con precios reales 2026 y rangos por tipo de producción.

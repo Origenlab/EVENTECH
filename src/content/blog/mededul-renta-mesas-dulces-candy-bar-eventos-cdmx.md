@@ -47,10 +47,6 @@ relatedEvents:
   - "xv-anos"
   - "baby-shower"
   - "corporativos"
-relatedPosts:
-  - "mesas-dulces-candy-bar-bodas-eventos-cdmx-guia-2026"
-  - "guia-maestra-bodas-cdmx-equipamiento-completo-2026"
-  - "guia-profesional-xv-anos-cdmx-planificacion-completa"
 draft: false
 featured: true
 cta:
@@ -67,6 +63,11 @@ faqs:
     answer: "De 2 a 5 horas dependiendo de la complejidad, llegando siempre con tiempo suficiente. El cliente solo proporciona el espacio y la hora de acceso."
   - question: "¿Ofrecen opciones para restricciones alimentarias?"
     answer: "Sí, hay opciones veganas, sin gluten, sin azúcar, orgánicas, kosher y halal, además de personalización de colores con matching Pantone en macarons, cupcakes y galletas."
+relatedPosts:
+  - carpas-bodas-cdmx-estructura-presupuesto-montaje-profesional
+  - primer-articulo
+  - salones-bodas-elegantes-cdmx-2026-venues-premium
+  - tendencias-decoracion-bodas-2026-cdmx
 ---
 
 ## MEDEDUL: La Autoridad Definitiva en Mesas de Dulces, Candy Bars y Exhibiciones Gastronómicas para Eventos en México — Guía Maestra 2026

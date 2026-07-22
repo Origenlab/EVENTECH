@@ -31,6 +31,11 @@ faqs:
     answer: "La talla estándar profesional es de 120 cm, adecuada para la mayoría de los ponentes y escenarios. Existe también una versión compacta de 90 cm para tarimas bajas o presentadores de menor estatura."
   - question: "¿Con cuánta anticipación debo reservar un podium?"
     answer: "Para renta sin personalización, PODIUMEX entrega en 24 horas en CDMX. Si necesitas grabado láser de logo, conviene reservar con algunos días de anticipación para aprobar la prueba digital antes de grabar."
+relatedPosts:
+  - podiumex-renta-venta-podiums-profesionales-mexico
+  - podiums-por-sector-conferencias-gobierno-graduaciones
+  - renta-vs-compra-de-podiums-cual-conviene
+  - tipos-de-podiums-acrilico-madera-combinados-guia
 ---
 
 El podium es un protagonista silencioso: nadie lo aplaude, pero todos lo ven. Una elección acertada refuerza el mensaje del ponente y la imagen de la marca; una equivocada distrae o resta seriedad. Esta guía, construida con la experiencia de nuestro aliado **PODIUMEX**, te ayuda a elegir el podium correcto en cinco decisiones clave.

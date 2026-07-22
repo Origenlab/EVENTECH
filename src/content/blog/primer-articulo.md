@@ -28,6 +28,11 @@ faqs:
     answer: "Tiffany, Crossback y Ghost, cada una con un estilo distinto: del clásico elegante de la Tiffany al aire rústico de la Crossback y el minimalismo moderno de la Ghost."
   - question: "¿Qué mesas conviene usar en una boda?"
     answer: "Las mesas redondas favorecen la convivencia del banquete clásico y las rectangulares permiten montajes tipo imperial. La elección define la distribución completa del salón."
+relatedPosts:
+  - carpas-bodas-cdmx-estructura-presupuesto-montaje-profesional
+  - salones-bodas-elegantes-cdmx-2026-venues-premium
+  - tendencias-decoracion-bodas-2026-cdmx
+  - mededul-renta-mesas-dulces-candy-bar-eventos-cdmx
 ---
 
 ## Introducción

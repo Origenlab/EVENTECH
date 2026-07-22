@@ -29,10 +29,6 @@ relatedServices:
   - carpas
 relatedEvents:
   - corporativos
-relatedPosts:
-  - blueprint-produccion-eventos-cdmx-planificacion-integral
-  - casos-estudio-eventos-exitosos-cdmx-analisis-profesional
-  - top-venues-cdmx-servicios-eventech-mapa
 draft: false
 featured: true
 cta:
@@ -47,6 +43,11 @@ faqs:
     answer: "Cuatro frentes: infraestructura eléctrica disponible, estructura y seguridad de la terraza, acústica y restricciones de ruido, y logística de accesos y montaje."
   - question: "¿Qué silla conviene para un corporativo?"
     answer: "La Chiavari dorada o plateada, de 70 a 100 pesos por pieza, para eventos premium; la Chiavari transparente de 80 a 120 para estética contemporánea; la silla de banquete de respaldo alto de 40 a 60 para formatos muy formales; y la stackable metalizada de 20 a 40 cuando prima la eficiencia."
+relatedPosts:
+  - guia-eventos-corporativos-cdmx-conferencias-lanzamientos-team-building
+  - cuanto-cuesta-rentar-mobiliario-eventos-cdmx-precios-2026
+  - renta-audio-iluminacion-eventos-cdmx-precios-2026
+  - resoil-renta-sonido-profesional-eventos-cdmx
 ---
 
 ## Corporativos en Terraza CDMX 2026: La Guía Completa de Iluminación, Mobiliario y Producción

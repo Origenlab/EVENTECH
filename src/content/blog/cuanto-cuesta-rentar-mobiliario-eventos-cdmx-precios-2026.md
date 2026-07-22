@@ -37,6 +37,11 @@ faqs:
     answer: "Se recomiendan de 4 a 6 semanas para fechas en temporada alta como bodas, graduaciones y fiestas de diciembre. Para eventos corporativos entre semana, 1 a 2 semanas generalmente son suficientes."
   - question: "¿El mobiliario llega armado o lo tengo que montar yo?"
     answer: "Eventech hace la entrega, colocación y recolección. El cliente solo indica dónde va cada pieza y el equipo lo arma según el plano del evento."
+relatedPosts:
+  - corporativos-terraza-cdmx-iluminacion-mobiliario-produccion-2026
+  - guia-eventos-corporativos-cdmx-conferencias-lanzamientos-team-building
+  - renta-audio-iluminacion-eventos-cdmx-precios-2026
+  - resoil-renta-sonido-profesional-eventos-cdmx
 ---
 
 La pregunta que más recibimos antes de una cotización es siempre la misma: **¿cuánto cuesta rentar mobiliario para un evento en CDMX?** Esta guía responde con precios reales 2026, rangos por tipo de pieza y todo lo que necesitas saber para cotizar correctamente.
