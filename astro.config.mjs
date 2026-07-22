@@ -262,6 +262,8 @@ export default defineConfig({
   },
 
   // ─── Redirects ───
+  // Los 301 de reubicación/limpieza viven en public/_redirects (Cloudflare, 301 real).
+  // Aquí solo el alias de sitemap para crawlers.
   redirects: {
     // ZeroRank / crawlers que buscan /sitemap.xml en lugar de /sitemap-index.xml
     "/sitemap.xml": "/sitemap-index.xml",
