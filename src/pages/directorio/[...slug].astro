@@ -12,6 +12,7 @@ import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 import { breadcrumbJsonLd, venueJsonLd, collectionPageJsonLd, itemListJsonLd, faqJsonLd } from "@lib/seo";
 import { SERVICE_CATEGORIES, SITE } from "@config/site";
 import { hasEventTypePage, hasVenueTypePage } from "@lib/directorio-taxonomy";
+import { zonasDirectorio } from "@data/zonas-directorio";
 import "@styles/home-2026.css";
 import "@styles/directorio-2026.css";
 
@@ -514,6 +515,7 @@ const jsonLd = [
         description: v.data.shortDescription,
       }))
     ),
+    ...(zonasDirectorio[zone]?.faqs ? [faqJsonLd(zonasDirectorio[zone]!.faqs!)] : []),
   ] : []),
   // Add venue schema for venue pages
   ...(type === "venue" && venue ? [
@@ -765,6 +767,7 @@ const jsonLd = [
             <div class="hm-hero__seo">
               <p>{zoneInfo.description}</p>
               <p>Lo que destaca: {zoneInfo.highlights.map((h, i) => (<>{i > 0 && " · "}<strong>{h}</strong></>))}.</p>
+              {zonasDirectorio[zone]?.intro?.map((p) => (<p set:html={p} />))}
             </div>
           </div>
         </div>
@@ -961,6 +964,26 @@ const jsonLd = [
             });
           })();
         </script>
+      )}
+
+      {/* FAQ */}
+      {zonasDirectorio[zone]?.faqs && (
+        <section class="hm__section" aria-labelledby="zn-faq-heading">
+          <div class="hm__wrap">
+            <div class="hm__head">
+              <p class="hm__eyebrow">Preguntas frecuentes</p>
+              <h2 id="zn-faq-heading">Salones para eventos en {zoneName}: dudas comunes</h2>
+            </div>
+            <div class="dr-zfaq">
+              {zonasDirectorio[zone]!.faqs!.map((f) => (
+                <details class="dr-zfaq__item">
+                  <summary class="dr-zfaq__q">{f.question}</summary>
+                  <div class="dr-zfaq__a" set:html={f.answer} />
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
       )}
 
       {/* NAV */}
@@ -1371,3 +1394,52 @@ const jsonLd = [
     </div>
   )}
 </PageLayout>
+
+<style>
+  .dr-zfaq {
+    display: grid;
+    gap: 0;
+    max-width: 820px;
+    margin-inline: auto;
+    border-top: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+  }
+  .dr-zfaq__item {
+    border-bottom: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+  }
+  .dr-zfaq__q {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 6px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    line-height: 1.4;
+  }
+  .dr-zfaq__q::-webkit-details-marker { display: none; }
+  .dr-zfaq__q::after {
+    content: "+";
+    font-size: 1.5em;
+    line-height: 1;
+    opacity: .5;
+    flex: none;
+    transition: transform .2s ease;
+  }
+  .dr-zfaq__item[open] .dr-zfaq__q::after { transform: rotate(45deg); }
+  .dr-zfaq__a {
+    padding: 0 6px 22px;
+    max-width: 72ch;
+    line-height: 1.7;
+    opacity: .9;
+  }
+  .dr-zfaq__a :global(p) { margin: 0 0 .7em; }
+  .dr-zfaq__a :global(p:last-child) { margin-bottom: 0; }
+  .dr-zfaq__a :global(a) {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-weight: 600;
+  }
+</style>
