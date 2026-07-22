@@ -19,7 +19,7 @@ function sourceDate(relPath) {
   const abs = join(ROOT, relPath);
   if (existsSync(abs)) {
     try {
-      const out = execSync(`git log -1 --format=%cI -- "${relPath}"`, {
+      const out = execSync(`git --literal-pathspecs log -1 --format=%cI -- "${relPath}"`, {
         cwd: ROOT,
         encoding: "utf8",
         stdio: ["ignore", "pipe", "ignore"],
@@ -40,6 +40,29 @@ function lastmodForUrl(url) {
   const path = new URL(url).pathname.replace(/\/+$/, "");
   const rel = path === "" ? "index" : path.replace(/^\//, "");
   const last = rel.split("/").pop();
+
+  // Directorio: páginas de región/zona (y raíz) no tienen archivo fuente 1:1;
+  // se generan de [...slug].astro + colección venues + datos de zona. Usamos la
+  // fecha más reciente entre esas fuentes que gobiernan la página. Las fichas de
+  // venue (3 segmentos) sí tienen archivo propio y se resuelven más abajo.
+  if (rel === "directorio" || rel.startsWith("directorio/")) {
+    const sub = rel === "directorio" ? "" : rel.slice("directorio/".length);
+    const segs = sub ? sub.split("/").filter(Boolean) : [];
+    if (segs.length <= 2) {
+      const govern = [
+        "src/pages/directorio/[...slug].astro",
+        "src/data/zonas-directorio.ts",
+        "src/content/venues" + (sub ? `/${sub}` : ""),
+      ];
+      let best = null;
+      for (const g of govern) {
+        const d = sourceDate(g);
+        if (d && (!best || d > best)) best = d;
+      }
+      if (best) return best;
+    }
+  }
+
   const candidates = [
     `src/pages/${rel}/index.astro`,
     `src/pages/${rel}.astro`,
