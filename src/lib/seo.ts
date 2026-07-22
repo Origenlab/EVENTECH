@@ -28,8 +28,17 @@ export function formatTitle(title?: string): string {
 
 /** Merge page-level SEO props with site defaults */
 export function resolveSEO(props: SEOProps) {
+  let title = props.rawTitle ? (props.title ?? SITE.seo.title) : formatTitle(props.title);
+  // Enforce titleMaxLength even for rawTitle pages: si el título excede el
+  // máximo y todavía arrastra el complemento homologado, se retira (la parte
+  // keyword es un título válido por sí sola). Evita <title> truncados en SERP.
+  const max = SITE.seo.titleMaxLength ?? 60;
+  const complement = SITE.seo.titleTemplate.replace("%s", "");
+  if (title.length > max && complement && title.endsWith(complement)) {
+    title = title.slice(0, -complement.length);
+  }
   return {
-    title: props.rawTitle ? (props.title ?? SITE.seo.title) : formatTitle(props.title),
+    title,
     description: props.description ?? SITE.seo.description,
     image: props.image ?? SITE.seo.image,
     type: props.type ?? SITE.seo.type,
