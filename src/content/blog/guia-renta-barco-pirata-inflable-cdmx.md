@@ -11,7 +11,7 @@ tags:
   - barco pirata inflable
   - inflables grandes para eventos CDMX
   - brincolín para kermeses y fiestas
-seoTitle: "Renta Barco Pirata Inflable CDMX | Galeón 7m con Tobogán 2026"
+seoTitle: "Renta Barco Pirata Inflable CDMX | Galeón 7m con Tobogán"
 seoDescription: "Renta el Barco Pirata inflable en CDMX desde $1,800. Galeón de 7 m con tobogán. Guía completa de logística, espacio y reserva 2026."
 relatedServices:
   - inflables

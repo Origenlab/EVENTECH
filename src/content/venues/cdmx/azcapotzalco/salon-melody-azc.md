@@ -127,7 +127,7 @@ faqs:
   - question: "¿Cuál es el precio por persona en Salón Melody?"
     answer: "Los menús en Salón Melody van desde $400 hasta $500 MXN por persona, incluyendo banquete, servicio y uso del salón. El descorche es libre y el pastel puede llevarse sin costo adicional. Para cotización exacta según fecha y número de invitados, comunícate al 55 5383 9837."
 
-seoTitle: "Salón Melody Azcapotzalco — Bodas y XV Años en San Andrés CDMX"
+seoTitle: "Salón Melody Azcapotzalco — Bodas y XV Años CDMX"
 seoDescription: "Salón de eventos hasta 400 personas en San Andrés, Azcapotzalco. Pista con esferas, techo alto y estacionamiento. Desde $400/persona. Cierre 22:00 hrs."
 keywords:
   - salon melody azcapotzalco

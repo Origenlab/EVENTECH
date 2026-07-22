@@ -11,7 +11,7 @@ tags:
   - extremo inflable obstáculos
   - inflables grandes para eventos CDMX
   - brincolín para kermeses y fiestas
-seoTitle: "Renta Extremo Inflable CDMX | Circuito Obstáculos para Kermeses 2026"
+seoTitle: "Renta Extremo Inflable CDMX | Circuito de Obstáculos"
 seoDescription: "Renta el Extremo en CDMX desde $1,900. Circuito de obstáculos de 7 m con muros, túneles y tobogán final, para kermeses, team building y eventos grandes."
 relatedServices:
   - inflables

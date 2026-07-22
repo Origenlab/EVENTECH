@@ -115,7 +115,7 @@ faqs:
   - question: "¿Cuál es el precio de renta de Salón Recreo / Jardín Clavería?"
     answer: "La renta del salón interior (60 personas) tiene un costo de $3,000 MXN y la renta del Jardín Clavería (100 personas) es de $24,150 MXN. Comunícate al 55 3127 6532 para confirmar disponibilidad y condiciones actualizadas."
 
-seoTitle: "Salón Recreo / Jardín Clavería — Venue Íntimo en Azcapotzalco"
+seoTitle: "Salón Recreo / Jardín Clavería — Azcapotzalco CDMX"
 seoDescription: "Venue familiar íntimo en Azcapotzalco. Salón hasta 60p o Jardín Clavería hasta 100p. Sistema por persona honesto. Desde $3,000 MXN. Tel: 55 3127 6532."
 keywords:
   - salon recreo azcapotzalco

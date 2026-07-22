@@ -122,7 +122,7 @@ faqs:
   - question: "¿Tiene Jardín Milán presencia en redes sociales?"
     answer: "Sí, Jardín Milán tiene página oficial en Facebook como @JardinMilanimc (facebook.com/JardinMilanimc) donde puedes ver fotos de eventos recientes y contactarlos directamente para cotizaciones."
 
-seoTitle: "Jardín Milán Azcapotzalco — Jardín de Eventos en San Juan Tlihuaca"
+seoTitle: "Jardín Milán — Jardín de Eventos en Azcapotzalco CDMX"
 seoDescription: "Jardín de eventos con áreas exteriores e interiores en San Juan Tlihuaca, Azcapotzalco. Bodas, XV años y fiestas familiares. 158 reseñas en Google."
 keywords:
   - jardin milan azcapotzalco
