@@ -66,7 +66,6 @@ restrictions:
 
 contact:
   phone: "55 5390 8901"
-  whatsapp: "55 4455 6677"
   email: "info@jardinestlalnepantla.mx"
   instagram: "@jardinestlalnepantla"
 

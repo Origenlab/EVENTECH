@@ -61,7 +61,6 @@ restrictions:
 
 contact:
   phone: "55 5574 8901"
-  whatsapp: "55 4455 6677"
   email: "reservaciones@terrazaroma.mx"
   instagram: "@terrazaroma"
 

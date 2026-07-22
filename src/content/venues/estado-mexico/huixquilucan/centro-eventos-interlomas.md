@@ -82,7 +82,6 @@ schedule:
 
 contact:
   phone: "55 5291 4455"
-  whatsapp: "55 4455 6677"
   email: "eventos@centroevinterlomas.mx"
   instagram: "@centroeventosinterlomas"
 
