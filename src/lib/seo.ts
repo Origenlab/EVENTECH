@@ -441,7 +441,8 @@ export function collectionPageJsonLd(page: {
     name: page.name,
     description: page.description,
     url: canonicalURL(page.url),
-    numberOfItems: page.numberOfItems,
+    // numberOfItems NO es propiedad válida de CollectionPage (schema.org) — el
+    // conteo se emite en el ItemList JSON-LD aparte. Ver Site Audit 2026-07-22.
     ...(page.areaServed && {
       about: {
         "@type": "Place",
@@ -521,13 +522,9 @@ export function venueJsonLd(venue: {
     schema.telephone = venue.telephone;
   }
 
-  if (venue.email) {
-    schema.email = venue.email;
-  }
-
-  if (venue.priceRange) {
-    schema.priceRange = venue.priceRange;
-  }
+  // email y priceRange NO son propiedades válidas de EventVenue/Place (schema.org).
+  // Se omiten del JSON-LD para evitar el error "propiedad inesperada" (siguen
+  // visibles en el HTML de contacto). Ver Site Audit 2026-07-22.
 
   if (venue.capacity) {
     schema.maximumAttendeeCapacity = venue.capacity.max;
