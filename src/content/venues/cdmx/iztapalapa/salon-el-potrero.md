@@ -1,8 +1,8 @@
 ---
 name: "Salón El Potrero"
 slug: "salon-el-potrero"
-description: "Salón De Fiestas y Eventos El Potrero es uno de los salones más populares de Iztapalapa, en la colonia Progresista, con más de 2,200 opiniones en Google y calificación de 4.6. Con capacidad de 50 a 530 invitados, atiende bodas, XV años, bautizos, cumpleaños y graduaciones en el oriente de la Ciudad de México."
-shortDescription: "Salón de fiestas en Progresista, Iztapalapa. 50–530 invitados, 4.6★ y +2,200 opiniones. Bodas, XV años y graduaciones en CDMX."
+description: "Con 4.6 estrellas y más de 2,200 reseñas en Google, Salón El Potrero se ganó a pulso el cariño de Iztapalapa. En la colonia Progresista recibe de 50 a 530 invitados con banquete, open bar y seguridad incluidos, desde 400 pesos por persona. Boda, XV años, bautizo o graduación: aquí la fiesta sale redonda sin gastar de más."
+shortDescription: "Salón El Potrero: gran salón de fiestas en Progresista, Iztapalapa. 50 a 530 invitados, 4.6★ y +2,200 reseñas. Bodas, XV años y más."
 
 region: "cdmx"
 zone: "Iztapalapa"
@@ -71,16 +71,16 @@ reviewCount: 2236
 
 faqs:
   - question: "¿Cuál es la capacidad de Salón El Potrero?"
-    answer: "Salón El Potrero tiene capacidad de 50 a 530 invitados, en la colonia Progresista, Iztapalapa."
-  - question: "¿Dónde está ubicado Salón El Potrero?"
-    answer: "Se ubica en Esteban Coronado 60, Progresista, alcaldía Iztapalapa, al oriente de la Ciudad de México."
-  - question: "¿Qué tipo de eventos se realizan aquí?"
-    answer: "Bodas, XV años, bautizos, cumpleaños y graduaciones. Es uno de los salones más populares de Iztapalapa, con 4.6 en Google y más de 2,200 opiniones."
+    answer: "Recibe de 50 a 530 invitados en la colonia Progresista, Iztapalapa, con espacio para fiestas grandes y también reuniones medianas."
+  - question: "¿Dónde está Salón El Potrero?"
+    answer: "En Esteban Coronado 60, colonia Progresista, alcaldía Iztapalapa, al oriente de la Ciudad de México, con estacionamiento y seguridad."
+  - question: "¿Qué eventos se celebran aquí?"
+    answer: "Bodas, XV años, bautizos, cumpleaños y graduaciones. Reúne 4.6 estrellas y más de 2,200 reseñas en Google."
   - question: "¿EVENTECH renta equipo para eventos en Salón El Potrero?"
-    answer: "Sí. EVENTECH complementa el salón con renta de audio, iluminación, pantallas LED, escenario y mobiliario, con entrega y montaje en Iztapalapa."
+    answer: "Sí. Sumamos audio, iluminación, pantallas LED, escenario y mobiliario, con entrega y montaje en Iztapalapa."
 
-seoTitle: "Salón El Potrero — Salón de fiestas en Iztapalapa"
-seoDescription: "Salón El Potrero, Progresista, Iztapalapa. Salón para 50–530 invitados, 4.6★. Bodas, XV años y graduaciones en el oriente de CDMX."
+seoTitle: "Salón El Potrero — Salón de fiestas 4.6★ en Iztapalapa"
+seoDescription: "Salón El Potrero, Progresista, Iztapalapa. Gran salón de fiestas para 50 a 530 invitados con 4.6★. Bodas y XV años desde $400 por persona."
 keywords:
   - salon el potrero iztapalapa
   - salon fiestas progresista cdmx
@@ -92,10 +92,13 @@ keywords:
 publishedAt: 2026-07-23
 ---
 
-## Salón El Potrero: uno de los más populares de Iztapalapa
+## 4.6 estrellas y más de 2,200 reseñas: la gente vuelve por algo
 
-Salón De Fiestas y Eventos El Potrero es uno de los salones más populares de Iztapalapa, en la colonia Progresista, respaldado por **más de 2,200 opiniones en Google y una calificación de 4.6**. Su capacidad de **50 a 530 invitados** lo hace apto para bodas, XV años, bautizos, cumpleaños y graduaciones en el oriente de la Ciudad de México.
+En Iztapalapa, el nombre de Salón El Potrero se pasa de boca en boca, y los números explican por qué: **4.6 estrellas y más de 2,200 reseñas en Google** son de las cifras más difíciles de juntar en un salón de fiestas. En la colonia Progresista, este recinto de gran aforo entrega banquete, open bar, seguridad y coordinador, todo incluido, para que tú solo pienses en disfrutar.
 
-## Equipo y producción EVENTECH para tu evento en Salón El Potrero
+## Espacio de sobra para tu fiesta, desde 400 pesos por persona
 
-EVENTECH complementa el salón con [audio y sonido](/servicios/audiovisual/sonido/), [iluminación](/servicios/iluminacion/), [pantallas LED](/servicios/audiovisual/pantallas-led/), [escenarios](/servicios/pistas-baile/tarimas-escenarios/) y [mobiliario](/servicios/mobiliario/), con entrega y montaje. [Cotiza tu evento](/cotizar/) sin costo.
+Con capacidad de **50 a 530 invitados**, El Potrero se acomoda igual a un cumpleaños en familia que a una boda de quinientas personas, y lo hace **desde $400 por persona**. Bodas, XV años, bautizos y graduaciones caben aquí con vestidores para la festejada, pista amplia y estacionamiento propio. Que la lista de invitados crezca deja de ser un dolor de cabeza cuando el salón está hecho para recibir a todos.
+
+## Lleva tu evento al siguiente nivel con EVENTECH
+El salón pone el espacio; EVENTECH pone la producción: [audio y sonido](/servicios/audiovisual/sonido/), [iluminación](/servicios/iluminacion/), [pantallas LED](/servicios/audiovisual/pantallas-led/), [escenarios](/servicios/pistas-baile/tarimas-escenarios/) y [mobiliario](/servicios/mobiliario/), con entrega y montaje. [Cotiza sin costo](/cotizar/).

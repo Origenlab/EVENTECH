@@ -1,8 +1,8 @@
 ---
 name: "Salón París"
 slug: "salon-paris-coyoacan"
-description: "Salón París es un salón de eventos con terraza en la colonia Campestre Churubusco, alcaldía Coyoacán. De formato íntimo, con cocina para el servicio de catering, recibe entre 40 y 100 asistentes. Es sede de bodas, XV años, bautizos, primeras comuniones y cumpleaños, con menús desde $165 por persona."
-shortDescription: "Salón con terraza en Campestre Churubusco, Coyoacán. Formato íntimo para 40 a 100 asistentes. Bodas, XV años y sociales en CDMX."
+description: "El Salón París es un espacio íntimo con terraza en la colonia Campestre Churubusco de Coyoacán, pensado para celebraciones cercanas de 40 a 100 invitados. Bodas pequeñas, XV años, bautizos, primeras comuniones y cumpleaños suman cocina propia, servicio de banquete y menús desde $165 por persona, uno de los rangos más accesibles de la zona. Con 4.1 estrellas y más de 110 reseñas en Google, es ideal para reuniones familiares en el sur de la CDMX."
+shortDescription: "Salón íntimo con terraza en Campestre Churubusco, Coyoacán, para 40 a 100 invitados. Bodas, XV años y cumpleaños con banquete desde $165."
 
 region: "cdmx"
 zone: "Coyoacán"
@@ -56,17 +56,17 @@ rating: 4.1
 reviewCount: 119
 
 faqs:
-  - question: "¿Cuál es la capacidad del Salón París en Coyoacán?"
-    answer: "El Salón París recibe de 40 a 100 asistentes, con salón y terraza, en la colonia Campestre Churubusco, alcaldía Coyoacán."
+  - question: "¿El Salón París sirve para eventos pequeños?"
+    answer: "Sí, es justo su fuerte: de 40 a 100 invitados, con salón y terraza. Es la escala ideal para bodas pequeñas, cumpleaños y reuniones familiares donde todos se conocen, en Campestre Churubusco, Coyoacán."
   - question: "¿Dónde está el Salón París?"
-    answer: "Se ubica en Cerro de la Juvencia 130, colonia Campestre Churubusco, alcaldía Coyoacán, Ciudad de México, CP 04200."
-  - question: "¿Qué eventos se realizan en el Salón París?"
-    answer: "Es sede de bodas, XV años, bautizos, primeras comuniones y cumpleaños de formato íntimo, con menús desde $165 por persona."
+    answer: "En Cerro de la Juvencia 130, colonia Campestre Churubusco, alcaldía Coyoacán, CDMX (CP 04200)."
+  - question: "¿Cuánto cuesta y qué eventos se celebran?"
+    answer: "Bodas, XV años, bautizos, primeras comuniones y cumpleaños, con banquete propio y menús desde $165 por persona, uno de los rangos más accesibles de la zona."
   - question: "¿EVENTECH renta equipo para eventos en el Salón París?"
-    answer: "Sí. EVENTECH complementa eventos en el Salón París y en Coyoacán con renta de audio, iluminación, pantallas LED, escenario y mobiliario, con entrega y montaje."
+    answer: "Sí. EVENTECH complementa tu evento en el Salón París y en todo Coyoacán con audio, iluminación, pantallas LED, escenario y mobiliario, con entrega y montaje."
 
 seoTitle: "Salón París — Salón íntimo con terraza en Coyoacán"
-seoDescription: "Salón París, Campestre Churubusco, Coyoacán. Salón y terraza para 40–100 personas. Menús desde $165. Bodas, XV años y sociales en CDMX."
+seoDescription: "Salón París, Campestre Churubusco, Coyoacán. Salón íntimo y terraza para 40 a 100 personas, banquete desde $165. Bodas, XV años y cumpleaños."
 keywords:
   - salon paris coyoacan
   - salon de fiestas coyoacan
@@ -77,12 +77,12 @@ keywords:
 publishedAt: 2026-07-23
 ---
 
-## Salón París: salón y terraza de formato íntimo en Coyoacán
+## El espacio íntimo para celebrar entre los tuyos
 
-Salón París es un salón de eventos con terraza en la colonia **Campestre Churubusco**, alcaldía Coyoacán. De formato íntimo y con cocina para el servicio de catering, recibe **entre 40 y 100 asistentes**, una escala ideal para celebraciones familiares y reuniones cercanas en el sur de la ciudad.
+No todas las fiestas necesitan un salón enorme; a veces lo que quieres es reunir a los que de verdad importan y que nadie quede lejos. Para eso está el **Salón París**, un espacio con terraza en la colonia **Campestre Churubusco** de Coyoacán, de formato íntimo, que recibe **de 40 a 100 invitados**. La combinación de salón y terraza deja acomodar el montaje al tamaño exacto de tu celebración, sin que se sienta ni apretado ni vacío.
 
-Es sede de bodas, XV años, bautizos, primeras comuniones y cumpleaños, con servicio de banquete y menús **desde $165 por persona**, uno de los rangos más accesibles de la zona. La combinación de salón y terraza permite adaptar el montaje al tamaño de cada evento.
+Aquí se festejan bodas pequeñas, XV años, bautizos, primeras comuniones y cumpleaños, con cocina propia, servicio de banquete y menús **desde $165 por persona**, uno de los rangos más accesibles de la zona. Sus **4.1 estrellas y más de 110 reseñas en Google** hablan de reuniones familiares bien logradas en el sur de la ciudad.
 
-## Equipo y producción EVENTECH para tu evento en el Salón París
+## Lleva tu evento al siguiente nivel con EVENTECH
 
-EVENTECH complementa el Salón París y la zona de Coyoacán con [audio y sonido](/servicios/audiovisual/sonido/), [iluminación](/servicios/iluminacion/), [pantallas LED](/servicios/audiovisual/pantallas-led/), [escenarios](/servicios/pistas-baile/tarimas-escenarios/) y [mobiliario](/servicios/mobiliario/), con entrega y montaje. [Cotiza tu evento](/cotizar/) sin costo.
+El salón pone el espacio íntimo; EVENTECH pone la producción. Suma [audio y sonido profesional](/servicios/audiovisual/sonido/), [iluminación](/servicios/iluminacion/), [pantallas LED](/servicios/audiovisual/pantallas-led/), [escenarios](/servicios/pistas-baile/tarimas-escenarios/) y [mobiliario](/servicios/mobiliario/), con entrega y montaje. [Cotiza sin costo](/cotizar/) y arma tu evento a tu medida.

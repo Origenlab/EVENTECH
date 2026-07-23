@@ -1,8 +1,8 @@
 ---
 name: "Salón Grissel"
 slug: "salon-grissel"
-description: "Salón Grissel es una sala de banquetes y eventos en Paseos de Churubusco, Iztapalapa, con más de 700 opiniones en Google. Con capacidad de 30 a 500 invitados, atiende bodas, XV años, bautizos, cumpleaños y graduaciones en el oriente de la Ciudad de México."
-shortDescription: "Salón de banquetes en Paseos de Churubusco, Iztapalapa. 30–500 invitados. Bodas, XV años y graduaciones en el oriente de CDMX."
+description: "Lo mismo una comida íntima de 30 personas que una boda de 500: Salón Grissel se estira para el festejo que traigas. En Paseos de Churubusco, Iztapalapa, este salón de banquetes suma capilla, terraza y banquete con open bar desde 295 pesos por persona. Sus 4.2 estrellas y más de 700 reseñas en Google respaldan años recibiendo bodas, XV años y bautizos."
+shortDescription: "Salón Grissel: capilla y terraza en Paseos de Churubusco, Iztapalapa. De 30 a 500 invitados para bodas, XV años y bautizos."
 
 region: "cdmx"
 zone: "Iztapalapa"
@@ -69,16 +69,16 @@ reviewCount: 700
 
 faqs:
   - question: "¿Cuál es la capacidad de Salón Grissel?"
-    answer: "Salón Grissel tiene capacidad de 30 a 500 invitados, en Paseos de Churubusco, Iztapalapa."
-  - question: "¿Dónde está ubicado Salón Grissel?"
-    answer: "Se ubica en Av. Río Soto La Marina 66, Paseos de Churubusco, alcaldía Iztapalapa, al oriente de la Ciudad de México."
-  - question: "¿Qué tipo de eventos se realizan aquí?"
-    answer: "Bodas, XV años, bautizos, cumpleaños y graduaciones, con capacidad flexible desde grupos pequeños hasta 500 invitados."
+    answer: "Va de 30 a 500 invitados en Paseos de Churubusco, Iztapalapa, así que se ajusta desde reuniones pequeñas hasta grandes recepciones."
+  - question: "¿Dónde está Salón Grissel?"
+    answer: "En Av. Río Soto La Marina 66, colonia Paseos de Churubusco, alcaldía Iztapalapa, al oriente de la Ciudad de México."
+  - question: "¿Qué eventos se celebran aquí?"
+    answer: "Bodas, XV años, bautizos, cumpleaños y graduaciones, con capilla y terraza y capacidad flexible desde grupos pequeños hasta 500 invitados."
   - question: "¿EVENTECH renta equipo para eventos en Salón Grissel?"
-    answer: "Sí. EVENTECH complementa el salón con renta de audio, iluminación, pantallas LED, escenario y mobiliario, con entrega y montaje en Iztapalapa."
+    answer: "Sí. Sumamos audio, iluminación, pantallas LED, escenario y mobiliario, con entrega y montaje en Iztapalapa."
 
-seoTitle: "Salón Grissel — Salón de eventos en Iztapalapa"
-seoDescription: "Salón Grissel, Paseos de Churubusco, Iztapalapa. Sala de banquetes para 30–500 invitados. Bodas, XV años y graduaciones en el oriente de CDMX."
+seoTitle: "Salón Grissel — Banquetes para 30 a 500 en Iztapalapa"
+seoDescription: "Salón Grissel, Paseos de Churubusco, Iztapalapa. Salón de banquetes flexible para 30 a 500 invitados. Bodas y XV años desde $295 por persona."
 keywords:
   - salon grissel iztapalapa
   - salon banquetes paseos de churubusco
@@ -90,10 +90,13 @@ keywords:
 publishedAt: 2026-07-23
 ---
 
-## Salón Grissel: sala de banquetes flexible en Iztapalapa
+## Un salón que se ajusta a tu fiesta, no al revés
 
-Salón Grissel es una sala de banquetes y eventos en Paseos de Churubusco, Iztapalapa, con **más de 700 opiniones en Google**. Su capacidad de **30 a 500 invitados** ofrece flexibilidad desde celebraciones pequeñas hasta grandes recepciones de bodas, XV años, bautizos, cumpleaños y graduaciones en el oriente de la Ciudad de México.
+No todas las celebraciones tienen el mismo tamaño, y Salón Grissel lo entiende: aquí caben desde **30 hasta 500 invitados**, así que no pagas por espacio de más ni te quedas corto cuando la lista crece. En Paseos de Churubusco, este salón de banquetes en Iztapalapa suma **capilla** para la ceremonia y **terraza** para el coctel, con banquete y open bar desde **$295 por persona**. Sus **4.2 estrellas y más de 700 reseñas en Google** hablan de años haciendo bien las cosas.
 
-## Equipo y producción EVENTECH para tu evento en Salón Grissel
+## De un bautizo íntimo a una boda de 500
 
-EVENTECH complementa el salón con [audio y sonido](/servicios/audiovisual/sonido/), [iluminación](/servicios/iluminacion/), [pantallas LED](/servicios/audiovisual/pantallas-led/), [escenarios](/servicios/pistas-baile/tarimas-escenarios/) y [mobiliario](/servicios/mobiliario/), con entrega y montaje. [Cotiza tu evento](/cotizar/) sin costo.
+Esa flexibilidad es justo lo que hace de Grissel una apuesta segura para cualquier festejo. Bodas, XV años, bautizos, cumpleaños y graduaciones se montan aquí con coordinador, mantelería, vajilla y montaje incluidos, en el oriente de la Ciudad de México. Ya sea una reunión familiar o una gran recepción, tienes un solo lugar que se adapta a tu presupuesto y a tu número de invitados.
+
+## Lleva tu evento al siguiente nivel con EVENTECH
+El salón pone el espacio; EVENTECH pone la producción: [audio y sonido](/servicios/audiovisual/sonido/), [iluminación](/servicios/iluminacion/), [pantallas LED](/servicios/audiovisual/pantallas-led/), [escenarios](/servicios/pistas-baile/tarimas-escenarios/) y [mobiliario](/servicios/mobiliario/), con entrega y montaje. [Cotiza sin costo](/cotizar/).

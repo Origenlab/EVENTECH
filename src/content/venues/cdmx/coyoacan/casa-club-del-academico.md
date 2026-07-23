@@ -1,8 +1,8 @@
 ---
 name: "Casa Club del Académico"
 slug: "casa-club-del-academico"
-description: "Casa Club del Académico es un club de eventos con jardines, terrazas y salones dentro de Ciudad Universitaria, en la alcaldía Coyoacán. Sus múltiples espacios —jardín, terrazas y áreas cubiertas— reciben desde 30 hasta 1,000 asistentes para bodas, XV años, cenas de gala, graduaciones, convenciones y eventos corporativos, con menús desde $1,120 por persona y sin límite de horario."
-shortDescription: "Club de eventos en Ciudad Universitaria, Coyoacán. Jardines, terrazas y salones para 30 a 1,000 asistentes. Bodas, cenas de gala y corporativos."
+description: "Dentro de Ciudad Universitaria, entre árboles y jardines, la Casa Club del Académico ofrece terrazas y salones que reciben desde una cena íntima de 30 personas hasta convenciones de 1,000 invitados. Bodas, XV años, cenas de gala y eventos corporativos suman coordinación, barra libre y menús desde $1,120 por persona, sin límite de horario. Con 4.5 estrellas y más de 14,000 reseñas en Google, es de los recintos más queridos del sur de la CDMX."
+shortDescription: "Jardines, terrazas y salones en Ciudad Universitaria, Coyoacán, para 30 a 1,000 invitados. Bodas, cenas de gala y corporativos sin límite de horario."
 
 region: "cdmx"
 zone: "Coyoacán"
@@ -64,17 +64,17 @@ rating: 4.5
 reviewCount: 14391
 
 faqs:
-  - question: "¿Cuál es la capacidad de Casa Club del Académico?"
-    answer: "Casa Club del Académico recibe desde 30 hasta 1,000 asistentes, gracias a sus jardines, terrazas y salones dentro de Ciudad Universitaria, alcaldía Coyoacán."
-  - question: "¿Dónde está Casa Club del Académico?"
-    answer: "Se ubica en Av. Ciudad Universitaria 301, Ciudad Universitaria, alcaldía Coyoacán, Ciudad de México, CP 04510."
-  - question: "¿Qué eventos se realizan en Casa Club del Académico?"
-    answer: "Es sede de bodas, XV años, cenas de gala, graduaciones, convenciones y eventos corporativos, con menús desde $1,120 por persona y sin límite de horario."
-  - question: "¿EVENTECH renta equipo para eventos en Casa Club del Académico?"
-    answer: "Sí. EVENTECH complementa eventos en Casa Club del Académico y en Coyoacán con renta de audio, iluminación, pantallas LED, escenario y mobiliario, con entrega y montaje."
+  - question: "¿Para cuántos invitados alcanza la Casa Club del Académico?"
+    answer: "Desde 30 hasta 1,000 personas. Sus jardines, terrazas y salones dentro de Ciudad Universitaria se combinan lo mismo para una cena íntima que para una gran convención."
+  - question: "¿Dónde está la Casa Club del Académico?"
+    answer: "Dentro de Ciudad Universitaria, en Av. Ciudad Universitaria 301, alcaldía Coyoacán, CDMX (CP 04510), con estacionamiento y entorno arbolado."
+  - question: "¿Hasta qué hora puedo terminar mi evento?"
+    answer: "No hay límite de horario, así que la fiesta dura lo que ustedes quieran. Se celebran bodas, XV años, cenas de gala, graduaciones, convenciones y corporativos, con coordinación y menús desde $1,120 por persona."
+  - question: "¿EVENTECH renta equipo para eventos en la Casa Club del Académico?"
+    answer: "Sí. EVENTECH complementa tu evento en la Casa Club del Académico y en todo Coyoacán con audio, iluminación, pantallas LED, escenario y mobiliario, con entrega y montaje."
 
 seoTitle: "Casa Club del Académico — Eventos en CU, Coyoacán"
-seoDescription: "Casa Club del Académico, Ciudad Universitaria, Coyoacán. Jardines y salones para 30–1,000 personas. Menús desde $1,120. Bodas, gala y corporativos."
+seoDescription: "Jardines y salones en Ciudad Universitaria, Coyoacán, para 30 a 1,000 personas. Menús desde $1,120 sin límite de horario. Bodas, gala y corporativos."
 keywords:
   - casa club del academico
   - salon de fiestas coyoacan
@@ -85,12 +85,12 @@ keywords:
 publishedAt: 2026-07-23
 ---
 
-## Casa Club del Académico: jardines y salones en Ciudad Universitaria
+## Un club entre árboles, dentro de Ciudad Universitaria
 
-Casa Club del Académico es un club de eventos ubicado dentro de **Ciudad Universitaria**, en la alcaldía Coyoacán. Reúne jardines, terrazas y salones en un mismo predio, con capacidad para **desde 30 y hasta 1,000 asistentes**, lo que permite desde reuniones íntimas hasta grandes celebraciones y eventos corporativos.
+Imagina brindar al aire libre, rodeado de jardines, con la calma universitaria de fondo y sin nadie apurándote a cerrar. Así es la **Casa Club del Académico**, un club de eventos dentro de **Ciudad Universitaria**, en Coyoacán, que reúne jardines, terrazas y salones en un mismo predio. Esa variedad de espacios es su gran ventaja: lo mismo acomoda una **cena íntima de 30 personas** que una **convención de 1,000 invitados**, sin que el lugar quede grande ni chico.
 
-Es sede de bodas, XV años, cenas de gala, graduaciones, convenciones y eventos de empresa, con servicio de banquete propio, coordinación, barra libre y menús **desde $1,120 por persona**, sin límite de horario. Su entorno arbolado dentro de CU y sus accesos lo hacen práctico para invitados de todo el sur de la ciudad.
+Aquí se celebran bodas, XV años, cenas de gala, graduaciones, convenciones y eventos de empresa, con coordinación, barra libre y banquete propio desde **$1,120 por persona**, y algo que pocos ofrecen: **sin límite de horario**. Con **4.5 estrellas y más de 14,000 reseñas en Google**, hay pocas cartas de presentación tan sólidas en el sur de la ciudad.
 
-## Equipo y producción EVENTECH para tu evento en Casa Club del Académico
+## Lleva tu evento al siguiente nivel con EVENTECH
 
-EVENTECH complementa Casa Club del Académico y la zona de Coyoacán con [audio y sonido](/servicios/audiovisual/sonido/), [iluminación](/servicios/iluminacion/), [pantallas LED](/servicios/audiovisual/pantallas-led/), [escenarios](/servicios/pistas-baile/tarimas-escenarios/) y [mobiliario](/servicios/mobiliario/), con entrega y montaje. [Cotiza tu evento](/cotizar/) sin costo.
+El club aporta el entorno; EVENTECH, la producción. Suma [audio y sonido profesional](/servicios/audiovisual/sonido/), [iluminación](/servicios/iluminacion/), [pantallas LED](/servicios/audiovisual/pantallas-led/), [escenarios](/servicios/pistas-baile/tarimas-escenarios/) y [mobiliario](/servicios/mobiliario/), con entrega y montaje. [Cotiza sin costo](/cotizar/) y diseña tu evento a tu medida.

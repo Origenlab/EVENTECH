@@ -1,8 +1,8 @@
 ---
 name: "D'Rubí Salón de Fiestas"
 slug: "d-rubi"
-description: "D'Rubí es un salón de fiestas en la colonia Narvarte, alcaldía Benito Juárez. Con pista de baile, cocina propia y estacionamiento, recibe entre 50 y 500 asistentes. Es sede de bodas, XV años, bautizos, primeras comuniones y graduaciones, con menús de $450 a $950 por persona en el centro de la Ciudad de México."
-shortDescription: "Salón de fiestas en Narvarte, Benito Juárez. Pista y cocina propia para 50 a 500 asistentes. Bodas, XV años y sociales en CDMX."
+description: "Narvarte es sinónimo de fiesta, y D'Rubí lleva años siendo protagonista. Este salón de fiestas en el corazón de Narvarte, Benito Juárez, recibe de 50 a 500 invitados con pista de baile, cocina propia y menús de $450 a $950 por persona. Con más de 830 reseñas en Google, es un clásico para bodas, XV años, bautizos, primeras comuniones y graduaciones en el centro de la CDMX."
+shortDescription: "Salón de fiestas en Narvarte, Benito Juárez. Pista y cocina propia para 50 a 500 invitados. Bodas, XV años y sociales en CDMX."
 
 region: "cdmx"
 zone: "Benito Juárez"
@@ -59,17 +59,17 @@ rating: 4.1
 reviewCount: 838
 
 faqs:
-  - question: "¿Cuál es la capacidad de D'Rubí?"
-    answer: "D'Rubí Salón de Fiestas recibe de 50 a 500 asistentes, con pista de baile y cocina propia, en la colonia Narvarte, alcaldía Benito Juárez."
+  - question: "¿Cuántas personas caben en D'Rubí?"
+    answer: "D'Rubí Salón de Fiestas recibe de 50 a 500 invitados, con pista de baile y cocina propia, en la colonia Narvarte, alcaldía Benito Juárez."
   - question: "¿Dónde está D'Rubí?"
-    answer: "Se ubica en Luz Saviñón 1512, colonia Narvarte, alcaldía Benito Juárez, Ciudad de México, CP 03023."
+    answer: "Lo encuentras en Luz Saviñón 1512, colonia Narvarte, alcaldía Benito Juárez, CDMX, CP 03023, con acceso fácil desde toda la alcaldía."
   - question: "¿Qué eventos se realizan en D'Rubí?"
     answer: "Es sede de bodas, XV años, bautizos, primeras comuniones y graduaciones, con cocina propia y menús de $450 a $950 por persona."
   - question: "¿EVENTECH renta equipo para eventos en D'Rubí?"
-    answer: "Sí. EVENTECH complementa eventos en D'Rubí y en Benito Juárez con renta de audio, iluminación, pantallas LED, escenario y mobiliario, con entrega y montaje."
+    answer: "Sí. EVENTECH complementa tu evento en D'Rubí y en Benito Juárez con renta de audio, iluminación, pantallas LED, escenario y mobiliario, con entrega y montaje."
 
-seoTitle: "D'Rubí — Salón de fiestas en Narvarte, BJ"
-seoDescription: "D'Rubí Salón de Fiestas, Narvarte, Benito Juárez. Pista y cocina propia para 50–500 personas. Menús $450–$950. Bodas, XV años y sociales."
+seoTitle: "D'Rubí — salón de fiestas con tradición en Narvarte"
+seoDescription: "D'Rubí Salón de Fiestas, Narvarte, Benito Juárez. Pista y cocina propia para 50 a 500 personas, menús $450 a $950. Bodas, XV años y sociales."
 keywords:
   - d rubi salon narvarte
   - salon de fiestas benito juarez
@@ -80,12 +80,14 @@ keywords:
 publishedAt: 2026-07-23
 ---
 
-## D'Rubí: salón de fiestas en Narvarte, Benito Juárez
+## D'Rubí: el salón de fiestas de siempre en Narvarte
 
-D'Rubí es un salón de fiestas ubicado en la colonia **Narvarte**, alcaldía Benito Juárez, una de las zonas con mayor tradición de eventos sociales en el centro de la ciudad. Con pista de baile, cocina propia y estacionamiento, recibe **entre 50 y 500 asistentes**, con opciones de montaje para celebraciones de distinta escala.
+Si creciste yendo a fiestas en Narvarte, seguro el nombre te suena. **D'Rubí** es de esos salones que llevan años poniendo la pista, el banquete y el ambiente para las familias del centro de la ciudad, en plena colonia Narvarte, alcaldía Benito Juárez.
 
-Es sede de bodas, XV años, bautizos, primeras comuniones y graduaciones, con servicio de banquete propio y menús **de $450 a $950 por persona**. Su ubicación en Narvarte facilita el acceso desde toda la alcaldía Benito Juárez y las colonias vecinas.
+Con capacidad de **50 a 500 personas**, pista de baile, cocina propia y estacionamiento, se adapta lo mismo a una reunión mediana que a una fiesta a lo grande. Su cocina propia maneja menús **de $450 a $950 por persona**, así que ajustas el banquete a tu presupuesto sin renunciar al sabor. Y con **más de 830 reseñas en Google**, hablamos de un salón con kilómetros recorridos en bodas, XV años, bautizos, primeras comuniones y graduaciones.
 
-## Equipo y producción EVENTECH para tu evento en D'Rubí
+Su ubicación en Narvarte facilita la llegada desde toda la alcaldía Benito Juárez y las colonias vecinas. Cuando quieres un salón de fiestas en Benito Juárez con trayectoria comprobada, D'Rubí es apuesta segura.
 
-EVENTECH complementa D'Rubí y la zona de Benito Juárez con [audio y sonido](/servicios/audiovisual/sonido/), [iluminación](/servicios/iluminacion/), [pantallas LED](/servicios/audiovisual/pantallas-led/), [escenarios](/servicios/pistas-baile/tarimas-escenarios/) y [mobiliario](/servicios/mobiliario/), con entrega y montaje. [Cotiza tu evento](/cotizar/) sin costo.
+## Lleva tu evento al siguiente nivel con EVENTECH
+
+El salón pone la pista y el banquete; EVENTECH pone la producción: [audio y sonido](/servicios/audiovisual/sonido/), [iluminación](/servicios/iluminacion/), [pantallas LED](/servicios/audiovisual/pantallas-led/), [escenarios](/servicios/pistas-baile/tarimas-escenarios/) y [mobiliario](/servicios/mobiliario/), con entrega y montaje. [Cotiza sin costo](/cotizar/).

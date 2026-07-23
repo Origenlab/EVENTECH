@@ -1,8 +1,8 @@
 ---
 name: "Salón Amigos"
 slug: "salon-amigos"
-description: "Salón Amigos es un salón de eventos en la colonia Merced Gómez, alcaldía Benito Juárez. Con pista de baile, valet parking y aire acondicionado, recibe entre 50 y 400 asistentes. Es sede de bodas, XV años, bautizos, primeras comuniones y graduaciones, con paquetes de banquete desde $245 por persona en el poniente de Benito Juárez."
-shortDescription: "Salón de eventos en Merced Gómez, Benito Juárez. Valet y aire acondicionado para 50 a 400 asistentes. Bodas, XV años y sociales en CDMX."
+description: "Celebrar en grande no tiene por qué costar una fortuna. El Salón Amigos, en la colonia Merced Gómez de Benito Juárez, recibe de 50 a 400 invitados con valet parking, aire acondicionado y paquetes de banquete desde $245 por persona. Una opción práctica y accesible para bodas, XV años, bautizos, primeras comuniones y graduaciones en el poniente de la alcaldía."
+shortDescription: "Salón de eventos en Merced Gómez, Benito Juárez. Valet y aire acondicionado para 50 a 400 invitados, menús desde $245. Bodas y XV años."
 
 region: "cdmx"
 zone: "Benito Juárez"
@@ -58,17 +58,17 @@ rating: 3.8
 reviewCount: 161
 
 faqs:
-  - question: "¿Cuál es la capacidad del Salón Amigos?"
-    answer: "El Salón Amigos recibe de 50 a 400 asistentes, con pista de baile, valet parking y aire acondicionado, en la colonia Merced Gómez, alcaldía Benito Juárez."
+  - question: "¿Cuántas personas caben en el Salón Amigos?"
+    answer: "El Salón Amigos recibe de 50 a 400 invitados, con pista de baile, valet parking y aire acondicionado, en la colonia Merced Gómez, Benito Juárez."
   - question: "¿Dónde está el Salón Amigos?"
-    answer: "Se ubica en Juan Tinoco 20, colonia Merced Gómez, alcaldía Benito Juárez, Ciudad de México, CP 03930."
+    answer: "Lo encuentras en Juan Tinoco 20, colonia Merced Gómez, alcaldía Benito Juárez, CDMX, CP 03930, en el poniente de la alcaldía."
   - question: "¿Qué eventos se realizan en el Salón Amigos?"
-    answer: "Es sede de bodas, XV años, bautizos, primeras comuniones y graduaciones, con paquetes de banquete, coordinación y menús desde $245 por persona."
+    answer: "Es sede de bodas, XV años, bautizos, primeras comuniones y graduaciones, con banquete, coordinación y menús desde $245 por persona."
   - question: "¿EVENTECH renta equipo para eventos en el Salón Amigos?"
-    answer: "Sí. EVENTECH complementa eventos en el Salón Amigos y en Benito Juárez con renta de audio, iluminación, pantallas LED, escenario y mobiliario, con entrega y montaje."
+    answer: "Sí. EVENTECH complementa tu evento en el Salón Amigos y en Benito Juárez con renta de audio, iluminación, pantallas LED, escenario y mobiliario, con entrega y montaje."
 
-seoTitle: "Salón Amigos — Salón de eventos en Benito Juárez"
-seoDescription: "Salón Amigos, Merced Gómez, Benito Juárez. Valet y aire acondicionado para 50–400 personas. Menús desde $245. Bodas, XV años y sociales."
+seoTitle: "Salón Amigos — salón accesible en Merced Gómez, BJ"
+seoDescription: "Salón Amigos, Merced Gómez, Benito Juárez. Valet y aire acondicionado para 50 a 400 personas, menús desde $245. Bodas, XV años y sociales en CDMX."
 keywords:
   - salon amigos benito juarez
   - salon de fiestas benito juarez
@@ -79,12 +79,14 @@ keywords:
 publishedAt: 2026-07-23
 ---
 
-## Salón Amigos: banquete y valet en Merced Gómez, Benito Juárez
+## Salón Amigos: celebrar en grande sin gastar de más
 
-Salón Amigos es un salón de eventos en la colonia **Merced Gómez**, alcaldía Benito Juárez. Con pista de baile, valet parking y aire acondicionado, ofrece capacidad para **entre 50 y 400 asistentes**, con paquetes de banquete pensados para distintos presupuestos en el poniente de la alcaldía.
+Planear una fiesta grande y cuidar el presupuesto no siempre van de la mano, pero el **Salón Amigos**, en la colonia Merced Gómez de Benito Juárez, logra que convivan. Aquí caben de **50 a 400 invitados** y los paquetes de banquete arrancan **desde $245 por persona**, uno de los rangos más accesibles del poniente de la alcaldía.
 
-Es sede de bodas, XV años, bautizos, primeras comuniones y graduaciones, con servicio de banquete, meseros y coordinación, y menús **desde $245 por persona**, uno de los rangos más accesibles de la zona.
+Llegas y todo está pensado para tu comodidad: **valet parking** para que nadie dé vueltas buscando dónde estacionarse, **aire acondicionado** para que la pista no pare aunque haga calor, más meseros y coordinación incluidos. Así tu boda, XV años, bautizo, primera comunión o graduación fluye sin que tú cargues con la logística.
 
-## Equipo y producción EVENTECH para tu evento en el Salón Amigos
+Si buscas un salón de fiestas en Benito Juárez con buena capacidad, servicios que se agradecen y precios amables, el Salón Amigos merece estar en tu lista.
 
-EVENTECH complementa el Salón Amigos y la zona de Benito Juárez con [audio y sonido](/servicios/audiovisual/sonido/), [iluminación](/servicios/iluminacion/), [pantallas LED](/servicios/audiovisual/pantallas-led/), [escenarios](/servicios/pistas-baile/tarimas-escenarios/) y [mobiliario](/servicios/mobiliario/), con entrega y montaje. [Cotiza tu evento](/cotizar/) sin costo.
+## Lleva tu evento al siguiente nivel con EVENTECH
+
+El salón pone el espacio y el servicio; EVENTECH pone la producción: [audio y sonido](/servicios/audiovisual/sonido/), [iluminación](/servicios/iluminacion/), [pantallas LED](/servicios/audiovisual/pantallas-led/), [escenarios](/servicios/pistas-baile/tarimas-escenarios/) y [mobiliario](/servicios/mobiliario/), con entrega y montaje. [Cotiza sin costo](/cotizar/).

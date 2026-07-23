@@ -1,8 +1,8 @@
 ---
 name: "Banquetes Foresta"
 slug: "banquetes-foresta"
-description: "Banquetes Foresta es un jardín de eventos con carpas fijas y salón en el Bosque de Chapultepec, alcaldía Miguel Hidalgo. Rodeado de arbolado y con vista panorámica, recibe de 200 a 700 asistentes para bodas y grandes eventos corporativos, con banquete, barra libre y coordinación incluidos, y menús de $1,120 a $2,285 por persona. Es uno de los recintos al aire libre más reseñados de la ciudad."
-shortDescription: "Jardín con carpas y vista en el Bosque de Chapultepec, Miguel Hidalgo. 200 a 700 asistentes. Bodas y corporativos premium en CDMX."
+description: "Imagina tu boda al aire libre, rodeada de árboles y con vista panorámica, sin salir de la ciudad. Banquetes Foresta es un jardín con carpas fijas y salón dentro del Bosque de Chapultepec, Miguel Hidalgo, que recibe de 200 a 700 asistentes con banquete, barra libre y coordinación incluidos, y menús de $1,120 a $2,285 por persona. Con más de 4,600 reseñas en Google, es uno de los recintos al aire libre más consolidados del poniente de la Ciudad de México."
+shortDescription: "Jardín con carpas y vista panorámica en el Bosque de Chapultepec. De 200 a 700 asistentes con servicio integral. Tu boda o corporativo premium en CDMX."
 
 region: "cdmx"
 zone: "Miguel Hidalgo"
@@ -75,16 +75,16 @@ reviewCount: 4678
 
 faqs:
   - question: "¿Cuál es la capacidad de Banquetes Foresta?"
-    answer: "Foresta recibe de 200 a 700 asistentes entre sus carpas fijas y salón, en un entorno arbolado dentro del Bosque de Chapultepec, alcaldía Miguel Hidalgo."
+    answer: "Foresta recibe de 200 a 700 asistentes entre sus carpas fijas y su salón, rodeado de arbolado dentro del Bosque de Chapultepec, alcaldía Miguel Hidalgo: espacio de sobra para bodas grandes y eventos corporativos."
   - question: "¿Dónde está Banquetes Foresta?"
-    answer: "En Av. Constituyentes 800, colonia Lomas Altas, alcaldía Miguel Hidalgo, Ciudad de México, CP 11950."
+    answer: "En Av. Constituyentes 800, colonia Lomas Altas, alcaldía Miguel Hidalgo, Ciudad de México, CP 11950, dentro del Bosque de Chapultepec."
   - question: "¿Qué incluye un evento en Banquetes Foresta?"
-    answer: "Banquete, barra libre, coordinación, mobiliario, mantelería, vajilla, iluminación LED en carpas y montaje, con menús de $1,120 a $2,285 por persona y servicio de 5 a 6 horas."
+    answer: "Todo lo esencial resuelto: banquete, barra libre, coordinación, mobiliario, mantelería, vajilla, iluminación LED en las carpas y montaje, con menús de $1,120 a $2,285 por persona y celebraciones de 5 a 6 horas."
   - question: "¿EVENTECH renta equipo para eventos en Banquetes Foresta?"
-    answer: "Sí. EVENTECH complementa eventos en Foresta y en Miguel Hidalgo con audio, iluminación, pantallas LED, escenario y mobiliario adicional, con entrega y montaje."
+    answer: "Sí. EVENTECH refuerza tu evento en Foresta y en Miguel Hidalgo con audio para exteriores, iluminación, pantallas LED, escenario y mobiliario adicional, con entrega y montaje."
 
-seoTitle: "Banquetes Foresta — Jardín de eventos en Chapultepec"
-seoDescription: "Banquetes Foresta, Bosque de Chapultepec, Miguel Hidalgo. Jardín con carpas para 200–700 personas, vista panorámica. Menús $1,120–$2,285."
+seoTitle: "Banquetes Foresta — Jardín con carpas en Chapultepec"
+seoDescription: "Banquetes Foresta, Bosque de Chapultepec, Miguel Hidalgo. Jardín con carpas para 200–700 personas, vista panorámica. Menús $1,120–$2,285 por persona."
 keywords:
   - banquetes foresta
   - jardin para bodas cdmx
@@ -95,11 +95,13 @@ keywords:
 publishedAt: 2026-07-23
 ---
 
-## Banquetes Foresta: jardín con carpas en el Bosque de Chapultepec
+## Banquetes Foresta: tu boda al aire libre en el corazón de Chapultepec
 
-Banquetes Foresta es de los pocos recintos que ofrecen la experiencia de un **evento al aire libre dentro del Bosque de Chapultepec**, sobre Av. Constituyentes. Sus carpas fijas y áreas ajardinadas, con vista panorámica al arbolado, reciben **de 200 a 700 asistentes**, una escala pensada para bodas grandes y eventos corporativos que buscan naturaleza sin salir de la ciudad.
+Imagina recibir a tus invitados bajo los árboles, con la brisa del Bosque de Chapultepec y una vista panorámica que ninguna decoración podría replicar. Eso es lo que ofrece Banquetes Foresta: uno de los pocos jardines de eventos que existen **dentro del propio bosque**, sobre Av. Constituyentes, con carpas fijas y áreas ajardinadas para **200 a 700 asistentes**. Es la escala perfecta para bodas de gran formato y eventos corporativos que quieren naturaleza sin renunciar a la ciudad.
 
-El servicio es integral y de gama alta: banquete, barra libre, coordinación, mobiliario, mantelería, vajilla, iluminación LED en las carpas y montaje, con menús **de $1,120 a $2,285 por persona** y duraciones de 5 a 6 horas. Con más de 4,600 opiniones en Google, Foresta es uno de los jardines de eventos más reseñados y consolidados del poniente de la ciudad.
+## Un jardín para eventos en Miguel Hidalgo con servicio de gama alta
+
+Tu evento merece llegar y solo disfrutar. Foresta resuelve cada detalle con un servicio integral: banquete, barra libre, coordinación, mobiliario, mantelería, vajilla, iluminación LED en las carpas y montaje, con menús **de $1,120 a $2,285 por persona** y celebraciones de 5 a 6 horas. Con más de 4,600 opiniones en Google, es uno de los jardines más reseñados y queridos del poniente de la Ciudad de México: la garantía de que tu día quedará en las mejores manos.
 
 ## Producción EVENTECH para tu evento en Banquetes Foresta
 

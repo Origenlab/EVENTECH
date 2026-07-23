@@ -1,8 +1,8 @@
 ---
 name: "Casa Picnic"
 slug: "casa-picnic"
-description: "Casa Picnic es una casa boutique con terraza y carpa para eventos en San Miguel Chapultepec, alcaldía Miguel Hidalgo. De uso exclusivo por día y sin límite de horario, recibe de 30 a 70 invitados (hasta 90 en cóctel) para bodas íntimas, eventos corporativos y celebraciones privadas, con banquete, barra libre y meseros incluidos."
-shortDescription: "Casa boutique con terraza en San Miguel Chapultepec, Miguel Hidalgo. 30 a 70 invitados, uso exclusivo. Bodas íntimas y corporativos en CDMX."
+description: "Imagina celebrar en una casa privada, con la intimidad de recibir solo a los tuyos y todo el tiempo del mundo. Casa Picnic es una casa boutique con terraza y carpa en San Miguel Chapultepec, Miguel Hidalgo, de uso exclusivo por día y sin límite de horario, para 30 a 70 invitados (hasta 90 en cóctel). Con banquete, barra libre y meseros incluidos por una renta de $16,000 a $16,500 por evento, es el escenario ideal para bodas íntimas, cenas corporativas y celebraciones privadas."
+shortDescription: "Casa boutique con terraza en San Miguel Chapultepec, de uso exclusivo y sin horario. De 30 a 70 invitados. Tu boda íntima o evento privado en CDMX."
 
 region: "cdmx"
 zone: "Miguel Hidalgo"
@@ -65,16 +65,16 @@ reviewCount: 252
 
 faqs:
   - question: "¿Cuál es la capacidad de Casa Picnic?"
-    answer: "Recibe de 30 a 70 invitados sentados y hasta 90 en formato cóctel, en su terraza con carpa, en San Miguel Chapultepec, alcaldía Miguel Hidalgo."
+    answer: "Recibe de 30 a 70 invitados sentados y hasta 90 en formato cóctel, en su terraza con carpa, en San Miguel Chapultepec, alcaldía Miguel Hidalgo: la escala ideal para una celebración íntima."
   - question: "¿Casa Picnic es de uso exclusivo?"
-    answer: "Sí. Se realiza un solo evento por día, sin límite de horario, lo que la hace ideal para bodas íntimas y eventos corporativos privados."
+    answer: "Sí. Se celebra un solo evento por día y sin límite de horario, así que la casa es solo para ti y tus invitados: perfecta para bodas íntimas y eventos corporativos privados."
   - question: "¿Cuánto cuesta rentar Casa Picnic?"
     answer: "La renta del espacio ronda los $16,000 a $16,500 por evento, con banquete, barra libre, meseros, mobiliario y seguridad incluidos."
   - question: "¿EVENTECH renta equipo para eventos en Casa Picnic?"
-    answer: "Sí. EVENTECH complementa Casa Picnic con audio, iluminación decorativa, pantallas, pista y mobiliario adicional, con entrega y montaje."
+    answer: "Sí. EVENTECH suma a Casa Picnic audio, iluminación decorativa, pantallas, pista y mobiliario adicional, con entrega y montaje, para elevar tu evento boutique."
 
 seoTitle: "Casa Picnic — Casa boutique para eventos en Chapultepec"
-seoDescription: "Casa Picnic, San Miguel Chapultepec, Miguel Hidalgo. Terraza boutique para 30–70 invitados, uso exclusivo. Bodas íntimas y corporativos en CDMX."
+seoDescription: "Casa Picnic, San Miguel Chapultepec, Miguel Hidalgo. Terraza boutique para 30–70 invitados, uso exclusivo sin horario. Bodas íntimas y corporativos."
 keywords:
   - casa picnic eventos
   - terraza para bodas cdmx
@@ -85,11 +85,13 @@ keywords:
 publishedAt: 2026-07-23
 ---
 
-## Casa Picnic: casa boutique con terraza en San Miguel Chapultepec
+## Casa Picnic: la intimidad de una casa privada en San Miguel Chapultepec
 
-Casa Picnic es una **casa boutique** en San Miguel Chapultepec, una de las colonias más tranquilas y arboladas de Miguel Hidalgo. Su terraza con carpa está pensada para eventos de escala íntima —**de 30 a 70 invitados sentados y hasta 90 en cóctel**— con la ventaja del **uso exclusivo por día y sin límite de horario**, algo poco común en la zona.
+Hay celebraciones que piden cercanía, no un gran salón. Imagina reunir solo a los tuyos en una **casa boutique** de San Miguel Chapultepec —una de las colonias más tranquilas y arboladas de Miguel Hidalgo—, con la terraza y la carpa para ustedes solos. Casa Picnic está pensada para eventos de escala íntima, **de 30 a 70 invitados sentados y hasta 90 en cóctel**, con la libertad del **uso exclusivo por día y sin límite de horario**, algo poco común en la zona.
 
-El formato la vuelve perfecta para bodas pequeñas, cenas corporativas, aniversarios y baby showers que buscan un ambiente de casa privada más que de salón. La renta del espacio ronda los **$16,000 a $16,500 por evento** e incluye banquete, barra libre, meseros, mobiliario y seguridad. Su cuidada estética la ha convertido en una favorita para sesiones de foto y eventos de marca.
+## Un venue boutique para eventos en Miguel Hidalgo
+
+Tu boda pequeña, tu cena corporativa, tu aniversario o tu baby shower merecen sentirse como en casa, no como un evento más de la agenda. La renta ronda los **$16,000 a $16,500 por evento** e incluye banquete, barra libre, meseros, mobiliario y seguridad. Su estética cuidada la ha vuelto una de las favoritas para sesiones de foto y eventos de marca, y sus 4.4 estrellas en Google confirman lo bien que se vive cada celebración aquí.
 
 ## Producción EVENTECH para tu evento en Casa Picnic
 

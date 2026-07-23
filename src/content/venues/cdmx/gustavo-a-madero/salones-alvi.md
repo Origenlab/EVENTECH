@@ -1,8 +1,8 @@
 ---
 name: "Salones Alvi"
 slug: "salones-alvi"
-description: "Salones Alvi es un recinto para eventos en San Pedro Zacatenco, Gustavo A. Madero, con más de 2,200 opiniones en Google. Con capacidad de 100 hasta 1,200 invitados, es uno de los salones de mayor aforo de la zona norte, apto para bodas, XV años, graduaciones, eventos corporativos y convenciones en la Ciudad de México."
-shortDescription: "Recinto de gran aforo en San Pedro Zacatenco, Gustavo A. Madero. 100–1,200 invitados. Bodas, XV años, corporativos y convenciones en CDMX."
+description: "Cuando la lista de invitados se dispara, Salones Alvi es de los pocos lugares en Gustavo A. Madero que no se queda corto. En San Pedro Zacatenco recibe desde 100 y hasta 1,200 personas, con capilla, jardín, aire acondicionado y valet parking, lo que lo vuelve tan bueno para una boda como para una convención de empresa. Sus más de 2,200 reseñas en Google son de años montando eventos de todos los tamaños."
+shortDescription: "Salones Alvi: gran aforo en San Pedro Zacatenco, GAM. Hasta 1,200 invitados con capilla y aire acondicionado para bodas y convenciones."
 
 region: "cdmx"
 zone: "Gustavo A. Madero"
@@ -74,16 +74,16 @@ reviewCount: 2208
 
 faqs:
   - question: "¿Cuál es la capacidad de Salones Alvi?"
-    answer: "Salones Alvi tiene capacidad de 100 hasta 1,200 invitados, uno de los mayores aforos de la zona, en San Pedro Zacatenco, Gustavo A. Madero."
-  - question: "¿Dónde están ubicados Salones Alvi?"
-    answer: "Se ubican sobre Av. Instituto Politécnico Nacional 2523, San Pedro Zacatenco, alcaldía Gustavo A. Madero, al norte de la Ciudad de México."
-  - question: "¿Qué tipo de eventos se realizan aquí?"
-    answer: "Bodas, XV años, graduaciones, eventos corporativos y convenciones. Su gran aforo permite desde eventos sociales hasta eventos empresariales de gran formato."
+    answer: "Va de 100 hasta 1,200 invitados, uno de los mayores aforos del norte de la ciudad, en San Pedro Zacatenco, Gustavo A. Madero."
+  - question: "¿Dónde están Salones Alvi?"
+    answer: "Sobre Av. Instituto Politécnico Nacional 2523, en San Pedro Zacatenco, alcaldía Gustavo A. Madero, con acceso cómodo y estacionamiento."
+  - question: "¿Qué eventos se celebran aquí?"
+    answer: "Bodas, XV años y graduaciones, además de eventos corporativos y convenciones. Su gran aforo lo hace ideal para eventos de gran formato."
   - question: "¿EVENTECH renta equipo para eventos en Salones Alvi?"
-    answer: "Sí. EVENTECH complementa el recinto con renta de audio, iluminación, pantallas LED, escenario y mobiliario, ideal para eventos de gran formato, con entrega y montaje."
+    answer: "Sí. Sumamos audio, iluminación, pantallas LED, escenario y mobiliario, ideales para eventos de gran formato, con entrega y montaje."
 
-seoTitle: "Salones Alvi — Recinto de gran aforo en Gustavo A. Madero"
-seoDescription: "Salones Alvi, San Pedro Zacatenco, Gustavo A. Madero. Hasta 1,200 invitados. Bodas, XV años, corporativos y convenciones en el norte de CDMX."
+seoTitle: "Salones Alvi — Gran aforo hasta 1,200 en Gustavo A. Madero"
+seoDescription: "Salones Alvi, San Pedro Zacatenco, GAM. Recinto de gran aforo para hasta 1,200 invitados. Bodas, XV años, corporativos y convenciones en el norte de CDMX."
 keywords:
   - salones alvi
   - salon eventos zacatenco cdmx
@@ -95,12 +95,13 @@ keywords:
 publishedAt: 2026-07-23
 ---
 
-## Salones Alvi: gran aforo para eventos en el norte de CDMX
+## Cuando caben todos, la fiesta empieza tranquila
 
-Salones Alvi es un recinto para eventos en San Pedro Zacatenco, Gustavo A. Madero, respaldado por **más de 2,200 opiniones en Google**. Su capacidad de **100 hasta 1,200 invitados** lo posiciona como uno de los salones de mayor aforo de la zona norte, apto tanto para bodas y XV años como para eventos corporativos y convenciones de gran formato.
+Hay un problema que Salones Alvi resuelve mejor que casi cualquier salón de fiestas en Gustavo A. Madero: el espacio. Con capacidad de **100 hasta 1,200 invitados**, este recinto de San Pedro Zacatenco es de los pocos donde la lista jamás obliga a recortar. Capilla para la ceremonia, jardín, terraza, aire acondicionado y valet parking completan un lugar que se siente hecho para eventos grandes. Y con **más de 2,200 reseñas en Google**, no llega sin experiencia.
 
-Su ubicación sobre Av. Instituto Politécnico Nacional facilita el acceso y la logística para eventos masivos.
+## De una boda de 300 a una convención de 1,200
 
-## Equipo y producción EVENTECH para tu evento en Salones Alvi
+Pocos salones pasan con la misma soltura de lo social a lo corporativo. Aquí lo mismo se monta una boda o unos XV años de gala que una graduación, un evento de empresa o una convención de gran formato, con banquete, coordinador, montaje y seguridad incluidos desde **$600 por persona**. Su ubicación sobre Av. Instituto Politécnico Nacional facilita la logística de accesos, proveedores y estacionamiento cuando el evento es masivo.
 
-EVENTECH complementa el recinto con [audio y sonido](/servicios/audiovisual/sonido/), [iluminación](/servicios/iluminacion/), [pantallas LED](/servicios/audiovisual/pantallas-led/), [escenarios](/servicios/pistas-baile/tarimas-escenarios/) y [mobiliario](/servicios/mobiliario/), con entrega y montaje. [Cotiza tu evento](/cotizar/) sin costo.
+## Lleva tu evento al siguiente nivel con EVENTECH
+El recinto pone el espacio; EVENTECH pone la producción: [audio y sonido](/servicios/audiovisual/sonido/), [iluminación](/servicios/iluminacion/), [pantallas LED](/servicios/audiovisual/pantallas-led/), [escenarios](/servicios/pistas-baile/tarimas-escenarios/) y [mobiliario](/servicios/mobiliario/), con entrega y montaje. [Cotiza sin costo](/cotizar/).

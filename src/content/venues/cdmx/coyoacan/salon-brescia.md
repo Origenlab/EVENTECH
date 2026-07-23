@@ -1,8 +1,8 @@
 ---
 name: "Salón Brescia"
 slug: "salon-brescia"
-description: "Salón Brescia es un salón de eventos sobre Av. Aztecas, en la colonia Los Reyes, alcaldía Coyoacán. Con pista de baile y cocina para el servicio de banquete, recibe entre 150 y 300 asistentes. Es sede de bodas, XV años, bautizos, primeras comuniones y graduaciones, con menús desde $420 por persona."
-shortDescription: "Salón de eventos en Av. Aztecas, Los Reyes, Coyoacán. Pista de baile para 150 a 300 asistentes. Bodas, XV años y sociales en CDMX."
+description: "El Salón Brescia, sobre Av. Aztecas en la colonia Los Reyes de Coyoacán, es de esos salones donde la lista de invitados nunca es el problema: recibe de 150 a 300 personas con una amplia pista de baile. Bodas, XV años, bautizos, primeras comuniones y graduaciones suman cocina propia, servicio de banquete y menús desde $420 por persona. Sus 4.4 estrellas y más de 480 reseñas en Google hablan de años de festejos en el sur de la ciudad."
+shortDescription: "Salón amplio con pista de baile en Av. Aztecas, Los Reyes, Coyoacán, para 150 a 300 invitados. Bodas, XV años y sociales con banquete desde $420."
 
 region: "cdmx"
 zone: "Coyoacán"
@@ -55,17 +55,17 @@ rating: 4.4
 reviewCount: 483
 
 faqs:
-  - question: "¿Cuál es la capacidad del Salón Brescia?"
-    answer: "El Salón Brescia recibe de 150 a 300 asistentes, con pista de baile, sobre Av. Aztecas, colonia Los Reyes, alcaldía Coyoacán."
+  - question: "¿Cuántos invitados caben en el Salón Brescia?"
+    answer: "De 150 a 300 personas, con una amplia pista de baile. Es un salón pensado para bodas y fiestas grandes, donde la lista de invitados no es el límite, sobre Av. Aztecas, en Los Reyes, Coyoacán."
   - question: "¿Dónde está el Salón Brescia?"
-    answer: "Se ubica en Av. Aztecas 198, colonia Los Reyes, alcaldía Coyoacán, Ciudad de México, CP 04330."
-  - question: "¿Qué eventos se realizan en el Salón Brescia?"
-    answer: "Es sede de bodas, XV años, bautizos, primeras comuniones y graduaciones, con servicio de banquete y menús desde $420 por persona."
+    answer: "En Av. Aztecas 198, colonia Los Reyes, alcaldía Coyoacán, CDMX (CP 04330), con acceso fácil desde las colonias vecinas."
+  - question: "¿Qué eventos se celebran y qué incluye?"
+    answer: "Bodas, XV años, bautizos, primeras comuniones y graduaciones, con cocina propia, servicio de banquete —meseros y montaje— y menús desde $420 por persona."
   - question: "¿EVENTECH renta equipo para eventos en el Salón Brescia?"
-    answer: "Sí. EVENTECH complementa eventos en el Salón Brescia y en Coyoacán con renta de audio, iluminación, pantallas LED, escenario y mobiliario, con entrega y montaje."
+    answer: "Sí. EVENTECH complementa tu evento en el Salón Brescia y en todo Coyoacán con audio, iluminación, pantallas LED, escenario y mobiliario, con entrega y montaje."
 
-seoTitle: "Salón Brescia — Salón de eventos en Coyoacán"
-seoDescription: "Salón Brescia, Av. Aztecas, Los Reyes, Coyoacán. Pista de baile para 150–300 personas. Menús desde $420. Bodas, XV años y sociales en CDMX."
+seoTitle: "Salón Brescia — Salón amplio para eventos en Coyoacán"
+seoDescription: "Salón Brescia, Av. Aztecas, Los Reyes, Coyoacán. Amplia pista de baile para 150 a 300 personas, banquete desde $420. Bodas, XV años y graduaciones."
 keywords:
   - salon brescia coyoacan
   - salon de fiestas coyoacan
@@ -76,12 +76,12 @@ keywords:
 publishedAt: 2026-07-23
 ---
 
-## Salón Brescia: pista de baile y banquete en Los Reyes, Coyoacán
+## El salón de Coyoacán donde caben todos tus invitados
 
-Salón Brescia es un salón de eventos sobre **Av. Aztecas**, en la colonia Los Reyes, alcaldía Coyoacán. Con pista de baile y cocina para el servicio de banquete, recibe **entre 150 y 300 asistentes**, un formato pensado para bodas y celebraciones sociales de buen tamaño en el sur de la ciudad.
+Hay fiestas que piden espacio de sobra: la familia completa, los amigos de siempre y la pista llena toda la noche. Para esas celebraciones existe el **Salón Brescia**, sobre **Av. Aztecas**, en la colonia Los Reyes de Coyoacán. Con capacidad de **150 a 300 personas** y una amplia pista de baile, es de esos salones donde la lista de invitados nunca es el problema y nadie se queda sin lugar.
 
-Es sede de bodas, XV años, bautizos, primeras comuniones y graduaciones, con servicio de banquete, meseros y montaje, y menús **desde $420 por persona**. Su ubicación sobre Av. Aztecas facilita el acceso desde Coyoacán y las colonias vecinas.
+Aquí se celebran bodas, XV años, bautizos, primeras comuniones y graduaciones, con cocina propia y servicio de banquete —meseros y montaje incluidos— desde **$420 por persona**. Su ubicación sobre Av. Aztecas facilita el acceso desde Coyoacán y las colonias vecinas, y sus **4.4 estrellas y más de 480 reseñas en Google** hablan de años recibiendo festejos en el sur de la ciudad.
 
-## Equipo y producción EVENTECH para tu evento en el Salón Brescia
+## Lleva tu evento al siguiente nivel con EVENTECH
 
-EVENTECH complementa el Salón Brescia y la zona de Coyoacán con [audio y sonido](/servicios/audiovisual/sonido/), [iluminación](/servicios/iluminacion/), [pantallas LED](/servicios/audiovisual/pantallas-led/), [escenarios](/servicios/pistas-baile/tarimas-escenarios/) y [mobiliario](/servicios/mobiliario/), con entrega y montaje. [Cotiza tu evento](/cotizar/) sin costo.
+El salón pone el espacio; EVENTECH pone la producción: [audio y sonido profesional](/servicios/audiovisual/sonido/), [iluminación](/servicios/iluminacion/), [pantallas LED](/servicios/audiovisual/pantallas-led/), [escenarios](/servicios/pistas-baile/tarimas-escenarios/) y [mobiliario](/servicios/mobiliario/), con entrega y montaje. [Cotiza sin costo](/cotizar/) y arma tu evento a tu medida.

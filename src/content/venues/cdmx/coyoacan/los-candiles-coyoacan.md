@@ -1,8 +1,8 @@
 ---
 name: "Salón Los Candiles"
 slug: "los-candiles-coyoacan"
-description: "Salón Los Candiles es un salón de eventos con más de 30 años en la zona de Cafetales, alcaldía Coyoacán. Con pista de baile, valet parking, vestidor para novios y cocina propia, recibe entre 50 y 200 asistentes. Es sede de bodas, XV años, bautizos, primeras comuniones y cumpleaños, con menús desde $390 por persona."
-shortDescription: "Salón con más de 30 años en Cafetales, Coyoacán. Pista, valet y vestidor para 50 a 200 asistentes. Bodas, XV años y sociales en CDMX."
+description: "Con más de 30 años en la zona de Cafetales, en Coyoacán, el Salón Los Candiles es un clásico consolidado para celebrar en el sur de la ciudad. Recibe de 50 a 200 invitados en bodas, XV años, bautizos, primeras comuniones y cumpleaños, con pista de baile, valet parking, vestidor para novios, coordinación y menús desde $390 por persona. Su trayectoria y sus más de 340 reseñas en Google lo mantienen como una referencia de la colonia Residencial Cafetales."
+shortDescription: "Salón con más de 30 años en Cafetales, Coyoacán, con pista, valet y vestidor para 50 a 200 invitados. Bodas, XV años y sociales desde $390."
 
 region: "cdmx"
 zone: "Coyoacán"
@@ -63,17 +63,17 @@ rating: 3.8
 reviewCount: 342
 
 faqs:
-  - question: "¿Cuál es la capacidad del Salón Los Candiles en Coyoacán?"
-    answer: "El Salón Los Candiles recibe de 50 a 200 asistentes, con pista de baile y valet parking, en la zona de Cafetales, alcaldía Coyoacán."
+  - question: "¿Qué hace especial al Salón Los Candiles?"
+    answer: "Su trayectoria: más de 30 años de operación en la zona de Cafetales, Coyoacán. A eso suma pista de baile, valet parking, vestidor para novios, cocina propia y coordinación, para bodas, XV años y eventos sociales de 50 a 200 invitados."
   - question: "¿Dónde está el Salón Los Candiles?"
-    answer: "Se ubica en Calz. Tepetlapa 2075, colonia Residencial Cafetales, alcaldía Coyoacán, Ciudad de México, CP 04918."
-  - question: "¿Qué servicios ofrece el Salón Los Candiles?"
-    answer: "Con más de 30 años de operación, ofrece pista de baile, valet parking, vestidor para novios, cocina propia y coordinación, para bodas, XV años y eventos sociales, con menús desde $390 por persona."
+    answer: "En Calz. Tepetlapa 2075, colonia Residencial Cafetales, alcaldía Coyoacán, CDMX (CP 04918)."
+  - question: "¿Qué servicios incluye y desde cuánto?"
+    answer: "Banquete, meseros, coordinación, seguridad y montaje, con valet parking y vestidor para novios, y menús desde $390 por persona, para bodas, XV años, bautizos, comuniones y cumpleaños."
   - question: "¿EVENTECH renta equipo para eventos en el Salón Los Candiles?"
-    answer: "Sí. EVENTECH complementa eventos en el Salón Los Candiles y en Coyoacán con renta de audio, iluminación, pantallas LED, escenario y mobiliario, con entrega y montaje."
+    answer: "Sí. EVENTECH complementa tu evento en el Salón Los Candiles y en todo Coyoacán con audio, iluminación, pantallas LED, escenario y mobiliario, con entrega y montaje."
 
-seoTitle: "Salón Los Candiles — Salón de eventos en Coyoacán"
-seoDescription: "Salón Los Candiles, Cafetales, Coyoacán. Pista, valet y vestidor para 50–200 personas. Menús desde $390. Bodas, XV años y sociales en CDMX."
+seoTitle: "Salón Los Candiles — Salón con 30 años en Coyoacán"
+seoDescription: "Salón Los Candiles, Cafetales, Coyoacán. Más de 30 años, con pista, valet y vestidor para 50 a 200 personas, menús desde $390. Bodas y XV años."
 keywords:
   - salon los candiles coyoacan
   - salon de fiestas coyoacan
@@ -84,12 +84,12 @@ keywords:
 publishedAt: 2026-07-23
 ---
 
-## Salón Los Candiles: más de 30 años en Cafetales, Coyoacán
+## Tres décadas festejando en el corazón de Cafetales
 
-Salón Los Candiles es un salón de eventos con **más de 30 años de operación** en la zona de Cafetales, alcaldía Coyoacán. Con pista de baile, valet parking, vestidor para novios y cocina propia, recibe **entre 50 y 200 asistentes**, con la experiencia de un salón consolidado en el sur-oriente de la ciudad.
+Hay salones que apenas abrieron y salones que ya vieron pasar generaciones de familias celebrando. El **Salón Los Candiles** es de los segundos: **más de 30 años de operación** en la zona de **Cafetales**, en Coyoacán, le dan un oficio que solo se gana con el tiempo. Recibe **de 50 a 200 invitados** con pista de baile, valet parking, vestidor para novios y cocina propia, esos detalles que hacen que el día fluya sin sobresaltos.
 
-Es sede de bodas, XV años, bautizos, primeras comuniones y cumpleaños, con servicio de banquete, coordinación, seguridad y montaje, y menús **desde $390 por persona**. Su trayectoria y servicios lo mantienen como una referencia entre los salones de la zona de Cafetales.
+Es sede de bodas, XV años, bautizos, primeras comuniones y cumpleaños, con servicio de banquete, coordinación, seguridad y montaje, y menús **desde $390 por persona**. Su trayectoria y sus **más de 340 reseñas en Google** lo mantienen como una referencia entre los salones de la zona de Cafetales.
 
-## Equipo y producción EVENTECH para tu evento en el Salón Los Candiles
+## Lleva tu evento al siguiente nivel con EVENTECH
 
-EVENTECH complementa el Salón Los Candiles y la zona de Coyoacán con [audio y sonido](/servicios/audiovisual/sonido/), [iluminación](/servicios/iluminacion/), [pantallas LED](/servicios/audiovisual/pantallas-led/), [escenarios](/servicios/pistas-baile/tarimas-escenarios/) y [mobiliario](/servicios/mobiliario/), con entrega y montaje. [Cotiza tu evento](/cotizar/) sin costo.
+El salón pone la experiencia y el espacio; EVENTECH pone la producción. Suma [audio y sonido profesional](/servicios/audiovisual/sonido/), [iluminación](/servicios/iluminacion/), [pantallas LED](/servicios/audiovisual/pantallas-led/), [escenarios](/servicios/pistas-baile/tarimas-escenarios/) y [mobiliario](/servicios/mobiliario/), con entrega y montaje. [Cotiza sin costo](/cotizar/) y arma tu evento a tu medida.

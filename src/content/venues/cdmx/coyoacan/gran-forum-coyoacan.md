@@ -1,8 +1,8 @@
 ---
 name: "Salón Gran Fórum"
 slug: "gran-forum-coyoacan"
-description: "Salón Gran Fórum es un recinto para eventos de gran formato en la colonia Campestre Churubusco, alcaldía Coyoacán. Con pista de baile, cocina propia, estacionamiento y opción de carpa y escenario, ofrece configuraciones desde eventos íntimos y hasta 3,000 asistentes. Es sede de bodas, XV años, graduaciones, convenciones, congresos y eventos corporativos, con menús desde $300 por persona."
-shortDescription: "Recinto de gran formato en Campestre Churubusco, Coyoacán. Configuraciones hasta 3,000 asistentes. Bodas, convenciones y corporativos en CDMX."
+description: "El Salón Gran Fórum, en la colonia Campestre Churubusco de Coyoacán, es un recinto de gran formato que se transforma según tu evento: desde reuniones íntimas de 20 personas hasta convenciones y congresos de 3,000 asistentes. Bodas, XV años, graduaciones y eventos corporativos suman pista de baile, carpa y escenario opcionales, estacionamiento, seguridad y menús desde $300 por persona. Con 4.4 estrellas y más de 4,000 reseñas en Google, es una de las opciones de mayor capacidad del sur de la CDMX."
+shortDescription: "Recinto de gran formato en Campestre Churubusco, Coyoacán, de 20 a 3,000 asistentes. Bodas, convenciones y congresos con carpa y escenario."
 
 region: "cdmx"
 zone: "Coyoacán"
@@ -59,16 +59,16 @@ reviewCount: 4291
 
 faqs:
   - question: "¿Cuál es la capacidad del Salón Gran Fórum?"
-    answer: "El Salón Gran Fórum ofrece configuraciones desde eventos íntimos y hasta 3,000 asistentes, en la colonia Campestre Churubusco, alcaldía Coyoacán."
+    answer: "Desde 20 hasta 3,000 asistentes. Se configura según el evento, con opción de carpa y escenario, así que sirve lo mismo para una fiesta social que para una convención o un congreso, en Campestre Churubusco, Coyoacán."
   - question: "¿Dónde está el Salón Gran Fórum?"
-    answer: "Se ubica en Cerro del Músico 22, colonia Campestre Churubusco, alcaldía Coyoacán, Ciudad de México, CP 04200."
-  - question: "¿Qué eventos se realizan en el Salón Gran Fórum?"
-    answer: "Es sede de bodas, XV años, graduaciones, convenciones, congresos y eventos corporativos, con carpa y escenario opcionales y menús desde $300 por persona."
+    answer: "En Cerro del Músico 22, colonia Campestre Churubusco, alcaldía Coyoacán, CDMX (CP 04200), con estacionamiento y acceso para personas con discapacidad."
+  - question: "¿Sirve para eventos corporativos y congresos?"
+    answer: "Sí. Además de bodas, XV años y graduaciones, recibe convenciones, congresos y eventos corporativos, con carpa y escenario opcionales, seguridad y menús desde $300 por persona."
   - question: "¿EVENTECH renta equipo para eventos en el Salón Gran Fórum?"
-    answer: "Sí. EVENTECH complementa eventos en el Salón Gran Fórum y en Coyoacán con renta de audio, iluminación, pantallas LED, escenario y mobiliario, con entrega y montaje."
+    answer: "Sí. EVENTECH complementa tu evento en el Salón Gran Fórum y en todo Coyoacán con audio, iluminación, pantallas LED, escenario y mobiliario, con entrega y montaje."
 
-seoTitle: "Salón Gran Fórum — Recinto de eventos en Coyoacán"
-seoDescription: "Salón Gran Fórum, Campestre Churubusco, Coyoacán. Recinto para hasta 3,000 personas. Menús desde $300. Bodas, convenciones y corporativos en CDMX."
+seoTitle: "Salón Gran Fórum — Recinto para eventos en Coyoacán"
+seoDescription: "Salón Gran Fórum, Campestre Churubusco, Coyoacán. Recinto para 20 a 3,000 personas, menús desde $300. Bodas, convenciones, congresos y corporativos."
 keywords:
   - gran forum coyoacan
   - salon de fiestas coyoacan
@@ -79,12 +79,12 @@ keywords:
 publishedAt: 2026-07-23
 ---
 
-## Salón Gran Fórum: gran formato en Campestre Churubusco, Coyoacán
+## Un recinto que crece de 20 a 3,000 personas
 
-Salón Gran Fórum es un recinto para eventos de gran escala en la colonia **Campestre Churubusco**, alcaldía Coyoacán. Con pista de baile, cocina propia, estacionamiento y opción de carpa y escenario, ofrece configuraciones que van **desde eventos íntimos y hasta 3,000 asistentes**, lo que lo hace apto tanto para celebraciones sociales como para convenciones y congresos.
+Pocos espacios en Coyoacán pueden pasar de una reunión íntima a un congreso de miles sin despeinarse. El **Salón Gran Fórum**, en la colonia **Campestre Churubusco**, es uno de ellos: un recinto de gran formato que se reconfigura según tu evento, **desde 20 hasta 3,000 asistentes**, con opción de carpa y escenario para armar justo el montaje que necesitas.
 
-Es sede de bodas, XV años, graduaciones, convenciones, congresos y eventos corporativos, con servicio de banquete, montaje y seguridad, y menús **desde $300 por persona**. Su capacidad y accesos lo posicionan como una de las opciones de mayor formato en el sur de la ciudad.
+Aquí caben tu boda o tus XV años, pero también la convención, el congreso o la graduación de toda una generación, con pista de baile, cocina propia, estacionamiento, seguridad y banquete desde **$300 por persona**, uno de los puntos de entrada más accesibles para un espacio de esta escala. Sus **4.4 estrellas y más de 4,000 reseñas en Google** lo confirman como una de las sedes de mayor capacidad del sur de la ciudad.
 
-## Equipo y producción EVENTECH para tu evento en el Salón Gran Fórum
+## Lleva tu evento al siguiente nivel con EVENTECH
 
-EVENTECH complementa el Salón Gran Fórum y la zona de Coyoacán con [audio y sonido](/servicios/audiovisual/sonido/), [iluminación](/servicios/iluminacion/), [pantallas LED](/servicios/audiovisual/pantallas-led/), [escenarios](/servicios/pistas-baile/tarimas-escenarios/) y [mobiliario](/servicios/mobiliario/), con entrega y montaje. [Cotiza tu evento](/cotizar/) sin costo.
+El recinto pone el gran espacio; EVENTECH pone la producción a la altura. Suma [audio y sonido profesional](/servicios/audiovisual/sonido/), [iluminación](/servicios/iluminacion/), [pantallas LED](/servicios/audiovisual/pantallas-led/), [escenarios](/servicios/pistas-baile/tarimas-escenarios/) y [mobiliario](/servicios/mobiliario/), con entrega y montaje. [Cotiza sin costo](/cotizar/) y arma tu evento a tu medida.

@@ -1,8 +1,8 @@
 ---
 name: "Imiti Lomas"
 slug: "imiti-lomas"
-description: "Imiti Lomas es un salón lounge de diseño para eventos en Lomas de Chapultepec, alcaldía Miguel Hidalgo. Con concepto de club, cocina de autor y horario hasta las 3:00 a.m., recibe de 50 a 300 asistentes para bodas, XV años, cenas corporativas y celebraciones nocturnas en una de las zonas más exclusivas de la ciudad."
-shortDescription: "Salón lounge de diseño en Lomas de Chapultepec, Miguel Hidalgo. 50 a 300 asistentes, cocina de autor. Bodas y eventos nocturnos en CDMX."
+description: "Imiti Lomas rompe con el salón tradicional: es un salón lounge de diseño, con estética de club y cocina de autor, en pleno Lomas de Chapultepec, Miguel Hidalgo. Recibe de 50 a 300 asistentes y su horario llega hasta las 3:00 a.m., ideal para bodas, XV años y cenas corporativas con ambiente nocturno y sofisticado. Con banquete de autor, barra y terraza, es un referente de los eventos de noche en una de las zonas más exclusivas de la Ciudad de México."
+shortDescription: "Salón lounge de diseño en Lomas de Chapultepec, con cocina de autor y horario hasta las 3 a.m. De 50 a 300 asistentes. Bodas y eventos nocturnos en CDMX."
 
 region: "cdmx"
 zone: "Miguel Hidalgo"
@@ -61,16 +61,16 @@ reviewCount: 362
 
 faqs:
   - question: "¿Cuál es la capacidad de Imiti Lomas?"
-    answer: "Imiti Lomas recibe de 50 a 300 asistentes, con concepto de salón lounge y terraza, en Lomas de Chapultepec, alcaldía Miguel Hidalgo."
+    answer: "Recibe de 50 a 300 asistentes, con concepto de salón lounge y terraza, en Lomas de Chapultepec, alcaldía Miguel Hidalgo: una escala flexible lo mismo para una boda que para una cena corporativa."
   - question: "¿Hasta qué hora se puede realizar un evento en Imiti Lomas?"
-    answer: "El horario de eventos llega hasta las 3:00 a.m., lo que lo hace ideal para bodas y celebraciones nocturnas, con cocina de autor y barra incluidas."
+    answer: "El horario de eventos llega hasta las 3:00 a.m., perfecto para bodas y celebraciones nocturnas, con cocina de autor y barra incluidas para que la fiesta no pare."
   - question: "¿Dónde está Imiti Lomas?"
     answer: "En Blvd. Manuel Ávila Camacho 50, Lomas de Chapultepec, alcaldía Miguel Hidalgo, Ciudad de México, CP 11000."
   - question: "¿EVENTECH renta equipo para eventos en Imiti Lomas?"
-    answer: "Sí. EVENTECH complementa Imiti Lomas con audio, iluminación, pantallas LED, escenario y mobiliario adicional, con entrega y montaje."
+    answer: "Sí. EVENTECH refuerza Imiti Lomas con audio de alto impacto, iluminación, pantallas LED, escenario y mobiliario adicional, con entrega y montaje."
 
 seoTitle: "Imiti Lomas — Salón lounge en Lomas de Chapultepec"
-seoDescription: "Imiti Lomas, Lomas de Chapultepec, Miguel Hidalgo. Salón lounge para 50–300 personas, horario hasta 3 a.m. Bodas y eventos nocturnos en CDMX."
+seoDescription: "Imiti Lomas, Lomas de Chapultepec, Miguel Hidalgo. Salón lounge de diseño para 50–300 personas, horario hasta 3 a.m. Bodas y eventos nocturnos en CDMX."
 keywords:
   - imiti lomas eventos
   - salon lounge cdmx
@@ -81,11 +81,13 @@ keywords:
 publishedAt: 2026-07-23
 ---
 
-## Imiti Lomas: salón lounge de diseño en Lomas de Chapultepec
+## Imiti Lomas: el salón lounge de diseño que reinventa la noche en Lomas
 
-Imiti Lomas rompe con el formato de salón tradicional: es un **espacio lounge de diseño**, con estética de club y cocina de autor, en pleno Lomas de Chapultepec. Su capacidad de **50 a 300 asistentes** y su horario **hasta las 3:00 a.m.** lo vuelven una de las mejores opciones para bodas, XV años y cenas corporativas que buscan un ambiente nocturno y sofisticado en una de las zonas más exclusivas de la ciudad.
+Olvida el salón de siempre. Imiti Lomas es un **espacio lounge de diseño**, con estética de club y cocina de autor, en pleno Lomas de Chapultepec. Imagina tu boda o tu cena corporativa con luz baja, buena música y un ambiente que se siente más como una fiesta privada exclusiva que como un evento formal. Recibe **de 50 a 300 asistentes** y su horario se extiende **hasta las 3:00 a.m.**, para las celebraciones que apenas empiezan cuando otras terminan.
 
-El paquete incluye banquete de autor, barra, coordinación, iluminación y sonido, y su terraza suma un área al aire libre para cóctel o lounge. Con 4.4 estrellas y más de 360 opiniones en Google, Imiti se ha posicionado como referente de los eventos "de noche" en el poniente.
+## Un salón para eventos nocturnos en Miguel Hidalgo
+
+Tu noche merece una sede a la altura. El paquete incluye banquete de autor, barra, coordinación, iluminación y sonido, y su terraza suma un área al aire libre ideal para el cóctel de bienvenida o un lounge bajo las estrellas. Con 4.4 estrellas y más de 360 opiniones en Google, Imiti se ha ganado su lugar como referente de los eventos "de noche" en una de las zonas más exclusivas de la ciudad.
 
 ## Producción EVENTECH para tu evento en Imiti Lomas
 
