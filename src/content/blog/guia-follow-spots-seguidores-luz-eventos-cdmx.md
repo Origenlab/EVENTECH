@@ -178,7 +178,7 @@ Un seguidor de luz rinde al máximo cuando es parte de un diseño, no una pieza 
 - **[Equipo audiovisual](/servicios/audiovisual/):** cuando hay pantallas y video, el follow spot tiene que vencer su brillo; ahí conviene el HMI, y coordinamos con el equipo de AV para que todo cuadre.
 - **[Pistas de baile](/servicios/pistas-baile/):** el primer baile bajo el seguidor, sobre una pista bien elegida, es la foto que todos quieren.
 
-Para producciones de **escala de concierto** —tres o cuatro seguidores sobre torres, con seguimiento simultáneo de varios artistas y rider técnico exigente— trabajamos de la mano de aliados especializados como [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y 3,000 eventos a cuestas, inventario Martin Professional, Chauvet y Elation, e instalación y operación incluidas. Cuando el proyecto lo pide, sumamos su músculo al nuestro.
+Para producciones de **escala de concierto** —tres o cuatro seguidores sobre torres, con seguimiento simultáneo de varios artistas y rider técnico exigente— trabajamos de la mano de aliados especializados como [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y cientos de eventos a cuestas, inventario Martin Professional, Chauvet y Elation, e instalación y operación incluidas. Cuando el proyecto lo pide, sumamos su músculo al nuestro.
 
 Si quieres el panorama completo de las cuatro capas de iluminación y cómo se arma un diseño de principio a fin, léelo en la [guía maestra de iluminación para eventos](/blog/guia-iluminacion-eventos-arquitectonica-decorativa-escenario/).
 

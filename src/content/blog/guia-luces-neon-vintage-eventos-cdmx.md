@@ -171,7 +171,7 @@ El neón rara vez viaja solo. Estas son las combinaciones que mejor funcionan y 
 - **Neón RGB + luz negra UV + pista de baile**: el combo de XV años y fiestas jóvenes, donde el color manda.
 - **Neón + candiles o cascadas LED**: para eventos formales que quieren mezclar lo moderno del neón con lo clásico del cristal o el brillo en cascada.
 
-Para producciones grandes, donde el neón es solo un componente de un montaje con escenario, robótica y estructura, trabajamos de la mano de especialistas de gran escala como [REDEIL](https://rentadeiluminacion.com/), que suman más de 30 años y 3,000 eventos con equipo Martin Professional, Chauvet y Elation. Cuando el proyecto pide esa artillería, integrar el neón a un diseño lumínico completo hace toda la diferencia. Y si quieres el panorama de todos los servicios que se coordinan alrededor de un evento, nuestra [guía completa de renta de equipo para eventos en CDMX](/blog/eventech-renta-equipo-eventos-cdmx-guia-completa/) lo ordena de principio a fin.
+Para producciones grandes, donde el neón es solo un componente de un montaje con escenario, robótica y estructura, trabajamos de la mano de especialistas de gran escala como [REDEIL](https://rentadeiluminacion.com/), que suman más de 30 años y cientos de eventos con equipo Martin Professional, Chauvet y Elation. Cuando el proyecto pide esa artillería, integrar el neón a un diseño lumínico completo hace toda la diferencia. Y si quieres el panorama de todos los servicios que se coordinan alrededor de un evento, nuestra [guía completa de renta de equipo para eventos en CDMX](/blog/eventech-renta-equipo-eventos-cdmx-guia-completa/) lo ordena de principio a fin.
 
 ---
 

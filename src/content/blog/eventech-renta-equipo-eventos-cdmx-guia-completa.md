@@ -61,7 +61,7 @@ En el competitivo y dinámico universo de los eventos sociales y corporativos en
 
 La propuesta de valor de EVENTECH se fundamenta en un principio simple pero transformador: ofrecer **todo lo que necesitas para tu evento en un solo proveedor**. Esta filosofía elimina de raíz la complejidad inherente a la coordinación de múltiples proveedores, garantizando consistencia absoluta en la calidad de cada elemento, eficiencia optimizada en la logística de montaje y desmontaje, y transparencia total en la estructura de precios sin sorpresas ni costos ocultos.
 
-La trayectoria de EVENTECH se sustenta en cifras que hablan por sí mismas: **más de 500 eventos completados exitosamente** abarcando bodas de ensueño, espectaculares celebraciones de XV años, eventos corporativos de alto perfil, fiestas infantiles llenas de alegría, graduaciones memorables y toda clase de celebraciones sociales. Esta experiencia acumulada permite al equipo anticipar necesidades antes de que se conviertan en problemas, resolver contingencias con agilidad profesional y garantizar resultados impecables en cada proyecto sin importar su escala o complejidad.
+La trayectoria de EVENTECH se sustenta en cifras que hablan por sí mismas: **cientos de eventos completados exitosamente** abarcando bodas de ensueño, espectaculares celebraciones de XV años, eventos corporativos de alto perfil, fiestas infantiles llenas de alegría, graduaciones memorables y toda clase de celebraciones sociales. Esta experiencia acumulada permite al equipo anticipar necesidades antes de que se conviertan en problemas, resolver contingencias con agilidad profesional y garantizar resultados impecables en cada proyecto sin importar su escala o complejidad.
 
 El compromiso de EVENTECH va más allá de simplemente rentar equipo; se trata de convertirse en un verdadero socio estratégico en la realización de eventos exitosos. Cada cliente recibe atención personalizada, asesoría técnica especializada y el respaldo de un equipo que entiende que detrás de cada evento hay historias, sueños y expectativas que merecen ser superadas.
 
@@ -1926,7 +1926,7 @@ Tres décadas liderando el mercado de pantallas LED en México. Videowalls, pant
 [pantalla-led.com](https://pantalla-led.com)
 
 ### INFLAPY - Expertos en Inflables
-Más de 500 eventos en CDMX y Estado de México. Los inflables más seguros, variados y atractivos del mercado para todas las edades.
+Cientos de eventos en CDMX y Estado de México. Los inflables más seguros, variados y atractivos del mercado para todas las edades.
 [inflablesparafiestas.com.mx](https://inflablesparafiestas.com.mx)
 
 ### SOEVE - Maestros del Sonido
@@ -1934,7 +1934,7 @@ Especialistas en audio profesional para eventos de 50 a 5,000 personas. Equipos 
 sonidoparaeventos.com.mx
 
 ### DEGLOB - Arte en Globos
-Desde 2015, más de 5,000 eventos decorados con globos premium. Arcos, columnas, backdrops, instalaciones artísticas y diseños personalizados.
+Desde 2015, cientos de eventos decorados con globos premium. Arcos, columnas, backdrops, instalaciones artísticas y diseños personalizados.
 fantasyglobos.com.mx
 
 ### MEDEDUL - Especialistas en Mesas de Dulces
@@ -1942,7 +1942,7 @@ Calificación de 4.9 estrellas con más de 127 reseñas. Candy bars, fuentes de 
 [mesas-de-dulces.com](https://mesas-de-dulces.com)
 
 ### MESPIC - Líderes en Mesas Picnic
-Más de 10 años y 500+ eventos en todo México. Pioneros y líderes en renta de mesas picnic para eventos al aire libre con estética rústica.
+Más de 10 años y cientos de eventos en todo México. Pioneros y líderes en renta de mesas picnic para eventos al aire libre con estética rústica.
 [mesaspicnic.com](https://mesaspicnic.com)
 
 ### PODIUMEX - Expertos en Podiums
@@ -2030,6 +2030,6 @@ Ofrecemos ambas opciones. Podemos crear paquetes personalizados que incluyan mú
 
 ---
 
-*EVENTECH es tu aliado integral para equipar cualquier tipo de evento en la Ciudad de México y zona metropolitana. Con un catálogo completo de 8 categorías de servicios, precios transparentes sin sorpresas, respuesta garantizada en 24 horas, y un equipo comprometido con la excelencia, hacemos realidad la visión de cada cliente. Más de 500 eventos exitosos nos respaldan.*
+*EVENTECH es tu aliado integral para equipar cualquier tipo de evento en la Ciudad de México y zona metropolitana. Con un catálogo completo de 8 categorías de servicios, precios transparentes sin sorpresas, respuesta garantizada en 24 horas, y un equipo comprometido con la excelencia, hacemos realidad la visión de cada cliente. Cientos de eventos exitosos nos respaldan.*
 
 *Cotiza sin compromiso y descubre por qué cientos de organizadores de eventos, wedding planners, familias y empresas confían en nosotros para sus celebraciones más importantes.*

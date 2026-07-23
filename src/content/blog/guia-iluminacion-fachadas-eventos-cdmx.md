@@ -169,7 +169,7 @@ La cantidad y potencia de luminarias no depende del número de invitados —una 
 - **El material decide la técnica.** Cantera, piedra volcánica y ladrillo piden grazing para lucir su textura; una fachada lisa de concreto o aplanado se ve mejor con un flood parejo y, si acaso, un gobo.
 - **El evento define la paleta.** Una boda en hacienda pide dorado cálido y monograma; un corporativo, el color de marca y el logo; unos XV años, la paleta de la fiesta con cambios programados.
 
-Nada de esto se improvisa. Antes de cotizar en firme hacemos un **levantamiento fotométrico** del inmueble: fotografiamos, medimos, modelamos la distribución de luz en software y entregamos un plano con la posición, el ángulo y la potencia de cada luminaria, más una simulación 3D del resultado. Para **producciones de gran escala** —fachadas monumentales, mapping, varios inmuebles simultáneos o eventos masivos— trabajamos de la mano de [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y 3,000 eventos a cuestas y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas.
+Nada de esto se improvisa. Antes de cotizar en firme hacemos un **levantamiento fotométrico** del inmueble: fotografiamos, medimos, modelamos la distribución de luz en software y entregamos un plano con la posición, el ángulo y la potencia de cada luminaria, más una simulación 3D del resultado. Para **producciones de gran escala** —fachadas monumentales, mapping, varios inmuebles simultáneos o eventos masivos— trabajamos de la mano de [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y cientos de eventos a cuestas y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas.
 
 ---
 

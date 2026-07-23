@@ -159,7 +159,7 @@ La cuenta empieza por el **ancho del escenario o del fondo** que quieres cubrir.
 - **Corporativo con backdrop de marca:** dos a cuatro cortinas RGB según el ancho del muro, en el color de la marca, a veces con el logo enmarcado por [letras luminosas](/servicios/iluminacion/decorativa/letras-luminosas/) o [pantallas](/servicios/audiovisual/).
 - **Festival o gran producción:** cálculo por proyecto, con truss, varios telones y efectos mapeados.
 
-Para esas producciones de gran escala —festivales, conciertos, muros de decenas de metros— trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, 3,000 eventos y equipo Martin, Chauvet y Elation, con instalación y operación incluidas. Para la boda, los XV o el corporativo típico de la ciudad, en cambio, una o dos cortinas de nuestro catálogo resuelven de sobra. No necesitas un montaje de festival para vestir un salón.
+Para esas producciones de gran escala —festivales, conciertos, muros de decenas de metros— trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, cientos de eventos y equipo Martin, Chauvet y Elation, con instalación y operación incluidas. Para la boda, los XV o el corporativo típico de la ciudad, en cambio, una o dos cortinas de nuestro catálogo resuelven de sobra. No necesitas un montaje de festival para vestir un salón.
 
 Ninguna de estas cifras sustituye ver tu escenario: el ancho, la altura de cuelgue y de dónde va sujeta la estructura cambian el cálculo. Por eso pedimos medidas o una foto del fondo antes de dar el número final.
 

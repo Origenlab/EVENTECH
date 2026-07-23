@@ -149,7 +149,7 @@ Estos son escenarios de referencia para que dimensiones el gasto de par LED. El 
 | **Corporativo / conferencia** | Escenario + presídium | 4–8 | $1,400 – $2,600 |
 | **Festival / gran escala** | Truss con decenas de piezas | 20+ | Proyecto a la medida |
 
-Para las producciones de gran escala —festivales, conciertos, lanzamientos con público masivo y escenarios montados en truss— trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, 3,000 eventos y equipo Martin, Chauvet y Elation, con instalación y operación incluidas. Para el evento social o corporativo típico de la ciudad, en cambio, un paquete de par LED de nuestro catálogo resuelve de sobra y con presupuesto controlado.
+Para las producciones de gran escala —festivales, conciertos, lanzamientos con público masivo y escenarios montados en truss— trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, cientos de eventos y equipo Martin, Chauvet y Elation, con instalación y operación incluidas. Para el evento social o corporativo típico de la ciudad, en cambio, un paquete de par LED de nuestro catálogo resuelve de sobra y con presupuesto controlado.
 
 ---
 

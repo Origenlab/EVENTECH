@@ -171,7 +171,7 @@ Para un muro de cantera o ladrillo, donde la textura es el show, pegamos las bar
 
 Un muro de tres metros se resuelve con barras de 72–180W; uno de seis metros, o una **fachada** completa, pide 240W o equipos de gran formato. Cuando el muro es enorme —la fachada de un edificio, una nave industrial de doble altura—, entramos en territorio de gran escala.
 
-Para producciones de esa magnitud —fachadas de edificios completos, escenarios de festival, naves de gran altura que piden torres de truss, mucha potencia y operación certificada— trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y 3,000 eventos a cuestas y equipo Martin Professional, Chauvet y Elation con instalación y operación incluidas. Para el 95% de las bodas, XV y corporativos en un salón o una hacienda, nuestro propio inventario cubre de sobra.
+Para producciones de esa magnitud —fachadas de edificios completos, escenarios de festival, naves de gran altura que piden torres de truss, mucha potencia y operación certificada— trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y cientos de eventos a cuestas y equipo Martin Professional, Chauvet y Elation con instalación y operación incluidas. Para el 95% de las bodas, XV y corporativos en un salón o una hacienda, nuestro propio inventario cubre de sobra.
 
 ---
 

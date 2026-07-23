@@ -60,7 +60,7 @@ La razón de esta supremacía no es caprichosa ni responde a una moda superficia
 
 En la Ciudad de México, donde la temporada de eventos al aire libre se extiende prácticamente los doce meses del año gracias al clima templado de la meseta central, las guirnaldas Edison han dejado de ser un "extra decorativo" para convertirse en un **componente esperado y exigido** por novios, wedding planners, coordinadores corporativos y familias que organizan celebraciones de XV años, bautizos y aniversarios.
 
-Este artículo constituye la **guía técnica y profesional más completa** sobre la renta de guirnaldas Edison para eventos en la zona metropolitana de la Ciudad de México. Cubre desde la composición técnica de cada componente hasta la logística de instalación en los venues más populares de la capital, pasando por los cuatro paquetes estandarizados que EVENTECH ha desarrollado tras más de 500 eventos completados exitosamente.
+Este artículo constituye la **guía técnica y profesional más completa** sobre la renta de guirnaldas Edison para eventos en la zona metropolitana de la Ciudad de México. Cubre desde la composición técnica de cada componente hasta la logística de instalación en los venues más populares de la capital, pasando por los cuatro paquetes estandarizados que EVENTECH ha desarrollado tras cientos de eventos completados exitosamente.
 
 ## Historia y Evolución: Del Laboratorio de Edison a las Bodas del Siglo XXI
 
@@ -211,7 +211,7 @@ Cada instalación incluye un dimmer que permite ajustar la intensidad de los foc
 
 ## Los 4 Paquetes de Guirnaldas Edison EVENTECH
 
-Tras la experiencia acumulada de más de 500 eventos, EVENTECH ha identificado que el **95% de las necesidades de iluminación con guirnaldas Edison** se resuelve con cuatro configuraciones estandarizadas. Cada paquete está dimensionado y optimizado para un rango específico de tamaño de evento, tipo de espacio y número de invitados.
+Tras la experiencia acumulada de cientos de eventos, EVENTECH ha identificado que el **95% de las necesidades de iluminación con guirnaldas Edison** se resuelve con cuatro configuraciones estandarizadas. Cada paquete está dimensionado y optimizado para un rango específico de tamaño de evento, tipo de espacio y número de invitados.
 
 La estandarización no implica rigidez: cada paquete se instala con un **diseño personalizado** según la geometría del venue, los puntos de anclaje disponibles, y la visión del cliente o su wedding planner. Lo que se estandariza es el metraje y el equipamiento; lo que se personaliza es el diseño de la instalación.
 
@@ -905,4 +905,4 @@ Sí. Atendemos eventos en toda la zona metropolitana (CDMX + Estado de México) 
 
 ---
 
-*EVENTECH es tu proveedor integral de equipo para eventos en la Ciudad de México y zona metropolitana. Además de guirnaldas Edison, ofrecemos [mobiliario premium](/servicios/mobiliario/) (sillas, mesas, salas lounge, barras), [carpas y estructuras](/servicios/carpas/) (árabes, estructurales, hangar), [equipamiento audiovisual](/servicios/audiovisual/) (pantallas LED, sonido, proyectores), [iluminación profesional completa](/servicios/iluminacion/) (arquitectónica, decorativa, escenario, efectos especiales), [pistas de baile](/servicios/pistas-baile/) (LED, madera, vintage, tarimas), [inflables y juegos](/servicios/inflables/), [equipamiento de catering](/servicios/catering/), y [accesorios complementarios](/servicios/accesorios/) (mantelería, señalización, plantas de energía, climatización). Un solo proveedor, cero complicaciones, más de 500 eventos exitosos.*
+*EVENTECH es tu proveedor integral de equipo para eventos en la Ciudad de México y zona metropolitana. Además de guirnaldas Edison, ofrecemos [mobiliario premium](/servicios/mobiliario/) (sillas, mesas, salas lounge, barras), [carpas y estructuras](/servicios/carpas/) (árabes, estructurales, hangar), [equipamiento audiovisual](/servicios/audiovisual/) (pantallas LED, sonido, proyectores), [iluminación profesional completa](/servicios/iluminacion/) (arquitectónica, decorativa, escenario, efectos especiales), [pistas de baile](/servicios/pistas-baile/) (LED, madera, vintage, tarimas), [inflables y juegos](/servicios/inflables/), [equipamiento de catering](/servicios/catering/), y [accesorios complementarios](/servicios/accesorios/) (mantelería, señalización, plantas de energía, climatización). Un solo proveedor, cero complicaciones, cientos de eventos exitosos.*

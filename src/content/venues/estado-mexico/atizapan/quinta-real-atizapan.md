@@ -106,7 +106,7 @@ publishedAt: 2025-03-01
 
 Quinta Real Atizapán no nació grande: **se hizo grande evento tras evento**, boda tras boda, durante un cuarto de siglo de operación continua. Lo que comenzó como un jardín familiar se transformó gradualmente en uno de los venues más respetados del norte del Estado de México, gracias a una filosofía simple pero exigente: cada evento debe ser mejor que el anterior.
 
-Hoy, con más de **5,000 bodas, XV años y celebraciones familiares** en su historial, Quinta Real ha desarrollado un sistema de operación donde nada queda al azar. El equipo de coordinación conoce cada escenario posible, cada problema potencial, cada solución probada. Cuando eliges Quinta Real, **no pagas solo por un espacio: pagas por la tranquilidad de saber que tu evento está en manos expertas**.
+Hoy, con un extenso historial de **bodas, XV años y celebraciones familiares**, Quinta Real ha desarrollado un sistema de operación donde nada queda al azar. El equipo de coordinación conoce cada escenario posible, cada problema potencial, cada solución probada. Cuando eliges Quinta Real, **no pagas solo por un espacio: pagas por la tranquilidad de saber que tu evento está en manos expertas**.
 
 ## Espacios Disponibles para Eventos
 
@@ -143,7 +143,7 @@ Una terraza elevada con vista al jardín principal, equipada con **barra de serv
 ## La Diferencia de la Experiencia
 
 ### Coordinación Probada
-El equipo de Quinta Real ha coordinado **más de 5,000 eventos**. No hay emergencia que no hayan resuelto, no hay solicitud especial que no hayan ejecutado, no hay problema que los tome desprevenidos. Esta experiencia se traduce en **tranquilidad absoluta** para las familias.
+El equipo de Quinta Real ha coordinado eventos durante más de 25 años. No hay emergencia que no hayan resuelto, no hay solicitud especial que no hayan ejecutado, no hay problema que los tome desprevenidos. Esta experiencia se traduce en **tranquilidad absoluta** para las familias.
 
 ### Personal Estable
 A diferencia de venues que contratan personal temporal para cada evento, Quinta Real mantiene un **equipo de meseros y cocineros permanentes** que conocen el espacio, los flujos de servicio y los estándares de calidad. Muchos llevan más de 10 años trabajando aquí.

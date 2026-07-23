@@ -141,7 +141,7 @@ Aquí la fachada es inversión de marca. La configuración estrella es **color i
 
 ### Producciones de gran escala
 
-Fachadas monumentales, mapping, varios inmuebles a la vez o eventos masivos entran en un rango aparte, arriba de $8,000, donde el precio deja de moverlo el equipo individual y empieza a mandarlo la **infraestructura**: distribución eléctrica, plantas de luz, seguridad y tiempos de montaje. Para este tipo de producción trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y 3,000 eventos y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas.
+Fachadas monumentales, mapping, varios inmuebles a la vez o eventos masivos entran en un rango aparte, arriba de $8,000, donde el precio deja de moverlo el equipo individual y empieza a mandarlo la **infraestructura**: distribución eléctrica, plantas de luz, seguridad y tiempos de montaje. Para este tipo de producción trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y cientos de eventos y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas.
 
 ---
 

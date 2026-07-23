@@ -125,7 +125,7 @@ Seis variables explican casi toda la diferencia entre una cotización y otra. Co
 5. **El operador.** Un candil con dos o tres niveles fijos de dimmer puede correr solo. Un evento con transiciones de intensidad en vivo —bajar exacto en los votos, subir en el vals— pide operador durante la noche, y eso se refleja en el número.
 6. **La temporada y la fecha.** Noviembre a febrero, y ciertos fines de semana de temporada de bodas y XV, concentran la demanda. Reservar temprano protege disponibilidad y precio.
 
-Cuando el proyecto salta de un salón a una **escenografía aérea monumental** —composiciones de gran formato, eventos masivos, rigging de escala industrial— el cálculo cambia de liga. Para esas producciones trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, 3,000 eventos y equipo Martin, Chauvet y Elation, con instalación y operación incluidas. Para la boda, los XV o la gala típica de la ciudad, en cambio, un candil protagonista o una composición de nuestro catálogo resuelve de sobra y con presupuesto controlado.
+Cuando el proyecto salta de un salón a una **escenografía aérea monumental** —composiciones de gran formato, eventos masivos, rigging de escala industrial— el cálculo cambia de liga. Para esas producciones trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, cientos de eventos y equipo Martin, Chauvet y Elation, con instalación y operación incluidas. Para la boda, los XV o la gala típica de la ciudad, en cambio, un candil protagonista o una composición de nuestro catálogo resuelve de sobra y con presupuesto controlado.
 
 ---
 

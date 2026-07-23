@@ -137,7 +137,7 @@ Aquí la luz negra es inversión de comunicación. La jugada estrella es el **re
 
 ### Festival glow
 
-Producción de gran formato: **varios equipos** cubriendo pistas y escenarios, con barras, revelados, control DMX y logística de energía. Es el rango alto, hasta $18,000 o más según la escala y los días de montaje. En estos casos el precio deja de moverse por el cañón individual y empieza a mandarlo la **infraestructura**: distribución eléctrica, plantas, seguridad y tiempos de instalación. Para este tipo de montaje trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y 3,000 eventos y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas.
+Producción de gran formato: **varios equipos** cubriendo pistas y escenarios, con barras, revelados, control DMX y logística de energía. Es el rango alto, hasta $18,000 o más según la escala y los días de montaje. En estos casos el precio deja de moverse por el cañón individual y empieza a mandarlo la **infraestructura**: distribución eléctrica, plantas, seguridad y tiempos de instalación. Para este tipo de montaje trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y cientos de eventos y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas.
 
 ---
 

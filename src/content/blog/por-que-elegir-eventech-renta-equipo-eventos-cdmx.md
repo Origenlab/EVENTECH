@@ -1,7 +1,7 @@
 ---
 title: "Por Qué Elegir EVENTECH para Tu Próximo Evento en CDMX"
 seoTitle: "Renta de Equipo CDMX | Por Qué Elegirnos"
-description: "Descubre por qué EVENTECH es el proveedor preferido de equipamiento para eventos en CDMX. Inventario propio, soporte técnico y más de 10 años de experiencia."
+description: "Descubre por qué EVENTECH es el proveedor preferido de equipamiento para eventos en CDMX. Inventario propio, soporte técnico y más de 30 años de experiencia."
 date: 2025-01-01
 category: "guias"
 image: "/images/mobiliario/chiavari-mesas-gala-exterior-invitados.avif"

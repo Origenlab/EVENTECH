@@ -421,4 +421,4 @@ El proceso de cotización es simple y rápido:
 
 ---
 
-*EVENTECH — Renta de mobiliario, iluminación y equipo para tu mesa de dulces y todo el evento en CDMX. Más de 500 eventos exitosos, cotización en 24 horas. [eventech.mx](/servicios/)*
+*EVENTECH — Renta de mobiliario, iluminación y equipo para tu mesa de dulces y todo el evento en CDMX. Cientos de eventos exitosos, cotización en 24 horas. [eventech.mx](/servicios/)*

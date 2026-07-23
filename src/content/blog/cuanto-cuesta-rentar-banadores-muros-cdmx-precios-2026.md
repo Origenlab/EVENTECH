@@ -136,7 +136,7 @@ Estos son los factores que hacen que dos eventos "iguales" cuesten distinto. Nin
 
 El factor que más sorprende a la gente es el **exterior**. Bañar los muros interiores de un salón es sencillo y económico. Iluminar la **fachada de una hacienda** o los muros de un **jardín** exige barras IP65 y, a veces, estructura para montarlas en altura. Por eso los montajes de exterior y fachada viven en la parte alta del rango, y a menudo se combinan con [iluminación de fachadas](/servicios/iluminacion/arquitectonica/fachadas/) para cubrir el edificio completo.
 
-Cuando el reto es de verdad grande —la fachada de un edificio de varios pisos, una nave industrial de doble altura, un escenario de festival— entramos en territorio de producción de gran escala. Para eso trabajamos junto a nuestro aliado especialista [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, 3,000 eventos y equipo Martin Professional, Chauvet y Elation con instalación y operación incluidas. Para bodas, XV y corporativos en salón o hacienda, nuestro propio inventario cubre de sobra.
+Cuando el reto es de verdad grande —la fachada de un edificio de varios pisos, una nave industrial de doble altura, un escenario de festival— entramos en territorio de producción de gran escala. Para eso trabajamos junto a nuestro aliado especialista [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, cientos de eventos y equipo Martin Professional, Chauvet y Elation con instalación y operación incluidas. Para bodas, XV y corporativos en salón o hacienda, nuestro propio inventario cubre de sobra.
 
 ---
 

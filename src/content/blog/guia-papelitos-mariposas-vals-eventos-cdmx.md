@@ -177,7 +177,7 @@ Las mariposas rinden al máximo cuando son parte de un diseño de momento, no un
 - **[Cabezas móviles](/servicios/iluminacion/escenario/moving-heads/) y [pista de baile](/servicios/pistas-baile/):** color y movimiento debajo, para que el momento tenga marco completo.
 - **[Equipo audiovisual](/servicios/audiovisual/):** cuando hay video profesional, coordinamos el disparo con el camarógrafo para que la toma quede.
 
-Cuando el efecto de mariposas es apenas una señal dentro de una **producción grande** —un XV de gran formato o un show con escenario, tramoya y decenas de aparatos de luz— nos apoyamos en aliados especializados como [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y 3,000 eventos, equipo Martin Professional, Chauvet y Elation e instalación y operación incluidas. Para el vals de un salón, en cambio, basta nuestro montaje. Si quieres ver cómo se arman todas las capas de luz de un evento, está en la [guía maestra de iluminación](/blog/guia-iluminacion-eventos-arquitectonica-decorativa-escenario/).
+Cuando el efecto de mariposas es apenas una señal dentro de una **producción grande** —un XV de gran formato o un show con escenario, tramoya y decenas de aparatos de luz— nos apoyamos en aliados especializados como [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y cientos de eventos, equipo Martin Professional, Chauvet y Elation e instalación y operación incluidas. Para el vals de un salón, en cambio, basta nuestro montaje. Si quieres ver cómo se arman todas las capas de luz de un evento, está en la [guía maestra de iluminación](/blog/guia-iluminacion-eventos-arquitectonica-decorativa-escenario/).
 
 ---
 

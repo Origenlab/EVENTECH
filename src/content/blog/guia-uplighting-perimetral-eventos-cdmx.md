@@ -161,7 +161,7 @@ La regla de oro que usamos: **una luminaria cada 2 a 2.5 metros de muro** da un 
 
 Estas cifras son punto de partida, no ley. En la visita previa medimos el perímetro real, contamos columnas, ubicamos los puntos focales y ajustamos. A veces **8 luminarias bien colocadas** lucen más que 20 mal repartidas: la ubicación pesa tanto como la cantidad.
 
-Para recintos muy grandes —convenciones, ferias o escenarios de festival, con **cientos de luminarias** y control central del diseño— la logística deja de ser "poner uplights" y se vuelve producción de gran formato. En esos montajes trabajamos de la mano de [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y 3,000 eventos a cuestas y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas. Para una boda o un corporativo estándar, un juego de 12 a 26 luminarias resuelve de sobra.
+Para recintos muy grandes —convenciones, ferias o escenarios de festival, con **cientos de luminarias** y control central del diseño— la logística deja de ser "poner uplights" y se vuelve producción de gran formato. En esos montajes trabajamos de la mano de [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y cientos de eventos a cuestas y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas. Para una boda o un corporativo estándar, un juego de 12 a 26 luminarias resuelve de sobra.
 
 ---
 

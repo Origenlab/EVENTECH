@@ -203,7 +203,7 @@ Un error de concepto frecuente es pensar que la luz negra "es" un show completo.
 - **[Pista de baile](/servicios/pistas-baile/) clara o LED:** una superficie blanca refleja y potencia la fluorescencia; sobre pista oscura el efecto rinde menos.
 - **[Audiovisual](/servicios/audiovisual/):** el DJ y el sonido marcan el momento; la luz negra entra con el beat. Sin esa coordinación, el efecto pierde fuerza.
 
-Si quieres entender cómo encajan todas estas capas en un diseño coherente, lo desarrollamos en la [guía maestra de iluminación para eventos](/blog/guia-iluminacion-eventos-arquitectonica-decorativa-escenario/). Y para producciones de gran escala —un festival glow, una activación masiva— con decenas de equipos, control DMX complejo y distribución eléctrica seria, nos apoyamos en nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y 3,000 eventos y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas.
+Si quieres entender cómo encajan todas estas capas en un diseño coherente, lo desarrollamos en la [guía maestra de iluminación para eventos](/blog/guia-iluminacion-eventos-arquitectonica-decorativa-escenario/). Y para producciones de gran escala —un festival glow, una activación masiva— con decenas de equipos, control DMX complejo y distribución eléctrica seria, nos apoyamos en nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y cientos de eventos y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas.
 
 ---
 

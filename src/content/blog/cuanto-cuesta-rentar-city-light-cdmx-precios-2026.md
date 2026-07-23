@@ -141,7 +141,7 @@ Estos son escenarios de referencia para que dimensiones el gasto de ambientació
 | **Hacienda completa** | City Light 24 | 24 | $12,000 – $18,000 |
 | **Festival / gran escala** | City Light Producción | 32+ | $18,000 – $30,000 |
 
-Para las producciones de gran escala —festivales, conciertos, lanzamientos con público masivo y escenarios montados en truss— trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, 3,000 eventos y equipo Martin, Chauvet y Elation, con instalación y operación incluidas. Para la boda, los XV o el corporativo típico de la ciudad, en cambio, un paquete de City Light de nuestro catálogo resuelve de sobra y con presupuesto controlado.
+Para las producciones de gran escala —festivales, conciertos, lanzamientos con público masivo y escenarios montados en truss— trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, cientos de eventos y equipo Martin, Chauvet y Elation, con instalación y operación incluidas. Para la boda, los XV o el corporativo típico de la ciudad, en cambio, un paquete de City Light de nuestro catálogo resuelve de sobra y con presupuesto controlado.
 
 ---
 

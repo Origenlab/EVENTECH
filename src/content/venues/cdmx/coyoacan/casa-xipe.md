@@ -82,7 +82,7 @@ faqs:
   - question: "¿Dónde está Casa Xipe?"
     answer: "En Av. Pacífico 151, colonia El Rosedal, alcaldía Coyoacán, CP 04330, Ciudad de México — a minutos del centro de Coyoacán, con estacionamiento propio y acceso para personas con discapacidad."
   - question: "¿Qué calificación tiene Casa Xipe?"
-    answer: "Calificación perfecta: 5.0 sobre 5 con 13 opiniones y 100% de recomendación en bodas.com.mx, con nota máxima en calidad, flexibilidad, precio, profesionalismo y tiempo de respuesta, más Wedding Awards 2023 y 2024 y más de 55 eventos contratados por la plataforma."
+    answer: "Calificación perfecta: 5.0 sobre 5 con 13 opiniones y 100% de recomendación en bodas.com.mx, con nota máxima en calidad, flexibilidad, precio, profesionalismo y tiempo de respuesta, más Wedding Awards 2023 y 2024."
 
 seoTitle: "Casa Xipe"
 seoDescription: "Jardín del Grupo Los Danzantes en El Rosedal, Coyoacán: 50-400 invitados, barra de mezcal, 5.0 perfecto y 2 Wedding Awards."

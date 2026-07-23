@@ -1,7 +1,7 @@
 ---
 name: "Salón de Fiestas Partenón"
 slug: "salon-partenon"
-description: "El Salón de Fiestas Partenón es una institución de las celebraciones en el sur de la Ciudad de México. Ubicado sobre Viaducto Tlalpan en la zona de Huipulco — una de las arterias más importantes de la alcaldía —, este venue de 2,000 metros cuadrados rinde homenaje a la arquitectura clásica griega con columnas monumentales, frontones triangulares y una escala interior que transmite grandeza desde el primer momento. Con más de 25 años de operación continua, más de 5,000 eventos realizados y capacidad para hasta 500 personas en banquete, Partenón se ha consolidado como el salón de mayor formato y prestigio de Tlalpan. Su alianza como socio premium de EVENTECH garantiza que cada evento cuente con producción profesional de iluminación arquitectónica, sonido line array y mobiliario premium que potencia la majestuosidad inherente del espacio."
+description: "El Salón de Fiestas Partenón es una institución de las celebraciones en el sur de la Ciudad de México. Ubicado sobre Viaducto Tlalpan en la zona de Huipulco — una de las arterias más importantes de la alcaldía —, este venue de 2,000 metros cuadrados rinde homenaje a la arquitectura clásica griega con columnas monumentales, frontones triangulares y una escala interior que transmite grandeza desde el primer momento. Con más de 25 años de operación continua y capacidad para hasta 500 personas en banquete, Partenón se ha consolidado como el salón de mayor formato y prestigio de Tlalpan. Su alianza como socio premium de EVENTECH garantiza que cada evento cuente con producción profesional de iluminación arquitectónica, sonido line array y mobiliario premium que potencia la majestuosidad inherente del espacio."
 shortDescription: "Salón monumental estilo clásico en Huipulco, Tlalpan. 2,000 m², columnas y frontones. Bodas hasta 500 personas. Socio EVENTECH."
 
 region: "cdmx"
@@ -164,7 +164,7 @@ faqs:
   - question: "¿Qué incluye la renta de Salón Partenón?"
     answer: "La renta incluye coordinador de eventos, mobiliario básico, mantelería, iluminación básica, sonido básico, montaje, desmontaje, seguridad y limpieza. Como socio premium de EVENTECH, el Partenón ofrece acceso a iluminación arquitectónica monumental, sonido line array y mobiliario premium."
   - question: "¿Qué tipos de eventos acepta Salón Partenón?"
-    answer: "Partenón recibe bodas, XV años, bautizos, cumpleaños, aniversarios, graduaciones, eventos corporativos, comuniones, fiestas privadas, cenas de gala, convenciones, congresos, lanzamientos y fiestas infantiles. Más de 5,000 eventos realizados avalan su versatilidad para celebraciones de toda escala."
+    answer: "Partenón recibe bodas, XV años, bautizos, cumpleaños, aniversarios, graduaciones, eventos corporativos, comuniones, fiestas privadas, cenas de gala, convenciones, congresos, lanzamientos y fiestas infantiles. Su larga trayectoria avala su versatilidad para celebraciones de toda escala."
   - question: "¿Cuáles son el horario y los servicios distintivos de Salón Partenón?"
     answer: "El salón opera de lunes a viernes de 10:00 a 00:00 y fines de semana de 10:00 a 04:00 horas — uno de los cierres más tardíos en Tlalpan —, con mínimo de 5 horas. Cuenta con generador de emergencia, área infantil, terraza, vestidores y Wi-Fi. Los sparklers (pirotecnia fría) están disponibles como espectáculo."
 
@@ -198,7 +198,7 @@ publishedAt: 2026-03-06
 
 En la intersección del Viaducto Tlalpan con la Calzada de Tlalpan, dos de las arterias más importantes del sur capitalino, se alza **Salón de Fiestas Partenón**: un venue de 2,000 metros cuadrados cuya escala y estética clásica no tienen equivalente en la zona sur de la CDMX. Las columnas monumentales de estilo dórico que flanquean el acceso principal — cada una de 7 metros de altura — anuncian desde el exterior que aquí los eventos se celebran con una **grandeza que honra su importancia**.
 
-Con más de 25 años de historia y más de **5,000 eventos exitosos**, Partenón es más que un salón: es una institución. Generaciones de familias del sur de la ciudad han celebrado aquí sus momentos más trascendentales. Abuelas que vieron casarse a sus hijas, vieron después a sus nietas bailar el vals, y planean celebrar el bautizo del bisnieto en el mismo espacio. Esa **lealtad generacional** no se construye con publicidad — se construye con 25 años de servicio impecable, uno a uno.
+Con más de 25 años de historia, Partenón es más que un salón: es una institución. Generaciones de familias del sur de la ciudad han celebrado aquí sus momentos más trascendentales. Abuelas que vieron casarse a sus hijas, vieron después a sus nietas bailar el vals, y planean celebrar el bautizo del bisnieto en el mismo espacio. Esa **lealtad generacional** no se construye con publicidad — se construye con 25 años de servicio impecable, uno a uno.
 
 El nombre Partenón no es caprichoso. Fue elegido como declaración de principios: la escala, la proporción y la simetría de la arquitectura clásica griega aplicadas a un espacio de celebración moderno. Cada columna, cada frontón y cada línea del edificio respetan la proporción áurea que los griegos perfeccionaron hace 2,500 años. El resultado es un espacio donde la grandeza se siente natural, nunca forzada.
 

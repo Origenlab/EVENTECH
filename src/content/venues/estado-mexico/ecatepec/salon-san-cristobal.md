@@ -148,7 +148,7 @@ El área de entrada está diseñada para **recibir a los invitados con dignidad*
 El precio que te cotizamos es el precio que pagas. **Sin cargos ocultos**, sin "recomendaciones" de servicios extras que terminas necesitando.
 
 ### Experiencia que Cuenta
-Con más de **5,000 eventos realizados**, sabemos exactamente qué puede salir mal y cómo evitarlo. Tu evento no es nuestro experimento.
+Con años de experiencia, sabemos exactamente qué puede salir mal y cómo evitarlo. Tu evento no es nuestro experimento.
 
 ### Respeto por el Presupuesto
 Entendemos que cada peso cuenta. Trabajamos para ofrecer la **mejor experiencia posible dentro de tu presupuesto**, no para estirarlo más allá de lo razonable.

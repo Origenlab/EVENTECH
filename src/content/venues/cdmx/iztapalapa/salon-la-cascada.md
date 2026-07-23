@@ -195,7 +195,7 @@ Hay salones con buena decoracion. Hay salones con buen servicio. Y hay **Salon d
 
 La cascada no es un adorno. Es una **instalacion de ingenieria hidraulica con recirculacion continua**, iluminacion LED integrada con 12 proyectores sumergibles que permiten cambios de color en tiempo real, y un sistema de bombeo silencioso que mantiene el flujo constante sin generar ruido que interfiera con la musica o las conversaciones. Cuando EVENTECH integra su [sistema de iluminacion profesional](/servicios/iluminacion/arquitectonica/) con los proyectores de la cascada, el resultado es un **show de agua y luz sincronizado** que se programa especificamente para los momentos clave de cada evento: azul profundo para la cena, rosa suave para el vals, secuencias multicolor para la fiesta.
 
-En 18 anos de operacion, La Cascada ha albergado mas de 3,500 eventos y cada uno ha tenido algo en comun: ese momento colectivo de asombro cuando los invitados ven por primera vez los 6 metros de agua iluminada cayendo frente a ellos.
+En 18 anos de operacion, La Cascada ha albergado eventos de toda escala, y cada uno ha tenido algo en comun: ese momento colectivo de asombro cuando los invitados ven por primera vez los 6 metros de agua iluminada cayendo frente a ellos.
 
 ## Instalaciones — 1,400 m² con la Naturaleza de Cuemanco
 

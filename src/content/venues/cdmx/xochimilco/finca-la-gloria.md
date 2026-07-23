@@ -101,7 +101,7 @@ publishedAt: 2026-07-05
 
 ## La hacienda más premiada del sur de la ciudad
 
-**Finca La Gloria** es, por historial verificable, uno de los recintos más consistentes de todo el directorio: **9 Wedding Awards de bodas.com.mx entre 2014 y 2026**, 4.8 de calificación sobre 156 opiniones, 96% de recomendación y más de 295 eventos contratados por esa plataforma. Una hacienda de jardines amplios en **La Noria, Xochimilco**, a minutos del centro histórico de la alcaldía.
+**Finca La Gloria** es, por historial verificable, uno de los recintos más consistentes de todo el directorio: **9 Wedding Awards de bodas.com.mx entre 2014 y 2026**, 4.8 de calificación sobre 156 opiniones y 96% de recomendación. Una hacienda de jardines amplios en **La Noria, Xochimilco**, a minutos del centro histórico de la alcaldía.
 
 ## Espacios y capacidades
 

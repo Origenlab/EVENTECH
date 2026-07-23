@@ -144,7 +144,7 @@ Entendemos que cada familia tiene necesidades diferentes. ¿Quieres traer tu pro
 Para un espacio de esta calidad, con estos servicios incluidos, los precios de Jardín Los Arcos son **hasta 40% menores** que venues comparables. El ahorro es real y significativo.
 
 ### Experiencia Comprobada
-30 años y **más de 3,000 eventos exitosos** respaldan cada promesa. No experimentamos con tu celebración: aplicamos lo que sabemos que funciona.
+30 años de experiencia respaldan cada promesa. No experimentamos con tu celebración: aplicamos lo que sabemos que funciona.
 
 ### Ubicación Céntrica
 En pleno Atizapán Centro, con **fácil acceso desde cualquier punto** del norte de la zona metropolitana. Tus invitados no se pierden ni batallan para llegar.

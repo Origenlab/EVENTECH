@@ -155,7 +155,7 @@ Al perímetro le sumas las superficies protagonistas: la **cortina o lona de la 
 - **Corporativo con muro de marca (150 a 300):** 8 a 14 washes para saturar el color de la marca en los muros y el escenario.
 - **Fachada o producción de gran escala:** aquí ya se calcula por proyecto, y a veces conviene equipo de mayor potencia.
 
-Para esas producciones grandes —fachadas de edificios, exteriores masivos, escenarios de festival— trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, 3,000 eventos y equipo Martin, Chauvet y Elation, instalación y operación incluidas. Para el 90% de los eventos sociales y corporativos de la ciudad, un buen paquete de washes de nuestro catálogo cubre de sobra. No compres avión para cruzar la calle.
+Para esas producciones grandes —fachadas de edificios, exteriores masivos, escenarios de festival— trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, cientos de eventos y equipo Martin, Chauvet y Elation, instalación y operación incluidas. Para el 90% de los eventos sociales y corporativos de la ciudad, un buen paquete de washes de nuestro catálogo cubre de sobra. No compres avión para cruzar la calle.
 
 Ninguna de estas cifras sustituye ver tu venue: la altura de los muros, la distancia disponible y la luz ambiente cambian el cálculo. Por eso pedimos el plano —el número que damos por WhatsApp es un estimado; el bueno sale con medidas.
 

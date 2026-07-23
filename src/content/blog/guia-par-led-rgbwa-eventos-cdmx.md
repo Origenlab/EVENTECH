@@ -155,7 +155,7 @@ Al perímetro le sumas la iluminación de los puntos que importan: el escenario 
 - **Salón grande o corporativo (200 a 400):** 16 a 24 pares, y aquí ya conviene consola y operador.
 - **Producción de gran escala (festival, concierto):** decenas de luminarias en truss, donde entra un especialista de producción.
 
-Para esas producciones grandes —escenarios de festival, conciertos, lanzamientos con público masivo— trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, 3,000 eventos y equipo Martin, Chauvet y Elation, instalación y operación incluidas. Para el 90% de los eventos sociales y corporativos de la ciudad, sin embargo, el par LED de nuestro catálogo cubre de sobra. No compres avión para ir a la esquina.
+Para esas producciones grandes —escenarios de festival, conciertos, lanzamientos con público masivo— trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, cientos de eventos y equipo Martin, Chauvet y Elation, instalación y operación incluidas. Para el 90% de los eventos sociales y corporativos de la ciudad, sin embargo, el par LED de nuestro catálogo cubre de sobra. No compres avión para ir a la esquina.
 
 Ninguna de estas cifras sustituye ver tu venue. El techo, la altura de los muros, la luz ambiente y hasta el color de las paredes cambian el cálculo. Por eso pedimos el plano: el número que te damos por WhatsApp es un estimado; el bueno sale con medidas.
 

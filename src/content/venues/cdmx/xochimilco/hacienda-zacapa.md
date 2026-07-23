@@ -81,7 +81,7 @@ faqs:
   - question: "¿Cuánto cuesta un evento en Hacienda Zacapa?"
     answer: "Los menús publicados van de $802 a $1,611 por persona: tres tiempos estilo clásico o mexicano, taquiza, o cocina tradicional e internacional. Sin renta fija (se ajusta el precio por persona si no se llega al mínimo). Se aparta con 10% de anticipo y plan de pagos, liquidando 5 días antes. Promoción permanente: 5% adicional de descuento en viernes o domingo."
   - question: "¿Qué calificación tiene Hacienda Zacapa?"
-    answer: "4.6 sobre 5 con 62 opiniones en bodas.com.mx, 92% de recomendación y 7 Wedding Awards (2015, 2016, 2018, 2019, 2020, 2021 y 2024), con más de 180 eventos contratados por la plataforma. Desglose: 4.8 en calidad del servicio, 4.7 en profesionalismo y relación calidad/precio."
+    answer: "4.6 sobre 5 con 62 opiniones en bodas.com.mx, 92% de recomendación y 7 Wedding Awards (2015, 2016, 2018, 2019, 2020, 2021 y 2024). Desglose: 4.8 en calidad del servicio, 4.7 en profesionalismo y relación calidad/precio."
   - question: "¿Hasta qué hora puede durar el evento y puedo llevar mis bebidas?"
     answer: "El horario límite es las 02:00 — de los más amplios entre jardines de Xochimilco — con un solo evento por día. El servicio de bebidas es con descorche libre y el pastel externo no tiene costo adicional. El banquete es propio, con menús vegetarianos disponibles y sin exclusividad de fotógrafo ni grupo musical."
 
@@ -102,7 +102,7 @@ publishedAt: 2026-07-06
 
 **Hacienda Zacapa** ofrece algo que ningún otro venue del directorio puede: está sobre una **chinampa dentro del embarcadero Nuevo Nativitas**, así que los invitados pueden llegar **en trajinera, navegando los canales de Xochimilco** entre color y música — o caminando desde el embarcadero. Patrimonio vivo de la ciudad como escenario de entrada.
 
-Su historial lo respalda: **4.6 con 62 opiniones, 92% de recomendación, 7 Wedding Awards (2015-2024)** y más de 180 eventos contratados vía bodas.com.mx, donde opera desde 2011.
+Su historial lo respalda: **4.6 con 62 opiniones, 92% de recomendación, 7 Wedding Awards (2015-2024)** en bodas.com.mx, donde opera desde 2011.
 
 ## Espacios y capacidades
 

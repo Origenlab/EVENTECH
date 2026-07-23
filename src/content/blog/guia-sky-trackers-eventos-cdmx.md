@@ -149,7 +149,7 @@ Cuatro sky trackers distribuidos alrededor del venue, en **barrido programado po
 
 ### Varios sincronizados: el show de cielo
 
-Para **conciertos, festivales y eventos masivos** se despliegan baterías de múltiples equipos sincronizados por DMX512, coreografiados con el ritmo del show y el resto de la iluminación de escenario. Es un espectáculo de escala internacional: decenas de columnas barriendo el horizonte, visibles desde toda la ciudad. Este tipo de producción exige logística de gran formato —distribución eléctrica con varias plantas, cableado seguro, un operador por batería— y es donde el respaldo de un especialista pesa. Para montajes de esta magnitud trabajamos de la mano de [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y 3,000 eventos a cuestas y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas.
+Para **conciertos, festivales y eventos masivos** se despliegan baterías de múltiples equipos sincronizados por DMX512, coreografiados con el ritmo del show y el resto de la iluminación de escenario. Es un espectáculo de escala internacional: decenas de columnas barriendo el horizonte, visibles desde toda la ciudad. Este tipo de producción exige logística de gran formato —distribución eléctrica con varias plantas, cableado seguro, un operador por batería— y es donde el respaldo de un especialista pesa. Para montajes de esta magnitud trabajamos de la mano de [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y cientos de eventos a cuestas y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas.
 
 ---
 

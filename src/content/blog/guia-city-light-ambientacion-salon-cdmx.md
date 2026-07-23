@@ -146,7 +146,7 @@ City Light se arma en **paquetes cerrados** por tamaño de espacio. Esa es la co
 
 Los paquetes **arrancan desde $2,000** el de 8 luminarias y escalan hasta producciones de gran formato; el desglose completo de cada uno, con lo que incluye y ejemplos con presupuesto, está en el artículo hermano de precios. Lo importante aquí es entender la lógica: **a más espacio, más luminarias y más control**. El paquete de 8 corre bien con remoto y escenas fijas; del 16 en adelante entra la consola DMX y el operador, porque ya hay perímetro completo, zonas focales y cambios de ambiente que coordinar.
 
-Para las producciones de gran escala —festivales, conciertos, lanzamientos masivos con escenarios en truss— trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, 3,000 eventos y equipo Martin, Chauvet y Elation, instalación y operación incluidas. Para el 90% de las bodas, XV y corporativos de la ciudad, en cambio, un paquete de City Light de nuestro catálogo cubre de sobra. No compres avión para ir a la esquina.
+Para las producciones de gran escala —festivales, conciertos, lanzamientos masivos con escenarios en truss— trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, cientos de eventos y equipo Martin, Chauvet y Elation, instalación y operación incluidas. Para el 90% de las bodas, XV y corporativos de la ciudad, en cambio, un paquete de City Light de nuestro catálogo cubre de sobra. No compres avión para ir a la esquina.
 
 ---
 

@@ -195,7 +195,7 @@ Un láser solo es espectacular; integrado con las demás capas es inolvidable. E
 - **La [pista de baile](/servicios/pistas-baile/):** el escenario del láser; el diseño de los haces se piensa alrededor de ella.
 - **El [audiovisual](/servicios/audiovisual/):** en corporativos, el láser se sincroniza con pantallas y sonido para revelar el producto al mismo tiempo.
 
-Cuando el proyecto crece —un concierto, un festival, una producción de varios proyectores con _timecode_— trabajamos con aliados especializados como [REDEIL](https://rentadeiluminacion.com/): más de 30 años, 3,000 eventos, equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas. Una boda, un XV o un corporativo lo resolvemos en casa; para el gran espectáculo con audience scanning certificado, sumamos ese músculo.
+Cuando el proyecto crece —un concierto, un festival, una producción de varios proyectores con _timecode_— trabajamos con aliados especializados como [REDEIL](https://rentadeiluminacion.com/): más de 30 años, cientos de eventos, equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas. Una boda, un XV o un corporativo lo resolvemos en casa; para el gran espectáculo con audience scanning certificado, sumamos ese músculo.
 
 ---
 

@@ -137,7 +137,7 @@ Aquí el sky tracker es inversión de marca. La configuración estrella son **cu
 
 ### Festival y concierto
 
-Producción de gran formato: **varios equipos sincronizados por DMX**, con logística de energía, cableado y un operador por batería. Es el rango alto, hasta $35,000 o más según la escala, el número de equipos y los días de montaje. En estos casos el precio deja de moverse por el equipo individual y empieza a mandarlo la **infraestructura**: distribución eléctrica, plantas, seguridad y tiempos de instalación. Para este tipo de montaje trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y 3,000 eventos y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas.
+Producción de gran formato: **varios equipos sincronizados por DMX**, con logística de energía, cableado y un operador por batería. Es el rango alto, hasta $35,000 o más según la escala, el número de equipos y los días de montaje. En estos casos el precio deja de moverse por el equipo individual y empieza a mandarlo la **infraestructura**: distribución eléctrica, plantas, seguridad y tiempos de instalación. Para este tipo de montaje trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y cientos de eventos y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas.
 
 ---
 

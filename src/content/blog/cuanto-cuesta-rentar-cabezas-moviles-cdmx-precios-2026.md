@@ -98,7 +98,7 @@ En la vida real casi nadie renta una cabeza suelta: se renta un **paquete de sho
 | **Show Boda/XV** | 6-8 mix (wash + spot + beam) + truss + operador | Boda con show, XV con hora loca | $6,000-$8,000 |
 | **Producción / Festival** | 12+ unidades + Art-Net/sACN + planta de luz | Festival, concierto, escenario grande | Cotización a medida |
 
-El techo de $8,000 corresponde a un **paquete de show completo** de 6 a 8 cabezas con truss frontal, montaje, operador y desmontaje —no a una sola luz—. Y de ahí para arriba, las producciones de festival escalan por unidad y se cotizan a la medida. Cuando el proyecto entra en esa liga, sumamos a aliados como [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, 3,000 eventos y equipo Martin Professional, Chauvet y Elation con instalación y operación incluidas.
+El techo de $8,000 corresponde a un **paquete de show completo** de 6 a 8 cabezas con truss frontal, montaje, operador y desmontaje —no a una sola luz—. Y de ahí para arriba, las producciones de festival escalan por unidad y se cotizan a la medida. Cuando el proyecto entra en esa liga, sumamos a aliados como [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, cientos de eventos y equipo Martin Professional, Chauvet y Elation con instalación y operación incluidas.
 
 ---
 

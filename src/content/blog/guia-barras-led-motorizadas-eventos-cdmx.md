@@ -195,7 +195,7 @@ Las barras LED son la columna vertebral del fondo, pero rara vez trabajan solas.
 - **[Sky trackers](/servicios/iluminacion/escenario/sky-tracker/):** para eventos de gran escala, los haces al cielo que se ven a kilómetros.
 - **[Pistas de baile](/servicios/pistas-baile/):** cerrar el look 360° cuando la fiesta se mueve al centro del salón.
 
-Para producciones de gran escala —un festival, un concierto de arena, una gala de miles de personas— trabajamos de la mano de nuestro aliado especialista [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y 3,000 eventos a cuestas, equipo Martin Professional, Chauvet y Elation, e instalación y operación incluidas. Cuando el rig crece más allá de un backdrop y se vuelve un show completo, esa experiencia se nota.
+Para producciones de gran escala —un festival, un concierto de arena, una gala de miles de personas— trabajamos de la mano de nuestro aliado especialista [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y cientos de eventos a cuestas, equipo Martin Professional, Chauvet y Elation, e instalación y operación incluidas. Cuando el rig crece más allá de un backdrop y se vuelve un show completo, esa experiencia se nota.
 
 ---
 

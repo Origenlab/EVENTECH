@@ -99,7 +99,7 @@ En la vida real casi nadie renta un cañón suelto: se renta un **paquete** que 
 | **Producción Show** | 4 confeti + 2 CO₂ + serpentinas + operador | Boda grande, corporativo | $5,000-$6,000 |
 | **Festival / a la medida** | 4+ CO₂, confeti continuo, timecode | Festival, concierto, escenario grande | Cotización a medida |
 
-El techo de $6,000 corresponde a una **producción completa** de varios puntos de confeti eléctrico, dos jets de CO₂ y serpentinas, con operador y coordinación —no a un solo cañón—. De ahí para arriba, las producciones de festival, con confeti continuo, muchos puntos de CO₂ y disparo por timecode, escalan por punto y se cotizan a la medida. Cuando el proyecto entra en esa liga, sumamos a aliados como [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, 3,000 eventos y equipo Martin Professional, Chauvet y Elation con instalación y operación incluidas.
+El techo de $6,000 corresponde a una **producción completa** de varios puntos de confeti eléctrico, dos jets de CO₂ y serpentinas, con operador y coordinación —no a un solo cañón—. De ahí para arriba, las producciones de festival, con confeti continuo, muchos puntos de CO₂ y disparo por timecode, escalan por punto y se cotizan a la medida. Cuando el proyecto entra en esa liga, sumamos a aliados como [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, cientos de eventos y equipo Martin Professional, Chauvet y Elation con instalación y operación incluidas.
 
 ---
 

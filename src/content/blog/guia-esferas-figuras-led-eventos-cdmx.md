@@ -157,7 +157,7 @@ Las esferas no se cuentan como un total abstracto, sino por la **función que cu
 - **Boda al aire libre:** el protagonismo suele ir a la alberca decorada y a un lounge de coctel, más una figura para la foto; de 20 a 35 piezas.
 - **Activación o corporativo de marca:** cubos y mesas en color corporativo para el área de convivencia, más señalización; se calcula por el tamaño del área.
 
-Para **activaciones masivas** —un festival, una plaza, una producción de gran escala donde las piezas se cuentan por centenas y se combinan con luz de escenario— trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, 3,000 eventos y equipo Martin, Chauvet y Elation, con instalación y operación incluidas. Para el evento social o corporativo típico de la ciudad, un buen set de esferas de nuestro catálogo cubre de sobra. No compres avión para cruzar la calle.
+Para **activaciones masivas** —un festival, una plaza, una producción de gran escala donde las piezas se cuentan por centenas y se combinan con luz de escenario— trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, cientos de eventos y equipo Martin, Chauvet y Elation, con instalación y operación incluidas. Para el evento social o corporativo típico de la ciudad, un buen set de esferas de nuestro catálogo cubre de sobra. No compres avión para cruzar la calle.
 
 Ninguna de estas cifras sustituye ver tu espacio: la longitud real de los caminos, el tamaño de la alberca y cuántas zonas quieres vestir cambian el cálculo. Por eso pedimos el plano o unas fotos —el número que damos de entrada es un estimado; el bueno sale con medidas.
 

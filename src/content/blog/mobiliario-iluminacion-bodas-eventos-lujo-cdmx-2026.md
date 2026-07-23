@@ -315,4 +315,4 @@ El mobiliario y la iluminación son dos de las ocho categorías de servicios que
 
 ---
 
-*EVENTECH — Renta profesional de equipo para eventos en CDMX. Más de 500 eventos exitosos. Cotización en 24 horas. [eventech.mx](/servicios/)*
+*EVENTECH — Renta profesional de equipo para eventos en CDMX. Cientos de eventos exitosos. Cotización en 24 horas. [eventech.mx](/servicios/)*

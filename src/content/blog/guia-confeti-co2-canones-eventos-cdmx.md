@@ -200,7 +200,7 @@ Un efecto especial nunca trabaja solo: es la puntuación de un diseño más gran
 - **[Luz negra](/servicios/iluminacion/efectos-especiales/luz-negra/):** para hora loca y fiestas temáticas, donde el confeti fluorescente cobra otra vida bajo la luz UV.
 - **La [pista de baile](/servicios/pistas-baile/):** es el escenario de todo esto. Los efectos se piensan alrededor de ella, y en corporativos se sincronizan con la revelación en pantalla para que la marca aparezca en el instante justo.
 
-Cuando el proyecto crece —un festival, un escenario grande, una producción con timecode y decenas de puntos de disparo—, trabajamos de la mano de aliados especializados como [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y 3,000 eventos, equipo Martin Professional, Chauvet y Elation, e instalación y operación incluidas. Para una boda o un XV lo resolvemos en casa; para una producción de gran escala, sumamos ese músculo.
+Cuando el proyecto crece —un festival, un escenario grande, una producción con timecode y decenas de puntos de disparo—, trabajamos de la mano de aliados especializados como [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y cientos de eventos, equipo Martin Professional, Chauvet y Elation, e instalación y operación incluidas. Para una boda o un XV lo resolvemos en casa; para una producción de gran escala, sumamos ese músculo.
 
 ---
 

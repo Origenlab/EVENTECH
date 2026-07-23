@@ -172,7 +172,7 @@ Vestíbulo de **120m²** con área de regalos, mesa de dulces y barra de bienven
 - **Todo incluido:** Meseros, coordinador, mobiliario, mantelería, montaje y desmontaje
 - **Acceso en Metro:** Línea 7, estación Camarones, a 3 cuadras
 - **Estacionamiento:** 130 cajones propios, sin pagar extra
-- **Trayectoria:** Más de 1,500 eventos realizados con 4.2 de calificación promedio
+- **Trayectoria:** Años de experiencia con 4.2 de calificación promedio en reseñas
 
 ## Producción EVENTECH
 

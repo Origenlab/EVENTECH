@@ -124,7 +124,7 @@ Seis variables explican casi toda la diferencia entre una cotización y otra. Co
 5. **Interior o exterior y la energía.** Las cortinas de exterior con protección reforzada cuestan más, y un montaje grande en un jardín sin instalación robusta pide una [planta de energía](/servicios/accesorios/plantas-energia/), que suma pero evita que se caiga el evento.
 6. **La temporada y la fecha.** Noviembre a febrero y ciertos fines de semana concentran la demanda de bodas y XV. Reservar temprano protege disponibilidad y precio.
 
-Cuando el proyecto salta de un salón a un festival —un muro de decenas de metros, varios telones mapeados, operación toda la noche— el cálculo cambia de liga y entra el equipo de producción. Para esas escalas trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, 3,000 eventos y equipo Martin, Chauvet y Elation, con instalación y operación incluidas. Para la boda, los XV o el corporativo típico, en cambio, una o dos cortinas de nuestro catálogo resuelven de sobra y con presupuesto controlado.
+Cuando el proyecto salta de un salón a un festival —un muro de decenas de metros, varios telones mapeados, operación toda la noche— el cálculo cambia de liga y entra el equipo de producción. Para esas escalas trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, cientos de eventos y equipo Martin, Chauvet y Elation, con instalación y operación incluidas. Para la boda, los XV o el corporativo típico, en cambio, una o dos cortinas de nuestro catálogo resuelven de sobra y con presupuesto controlado.
 
 ---
 

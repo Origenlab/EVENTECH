@@ -190,7 +190,7 @@ El equipo culinario del Hilton combina **estándares internacionales con sabor l
 ## ¿Por Qué Elegir Hilton Mexico City Reforma?
 
 ### Capacidad Probada
-Más de **500 eventos exitosos al año** desde convenciones de 1,000 personas hasta cenas íntimas de 50.
+Eventos de cualquier escala, desde convenciones de 1,000 personas hasta cenas íntimas de 50.
 
 ### Ubicación Central
 Frente al **Monumento a la Revolución**, a pasos del metro y con acceso fácil desde cualquier punto de la ciudad.

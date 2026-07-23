@@ -179,7 +179,7 @@ Un solo proyector transforma una pista. Cuatro transforman un salón entero. Cad
 - **Fachadas:** gran formato para recibir invitados; requiere potencia y, a menudo, se combina con [iluminación arquitectónica de fachadas](/servicios/iluminacion/arquitectonica/fachadas/).
 - **Superficies oscuras, de vidrio o muy texturizadas:** aquí la proyección pierde fuerza. Si tu muro es negro, hay que replantear.
 
-Para producciones de **gran escala** —fachadas de edificios completos, mapping de marca, escenarios de festival— donde se necesita mucha potencia, torres de truss y operación certificada, trabajamos de la mano de nuestro aliado especialista [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y 3,000 eventos a cuestas y equipo Martin, Chauvet y Elation con instalación y operación incluidas. Para el 95% de las bodas y eventos corporativos, nuestro propio equipo cubre de sobra.
+Para producciones de **gran escala** —fachadas de edificios completos, mapping de marca, escenarios de festival— donde se necesita mucha potencia, torres de truss y operación certificada, trabajamos de la mano de nuestro aliado especialista [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y cientos de eventos a cuestas y equipo Martin, Chauvet y Elation con instalación y operación incluidas. Para el 95% de las bodas y eventos corporativos, nuestro propio equipo cubre de sobra.
 
 ---
 

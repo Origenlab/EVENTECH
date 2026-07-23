@@ -127,7 +127,7 @@ Estos son los factores que, en nuestra experiencia, más suben el total. Conocer
 
 **La temporada.** En temporada alta de bodas y XV años —de octubre a diciembre y en mayo— la demanda aprieta la disponibilidad. Reservar con anticipación no solo asegura tu diseño: suele salir mejor de precio.
 
-**La escala de producción.** Cuando el neón deja de ser un letrero y se vuelve parte de un montaje con escenario, robótica y estructura, hablamos de otro nivel. Para esas producciones de gran formato trabajamos con especialistas como [REDEIL](https://rentadeiluminacion.com/), que con más de 30 años y 3,000 eventos y equipo Martin Professional, Chauvet y Elation integran el neón a un diseño lumínico completo. Ese tipo de proyecto se cotiza como sistema, no por pieza.
+**La escala de producción.** Cuando el neón deja de ser un letrero y se vuelve parte de un montaje con escenario, robótica y estructura, hablamos de otro nivel. Para esas producciones de gran formato trabajamos con especialistas como [REDEIL](https://rentadeiluminacion.com/), que con más de 30 años y cientos de eventos y equipo Martin Professional, Chauvet y Elation integran el neón a un diseño lumínico completo. Ese tipo de proyecto se cotiza como sistema, no por pieza.
 
 ---
 

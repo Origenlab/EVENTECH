@@ -595,7 +595,7 @@ Encontrar el venue perfecto es solo el primer paso. En **EVENTECH** ofrecemos to
 
 | Beneficio | Descripción |
 |-----------|-------------|
-| **+10 años de experiencia** | Miles de eventos exitosos |
+| **+30 años de experiencia** | Miles de eventos exitosos |
 | **Cobertura total CDMX** | Llegamos a cualquier venue |
 | **Equipo propio** | Sin intermediarios |
 | **Precios competitivos** | Cotización sin compromiso |

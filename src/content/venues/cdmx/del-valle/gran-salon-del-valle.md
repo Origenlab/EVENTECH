@@ -241,7 +241,6 @@ Esta flexibilidad permite que la paleta de color del evento se exprese desde el 
 - **30+ años de experiencia** en el sector de banquetes y eventos sociales
 - **4.4/5 en bodas.com.mx** con 17 opiniones verificadas
 - **89% de recomendación** entre parejas que celebraron su boda aquí
-- **Más de 80 bodas** documentadas en la plataforma
 
 ## Producción EVENTECH
 

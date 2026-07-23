@@ -253,7 +253,7 @@ La ventaja más significativa de Velsy es la integración de servicios. En lugar
 
 ### Cocina Propia, Calidad Garantizada
 
-Los salones que dependen de caterers externos no pueden controlar la calidad de los alimentos de la misma manera. En Velsy, la cocina industrial propia permite preparar los alimentos en el momento, servir a la temperatura correcta y mantener estándares consistentes que han sido probados en más de 140 eventos. Los menús se perfeccionan con la experiencia acumulada.
+Los salones que dependen de caterers externos no pueden controlar la calidad de los alimentos de la misma manera. En Velsy, la cocina industrial propia permite preparar los alimentos en el momento, servir a la temperatura correcta y mantener estándares consistentes probados evento tras evento. Los menús se perfeccionan con la experiencia acumulada.
 
 ### Doble Altura para Producción Visual
 

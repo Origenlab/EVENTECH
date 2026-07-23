@@ -496,7 +496,7 @@ Si. La configuracion mas popular es: ceremonia o coctel en Salon de la Torre / P
 
 ### ¿Los sparklers de la escalinata son seguros?
 
-Absolutamente. EVENTECH utiliza **sparklers frios certificados** que producen chispas a baja temperatura (no queman), no generan humo toxico, no dejan residuos en el piso, y no tienen olor. Son 100% seguros para uso en interiores y junto a vestidos de tela. Se han utilizado en mas de 500 eventos en Salon Castillo sin ningun incidente.
+Absolutamente. EVENTECH utiliza **sparklers frios certificados** que producen chispas a baja temperatura (no queman), no generan humo toxico, no dejan residuos en el piso, y no tienen olor. Son 100% seguros para uso en interiores y junto a vestidos de tela. Se han utilizado en Salon Castillo sin ningun incidente.
 
 ### ¿Cuanto debo reservar con anticipacion?
 

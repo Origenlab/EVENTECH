@@ -179,7 +179,7 @@ El metraje no depende del número de invitados, sino de **cuánta superficie qui
 
 La matemática, para que no sea magia: un canopy sobre una zona de **8 por 8 metros** con líneas cada metro son unas ocho líneas de nueve a diez metros cada una —contando la holgura del arco—, o sea **entre 75 y 85 metros** solo para ese techo. Suma la cascada del altar y el follaje de dos árboles y ya andas en 150 o 200. Por eso una boda de jardín "completa" salta a 400 metros sin exagerar. En la visita técnica medimos superficies y altura y calculamos el metraje real.
 
-Cuando el metraje se dispara hacia festivales o activaciones que piden **cielos de luz de gran escala**, con estructura y distribución eléctrica propias, el montaje deja de ser un tendido y se vuelve una producción. Para ese tamaño trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y 3,000 eventos y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas.
+Cuando el metraje se dispara hacia festivales o activaciones que piden **cielos de luz de gran escala**, con estructura y distribución eléctrica propias, el montaje deja de ser un tendido y se vuelve una producción. Para ese tamaño trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y cientos de eventos y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas.
 
 ---
 

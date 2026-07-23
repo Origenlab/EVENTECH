@@ -182,7 +182,7 @@ Una cabeza móvil sola no arma un show. Es una capa dentro del diseño de [ilumi
 - **La [pista de baile](/servicios/pistas-baile/):** es literalmente el escenario de las cabezas móviles. El diseño de luz se piensa alrededor de ella.
 - **El [audiovisual](/servicios/audiovisual/):** en corporativos y conciertos, las cabezas se sincronizan con las pantallas y el contenido para que todo lata al mismo ritmo.
 
-Cuando el proyecto crece —una producción de gran escala, un escenario de festival, un lanzamiento con timecode— trabajamos de la mano de aliados especializados como [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y 3,000 eventos, equipo Martin Professional, Chauvet y Elation, e instalación y operación incluidas. Para una boda o un XV lo resolvemos en casa; para un festival, sumamos esa músculo.
+Cuando el proyecto crece —una producción de gran escala, un escenario de festival, un lanzamiento con timecode— trabajamos de la mano de aliados especializados como [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y cientos de eventos, equipo Martin Professional, Chauvet y Elation, e instalación y operación incluidas. Para una boda o un XV lo resolvemos en casa; para un festival, sumamos esa músculo.
 
 ---
 

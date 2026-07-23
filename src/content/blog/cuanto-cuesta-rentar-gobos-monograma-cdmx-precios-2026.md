@@ -147,7 +147,7 @@ Cada evento tiene un patrón de uso. Estos son los rangos que cotizamos con más
 | **Corporativo premium / activación** | Logo en fachada, escenario y muros | $12,000 – $15,000+ |
 | **Festival / gran producción** | Branding de gran formato + gobos en show | Cotización |
 
-Para el **festival o la producción de gran escala** —branding proyectado sobre estructuras, torres de truss, gobos integrados en un show de decenas de aparatos— trabajamos junto a nuestro aliado especialista [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, 3,000 eventos y equipo Martin, Chauvet y Elation con instalación y operación incluidas. Para bodas, XV y corporativos, nuestro propio inventario cubre de sobra.
+Para el **festival o la producción de gran escala** —branding proyectado sobre estructuras, torres de truss, gobos integrados en un show de decenas de aparatos— trabajamos junto a nuestro aliado especialista [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, cientos de eventos y equipo Martin, Chauvet y Elation con instalación y operación incluidas. Para bodas, XV y corporativos, nuestro propio inventario cubre de sobra.
 
 ---
 

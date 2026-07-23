@@ -51,7 +51,7 @@ En EVENTECH valoramos a los proveedores que comparten nuestros estándares de ca
 
 PODIUMEX es una empresa mexicana **especializada en podiums desde 2020**, con taller propio de fabricación nacional. A diferencia de un proveedor genérico de mobiliario, su foco es uno solo: el podium como pieza central del escenario. Esa especialización les permite controlar materiales, acabados y tiempos de entrega de principio a fin, y respaldar cada pieza con **garantía escrita de 2 a 3 años**.
 
-Su cobertura abarca toda la República Mexicana, con **entrega express en 24 horas** en plazas como la Ciudad de México, Monterrey, Guadalajara y Puebla, y envíos a cualquier ciudad del país. Más de **1,500 eventos atendidos** y una tasa de satisfacción cercana al 99 % respaldan su propuesta.
+Su cobertura abarca toda la República Mexicana, con **entrega express en 24 horas** en plazas como la Ciudad de México, Monterrey, Guadalajara y Puebla, y envíos a cualquier ciudad del país. **Cientos de eventos atendidos** y una tasa de satisfacción cercana al 99 % respaldan su propuesta.
 
 ### Una empresa de fabricación, no de reventa
 

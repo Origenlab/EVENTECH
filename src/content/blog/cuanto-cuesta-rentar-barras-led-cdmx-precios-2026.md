@@ -181,7 +181,7 @@ Producción con catorce barras motorizadas en matriz, pixel mapping sincronizado
 - Montaje, pruebas y desmontaje
 - **Total aproximado: $6,000**
 
-Para producciones que crecen más allá de esto —un festival de varios escenarios, una arena— sumamos la experiencia de nuestro aliado especialista [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, 3,000 eventos y equipo Martin, Chauvet y Elation con operación incluida. Ahí el presupuesto se arma a la medida del rider.
+Para producciones que crecen más allá de esto —un festival de varios escenarios, una arena— sumamos la experiencia de nuestro aliado especialista [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, cientos de eventos y equipo Martin, Chauvet y Elation con operación incluida. Ahí el presupuesto se arma a la medida del rider.
 
 ---
 

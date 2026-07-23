@@ -157,7 +157,7 @@ Las guirnaldas Edison cruzadas sobre una terraza dan ese look de "bar de azotea"
 
 ### Festival y gran escala
 
-Producción de gran formato: **500 metros** con cinco circuitos eléctricos independientes, tablero de distribución y equipo de cuatro a cinco técnicos montando el día previo. Aquí el precio deja de moverse por el metro suelto y empieza a mandarlo la **infraestructura**: postes, distribución eléctrica, plantas de respaldo y tiempos de instalación. Para montajes de esta magnitud trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y 3,000 eventos y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas.
+Producción de gran formato: **500 metros** con cinco circuitos eléctricos independientes, tablero de distribución y equipo de cuatro a cinco técnicos montando el día previo. Aquí el precio deja de moverse por el metro suelto y empieza a mandarlo la **infraestructura**: postes, distribución eléctrica, plantas de respaldo y tiempos de instalación. Para montajes de esta magnitud trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y cientos de eventos y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas.
 
 ---
 

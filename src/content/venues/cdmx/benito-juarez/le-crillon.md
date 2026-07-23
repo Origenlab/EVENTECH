@@ -257,7 +257,6 @@ Le Crillon cuenta con espacios habilitados para realizar **ceremonias civiles de
 - **24-25 años de experiencia** en el sector de eventos sociales
 - **4.2/5 en bodas.com.mx** con 37 opiniones verificadas
 - **84% de recomendación** entre parejas que celebraron su boda aquí
-- **Más de 240 bodas** documentadas en la plataforma
 
 ## Producción EVENTECH
 
@@ -287,6 +286,6 @@ Aunque Le Crillon incluye iluminación y sonido en sus paquetes, **EVENTECH** pu
 
 ## 24 Años Creando Celebraciones Memorables
 
-Le Crillon ha perfeccionado durante más de dos décadas una propuesta que resuelve la principal preocupación de cualquier anfitrión: **que todo salga bien**. Con 9 salones para cualquier escala de evento, asesoras personalizadas que conocen el venue a la perfección, paquetes todo incluido que eliminan la coordinación de múltiples proveedores, y un historial documentado de más de 240 bodas satisfechas, el complejo se ha ganado su lugar como referencia del sector en la alcaldía Benito Juárez.
+Le Crillon ha perfeccionado durante más de dos décadas una propuesta que resuelve la principal preocupación de cualquier anfitrión: **que todo salga bien**. Con 9 salones para cualquier escala de evento, asesoras personalizadas que conocen el venue a la perfección, paquetes todo incluido que eliminan la coordinación de múltiples proveedores, el complejo se ha ganado su lugar como referencia del sector en la alcaldía Benito Juárez.
 
 Agenda tu visita y conoce personalmente los 9 salones. Contacta a Le Crillon al **55 5601 7686** o al WhatsApp **55 5106 1882**, o escribe a **web@lecrillon.com.mx**.

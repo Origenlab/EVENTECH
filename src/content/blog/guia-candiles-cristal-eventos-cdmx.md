@@ -157,7 +157,7 @@ Es la pregunta que más nos hacen, y la respuesta honesta empieza con "depende d
 - **Boda o XV en salón o hacienda (100 a 200):** un candil grande de 100 cm sobre la pista, más candelabros de mesa o velas LED abajo.
 - **Gala corporativa o evento de 200 a 400 (3 a 5 candiles):** composición aérea a distintas alturas, uno grande al centro y medianos flanqueando.
 
-Ninguna de estas cifras sustituye la visita: la altura del techo, el anclaje disponible y la escala del espacio cambian el cálculo. Para las **producciones monumentales** —escenografías aéreas de gran formato, eventos masivos donde el rigging entra en otra liga— trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, 3,000 eventos y equipo Martin, Chauvet y Elation, con instalación y operación incluidas. Para el 90% de las bodas, XV y galas de la ciudad, un candil protagonista o una composición de nuestro catálogo resuelve de sobra.
+Ninguna de estas cifras sustituye la visita: la altura del techo, el anclaje disponible y la escala del espacio cambian el cálculo. Para las **producciones monumentales** —escenografías aéreas de gran formato, eventos masivos donde el rigging entra en otra liga— trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, cientos de eventos y equipo Martin, Chauvet y Elation, con instalación y operación incluidas. Para el 90% de las bodas, XV y galas de la ciudad, un candil protagonista o una composición de nuestro catálogo resuelve de sobra.
 
 ---
 

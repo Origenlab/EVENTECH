@@ -138,7 +138,7 @@ Aquí el city color es inversión de marca. La jugada estrella es proyectar el *
 
 ### Festival y gran escala
 
-Producción de gran formato: **20 o más cañones** combinados con otros sistemas, con logística de energía, rigging certificado y control DMX centralizado. Es el rango alto, hasta $40,000 o más según la escala, la cantidad de cañones y los días de montaje. En estos casos el precio deja de moverse por el cañón individual y empieza a mandarlo la **infraestructura**: distribución eléctrica, plantas de respaldo, rigging y tiempos de instalación. Para este tipo de montaje trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y 3,000 eventos y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas.
+Producción de gran formato: **20 o más cañones** combinados con otros sistemas, con logística de energía, rigging certificado y control DMX centralizado. Es el rango alto, hasta $40,000 o más según la escala, la cantidad de cañones y los días de montaje. En estos casos el precio deja de moverse por el cañón individual y empieza a mandarlo la **infraestructura**: distribución eléctrica, plantas de respaldo, rigging y tiempos de instalación. Para este tipo de montaje trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y cientos de eventos y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas.
 
 ---
 

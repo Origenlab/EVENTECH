@@ -165,7 +165,7 @@ Dieciséis city color están pensados para **iluminar una hacienda entera**: fac
 
 ### Producción: gran escala y festival
 
-Para **venues de gran escala, recintos, corporativos y festivales** se diseñan montajes de **20 o más cañones** que iluminan edificios completos y estructuras monumentales, con control DMX centralizado por Art-Net o sACN, rigging estructural certificado y plantas de respaldo. Este es el terreno donde el respaldo de un especialista pesa: para montajes de esta magnitud trabajamos de la mano de [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y 3,000 eventos a cuestas y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas.
+Para **venues de gran escala, recintos, corporativos y festivales** se diseñan montajes de **20 o más cañones** que iluminan edificios completos y estructuras monumentales, con control DMX centralizado por Art-Net o sACN, rigging estructural certificado y plantas de respaldo. Este es el terreno donde el respaldo de un especialista pesa: para montajes de esta magnitud trabajamos de la mano de [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y cientos de eventos a cuestas y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas.
 
 Como regla rápida: **4 cañones** para un muro o terraza, **8** para hacienda mediana, **16** para hacienda completa de gala y **20+** para festivales. Pero es guía, no ley: en la visita medimos superficies, altura, luz ambiental y energía, y ajustamos el número.
 

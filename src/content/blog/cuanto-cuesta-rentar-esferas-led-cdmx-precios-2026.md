@@ -136,7 +136,7 @@ Seis variables explican casi toda la diferencia entre una cotización y otra. Co
 5. **La logística y la operación.** La mayoría de los montajes de esferas corren solos —se colocan, se encienden y ya—, pero un evento que pide cambios de color coordinados en vivo o recambio de baterías en una fiesta muy larga suma trabajo, y eso se refleja.
 6. **La temporada y la fecha.** Noviembre a febrero y ciertos fines de semana concentran la demanda de eventos sociales. Reservar temprano protege disponibilidad y precio.
 
-Cuando el proyecto salta de una fiesta social a una **activación masiva** —un festival, una plaza pública, una producción con centenas de piezas combinadas con luz arquitectónica y de escenario— el cálculo cambia de liga. Para esas producciones trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, 3,000 eventos y equipo Martin, Chauvet y Elation, con instalación y operación incluidas. Para el evento social o corporativo típico de la ciudad, en cambio, un set de esferas de nuestro catálogo resuelve de sobra y con presupuesto controlado.
+Cuando el proyecto salta de una fiesta social a una **activación masiva** —un festival, una plaza pública, una producción con centenas de piezas combinadas con luz arquitectónica y de escenario— el cálculo cambia de liga. Para esas producciones trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, cientos de eventos y equipo Martin, Chauvet y Elation, con instalación y operación incluidas. Para el evento social o corporativo típico de la ciudad, en cambio, un set de esferas de nuestro catálogo resuelve de sobra y con presupuesto controlado.
 
 ---
 

@@ -11,7 +11,7 @@ description: >-
   renovado con aire acondicionado y acabados contemporáneos, un jardín de 500 m²
   con pérgolas y vegetación exuberante beneficiada por el microclima lacustre de
   Xochimilco, y un área de cócteles que conecta ambos espacios. Con más de 20
-  años de trayectoria, más de 3,500 eventos realizados y clientela que viaja
+  años de trayectoria y clientela que viaja
   desde otras alcaldías atraída por el encanto del Patrimonio UNESCO, Venecia es
   el salón de mayor prestigio y capacidad de la zona. Su alianza como socio
   premium de EVENTECH potencia cada celebración con producción profesional que
@@ -179,7 +179,7 @@ faqs:
   - question: "¿Qué incluye la renta de Salón Venecia?"
     answer: "La renta incluye coordinador de eventos, mobiliario básico, mantelería, iluminación básica, sonido básico, montaje, desmontaje, seguridad y limpieza. Como socio premium EVENTECH, el salón ofrece acceso a sonido profesional, iluminación de jardín, carpas, mobiliario rústico-elegante y pista LED EVENTECH."
   - question: "¿Qué tipos de eventos acepta Salón Venecia Xochimilco?"
-    answer: "Venecia recibe bodas, XV años, bautizos, cumpleaños, aniversarios, comuniones, graduaciones, fiestas infantiles, fiestas privadas, cenas de gala, baby showers, despedidas, sesiones fotográficas y reuniones. Con más de 20 años de trayectoria y 3,500 eventos realizados, es la institución de celebraciones de Xochimilco."
+    answer: "Venecia recibe bodas, XV años, bautizos, cumpleaños, aniversarios, comuniones, graduaciones, fiestas infantiles, fiestas privadas, cenas de gala, baby showers, despedidas, sesiones fotográficas y reuniones. Con más de 20 años de trayectoria, es la institución de celebraciones de Xochimilco."
   - question: "¿Cuáles son las amenidades distintivas de Salón Venecia?"
     answer: "Salón Venecia cuenta con jardín de 500 m² con vegetación beneficiada por el microclima de Xochimilco, fuente ornamental, generador de emergencia, vestidores y área infantil. Los fines de semana opera hasta las 03:00 horas — el cierre más tardío en Xochimilco —. Disponible también pulquería artesanal y decoración con flores de Xochimilco."
 
@@ -217,7 +217,7 @@ publishedAt: 2026-03-06
 
 Xochimilco no es una alcaldía más de la Ciudad de México: es **Patrimonio de la Humanidad por la UNESCO**, hogar de los últimos canales prehispánicos de la cuenca de México, cuna de la tradición más auténtica de la capital, y la zona donde las flores, la gastronomía y la alegría mexicana se viven con una intensidad que no existe en ningún otro punto de la CDMX. Celebrar un evento en Xochimilco es acceder a un **contexto cultural que ningún otro salón de la ciudad puede ofrecer**.
 
-En el barrio de La Noria — epicentro de los viveros de flores de Xochimilco y a minutos de los embarcaderos más importantes —, **Salón Venecia** ha sido durante más de 20 años el espacio predilecto para las celebraciones de familias del sur de la ciudad. Con más de **3,500 eventos realizados**, una renovación integral reciente que modernizó el salón sin sacrificar su identidad, y una ubicación que permite a los clientes aprovechar todo lo que Xochimilco ofrece, Venecia es más que un salón: es la **puerta de entrada a una experiencia de celebración única en el mundo**.
+En el barrio de La Noria — epicentro de los viveros de flores de Xochimilco y a minutos de los embarcaderos más importantes —, **Salón Venecia** ha sido durante más de 20 años el espacio predilecto para las celebraciones de familias del sur de la ciudad. Con una renovación integral reciente que modernizó el salón sin sacrificar su identidad, y una ubicación que permite a los clientes aprovechar todo lo que Xochimilco ofrece, Venecia es más que un salón: es la **puerta de entrada a una experiencia de celebración única en el mundo**.
 
 Las flores que decoran tu evento fueron cultivadas a 5 minutos de distancia. La gastronomía que disfrutarán tus invitados es la misma que ha alimentado las celebraciones mexicanas por generaciones. Y los canales donde puedes realizar tu sesión fotográfica son los mismos que la UNESCO declaró patrimonio de toda la humanidad. Eso no lo ofrece ningún otro venue en la Ciudad de México.
 
@@ -513,6 +513,6 @@ Los embarcaderos de Cuemanco y Nativitas están a 10 minutos en auto desde Venec
 
 Cuando eliges celebrar en **Salón Venecia**, eliges mucho más que un salón: eliges el contexto cultural más rico de la Ciudad de México. Las flores que decoran tu evento fueron cultivadas a 5 minutos de distancia. La gastronomía que tus invitados disfrutan es la misma que ha alimentado fiestas mexicanas por generaciones. Y al día siguiente, puedes navegar los canales que la UNESCO declaró patrimonio de la humanidad para las fotos que inmortalizarán tu celebración.
 
-Con más de 3,500 eventos exitosos como respaldo, un salón renovado con infraestructura profesional, un jardín donde las bugambilias florecen naturalmente sobre pérgolas centenarias, y un equipo que conoce cada detalle de organizar celebraciones en Xochimilco, Venecia no es solo el mejor salón de la alcaldía — es una **experiencia de celebración que no puede replicarse en ningún otro punto de la Ciudad de México**.
+Con un salón renovado con infraestructura profesional, un jardín donde las bugambilias florecen naturalmente sobre pérgolas centenarias, y un equipo que conoce cada detalle de organizar celebraciones en Xochimilco, Venecia no es solo el mejor salón de la alcaldía — es una **experiencia de celebración que no puede replicarse en ningún otro punto de la Ciudad de México**.
 
 Con EVENTECH como socio premium, cada evento en Venecia cuenta con la producción profesional que **conecta la tradición con la tecnología**: fairy lights entre las bugambilias, sonido profesional calibrado para mariachi y DJ, carpas que protegen sin esconder el jardín, y mobiliario que complementa la estética del espacio. La tradición de Xochimilco + la producción de EVENTECH = **celebraciones que honran el pasado mientras abrazan el presente**.

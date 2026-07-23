@@ -136,7 +136,7 @@ Aquí el uplighting es imagen de marca. Un salón de conferencia o una cena corp
 
 ### Gran escala y convención
 
-Producción de gran formato: **decenas o cientos de luminarias** con control central, para convenciones, ferias o escenarios de festival. Es el rango alto, arriba de $5,000 y con cotización a la medida, porque el precio deja de moverse por la luminaria individual y empieza a mandarlo la **infraestructura**: distribución de señal, energía, cableado, tiempos de montaje y operación. Para este tipo de montaje trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y 3,000 eventos y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas.
+Producción de gran formato: **decenas o cientos de luminarias** con control central, para convenciones, ferias o escenarios de festival. Es el rango alto, arriba de $5,000 y con cotización a la medida, porque el precio deja de moverse por la luminaria individual y empieza a mandarlo la **infraestructura**: distribución de señal, energía, cableado, tiempos de montaje y operación. Para este tipo de montaje trabajamos de la mano de nuestro aliado [REDEIL](https://rentadeiluminacion.com/), con más de 30 años y cientos de eventos y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas.
 
 ---
 

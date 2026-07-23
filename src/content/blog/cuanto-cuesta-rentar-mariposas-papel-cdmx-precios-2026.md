@@ -138,7 +138,7 @@ El uso más económico. Uno o dos cañones manuales para el momento del pastel o
 
 ### Corporativo y reveal de gran escala
 
-Aquí las mariposas dejan de ser romance y se vuelven **reveal**: la caída de papel que acompaña el destape de un producto, un logo o un anuncio en escena. Se usa CO2 o cascada aérea para cobertura total, con rango de **$2,500 a $5,000** según la escala y la integración con el resto de la [iluminación de escenario](/servicios/iluminacion/escenario/). Para producciones grandes, con tramoya y decenas de aparatos, sumamos a nuestro aliado [REDEIL](https://rentadeiluminacion.com/) —más de 30 años, 3,000 eventos y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas—.
+Aquí las mariposas dejan de ser romance y se vuelven **reveal**: la caída de papel que acompaña el destape de un producto, un logo o un anuncio en escena. Se usa CO2 o cascada aérea para cobertura total, con rango de **$2,500 a $5,000** según la escala y la integración con el resto de la [iluminación de escenario](/servicios/iluminacion/escenario/). Para producciones grandes, con tramoya y decenas de aparatos, sumamos a nuestro aliado [REDEIL](https://rentadeiluminacion.com/) —más de 30 años, cientos de eventos y equipo Martin Professional, Chauvet y Elation, con instalación y operación incluidas—.
 
 ---
 

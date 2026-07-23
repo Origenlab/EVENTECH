@@ -97,7 +97,7 @@ Los 5 venues que presentamos a continuación cumplen con estos 8 criterios y ade
 
 ## 1. Salón de Fiestas Partenón — La Grandeza Clásica de Tlalpan
 
-**[Salón de Fiestas Partenón](/directorio/cdmx/tlalpan/salon-partenon/)** es una institución en el sur de la Ciudad de México. Con más de 25 años de operación continua y más de 5,000 eventos realizados, este venue de **2,000 metros cuadrados** rinde homenaje a la arquitectura clásica griega con columnas monumentales, frontones triangulares y una escala interior que transmite grandeza desde el momento en que los invitados cruzan la entrada.
+**[Salón de Fiestas Partenón](/directorio/cdmx/tlalpan/salon-partenon/)** es una institución en el sur de la Ciudad de México. Con más de 25 años de operación continua y cientos de eventos realizados, este venue de **2,000 metros cuadrados** rinde homenaje a la arquitectura clásica griega con columnas monumentales, frontones triangulares y una escala interior que transmite grandeza desde el momento en que los invitados cruzan la entrada.
 
 ### Lo que lo hace excepcional
 

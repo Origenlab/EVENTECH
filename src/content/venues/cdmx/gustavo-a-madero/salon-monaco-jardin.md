@@ -1,7 +1,7 @@
 ---
 name: "Salón de Fiestas Monaco Jardín"
 slug: "salon-monaco-jardin"
-description: "Salón de Fiestas Monaco Jardín es el venue de referencia para celebraciones de primer nivel en la alcaldía Gustavo A. Madero. Ubicado estratégicamente sobre Eje 5 Norte, a escasos metros del Bosque de San Juan de Aragón — el segundo pulmón verde más grande de la CDMX —, Monaco Jardín ofrece 1,800 metros cuadrados de instalaciones que integran un salón principal de doble altura con aire acondicionado centralizado, un jardín de 600 m² con pérgolas iluminadas y vegetación madura, y áreas complementarias de preparación y recepción. Con más de 25 años de trayectoria ininterrumpida y más de 4,000 eventos realizados, este salón ha sido reconocido como el espacio más completo de la zona norte de la Ciudad de México para bodas, XV años, graduaciones y eventos corporativos. Su alianza estratégica con EVENTECH como socio premium garantiza acceso exclusivo a producción profesional de iluminación, sonido y mobiliario de clase mundial."
+description: "Salón de Fiestas Monaco Jardín es el venue de referencia para celebraciones de primer nivel en la alcaldía Gustavo A. Madero. Ubicado estratégicamente sobre Eje 5 Norte, a escasos metros del Bosque de San Juan de Aragón — el segundo pulmón verde más grande de la CDMX —, Monaco Jardín ofrece 1,800 metros cuadrados de instalaciones que integran un salón principal de doble altura con aire acondicionado centralizado, un jardín de 600 m² con pérgolas iluminadas y vegetación madura, y áreas complementarias de preparación y recepción. Con más de 25 años de trayectoria ininterrumpida, este salón ha sido reconocido como el espacio más completo de la zona norte de la Ciudad de México para bodas, XV años, graduaciones y eventos corporativos. Su alianza estratégica con EVENTECH como socio premium garantiza acceso exclusivo a producción profesional de iluminación, sonido y mobiliario de clase mundial."
 shortDescription: "Salón premium con jardín en GAM. 1,800 m², 25 años de trayectoria. Bodas y XV años hasta 500 personas. Socio EVENTECH."
 
 region: "cdmx"
@@ -197,7 +197,7 @@ updatedAt: 2026-03-06
 
 ## El Referente Indiscutible de Celebraciones en el Norte de la CDMX
 
-Sobre Eje 5 Norte, en la arteria que conecta Insurgentes Norte con la Calzada San Juan de Aragón, **Salón de Fiestas Monaco Jardín** ha escrito durante más de 25 años la historia de las celebraciones más importantes de la zona norte de la Ciudad de México. No es casualidad que sea el salón con más bodas realizadas en toda la alcaldía Gustavo A. Madero: con más de **4,000 eventos exitosos**, una tasa de recomendación superior al 95%, y una ubicación privilegiada a metros del Bosque de San Juan de Aragón, Monaco Jardín se ha ganado cada punto de su reputación.
+Sobre Eje 5 Norte, en la arteria que conecta Insurgentes Norte con la Calzada San Juan de Aragón, **Salón de Fiestas Monaco Jardín** ha escrito durante más de 25 años la historia de las celebraciones más importantes de la zona norte de la Ciudad de México. No es casualidad que sea el salón con más bodas realizadas en toda la alcaldía Gustavo A. Madero: con una tasa de recomendación superior al 95% y una ubicación privilegiada a metros del Bosque de San Juan de Aragón, Monaco Jardín se ha ganado cada punto de su reputación.
 
 Lo que distingue a Monaco Jardín no es solo su capacidad o su trayectoria — es la **filosofía de servicio integral** que aplica a cada evento. Desde la primera visita de prospección hasta el último momento de la fiesta, un coordinador dedicado gestiona cada detalle: la disposición del mobiliario, la coordinación con caterings y proveedores, los tiempos de la ceremonia, el flujo de invitados entre el jardín y el salón. Es esta atención meticulosa la que ha convertido a Monaco Jardín en **socio premium de EVENTECH**, garantizando a cada cliente acceso a los mejores servicios de producción de eventos de la CDMX.
 
@@ -253,7 +253,7 @@ Un lobby de **60 metros cuadrados** diseñado para la primera impresión. Espaci
 
 ### Bodas (Especialidad principal)
 
-Monaco Jardín ha sido escenario de más de 1,500 bodas en sus 25 años de historia. La configuración más solicitada combina **ceremonia civil en el jardín** junto a la fuente ornamental, con cóctel de bienvenida bajo las pérgolas iluminadas con [fairy lights](/servicios/iluminacion/decorativa/) mientras el salón se reconfigura para la recepción y la fiesta. El sistema de [iluminación arquitectónica](/servicios/iluminacion/arquitectonica/) con bañadores LED permite resaltar la vegetación del jardín durante la ceremonia, creando un ambiente mágico al atardecer.
+Monaco Jardín ha sido escenario de bodas memorables a lo largo de sus 25 años de historia. La configuración más solicitada combina **ceremonia civil en el jardín** junto a la fuente ornamental, con cóctel de bienvenida bajo las pérgolas iluminadas con [fairy lights](/servicios/iluminacion/decorativa/) mientras el salón se reconfigura para la recepción y la fiesta. El sistema de [iluminación arquitectónica](/servicios/iluminacion/arquitectonica/) con bañadores LED permite resaltar la vegetación del jardín durante la ceremonia, creando un ambiente mágico al atardecer.
 
 Para bodas de gran formato (300+ invitados), el equipo de Monaco recomienda utilizar ambos espacios simultáneamente: recepción con open bar en el jardín, cena en el salón con montaje de [mesas rectangulares imperiales](/servicios/mobiliario/mesas/rectangulares/) o [mesas redondas](/servicios/mobiliario/mesas/redondas/) según la preferencia, y after party nocturno en el jardín con [salas lounge](/servicios/mobiliario/salas-lounge/moderno/) e [iluminación LED ambiental](/servicios/iluminacion/decorativa/).
 
@@ -411,7 +411,7 @@ A 5 minutos del venue se encuentran farmacias, tiendas de conveniencia, gasoline
 | Suite VIP | 45 m² con baño privado | Sin suite o área básica |
 | Estacionamiento | 100+ vehículos con vigilancia | 20-40 vehículos |
 | Socio EVENTECH | Premium con 15% descuento | Sin alianza |
-| Trayectoria | 25 años, 4,000+ eventos | 5-10 años promedio |
+| Trayectoria | 25 años de operación | 5-10 años promedio |
 
 La ventaja de Monaco es contundente en infraestructura técnica y experiencia, pero lo más importante es la **combinación salón + jardín**: permite dos ambientes en un solo venue, con plan de contingencia climática integrado.
 

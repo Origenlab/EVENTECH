@@ -98,7 +98,7 @@ En la vida real casi nadie renta un proyector suelto: se renta un **show** que y
 | **Show Premium** | Láser RGB 5 W ILDA + haze + operador certificado + animaciones | XV con hora loca, corporativo | $6,500-$9,000 |
 | **Producción / Concierto** | Multi-proyector 10 W+ ILDA + operador certificado + planta | Festival, concierto, lanzamiento | $10,000-$15,000 |
 
-El techo de $15,000 corresponde a una **producción de varios proyectores** con operador certificado, animaciones a medida y, muchas veces, audience scanning diseñado bajo norma —no a una sola luz de pista—. Cuando el proyecto entra en esa liga, sumamos a aliados como [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, 3,000 eventos y equipo Martin Professional, Chauvet y Elation con instalación y operación incluidas.
+El techo de $15,000 corresponde a una **producción de varios proyectores** con operador certificado, animaciones a medida y, muchas veces, audience scanning diseñado bajo norma —no a una sola luz de pista—. Cuando el proyecto entra en esa liga, sumamos a aliados como [REDEIL](https://rentadeiluminacion.com/), con más de 30 años, cientos de eventos y equipo Martin Professional, Chauvet y Elation con instalación y operación incluidas.
 
 ---
 
