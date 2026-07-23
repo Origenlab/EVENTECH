@@ -146,4 +146,38 @@ export const zonasDirectorio: Record<string, ZonaDirectorioContent> = {
       },
     ],
   },
+
+  // ── Benito Juárez — head terms "salones para eventos cdmx" (100) + "salon de fiestas benito juarez" (10) ──
+  "benito-juarez": {
+    intro: [
+      `El directorio EVENTECH reúne <strong>salones y venues para eventos en Benito Juárez</strong>, en colonias como Narvarte, Del Valle, Nápoles, Portales, Mixcoac, Moderna y Miravalle. Hay desde galerías boutique y salones tipo loft hasta grandes recintos como el Salón Villa Flamingos (hasta 1,100 personas) y salones muy reseñados como D'Rubí —con cientos de opiniones en Google—, aptos para bodas, XV años, bautizos, graduaciones y eventos corporativos en el centro-sur de la Ciudad de México.`,
+      `Las capacidades van desde eventos íntimos de 20 personas hasta 1,100 invitados y los precios abarcan desde menús accesibles (desde $235 por persona) hasta venues premium. Si el salón que elijas renta solo el espacio, EVENTECH lo complementa con <a href="/servicios/mobiliario/">renta de mobiliario</a>, <a href="/servicios/audiovisual/sonido/">audio</a> e <a href="/servicios/iluminacion/">iluminación</a>, con entrega y montaje en toda la alcaldía.`,
+    ],
+    faqs: [
+      {
+        question: `¿Cuáles son los mejores salones para eventos en Benito Juárez?`,
+        answer: `Entre los mejor calificados destacan el Salón Loft Amores del Valle (4.8 en Google), Galería Málaga (4.7) y el Salón Villa Flamingos y D'Rubí, cada uno con cientos o miles de opiniones. Cada ficha del directorio muestra su calificación, capacidad y ubicación.`,
+      },
+      {
+        question: `¿Cuánto cuesta rentar un salón de fiestas en Benito Juárez?`,
+        answer: `Los precios varían por venue: hay opciones accesibles con menús desde $235 por persona (Sranders, Salón Amigos) y salones de nivel medio como Miravalle y el Salón Nápoles, además de venues premium como Grupo Cardiel, D'Rubí y Galería Málaga. Cada ficha indica su rango de precio y capacidad; para una cotización exacta conviene contactar directamente al venue.`,
+      },
+      {
+        question: `¿Qué capacidad tienen los salones en Benito Juárez?`,
+        answer: `Van desde espacios íntimos para 20 personas (Galería Málaga, Sranders) hasta 1,100 en el Salón Villa Flamingos, con recintos de buen aforo como Grupo Cardiel (800) y D'Rubí (500). Muchos salones acomodan entre 100 y 400 invitados, ideales para bodas y XV años.`,
+      },
+      {
+        question: `¿En qué colonias de Benito Juárez hay salones de fiestas?`,
+        answer: `El directorio cubre colonias como Narvarte, Del Valle, Ampliación Nápoles, Portales Sur, Insurgentes Mixcoac, Moderna, Merced Gómez y Miravalle, entre otras zonas de la alcaldía.`,
+      },
+      {
+        question: `¿Qué tipo de eventos puedo hacer en Benito Juárez?`,
+        answer: `Los salones de la alcaldía son aptos para bodas, XV años, bautizos, primeras comuniones, graduaciones, cumpleaños y eventos corporativos; espacios como Galería Málaga y el Salón Loft cubren también cenas de gala, lanzamientos de marca y reuniones de empresa.`,
+      },
+      {
+        question: `¿El salón incluye mobiliario, audio e iluminación?`,
+        answer: `Depende del venue; varios rentan solo el espacio o incluyen banquete. EVENTECH complementa cualquier salón de Benito Juárez con <a href="/servicios/mobiliario/">mobiliario</a>, <a href="/servicios/audiovisual/sonido/">audio y sonido</a>, <a href="/servicios/iluminacion/">iluminación</a> y <a href="/servicios/audiovisual/pantallas-led/">pantallas</a>, con entrega y montaje.`,
+      },
+    ],
+  },
 };
