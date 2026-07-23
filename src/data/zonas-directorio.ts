@@ -52,4 +52,64 @@ export const zonasDirectorio: Record<string, ZonaDirectorioContent> = {
       },
     ],
   },
+
+  // ── Gustavo A. Madero — top demanda (≈150 búsq/mes) ──
+  "gustavo-a-madero": {
+    intro: [
+      `El directorio EVENTECH reúne <strong>salones y venues para eventos en Gustavo A. Madero</strong>, en colonias como Lindavista, Residencial Zacatenco, San Juan de Aragón, El Risco CTM y Torres Lindavista. Hay desde salones familiares hasta grandes recintos como Salones Alvi (hasta 1,200 personas), el Lienzo Charro de La Villa y el Salón Royal Rizzo Lindavista —de los más reseñados de la zona, con miles de opiniones en Google—, aptos para bodas, XV años, bautizos, graduaciones y eventos corporativos en el norte de la Ciudad de México.`,
+      `Las capacidades van desde grupos pequeños hasta 1,200 invitados y los precios abarcan desde opciones accesibles hasta salones premium. Si el salón que elijas renta solo el espacio, EVENTECH lo complementa con <a href="/servicios/mobiliario/">renta de mobiliario</a>, <a href="/servicios/audiovisual/sonido/">audio</a> e <a href="/servicios/iluminacion/">iluminación</a>, con entrega y montaje en toda la alcaldía.`,
+    ],
+    faqs: [
+      {
+        question: `¿Cuáles son los mejores salones para eventos en Gustavo A. Madero?`,
+        answer: `Entre los mejor calificados destacan el Salón Royal Rizzo Lindavista, el Lienzo Charro de La Villa y Salones Alvi, cada uno con más de 2,000 opiniones en Google. Cada ficha del directorio muestra su calificación, capacidad y ubicación.`,
+      },
+      {
+        question: `¿Qué capacidad tienen los salones en Gustavo A. Madero?`,
+        answer: `Hay desde salones para grupos pequeños hasta grandes recintos como Salones Alvi, con capacidad para hasta 1,200 invitados. Varios acomodan entre 200 y 500 personas, ideales para bodas y XV años.`,
+      },
+      {
+        question: `¿En qué colonias de Gustavo A. Madero hay salones de fiestas?`,
+        answer: `El directorio cubre colonias como Lindavista, Residencial Zacatenco, San Pedro Zacatenco, San Juan de Aragón, El Risco CTM y Torres Lindavista, entre otras zonas de la alcaldía.`,
+      },
+      {
+        question: `¿Qué tipo de eventos puedo hacer en Gustavo A. Madero?`,
+        answer: `Los salones de la alcaldía son aptos para bodas, XV años, bautizos, graduaciones, cumpleaños y eventos corporativos, con recintos de gran aforo para eventos empresariales y convenciones.`,
+      },
+      {
+        question: `¿El salón incluye mobiliario, audio e iluminación?`,
+        answer: `Depende del venue; varios rentan solo el espacio. EVENTECH complementa cualquier salón de Gustavo A. Madero con <a href="/servicios/mobiliario/">mobiliario</a>, <a href="/servicios/audiovisual/sonido/">audio y sonido</a>, <a href="/servicios/iluminacion/">iluminación</a> y <a href="/servicios/audiovisual/pantallas-led/">pantallas</a>, con entrega y montaje.`,
+      },
+    ],
+  },
+
+  // ── Iztapalapa — top demanda (≈100 búsq/mes) ──
+  "iztapalapa": {
+    intro: [
+      `El directorio EVENTECH reúne <strong>salones y venues para eventos en Iztapalapa</strong>, en colonias como Progresista, Leyes de Reforma, Paseos de Churubusco y Ejido del Moral. Hay desde salones familiares hasta recintos muy populares como el Salón El Potrero (hasta 530 personas, con más de 2,200 opiniones en Google) y Eventos Casablanca, aptos para bodas, XV años, bautizos, graduaciones y celebraciones familiares en el oriente de la Ciudad de México.`,
+      `Las capacidades van desde grupos pequeños hasta más de 500 invitados y los precios abarcan desde opciones accesibles hasta salones con banquete incluido. Si el salón que elijas renta solo el espacio, EVENTECH lo complementa con <a href="/servicios/mobiliario/">renta de mobiliario</a>, <a href="/servicios/audiovisual/sonido/">audio</a> e <a href="/servicios/iluminacion/">iluminación</a>, con entrega y montaje en toda la alcaldía.`,
+    ],
+    faqs: [
+      {
+        question: `¿Cuáles son los mejores salones para eventos en Iztapalapa?`,
+        answer: `Entre los mejor calificados destacan el Salón El Potrero (4.6 en Google con más de 2,200 opiniones), Eventos Casablanca y el Salón Grissel. Cada ficha del directorio muestra su calificación, capacidad y ubicación.`,
+      },
+      {
+        question: `¿Qué capacidad tienen los salones en Iztapalapa?`,
+        answer: `Hay desde salones para grupos pequeños hasta recintos como el Salón El Potrero, con capacidad para hasta 530 invitados. Muchos acomodan entre 100 y 500 personas, ideales para bodas y XV años.`,
+      },
+      {
+        question: `¿En qué colonias de Iztapalapa hay salones de fiestas?`,
+        answer: `El directorio cubre colonias como Progresista, Leyes de Reforma, Paseos de Churubusco y Ejido del Moral, entre otras zonas de la alcaldía.`,
+      },
+      {
+        question: `¿Qué tipo de eventos puedo hacer en Iztapalapa?`,
+        answer: `Los salones de la alcaldía son aptos para bodas, XV años, bautizos, graduaciones, cumpleaños y primeras comuniones, muchos con servicio de banquete propio.`,
+      },
+      {
+        question: `¿El salón incluye mobiliario, audio e iluminación?`,
+        answer: `Depende del venue; varios rentan solo el espacio o incluyen banquete. EVENTECH complementa cualquier salón de Iztapalapa con <a href="/servicios/mobiliario/">mobiliario</a>, <a href="/servicios/audiovisual/sonido/">audio y sonido</a>, <a href="/servicios/iluminacion/">iluminación</a> y <a href="/servicios/audiovisual/pantallas-led/">pantallas</a>, con entrega y montaje.`,
+      },
+    ],
+  },
 };
