@@ -180,4 +180,38 @@ export const zonasDirectorio: Record<string, ZonaDirectorioContent> = {
       },
     ],
   },
+
+  // ── Miguel Hidalgo — alcaldía premium (Polanco/Anzures/Lomas/Chapultepec) ──
+  "miguel-hidalgo": {
+    intro: [
+      `El directorio EVENTECH reúne <strong>salones y venues premium para eventos en Miguel Hidalgo</strong>, en colonias como Anzures, Lomas de Chapultepec, Tacubaya y el Bosque de Chapultepec. Es la zona de mayor nivel de la ciudad: desde grandes salones con capilla como Monarquía Coronado Excelencia (hasta 1,200 personas) y jardines dentro de Chapultepec como Banquetes Foresta, hasta sedes únicas como el Museo Casa de la Bola y Lago Algo —restaurante y espacio cultural sobre el lago—, aptas para bodas, cenas de gala y eventos corporativos de alto nivel.`,
+      `Las capacidades van desde experiencias íntimas de 20 personas hasta 1,200 invitados, con menús premium (de $750 a $5,000 por persona en las sedes de mayor nivel). Si el venue que elijas renta solo el espacio, EVENTECH aporta la producción completa: <a href="/servicios/mobiliario/">mobiliario</a>, <a href="/servicios/audiovisual/sonido/">audio</a>, <a href="/servicios/iluminacion/">iluminación</a> y <a href="/servicios/audiovisual/pantallas-led/">pantallas</a>, con entrega y montaje en toda la alcaldía.`,
+    ],
+    faqs: [
+      {
+        question: `¿Cuáles son los mejores venues para eventos en Miguel Hidalgo?`,
+        answer: `Entre los mejor calificados destacan el Museo Casa de la Bola (4.6 en Google), Studio Gourmet (4.7), Monarquía Coronado Excelencia (4.5) y Banquetes Foresta y Lago Algo, con miles de opiniones. Cada ficha del directorio muestra su calificación, capacidad y ubicación.`,
+      },
+      {
+        question: `¿Cuánto cuesta un evento en Miguel Hidalgo?`,
+        answer: `Es la alcaldía de mayor nivel de la ciudad: los menús van desde $750 y hasta $5,000 por persona en las sedes premium (Studio Gourmet, Museo Casa de la Bola, Foresta). También hay casas boutique como Casa Picnic con renta de espacio desde $16,000. Cada ficha indica su rango de precio y capacidad.`,
+      },
+      {
+        question: `¿Qué capacidad tienen los venues en Miguel Hidalgo?`,
+        answer: `Van desde experiencias íntimas de 20 personas (Studio Gourmet, Lago Algo) hasta 1,200 en Monarquía Coronado Excelencia, con jardines de gran formato como Banquetes Foresta (700). Muchas sedes premium trabajan entre 100 y 400 invitados.`,
+      },
+      {
+        question: `¿Qué colonias de Miguel Hidalgo tienen salones para eventos?`,
+        answer: `El directorio cubre Anzures, Verónica Anzures, Lomas de Chapultepec, Tacubaya, San Miguel Chapultepec y el Bosque de Chapultepec, las zonas más exclusivas del poniente de la Ciudad de México.`,
+      },
+      {
+        question: `¿Qué tipo de eventos puedo hacer en Miguel Hidalgo?`,
+        answer: `Bodas, cenas de gala, XV años, graduaciones, lanzamientos de marca y eventos corporativos de alto nivel. Sedes como el Museo Casa de la Bola y Lago Algo son ideales para eventos con un marco histórico o cultural.`,
+      },
+      {
+        question: `¿El venue incluye mobiliario, audio e iluminación?`,
+        answer: `Varias sedes premium se rentan como espacio o incluyen banquete pero no producción técnica. EVENTECH complementa cualquier venue de Miguel Hidalgo con <a href="/servicios/mobiliario/">mobiliario</a>, <a href="/servicios/audiovisual/sonido/">audio y sonido</a>, <a href="/servicios/iluminacion/">iluminación</a> y <a href="/servicios/audiovisual/pantallas-led/">pantallas</a>, con entrega y montaje.`,
+      },
+    ],
+  },
 };
