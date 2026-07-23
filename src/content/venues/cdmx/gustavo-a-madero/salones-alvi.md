@@ -24,9 +24,32 @@ capacity:
 
 priceRange: "$$"
 
+pricePerPerson:
+  min: 600
+  max: 750
+
 amenities:
   - pista-baile
   - cocina-industrial
+  - estacionamiento
+  - valet-parking
+  - capilla
+  - terraza
+  - jardin
+  - acceso-discapacitados
+  - aire-acondicionado
+
+servicesIncluded:
+  - banquete
+  - meseros
+  - coordinador
+  - mobiliario-basico
+  - manteleria
+  - vajilla
+  - iluminacion-basica
+  - sonido-basico
+  - montaje
+  - seguridad
 
 eventTypes:
   - bodas

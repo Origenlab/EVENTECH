@@ -27,6 +27,18 @@ priceRange: "$$"
 amenities:
   - pista-baile
   - cocina-industrial
+  - estacionamiento
+  - terraza
+  - jardin
+  - acceso-discapacitados
+
+servicesIncluded:
+  - banquete
+  - open-bar
+  - meseros
+  - coordinador
+  - sonido-basico
+  - montaje
 
 eventTypes:
   - bodas
