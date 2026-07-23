@@ -112,4 +112,38 @@ export const zonasDirectorio: Record<string, ZonaDirectorioContent> = {
       },
     ],
   },
+
+  // ── Coyoacán — "salón de fiestas coyoacan" ≈70 búsq/mes (KD 12) ──
+  "coyoacan": {
+    intro: [
+      `El directorio EVENTECH reúne <strong>salones y venues para eventos en Coyoacán</strong>, en colonias como Ciudad Universitaria, San Francisco, Presidentes Ejidales, Campestre Churubusco, Los Reyes, Cafetales y Bosques de Tetlameya. Hay desde salones íntimos hasta grandes recintos como Casa Club del Académico (hasta 1,000 personas), el Salón Gran Fórum y el Centro Veracruzano —de los más reseñados de la zona, con miles de opiniones en Google—, aptos para bodas, XV años, bautizos, graduaciones y eventos corporativos en el sur de la Ciudad de México.`,
+      `Las capacidades van desde 40 hasta 3,000 invitados y los precios abarcan desde menús accesibles (desde $165 por persona) hasta venues premium. Si el salón que elijas renta solo el espacio, EVENTECH lo complementa con <a href="/servicios/mobiliario/">renta de mobiliario</a>, <a href="/servicios/audiovisual/sonido/">audio</a> e <a href="/servicios/iluminacion/">iluminación</a>, con entrega y montaje en toda la alcaldía.`,
+    ],
+    faqs: [
+      {
+        question: `¿Cuáles son los mejores salones para eventos en Coyoacán?`,
+        answer: `Entre los mejor calificados destacan Casa Club del Académico (4.5 en Google con más de 14,000 opiniones), el Centro Veracruzano y el Salón Gran Fórum, cada uno con miles de opiniones. Cada ficha del directorio muestra su calificación, capacidad y ubicación.`,
+      },
+      {
+        question: `¿Cuánto cuesta rentar un salón de fiestas en Coyoacán?`,
+        answer: `Los precios varían por venue: hay opciones accesibles con menús desde $165 por persona (Salón París) y salones de nivel medio como Terraza 1810, Salón Brescia y Los Candiles, además de venues premium como Los Luceros, el Centro Veracruzano y Casa Club del Académico. Cada ficha indica su rango de precio y capacidad; para una cotización exacta conviene contactar directamente al venue.`,
+      },
+      {
+        question: `¿Qué capacidad tienen los salones en Coyoacán?`,
+        answer: `Van desde espacios íntimos para 40 personas (Salón París) hasta 3,000 en el Salón Gran Fórum, con recintos de gran aforo como Casa Club del Académico (1,000) y Banquetes Casino Tlalpan (700). Muchos salones acomodan entre 100 y 350 invitados, ideales para bodas y XV años.`,
+      },
+      {
+        question: `¿En qué colonias de Coyoacán hay salones de fiestas?`,
+        answer: `El directorio cubre colonias como Ciudad Universitaria, San Francisco, Presidentes Ejidales, Campestre Churubusco, Campestre Coyoacán (Coapa), Los Reyes, Residencial Cafetales, Hacienda de Coyoacán y Bosques de Tetlameya, entre otras zonas de la alcaldía.`,
+      },
+      {
+        question: `¿Qué tipo de eventos puedo hacer en Coyoacán?`,
+        answer: `Los salones de la alcaldía son aptos para bodas, XV años, bautizos, primeras comuniones, graduaciones, cumpleaños y eventos corporativos; venues como Casa Club del Académico y el Salón Gran Fórum cubren también cenas de gala, convenciones y congresos.`,
+      },
+      {
+        question: `¿El salón incluye mobiliario, audio e iluminación?`,
+        answer: `Depende del venue; varios rentan solo el espacio o incluyen banquete. EVENTECH complementa cualquier salón de Coyoacán con <a href="/servicios/mobiliario/">mobiliario</a>, <a href="/servicios/audiovisual/sonido/">audio y sonido</a>, <a href="/servicios/iluminacion/">iluminación</a> y <a href="/servicios/audiovisual/pantallas-led/">pantallas</a>, con entrega y montaje.`,
+      },
+    ],
+  },
 };
