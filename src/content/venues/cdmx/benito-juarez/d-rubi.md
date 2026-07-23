@@ -47,8 +47,12 @@ eventTypes:
 
 contact:
   phone: "55 5682 3252"
+  whatsapp: "5556823252"
 
 image: "/images/venues/d-rubi-hero.jpg"
+gallery:
+  - "/images/venues/d-rubi-g1.jpg"
+  - "/images/venues/d-rubi-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.1

@@ -51,9 +51,13 @@ eventTypes:
 
 contact:
   phone: "55 2062 2571"
+  whatsapp: "5520622571"
   website: "https://www.classictorreslindavista.com/"
 
 image: "/images/venues/classic-torres-lindavista-hero.jpg"
+gallery:
+  - "/images/venues/classic-torres-lindavista-g1.jpg"
+  - "/images/venues/classic-torres-lindavista-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.5

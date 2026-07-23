@@ -45,9 +45,13 @@ eventTypes:
 
 contact:
   phone: "55 3363 1615"
+  whatsapp: "5533631615"
   website: "http://salon-amigos.com/"
 
 image: "/images/venues/salon-amigos-hero.jpg"
+gallery:
+  - "/images/venues/salon-amigos-g1.jpg"
+  - "/images/venues/salon-amigos-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 3.8

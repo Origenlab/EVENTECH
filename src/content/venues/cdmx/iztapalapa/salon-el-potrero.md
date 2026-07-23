@@ -57,9 +57,13 @@ eventTypes:
 
 contact:
   phone: "55 6465 1465"
+  whatsapp: "5564651465"
   website: "https://www.facebook.com/salonpotrerooficial/"
 
 image: "/images/venues/salon-el-potrero-hero.jpg"
+gallery:
+  - "/images/venues/salon-el-potrero-g1.jpg"
+  - "/images/venues/salon-el-potrero-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.6

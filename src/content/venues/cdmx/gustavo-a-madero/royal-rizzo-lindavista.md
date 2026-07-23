@@ -54,8 +54,12 @@ eventTypes:
 
 contact:
   phone: "55 4732 0491"
+  whatsapp: "5547320491"
 
 image: "/images/venues/royal-rizzo-lindavista-hero.jpg"
+gallery:
+  - "/images/venues/royal-rizzo-lindavista-g1.jpg"
+  - "/images/venues/royal-rizzo-lindavista-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.4

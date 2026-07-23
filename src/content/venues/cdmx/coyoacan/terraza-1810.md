@@ -50,8 +50,12 @@ eventTypes:
 
 contact:
   phone: "55 5594 8240"
+  whatsapp: "5555948240"
 
 image: "/images/venues/terraza-1810-hero.jpg"
+gallery:
+  - "/images/venues/terraza-1810-g1.jpg"
+  - "/images/venues/terraza-1810-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.4

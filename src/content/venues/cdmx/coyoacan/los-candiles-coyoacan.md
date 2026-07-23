@@ -50,9 +50,13 @@ eventTypes:
 
 contact:
   phone: "55 5671 9109"
+  whatsapp: "5556719109"
   website: "https://www.salonloscandiles.com.mx/"
 
 image: "/images/venues/los-candiles-coyoacan-hero.jpg"
+gallery:
+  - "/images/venues/los-candiles-coyoacan-g1.jpg"
+  - "/images/venues/los-candiles-coyoacan-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 3.8

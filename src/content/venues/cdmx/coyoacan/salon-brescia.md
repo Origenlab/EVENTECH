@@ -42,9 +42,13 @@ eventTypes:
 
 contact:
   phone: "55 6188 7407"
+  whatsapp: "5561887407"
   website: "https://salonbresciacoyoacan.wixsite.com/salonbrescia"
 
 image: "/images/venues/salon-brescia-hero.jpg"
+gallery:
+  - "/images/venues/salon-brescia-g1.jpg"
+  - "/images/venues/salon-brescia-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.4

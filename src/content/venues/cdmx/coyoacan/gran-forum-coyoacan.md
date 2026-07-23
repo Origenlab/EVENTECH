@@ -46,8 +46,12 @@ eventTypes:
 
 contact:
   phone: "55 3340 4030"
+  whatsapp: "5533404030"
 
 image: "/images/venues/gran-forum-coyoacan-hero.jpg"
+gallery:
+  - "/images/venues/gran-forum-coyoacan-g1.jpg"
+  - "/images/venues/gran-forum-coyoacan-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.4

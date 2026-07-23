@@ -50,9 +50,13 @@ eventTypes:
 
 contact:
   phone: "55 5658 6059"
+  whatsapp: "5556586059"
   website: "https://centroveracruzano.blogspot.com/"
 
 image: "/images/venues/centro-veracruzano-coyoacan-hero.jpg"
+gallery:
+  - "/images/venues/centro-veracruzano-coyoacan-g1.jpg"
+  - "/images/venues/centro-veracruzano-coyoacan-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.4

@@ -43,6 +43,9 @@ eventTypes:
 contact: {}
 
 image: "/images/venues/salon-loft-amores-del-valle-hero.jpg"
+gallery:
+  - "/images/venues/salon-loft-amores-del-valle-g1.jpg"
+  - "/images/venues/salon-loft-amores-del-valle-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.8

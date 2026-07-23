@@ -53,9 +53,13 @@ eventTypes:
 
 contact:
   phone: "56 2683 3356"
+  whatsapp: "5626833356"
   website: "http://www.salonesclassic.com.mx/"
 
 image: "/images/venues/salones-classic-ctm-hero.jpg"
+gallery:
+  - "/images/venues/salones-classic-ctm-g1.jpg"
+  - "/images/venues/salones-classic-ctm-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.1

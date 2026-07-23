@@ -56,9 +56,13 @@ eventTypes:
 
 contact:
   phone: "55 2082 1586"
+  whatsapp: "5520821586"
   website: "https://www.galeriamalaga.com/"
 
 image: "/images/venues/galeria-malaga-hero.jpg"
+gallery:
+  - "/images/venues/galeria-malaga-g1.jpg"
+  - "/images/venues/galeria-malaga-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.7

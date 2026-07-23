@@ -46,9 +46,13 @@ eventTypes:
 
 contact:
   phone: "55 2070 7297"
+  whatsapp: "5520707297"
   facebook: "https://www.facebook.com/Sranders-451094991733844/"
 
 image: "/images/venues/sranders-hero.jpg"
+gallery:
+  - "/images/venues/sranders-g1.jpg"
+  - "/images/venues/sranders-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 3.7

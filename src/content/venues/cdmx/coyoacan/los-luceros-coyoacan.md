@@ -51,9 +51,13 @@ eventTypes:
 
 contact:
   phone: "55 5608 7878"
+  whatsapp: "5556087878"
   website: "https://www.losluceroscoyoacan.com/"
 
 image: "/images/venues/los-luceros-coyoacan-hero.jpg"
+gallery:
+  - "/images/venues/los-luceros-coyoacan-g1.jpg"
+  - "/images/venues/los-luceros-coyoacan-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.3

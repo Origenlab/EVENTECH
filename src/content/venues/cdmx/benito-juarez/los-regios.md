@@ -51,8 +51,12 @@ eventTypes:
 
 contact:
   phone: "55 9103 7059"
+  whatsapp: "5591037059"
 
 image: "/images/venues/los-regios-hero.jpg"
+gallery:
+  - "/images/venues/los-regios-g1.jpg"
+  - "/images/venues/los-regios-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 3.1

@@ -56,9 +56,13 @@ eventTypes:
 
 contact:
   phone: "55 5940 2142"
+  whatsapp: "5559402142"
   website: "http://laquintaimperial.com/"
 
 image: "/images/venues/la-quinta-imperial-hero.jpg"
+gallery:
+  - "/images/venues/la-quinta-imperial-g1.jpg"
+  - "/images/venues/la-quinta-imperial-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.2

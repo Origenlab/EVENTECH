@@ -54,9 +54,13 @@ eventTypes:
 
 contact:
   phone: "55 5118 6658"
+  whatsapp: "5551186658"
   website: "http://www.lienzocharrodelavilla.com.mx/"
 
 image: "/images/venues/lienzo-charro-de-la-villa-hero.jpg"
+gallery:
+  - "/images/venues/lienzo-charro-de-la-villa-g1.jpg"
+  - "/images/venues/lienzo-charro-de-la-villa-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.4

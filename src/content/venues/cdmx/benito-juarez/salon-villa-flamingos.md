@@ -50,8 +50,12 @@ eventTypes:
 
 contact:
   phone: "55 5672 2112"
+  whatsapp: "5556722112"
 
 image: "/images/venues/salon-villa-flamingos-hero.jpg"
+gallery:
+  - "/images/venues/salon-villa-flamingos-g1.jpg"
+  - "/images/venues/salon-villa-flamingos-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.3

@@ -54,9 +54,13 @@ eventTypes:
 
 contact:
   phone: "55 3147 4411"
+  whatsapp: "5531474411"
   website: "http://www.laforetbanquetes.com/"
 
 image: "/images/venues/la-foret-hero.jpg"
+gallery:
+  - "/images/venues/la-foret-g1.jpg"
+  - "/images/venues/la-foret-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.0

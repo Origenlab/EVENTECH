@@ -51,9 +51,13 @@ eventTypes:
 
 contact:
   phone: "55 5616 1558"
+  whatsapp: "5556161558"
   facebook: "https://www.facebook.com/casaclubdelacademico/"
 
 image: "/images/venues/casa-club-del-academico-hero.jpg"
+gallery:
+  - "/images/venues/casa-club-del-academico-g1.jpg"
+  - "/images/venues/casa-club-del-academico-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.5

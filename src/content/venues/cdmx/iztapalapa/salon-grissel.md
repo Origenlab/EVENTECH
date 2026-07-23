@@ -56,8 +56,12 @@ eventTypes:
 
 contact:
   phone: "55 6187 0669"
+  whatsapp: "5561870669"
 
 image: "/images/venues/salon-grissel-hero.jpg"
+gallery:
+  - "/images/venues/salon-grissel-g1.jpg"
+  - "/images/venues/salon-grissel-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.2

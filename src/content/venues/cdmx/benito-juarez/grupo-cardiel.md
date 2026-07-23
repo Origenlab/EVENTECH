@@ -52,9 +52,13 @@ eventTypes:
 
 contact:
   phone: "55 5604 9192"
+  whatsapp: "5556049192"
   website: "http://www.grupocardiel.com/"
 
 image: "/images/venues/grupo-cardiel-hero.jpg"
+gallery:
+  - "/images/venues/grupo-cardiel-g1.jpg"
+  - "/images/venues/grupo-cardiel-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.2

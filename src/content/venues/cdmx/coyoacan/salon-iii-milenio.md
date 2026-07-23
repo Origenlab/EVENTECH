@@ -43,9 +43,12 @@ eventTypes:
 
 contact:
   phone: "55 6830 4521"
+  whatsapp: "5568304521"
   instagram: "https://www.instagram.com/eventos3milenio/"
 
 image: "/images/venues/salon-iii-milenio-hero.jpg"
+gallery:
+  - "/images/venues/salon-iii-milenio-g1.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.1

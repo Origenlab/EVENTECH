@@ -45,9 +45,13 @@ eventTypes:
 
 contact:
   phone: "55 5528 4194"
+  whatsapp: "5555284194"
   website: "https://www.casinotlalpan.mx/"
 
 image: "/images/venues/banquetes-casino-tlalpan-hero.jpg"
+gallery:
+  - "/images/venues/banquetes-casino-tlalpan-g1.jpg"
+  - "/images/venues/banquetes-casino-tlalpan-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.3

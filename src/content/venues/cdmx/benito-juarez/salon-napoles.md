@@ -47,8 +47,12 @@ eventTypes:
 
 contact:
   phone: "55 1984 1280"
+  whatsapp: "5519841280"
 
 image: "/images/venues/salon-napoles-hero.jpg"
+gallery:
+  - "/images/venues/salon-napoles-g1.jpg"
+  - "/images/venues/salon-napoles-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.1

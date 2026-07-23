@@ -47,9 +47,13 @@ eventTypes:
 
 contact:
   phone: "55 5470 3332"
+  whatsapp: "5554703332"
   website: "https://www.salondeeventosmiravalle.com/"
 
 image: "/images/venues/salon-miravalle-hero.jpg"
+gallery:
+  - "/images/venues/salon-miravalle-g1.jpg"
+  - "/images/venues/salon-miravalle-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.1

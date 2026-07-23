@@ -44,8 +44,12 @@ eventTypes:
 
 contact:
   phone: "55 3858 6516"
+  whatsapp: "5538586516"
 
 image: "/images/venues/salon-paris-coyoacan-hero.jpg"
+gallery:
+  - "/images/venues/salon-paris-coyoacan-g1.jpg"
+  - "/images/venues/salon-paris-coyoacan-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.1

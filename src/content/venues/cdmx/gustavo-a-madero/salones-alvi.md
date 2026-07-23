@@ -60,9 +60,13 @@ eventTypes:
 
 contact:
   phone: "55 5752 2255"
+  whatsapp: "5557522255"
   website: "http://www.salonesalvi.com.mx/"
 
 image: "/images/venues/salones-alvi-hero.jpg"
+gallery:
+  - "/images/venues/salones-alvi-g1.jpg"
+  - "/images/venues/salones-alvi-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.0

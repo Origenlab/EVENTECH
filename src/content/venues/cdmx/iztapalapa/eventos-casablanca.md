@@ -49,8 +49,12 @@ eventTypes:
 
 contact:
   phone: "55 3895 4997"
+  whatsapp: "5538954997"
 
 image: "/images/venues/eventos-casablanca-hero.jpg"
+gallery:
+  - "/images/venues/eventos-casablanca-g1.jpg"
+  - "/images/venues/eventos-casablanca-g2.jpg"
 
 reviewsSource: "Google Maps"
 rating: 4.5
