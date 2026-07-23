@@ -19,24 +19,24 @@ export interface ZonaDirectorioContent {
 }
 
 export const zonasDirectorio: Record<string, ZonaDirectorioContent> = {
-  // ── Álvaro Obregón (piloto S1) — 9 fichas verificadas ──
+  // ── Álvaro Obregón (piloto S1) — 13 fichas verificadas ──
   "alvaro-obregon": {
     intro: [
-      `El directorio EVENTECH reúne <strong>9 salones y venues para eventos en Álvaro Obregón</strong>, repartidos en colonias como Guadalupe Inn, Cristo Rey, Olivar del Conde, Pino Suárez y El Contadero. Hay desde salones familiares accesibles hasta el Centro de Convenciones Insurgentes —con capacidad para 600 personas— y una terraza en El Contadero, aptos para bodas, XV años, fiestas infantiles y eventos corporativos.`,
-      `Las capacidades van de 20 a 600 personas y los precios abarcan desde opciones económicas hasta venues premium. Si el salón que elijas renta solo el espacio, EVENTECH lo complementa con <a href="/servicios/mobiliario/">renta de mobiliario</a>, <a href="/servicios/audiovisual/sonido/">audio</a> e <a href="/servicios/iluminacion/">iluminación</a>, con entrega y montaje en toda la alcaldía.`,
+      `El directorio EVENTECH reúne <strong>13 salones y venues para eventos en Álvaro Obregón</strong>, repartidos en colonias como Guadalupe Inn, Cristo Rey, Santa Fe, Colinas de Tarango, San Ángel, Olivar del Conde y El Contadero. Hay desde salones familiares accesibles hasta grandes recintos como el Lienzo Charro La Tapatía (hasta 2,500 personas), Atrio Santa Fe (1,250) y el Jardín de Eventos Santa Fe (1,200), aptos para bodas, XV años, fiestas infantiles, congresos y eventos corporativos.`,
+      `Las capacidades van de 20 a 2,500 personas y los precios abarcan desde opciones económicas hasta venues premium. Si el salón que elijas renta solo el espacio, EVENTECH lo complementa con <a href="/servicios/mobiliario/">renta de mobiliario</a>, <a href="/servicios/audiovisual/sonido/">audio</a> e <a href="/servicios/iluminacion/">iluminación</a>, con entrega y montaje en toda la alcaldía.`,
     ],
     faqs: [
       {
         question: `¿Cuántos salones para eventos hay en Álvaro Obregón?`,
-        answer: `En este directorio documentamos 9 venues verificados en Álvaro Obregón: 7 salones de fiestas, un centro de convenciones y una terraza, en colonias como Guadalupe Inn, Cristo Rey, Olivar del Conde y El Contadero.`,
+        answer: `En este directorio documentamos 13 venues verificados en Álvaro Obregón: salones de fiestas, jardines de eventos, un lienzo charro, un centro de convenciones y una terraza, en colonias como Guadalupe Inn, Cristo Rey, Santa Fe, Colinas de Tarango, San Ángel y El Contadero.`,
       },
       {
         question: `¿Cuánto cuesta rentar un salón de fiestas en Álvaro Obregón?`,
-        answer: `Los precios varían por venue: hay salones económicos ideales para fiestas familiares (Casa Ángel, Kristel, Pavo Real) y opciones de mayor nivel como el salón premium Kalesh o el Centro de Convenciones Insurgentes. Cada ficha indica su rango de precio y capacidad; para una cotización exacta conviene contactar directamente al venue.`,
+        answer: `Los precios varían por venue: hay salones económicos ideales para fiestas familiares (Casa Ángel, Kristel, Pavo Real) y opciones de mayor nivel como Kalesh, Atrio Santa Fe, La Textilera o el Jardín de Eventos Santa Fe, además de grandes recintos como el Lienzo Charro La Tapatía. Cada ficha indica su rango de precio y capacidad; para una cotización exacta conviene contactar directamente al venue.`,
       },
       {
         question: `¿Qué capacidad tienen los salones en Álvaro Obregón?`,
-        answer: `Van desde espacios íntimos para 20 personas (Salón Casa Ángel) hasta 600 personas en el Centro de Convenciones Insurgentes. La mayoría de los salones acomoda entre 120 y 350 invitados.`,
+        answer: `Van desde espacios íntimos para 20 personas (Salón Casa Ángel) hasta 2,500 en el Lienzo Charro La Tapatía, con grandes recintos en Santa Fe como Atrio Santa Fe (1,250) y el Jardín de Eventos Santa Fe (1,200). La mayoría de los salones familiares acomoda entre 120 y 350 invitados.`,
       },
       {
         question: `¿Qué tipo de eventos puedo hacer en Álvaro Obregón?`,
@@ -48,7 +48,7 @@ export const zonasDirectorio: Record<string, ZonaDirectorioContent> = {
       },
       {
         question: `¿En qué colonias de Álvaro Obregón hay salones?`,
-        answer: `El directorio cubre Guadalupe Inn, Cristo Rey, José María Pino Suárez, Olivar del Conde, Rinconada de Tarango, Pueblo de Axotla y El Contadero.`,
+        answer: `El directorio cubre Guadalupe Inn, Cristo Rey, José María Pino Suárez, Olivar del Conde, Rinconada de Tarango, Colinas de Tarango, Pueblo de Axotla, Santa Fe, San Ángel y El Contadero.`,
       },
     ],
   },
