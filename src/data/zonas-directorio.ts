@@ -19,16 +19,16 @@ export interface ZonaDirectorioContent {
 }
 
 export const zonasDirectorio: Record<string, ZonaDirectorioContent> = {
-  // ── Álvaro Obregón (piloto S1) — 13 fichas verificadas ──
+  // ── Álvaro Obregón (piloto S1) — 16 fichas verificadas ──
   "alvaro-obregon": {
     intro: [
-      `El directorio EVENTECH reúne <strong>13 salones y venues para eventos en Álvaro Obregón</strong>, repartidos en colonias como Guadalupe Inn, Cristo Rey, Santa Fe, Colinas de Tarango, San Ángel, Olivar del Conde y El Contadero. Hay desde salones familiares accesibles hasta grandes recintos como el Lienzo Charro La Tapatía (hasta 2,500 personas), Atrio Santa Fe (1,250) y el Jardín de Eventos Santa Fe (1,200), aptos para bodas, XV años, fiestas infantiles, congresos y eventos corporativos.`,
+      `El directorio EVENTECH reúne <strong>16 salones y venues para eventos en Álvaro Obregón</strong>, repartidos en colonias como Guadalupe Inn, Cristo Rey, Santa Fe, Colinas de Tarango, San Ángel, San Bartolo Ameyalco, Tetelpan y El Contadero. Hay desde salones familiares accesibles hasta grandes recintos como el Lienzo Charro La Tapatía (hasta 2,500 personas), Atrio Santa Fe (1,250) y el Jardín de Eventos Santa Fe (1,200), aptos para bodas, XV años, fiestas infantiles, congresos y eventos corporativos.`,
       `Las capacidades van de 20 a 2,500 personas y los precios abarcan desde opciones económicas hasta venues premium. Si el salón que elijas renta solo el espacio, EVENTECH lo complementa con <a href="/servicios/mobiliario/">renta de mobiliario</a>, <a href="/servicios/audiovisual/sonido/">audio</a> e <a href="/servicios/iluminacion/">iluminación</a>, con entrega y montaje en toda la alcaldía.`,
     ],
     faqs: [
       {
         question: `¿Cuántos salones para eventos hay en Álvaro Obregón?`,
-        answer: `En este directorio documentamos 13 venues verificados en Álvaro Obregón: salones de fiestas, jardines de eventos, un lienzo charro, un centro de convenciones y una terraza, en colonias como Guadalupe Inn, Cristo Rey, Santa Fe, Colinas de Tarango, San Ángel y El Contadero.`,
+        answer: `En este directorio documentamos 16 venues verificados en Álvaro Obregón: salones de fiestas, jardines de eventos, un lienzo charro, un centro de convenciones y una terraza, en colonias como Guadalupe Inn, Cristo Rey, Santa Fe, Colinas de Tarango, San Ángel, San Bartolo Ameyalco y El Contadero.`,
       },
       {
         question: `¿Cuánto cuesta rentar un salón de fiestas en Álvaro Obregón?`,
@@ -48,7 +48,7 @@ export const zonasDirectorio: Record<string, ZonaDirectorioContent> = {
       },
       {
         question: `¿En qué colonias de Álvaro Obregón hay salones?`,
-        answer: `El directorio cubre Guadalupe Inn, Cristo Rey, José María Pino Suárez, Olivar del Conde, Rinconada de Tarango, Colinas de Tarango, Pueblo de Axotla, Santa Fe, San Ángel y El Contadero.`,
+        answer: `El directorio cubre Guadalupe Inn, Cristo Rey, José María Pino Suárez, Olivar del Conde, Rinconada de Tarango, Colinas de Tarango, Tetelpan, Pueblo de Axotla, Santa Fe, San Bartolo Ameyalco, San Ángel y El Contadero.`,
       },
     ],
   },
